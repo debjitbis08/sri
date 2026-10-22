@@ -23,7 +23,8 @@
 | Level | What is demonstrated | Current status |
 | --- | --- | --- |
 | OP-02 | Algebraic combination differs from an independent set-union control | Complete within its restricted class; original certificate frozen |
-| OP-02B | Recurrent contextual interaction and bounded attractor dynamics | Partial: scoped feedback stabilization and edge minimality proved; stronger stable-control and capability claims open |
+| OP-02B | Recurrent contextual interaction and bounded attractor dynamics | Complete within scoped recurrence-necessity class; stronger full-star stable-control target remains open |
+| OP-03 | Schedule, attractor, and structural robustness | Partial: exact Boolean fair-schedule/basin/edit analysis; main witness fails joint robustness |
 | Later milestones | Stable structural modes beyond propagation, graded resonance, learning, and abstraction | Open |
 
 - [x] Retain OP-02's two candidate algebras, declared observable, independent control, and scoped minimality certificate.
@@ -33,10 +34,12 @@
 - [x] Retain a reachability-reducible contextual witness and cycle/schedule counterexamples.
 - [x] Specify and test recurrence necessity under matched acyclic edge deletions.
 - [x] Prove the minimum edge count within the declared star-ablation family.
+- [x] Analyze all node-fair atomic schedules, exact basins, single-bit recovery, and single-edge deletion in the existing Boolean model.
+- [ ] Specify a jointly robust, distinguishable response family before expanding the algebra.
 - [ ] Find a fully reciprocal response distinction while all acyclic satellite observations are stable, with declared schedule/initialization requirements.
 - [ ] Define a separate prospective task before claiming useful inference.
 
-**Exit gate:** a stable contextual witness whose specified response property requires recurrence under declared controls, plus scoped minimality and honest convergence/cycle semantics. Interaction alone is not capability. See [OP-02B](op-02b-recurrent.md).
+**Completed recurrence gate:** a stable contextual witness requiring recurrence under declared controls, scoped edge minimality, and exact convergence/cycle semantics. **Next robustness gate:** a declared response family satisfying schedule, initialization, and edit-preservation requirements while remaining distinguishable. Interaction alone is not capability. See [OP-03](op-03-robustness.md).
 
 ## Milestone 2 — Layering, graded coupling and topology
 
@@ -128,4 +131,4 @@
 
 ### Immediate next iteration
 
-Continue OP-02B from the [matched-ablation result](op-02b-recurrence-necessity.md): specify stronger stable-control and schedule/initialization requirements before expanding the local-rule family. Preserve OP-02 unchanged as the completed restricted algebraic baseline. Milestone 0 reporting hardening remains outstanding. Defer layers, graded coupling, structural learning, and dreaming until the recurrent experiment yields a result beyond propagation, or a clearly scoped negative result.
+Continue [OP-03](op-03-robustness.md) on the same tiny Boolean model. Define the required combination of schedule robustness, attractor recovery, structural preservation, and distinguishability before expanding local rules or introducing graded coupling. Retain OP-02 and OP-02B as successful scoped baselines; preserve the stronger full-star all-controls-stable target as unresolved. Milestone 0 reporting hardening remains outstanding. Structural learning and dreaming remain deferred.

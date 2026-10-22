@@ -19,19 +19,21 @@ Find a finite algebra and coupled core/satellite instance whose combined observa
 **Proof target:** exact witness and exhaustive minimality under stated size bounds.  
 **Failure mode:** fake interference caused by an arbitrarily chosen numeric output encoding.
 
-### OP-02B — Minimal recurrent structural interference [PARTIAL, critical]
+### OP-02B — Minimal recurrent structural interference [PROVED (scoped); recurrence checkpoint complete]
 Can independently simple components, through reciprocal algebraic influence, develop stable collective response modes not reducible to their isolated responses?
 
 **Scope:** two stateful satellites and one stateful core, bidirectional coupling, persistent evidence, exact schedules, exhaustive bounded attractor analysis, and matched independent controls. Layers, graded weights, structural learning, and dreaming are deferred.
 
 **Current evidence:** [First recurrent experiment](op-02b-recurrent.md) exhausts 3,584 Boolean maps / 28,672 trajectories. The [matched-ablation follow-up](op-02b-recurrence-necessity.md) finds 80 full-star feedback-dependent stable contextual cases, with a scoped three-edge minimum in the expanded ablation family. None of the full-star cases has all acyclic satellite observations stable. Mixed OR/XOR rules exhibit cycles and schedule-dependent fixed-point selection.
 
-**Proof target:** scoped recurrence necessity and edge minimality are established under matched deletions. Next seek stronger fully reciprocal response properties, with stable controls and declared initialization/schedule robustness. Separate interaction, stable organization, and useful inference; no capability result is claimed.
+**Completed scope:** recurrence necessity and edge minimality under matched deletions. The historical certificates remain unchanged, including their original PARTIAL labels. The stronger fully reciprocal all-controls-stable target remains OPEN; useful inference is not established. Robustness work now proceeds under OP-03.
 
-### OP-03 — Well-defined global response [OPEN, critical]
-Which operators admit finite termination, unique fixed points, stable sets of interpretations, cycles or schedule-dependent outcomes? How should truncated inference report uncertainty?
+### OP-03 — Robustness of collective response under perturbation and structural modification [PARTIAL, critical]
+Which responses survive variation in initial state, all declared fair update schedules, internal disturbances, and structural edits? Preserve the original well-defined-response obligations: convergence, cycles, uniqueness, and honest stopping semantics.
 
-**Proof target:** convergence theorem for a restricted class, and explicit nonconvergent counterexamples outside it.
+**Current evidence:** [Exact Boolean robustness analysis](op-03-robustness.md) covers 512 asynchronous transition graphs, with detailed full-star basins and single-bit/edge tests. The principal OP-02B witness settles under the seven old schedules but fails under the fair repeating schedule `B,B,core,A`. Only A-bit flips are guaranteed to recover its response; deleting K→B destroys stabilization.
+
+**Proof target:** distinguish fixed points, attractor recovery, and structural preservation. Specify a jointly robust and distinguishable response family with explicit schedule/initialization/edit assumptions before adding graded coupling or learning.
 
 ### OP-04 — The meaning of overlap [OPEN]
 When do distinct satellites have a shared mode? Is matching labels insufficient; must a mapping preserve composition, constraints or observable responses?
@@ -134,7 +136,7 @@ For each hypothesis, state the smallest counterexample that would overturn it. P
 
 ## Prioritized next three questions
 
-1. **OP-02B + OP-03:** Test recurrence-essential contextual response against matched isolated and acyclic controls, retaining exact convergence/cycle classification. OP-02 is retained as a completed restricted baseline.
+1. **OP-03:** Characterize schedule, state-perturbation, and structural robustness before expanding the local rules. OP-02 and OP-02B are completed scoped baselines; the stronger full-star all-controls-stable target remains open.
 2. **OP-10:** Derive one certified weak-interaction approximation rule for a restricted class, or find a decisive counterexample.
 3. **OP-11 + OP-13:** Define a structural modification law and measure retention before introducing endogenous dreams.
 
@@ -187,3 +189,14 @@ A measured correlation is not a theorem; a verified finite example is not a gene
 - Code revision: the commit introducing this evidence entry, its accompanying source, tests, and frozen report.
 - Limitation: 80 full-star cases pass the declared test; zero pass while all acyclic satellite observations are stable. No new capability claim.
 - Next question: can a fully reciprocal candidate support a stronger response distinction with stable controls and explicit schedule robustness?
+
+## Evidence entry — OP-03, fair-schedule robustness
+
+- Claim: exact labeled-transition analysis decides all node-fair atomic schedules in the Boolean model; the principal OP-02B witness is not robust to this schedule class, all one-bit disturbances, or all one-edge deletions.
+- Status: PROVED (scoped) fair-SCC criterion and counterexamples; EXHAUSTIVE (bounded) basin and perturbation analysis.
+- Proof: [OP-03 robustness](op-03-robustness.md).
+- Experiment: `python -m experiments.robustness`; 512 graphs, 32 full-star cases with 256 initial states, no randomness or cap.
+- Frozen report: [robustness.json](../reports/robustness.json).
+- Code revision: the commit introducing this evidence entry, its accompanying source, tests, and frozen report.
+- Limits: clamped evidence, atomic node fairness, one-time internal-bit flips or edge deletions; no repeated structural learning or graded coupling.
+- Next question: which nontrivial response family satisfies an explicitly declared combination of robustness and distinguishability requirements?
