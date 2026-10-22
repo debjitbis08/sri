@@ -1,0 +1,122 @@
+# Research Roadmap
+
+**Version:** 0.1 · **Status:** Proposed, not a promise of eventual intelligence.  
+**Operating rule:** Advance by proof-quality and falsifiable results, not by model size or benchmark excitement.
+
+## Milestone 0 — Reproducible finite control (existing starter)
+
+**Aim:** a permanent reproducible baseline, explicitly weaker than the proposed architecture.
+
+- [x] Define finite labeled weighted nodes/links, thresholded reachability and seeded internal excitation.
+- [x] Supply elementary finite-convergence/threshold proofs for the control in `foundations.md`.
+- [x] Maintain executable unittest checks and a baseline JSON report.
+- [ ] Pin interpreter/runtime version in report metadata and verify byte-identical regeneration.
+- [ ] Add `complete` vs `truncated` experiment status and tests for capped execution.
+- [ ] Establish deterministic report naming and immutable archival policy.
+
+**Exit gate:** re-run documented commands; compare a frozen receipt and independently verify the exact scope of all claims.
+
+## Milestone 1 — Algebraic interference rather than reachability
+
+**Question:** Can two locally simple satellite influences produce a nontrivial joint response?
+
+- [ ] Specify at least two competing finite interaction algebras with explicit tables and laws.
+- [ ] Define response observables without tailoring them to a desired example.
+- [ ] Define and implement an independent/additive control.
+- [ ] Exhaustively inspect small systems and produce the smallest joint-effect witness.
+- [ ] Classify fixed points, cycles, schedule dependence and failure to settle.
+- [ ] Retain counterexamples and unit tests for every proposed theorem.
+
+**Exit gate:** one exact nonadditive witness + a stated convergence/termination scope; failures documented. No claim of intelligence.
+
+## Milestone 2 — Layering, graded coupling and topology
+
+**Question:** What behavior is due to layers, algebra, or holes?
+
+- [ ] Define layer-resolved mode states and graded inter/intra-module couplings.
+- [ ] Compare flat, layered, cyclic, annular and higher-genus finite structures under matched size and rules.
+- [ ] Define exterior perturbation families and inner/whole-module response signatures.
+- [ ] Test rich exterior responses against stability/distinguishability of inner responses.
+- [ ] Find whether nontrivial cycles produce response modes absent in matched controls.
+- [ ] Separate exact global propagation from the effects of numerical truncation.
+
+**Exit gate:** controlled comparisons and one mathematical proposition/counterexample explaining when topology changes responses. Do not infer a learning benefit simply from extra modes.
+
+## Milestone 3 — Adaptive inference budgets
+
+**Question:** Can the same structure produce useful progressively refined responses at lower cost?
+
+- [ ] Introduce per-module maximum reach, sensitivity and work-pass budgets.
+- [ ] Preserve response status (`exact`, `bounded-error`, `truncated`, `uncertified`).
+- [ ] Derive sufficient conditions for safe pruning or give bounded counterexamples.
+- [ ] Test weak-but-decisive mode interactions and aggregate effects of many weak edges.
+- [ ] Benchmark CPU time, memory traffic, active-set size and output error against full inference.
+
+**Exit gate:** certified approximate behavior for at least one nontrivial restricted class, plus quantified limits on broader claims.
+
+## Milestone 4 — Intrinsic structural STM and satellite learning
+
+**Question:** Can repeated perturbations modify structures while preserving established responses?
+
+- [ ] Define local changes to links, incidence, mode states and plasticity resistance as competing rules.
+- [ ] Implement STM as a highly plastic module, **not** an external replay store.
+- [ ] Vary plasticity and persistence independently; measure both.
+- [ ] Measure forgetting/interference on previously defined perturbation families.
+- [ ] Include controls for fixed topology and unconditioned random rewiring.
+
+**Exit gate:** reproducible structural learning and an explicit preservation metric; record cases of catastrophic interference.
+
+## Milestone 5 — Endogenous dreaming
+
+**Question:** Can the current learned system generate useful internal perturbations without retained raw experience?
+
+- [ ] Specify a structural sampler \(Q_\Theta\), requiring no historic input/replay database.
+- [ ] Generate slight variations, cross-satellite combinations and counter-patterns from the current structure.
+- [ ] Separate raw recurrence, diversity and cross-context robustness.
+- [ ] Establish pre-registered held-out tests and matched wake-only/no-dream baselines.
+- [ ] Measure self-reinforcing spurious patterns and drift.
+
+**Exit gate:** demonstrate either a reproducible benefit *or* a falsifying negative result. Do not credit replay resemblance as abstraction.
+
+## Milestone 6 — Whole-module abstraction and transfer
+
+**Question:** Can sleep-generated shared responses change the core to improve unforeseen combinations?
+
+- [ ] Define invariant/equivalence families for *whole-module* behavior.
+- [ ] Propose consolidation rules that do not copy satellite-specific knowledge wholesale.
+- [ ] Test before/after compatibility and previously established response preservation.
+- [ ] Evaluate unseen combinations and structurally related new domains.
+- [ ] Measure future accommodation effort, computation and storage before/after consolidation.
+- [ ] Compare against explicit lookup, memorization and randomized-rewiring controls.
+
+**Exit gate:** prospective transfer improvement, not just compression or stronger activation.
+
+## Milestone 7 — CPU viability and scalability
+
+**Question:** Does any validated candidate genuinely outperform simple baselines at a useful resource point?
+
+- [ ] Implement hot paths using contiguous integer arrays, LUTs, bitsets and sparse event queues as warranted by profiling.
+- [ ] Measure memory allocation, cache misses, edge visits, active-set expansion, and wall-time.
+- [ ] Report workloads in terms of model size *and* true active structure.
+- [ ] Compare against sparse graph, finite-state, binary-vector and compact numeric baselines.
+- [ ] Explore bounded memory operation and safe structural consolidation.
+- [ ] Define an end-to-end task demonstrating real utility before product claims.
+
+**Exit gate:** a repeatable CPU benchmark with accuracy/resource trade-offs; include failures and hardware specifications.
+
+## Milestone dependencies
+
+`M0 → M1 → M2 → M3` establishes response and approximation. `M1 → M4 → M5 → M6` establishes structural learning and candidate abstraction. `M3 + M6 → M7` evaluates the long-term application claim. Some analytical work may proceed in parallel, but later milestones cannot borrow unproved assumptions from earlier ones.
+
+## Each milestone's artifact contract
+
+1. `docs/`: precise definitions and proof statements with assumptions.
+2. `src/`: reference implementation with simple, inspectable semantics.
+3. `tests/`: invariants, counterexamples and known edge cases.
+4. `experiments/`: deterministic runner, configuration and seeds.
+5. `reports/`: frozen machine-readable result plus short interpretation.
+6. `docs/open-problems.md`: updated status, counterexamples and next obligations.
+
+### Immediate next iteration
+
+Harden Milestone 0's bounded-result reporting, then define two candidate small finite algebras for M1. Avoid STM and dream implementation until we have an honest nonadditive response model. Prove what can be proved at tiny sizes before enlarging it.

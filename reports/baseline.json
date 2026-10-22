@@ -1,0 +1,87 @@
+{
+  "dream_seeds": [
+    1,
+    0,
+    4,
+    3,
+    3,
+    2,
+    1,
+    1,
+    6,
+    0,
+    0,
+    1
+  ],
+  "edge_count": 8,
+  "node_count": 8,
+  "specification": "finite monotone reachability baseline v0.1",
+  "thresholds": {
+    "0": {
+      "active": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "rounds": 5,
+      "traversals": 16
+    },
+    "100": {
+      "active": [
+        0,
+        1,
+        2,
+        4,
+        6,
+        7
+      ],
+      "rounds": 4,
+      "traversals": 10
+    },
+    "200": {
+      "active": [
+        0,
+        1,
+        2,
+        4,
+        6,
+        7
+      ],
+      "rounds": 4,
+      "traversals": 10
+    },
+    "230": {
+      "active": [
+        0
+      ],
+      "rounds": 1,
+      "traversals": 0
+    },
+    "255": {
+      "active": [
+        0
+      ],
+      "rounds": 1,
+      "traversals": 0
+    },
+    "50": {
+      "active": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "rounds": 5,
+      "traversals": 14
+    }
+  }
+}

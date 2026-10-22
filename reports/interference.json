@@ -1,0 +1,77 @@
+{
+  "bounds": {
+    "edge_masks": 4,
+    "nodes": 3,
+    "states": [
+      1,
+      2,
+      3
+    ]
+  },
+  "enumeration": [
+    {
+      "cases": 4,
+      "monoids": 1,
+      "states": 1,
+      "tables": 1,
+      "witnesses": 0,
+      "witnesses_by_edge_count": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "cases": 32,
+      "monoids": 2,
+      "states": 2,
+      "tables": 2,
+      "witnesses": 1,
+      "witnesses_by_edge_count": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "cases": 324,
+      "monoids": 9,
+      "states": 3,
+      "tables": 27,
+      "witnesses": 26,
+      "witnesses_by_edge_count": [
+        0,
+        0,
+        26
+      ]
+    }
+  ],
+  "smallest_witness": {
+    "edges": [
+      true,
+      true
+    ],
+    "independent": [
+      1
+    ],
+    "inputs": [
+      1,
+      1
+    ],
+    "joint": [],
+    "nodes": 3,
+    "states": 2,
+    "table": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ]
+  },
+  "specification": "OP-02 feed-forward commutative monoids v0.1",
+  "status": "complete"
+}
