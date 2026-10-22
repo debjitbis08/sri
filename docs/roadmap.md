@@ -16,18 +16,27 @@
 
 **Exit gate:** re-run documented commands; compare a frozen receipt and independently verify the exact scope of all claims.
 
-## Milestone 1 — Algebraic interference rather than reachability
+## Milestone 1 — From algebraic combination to recurrent contextual interaction
 
-**Question:** Can two locally simple satellite influences produce a nontrivial joint response?
+**Question:** Can reciprocal influence produce stable collective responses not reducible to isolated components or simple propagation?
 
-- [ ] Specify at least two competing finite interaction algebras with explicit tables and laws.
-- [ ] Define response observables without tailoring them to a desired example.
-- [ ] Define and implement an independent/additive control.
-- [ ] Exhaustively inspect small systems and produce the smallest joint-effect witness.
-- [ ] Classify fixed points, cycles, schedule dependence and failure to settle.
-- [ ] Retain counterexamples and unit tests for every proposed theorem.
+| Level | What is demonstrated | Current status |
+| --- | --- | --- |
+| OP-02 | Algebraic combination differs from an independent set-union control | Complete within its restricted class; original certificate frozen |
+| OP-02B | Recurrent contextual interaction and bounded attractor dynamics | Partial: scoped feedback stabilization and edge minimality proved; stronger stable-control and capability claims open |
+| Later milestones | Stable structural modes beyond propagation, graded resonance, learning, and abstraction | Open |
 
-**Exit gate:** one exact nonadditive witness + a stated convergence/termination scope; failures documented. No claim of intelligence.
+- [x] Retain OP-02's two candidate algebras, declared observable, independent control, and scoped minimality certificate.
+- [x] Specify a stateful recurrent core–satellite model with persistent evidence and exact schedules.
+- [x] Exhaustively classify fixed points, cycles, and basins in the first bounded OR/XOR family.
+- [x] Compare matched isolated satellites, uncoupled nodes, feed-forward coupling, and edge ablations.
+- [x] Retain a reachability-reducible contextual witness and cycle/schedule counterexamples.
+- [x] Specify and test recurrence necessity under matched acyclic edge deletions.
+- [x] Prove the minimum edge count within the declared star-ablation family.
+- [ ] Find a fully reciprocal response distinction while all acyclic satellite observations are stable, with declared schedule/initialization requirements.
+- [ ] Define a separate prospective task before claiming useful inference.
+
+**Exit gate:** a stable contextual witness whose specified response property requires recurrence under declared controls, plus scoped minimality and honest convergence/cycle semantics. Interaction alone is not capability. See [OP-02B](op-02b-recurrent.md).
 
 ## Milestone 2 — Layering, graded coupling and topology
 
@@ -119,4 +128,4 @@
 
 ### Immediate next iteration
 
-Harden Milestone 0's bounded-result reporting, then define two candidate small finite algebras for M1. Avoid STM and dream implementation until we have an honest nonadditive response model. Prove what can be proved at tiny sizes before enlarging it.
+Continue OP-02B from the [matched-ablation result](op-02b-recurrence-necessity.md): specify stronger stable-control and schedule/initialization requirements before expanding the local-rule family. Preserve OP-02 unchanged as the completed restricted algebraic baseline. Milestone 0 reporting hardening remains outstanding. Defer layers, graded coupling, structural learning, and dreaming until the recurrent experiment yields a result beyond propagation, or a clearly scoped negative result.

@@ -11,13 +11,22 @@ Can modes be defined structurally (e.g., invariant configurations or relations) 
 **Tests:** construct non-isomorphic small systems with matched mode inventories; compare what the definition captures.  
 **Failure mode:** rebranding arbitrary hidden states as 'modes'.
 
-### OP-02 — Minimal algebraic interference witness [PARTIAL, critical]
+### OP-02 — Minimal algebraic interference witness [PROVED (scoped); restricted checkpoint complete]
 Find a finite algebra and coupled core/satellite instance whose combined observable cannot be explained by a declared independent baseline. Determine smallest states/nodes/edges supporting the effect.
 
-**Current evidence:** [First bounded certificate](op-02-interference.md): XOR cancellation and ternary saturation differ from a declared independent set-union control. Exhaustive search covers commutative monoids on 1–3 states and four feed-forward edge masks. Minimality is scoped to that class; intrinsic nonadditivity remains open.
+**Current evidence:** [First bounded certificate](op-02-interference.md): XOR cancellation and ternary saturation differ from a declared independent set-union control. Exhaustive search covers commutative monoids on 1–3 states and four feed-forward edge masks. Minimality is scoped to that class. This checkpoint is complete within its declared class; intrinsic nonadditivity was not established. The original certificate remains unchanged as a historical baseline, including its original PARTIAL label. Further structural investigation proceeds under OP-02B.
 
 **Proof target:** exact witness and exhaustive minimality under stated size bounds.  
 **Failure mode:** fake interference caused by an arbitrarily chosen numeric output encoding.
+
+### OP-02B — Minimal recurrent structural interference [PARTIAL, critical]
+Can independently simple components, through reciprocal algebraic influence, develop stable collective response modes not reducible to their isolated responses?
+
+**Scope:** two stateful satellites and one stateful core, bidirectional coupling, persistent evidence, exact schedules, exhaustive bounded attractor analysis, and matched independent controls. Layers, graded weights, structural learning, and dreaming are deferred.
+
+**Current evidence:** [First recurrent experiment](op-02b-recurrent.md) exhausts 3,584 Boolean maps / 28,672 trajectories. The [matched-ablation follow-up](op-02b-recurrence-necessity.md) finds 80 full-star feedback-dependent stable contextual cases, with a scoped three-edge minimum in the expanded ablation family. None of the full-star cases has all acyclic satellite observations stable. Mixed OR/XOR rules exhibit cycles and schedule-dependent fixed-point selection.
+
+**Proof target:** scoped recurrence necessity and edge minimality are established under matched deletions. Next seek stronger fully reciprocal response properties, with stable controls and declared initialization/schedule robustness. Separate interaction, stable organization, and useful inference; no capability result is claimed.
 
 ### OP-03 — Well-defined global response [OPEN, critical]
 Which operators admit finite termination, unique fixed points, stable sets of interpretations, cycles or schedule-dependent outcomes? How should truncated inference report uncertainty?
@@ -125,7 +134,7 @@ For each hypothesis, state the smallest counterexample that would overturn it. P
 
 ## Prioritized next three questions
 
-1. **OP-02 + OP-03:** Find a nontrivial finite interference operator with honest response semantics and convergence/cycle classification.
+1. **OP-02B + OP-03:** Test recurrence-essential contextual response against matched isolated and acyclic controls, retaining exact convergence/cycle classification. OP-02 is retained as a completed restricted baseline.
 2. **OP-10:** Derive one certified weak-interaction approximation rule for a restricted class, or find a decisive counterexample.
 3. **OP-11 + OP-13:** Define a structural modification law and measure retention before introducing endogenous dreams.
 
@@ -157,3 +166,24 @@ A measured correlation is not a theorem; a verified finite example is not a gene
 - Frozen report: [interference.json](../reports/interference.json).
 - Code revision: initial repository commit containing this evidence entry and the linked certificate.
 - Next question: does any candidate survive stronger independent controls?
+
+## Evidence entry — OP-02B, first iteration
+
+- Claim: the Boolean recurrent star supports stable contextual dependence, cycles, and schedule-dependent basin selection; the selected stable OR witness is reducible to reachability.
+- Status: EXHAUSTIVE (bounded) dynamics analysis; PROVED (scoped) reachability reduction and analyzer termination. OP-02B remains PARTIAL.
+- Proof and controls: [OP-02B note](op-02b-recurrent.md).
+- Experiment: `python -m experiments.recurrent`; all declared cases, no randomness or cap.
+- Frozen report: [recurrent.json](../reports/recurrent.json).
+- Code revision: the commit introducing this evidence entry, its accompanying source, tests, and frozen report.
+- Next question: can a stable contextual response survive matched controls while requiring recurrence?
+
+## Evidence entry — OP-02B, matched-ablation follow-up
+
+- Claim: feedback can stabilize contextual satellite responses not reproduced by matched acyclic edge deletions; three edges are minimal in the declared star-ablation family.
+- Status: PROVED (scoped) witness and edge lower bound; EXHAUSTIVE (bounded) classification. OP-02B remains PARTIAL for stronger architectural claims.
+- Proof and controls: [Recurrence necessity](op-02b-recurrence-necessity.md), including a hidden-core-cycle false positive and a stricter three-edge boundary case.
+- Experiment: `python -m experiments.recurrence_necessity`; 28,672 candidate cases, no randomness or cap.
+- Frozen report: [recurrence-necessity.json](../reports/recurrence-necessity.json).
+- Code revision: the commit introducing this evidence entry, its accompanying source, tests, and frozen report.
+- Limitation: 80 full-star cases pass the declared test; zero pass while all acyclic satellite observations are stable. No new capability claim.
+- Next question: can a fully reciprocal candidate support a stronger response distinction with stable controls and explicit schedule robustness?

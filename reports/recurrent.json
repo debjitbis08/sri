@@ -1,0 +1,2356 @@
+{
+  "bounds": {
+    "edge_masks": 16,
+    "evidence_pairs": 4,
+    "internal_initial_states": 8,
+    "maps": 3584,
+    "rule_triples": 8,
+    "schedules": [
+      "sync",
+      "kab",
+      "kba",
+      "akb",
+      "abk",
+      "bka",
+      "bak"
+    ],
+    "trajectories": 28672
+  },
+  "cycle_counterexample": {
+    "edges": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "initial": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "orbit": {
+      "cycle": [
+        [
+          0,
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          1,
+          1
+        ]
+      ],
+      "period": 2,
+      "status": "complete",
+      "transient": [
+        [
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "transitions": 4
+    },
+    "rules": [
+      "or",
+      "or",
+      "xor"
+    ],
+    "schedule": "sync"
+  },
+  "enumeration": [
+    {
+      "attractor_period_counts": {
+        "1": 164
+      },
+      "full_star_stable_context_A": 3,
+      "full_star_stable_context_B": 3,
+      "maps": 64,
+      "max_transitions": 4,
+      "rules": [
+        "or",
+        "or",
+        "or"
+      ],
+      "schedule": "sync",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 512
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 164
+      },
+      "full_star_stable_context_A": 3,
+      "full_star_stable_context_B": 3,
+      "maps": 64,
+      "max_transitions": 3,
+      "rules": [
+        "or",
+        "or",
+        "or"
+      ],
+      "schedule": "kab",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 512
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 164
+      },
+      "full_star_stable_context_A": 3,
+      "full_star_stable_context_B": 3,
+      "maps": 64,
+      "max_transitions": 3,
+      "rules": [
+        "or",
+        "or",
+        "or"
+      ],
+      "schedule": "kba",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 512
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 164
+      },
+      "full_star_stable_context_A": 3,
+      "full_star_stable_context_B": 3,
+      "maps": 64,
+      "max_transitions": 4,
+      "rules": [
+        "or",
+        "or",
+        "or"
+      ],
+      "schedule": "akb",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 512
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 164
+      },
+      "full_star_stable_context_A": 3,
+      "full_star_stable_context_B": 3,
+      "maps": 64,
+      "max_transitions": 3,
+      "rules": [
+        "or",
+        "or",
+        "or"
+      ],
+      "schedule": "abk",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 512
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 164
+      },
+      "full_star_stable_context_A": 3,
+      "full_star_stable_context_B": 3,
+      "maps": 64,
+      "max_transitions": 4,
+      "rules": [
+        "or",
+        "or",
+        "or"
+      ],
+      "schedule": "bka",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 512
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 164
+      },
+      "full_star_stable_context_A": 3,
+      "full_star_stable_context_B": 3,
+      "maps": 64,
+      "max_transitions": 3,
+      "rules": [
+        "or",
+        "or",
+        "or"
+      ],
+      "schedule": "bak",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 512
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 128,
+        "2": 56
+      },
+      "full_star_stable_context_A": 0,
+      "full_star_stable_context_B": 2,
+      "maps": 64,
+      "max_transitions": 5,
+      "rules": [
+        "or",
+        "or",
+        "xor"
+      ],
+      "schedule": "sync",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 266,
+        "2": 246
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 128,
+        "2": 56
+      },
+      "full_star_stable_context_A": 0,
+      "full_star_stable_context_B": 2,
+      "maps": 64,
+      "max_transitions": 4,
+      "rules": [
+        "or",
+        "or",
+        "xor"
+      ],
+      "schedule": "kab",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 266,
+        "2": 246
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 128,
+        "2": 56
+      },
+      "full_star_stable_context_A": 0,
+      "full_star_stable_context_B": 2,
+      "maps": 64,
+      "max_transitions": 4,
+      "rules": [
+        "or",
+        "or",
+        "xor"
+      ],
+      "schedule": "kba",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 266,
+        "2": 246
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 128,
+        "2": 56
+      },
+      "full_star_stable_context_A": 0,
+      "full_star_stable_context_B": 3,
+      "maps": 64,
+      "max_transitions": 5,
+      "rules": [
+        "or",
+        "or",
+        "xor"
+      ],
+      "schedule": "akb",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 266,
+        "2": 246
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 128,
+        "2": 56
+      },
+      "full_star_stable_context_A": 0,
+      "full_star_stable_context_B": 3,
+      "maps": 64,
+      "max_transitions": 5,
+      "rules": [
+        "or",
+        "or",
+        "xor"
+      ],
+      "schedule": "abk",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 266,
+        "2": 246
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 128,
+        "2": 56
+      },
+      "full_star_stable_context_A": 0,
+      "full_star_stable_context_B": 2,
+      "maps": 64,
+      "max_transitions": 4,
+      "rules": [
+        "or",
+        "or",
+        "xor"
+      ],
+      "schedule": "bka",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 266,
+        "2": 246
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 128,
+        "2": 56
+      },
+      "full_star_stable_context_A": 0,
+      "full_star_stable_context_B": 3,
+      "maps": 64,
+      "max_transitions": 5,
+      "rules": [
+        "or",
+        "or",
+        "xor"
+      ],
+      "schedule": "bak",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 266,
+        "2": 246
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 128,
+        "2": 56
+      },
+      "full_star_stable_context_A": 2,
+      "full_star_stable_context_B": 0,
+      "maps": 64,
+      "max_transitions": 5,
+      "rules": [
+        "or",
+        "xor",
+        "or"
+      ],
+      "schedule": "sync",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 266,
+        "2": 246
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 128,
+        "2": 56
+      },
+      "full_star_stable_context_A": 2,
+      "full_star_stable_context_B": 0,
+      "maps": 64,
+      "max_transitions": 4,
+      "rules": [
+        "or",
+        "xor",
+        "or"
+      ],
+      "schedule": "kab",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 266,
+        "2": 246
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 128,
+        "2": 56
+      },
+      "full_star_stable_context_A": 2,
+      "full_star_stable_context_B": 0,
+      "maps": 64,
+      "max_transitions": 4,
+      "rules": [
+        "or",
+        "xor",
+        "or"
+      ],
+      "schedule": "kba",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 266,
+        "2": 246
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 128,
+        "2": 56
+      },
+      "full_star_stable_context_A": 2,
+      "full_star_stable_context_B": 0,
+      "maps": 64,
+      "max_transitions": 4,
+      "rules": [
+        "or",
+        "xor",
+        "or"
+      ],
+      "schedule": "akb",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 266,
+        "2": 246
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 128,
+        "2": 56
+      },
+      "full_star_stable_context_A": 3,
+      "full_star_stable_context_B": 0,
+      "maps": 64,
+      "max_transitions": 5,
+      "rules": [
+        "or",
+        "xor",
+        "or"
+      ],
+      "schedule": "abk",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 266,
+        "2": 246
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 128,
+        "2": 56
+      },
+      "full_star_stable_context_A": 3,
+      "full_star_stable_context_B": 0,
+      "maps": 64,
+      "max_transitions": 5,
+      "rules": [
+        "or",
+        "xor",
+        "or"
+      ],
+      "schedule": "bka",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 266,
+        "2": 246
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 128,
+        "2": 56
+      },
+      "full_star_stable_context_A": 3,
+      "full_star_stable_context_B": 0,
+      "maps": 64,
+      "max_transitions": 5,
+      "rules": [
+        "or",
+        "xor",
+        "or"
+      ],
+      "schedule": "bak",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 266,
+        "2": 246
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 100,
+        "2": 128
+      },
+      "full_star_stable_context_A": 0,
+      "full_star_stable_context_B": 0,
+      "maps": 64,
+      "max_transitions": 4,
+      "rules": [
+        "or",
+        "xor",
+        "xor"
+      ],
+      "schedule": "sync",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 139,
+        "2": 373
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 100,
+        "2": 128
+      },
+      "full_star_stable_context_A": 0,
+      "full_star_stable_context_B": 0,
+      "maps": 64,
+      "max_transitions": 4,
+      "rules": [
+        "or",
+        "xor",
+        "xor"
+      ],
+      "schedule": "kab",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 139,
+        "2": 373
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 100,
+        "2": 128
+      },
+      "full_star_stable_context_A": 0,
+      "full_star_stable_context_B": 0,
+      "maps": 64,
+      "max_transitions": 4,
+      "rules": [
+        "or",
+        "xor",
+        "xor"
+      ],
+      "schedule": "kba",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 139,
+        "2": 373
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 100,
+        "2": 128
+      },
+      "full_star_stable_context_A": 0,
+      "full_star_stable_context_B": 0,
+      "maps": 64,
+      "max_transitions": 4,
+      "rules": [
+        "or",
+        "xor",
+        "xor"
+      ],
+      "schedule": "akb",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 139,
+        "2": 373
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 100,
+        "2": 128
+      },
+      "full_star_stable_context_A": 0,
+      "full_star_stable_context_B": 0,
+      "maps": 64,
+      "max_transitions": 4,
+      "rules": [
+        "or",
+        "xor",
+        "xor"
+      ],
+      "schedule": "abk",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 139,
+        "2": 373
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 100,
+        "2": 128
+      },
+      "full_star_stable_context_A": 0,
+      "full_star_stable_context_B": 0,
+      "maps": 64,
+      "max_transitions": 4,
+      "rules": [
+        "or",
+        "xor",
+        "xor"
+      ],
+      "schedule": "bka",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 139,
+        "2": 373
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 100,
+        "2": 128
+      },
+      "full_star_stable_context_A": 0,
+      "full_star_stable_context_B": 0,
+      "maps": 64,
+      "max_transitions": 4,
+      "rules": [
+        "or",
+        "xor",
+        "xor"
+      ],
+      "schedule": "bak",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 139,
+        "2": 373
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 132,
+        "2": 48
+      },
+      "full_star_stable_context_A": 3,
+      "full_star_stable_context_B": 3,
+      "maps": 64,
+      "max_transitions": 5,
+      "rules": [
+        "xor",
+        "or",
+        "or"
+      ],
+      "schedule": "sync",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 278,
+        "2": 234
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 132,
+        "2": 48
+      },
+      "full_star_stable_context_A": 3,
+      "full_star_stable_context_B": 3,
+      "maps": 64,
+      "max_transitions": 4,
+      "rules": [
+        "xor",
+        "or",
+        "or"
+      ],
+      "schedule": "kab",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 278,
+        "2": 234
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 132,
+        "2": 48
+      },
+      "full_star_stable_context_A": 3,
+      "full_star_stable_context_B": 3,
+      "maps": 64,
+      "max_transitions": 4,
+      "rules": [
+        "xor",
+        "or",
+        "or"
+      ],
+      "schedule": "kba",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 278,
+        "2": 234
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 132,
+        "2": 48
+      },
+      "full_star_stable_context_A": 3,
+      "full_star_stable_context_B": 3,
+      "maps": 64,
+      "max_transitions": 5,
+      "rules": [
+        "xor",
+        "or",
+        "or"
+      ],
+      "schedule": "akb",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 278,
+        "2": 234
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 132,
+        "2": 48
+      },
+      "full_star_stable_context_A": 3,
+      "full_star_stable_context_B": 3,
+      "maps": 64,
+      "max_transitions": 4,
+      "rules": [
+        "xor",
+        "or",
+        "or"
+      ],
+      "schedule": "abk",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 278,
+        "2": 234
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 132,
+        "2": 48
+      },
+      "full_star_stable_context_A": 3,
+      "full_star_stable_context_B": 3,
+      "maps": 64,
+      "max_transitions": 5,
+      "rules": [
+        "xor",
+        "or",
+        "or"
+      ],
+      "schedule": "bka",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 278,
+        "2": 234
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 132,
+        "2": 48
+      },
+      "full_star_stable_context_A": 3,
+      "full_star_stable_context_B": 3,
+      "maps": 64,
+      "max_transitions": 4,
+      "rules": [
+        "xor",
+        "or",
+        "or"
+      ],
+      "schedule": "bak",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 278,
+        "2": 234
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 100,
+        "2": 54,
+        "4": 18
+      },
+      "full_star_stable_context_A": 1,
+      "full_star_stable_context_B": 31,
+      "maps": 64,
+      "max_transitions": 7,
+      "rules": [
+        "xor",
+        "or",
+        "xor"
+      ],
+      "schedule": "sync",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 237,
+        "2": 159,
+        "4": 116
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 100,
+        "2": 54,
+        "3": 20,
+        "4": 18
+      },
+      "full_star_stable_context_A": 0,
+      "full_star_stable_context_B": 0,
+      "maps": 64,
+      "max_transitions": 7,
+      "rules": [
+        "xor",
+        "or",
+        "xor"
+      ],
+      "schedule": "kab",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 143,
+        "2": 159,
+        "3": 94,
+        "4": 116
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 100,
+        "2": 54,
+        "3": 20,
+        "4": 18
+      },
+      "full_star_stable_context_A": 0,
+      "full_star_stable_context_B": 0,
+      "maps": 64,
+      "max_transitions": 7,
+      "rules": [
+        "xor",
+        "or",
+        "xor"
+      ],
+      "schedule": "kba",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 143,
+        "2": 159,
+        "3": 94,
+        "4": 116
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 100,
+        "2": 54,
+        "3": 20,
+        "4": 18
+      },
+      "full_star_stable_context_A": 0,
+      "full_star_stable_context_B": 0,
+      "maps": 64,
+      "max_transitions": 7,
+      "rules": [
+        "xor",
+        "or",
+        "xor"
+      ],
+      "schedule": "akb",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 143,
+        "2": 159,
+        "3": 94,
+        "4": 116
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 100,
+        "2": 54,
+        "3": 20,
+        "4": 18
+      },
+      "full_star_stable_context_A": 0,
+      "full_star_stable_context_B": 0,
+      "maps": 64,
+      "max_transitions": 7,
+      "rules": [
+        "xor",
+        "or",
+        "xor"
+      ],
+      "schedule": "abk",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 143,
+        "2": 159,
+        "3": 94,
+        "4": 116
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 100,
+        "2": 54,
+        "3": 20,
+        "4": 18
+      },
+      "full_star_stable_context_A": 0,
+      "full_star_stable_context_B": 0,
+      "maps": 64,
+      "max_transitions": 7,
+      "rules": [
+        "xor",
+        "or",
+        "xor"
+      ],
+      "schedule": "bka",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 143,
+        "2": 159,
+        "3": 94,
+        "4": 116
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 100,
+        "2": 54,
+        "3": 20,
+        "4": 18
+      },
+      "full_star_stable_context_A": 0,
+      "full_star_stable_context_B": 0,
+      "maps": 64,
+      "max_transitions": 7,
+      "rules": [
+        "xor",
+        "or",
+        "xor"
+      ],
+      "schedule": "bak",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 143,
+        "2": 159,
+        "3": 94,
+        "4": 116
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 100,
+        "2": 54,
+        "4": 18
+      },
+      "full_star_stable_context_A": 31,
+      "full_star_stable_context_B": 1,
+      "maps": 64,
+      "max_transitions": 7,
+      "rules": [
+        "xor",
+        "xor",
+        "or"
+      ],
+      "schedule": "sync",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 237,
+        "2": 159,
+        "4": 116
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 100,
+        "2": 54,
+        "3": 20,
+        "4": 18
+      },
+      "full_star_stable_context_A": 0,
+      "full_star_stable_context_B": 0,
+      "maps": 64,
+      "max_transitions": 7,
+      "rules": [
+        "xor",
+        "xor",
+        "or"
+      ],
+      "schedule": "kab",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 143,
+        "2": 159,
+        "3": 94,
+        "4": 116
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 100,
+        "2": 54,
+        "3": 20,
+        "4": 18
+      },
+      "full_star_stable_context_A": 0,
+      "full_star_stable_context_B": 0,
+      "maps": 64,
+      "max_transitions": 7,
+      "rules": [
+        "xor",
+        "xor",
+        "or"
+      ],
+      "schedule": "kba",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 143,
+        "2": 159,
+        "3": 94,
+        "4": 116
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 100,
+        "2": 54,
+        "3": 20,
+        "4": 18
+      },
+      "full_star_stable_context_A": 0,
+      "full_star_stable_context_B": 0,
+      "maps": 64,
+      "max_transitions": 7,
+      "rules": [
+        "xor",
+        "xor",
+        "or"
+      ],
+      "schedule": "akb",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 143,
+        "2": 159,
+        "3": 94,
+        "4": 116
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 100,
+        "2": 54,
+        "3": 20,
+        "4": 18
+      },
+      "full_star_stable_context_A": 0,
+      "full_star_stable_context_B": 0,
+      "maps": 64,
+      "max_transitions": 7,
+      "rules": [
+        "xor",
+        "xor",
+        "or"
+      ],
+      "schedule": "abk",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 143,
+        "2": 159,
+        "3": 94,
+        "4": 116
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 100,
+        "2": 54,
+        "3": 20,
+        "4": 18
+      },
+      "full_star_stable_context_A": 0,
+      "full_star_stable_context_B": 0,
+      "maps": 64,
+      "max_transitions": 7,
+      "rules": [
+        "xor",
+        "xor",
+        "or"
+      ],
+      "schedule": "bka",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 143,
+        "2": 159,
+        "3": 94,
+        "4": 116
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 100,
+        "2": 54,
+        "3": 20,
+        "4": 18
+      },
+      "full_star_stable_context_A": 0,
+      "full_star_stable_context_B": 0,
+      "maps": 64,
+      "max_transitions": 7,
+      "rules": [
+        "xor",
+        "xor",
+        "or"
+      ],
+      "schedule": "bak",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 143,
+        "2": 159,
+        "3": 94,
+        "4": 116
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 80,
+        "2": 84,
+        "4": 30
+      },
+      "full_star_stable_context_A": 1,
+      "full_star_stable_context_B": 1,
+      "maps": 64,
+      "max_transitions": 4,
+      "rules": [
+        "xor",
+        "xor",
+        "xor"
+      ],
+      "schedule": "sync",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 152,
+        "2": 240,
+        "4": 120
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 80,
+        "2": 84,
+        "3": 24,
+        "4": 30,
+        "6": 12
+      },
+      "full_star_stable_context_A": 0,
+      "full_star_stable_context_B": 0,
+      "maps": 64,
+      "max_transitions": 6,
+      "rules": [
+        "xor",
+        "xor",
+        "xor"
+      ],
+      "schedule": "kab",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 80,
+        "2": 168,
+        "3": 72,
+        "4": 120,
+        "6": 72
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 80,
+        "2": 84,
+        "3": 24,
+        "4": 30,
+        "6": 12
+      },
+      "full_star_stable_context_A": 0,
+      "full_star_stable_context_B": 0,
+      "maps": 64,
+      "max_transitions": 6,
+      "rules": [
+        "xor",
+        "xor",
+        "xor"
+      ],
+      "schedule": "kba",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 80,
+        "2": 168,
+        "3": 72,
+        "4": 120,
+        "6": 72
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 80,
+        "2": 84,
+        "3": 24,
+        "4": 30,
+        "6": 12
+      },
+      "full_star_stable_context_A": 0,
+      "full_star_stable_context_B": 0,
+      "maps": 64,
+      "max_transitions": 6,
+      "rules": [
+        "xor",
+        "xor",
+        "xor"
+      ],
+      "schedule": "akb",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 80,
+        "2": 168,
+        "3": 72,
+        "4": 120,
+        "6": 72
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 80,
+        "2": 84,
+        "3": 24,
+        "4": 30,
+        "6": 12
+      },
+      "full_star_stable_context_A": 0,
+      "full_star_stable_context_B": 0,
+      "maps": 64,
+      "max_transitions": 6,
+      "rules": [
+        "xor",
+        "xor",
+        "xor"
+      ],
+      "schedule": "abk",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 80,
+        "2": 168,
+        "3": 72,
+        "4": 120,
+        "6": 72
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 80,
+        "2": 84,
+        "3": 24,
+        "4": 30,
+        "6": 12
+      },
+      "full_star_stable_context_A": 0,
+      "full_star_stable_context_B": 0,
+      "maps": 64,
+      "max_transitions": 6,
+      "rules": [
+        "xor",
+        "xor",
+        "xor"
+      ],
+      "schedule": "bka",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 80,
+        "2": 168,
+        "3": 72,
+        "4": 120,
+        "6": 72
+      }
+    },
+    {
+      "attractor_period_counts": {
+        "1": 80,
+        "2": 84,
+        "3": 24,
+        "4": 30,
+        "6": 12
+      },
+      "full_star_stable_context_A": 0,
+      "full_star_stable_context_B": 0,
+      "maps": 64,
+      "max_transitions": 6,
+      "rules": [
+        "xor",
+        "xor",
+        "xor"
+      ],
+      "schedule": "bak",
+      "trajectories": 512,
+      "trajectory_period_counts": {
+        "1": 80,
+        "2": 168,
+        "3": 72,
+        "4": 120,
+        "6": 72
+      }
+    }
+  ],
+  "schedule_counterexample": {
+    "edges": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "initial": [
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "rules": [
+      "or",
+      "or",
+      "xor"
+    ],
+    "schedule": "kab",
+    "sequential": {
+      "cycle": [
+        [
+          0,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "period": 1,
+      "status": "complete",
+      "transient": [
+        [
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          1
+        ]
+      ],
+      "transitions": 3
+    },
+    "synchronous": {
+      "cycle": [
+        [
+          0,
+          1,
+          1,
+          1,
+          0
+        ]
+      ],
+      "period": 1,
+      "status": "complete",
+      "transient": [
+        [
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "transitions": 4
+    }
+  },
+  "specification": "OP-02B Boolean recurrent star v0.1",
+  "stable_witness": {
+    "controls": {
+      "A_only": {
+        "attractors": [
+          {
+            "basin_size": 2,
+            "cycle": [
+              [
+                0,
+                1,
+                0,
+                0,
+                1
+              ]
+            ],
+            "period": 1
+          },
+          {
+            "basin_size": 6,
+            "cycle": [
+              [
+                0,
+                1,
+                1,
+                1,
+                1
+              ]
+            ],
+            "period": 1
+          }
+        ],
+        "edges": [
+          true,
+          false,
+          true,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ]
+          ],
+          "transitions": 2
+        }
+      },
+      "B_only": {
+        "attractors": [
+          {
+            "basin_size": 4,
+            "cycle": [
+              [
+                0,
+                1,
+                1,
+                0,
+                1
+              ]
+            ],
+            "period": 1
+          },
+          {
+            "basin_size": 4,
+            "cycle": [
+              [
+                0,
+                1,
+                1,
+                1,
+                1
+              ]
+            ],
+            "period": 1
+          }
+        ],
+        "edges": [
+          false,
+          true,
+          false,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              1,
+              0,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "transitions": 3
+        }
+      },
+      "coupled": {
+        "attractors": [
+          {
+            "basin_size": 8,
+            "cycle": [
+              [
+                0,
+                1,
+                1,
+                1,
+                1
+              ]
+            ],
+            "period": 1
+          }
+        ],
+        "edges": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              1,
+              1,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              1,
+              0,
+              1
+            ]
+          ],
+          "transitions": 4
+        }
+      },
+      "feed_forward": {
+        "attractors": [
+          {
+            "basin_size": 4,
+            "cycle": [
+              [
+                0,
+                1,
+                1,
+                0,
+                1
+              ]
+            ],
+            "period": 1
+          },
+          {
+            "basin_size": 4,
+            "cycle": [
+              [
+                0,
+                1,
+                1,
+                1,
+                1
+              ]
+            ],
+            "period": 1
+          }
+        ],
+        "edges": [
+          true,
+          true,
+          false,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              1,
+              0,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "transitions": 3
+        }
+      },
+      "uncoupled": {
+        "attractors": [
+          {
+            "basin_size": 2,
+            "cycle": [
+              [
+                0,
+                1,
+                0,
+                0,
+                1
+              ]
+            ],
+            "period": 1
+          },
+          {
+            "basin_size": 2,
+            "cycle": [
+              [
+                0,
+                1,
+                0,
+                1,
+                1
+              ]
+            ],
+            "period": 1
+          },
+          {
+            "basin_size": 2,
+            "cycle": [
+              [
+                0,
+                1,
+                1,
+                0,
+                1
+              ]
+            ],
+            "period": 1
+          },
+          {
+            "basin_size": 2,
+            "cycle": [
+              [
+                0,
+                1,
+                1,
+                1,
+                1
+              ]
+            ],
+            "period": 1
+          }
+        ],
+        "edges": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ]
+          ],
+          "transitions": 2
+        }
+      }
+    },
+    "edge_ablations": [
+      {
+        "edges": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ]
+          ],
+          "transitions": 2
+        }
+      },
+      {
+        "edges": [
+          false,
+          false,
+          false,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ]
+          ],
+          "transitions": 2
+        }
+      },
+      {
+        "edges": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ]
+          ],
+          "transitions": 2
+        }
+      },
+      {
+        "edges": [
+          false,
+          false,
+          true,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ]
+          ],
+          "transitions": 2
+        }
+      },
+      {
+        "edges": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              1,
+              0,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "transitions": 3
+        }
+      },
+      {
+        "edges": [
+          false,
+          true,
+          false,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              1,
+              0,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "transitions": 3
+        }
+      },
+      {
+        "edges": [
+          false,
+          true,
+          true,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              1,
+              1,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              1,
+              0,
+              1
+            ]
+          ],
+          "transitions": 4
+        }
+      },
+      {
+        "edges": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              1,
+              1,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              1,
+              0,
+              1
+            ]
+          ],
+          "transitions": 4
+        }
+      },
+      {
+        "edges": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ]
+          ],
+          "transitions": 2
+        }
+      },
+      {
+        "edges": [
+          true,
+          false,
+          false,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ]
+          ],
+          "transitions": 2
+        }
+      },
+      {
+        "edges": [
+          true,
+          false,
+          true,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ]
+          ],
+          "transitions": 2
+        }
+      },
+      {
+        "edges": [
+          true,
+          false,
+          true,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ]
+          ],
+          "transitions": 2
+        }
+      },
+      {
+        "edges": [
+          true,
+          true,
+          false,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              1,
+              0,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "transitions": 3
+        }
+      },
+      {
+        "edges": [
+          true,
+          true,
+          false,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              1,
+              0,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "transitions": 3
+        }
+      },
+      {
+        "edges": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              1,
+              1,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              1,
+              0,
+              1
+            ]
+          ],
+          "transitions": 4
+        }
+      },
+      {
+        "edges": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              1,
+              1,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              1,
+              0,
+              1
+            ]
+          ],
+          "transitions": 4
+        }
+      }
+    ],
+    "initial": [
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "rules": [
+      "or",
+      "or",
+      "or"
+    ],
+    "schedule": "sync"
+  },
+  "status": "complete"
+}

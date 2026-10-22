@@ -1,0 +1,4991 @@
+{
+  "bounds": {
+    "candidate_cases": 28672,
+    "edge_masks": 16,
+    "evidence_pairs": 4,
+    "full_star_cases": 1792,
+    "internal_initial_states": 8,
+    "rule_triples": 8,
+    "schedules": [
+      "sync",
+      "kab",
+      "kba",
+      "akb",
+      "abk",
+      "bka",
+      "bak"
+    ]
+  },
+  "counts_by_edge_count": [
+    {
+      "cases": 1792,
+      "contextual": 0,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 1008,
+      "isolated_observations_stable": 1008,
+      "recurrence_essential": 0
+    },
+    {
+      "cases": 7168,
+      "contextual": 0,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 3360,
+      "isolated_observations_stable": 3360,
+      "recurrence_essential": 0
+    },
+    {
+      "cases": 10752,
+      "contextual": 56,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 4552,
+      "isolated_observations_stable": 4440,
+      "recurrence_essential": 0
+    },
+    {
+      "cases": 7168,
+      "contextual": 308,
+      "essential_from_zero": 20,
+      "essential_with_all_acyclic_observations_stable": 2,
+      "full_fixed": 3168,
+      "isolated_observations_stable": 2916,
+      "recurrence_essential": 82
+    },
+    {
+      "cases": 1792,
+      "contextual": 224,
+      "essential_from_zero": 22,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 961,
+      "isolated_observations_stable": 841,
+      "recurrence_essential": 80
+    }
+  ],
+  "full_star_counts": {
+    "cases": 1792,
+    "contextual": 224,
+    "essential_from_zero": 22,
+    "essential_with_all_acyclic_observations_stable": 0,
+    "full_fixed": 961,
+    "isolated_observations_stable": 841,
+    "recurrence_essential": 80
+  },
+  "full_star_enumeration": [
+    {
+      "cases": 32,
+      "contextual": 6,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 32,
+      "isolated_observations_stable": 32,
+      "recurrence_essential": 0,
+      "rules": [
+        "or",
+        "or",
+        "or"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "cases": 32,
+      "contextual": 6,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 32,
+      "isolated_observations_stable": 32,
+      "recurrence_essential": 0,
+      "rules": [
+        "or",
+        "or",
+        "or"
+      ],
+      "schedule": "kab"
+    },
+    {
+      "cases": 32,
+      "contextual": 6,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 32,
+      "isolated_observations_stable": 32,
+      "recurrence_essential": 0,
+      "rules": [
+        "or",
+        "or",
+        "or"
+      ],
+      "schedule": "kba"
+    },
+    {
+      "cases": 32,
+      "contextual": 6,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 32,
+      "isolated_observations_stable": 32,
+      "recurrence_essential": 0,
+      "rules": [
+        "or",
+        "or",
+        "or"
+      ],
+      "schedule": "akb"
+    },
+    {
+      "cases": 32,
+      "contextual": 6,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 32,
+      "isolated_observations_stable": 32,
+      "recurrence_essential": 0,
+      "rules": [
+        "or",
+        "or",
+        "or"
+      ],
+      "schedule": "abk"
+    },
+    {
+      "cases": 32,
+      "contextual": 6,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 32,
+      "isolated_observations_stable": 32,
+      "recurrence_essential": 0,
+      "rules": [
+        "or",
+        "or",
+        "or"
+      ],
+      "schedule": "bka"
+    },
+    {
+      "cases": 32,
+      "contextual": 6,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 32,
+      "isolated_observations_stable": 32,
+      "recurrence_essential": 0,
+      "rules": [
+        "or",
+        "or",
+        "or"
+      ],
+      "schedule": "bak"
+    },
+    {
+      "cases": 32,
+      "contextual": 4,
+      "essential_from_zero": 1,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 17,
+      "isolated_observations_stable": 17,
+      "recurrence_essential": 2,
+      "rules": [
+        "or",
+        "or",
+        "xor"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "cases": 32,
+      "contextual": 4,
+      "essential_from_zero": 1,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 17,
+      "isolated_observations_stable": 17,
+      "recurrence_essential": 2,
+      "rules": [
+        "or",
+        "or",
+        "xor"
+      ],
+      "schedule": "kab"
+    },
+    {
+      "cases": 32,
+      "contextual": 4,
+      "essential_from_zero": 1,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 17,
+      "isolated_observations_stable": 17,
+      "recurrence_essential": 2,
+      "rules": [
+        "or",
+        "or",
+        "xor"
+      ],
+      "schedule": "kba"
+    },
+    {
+      "cases": 32,
+      "contextual": 5,
+      "essential_from_zero": 1,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 17,
+      "isolated_observations_stable": 17,
+      "recurrence_essential": 2,
+      "rules": [
+        "or",
+        "or",
+        "xor"
+      ],
+      "schedule": "akb"
+    },
+    {
+      "cases": 32,
+      "contextual": 5,
+      "essential_from_zero": 1,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 17,
+      "isolated_observations_stable": 17,
+      "recurrence_essential": 2,
+      "rules": [
+        "or",
+        "or",
+        "xor"
+      ],
+      "schedule": "abk"
+    },
+    {
+      "cases": 32,
+      "contextual": 4,
+      "essential_from_zero": 1,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 17,
+      "isolated_observations_stable": 17,
+      "recurrence_essential": 2,
+      "rules": [
+        "or",
+        "or",
+        "xor"
+      ],
+      "schedule": "bka"
+    },
+    {
+      "cases": 32,
+      "contextual": 5,
+      "essential_from_zero": 1,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 17,
+      "isolated_observations_stable": 17,
+      "recurrence_essential": 2,
+      "rules": [
+        "or",
+        "or",
+        "xor"
+      ],
+      "schedule": "bak"
+    },
+    {
+      "cases": 32,
+      "contextual": 4,
+      "essential_from_zero": 1,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 17,
+      "isolated_observations_stable": 17,
+      "recurrence_essential": 2,
+      "rules": [
+        "or",
+        "xor",
+        "or"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "cases": 32,
+      "contextual": 4,
+      "essential_from_zero": 1,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 17,
+      "isolated_observations_stable": 17,
+      "recurrence_essential": 2,
+      "rules": [
+        "or",
+        "xor",
+        "or"
+      ],
+      "schedule": "kab"
+    },
+    {
+      "cases": 32,
+      "contextual": 4,
+      "essential_from_zero": 1,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 17,
+      "isolated_observations_stable": 17,
+      "recurrence_essential": 2,
+      "rules": [
+        "or",
+        "xor",
+        "or"
+      ],
+      "schedule": "kba"
+    },
+    {
+      "cases": 32,
+      "contextual": 4,
+      "essential_from_zero": 1,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 17,
+      "isolated_observations_stable": 17,
+      "recurrence_essential": 2,
+      "rules": [
+        "or",
+        "xor",
+        "or"
+      ],
+      "schedule": "akb"
+    },
+    {
+      "cases": 32,
+      "contextual": 5,
+      "essential_from_zero": 1,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 17,
+      "isolated_observations_stable": 17,
+      "recurrence_essential": 2,
+      "rules": [
+        "or",
+        "xor",
+        "or"
+      ],
+      "schedule": "abk"
+    },
+    {
+      "cases": 32,
+      "contextual": 5,
+      "essential_from_zero": 1,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 17,
+      "isolated_observations_stable": 17,
+      "recurrence_essential": 2,
+      "rules": [
+        "or",
+        "xor",
+        "or"
+      ],
+      "schedule": "bka"
+    },
+    {
+      "cases": 32,
+      "contextual": 5,
+      "essential_from_zero": 1,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 17,
+      "isolated_observations_stable": 17,
+      "recurrence_essential": 2,
+      "rules": [
+        "or",
+        "xor",
+        "or"
+      ],
+      "schedule": "bak"
+    },
+    {
+      "cases": 32,
+      "contextual": 2,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 9,
+      "isolated_observations_stable": 9,
+      "recurrence_essential": 2,
+      "rules": [
+        "or",
+        "xor",
+        "xor"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "cases": 32,
+      "contextual": 2,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 9,
+      "isolated_observations_stable": 9,
+      "recurrence_essential": 2,
+      "rules": [
+        "or",
+        "xor",
+        "xor"
+      ],
+      "schedule": "kab"
+    },
+    {
+      "cases": 32,
+      "contextual": 2,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 9,
+      "isolated_observations_stable": 9,
+      "recurrence_essential": 2,
+      "rules": [
+        "or",
+        "xor",
+        "xor"
+      ],
+      "schedule": "kba"
+    },
+    {
+      "cases": 32,
+      "contextual": 2,
+      "essential_from_zero": 1,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 9,
+      "isolated_observations_stable": 9,
+      "recurrence_essential": 2,
+      "rules": [
+        "or",
+        "xor",
+        "xor"
+      ],
+      "schedule": "akb"
+    },
+    {
+      "cases": 32,
+      "contextual": 2,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 9,
+      "isolated_observations_stable": 9,
+      "recurrence_essential": 2,
+      "rules": [
+        "or",
+        "xor",
+        "xor"
+      ],
+      "schedule": "abk"
+    },
+    {
+      "cases": 32,
+      "contextual": 2,
+      "essential_from_zero": 1,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 9,
+      "isolated_observations_stable": 9,
+      "recurrence_essential": 2,
+      "rules": [
+        "or",
+        "xor",
+        "xor"
+      ],
+      "schedule": "bka"
+    },
+    {
+      "cases": 32,
+      "contextual": 2,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 9,
+      "isolated_observations_stable": 9,
+      "recurrence_essential": 2,
+      "rules": [
+        "or",
+        "xor",
+        "xor"
+      ],
+      "schedule": "bak"
+    },
+    {
+      "cases": 32,
+      "contextual": 6,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 32,
+      "isolated_observations_stable": 32,
+      "recurrence_essential": 0,
+      "rules": [
+        "xor",
+        "or",
+        "or"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "cases": 32,
+      "contextual": 6,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 32,
+      "isolated_observations_stable": 32,
+      "recurrence_essential": 0,
+      "rules": [
+        "xor",
+        "or",
+        "or"
+      ],
+      "schedule": "kab"
+    },
+    {
+      "cases": 32,
+      "contextual": 6,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 32,
+      "isolated_observations_stable": 32,
+      "recurrence_essential": 0,
+      "rules": [
+        "xor",
+        "or",
+        "or"
+      ],
+      "schedule": "kba"
+    },
+    {
+      "cases": 32,
+      "contextual": 6,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 32,
+      "isolated_observations_stable": 32,
+      "recurrence_essential": 0,
+      "rules": [
+        "xor",
+        "or",
+        "or"
+      ],
+      "schedule": "akb"
+    },
+    {
+      "cases": 32,
+      "contextual": 6,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 32,
+      "isolated_observations_stable": 32,
+      "recurrence_essential": 0,
+      "rules": [
+        "xor",
+        "or",
+        "or"
+      ],
+      "schedule": "abk"
+    },
+    {
+      "cases": 32,
+      "contextual": 6,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 32,
+      "isolated_observations_stable": 32,
+      "recurrence_essential": 0,
+      "rules": [
+        "xor",
+        "or",
+        "or"
+      ],
+      "schedule": "bka"
+    },
+    {
+      "cases": 32,
+      "contextual": 6,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 32,
+      "isolated_observations_stable": 32,
+      "recurrence_essential": 0,
+      "rules": [
+        "xor",
+        "or",
+        "or"
+      ],
+      "schedule": "bak"
+    },
+    {
+      "cases": 32,
+      "contextual": 31,
+      "essential_from_zero": 3,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 32,
+      "isolated_observations_stable": 32,
+      "recurrence_essential": 19,
+      "rules": [
+        "xor",
+        "or",
+        "xor"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "cases": 32,
+      "contextual": 0,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 10,
+      "isolated_observations_stable": 1,
+      "recurrence_essential": 0,
+      "rules": [
+        "xor",
+        "or",
+        "xor"
+      ],
+      "schedule": "kab"
+    },
+    {
+      "cases": 32,
+      "contextual": 0,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 10,
+      "isolated_observations_stable": 1,
+      "recurrence_essential": 0,
+      "rules": [
+        "xor",
+        "or",
+        "xor"
+      ],
+      "schedule": "kba"
+    },
+    {
+      "cases": 32,
+      "contextual": 0,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 10,
+      "isolated_observations_stable": 1,
+      "recurrence_essential": 0,
+      "rules": [
+        "xor",
+        "or",
+        "xor"
+      ],
+      "schedule": "akb"
+    },
+    {
+      "cases": 32,
+      "contextual": 0,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 10,
+      "isolated_observations_stable": 1,
+      "recurrence_essential": 0,
+      "rules": [
+        "xor",
+        "or",
+        "xor"
+      ],
+      "schedule": "abk"
+    },
+    {
+      "cases": 32,
+      "contextual": 0,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 10,
+      "isolated_observations_stable": 1,
+      "recurrence_essential": 0,
+      "rules": [
+        "xor",
+        "or",
+        "xor"
+      ],
+      "schedule": "bka"
+    },
+    {
+      "cases": 32,
+      "contextual": 0,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 10,
+      "isolated_observations_stable": 1,
+      "recurrence_essential": 0,
+      "rules": [
+        "xor",
+        "or",
+        "xor"
+      ],
+      "schedule": "bak"
+    },
+    {
+      "cases": 32,
+      "contextual": 31,
+      "essential_from_zero": 3,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 32,
+      "isolated_observations_stable": 32,
+      "recurrence_essential": 19,
+      "rules": [
+        "xor",
+        "xor",
+        "or"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "cases": 32,
+      "contextual": 0,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 10,
+      "isolated_observations_stable": 1,
+      "recurrence_essential": 0,
+      "rules": [
+        "xor",
+        "xor",
+        "or"
+      ],
+      "schedule": "kab"
+    },
+    {
+      "cases": 32,
+      "contextual": 0,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 10,
+      "isolated_observations_stable": 1,
+      "recurrence_essential": 0,
+      "rules": [
+        "xor",
+        "xor",
+        "or"
+      ],
+      "schedule": "kba"
+    },
+    {
+      "cases": 32,
+      "contextual": 0,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 10,
+      "isolated_observations_stable": 1,
+      "recurrence_essential": 0,
+      "rules": [
+        "xor",
+        "xor",
+        "or"
+      ],
+      "schedule": "akb"
+    },
+    {
+      "cases": 32,
+      "contextual": 0,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 10,
+      "isolated_observations_stable": 1,
+      "recurrence_essential": 0,
+      "rules": [
+        "xor",
+        "xor",
+        "or"
+      ],
+      "schedule": "abk"
+    },
+    {
+      "cases": 32,
+      "contextual": 0,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 10,
+      "isolated_observations_stable": 1,
+      "recurrence_essential": 0,
+      "rules": [
+        "xor",
+        "xor",
+        "or"
+      ],
+      "schedule": "bka"
+    },
+    {
+      "cases": 32,
+      "contextual": 0,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 10,
+      "isolated_observations_stable": 1,
+      "recurrence_essential": 0,
+      "rules": [
+        "xor",
+        "xor",
+        "or"
+      ],
+      "schedule": "bak"
+    },
+    {
+      "cases": 32,
+      "contextual": 2,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 4,
+      "isolated_observations_stable": 4,
+      "recurrence_essential": 0,
+      "rules": [
+        "xor",
+        "xor",
+        "xor"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "cases": 32,
+      "contextual": 0,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 4,
+      "isolated_observations_stable": 2,
+      "recurrence_essential": 0,
+      "rules": [
+        "xor",
+        "xor",
+        "xor"
+      ],
+      "schedule": "kab"
+    },
+    {
+      "cases": 32,
+      "contextual": 0,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 4,
+      "isolated_observations_stable": 2,
+      "recurrence_essential": 0,
+      "rules": [
+        "xor",
+        "xor",
+        "xor"
+      ],
+      "schedule": "kba"
+    },
+    {
+      "cases": 32,
+      "contextual": 0,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 4,
+      "isolated_observations_stable": 2,
+      "recurrence_essential": 0,
+      "rules": [
+        "xor",
+        "xor",
+        "xor"
+      ],
+      "schedule": "akb"
+    },
+    {
+      "cases": 32,
+      "contextual": 0,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 4,
+      "isolated_observations_stable": 2,
+      "recurrence_essential": 0,
+      "rules": [
+        "xor",
+        "xor",
+        "xor"
+      ],
+      "schedule": "abk"
+    },
+    {
+      "cases": 32,
+      "contextual": 0,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 4,
+      "isolated_observations_stable": 2,
+      "recurrence_essential": 0,
+      "rules": [
+        "xor",
+        "xor",
+        "xor"
+      ],
+      "schedule": "bka"
+    },
+    {
+      "cases": 32,
+      "contextual": 0,
+      "essential_from_zero": 0,
+      "essential_with_all_acyclic_observations_stable": 0,
+      "full_fixed": 4,
+      "isolated_observations_stable": 2,
+      "recurrence_essential": 0,
+      "rules": [
+        "xor",
+        "xor",
+        "xor"
+      ],
+      "schedule": "bak"
+    }
+  ],
+  "full_star_witnesses": [
+    {
+      "initial": [
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "response": [
+        1,
+        0
+      ],
+      "rules": [
+        "or",
+        "or",
+        "xor"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "response": [
+        1,
+        0
+      ],
+      "rules": [
+        "or",
+        "or",
+        "xor"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "or",
+        "or",
+        "xor"
+      ],
+      "schedule": "kab"
+    },
+    {
+      "initial": [
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "or",
+        "or",
+        "xor"
+      ],
+      "schedule": "kab"
+    },
+    {
+      "initial": [
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "or",
+        "or",
+        "xor"
+      ],
+      "schedule": "kba"
+    },
+    {
+      "initial": [
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "or",
+        "or",
+        "xor"
+      ],
+      "schedule": "kba"
+    },
+    {
+      "initial": [
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "or",
+        "or",
+        "xor"
+      ],
+      "schedule": "akb"
+    },
+    {
+      "initial": [
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "or",
+        "or",
+        "xor"
+      ],
+      "schedule": "akb"
+    },
+    {
+      "initial": [
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "or",
+        "or",
+        "xor"
+      ],
+      "schedule": "abk"
+    },
+    {
+      "initial": [
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "or",
+        "or",
+        "xor"
+      ],
+      "schedule": "abk"
+    },
+    {
+      "initial": [
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "or",
+        "or",
+        "xor"
+      ],
+      "schedule": "bka"
+    },
+    {
+      "initial": [
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "or",
+        "or",
+        "xor"
+      ],
+      "schedule": "bka"
+    },
+    {
+      "initial": [
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "or",
+        "or",
+        "xor"
+      ],
+      "schedule": "bak"
+    },
+    {
+      "initial": [
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "or",
+        "or",
+        "xor"
+      ],
+      "schedule": "bak"
+    },
+    {
+      "initial": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "response": [
+        0,
+        1
+      ],
+      "rules": [
+        "or",
+        "xor",
+        "or"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "response": [
+        0,
+        1
+      ],
+      "rules": [
+        "or",
+        "xor",
+        "or"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "or",
+        "xor",
+        "or"
+      ],
+      "schedule": "kab"
+    },
+    {
+      "initial": [
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "or",
+        "xor",
+        "or"
+      ],
+      "schedule": "kab"
+    },
+    {
+      "initial": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "or",
+        "xor",
+        "or"
+      ],
+      "schedule": "kba"
+    },
+    {
+      "initial": [
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "or",
+        "xor",
+        "or"
+      ],
+      "schedule": "kba"
+    },
+    {
+      "initial": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "or",
+        "xor",
+        "or"
+      ],
+      "schedule": "akb"
+    },
+    {
+      "initial": [
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "or",
+        "xor",
+        "or"
+      ],
+      "schedule": "akb"
+    },
+    {
+      "initial": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "or",
+        "xor",
+        "or"
+      ],
+      "schedule": "abk"
+    },
+    {
+      "initial": [
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "or",
+        "xor",
+        "or"
+      ],
+      "schedule": "abk"
+    },
+    {
+      "initial": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "or",
+        "xor",
+        "or"
+      ],
+      "schedule": "bka"
+    },
+    {
+      "initial": [
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "or",
+        "xor",
+        "or"
+      ],
+      "schedule": "bka"
+    },
+    {
+      "initial": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "or",
+        "xor",
+        "or"
+      ],
+      "schedule": "bak"
+    },
+    {
+      "initial": [
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "or",
+        "xor",
+        "or"
+      ],
+      "schedule": "bak"
+    },
+    {
+      "initial": [
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "response": [
+        1,
+        0
+      ],
+      "rules": [
+        "or",
+        "xor",
+        "xor"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "response": [
+        0,
+        1
+      ],
+      "rules": [
+        "or",
+        "xor",
+        "xor"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "response": [
+        0,
+        1
+      ],
+      "rules": [
+        "or",
+        "xor",
+        "xor"
+      ],
+      "schedule": "kab"
+    },
+    {
+      "initial": [
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "response": [
+        1,
+        0
+      ],
+      "rules": [
+        "or",
+        "xor",
+        "xor"
+      ],
+      "schedule": "kab"
+    },
+    {
+      "initial": [
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "response": [
+        0,
+        1
+      ],
+      "rules": [
+        "or",
+        "xor",
+        "xor"
+      ],
+      "schedule": "kba"
+    },
+    {
+      "initial": [
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "response": [
+        1,
+        0
+      ],
+      "rules": [
+        "or",
+        "xor",
+        "xor"
+      ],
+      "schedule": "kba"
+    },
+    {
+      "initial": [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "response": [
+        1,
+        0
+      ],
+      "rules": [
+        "or",
+        "xor",
+        "xor"
+      ],
+      "schedule": "akb"
+    },
+    {
+      "initial": [
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "response": [
+        0,
+        1
+      ],
+      "rules": [
+        "or",
+        "xor",
+        "xor"
+      ],
+      "schedule": "akb"
+    },
+    {
+      "initial": [
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "response": [
+        1,
+        0
+      ],
+      "rules": [
+        "or",
+        "xor",
+        "xor"
+      ],
+      "schedule": "abk"
+    },
+    {
+      "initial": [
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "response": [
+        0,
+        1
+      ],
+      "rules": [
+        "or",
+        "xor",
+        "xor"
+      ],
+      "schedule": "abk"
+    },
+    {
+      "initial": [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "response": [
+        0,
+        1
+      ],
+      "rules": [
+        "or",
+        "xor",
+        "xor"
+      ],
+      "schedule": "bka"
+    },
+    {
+      "initial": [
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "response": [
+        1,
+        0
+      ],
+      "rules": [
+        "or",
+        "xor",
+        "xor"
+      ],
+      "schedule": "bka"
+    },
+    {
+      "initial": [
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "response": [
+        1,
+        0
+      ],
+      "rules": [
+        "or",
+        "xor",
+        "xor"
+      ],
+      "schedule": "bak"
+    },
+    {
+      "initial": [
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "response": [
+        0,
+        1
+      ],
+      "rules": [
+        "or",
+        "xor",
+        "xor"
+      ],
+      "schedule": "bak"
+    },
+    {
+      "initial": [
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "or",
+        "xor"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "or",
+        "xor"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "or",
+        "xor"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "or",
+        "xor"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "or",
+        "xor"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "or",
+        "xor"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "or",
+        "xor"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "or",
+        "xor"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "or",
+        "xor"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "or",
+        "xor"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "or",
+        "xor"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "or",
+        "xor"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "or",
+        "xor"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "or",
+        "xor"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "or",
+        "xor"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "or",
+        "xor"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "or",
+        "xor"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "or",
+        "xor"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "or",
+        "xor"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "xor",
+        "or"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "xor",
+        "or"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "xor",
+        "or"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "xor",
+        "or"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        0,
+        1,
+        0,
+        0,
+        1
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "xor",
+        "or"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "xor",
+        "or"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "xor",
+        "or"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "xor",
+        "or"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        1,
+        0,
+        0,
+        0,
+        1
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "xor",
+        "or"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "xor",
+        "or"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "xor",
+        "or"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "xor",
+        "or"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "xor",
+        "or"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "xor",
+        "or"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "xor",
+        "or"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        1,
+        1,
+        0,
+        1,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "xor",
+        "or"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        1,
+        1,
+        0,
+        1,
+        1
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "xor",
+        "or"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "xor",
+        "or"
+      ],
+      "schedule": "sync"
+    },
+    {
+      "initial": [
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "response": [
+        1,
+        1
+      ],
+      "rules": [
+        "xor",
+        "xor",
+        "or"
+      ],
+      "schedule": "sync"
+    }
+  ],
+  "minimum_edge_witness": {
+    "basins": [
+      {
+        "basin_size": 6,
+        "cycle": [
+          [
+            0,
+            1,
+            1,
+            1,
+            0
+          ]
+        ],
+        "period": 1
+      },
+      {
+        "basin_size": 2,
+        "cycle": [
+          [
+            0,
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "period": 1
+      }
+    ],
+    "criterion": {
+      "acyclic_controls": [
+        {
+          "edges": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "period": 2,
+          "satellite_response": null
+        },
+        {
+          "edges": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "period": 2,
+          "satellite_response": null
+        },
+        {
+          "edges": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "period": 2,
+          "satellite_response": null
+        },
+        {
+          "edges": [
+            false,
+            false,
+            true,
+            true
+          ],
+          "period": 2,
+          "satellite_response": null
+        },
+        {
+          "edges": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "period": 2,
+          "satellite_response": null
+        },
+        {
+          "edges": [
+            false,
+            true,
+            true,
+            false
+          ],
+          "period": 2,
+          "satellite_response": null
+        }
+      ],
+      "all_acyclic_observations_stable": false,
+      "contextual": true,
+      "full_fixed": true,
+      "independent_response": [
+        0,
+        0
+      ],
+      "isolated_observations_stable": true,
+      "matching_acyclic_masks": [],
+      "recurrence_essential": true,
+      "satellite_response": [
+        1,
+        0
+      ]
+    },
+    "edge_ablations": [
+      {
+        "edges": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 2,
+          "status": "complete",
+          "transient": [],
+          "transitions": 2
+        },
+        "satellite_response": null
+      },
+      {
+        "edges": [
+          false,
+          false,
+          false,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 2,
+          "status": "complete",
+          "transient": [],
+          "transitions": 2
+        },
+        "satellite_response": null
+      },
+      {
+        "edges": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 2,
+          "status": "complete",
+          "transient": [],
+          "transitions": 2
+        },
+        "satellite_response": null
+      },
+      {
+        "edges": [
+          false,
+          false,
+          true,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 2,
+          "status": "complete",
+          "transient": [],
+          "transitions": 2
+        },
+        "satellite_response": null
+      },
+      {
+        "edges": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              1,
+              0,
+              1
+            ]
+          ],
+          "period": 2,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "transitions": 4
+        },
+        "satellite_response": null
+      },
+      {
+        "edges": [
+          false,
+          true,
+          false,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              1,
+              0,
+              0
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "transitions": 3
+        },
+        "satellite_response": [
+          0,
+          0
+        ]
+      },
+      {
+        "edges": [
+          false,
+          true,
+          true,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              0,
+              1,
+              1,
+              1,
+              0
+            ]
+          ],
+          "period": 2,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              1,
+              0,
+              0
+            ]
+          ],
+          "transitions": 5
+        },
+        "satellite_response": null
+      },
+      {
+        "edges": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              1,
+              1,
+              0
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              1,
+              0,
+              0
+            ]
+          ],
+          "transitions": 4
+        },
+        "satellite_response": [
+          1,
+          0
+        ]
+      }
+    ],
+    "edges": [
+      false,
+      true,
+      true,
+      true
+    ],
+    "initial": [
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "orbit": {
+      "cycle": [
+        [
+          0,
+          1,
+          1,
+          1,
+          0
+        ]
+      ],
+      "period": 1,
+      "status": "complete",
+      "transient": [
+        [
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "transitions": 4
+    },
+    "rules": [
+      "or",
+      "or",
+      "xor"
+    ],
+    "schedule": "sync"
+  },
+  "projection_counterexample": {
+    "basins": [
+      {
+        "basin_size": 1,
+        "cycle": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "period": 1
+      },
+      {
+        "basin_size": 7,
+        "cycle": [
+          [
+            0,
+            0,
+            0,
+            1,
+            1
+          ]
+        ],
+        "period": 1
+      }
+    ],
+    "criterion": {
+      "acyclic_controls": [
+        {
+          "edges": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "period": 1,
+          "satellite_response": [
+            0,
+            1
+          ]
+        },
+        {
+          "edges": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "period": 1,
+          "satellite_response": [
+            0,
+            1
+          ]
+        },
+        {
+          "edges": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "period": 1,
+          "satellite_response": [
+            0,
+            1
+          ]
+        },
+        {
+          "edges": [
+            false,
+            false,
+            true,
+            true
+          ],
+          "period": 1,
+          "satellite_response": [
+            0,
+            1
+          ]
+        },
+        {
+          "edges": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "period": 2,
+          "satellite_response": [
+            0,
+            1
+          ]
+        },
+        {
+          "edges": [
+            false,
+            true,
+            true,
+            false
+          ],
+          "period": 2,
+          "satellite_response": [
+            1,
+            1
+          ]
+        },
+        {
+          "edges": [
+            true,
+            false,
+            false,
+            false
+          ],
+          "period": 1,
+          "satellite_response": [
+            0,
+            1
+          ]
+        },
+        {
+          "edges": [
+            true,
+            false,
+            false,
+            true
+          ],
+          "period": 1,
+          "satellite_response": [
+            0,
+            1
+          ]
+        },
+        {
+          "edges": [
+            true,
+            true,
+            false,
+            false
+          ],
+          "period": 2,
+          "satellite_response": [
+            0,
+            1
+          ]
+        }
+      ],
+      "all_acyclic_observations_stable": true,
+      "contextual": true,
+      "full_fixed": true,
+      "independent_response": [
+        0,
+        0
+      ],
+      "isolated_observations_stable": true,
+      "matching_acyclic_masks": [
+        [
+          false,
+          true,
+          true,
+          false
+        ]
+      ],
+      "recurrence_essential": false,
+      "satellite_response": [
+        1,
+        1
+      ]
+    },
+    "edge_ablations": [
+      {
+        "edges": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [],
+          "transitions": 1
+        },
+        "satellite_response": [
+          0,
+          1
+        ]
+      },
+      {
+        "edges": [
+          false,
+          false,
+          false,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [],
+          "transitions": 1
+        },
+        "satellite_response": [
+          0,
+          1
+        ]
+      },
+      {
+        "edges": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [],
+          "transitions": 1
+        },
+        "satellite_response": [
+          0,
+          1
+        ]
+      },
+      {
+        "edges": [
+          false,
+          false,
+          true,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [],
+          "transitions": 1
+        },
+        "satellite_response": [
+          0,
+          1
+        ]
+      },
+      {
+        "edges": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              1
+            ]
+          ],
+          "period": 2,
+          "status": "complete",
+          "transient": [],
+          "transitions": 2
+        },
+        "satellite_response": [
+          0,
+          1
+        ]
+      },
+      {
+        "edges": [
+          false,
+          true,
+          false,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              1
+            ]
+          ],
+          "transitions": 3
+        },
+        "satellite_response": [
+          0,
+          0
+        ]
+      },
+      {
+        "edges": [
+          false,
+          true,
+          true,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              0,
+              0,
+              1,
+              1
+            ],
+            [
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          ],
+          "period": 2,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              1
+            ]
+          ],
+          "transitions": 4
+        },
+        "satellite_response": [
+          1,
+          1
+        ]
+      },
+      {
+        "edges": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              0,
+              0,
+              1,
+              0
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              1
+            ]
+          ],
+          "transitions": 3
+        },
+        "satellite_response": [
+          1,
+          0
+        ]
+      },
+      {
+        "edges": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [],
+          "transitions": 1
+        },
+        "satellite_response": [
+          0,
+          1
+        ]
+      },
+      {
+        "edges": [
+          true,
+          false,
+          false,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [],
+          "transitions": 1
+        },
+        "satellite_response": [
+          0,
+          1
+        ]
+      },
+      {
+        "edges": [
+          true,
+          false,
+          true,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [],
+          "transitions": 1
+        },
+        "satellite_response": [
+          0,
+          1
+        ]
+      },
+      {
+        "edges": [
+          true,
+          false,
+          true,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [],
+          "transitions": 1
+        },
+        "satellite_response": [
+          0,
+          1
+        ]
+      },
+      {
+        "edges": [
+          true,
+          true,
+          false,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              1
+            ]
+          ],
+          "period": 2,
+          "status": "complete",
+          "transient": [],
+          "transitions": 2
+        },
+        "satellite_response": [
+          0,
+          1
+        ]
+      },
+      {
+        "edges": [
+          true,
+          true,
+          false,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              1
+            ]
+          ],
+          "transitions": 3
+        },
+        "satellite_response": [
+          0,
+          0
+        ]
+      },
+      {
+        "edges": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              0,
+              0,
+              1,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              1
+            ]
+          ],
+          "transitions": 3
+        },
+        "satellite_response": [
+          1,
+          1
+        ]
+      },
+      {
+        "edges": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              0,
+              0,
+              1,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              1,
+              0
+            ]
+          ],
+          "transitions": 5
+        },
+        "satellite_response": [
+          1,
+          1
+        ]
+      }
+    ],
+    "edges": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "initial": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "orbit": {
+      "cycle": [
+        [
+          0,
+          0,
+          0,
+          1,
+          1
+        ]
+      ],
+      "period": 1,
+      "status": "complete",
+      "transient": [
+        [
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          1,
+          0
+        ]
+      ],
+      "transitions": 5
+    },
+    "rules": [
+      "xor",
+      "or",
+      "xor"
+    ],
+    "schedule": "sync"
+  },
+  "representative": {
+    "basins": [
+      {
+        "basin_size": 5,
+        "cycle": [
+          [
+            0,
+            1,
+            1,
+            1,
+            0
+          ]
+        ],
+        "period": 1
+      },
+      {
+        "basin_size": 3,
+        "cycle": [
+          [
+            0,
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "period": 1
+      }
+    ],
+    "criterion": {
+      "acyclic_controls": [
+        {
+          "edges": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "period": 2,
+          "satellite_response": null
+        },
+        {
+          "edges": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "period": 2,
+          "satellite_response": null
+        },
+        {
+          "edges": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "period": 2,
+          "satellite_response": null
+        },
+        {
+          "edges": [
+            false,
+            false,
+            true,
+            true
+          ],
+          "period": 2,
+          "satellite_response": null
+        },
+        {
+          "edges": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "period": 2,
+          "satellite_response": null
+        },
+        {
+          "edges": [
+            false,
+            true,
+            true,
+            false
+          ],
+          "period": 2,
+          "satellite_response": null
+        },
+        {
+          "edges": [
+            true,
+            false,
+            false,
+            false
+          ],
+          "period": 2,
+          "satellite_response": null
+        },
+        {
+          "edges": [
+            true,
+            false,
+            false,
+            true
+          ],
+          "period": 2,
+          "satellite_response": null
+        },
+        {
+          "edges": [
+            true,
+            true,
+            false,
+            false
+          ],
+          "period": 2,
+          "satellite_response": null
+        }
+      ],
+      "all_acyclic_observations_stable": false,
+      "contextual": true,
+      "full_fixed": true,
+      "independent_response": [
+        0,
+        0
+      ],
+      "isolated_observations_stable": true,
+      "matching_acyclic_masks": [],
+      "recurrence_essential": true,
+      "satellite_response": [
+        1,
+        0
+      ]
+    },
+    "edge_ablations": [
+      {
+        "edges": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 2,
+          "status": "complete",
+          "transient": [],
+          "transitions": 2
+        },
+        "satellite_response": null
+      },
+      {
+        "edges": [
+          false,
+          false,
+          false,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 2,
+          "status": "complete",
+          "transient": [],
+          "transitions": 2
+        },
+        "satellite_response": null
+      },
+      {
+        "edges": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 2,
+          "status": "complete",
+          "transient": [],
+          "transitions": 2
+        },
+        "satellite_response": null
+      },
+      {
+        "edges": [
+          false,
+          false,
+          true,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 2,
+          "status": "complete",
+          "transient": [],
+          "transitions": 2
+        },
+        "satellite_response": null
+      },
+      {
+        "edges": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              1,
+              0,
+              1
+            ]
+          ],
+          "period": 2,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "transitions": 4
+        },
+        "satellite_response": null
+      },
+      {
+        "edges": [
+          false,
+          true,
+          false,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              1,
+              0,
+              0
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "transitions": 3
+        },
+        "satellite_response": [
+          0,
+          0
+        ]
+      },
+      {
+        "edges": [
+          false,
+          true,
+          true,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              0,
+              1,
+              1,
+              1,
+              0
+            ]
+          ],
+          "period": 2,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              1,
+              0,
+              0
+            ]
+          ],
+          "transitions": 5
+        },
+        "satellite_response": null
+      },
+      {
+        "edges": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              1,
+              1,
+              0
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              1,
+              0,
+              0
+            ]
+          ],
+          "transitions": 4
+        },
+        "satellite_response": [
+          1,
+          0
+        ]
+      },
+      {
+        "edges": [
+          true,
+          false,
+          false,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 2,
+          "status": "complete",
+          "transient": [],
+          "transitions": 2
+        },
+        "satellite_response": null
+      },
+      {
+        "edges": [
+          true,
+          false,
+          false,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 2,
+          "status": "complete",
+          "transient": [],
+          "transitions": 2
+        },
+        "satellite_response": null
+      },
+      {
+        "edges": [
+          true,
+          false,
+          true,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 2,
+          "status": "complete",
+          "transient": [],
+          "transitions": 2
+        },
+        "satellite_response": null
+      },
+      {
+        "edges": [
+          true,
+          false,
+          true,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 2,
+          "status": "complete",
+          "transient": [],
+          "transitions": 2
+        },
+        "satellite_response": null
+      },
+      {
+        "edges": [
+          true,
+          true,
+          false,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              1,
+              0,
+              1
+            ]
+          ],
+          "period": 2,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "transitions": 4
+        },
+        "satellite_response": null
+      },
+      {
+        "edges": [
+          true,
+          true,
+          false,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              1,
+              0,
+              0
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ]
+          ],
+          "transitions": 3
+        },
+        "satellite_response": [
+          0,
+          0
+        ]
+      },
+      {
+        "edges": [
+          true,
+          true,
+          true,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              0,
+              1,
+              1,
+              1,
+              0
+            ]
+          ],
+          "period": 2,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              1,
+              0,
+              0
+            ]
+          ],
+          "transitions": 5
+        },
+        "satellite_response": null
+      },
+      {
+        "edges": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              1,
+              1,
+              1,
+              0
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              1,
+              0,
+              0
+            ]
+          ],
+          "transitions": 4
+        },
+        "satellite_response": [
+          1,
+          0
+        ]
+      }
+    ],
+    "edges": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "initial": [
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    "orbit": {
+      "cycle": [
+        [
+          0,
+          1,
+          1,
+          1,
+          0
+        ]
+      ],
+      "period": 1,
+      "status": "complete",
+      "transient": [
+        [
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "transitions": 4
+    },
+    "rules": [
+      "or",
+      "or",
+      "xor"
+    ],
+    "schedule": "sync"
+  },
+  "settled_control_witness": {
+    "basins": [
+      {
+        "basin_size": 1,
+        "cycle": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "period": 1
+      },
+      {
+        "basin_size": 7,
+        "cycle": [
+          [
+            0,
+            0,
+            0,
+            1,
+            0
+          ]
+        ],
+        "period": 1
+      }
+    ],
+    "criterion": {
+      "acyclic_controls": [
+        {
+          "edges": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "period": 1,
+          "satellite_response": [
+            0,
+            1
+          ]
+        },
+        {
+          "edges": [
+            false,
+            false,
+            false,
+            true
+          ],
+          "period": 1,
+          "satellite_response": [
+            0,
+            1
+          ]
+        },
+        {
+          "edges": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "period": 1,
+          "satellite_response": [
+            0,
+            1
+          ]
+        },
+        {
+          "edges": [
+            false,
+            false,
+            true,
+            true
+          ],
+          "period": 1,
+          "satellite_response": [
+            0,
+            1
+          ]
+        },
+        {
+          "edges": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "period": 2,
+          "satellite_response": [
+            0,
+            1
+          ]
+        },
+        {
+          "edges": [
+            false,
+            true,
+            true,
+            false
+          ],
+          "period": 2,
+          "satellite_response": [
+            1,
+            1
+          ]
+        }
+      ],
+      "all_acyclic_observations_stable": true,
+      "contextual": true,
+      "full_fixed": true,
+      "independent_response": [
+        0,
+        0
+      ],
+      "isolated_observations_stable": true,
+      "matching_acyclic_masks": [],
+      "recurrence_essential": true,
+      "satellite_response": [
+        1,
+        0
+      ]
+    },
+    "edge_ablations": [
+      {
+        "edges": [
+          false,
+          false,
+          false,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [],
+          "transitions": 1
+        },
+        "satellite_response": [
+          0,
+          1
+        ]
+      },
+      {
+        "edges": [
+          false,
+          false,
+          false,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [],
+          "transitions": 1
+        },
+        "satellite_response": [
+          0,
+          1
+        ]
+      },
+      {
+        "edges": [
+          false,
+          false,
+          true,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [],
+          "transitions": 1
+        },
+        "satellite_response": [
+          0,
+          1
+        ]
+      },
+      {
+        "edges": [
+          false,
+          false,
+          true,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [],
+          "transitions": 1
+        },
+        "satellite_response": [
+          0,
+          1
+        ]
+      },
+      {
+        "edges": [
+          false,
+          true,
+          false,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              1
+            ]
+          ],
+          "period": 2,
+          "status": "complete",
+          "transient": [],
+          "transitions": 2
+        },
+        "satellite_response": [
+          0,
+          1
+        ]
+      },
+      {
+        "edges": [
+          false,
+          true,
+          false,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              1
+            ]
+          ],
+          "transitions": 3
+        },
+        "satellite_response": [
+          0,
+          0
+        ]
+      },
+      {
+        "edges": [
+          false,
+          true,
+          true,
+          false
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              0,
+              0,
+              1,
+              1
+            ],
+            [
+              0,
+              0,
+              1,
+              1,
+              1
+            ]
+          ],
+          "period": 2,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              1
+            ]
+          ],
+          "transitions": 4
+        },
+        "satellite_response": [
+          1,
+          1
+        ]
+      },
+      {
+        "edges": [
+          false,
+          true,
+          true,
+          true
+        ],
+        "orbit": {
+          "cycle": [
+            [
+              0,
+              0,
+              0,
+              1,
+              0
+            ]
+          ],
+          "period": 1,
+          "status": "complete",
+          "transient": [
+            [
+              0,
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              1
+            ]
+          ],
+          "transitions": 3
+        },
+        "satellite_response": [
+          1,
+          0
+        ]
+      }
+    ],
+    "edges": [
+      false,
+      true,
+      true,
+      true
+    ],
+    "initial": [
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "orbit": {
+      "cycle": [
+        [
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      ],
+      "period": 1,
+      "status": "complete",
+      "transient": [
+        [
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          1
+        ]
+      ],
+      "transitions": 3
+    },
+    "rules": [
+      "xor",
+      "or",
+      "xor"
+    ],
+    "schedule": "sync"
+  },
+  "specification": "OP-02B recurrence necessity under edge deletion v0.1",
+  "status": "complete"
+}
