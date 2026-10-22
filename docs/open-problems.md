@@ -1,6 +1,6 @@
 # Open Problems Register
 
-**Version:** 0.1 · **Status vocabulary:** OPEN, PARTIAL, PROVED (scoped), REFUTED, DEFERRED.  
+**Version:** 0.1 · **Status vocabulary:** OPEN, PARTIAL, PROVED (scoped), EXHAUSTIVE (bounded), REFUTED, DEFERRED.
 For each problem, distinguish a mathematical theorem from a bounded enumeration and from randomized evidence. Update the status only with a linked proof, reproducible experiment or counterexample.
 
 ## A. Algebra and semantics — highest priority
@@ -34,6 +34,15 @@ Which responses survive variation in initial state, all declared fair update sch
 **Current evidence:** [Exact Boolean robustness analysis](op-03-robustness.md) covers 512 asynchronous transition graphs, with detailed full-star basins and single-bit/edge tests. The principal OP-02B witness settles under the seven old schedules but fails under the fair repeating schedule `B,B,core,A`. Only A-bit flips are guaranteed to recover its response; deleting K→B destroys stabilization.
 
 **Proof target:** distinguish fixed points, attractor recovery, and structural preservation. Specify a jointly robust and distinguishable response family with explicit schedule/initialization/edit assumptions before adding graded coupling or learning.
+
+### OP-03B — Stability–expressivity trade-offs [EXHAUSTIVE (bounded); scoped investigation complete]
+Can the current Boolean family support stable, distinguishable, contextual responses that recover from single-bit disturbances and tolerate a common structural edit?
+
+**Contract:** [Declared two-input response-family gates](op-03b-contract.md): zero initialization, clamped input, two separately reported schedule regimes, exact observations, one-bit disturbances, and one-time edge deletion. The stronger OP-02B full-star all-controls-stable target remains open.
+
+**Result:** [OP-03B analysis](op-03b-response-family.md) exhausts 768 families per regime. None passes: every recoverable output is `11`, so no two recoverable responses are distinguishable. Within the all-OR subclass, the restricted theorem `D + R = 5` links distinguishable responses to recoverable inputs.
+
+**Next obligation:** move to graded coupling and layer-resolved modes with an explicit correction/recovery question. Do not expand Boolean enumeration or introduce STM learning in this stage.
 
 ### OP-04 — The meaning of overlap [OPEN]
 When do distinct satellites have a shared mode? Is matching labels insufficient; must a mapping preserve composition, constraints or observable responses?
@@ -136,7 +145,7 @@ For each hypothesis, state the smallest counterexample that would overturn it. P
 
 ## Prioritized next three questions
 
-1. **OP-03:** Characterize schedule, state-perturbation, and structural robustness before expanding the local rules. OP-02 and OP-02B are completed scoped baselines; the stronger full-star all-controls-stable target remains open.
+1. **OP-01 + OP-09, guided by OP-03B:** Define a layer-resolved observable and graded-coupling perturbation question that could support two recoverable contextual responses. The bounded Boolean search is complete; retain its negative result and the unresolved full-star all-controls-stable target.
 2. **OP-10:** Derive one certified weak-interaction approximation rule for a restricted class, or find a decisive counterexample.
 3. **OP-11 + OP-13:** Define a structural modification law and measure retention before introducing endogenous dreams.
 
@@ -200,3 +209,14 @@ A measured correlation is not a theorem; a verified finite example is not a gene
 - Code revision: the commit introducing this evidence entry, its accompanying source, tests, and frozen report.
 - Limits: clamped evidence, atomic node fairness, one-time internal-bit flips or edge deletions; no repeated structural learning or graded coupling.
 - Next question: which nontrivial response family satisfies an explicitly declared combination of robustness and distinguishability requirements?
+
+## Evidence entry — OP-03B, bounded response-family investigation
+
+- Claim: under the declared contract, the current three-node OR/XOR family has no distinguishable pair of recoverable responses in either schedule regime; the all-OR subclass obeys `D + R = 5`.
+- Status: EXHAUSTIVE (bounded) impossibility; PROVED (scoped) monotone trade-off theorem. This narrow iteration is complete.
+- Contract and proof: [OP-03B contract](op-03b-contract.md), [results](op-03b-response-family.md).
+- Experiment: `python -m experiments.response_family`; 768 candidate families per regime, no randomness or rollout cap.
+- Frozen report: [response-family.json](../reports/response-family.json).
+- Code revision: the commit introducing this evidence entry, its accompanying source, tests, and frozen report.
+- Limits: fixed Boolean local rules, three internal nodes, zero initial state, fixed evidence pairs, declared schedules and one-shot perturbations. No general robustness/expressivity impossibility is claimed.
+- Next question: can an explicitly defined graded, layer-resolved model correct disturbances while retaining two contextual response signatures?

@@ -25,6 +25,7 @@
 | OP-02 | Algebraic combination differs from an independent set-union control | Complete within its restricted class; original certificate frozen |
 | OP-02B | Recurrent contextual interaction and bounded attractor dynamics | Complete within scoped recurrence-necessity class; stronger full-star stable-control target remains open |
 | OP-03 | Schedule, attractor, and structural robustness | Partial: exact Boolean fair-schedule/basin/edit analysis; main witness fails joint robustness |
+| OP-03B | Joint stability, distinction, context, recovery, and edit tolerance | Bounded investigation complete: no qualifying Boolean family; restricted OR trade-off theorem |
 | Later milestones | Stable structural modes beyond propagation, graded resonance, learning, and abstraction | Open |
 
 - [x] Retain OP-02's two candidate algebras, declared observable, independent control, and scoped minimality certificate.
@@ -35,7 +36,8 @@
 - [x] Specify and test recurrence necessity under matched acyclic edge deletions.
 - [x] Prove the minimum edge count within the declared star-ablation family.
 - [x] Analyze all node-fair atomic schedules, exact basins, single-bit recovery, and single-edge deletion in the existing Boolean model.
-- [ ] Specify a jointly robust, distinguishable response family before expanding the algebra.
+- [x] Specify and exhaust a joint response-family contract in the Boolean control; retain the bounded impossibility result and the OR trade-off theorem.
+- [ ] Define a graded, layer-resolved candidate addressing the identified correction/recovery failure.
 - [ ] Find a fully reciprocal response distinction while all acyclic satellite observations are stable, with declared schedule/initialization requirements.
 - [ ] Define a separate prospective task before claiming useful inference.
 
@@ -43,7 +45,9 @@
 
 ## Milestone 2 — Layering, graded coupling and topology
 
-**Question:** What behavior is due to layers, algebra, or holes?
+**Question:** Can graded coupling and layer-resolved state support two recoverable contextual response signatures, and which mechanism supplies that behavior?
+
+**Entry constraint from OP-03B:** define the response observable, allowed state perturbations, schedule policy, and coupling-edit metric before implementation. Focus first on correcting spurious activation without collapsing distinctions; postpone topology comparisons until that question is testable.
 
 - [ ] Define layer-resolved mode states and graded inter/intra-module couplings.
 - [ ] Compare flat, layered, cyclic, annular and higher-genus finite structures under matched size and rules.
@@ -131,4 +135,4 @@
 
 ### Immediate next iteration
 
-Continue [OP-03](op-03-robustness.md) on the same tiny Boolean model. Define the required combination of schedule robustness, attractor recovery, structural preservation, and distinguishability before expanding local rules or introducing graded coupling. Retain OP-02 and OP-02B as successful scoped baselines; preserve the stronger full-star all-controls-stable target as unresolved. Milestone 0 reporting hardening remains outstanding. Structural learning and dreaming remain deferred.
+The narrow [OP-03B investigation](op-03b-response-family.md) is complete: neither declared schedule regime supplies a distinguishable recoverable response family in the Boolean control. Move to a specified graded-coupling and layer-resolved model, using correction of spurious activation while preserving distinct contextual signatures as the motivating question. Preserve all earlier certificates and the unresolved full-star all-controls-stable target. Do not expand arbitrary Boolean truth tables further. Milestone 0 reporting hardening remains outstanding; structural update sequences, STM, and dreaming remain separate later work.
