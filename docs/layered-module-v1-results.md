@@ -1,4 +1,4 @@
-# Layered module v1 — no configuration meets the profile: linear interiors calm down but lose fine distinctions; double-well interiors amplify incidental variation
+# Layered module v1 — no configuration meets the profile: linear interiors calm down but the declared readout loses fine distinctions; double-well interiors amplify incidental variation
 
 **Completion:** `complete`. Every correctness gate passed, all 80
 configurations are eligible (all 32,000 canonical settlings certified), and
@@ -7,11 +7,15 @@ regeneration is byte-identical.
 **Headline:**
 
 - **No configuration meets the target profile.** The declared candidate depth
-  for Stage 2 is therefore `None`.
+  for Stage 2 is therefore `None`. v1 establishes a failure of this
+  architecture and readout combination. The diagnostics below give clues about
+  why, but they are hypotheses, not established causes.
 - **Linear (harmonic) arm.** Interiors are calmer, and low-frequency
-  distinctions survive at moderate depth. High-frequency distinctions do not
-  survive in any configuration. Ten linear configurations fail **only** on
-  F-high kept distinctions (T3). This is reservation R1 in action.
+  distinctions survive at moderate depth. The declared readout does not
+  recover high-frequency distinctions at the interior in any configuration.
+  Ten linear configurations fail **only** on F-high kept distinctions (T3).
+  This is consistent with reservation R1, but it does not show that the
+  information itself is erased.
 - **Double-well arm.** It does the opposite of what was hoped. Interior
   incidental variance is 0.52–9.2 times the exterior's, and T2 fails in every
   double-well configuration. Responses are multistable (up to 6 distinct
@@ -19,14 +23,17 @@ regeneration is byte-identical.
   0.29–2.0), and keep F-high distinctions no better than the linear arm. Here
   nonlinearity amplifies nuisance instead of protecting distinctions, so R2 is
   not answered positively by this potential.
-- **Two causes of lost F-high distinctions, from diagnostics.** These are not
-  primary results:
-  - F-high separation collapses on rings of 21 or fewer units, in both arms.
-    Rings of 16 or fewer cannot represent the mode-8 pattern at all.
-  - On larger rings (24–27 units) the information is still present: the
-    Mahalanobis separation is 4.7–6.2 at `σ₀ = 0.03`. The declared
-    nearest-mean classifier cannot use it, because low-frequency nuisance
-    dominates an unweighted distance.
+- **Diagnostic clues about lost F-high distinctions.** These are hypotheses,
+  not primary results:
+  - The training-set Mahalanobis separation for F-high drops sharply on rings
+    of 21 or fewer units, in both arms. Smaller rings lose a faithful spatial
+    representation of the mode-8 pattern. That alone does not prove the class
+    information is erased: aliased patterns, and radial coupling to other
+    layers, could still carry it.
+  - On larger rings (24–27 units) the Mahalanobis separation stays at 4.7–6.2
+    at `σ₀ = 0.03`, while the declared unweighted nearest-mean readout
+    performs poorly. This suggests recoverable information. It does not show
+    successful held-out decoding by any other readout.
 
 [Contract](layered-module-v1-contract.md) (sha256 `7cb93213…`) ·
 [manifest](../reports/layered-module-v1-manifest.json) ·
@@ -35,14 +42,15 @@ regeneration is byte-identical.
 
 **Provenance.**
 
-- The contract, manifest, code and tests were committed in `2d48ac5` before
-  any scored computation.
+- The contract, manifest, code and tests were committed before any scored
+  computation.
 - The first scored run crashed while writing its report: a numpy `int64` was
   not JSON-serializable. It produced no output file, and no scored values were
   inspected.
 - The only change since is in the report-rounding helper, which now converts
-  numpy scalars (`experiments/layered_module.py`, uncommitted). No measure,
-  threshold or setting changed. The run was then repeated.
+  numpy scalars (`experiments/layered_module.py`, committed with these
+  results). No measure, threshold or setting changed. The run was then
+  repeated.
 
 ## Correctness gates (all passed)
 
@@ -112,26 +120,34 @@ Values are listed by layer, exterior first.
 | linear `μ=0`, `L=6` (rings 32/27/21/16/11/5) | 8.9, 6.2, 1.5, 0.9, 0.6, 0.1 | 9.4, 9.1, 8.1, 7.4, 6.8, 4.1 |
 | double well `β=1`, `L=4` | 8.4, 4.0, 0.9, 0.7 | 7.9, 6.6, 5.0, 4.3 |
 
-F-high separation survives on 24- and 27-unit rings and collapses on rings of
-21 or fewer units. A cos 8θ pattern needs more than 16 samples per ring to be
-represented without aliasing, so rings of 16 or fewer cannot carry it at all.
-The 21-unit ring can represent it but has already attenuated it. The
-shrinking-ring disk geometry therefore caps fine distinctions at a fixed
-depth, on top of harmonic attenuation.
-This is the depth confound declared in contract section 2.1, now with a
-concrete mechanism.
+These are training-half separations. They indicate how much class
+information may be recoverable; they are not held-out decoding results.
+
+F-high separation stays high on 24- and 27-unit rings and drops sharply on
+rings of 21 or fewer units. On a 16-unit ring, mode 8 is the Nyquist mode: its
+cosine component survives and its sine component vanishes. Smaller rings carry
+aliased patterns. Faithful spatial representation is lost there, but class
+information need not be.
+
+In this design, smaller rings are also deeper, so geometric loss and
+attenuation vary together. The observed collapse does not separate them. That
+is the depth confound declared in contract section 2.1, and resolving it
+needs a controlled follow-up.
 
 ## Readings
 
-1. **R1 is real in this family.** The harmonic interior is calmer, but fine
-   distinctions do not reach it. Two mechanisms act together: ring sizes too
-   small to represent the pattern, and attenuation relative to coarse nuisance.
+1. **Consistent with R1 for this architecture and readout.** The harmonic
+   interior is calmer, but the declared readout does not recover fine
+   distinctions there. Three candidate explanations remain unseparated:
+   geometric loss on shrinking rings, attenuation relative to coarse nuisance,
+   and limits of the readout.
 2. **The double well is not the hoped-for remedy.** Local bistability turns
    small interior differences into ±1 commitments, but these follow nuisance
    as much as signal. The result is noisier, start-dependent interiors.
-3. **Classifier choice matters on larger inner rings.** The information
-   survives there but is not linearly separable by unweighted distance. This
-   is reported as a diagnostic. The primary criterion is unchanged.
+3. **The declared readout performs poorly on larger inner rings.** That does
+   not establish a lack of linear separability: a covariance-aware classifier
+   can also have linear decision boundaries. Whether such a readout succeeds
+   on held-out data is untested. The primary criterion is unchanged.
 
 ## What this does not establish
 
@@ -154,10 +170,11 @@ concrete mechanism.
 
 1. The stopping rule applies. Do not retune thresholds, classifiers, ring sizes
    or potentials inside v1.
-2. A follow-up contract could separate the two F-high mechanisms. One option
-   is constant ring sizes, to remove aliasing. Another is a declared whitened or
-   learned readout, to separate information present from information usable by
-   distance. Field drives (contract section 10) remain a required arm.
+2. A controlled follow-up should hold ring width constant across layers, and
+   declare both the ordinary nearest-mean readout and a covariance-aware
+   readout, scored on held-out data. That would separate geometric loss,
+   attenuation and readout limitations. The required field-drive arm
+   (contract section 10) remains outstanding.
 3. A nonlinear arm that calms nuisance would need a different mechanism from
    independent double wells. Candidates include saturating rather than
    bistable units, or interior-only nonlinearity. Any such arm needs a new
