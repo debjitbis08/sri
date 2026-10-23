@@ -102,6 +102,43 @@ complex can still support two nonlinear modes at f=1/4, while f=1/2 and 1 erase
 them. These modes need not be harmonic cochains: the nonlinear term balances the
 cellular penalty. The fixed attachment alone does not determine their number.
 
+## Coupled versus uncoupled pulse outcomes
+
+The declared approximation test compares each coupled pulse with the same variant,
+context, and pulse at gamma=0. That reference omits the context term entirely.
+All 96 comparisons are recorded. Every omitted run converged; four coupled runs
+are unresolved at the time cap and are marked as such below.
+
+For c=+1, the final-output differences for the negative pulse, which opposes the
+context preference, are below. Where the positive pulse also changes, its
+difference is in parentheses.
+
+| Variant | gamma=1/4 | gamma=1 | gamma=2 | gamma=4 |
+| --- | --- | --- | --- | --- |
+| Cellular only | approximately 1.999849, unresolved | 2 | 2 | 2 |
+| Graded relation only | approximately 0.088562 | approximately 0.316989 | 3 | 3 |
+| Combined, constant attachment | approximately 0.059041 | approximately 0.211325 | approximately 0.495865, unresolved | 2 |
+| Combined, disk weight 1/4 | approximately 0.135850 (0.019402) | approximately 1.372280 (0.049405) | approximately 1.389916 (0.067041) | approximately 1.404796 (0.081921) |
+| Combined, disk weight 1/2 | approximately 0.235425 | approximately 0.381323 | approximately 0.439807 | approximately 0.482378 |
+| Combined, disk weight 1 | approximately 0.042494 | approximately 0.116530 | approximately 0.163740 | approximately 0.205079 |
+
+For constant attachment and both controls, the context-aligned pulse is unchanged
+by coupling. The disk variants shift both pulses, and at weights 1/2 and 1 both
+pulses shift by the same amount because only one mode remains. Results for c=-1
+are the sign reflection. The four unresolved coupled runs are the opposing pulses
+for cellular-only at gamma=1/4 and combined at gamma=2, under both contexts. In
+the relation-only control at gamma>=2, the mean moves to the context preference,
+but the output settles at 2 because the pulse's contrast is never removed.
+
+Omitting the coupling is therefore not an approximation at the declared recovery
+tolerance 1e-5, even at gamma=1/4. In the combined model the error grows with
+coupling. It stays below 1/2 while both modes exist and reaches 2 once context
+overrides the opposing pulse at gamma=4. Cellular-only dynamics are already
+overridden at gamma=1/4. The disk weight 1/4 error jumps between gamma=1/4 and 1,
+where that variant loses its second mode. These are finite-horizon differences
+at the declared grid points. They are not error bounds between those points or
+for other pulses.
+
 ## Topology and approximation: limited credit
 
 Changing attachment and its weight affects the modes under matched cell counts.
