@@ -96,8 +96,13 @@ def freeze_manifest(out):
 
 
 def rnd(x):
-    """Round floats to 10 significant digits, recursively."""
-    if isinstance(x, float):
+    """Round floats to 10 significant digits and convert numpy scalars, recursively."""
+    if isinstance(x, np.bool_):
+        return bool(x)
+    if isinstance(x, np.integer):
+        return int(x)
+    if isinstance(x, (float, np.floating)):
+        x = float(x)
         return float(f'{x:.10g}')
     if isinstance(x, dict):
         return {k: rnd(v) for k, v in x.items()}
