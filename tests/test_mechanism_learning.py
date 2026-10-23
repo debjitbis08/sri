@@ -297,6 +297,14 @@ class ProvenanceTests(unittest.TestCase):
             self.assertEqual(hashlib.sha256((ROOT / p).read_bytes()).hexdigest(), h, p)
         self.assertEqual(hashlib.sha256((ROOT / m['contract']).read_bytes()).hexdigest(), m['contract_sha256'])
 
+    def test_completion_requires_passing_tests(self):
+        from experiments.mechanism_learning import completion_status
+        ok, bad = dict(passed=True), dict(passed=False)
+        self.assertEqual(completion_status(ok, ok), 'complete')
+        self.assertEqual(completion_status(ok, bad), 'stopped_failed_tests')
+        self.assertEqual(completion_status(bad, ok), 'stopped_failed_correctness_gate')
+        self.assertEqual(completion_status(bad, bad), 'stopped_failed_correctness_gate')
+
 
 if __name__ == '__main__':
     unittest.main()

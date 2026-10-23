@@ -676,6 +676,12 @@ def run_tests():
     return dict(run=res.testsRun, failures=len(res.failures), errors=len(res.errors), passed=res.wasSuccessful())
 
 
+def completion_status(gate, tests):
+    if not gate['passed']:
+        return 'stopped_failed_correctness_gate'
+    return 'complete' if tests['passed'] else 'stopped_failed_tests'
+
+
 ROW_HEAD = ['teacher', 'arm', 'split', 'order', 'checkpoint', 'partition', 'learner', 'counts']
 
 
@@ -751,7 +757,7 @@ def main(argv=None):
     tests = run_tests()
     timing['tests'] = time.perf_counter() - t0
     head = dict(experiment=PREFIX, contract=CONTRACT, manifest_sha256=m['sha256'],
-                completion='complete' if gate['passed'] else 'stopped_failed_correctness_gate',
+                completion=completion_status(gate, tests),
                 correctness_gate=gate, checks=checks, tests=tests, targets=tg, work=work, runs=runs,
                 logical_storage=dict(version_space_bits=N_VECTORS, local_model='7 ternary coefficients',
                                      memory='stored (query, key) entries; see runs'),

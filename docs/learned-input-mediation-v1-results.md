@@ -1,4 +1,4 @@
-# Learned input mediation v1 — outputs identify the mechanism here, except for one negative control
+# Learned input mediation v1 — outputs identify the mechanism here; for one negative control they leave it uncertain
 
 **Completion:** `complete`. Every correctness gate passed and the full declared grid
 ran: 4 teachers × 2 arms × 5 splits × 5 orders × 4 checkpoints.
@@ -8,12 +8,18 @@ ran: 4 teachers × 2 arms × 5 splits × 5 orders × 4 checkpoints.
 - **Exact learners:** for S1 and C2, the exact version-space learners recover both
   unseen response sets and the tested mechanism from 15 axis-evidence queries, in
   both arms and in every split.
-- **Local learner:** it reaches the S1 and C2 mechanisms only with clamp
-  supervision (arm I). With canonical outputs alone (arm O) it fails both.
+- **Local learner:** clamp supervision (arm I) makes recovery consistent: 25/25
+  runs for both S1 and C2. With canonical outputs alone (arm O) recovery is
+  possible but unreliable: C2 in 9/25 runs, S1 in 0/25. Arm O misses target 4
+  for both.
 - **Mechanism uncertainty:** the outcome this design was built to detect occurs
   for the negative control S2. In arm O, five survivors in every split match all
   30 within-context held-out outputs, yet carry a forward input chain the teacher
-  does not have. That is false mechanism attribution. Arm I removes it.
+  does not have. The teacher and its mirror survive as well, so the version space
+  is mechanism-heterogeneous and the learner certifies no mechanism. It reports
+  uncertainty; it does not falsely certify a chain. The contract counts any such
+  survivor as false attribution, so target 5 fails as declared. Arm I removes
+  the false survivors.
 
 [Contract](learned-input-mediation-v1-contract.md) (sha256 `48b17786…`, frozen in
 the manifest before computation; not edited afterwards) ·
@@ -68,7 +74,7 @@ T1. For S1 and C2, both class members carry the teacher's forward witnesses.
 | 3. Mechanism identification, arm I | **pass**: 5/5 | **pass**: 5/5 |
 | Arm I strictly improves on arm O | no (both already at the ceiling) | no |
 | 4. Local learner, arm O: accuracy within / mixed (zero baseline); retention; behavioural recovery | **fail**: 0.417 / 0.313 (0.367 / 0.222); 49.3%; 0/25 | **fail**: 0.624 / 0.544 (0.280 / 0.111); 56.2%; 9/25 |
-| 4. Local learner, arm I | **pass**: 1.000 / 1.000; 97.4%; 25/25 | **fail on retention only**: 1.000 / 1.000; **77.2%** (B1-only 87.5%); 25/25 |
+| 4. Local learner, arm I | **pass**: 1.000 / 1.000; 97.4%; 25/25 | **fail on retention only**: 1.000 / 1.000; **77.2%** (B1-only 87.5%; see below); 25/25 |
 
 Details behind the table:
 
@@ -80,11 +86,18 @@ Details behind the table:
   24/25, plus 1 run on the teacher itself). That is representational symmetry,
   not an error: the mirror passes the teacher-specific gate and reproduces every
   positive witness atom.
-- **C2 retention in arm I.** The final models are exact, but intermediate updates
-  break earlier complete feedback maps. Retention is pooled over all steps.
+- **C2 retention in arm I is not a forgetting rate.** The metric is the fraction
+  of earlier feedback maps reproduced after each update, pooled over all steps.
+  A failed check can be an item not yet learned or an item learned and later
+  broken. Of 2,625 checks, 598 fail. Only 19 of them are updates that break a
+  map correct just before (`lost_previously_correct`). The other 579 were already
+  wrong before that update: never acquired yet, or broken earlier and not yet
+  repaired. The per-step counter does not separate those two cases. The final
+  models are exact. For S1 in arm I the corresponding count is 12.
 - **Local learner, arm O.** It drifts among many vectors: 15 distinct final vectors
   for S1 and 12 for C2. It recovers C2's behaviour in 9 runs (the mirror) and S1's
-  in none. Its worst-split accuracy is 0.0 on S1's mixed partition. Every per-run
+  in none. So observational feedback alone can support recovery with this rule;
+  clamp supervision makes it reliable. Its worst-split accuracy is 0.0 on S1's mixed partition. Every per-run
   vector is in `runs`.
 
 ## Negative controls (target 5)
@@ -102,6 +115,13 @@ arm-O survivors agree with S2 on **all 30 within-context held-out outputs**. The
 differ on the mechanism battery, and each carries a false SF chain. Within that
 partition the observations certify the outputs (30/30 in splits 0–3) but not the
 mechanism.
+
+This is preserved uncertainty, not a false certificate. The teacher is never
+eliminated, so the correct candidates (teacher and mirror) survive beside the
+false ones. The surviving set disagrees on the SF chain, so the exact learner
+cannot and does not certify it. That is the version space working as intended.
+The target fails because the contract demands zero false-chain survivors, a
+stronger requirement than sound certification.
 
 These survivors are separable. Only 2 of the 7 match S2 on the mixed-evidence
 queries, so more observational coverage would expose them, as the ceiling says it
@@ -174,6 +194,10 @@ coefficients for the local model.
   beforehand. "Held out" means withheld from the learner only.
 - **No plasticity law.** The local learner uses global set error, and its arm-O
   failure says nothing about other local rules.
+- **Retention is not forgetting.** The retention metric mixes items not yet
+  acquired with items acquired and later broken (see the C2 arm-I note).
+- **No cause for the arm-O local failure.** The run does not show why arm O
+  fails. That the rule needs coordinated cross-block edits is a hypothesis.
 - **Arm I's advantage has two sources.** It combines intervention with access to
   internal input readouts.
 - **No broader claims.** Nothing here shows autonomous discovery, robustness,
@@ -181,14 +205,32 @@ coefficients for the local model.
 
 ## Next obligations (not run)
 
-- **Coverage.** The S2 result says where to look next: which training coverage
-  removes false attribution without internal readouts? For example, clamp
-  observations with B1-only readout would separate intervention from richer
-  observation.
-- **Local learning.** The arm-O local learner needs a rule that can coordinate
-  edits across blocks, since S1's chain spans two blocks.
+The open question is whether the mechanism can be learned reliably from less
+privileged feedback while preserving earlier behaviour. The next study should
+isolate what makes local learning succeed. Keep the local update rule fixed at
+first and compare three supervision conditions:
 
-Both need a new contract.
+1. Ordinary observations with additional mixed-input coverage.
+2. Satellite clamps with only external satellite-output (B1) readout.
+3. The existing clamps plus internal input readouts (arm I as run here).
+
+For each condition, report supervision cost, final mechanism recovery, and
+acquisition and forgetting as separate quantities. Track per-item state so an
+item never acquired is distinguished from one acquired and later lost. The same
+conditions also answer the S2 coverage question: which feedback removes false
+chain survivors without internal readouts. A change to the update rule, for
+example one that coordinates edits across blocks, should come only after this
+comparison. It is a hypothesis, not a finding.
+
+This needs a new contract.
+
+**Correction for future runs.** In this run, the `completion` field does not
+depend on `tests['passed']`. A failed test suite could therefore still report
+`complete`. The tests passed here (15/15), so this run is unaffected. The fix
+(`completion_status`, which reports `stopped_failed_tests`) is in
+`experiments/mechanism_learning.py`, with a regression test in
+`tests/test_mechanism_learning.py`. Both files' current hashes therefore differ
+from those recorded in the report's provenance.
 
 Reproduce:
 
