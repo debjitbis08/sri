@@ -222,7 +222,8 @@ chain survivors without internal readouts. A change to the update rule, for
 example one that coordinates edits across blocks, should come only after this
 comparison. It is a hypothesis, not a finding.
 
-This needs a new contract.
+This needs a new contract; a draft is
+[local learning supervision v1](local-learning-supervision-v1-contract.md).
 
 **Correction for future runs.** In this run, the `completion` field does not
 depend on `tests['passed']`. A failed test suite could therefore still report
