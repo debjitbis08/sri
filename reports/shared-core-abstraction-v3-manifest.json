@@ -1,0 +1,509 @@
+{
+ "schema": "shared-core-abstraction-v3",
+ "contract": "docs/shared-core-abstraction-v3-contract.md",
+ "contract_sha256": "e8b278098cd322576cbf92c842df0b145fe2e2bb184c7389092c3ff0a4c12545",
+ "split_file": "reports/learned-reciprocal-participation-v1-splits.json",
+ "split_file_sha256": "5f34bc3bc70a84054796f2cf4aa857792046b5361ac028c1cc3704512d5aee47",
+ "coefficient_order": [
+  "w_1A",
+  "w_2A",
+  "w_1B",
+  "w_2B",
+  "w_KA",
+  "w_KB",
+  "w_12"
+ ],
+ "teachers": {
+  "S1": [
+   3,
+   3,
+   3,
+   0,
+   3,
+   -3,
+   0
+  ],
+  "C2": [
+   3,
+   0,
+   0,
+   -3,
+   3,
+   -3,
+   -3
+  ],
+  "S2": [
+   3,
+   3,
+   3,
+   0,
+   3,
+   3,
+   0
+  ],
+  "T1": [
+   3,
+   0,
+   0,
+   -3,
+   3,
+   -3,
+   0
+  ]
+ },
+ "positive_teachers": [
+  "S1",
+  "C2"
+ ],
+ "specificity_controls": [
+  "S2",
+  "T1"
+ ],
+ "assignments": {
+  "0/base": {
+   "A": [
+    10,
+    16,
+    33,
+    39,
+    42,
+    50,
+    64,
+    69
+   ],
+   "B": [
+    14,
+    32,
+    34,
+    40,
+    46,
+    51,
+    65
+   ]
+  },
+  "0/swapped": {
+   "A": [
+    14,
+    32,
+    34,
+    40,
+    46,
+    51,
+    65
+   ],
+   "B": [
+    10,
+    16,
+    33,
+    39,
+    42,
+    50,
+    64,
+    69
+   ]
+  },
+  "1/base": {
+   "A": [
+    13,
+    16,
+    29,
+    36,
+    40,
+    47,
+    63,
+    66
+   ],
+   "B": [
+    14,
+    28,
+    32,
+    39,
+    45,
+    51,
+    65
+   ]
+  },
+  "1/swapped": {
+   "A": [
+    14,
+    28,
+    32,
+    39,
+    45,
+    51,
+    65
+   ],
+   "B": [
+    13,
+    16,
+    29,
+    36,
+    40,
+    47,
+    63,
+    66
+   ]
+  },
+  "2/base": {
+   "A": [
+    13,
+    17,
+    29,
+    37,
+    39,
+    50,
+    66,
+    70
+   ],
+   "B": [
+    14,
+    28,
+    30,
+    38,
+    49,
+    53,
+    68
+   ]
+  },
+  "2/swapped": {
+   "A": [
+    14,
+    28,
+    30,
+    38,
+    49,
+    53,
+    68
+   ],
+   "B": [
+    13,
+    17,
+    29,
+    37,
+    39,
+    50,
+    66,
+    70
+   ]
+  },
+  "3/base": {
+   "A": [
+    12,
+    16,
+    30,
+    37,
+    41,
+    49,
+    65,
+    69
+   ],
+   "B": [
+    15,
+    27,
+    35,
+    38,
+    48,
+    51,
+    66
+   ]
+  },
+  "3/swapped": {
+   "A": [
+    15,
+    27,
+    35,
+    38,
+    48,
+    51,
+    66
+   ],
+   "B": [
+    12,
+    16,
+    30,
+    37,
+    41,
+    49,
+    65,
+    69
+   ]
+  },
+  "4/base": {
+   "A": [
+    9,
+    13,
+    32,
+    38,
+    40,
+    51,
+    64,
+    71
+   ],
+   "B": [
+    11,
+    27,
+    34,
+    39,
+    49,
+    52,
+    65
+   ]
+  },
+  "4/swapped": {
+   "A": [
+    11,
+    27,
+    34,
+    39,
+    49,
+    52,
+    65
+   ],
+   "B": [
+    9,
+    13,
+    32,
+    38,
+    40,
+    51,
+    64,
+    71
+   ]
+  }
+ },
+ "training_ids": {
+  "0": [
+   10,
+   14,
+   16,
+   32,
+   33,
+   34,
+   39,
+   40,
+   42,
+   46,
+   50,
+   51,
+   64,
+   65,
+   69
+  ],
+  "1": [
+   13,
+   14,
+   16,
+   28,
+   29,
+   32,
+   36,
+   39,
+   40,
+   45,
+   47,
+   51,
+   63,
+   65,
+   66
+  ],
+  "2": [
+   13,
+   14,
+   17,
+   28,
+   29,
+   30,
+   37,
+   38,
+   39,
+   49,
+   50,
+   53,
+   66,
+   68,
+   70
+  ],
+  "3": [
+   12,
+   15,
+   16,
+   27,
+   30,
+   35,
+   37,
+   38,
+   41,
+   48,
+   49,
+   51,
+   65,
+   66,
+   69
+  ],
+  "4": [
+   9,
+   11,
+   13,
+   27,
+   32,
+   34,
+   38,
+   39,
+   40,
+   49,
+   51,
+   52,
+   64,
+   65,
+   71
+  ]
+ },
+ "task_counts": {
+  "per_split": 32767,
+  "stage_a": 655340,
+  "stage_b": 1310680,
+  "envelope_pairs_per_split": 1073741824
+ },
+ "block_order": [
+  [
+   -3,
+   -3
+  ],
+  [
+   -3,
+   0
+  ],
+  [
+   -3,
+   3
+  ],
+  [
+   0,
+   -3
+  ],
+  [
+   0,
+   0
+  ],
+  [
+   0,
+   3
+  ],
+  [
+   3,
+   -3
+  ],
+  [
+   3,
+   0
+  ],
+  [
+   3,
+   3
+  ]
+ ],
+ "core_order": [
+  [
+   0,
+   0
+  ],
+  [
+   -3,
+   0
+  ],
+  [
+   0,
+   -3
+  ],
+  [
+   0,
+   3
+  ],
+  [
+   3,
+   0
+  ],
+  [
+   -3,
+   -3
+  ],
+  [
+   -3,
+   3
+  ],
+  [
+   3,
+   -3
+  ],
+  [
+   3,
+   3
+  ]
+ ],
+ "source_states": [
+  "empty",
+  "identifies",
+  "ambiguous",
+  "uninformative"
+ ],
+ "joint_states": [
+  "empty",
+  "two_link",
+  "other_single",
+  "ambiguous"
+ ],
+ "labels": [
+  "inconsistent_private_assembly",
+  "wrong_private_branch",
+  "not_structural",
+  "not_behavioral",
+  "c0_already_correct",
+  "cut_survives",
+  "preservation_vacuous",
+  "preservation_lost",
+  "mixed_regression",
+  "no_net_gain"
+ ],
+ "rules": [
+  "dynamics, responses, assemblies, isolated waking filters: v1 src/core_abstraction.py unchanged; nine-bit core filter, minimal-change order and evaluate(): v2 src/core_abstraction_v2.py unchanged",
+  "task J: nonempty subset of the split's 15 training IDs; both satellites observe their own full-teacher marginal on every event of J; masks are intersections of atomic one-observation masks",
+  "subset bitmask bit j = j-th ascending training ID; task order (|J|, sorted J); witnesses A before B, then ascending query; envelope pairs ordered (|J_A|+|J_B|, sorted J_A, sorted J_B)",
+  "source state by surviving sign classes: 0 empty, 1 identifies, 2-4 ambiguous, 5 uninformative; joint state empty, two_link, other_single, ambiguous",
+  "structural: both sources ambiguous, joint two_link, teacher core in C_AB on the true branch (nonempty C_AB elsewhere); behavioral: mixed (s,x) with |Pred_s(C_A,x)|>1, |Pred_s(C_B,x)|>1, Pred_s(C_AB,x)={M_s(T,x)}",
+  "installed core: first of C_AB in minimal-change order 0,0 -3,0 0,-3 0,3 3,0 -3,-3 -3,3 3,-3 3,3",
+  "level 3 (full witness) at a behavioral (s,x): c0 incorrect, installed exact, both single-link cuts incorrect, recipient net mixed gain > 0, no mixed regression in either satellite, coupled preservation nonvacuous and held",
+  "route criterion (secondary): additionally installed vs c0 recipient marginal differ with inputs frozen",
+  "Stage A: true private blocks, assignment-independent; cross-context diagnostic over both satellites on all 15 training queries",
+  "Stage B: v1/v2 isolated acquisition per assignment; per-branch masks for every task; executable branch = first (index p_A, index p_B) with nonempty C_AB, else first branch with c0 and inconsistent; executable success = selected branch is the true branch and level 3 holds; full witness on another branch is compensating",
+  "source omission end to end: omitted source masks full on every branch; branch = first with nonempty remaining mask; core = its first core",
+  "envelope: true branch, all 2^15 x 2^15 subset pairs; counts by total budget for identical, disjoint and any overlap; exact via per-source mask groups (convolution) cross-checked by a four-choice joint DP"
+ ],
+ "disclosures": [
+  "v2 known: S1 donor-dependent executable witnesses in 4/10 runs (A own mask full, B pins +-(3,-3)); C2 0/10, each satellite own assigned marginals pin +-(3,-3); T1 2/10; S2 C_AB holds 7 cores incl c0",
+  "v2 known: archived C2 V_A = {(0,-3),(3,-3),(3,0)} with true p_A = (3,0) last in branch order",
+  "analytic: structural on the true branch implies C_AB = teacher mirror pair; installed model equals teacher on all 81 queries; acquisition, preservation, no regression and positive net gain then follow at any c0-incorrect witness",
+  "analytic: condition 6 at fixed assembly equals the behavioral clause; Stage B true-branch masks equal Stage A",
+  "no v3 atomic mask, subset census, or complementarity computation was performed before this manifest"
+ ],
+ "prior_artifacts": {
+  "reports/learned-reciprocal-participation-v1-splits.json": "5f34bc3bc70a84054796f2cf4aa857792046b5361ac028c1cc3704512d5aee47",
+  "src/shared_input_mediation.py": "9ff606b02717121c032ec2a2ae0110b7202406f2a1fb3a77e96308fdd21d3374",
+  "tests/test_shared_input_mediation.py": "c0046f494bf44ef1aff29ef952395df62114c7cfabf2aa9ac26183b1e7df4d23",
+  "src/core_abstraction.py": "32304d6520ab3df7affc0aaae7d4c52a59baaf4e950d5d944df91ea29c890c71",
+  "experiments/core_abstraction.py": "9d66de66ec650e38af1f86a8619e545b1bbb33353a965751964f91130dbf6f3c",
+  "tests/test_core_abstraction.py": "714bc21bb143eef04de18f136d2190a26b7c9d96b27f5d569016f1a4132d6167",
+  "docs/core-abstraction-v1-contract.md": "fe8cf4efa2b900899f7738912d701d3d7bfca8f42f6e7269d5ad9a5c8cff71c3",
+  "docs/core-abstraction-v1-results.md": "713643ddc28d2c14edfc578b2ddf183f811b5bf996fcb9cf2a546bee04336fc4",
+  "reports/core-abstraction-v1-manifest.json": "c6dfc0bbd9bd11e1f0deb20b0d0823b756bc81d9b074a09b3ced555c1f0556a3",
+  "reports/core-abstraction-v1-ceiling.json": "7701a0821c56c7ef82866d4667cbdef38346d6ad8317ac1872427079e727311b",
+  "src/core_abstraction_v2.py": "45d81cb00c11fb26f07887670d491627e7c813d10937a3f3ae8dc31d26dce902",
+  "experiments/core_abstraction_v2.py": "dd10b0ed186325cd70df631d0082e99221dedf127d19f640ce52c62cb58cf8ef",
+  "tests/test_core_abstraction_v2.py": "1e8d1b7a6b55a76b0036df1f7826b49dfca4084b2d31e172df19c62913422b8d",
+  "docs/core-abstraction-v2-contract.md": "e724d8fc71827e67db75924ff54599383844bb284e18f00f11bc49e92a5d280b",
+  "docs/core-abstraction-v2-results.md": "41780aa159fca74e66386cb676b9c8acca043d77590847da8f1c829a483efea5",
+  "reports/core-abstraction-v2-manifest.json": "11d2ad75022ac7430d0a6d9882a335d385d858a75adf99128ab6b2bfb625cdb3",
+  "reports/core-abstraction-v2-feasibility.json": "5b03a0d167d98d834910fcb6352723a7dae8f56544db2a463217555ffed39290",
+  "reports/core-abstraction-v2-selector.json": "8d8c4c3049ca76485a74abad0dbf8983485e5e373a823a0d162f6ac09db62efd"
+ },
+ "sha256": "3278f02229b852329c92413d0e412953d31346b47de5b6e743f35d5058bb0ee6"
+}
