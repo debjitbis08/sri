@@ -1,8 +1,16 @@
 # Layered module v1 — exterior sensitivity, interior nuisance suppression and kept distinctions in one module
 
-**Status:** prospective draft, 2026-10-24. Not frozen, implemented, or scored.
-Review before implementation. Freeze a contract and manifest before any scored
-computation.
+**Status:** prospective; frozen for implementation on 2026-10-24. Freeze this
+contract's hash in the manifest before any scored computation.
+
+**Pre-implementation change (2026-10-24, before any scored computation).** The
+draft ran the Newton polish only when `‖∇E‖∞ ≥ 1e−8`. Certification at
+`1e−8` bounds the state error only by `1e−8/λ_min`, which can exceed the
+linear gates' `1e−7` and `1e−8` tolerances. The polish now always runs, aiming
+at `‖∇E‖∞ < 1e−12` (section 2.3). Near a minimum, energy differences fall
+below floating-point resolution, so a step is also accepted when it does not
+raise `E` beyond `1e−12·max(1,|E|)` and strictly lowers `‖∇E‖∞`.
+Certification thresholds are unchanged.
 
 **Scope decisions at review (2026-10-24):**
 
@@ -31,7 +39,7 @@ The earlier substrate has five scalar units and no layers. It cannot show
 modules that have a detailed exterior, a calmer interior, or a core that
 builds up and helps many satellites. The planned sequence is:
 
-1. **Stage 1 (this draft).** One module, no learning. Characterize how a layered
+1. **Stage 1 (this contract).** One module, no learning. Characterize how a layered
    module responds to exterior perturbations at each depth.
 2. **Stage 2.** Global Input and Output modules (which have layers), two
    satellites, and a core.
@@ -60,7 +68,7 @@ lateral-coupling gradient change this?
 
 The **harmonic extension** on a disk motivates the question. For boundary data
 `f(θ)=Σ a_n e^{inθ}`, the interior is `u(r,θ)=Σ a_n r^{|n|} e^{inθ}`. High
-frequencies fade inward. This draft takes up the two reservations recorded for
+frequencies fade inward. This contract takes up the two reservations recorded for
 that analogy:
 
 - **R1.** Attenuation might erase distinctions that are essential for
@@ -142,9 +150,11 @@ The gradient and Hessian are analytic: graph Laplacian terms, plus `V'` and
 - **Optimizer.** `scipy.optimize.minimize(method='L-BFGS-B')`, with no bounds
   and the analytic gradient. Options: `maxiter=20000`, `maxcor=20`, `ftol=0`,
   `gtol=1e−11`, `maxls=50`. Start from `u = 0` (the canonical start).
-- **Polish.** If `‖∇E‖∞ ≥ 1e−8` afterwards, take up to 20 Newton steps with the
-  exact Hessian. Each step uses backtracking (factor ½, at most 30 halvings) and
-  is accepted only if it lowers `E`.
+- **Polish.** Then take up to 20 Newton steps with the exact (dense) Hessian,
+  stopping once `‖∇E‖∞ < 1e−12`, when the Hessian is singular, or when no step
+  is accepted. Each step uses backtracking (factor ½, at most 30 halvings). A
+  step is accepted if it lowers `E`, or if it raises `E` by at most
+  `1e−12·max(1,|E|)` while strictly lowering `‖∇E‖∞`.
 - **Certification.** A state is *certified* if `‖∇E‖∞ < 1e−8` and the smallest
   eigenvalue of the dense Hessian is `> 1e−8` (`numpy.linalg.eigvalsh`; at
   most 113 units). Otherwise it is *unsettled*. A saddle counts as unsettled.
@@ -318,7 +328,8 @@ and family, so a reader can apply other thresholds.
   manifest. Regeneration in a temporary directory is byte-identical. Runtime
   metadata is kept in a separate file.
 - **Environment.** Pinned numpy/scipy versions from `requirements.txt`,
-  recorded in the manifest.
+  recorded in the manifest. BLAS runs on one thread, for speed on these small
+  matrices and for reproducible floating-point results.
 
 ## 10. Deferred arms (required later, not in this run)
 

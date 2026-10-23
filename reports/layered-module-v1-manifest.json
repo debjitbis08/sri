@@ -1,0 +1,124 @@
+{
+ "schema": "layered-module-v1",
+ "contract": "docs/layered-module-v1-contract.md",
+ "contract_sha256": "7cb93213bb7eb1c5c695e216fa5ce470c4d1769693f46fb267ba197770ff6fd6",
+ "requirements_sha256": "983665a6331eda07ab1f4b23ef92d66f4b024c27b360ee0e7420511ef3b28c64",
+ "numpy": "2.5.4",
+ "scipy": "1.18.1",
+ "blas_threads": 1,
+ "n1": 32,
+ "lam": 1.0,
+ "depths": [
+  2,
+  3,
+  4,
+  6
+ ],
+ "ring_sizes": {
+  "2": [
+   32,
+   16
+  ],
+  "3": [
+   32,
+   21,
+   11
+  ],
+  "4": [
+   32,
+   24,
+   16,
+   8
+  ],
+  "6": [
+   32,
+   27,
+   21,
+   16,
+   11,
+   5
+  ]
+ },
+ "gammas": [
+  1,
+  2
+ ],
+ "potentials": [
+  [
+   "linear",
+   0
+  ],
+  [
+   "linear",
+   1
+  ],
+  [
+   "double_well",
+   0.5
+  ],
+  [
+   "double_well",
+   1
+  ],
+  [
+   "double_well",
+   2
+  ]
+ ],
+ "alphas": [
+  0.5,
+  1
+ ],
+ "families": {
+  "F-low": 1,
+  "F-high": 8
+ },
+ "sigmas": [
+  0.03,
+  0.1,
+  0.3
+ ],
+ "sigma_profile": 0.1,
+ "classes": 4,
+ "draws": 50,
+ "train_draws": 25,
+ "seeds": {
+  "nuisance": 20261024,
+  "readout": 20261025,
+  "starts": 20261026,
+  "checks": 20261027
+ },
+ "lbfgs_options": {
+  "maxiter": 20000,
+  "maxcor": 20,
+  "ftol": 0.0,
+  "gtol": 1e-11,
+  "maxls": 50
+ },
+ "certification": {
+  "grad": 1e-08,
+  "min_eig": 1e-08
+ },
+ "polish_grad": 1e-12,
+ "starts": 16,
+ "merge_tol": 1e-06,
+ "thresholds": {
+  "T2_max": 0.25,
+  "T3_min": 0.9
+ },
+ "rules": [
+  "graph: rings n_l = max(4, floor(32 (L-l+1)/L + 1/2)); lateral ring edges weight gamma^(l-1); radial edges weight 1 by exact nearest-angle rule (ties lowest index) plus back-fill; centre joined to ring L with weight 1",
+  "energy: 1/2 u^T K u + sum V(u) + 1/2 lambda sum_ring1 (u - h)^2, lambda = 1; V linear mu u^2/2 or double well beta (u^2-1)^2/4, on every unit",
+  "settling: L-BFGS-B from u = 0 with declared options, then Newton polish (<= 20 steps, backtracking 1/2 up to 30 halvings; accept if E lowers, or E rises <= 1e-12 max(1,|E|) with max|grad| strictly lower) toward max|grad| < 1e-12; certified iff max|grad| < 1e-8 and min Hessian eigenvalue > 1e-8",
+  "drives: h = cos(n theta + pi c / 2) + nuisance; F-low n = 1, F-high n = 8; nuisance = orthonormal real Fourier basis (DC, cos/sin 1..15, Nyquist) with N(0,1) coefficients from default_rng(20261024), shape (2,4,50,32), rescaled per draw to RMS alpha/sqrt(2)",
+  "halves: draws 0-24 train, 25-49 test; readout noise sigma0 * eps, eps from default_rng([20261025, L, l, family])",
+  "measures: S population variance over all certified drives; P within-class variance averaged over classes; nearest-class-mean decoding (strict: unsettled test drives wrong, out of 100); Mahalanobis on training half with pooled covariance (dof N_train - 4) + sigma0^2 I",
+  "profile at sigma0 = 0.1 in each family: T1 S(1) >= S(l) all l; T2 P(L)/P(1) <= 0.25; T3 strict D(L) >= 0.9; eligible only if all 400 canonical settlings certified",
+  "multistability: 8 probes (draw 0 of each class and family), 16 starts N(0,1) from default_rng([20261026, L, s]), greedy merge of certified states at RMS < 1e-6",
+  "superposition: pairs i = 0..7, h1 = F-low class i mod 4 draw 25+i, h2 = F-high class (i+1) mod 4 draw 25+i; defect null if denominator < 1e-12 or any state unsettled",
+  "candidate depth: double well beta = 1, gamma = 1, alpha = 1, smallest L meeting the profile",
+  "reported floats rounded to 10 significant digits",
+  "BLAS pinned to one thread (OPENBLAS/OMP/MKL_NUM_THREADS=1) before numpy import"
+ ],
+ "sha256": "c8e4313de327489e4b8aa0878632f708e21a114c215c6dbc0e951099929b63a5"
+}
