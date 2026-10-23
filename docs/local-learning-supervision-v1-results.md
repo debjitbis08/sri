@@ -18,16 +18,17 @@ ran: 4 teachers × 4 conditions × 5 splits × 5 orders, with 4 checkpoints
   mechanism-equivalent. The local learner's failure under IB and O+ is a failure
   to use information the stream contains. Which part of the rule causes it was
   not tested.
-- **IB does not help the local learner.** It changes behavioural recovery from
-  0 → 5/25 (S1) and 9 → 7/25 (C2) relative to O. It has the same 70.2 clamp runs
+- **IB does not meet the reliability targets.** Relative to O it improves S1
+  recovery from 0 to 5/25 runs, and C2 goes from 9 to 7/25. It has the same 70.2 clamp runs
   per stream as I and 17% of I's supervised slots.
 - **O+ helps C2 slightly and breaks S1's axis behaviour.** C2 goes from 9/25 at
   step 15 to 13/25 at step 27. S1 goes from 0 to 1/25. During coverage S1 loses
   more axis items than it gains (178 correct at step 15 → 148 at step 27); C2
   gains net (241 → 273).
-- **v1's 77.2% C2 retention was delayed acquisition plus temporary loss, not
-  forgetting.** Under I, all 375 presented items are acquired and none is
-  forgotten at the end; 18 are lost and recovered (19 loss events).
+- **v1's 77.2% C2 retention was delayed acquisition plus temporary loss, with no
+  end-of-stream forgetting.** Under I, all 375 presented items are acquired and
+  none is wrong at the end. The losses were real but temporary: 18 items were
+  lost and later recovered (19 loss events).
 
 [Contract](local-learning-supervision-v1-contract.md) (sha256 `4b4fa3e6…`, frozen
 and committed before the manifest; not edited afterwards) ·
@@ -169,16 +170,17 @@ tuple-level loss volume.
 
 ## Version spaces (secondary)
 
-| Teacher | Condition | Final full-feedback survivors per split | Mechanism-equivalent | False-forward survivors | Status |
+| Teacher | Condition | Final full-feedback survivors per split | Mechanism-equivalent | Forward-witness survivors | Status |
 | --- | --- | --- | --- | --- | --- |
-| S1, C2 | O, I, IB, O+ | 2 | 2 | 2 of 2 (the teacher's own chain) | V2 pass (O+, IB) |
+| S1, C2 | O, I, IB, O+ | 2 | 2 | 2 (correct: the teacher's own chain) | V2 pass (O+, IB) |
 | S2 | O | 7, 7, 7, 7, 15 | 2 | 5 | reference (as v1) |
 | S2 | I | 2 | 2 | 0 | reference |
 | S2 | IB | 2 | 2 | 0 | **V1 pass** |
 | S2 | O+ | 2 | 2 | 0 | **V1 pass** |
 | T1 | all | 2 | 2 | 0 | — |
 
-For S1 and C2 the forward-witness count is the teacher's own chain, not false
+For S1 and C2 the forward witnesses are correct: the teacher has that chain. For
+the negative controls S2 and T1, every forward-witness survivor is false
 attribution. Certified output coverage is 100% on `within` and `mixed24` for
 every S1/C2 condition, with no incorrect certificate. V2 is a consistency check:
 it follows from the subset relations once v1 is reproduced.
@@ -231,15 +233,30 @@ the global set loss. Cross-block coordination is one candidate among these.
 
 ## Next obligations (not run)
 
-- **A rule comparison under frozen supervision.** Use IB and O+ as they are
-  (their exact-learner results show they suffice informationally), and vary one
-  rule property at a time against the block learner. Candidates: edits spanning
-  two blocks, replay of earlier feedback maps, multiple passes, and
-  error-weighted keys. Score with the same L1–L3 and timelines.
-- **Separate O+'s confound.** An extra-axis or repeated-axis control would show
-  whether C2's gain under O+ comes from mixed evidence or from more updates.
+- **Primary supervision: IB, held fixed.** It supplies sufficient information
+  (the exact learner identifies every teacher from it), avoids internal
+  readouts, and keeps the 15-experience length of the original baseline.
+- **Diagnose failed updates before choosing a replacement rule.** For each IB
+  experience where the block learner does not reach or keep the right model, ask:
+  1. *Restricted edits:* does no permitted single-block edit improve the current
+     example?
+  2. *Preservation failure:* does an improving edit exist but break previously
+     correct items?
+  3. *Short-sighted improvement:* would more updates on the current example
+     help, or does progress need moves that are temporarily neutral or worse?
+  This separates restricted edits, short-sighted improvement and preservation
+  failures, instead of assuming that cross-block coordination is the cause.
+- **Then vary one rule property at a time,** with the extra candidate
+  evaluations each variant costs counted and reported.
+- **Replay is a diagnostic comparator only.** It can show whether access to
+  earlier feedback would fix preservation failures. It is not a proposed SRI
+  mechanism: the target architecture keeps retention within learned structure,
+  without an external experience store.
+- **Separate O+'s confound (lower priority).** An extra-axis or repeated-axis
+  control would show whether C2's gain under O+ comes from mixed evidence or from
+  more updates.
 
-Both need a new contract.
+These need a new contract.
 
 Reproduce:
 
