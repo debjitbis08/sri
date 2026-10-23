@@ -28,6 +28,8 @@ where \(K\) is a learned compositional core, \(S_i\) are specialized learned mod
 
 The core's *hypothesized* distinct role is to mediate collective responses and consolidate shared abstractions. Specialized content may remain in satellites. The core need not memorize the complete knowledge of each satellite.
 
+**Refined mediation hypothesis (unproved):** the core is a dynamically evolving structural mediator enabling selective collective compatibility among specialized satellite responses, including configurations that cannot coexist without its participation. Abstraction may consist in acquiring reusable compatibility-mediating structure, rather than extracting similarities alone. Joint interaction may transform the participating configurations and thereby change their currently available responses. Transient core evolution remains distinct from persistent structural learning. This hypothesis requires a declared core-free comparison, preservation of meaningful incompatibilities, and held-out reuse; it does not establish a constraint-satisfaction architecture. See the [interaction-semantics note](interaction-semantics.md).
+
 ### 2.2 Layers are response modes, not abstraction levels
 
 Each module may consist of nested strata of modes or of a discretized topological structure. The 'concentric shells' metaphor suggests geometric families to investigate; literal spheres are **not required**. Layers are families of response modes with different coupling profiles, **not ranks of abstraction**. Abstraction is assessed over responses of the whole module/coupled system.
@@ -57,6 +59,12 @@ Dream: internally sampled perturbation → joint inference → measure recurring
 Thinking effort is an approximation budget, potentially specifying per-module layer reach, minimum interaction importance, and iteration/work limits. More expensive inference may revisit weaker, exterior, or previously inactive contributions. A weak signal can be decisive after feedback, so pruning requires validation or error controls; 'deep' does not automatically mean correct.
 
 ## 3. Formal questions to resolve before choosing an algebra
+
+**Current method:** compare modeling choices before choosing a substrate. Mode
+identity, nesting, joint composition, core representation, and persistence/error
+bounds remain open. The [comparative modeling protocol](model-comparison.md)
+specifies candidate cards and a common evidence matrix. The binding example and
+the proposed structural-transformation direction do not select an architecture.
 
 We deliberately leave the following objects unspecified as alternative candidates:
 

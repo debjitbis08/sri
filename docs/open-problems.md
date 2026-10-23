@@ -44,7 +44,28 @@ Can the current Boolean family support stable, distinguishable, contextual respo
 
 **Next obligation:** move to graded coupling and layer-resolved modes with an explicit correction/recovery question. Do not expand Boolean enumeration or introduce STM learning in this stage.
 
-### OP-04 — The meaning of overlap [OPEN]
+### OP-04 — Comparative modeling before architecture selection [OPEN]
+Which definitions of modes, nesting, collective interaction, and core substrate support the intended responses, and what persistence, approximation, and execution guarantees follow?
+
+**First comparison complete (bounded):** [v1 results](comparison-v1-results.md) evaluate spectral, affine F3, graded higher-arity, and cellular cochain representatives in 50 cases under a [declared contract](comparison-v1-contract.md). Driven correction, post-input retention, and released-state recovery separate sharply. Exact bounds, ties, retained-free-coordinate failures, and topology/approximation counterexamples are recorded. None establishes autonomous selective core mediation or learned reusable structure; OP-04 remains OPEN.
+
+**Combined follow-up complete (bounded):** [graded cellular v1](graded-cellular-v1-results.md) tests 60 configurations, 4,860 basin samples and 1,872 disturbances. The combined proxy has separated locally restoring modes under weak/moderate context coupling; strong coupling, attachment penalties and large disturbances expose failures. Graded layer connections, multiple layers, full structured modules, an autonomous core and learning are absent and receive no credit. Architecture selection remains open; this result is not a failure or success of those omitted features.
+
+**Current note:** [Interaction semantics before OP-04](interaction-semantics.md) treats hard and graded compatibility, joint transformation, and local-to-global agreement as possible aspects of one collective mechanism, including higher-arity interactions. It separates admissibility, perturbation/response realization, and structural learning; no candidate has been selected.
+
+**New obligation:** define collective transformation without requiring an explicitly constructed global configuration space, and evaluate the core as a selective compatibility mediator. Distinguish changing admissibility from changing reachability or transiently available responses. A core that merely conjoins restrictions cannot enable a previously forbidden satellite pair under an unchanged relation; enabling mediation needs an explicit mechanism and matched comparison.
+
+**Semantic evaluation:** [Representation and mediation obligations](collective-interaction-evaluation.md) compares implicit global relations, supported joint transformations, and overlap-based assembly as descriptions of one mechanism. It derives a necessary interface-sufficiency condition and its semantic converse, separates compatibility mediation from realization mediation, and proposes a conditional representation direction. The worked example below evaluates one limited instantiation without selecting a general update algebra.
+
+**Worked example:** [Collective role binding](mediation-example.md) now implements a joint constructor, direct-binding control, retained capacity incompatibility, and a same-evidence context intervention. Its frozen report contains six fixed cases; no full OP-04 model is selected. The core records a constructed binding, and a generic matching solver reproduces its responses. Autonomous core mediation, recovery, grading, topology, and learning remain unproved. The next obligation is a structural contribution beyond this binding certificate.
+
+**Withdrawn proposal:** the [signed-threshold contract](op-04-contract.md) is superseded. Its equations, grid, and gates are not implementation requirements. Input/output modules specify interfaces, and layers specify response modes, not a processing pathway.
+
+**Next obligation:** use the [comparative modeling protocol](model-comparison.md) to test whether the combined proxy's restoration survives richer module/layer structure and an identifiable core contribution. Specify those missing features before testing them, rather than extrapolate from the proxy. Do not infer that tested instances exhaust their families or that native costs are directly comparable. Preserve OP-02 through OP-03B and the unresolved OP-02B target; do not resume the withdrawn threshold search.
+
+### OP-04A — The meaning of overlap [OPEN; formerly OP-04]
+The original OP-04 question is retained here; its identifier changed when the OP-04 recovery experiment was specified. No result or scope was discarded.
+
 When do distinct satellites have a shared mode? Is matching labels insufficient; must a mapping preserve composition, constraints or observable responses?
 
 **Proof target:** a behavioral equivalence/compatibility definition that survives re-encoding of states.
@@ -145,9 +166,9 @@ For each hypothesis, state the smallest counterexample that would overturn it. P
 
 ## Prioritized next three questions
 
-1. **OP-01 + OP-09, guided by OP-03B:** Define a layer-resolved observable and graded-coupling perturbation question that could support two recoverable contextual responses. The bounded Boolean search is complete; retain its negative result and the unresolved full-star all-controls-stable target.
-2. **OP-10:** Derive one certified weak-interaction approximation rule for a restricted class, or find a decisive counterexample.
-3. **OP-11 + OP-13:** Define a structural modification law and measure retention before introducing endogenous dreams.
+1. **OP-04, informed by OP-01 + OP-04A + OP-06 + OP-09:** Build on the [completed first comparison](comparison-v1-results.md); investigate reconstructible persistent distinctions and a structural core contribution under the [comparative protocol](model-comparison.md). Retain all restricted controls.
+2. **OP-11 + OP-13:** Keep changes to configuration spaces and couplings distinct from transient response selection. Acquisition, retention, and held-out reuse need a separate future learning contract; no response semantics currently establishes them.
+3. **OP-10:** Derive one certified weak-interaction approximation rule for a restricted class, or find a decisive counterexample. This is a separate computational track, not a prerequisite for the first plasticity experiment.
 
 ## Evidence ledger template
 

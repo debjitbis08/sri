@@ -1,0 +1,692 @@
+{
+  "cases": [
+    {
+      "before": {
+        "context": [],
+        "core": {
+          "bindings": []
+        },
+        "input": {
+          "active": [
+            "A",
+            "B"
+          ]
+        },
+        "output": {
+          "bindings": []
+        },
+        "satellites": [
+          {
+            "name": "A",
+            "role": "local-role",
+            "site": null
+          },
+          {
+            "name": "B",
+            "role": "local-role",
+            "site": null
+          },
+          {
+            "name": "S",
+            "role": "local-role",
+            "site": null
+          }
+        ]
+      },
+      "context_intervention": null,
+      "max_extensions": null,
+      "mediated": false,
+      "name": "direct_pair_collision",
+      "result": {
+        "configuration": null,
+        "feasible": false,
+        "status": "complete",
+        "work": {
+          "candidate_extensions": 2,
+          "collision_rejections": 1,
+          "max_partial_bindings": 1,
+          "terminal_assignments": 0
+        }
+      },
+      "structure": {
+        "satellites": [
+          {
+            "direct_site": "a",
+            "name": "A",
+            "role": "local-role",
+            "sites": [
+              "a",
+              "b"
+            ]
+          },
+          {
+            "direct_site": "a",
+            "name": "B",
+            "role": "local-role",
+            "sites": [
+              "a",
+              "b"
+            ]
+          },
+          {
+            "direct_site": "a",
+            "name": "S",
+            "role": "local-role",
+            "sites": [
+              "a",
+              "b"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "before": {
+        "context": [],
+        "core": {
+          "bindings": []
+        },
+        "input": {
+          "active": [
+            "A",
+            "B"
+          ]
+        },
+        "output": {
+          "bindings": []
+        },
+        "satellites": [
+          {
+            "name": "A",
+            "role": "local-role",
+            "site": null
+          },
+          {
+            "name": "B",
+            "role": "local-role",
+            "site": null
+          },
+          {
+            "name": "S",
+            "role": "local-role",
+            "site": null
+          }
+        ]
+      },
+      "context_intervention": null,
+      "max_extensions": null,
+      "mediated": true,
+      "name": "mediated_pair",
+      "result": {
+        "configuration": {
+          "context": [],
+          "core": {
+            "bindings": [
+              [
+                "A",
+                "local-role",
+                "a"
+              ],
+              [
+                "B",
+                "local-role",
+                "b"
+              ]
+            ]
+          },
+          "input": {
+            "active": [
+              "A",
+              "B"
+            ]
+          },
+          "output": {
+            "bindings": [
+              [
+                "A",
+                "local-role",
+                "a"
+              ],
+              [
+                "B",
+                "local-role",
+                "b"
+              ]
+            ]
+          },
+          "satellites": [
+            {
+              "name": "A",
+              "role": "local-role",
+              "site": "a"
+            },
+            {
+              "name": "B",
+              "role": "local-role",
+              "site": "b"
+            },
+            {
+              "name": "S",
+              "role": "local-role",
+              "site": null
+            }
+          ]
+        },
+        "feasible": true,
+        "status": "complete",
+        "work": {
+          "candidate_extensions": 3,
+          "collision_rejections": 1,
+          "max_partial_bindings": 2,
+          "terminal_assignments": 1
+        }
+      },
+      "structure": {
+        "satellites": [
+          {
+            "direct_site": "a",
+            "name": "A",
+            "role": "local-role",
+            "sites": [
+              "a",
+              "b"
+            ]
+          },
+          {
+            "direct_site": "a",
+            "name": "B",
+            "role": "local-role",
+            "sites": [
+              "a",
+              "b"
+            ]
+          },
+          {
+            "direct_site": "a",
+            "name": "S",
+            "role": "local-role",
+            "sites": [
+              "a",
+              "b"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "before": {
+        "context": [
+          "S"
+        ],
+        "core": {
+          "bindings": []
+        },
+        "input": {
+          "active": [
+            "A",
+            "B"
+          ]
+        },
+        "output": {
+          "bindings": []
+        },
+        "satellites": [
+          {
+            "name": "A",
+            "role": "local-role",
+            "site": null
+          },
+          {
+            "name": "B",
+            "role": "local-role",
+            "site": null
+          },
+          {
+            "name": "S",
+            "role": "local-role",
+            "site": null
+          }
+        ]
+      },
+      "context_intervention": null,
+      "max_extensions": null,
+      "mediated": true,
+      "name": "retained_capacity_conflict",
+      "result": {
+        "configuration": null,
+        "feasible": false,
+        "status": "complete",
+        "work": {
+          "candidate_extensions": 10,
+          "collision_rejections": 6,
+          "max_partial_bindings": 2,
+          "terminal_assignments": 0
+        }
+      },
+      "structure": {
+        "satellites": [
+          {
+            "direct_site": "a",
+            "name": "A",
+            "role": "local-role",
+            "sites": [
+              "a",
+              "b"
+            ]
+          },
+          {
+            "direct_site": "a",
+            "name": "B",
+            "role": "local-role",
+            "sites": [
+              "a",
+              "b"
+            ]
+          },
+          {
+            "direct_site": "a",
+            "name": "S",
+            "role": "local-role",
+            "sites": [
+              "a",
+              "b"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "before": {
+        "context": [],
+        "core": {
+          "bindings": []
+        },
+        "input": {
+          "active": [
+            "A",
+            "B"
+          ]
+        },
+        "output": {
+          "bindings": []
+        },
+        "satellites": [
+          {
+            "name": "A",
+            "role": "local-role",
+            "site": null
+          },
+          {
+            "name": "B",
+            "role": "local-role",
+            "site": null
+          },
+          {
+            "name": "S",
+            "role": "local-role",
+            "site": null
+          }
+        ]
+      },
+      "context_intervention": null,
+      "max_extensions": null,
+      "mediated": true,
+      "name": "context_inactive",
+      "result": {
+        "configuration": {
+          "context": [],
+          "core": {
+            "bindings": [
+              [
+                "A",
+                "local-role",
+                "a"
+              ],
+              [
+                "B",
+                "local-role",
+                "b"
+              ]
+            ]
+          },
+          "input": {
+            "active": [
+              "A",
+              "B"
+            ]
+          },
+          "output": {
+            "bindings": [
+              [
+                "A",
+                "local-role",
+                "a"
+              ],
+              [
+                "B",
+                "local-role",
+                "b"
+              ]
+            ]
+          },
+          "satellites": [
+            {
+              "name": "A",
+              "role": "local-role",
+              "site": "a"
+            },
+            {
+              "name": "B",
+              "role": "local-role",
+              "site": "b"
+            },
+            {
+              "name": "S",
+              "role": "local-role",
+              "site": null
+            }
+          ]
+        },
+        "feasible": true,
+        "status": "complete",
+        "work": {
+          "candidate_extensions": 3,
+          "collision_rejections": 1,
+          "max_partial_bindings": 2,
+          "terminal_assignments": 1
+        }
+      },
+      "structure": {
+        "satellites": [
+          {
+            "direct_site": "a",
+            "name": "A",
+            "role": "local-role",
+            "sites": [
+              "a",
+              "b",
+              "c"
+            ]
+          },
+          {
+            "direct_site": "a",
+            "name": "B",
+            "role": "local-role",
+            "sites": [
+              "a",
+              "b",
+              "c"
+            ]
+          },
+          {
+            "direct_site": "a",
+            "name": "S",
+            "role": "local-role",
+            "sites": [
+              "a"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "before": {
+        "context": [],
+        "core": {
+          "bindings": [
+            [
+              "A",
+              "local-role",
+              "a"
+            ],
+            [
+              "B",
+              "local-role",
+              "b"
+            ]
+          ]
+        },
+        "input": {
+          "active": [
+            "A",
+            "B"
+          ]
+        },
+        "output": {
+          "bindings": [
+            [
+              "A",
+              "local-role",
+              "a"
+            ],
+            [
+              "B",
+              "local-role",
+              "b"
+            ]
+          ]
+        },
+        "satellites": [
+          {
+            "name": "A",
+            "role": "local-role",
+            "site": "a"
+          },
+          {
+            "name": "B",
+            "role": "local-role",
+            "site": "b"
+          },
+          {
+            "name": "S",
+            "role": "local-role",
+            "site": null
+          }
+        ]
+      },
+      "context_intervention": [
+        "S"
+      ],
+      "max_extensions": null,
+      "mediated": true,
+      "name": "context_active",
+      "result": {
+        "configuration": {
+          "context": [
+            "S"
+          ],
+          "core": {
+            "bindings": [
+              [
+                "A",
+                "local-role",
+                "b"
+              ],
+              [
+                "B",
+                "local-role",
+                "c"
+              ],
+              [
+                "S",
+                "local-role",
+                "a"
+              ]
+            ]
+          },
+          "input": {
+            "active": [
+              "A",
+              "B"
+            ]
+          },
+          "output": {
+            "bindings": [
+              [
+                "A",
+                "local-role",
+                "b"
+              ],
+              [
+                "B",
+                "local-role",
+                "c"
+              ],
+              [
+                "S",
+                "local-role",
+                "a"
+              ]
+            ]
+          },
+          "satellites": [
+            {
+              "name": "A",
+              "role": "local-role",
+              "site": "b"
+            },
+            {
+              "name": "B",
+              "role": "local-role",
+              "site": "c"
+            },
+            {
+              "name": "S",
+              "role": "local-role",
+              "site": "a"
+            }
+          ]
+        },
+        "feasible": true,
+        "status": "complete",
+        "work": {
+          "candidate_extensions": 12,
+          "collision_rejections": 5,
+          "max_partial_bindings": 3,
+          "terminal_assignments": 1
+        }
+      },
+      "structure": {
+        "satellites": [
+          {
+            "direct_site": "a",
+            "name": "A",
+            "role": "local-role",
+            "sites": [
+              "a",
+              "b",
+              "c"
+            ]
+          },
+          {
+            "direct_site": "a",
+            "name": "B",
+            "role": "local-role",
+            "sites": [
+              "a",
+              "b",
+              "c"
+            ]
+          },
+          {
+            "direct_site": "a",
+            "name": "S",
+            "role": "local-role",
+            "sites": [
+              "a"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "before": {
+        "context": [],
+        "core": {
+          "bindings": []
+        },
+        "input": {
+          "active": [
+            "A",
+            "B"
+          ]
+        },
+        "output": {
+          "bindings": []
+        },
+        "satellites": [
+          {
+            "name": "A",
+            "role": "local-role",
+            "site": null
+          },
+          {
+            "name": "B",
+            "role": "local-role",
+            "site": null
+          },
+          {
+            "name": "S",
+            "role": "local-role",
+            "site": null
+          }
+        ]
+      },
+      "context_intervention": null,
+      "max_extensions": 0,
+      "mediated": true,
+      "name": "budget_unknown",
+      "result": {
+        "configuration": null,
+        "feasible": null,
+        "status": "truncated",
+        "work": {
+          "candidate_extensions": 0,
+          "collision_rejections": 0,
+          "max_partial_bindings": 0,
+          "terminal_assignments": 0
+        }
+      },
+      "structure": {
+        "satellites": [
+          {
+            "direct_site": "a",
+            "name": "A",
+            "role": "local-role",
+            "sites": [
+              "a",
+              "b"
+            ]
+          },
+          {
+            "direct_site": "a",
+            "name": "B",
+            "role": "local-role",
+            "sites": [
+              "a",
+              "b"
+            ]
+          },
+          {
+            "direct_site": "a",
+            "name": "S",
+            "role": "local-role",
+            "sites": [
+              "a",
+              "b"
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "runtime": {
+    "implementation": "CPython",
+    "python": "3.12.3"
+  },
+  "scope": "Six fixed examples; no OP-04 search, learning, or recovery claim",
+  "selection": "First injective assignment in sorted participant/site order",
+  "specification": "Collective role-binding illustration v0.1",
+  "status": "complete",
+  "work_units": "Candidate site extensions; not total CPU instructions"
+}

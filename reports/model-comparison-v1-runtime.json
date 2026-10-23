@@ -1,0 +1,25 @@
+{
+  "measurements": {
+    "cellular": {
+      "peak_python_bytes": 373252,
+      "seconds_including_instrumentation": 1.9998061150017747
+    },
+    "finite_algebra": {
+      "peak_python_bytes": 19064,
+      "seconds_including_instrumentation": 0.07288999799857265
+    },
+    "graded_relation": {
+      "peak_python_bytes": 56680,
+      "seconds_including_instrumentation": 0.02044333499907225
+    },
+    "spectral": {
+      "peak_python_bytes": 262774,
+      "seconds_including_instrumentation": 3.975930413998867
+    }
+  },
+  "note": "Includes certificate construction and allocation tracing; not a cross-family inference benchmark",
+  "runtime": {
+    "implementation": "CPython",
+    "python": "3.12.3"
+  }
+}

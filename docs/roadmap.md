@@ -26,6 +26,7 @@
 | OP-02B | Recurrent contextual interaction and bounded attractor dynamics | Complete within scoped recurrence-necessity class; stronger full-star stable-control target remains open |
 | OP-03 | Schedule, attractor, and structural robustness | Partial: exact Boolean fair-schedule/basin/edit analysis; main witness fails joint robustness |
 | OP-03B | Joint stability, distinction, context, recovery, and edit tolerance | Bounded investigation complete: no qualifying Boolean family; restricted OR trade-off theorem |
+| OP-04 | Comparative modeling before architecture selection | First four-family, 50-case comparison complete; architecture and core mechanism remain open |
 | Later milestones | Stable structural modes beyond propagation, graded resonance, learning, and abstraction | Open |
 
 - [x] Retain OP-02's two candidate algebras, declared observable, independent control, and scoped minimality certificate.
@@ -37,7 +38,10 @@
 - [x] Prove the minimum edge count within the declared star-ablation family.
 - [x] Analyze all node-fair atomic schedules, exact basins, single-bit recovery, and single-edge deletion in the existing Boolean model.
 - [x] Specify and exhaust a joint response-family contract in the Boolean control; retain the bounded impossibility result and the OR trade-off theorem.
-- [ ] Define a graded, layer-resolved candidate addressing the identified correction/recovery failure.
+- [ ] Specify and test competing mode, nesting, interaction, and substrate choices under the [comparative protocol](model-comparison.md).
+- [x] Complete the [first bounded four-family comparison](comparison-v1-results.md) with native controls, certificates, and failure cases.
+- [x] Test the [graded-cellular combination](graded-cellular-v1-results.md) with matched controls and a scope ledger; local restoration succeeds in a limited proxy, not a full layered architecture.
+- [ ] Grade candidate evidence and trade-offs before selecting a replacement OP-04 architecture; the signed-threshold draft remains withdrawn.
 - [ ] Find a fully reciprocal response distinction while all acyclic satellite observations are stable, with declared schedule/initialization requirements.
 - [ ] Define a separate prospective task before claiming useful inference.
 
@@ -49,9 +53,13 @@
 
 **Entry constraint from OP-03B:** define the response observable, allowed state perturbations, schedule policy, and coupling-edit metric before implementation. Focus first on correcting spurious activation without collapsing distinctions; postpone topology comparisons until that question is testable.
 
-- [ ] Define layer-resolved mode states and graded inter/intra-module couplings.
+**Comparative phase:** use the [modeling protocol](model-comparison.md) to specify candidate cards and shared/native tests before bounded prototypes. Mode identity, nesting, interaction, and substrate remain open. The signed-threshold OP-04 draft stays withdrawn. Test persistence and approximation assumptions explicitly rather than inheriting them from a substrate name.
+
+**Current evidence:** the [v1 comparison](comparison-v1-results.md) is complete for four declared representatives. It supplies driven recovery certificates, explicit failures of released-state reconstruction, a matched cell-count topology effect, and weak-interaction approximation counterexamples. These scoped results do not select a nesting definition or establish a core mediator.
+
+- [ ] Define layer-resolved mode configurations and graded coupling semantics after the interaction review.
 - [ ] Compare flat, layered, cyclic, annular and higher-genus finite structures under matched size and rules.
-- [ ] Define exterior perturbation families and inner/whole-module response signatures.
+- [ ] Define perturbation families and whole-module/output observations after choosing response semantics.
 - [ ] Test rich exterior responses against stability/distinguishability of inner responses.
 - [ ] Find whether nontrivial cycles produce response modes absent in matched controls.
 - [ ] Separate exact global propagation from the effects of numerical truncation.
@@ -135,4 +143,14 @@
 
 ### Immediate next iteration
 
-The narrow [OP-03B investigation](op-03b-response-family.md) is complete: neither declared schedule regime supplies a distinguishable recoverable response family in the Boolean control. Move to a specified graded-coupling and layer-resolved model, using correction of spurious activation while preserving distinct contextual signatures as the motivating question. Preserve all earlier certificates and the unresolved full-star all-controls-stable target. Do not expand arbitrary Boolean truth tables further. Milestone 0 reporting hardening remains outstanding; structural update sequences, STM, and dreaming remain separate later work.
+The narrow [OP-03B investigation](op-03b-response-family.md) is complete. Preserve OP-02 through OP-03B as valid restricted controls, including the Boolean impossibility result, scoped OR theorem, and unresolved OP-02B target.
+
+Follow the [comparative modeling program](model-comparison.md): specify candidates spanning spectral/operator, finite-algebraic, relational/transformational, and complex-based descriptions; define shared tasks and native controls; then implement bounded prototypes and grade evidence. These families can overlap. Do not assume a mode definition, kind of nesting, core substrate, or persistence/approximation guarantee in advance.
+
+The [first comparison](comparison-v1-results.md) has now completed that cycle for four representatives. Preserve its negative results. Next investigate a mechanism for reconstructing distinct post-input modes after disturbance, and determine what the core contributes beyond generic response construction. Additional structures require a concrete failure-driven hypothesis rather than an enlarged rescue search.
+
+The [graded-cellular follow-up](graded-cellular-v1-results.md) now provides a limited positive mechanism: two post-input modes recover from declared small disturbances while weak/moderate context coupling changes their responses. Larger perturbations and strong coupling expose boundaries. The next unresolved work is whether this survives explicitly specified multilayer modules and a structural core; those features, graded layer connections, and learning were not implemented and receive no architectural credit.
+
+The interaction-semantics notes and [role-binding example](mediation-example.md) are inputs to this comparison, not a preferred architecture. Evaluate collective response, selective mediation, persistence/recovery, grading/nesting, topology where claimed, approximation, and actual construction cost. Report pass/fail/unresolved separately from proof strength and scope; do not manufacture an overall winner from missing or incomparable results.
+
+Keep admissibility, realization, and learning separate. Architecture selection follows comparative evidence. Milestone 0 reporting hardening remains outstanding; structural acquisition, retention, STM, dreaming, and abstraction remain subsequent obligations.
