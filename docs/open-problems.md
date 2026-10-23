@@ -307,3 +307,12 @@ A measured correlation is not a theorem; a verified finite example is not a gene
 - Code revision: the commit introducing this evidence entry, its accompanying source, tests, and frozen report.
 - Limits: diagnostics use evaluator-only knowledge (teacher class, earlier-item correctness); graph categories hold one example fixed; variants are not compute-matched and change one property each; REPLAY is outside the target architecture; four hand-chosen teachers, noise-free complete-set IB feedback.
 - Next question: can a mechanism inside the learned state, without an experience store, supply the preservation signal that REPLAY gets from stored feedback, and do declared plateau moves help reach the teacher class?
+
+## Evidence entry — core abstraction v1 (OP-13, OP-19, OP-20)
+
+- Claim: no core qualifies for S1 or C2 in any of 10 split/assignment runs. The teacher core transfers on true private blocks but violates isolated-response retention after assembly; preserving cores give no transfer there. S1 also exhibits assembly interference in 9 runs. This is a conflict between the declared preservation and transfer targets, not evidence that the core lacks capacity or that dreaming fails.
+- Status: EXHAUSTIVE (bounded), 124 surviving assemblies × 9 cores for four teachers; information classes over all 2,187 vectors and 10 split/assignment conditions. All reported correctness gates pass.
+- Contract and results: [contract](core-abstraction-v1-contract.md), [results](core-abstraction-v1-results.md). Reproduce with `.venv/bin/python -m experiments.core_abstraction`.
+- Frozen reports: [manifest](../reports/core-abstraction-v1-manifest.json), [ceiling](../reports/core-abstraction-v1-ceiling.json), [information](../reports/core-abstraction-v1-information.json).
+- Limits: evaluator-only core search; isolated observations contain no information about core identity; S2's sole qualifying run recovers its existing core. The post-hoc tally on true private blocks finds only teacher-sign-class solutions. Neither acquisition nor dreaming was tested. The contract and manifest were written before scoring but were not committed before it.
+- Next question: can context-consistent preservation and a bounded amount of connected waking evidence support donor-dependent transfer from learned constraints? See the unimplemented [v2 draft](core-abstraction-v2-draft.md). Endogenous dreaming and the preservation-signal, plateau-move, and larger-edit investigations remain deferred.

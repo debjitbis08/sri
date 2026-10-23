@@ -1,0 +1,368 @@
+{
+ "schema": "core-abstraction-v1",
+ "contract": "docs/core-abstraction-v1-contract.md",
+ "contract_sha256": "fe8cf4efa2b900899f7738912d701d3d7bfca8f42f6e7269d5ad9a5c8cff71c3",
+ "split_file": "reports/learned-reciprocal-participation-v1-splits.json",
+ "split_file_sha256": "5f34bc3bc70a84054796f2cf4aa857792046b5361ac028c1cc3704512d5aee47",
+ "coefficient_order": [
+  "w_1A",
+  "w_2A",
+  "w_1B",
+  "w_2B",
+  "w_KA",
+  "w_KB",
+  "w_12"
+ ],
+ "teachers": {
+  "S1": [
+   3,
+   3,
+   3,
+   0,
+   3,
+   -3,
+   0
+  ],
+  "C2": [
+   3,
+   0,
+   0,
+   -3,
+   3,
+   -3,
+   -3
+  ],
+  "S2": [
+   3,
+   3,
+   3,
+   0,
+   3,
+   3,
+   0
+  ],
+  "T1": [
+   3,
+   0,
+   0,
+   -3,
+   3,
+   -3,
+   0
+  ]
+ },
+ "positive_teachers": [
+  "S1",
+  "C2"
+ ],
+ "specificity_controls": [
+  "S2",
+  "T1"
+ ],
+ "r": {
+  "S1": 0,
+  "C2": -3,
+  "S2": 0,
+  "T1": 0
+ },
+ "candidate_order": [
+  [
+   -3,
+   -3
+  ],
+  [
+   -3,
+   0
+  ],
+  [
+   -3,
+   3
+  ],
+  [
+   0,
+   -3
+  ],
+  [
+   0,
+   0
+  ],
+  [
+   0,
+   3
+  ],
+  [
+   3,
+   -3
+  ],
+  [
+   3,
+   0
+  ],
+  [
+   3,
+   3
+  ]
+ ],
+ "assignments": {
+  "0/base": {
+   "A": [
+    10,
+    16,
+    33,
+    39,
+    42,
+    50,
+    64,
+    69
+   ],
+   "B": [
+    14,
+    32,
+    34,
+    40,
+    46,
+    51,
+    65
+   ]
+  },
+  "0/swapped": {
+   "A": [
+    14,
+    32,
+    34,
+    40,
+    46,
+    51,
+    65
+   ],
+   "B": [
+    10,
+    16,
+    33,
+    39,
+    42,
+    50,
+    64,
+    69
+   ]
+  },
+  "1/base": {
+   "A": [
+    13,
+    16,
+    29,
+    36,
+    40,
+    47,
+    63,
+    66
+   ],
+   "B": [
+    14,
+    28,
+    32,
+    39,
+    45,
+    51,
+    65
+   ]
+  },
+  "1/swapped": {
+   "A": [
+    14,
+    28,
+    32,
+    39,
+    45,
+    51,
+    65
+   ],
+   "B": [
+    13,
+    16,
+    29,
+    36,
+    40,
+    47,
+    63,
+    66
+   ]
+  },
+  "2/base": {
+   "A": [
+    13,
+    17,
+    29,
+    37,
+    39,
+    50,
+    66,
+    70
+   ],
+   "B": [
+    14,
+    28,
+    30,
+    38,
+    49,
+    53,
+    68
+   ]
+  },
+  "2/swapped": {
+   "A": [
+    14,
+    28,
+    30,
+    38,
+    49,
+    53,
+    68
+   ],
+   "B": [
+    13,
+    17,
+    29,
+    37,
+    39,
+    50,
+    66,
+    70
+   ]
+  },
+  "3/base": {
+   "A": [
+    12,
+    16,
+    30,
+    37,
+    41,
+    49,
+    65,
+    69
+   ],
+   "B": [
+    15,
+    27,
+    35,
+    38,
+    48,
+    51,
+    66
+   ]
+  },
+  "3/swapped": {
+   "A": [
+    15,
+    27,
+    35,
+    38,
+    48,
+    51,
+    66
+   ],
+   "B": [
+    12,
+    16,
+    30,
+    37,
+    41,
+    49,
+    65,
+    69
+   ]
+  },
+  "4/base": {
+   "A": [
+    9,
+    13,
+    32,
+    38,
+    40,
+    51,
+    64,
+    71
+   ],
+   "B": [
+    11,
+    27,
+    34,
+    39,
+    49,
+    52,
+    65
+   ]
+  },
+  "4/swapped": {
+   "A": [
+    11,
+    27,
+    34,
+    39,
+    49,
+    52,
+    65
+   ],
+   "B": [
+    9,
+    13,
+    32,
+    38,
+    40,
+    51,
+    64,
+    71
+   ]
+  }
+ },
+ "modes": [
+  "full",
+  "input_frozen",
+  "nf",
+  [
+   "k",
+   -1
+  ],
+  [
+   "k",
+   0
+  ],
+  [
+   "k",
+   1
+  ]
+ ],
+ "outcomes": [
+  "assembly_interference",
+  "no_transfer_core",
+  "no_core_dependent_witness",
+  "route_unresolved_only",
+  "qualifying"
+ ],
+ "rules": [
+  "dynamics: src/shared_input_mediation.explore unchanged; full reachable-terminal sets; Y projected to (a,b)",
+  "coefficients (w_1A,w_2A | w_1B,w_2B | w_KA,w_KB | w_12) = (p_A | p_B | c | r); only c varies in Stage A",
+  "waking vectors: A (p,0,0,0,0,r), B (0,0,p,0,0,r); waking target = teacher block in that vector, own marginal",
+  "assignment: ascending training IDs, even positions -> A (8), odd -> B (7); swapped condition exchanges them",
+  "filter: nine-bit mask per satellite over lexicographic blocks (-3<0<3); keep blocks reproducing the marginal; run in each of the five frozen orders restricted to the assignment; masks must agree",
+  "assemblies ordered by (index p_A, index p_B); cores in the same lexicographic order; c0 = (0,0)",
+  "predicates R, P, X, core-dependent and route-specific witnesses, outcomes: contract section 5.1",
+  "witness cuts: (0,c_B) and (c_A,0); route: input clamped to evidence, learned vs c0 recipient marginal differ",
+  "possible: some surviving assembly qualifies; robust: every surviving assembly (including interfering) qualifies",
+  "Stage B: classes by identical (V_A,V_B,r) over all 2,187 vectors per split/assignment; members scored by assess(detail=False) against their own targets; compatible core = intersection over members with a qualifying core on that assembly",
+  "response encoding in reports: 9-bit pair masks over 3(a+1)+(b+1)"
+ ],
+ "prior_artifacts": {
+  "reports/learned-reciprocal-participation-v1-splits.json": "5f34bc3bc70a84054796f2cf4aa857792046b5361ac028c1cc3704512d5aee47",
+  "src/shared_input_mediation.py": "9ff606b02717121c032ec2a2ae0110b7202406f2a1fb3a77e96308fdd21d3374",
+  "src/reciprocal_participation.py": "00bd3c095ff568fd25a976ca4f82357df9c54c7bdf9c03929eba22187ba8748c",
+  "tests/test_shared_input_mediation.py": "c0046f494bf44ef1aff29ef952395df62114c7cfabf2aa9ac26183b1e7df4d23",
+  "src/mechanism_learning.py": "93726b8dbe10f461ddb680abbdcbe3c3664ef4d3f28a5b7f7d6c7e8392f394a9",
+  "experiments/mechanism_learning.py": "8ab395cfeb65d99062f5149a4fcf7f327774501633184036bc4d011d39ac5393",
+  "reports/shared-input-mediation-v1-manifest.json": "d03c9ee2eebdd182bb2d1d60eed6682d26a43bf5ad4c489634deb3e438f153a5",
+  "reports/learned-input-mediation-v1-manifest.json": "30e20938cfb76e86750d7df8f7f3ef668bcf573a824c3219f20aafa252f0c62f",
+  "reports/local-update-diagnosis-v1-manifest.json": "b88bb576bea84d6bbf9f2826fd1b9fdb07d53d0567d0009f4f1dc75a88037b3f",
+  "docs/local-update-diagnosis-v1-results.md": "0067c626032f551302981ba06d835ba883397bbb1022a4149af0e8102cf80e3e"
+ },
+ "sha256": "3e7d3bf8dbaaa2101870f37aab02a5169ef11b1b4b3eae86b02c2c7b2ebaaa38"
+}

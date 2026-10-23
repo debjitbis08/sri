@@ -1,0 +1,32 @@
+{
+ "seconds": {
+  "stage_a": 0.876,
+  "gates": 9.214,
+  "stage_b": 36.187,
+  "stage_b_per_run": [
+   35.474,
+   35.602,
+   32.95,
+   32.861,
+   34.854,
+   34.691,
+   35.409,
+   36.058,
+   35.737,
+   33.847
+  ]
+ },
+ "total_including_preprocessing": 49.697,
+ "workers": 10,
+ "peak_rss_kib": {
+  "main": 144560,
+  "largest_child": 274940
+ },
+ "python": "3.12.3",
+ "machine": "x86_64",
+ "platform": "Linux-7.1.5-76070105-generic-x86_64-with-glibc2.39",
+ "out_dir": "/home/debjit/code/sri/reports",
+ "command": "/home/debjit/code/sri/experiments/core_abstraction.py --workers 10",
+ "git_revision": "dc1ca5edd5e861032a80f767a82c0d1109f34997",
+ "dirty_worktree": true
+}
