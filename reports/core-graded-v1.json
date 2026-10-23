@@ -1,0 +1,605 @@
+{
+ "experiment": "core-graded-v1-feasibility",
+ "contract": "docs/core-graded-v1-contract.md",
+ "witness": {
+  "uA.1": 1,
+  "ABK.0.0.1": 1,
+  "ABK.0.1.0": 1,
+  "ABK.1.1.0": 1,
+  "ABK.1.0.1": -1
+ },
+ "targets": [
+  [
+   0,
+   0,
+   0
+  ],
+  [
+   0,
+   1,
+   1
+  ],
+  [
+   1,
+   0,
+   1
+  ]
+ ],
+ "source_sha256": {
+  "src/core_graded.py": "7540bbcf33549ffab74c76309afdb02b23f62842bec73aa96aabe0fe79632e61",
+  "src/core_mediation.py": "922aa16e08ccb0fd5c1e49f5d64619be58da3e7f4c00b1d2d26b537f9d61d85f",
+  "experiments/core_graded.py": "37e3ef7847bfd5156a762244a9d103253362764c25c5e60185b694908c470bf3",
+  "docs/core-graded-v1-contract.md": "e0d8e6cfae25d373478bf51d1f68f4ec4c5d6f311600ad4702a0f3298ac5a84b"
+ },
+ "settings": [
+  {
+   "sigma": 8,
+   "lam": 1,
+   "h": 8,
+   "P1": true,
+   "P2": true,
+   "joint": true,
+   "pulses": [
+    {
+     "start": [
+      0,
+      0,
+      0
+     ],
+     "e": 1,
+     "final": [
+      [
+       1,
+       0,
+       1
+      ]
+     ],
+     "core_removed": [
+      [
+       0,
+       0
+      ]
+     ],
+     "core_clamped": [
+      [
+       0,
+       0,
+       0
+      ]
+     ],
+     "P3": true,
+     "P4": true,
+     "P5": true
+    },
+    {
+     "start": [
+      0,
+      1,
+      1
+     ],
+     "e": 1,
+     "final": [
+      [
+       1,
+       0,
+       1
+      ]
+     ],
+     "core_removed": [
+      [
+       0,
+       1
+      ]
+     ],
+     "core_clamped": [
+      [
+       1,
+       0,
+       1
+      ]
+     ],
+     "P3": false,
+     "P4": false,
+     "P5": false
+    },
+    {
+     "start": [
+      1,
+      0,
+      1
+     ],
+     "e": 0,
+     "final": [
+      [
+       0,
+       0,
+       0
+      ],
+      [
+       0,
+       1,
+       1
+      ]
+     ],
+     "core_removed": [
+      [
+       0,
+       0
+      ]
+     ],
+     "core_clamped": [
+      [
+       0,
+       1,
+       1
+      ]
+     ],
+     "P3": false,
+     "P4": false,
+     "P5": false
+    }
+   ],
+   "perturbations": {
+    "flip1/A": {
+     "trials": 12,
+     "state_recovered": 12,
+     "readout_recovered": 12,
+     "other_module_readout_changed": 0
+    },
+    "flip2/A": {
+     "trials": 18,
+     "state_recovered": 18,
+     "readout_recovered": 18,
+     "other_module_readout_changed": 0
+    },
+    "switch/A": {
+     "trials": 3,
+     "state_recovered": 0,
+     "readout_recovered": 0,
+     "other_module_readout_changed": 3
+    },
+    "flip1/B": {
+     "trials": 12,
+     "state_recovered": 12,
+     "readout_recovered": 12,
+     "other_module_readout_changed": 0
+    },
+    "flip2/B": {
+     "trials": 18,
+     "state_recovered": 18,
+     "readout_recovered": 18,
+     "other_module_readout_changed": 0
+    },
+    "switch/B": {
+     "trials": 3,
+     "state_recovered": 0,
+     "readout_recovered": 0,
+     "other_module_readout_changed": 3
+    },
+    "flip1/K": {
+     "trials": 12,
+     "state_recovered": 12,
+     "readout_recovered": 12,
+     "other_module_readout_changed": 0
+    },
+    "flip2/K": {
+     "trials": 18,
+     "state_recovered": 18,
+     "readout_recovered": 18,
+     "other_module_readout_changed": 0
+    },
+    "switch/K": {
+     "trials": 3,
+     "state_recovered": 0,
+     "readout_recovered": 0,
+     "other_module_readout_changed": 3
+    }
+   },
+   "census": {
+    "states": 4096,
+    "terminals": 99,
+    "spurious_terminals": 96,
+    "spurious_by_popcount_class": {
+     "0/1/3 reads (0, 0, 1)": 16,
+     "0/3/1 reads (0, 1, 0)": 16,
+     "1/0/3 reads (0, 0, 1)": 16,
+     "1/1/4 reads (0, 0, 1)": 16,
+     "3/0/1 reads (1, 0, 0)": 16,
+     "3/3/4 reads (1, 1, 1)": 16
+    },
+    "committed_to_target": 2013,
+    "basins": {
+     "(0, 0, 0)": 671,
+     "(0, 0, 1)": 112,
+     "(0, 1, 0)": 16,
+     "(0, 1, 1)": 671,
+     "(1, 0, 0)": 16,
+     "(1, 0, 1)": 671,
+     "(1, 1, 1)": 16,
+     "ambiguous": 1923
+    }
+   }
+  },
+  {
+   "sigma": 8,
+   "lam": 2,
+   "h": 8,
+   "P1": true,
+   "P2": true,
+   "joint": false,
+   "pulses": [
+    {
+     "start": [
+      0,
+      0,
+      0
+     ],
+     "e": 1,
+     "final": [
+      [
+       1,
+       0,
+       0
+      ]
+     ],
+     "core_removed": [
+      [
+       1,
+       0
+      ]
+     ],
+     "core_clamped": [
+      [
+       1,
+       0,
+       0
+      ]
+     ],
+     "P3": false,
+     "P4": false,
+     "P5": false
+    },
+    {
+     "start": [
+      0,
+      1,
+      1
+     ],
+     "e": 1,
+     "final": [
+      [
+       1,
+       1,
+       1
+      ]
+     ],
+     "core_removed": [
+      [
+       1,
+       1
+      ]
+     ],
+     "core_clamped": [
+      [
+       1,
+       1,
+       1
+      ]
+     ],
+     "P3": false,
+     "P4": false,
+     "P5": false
+    },
+    {
+     "start": [
+      1,
+      0,
+      1
+     ],
+     "e": 0,
+     "final": [
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "core_removed": [
+      [
+       0,
+       0
+      ]
+     ],
+     "core_clamped": [
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "P3": false,
+     "P4": false,
+     "P5": false
+    }
+   ],
+   "perturbations": {
+    "flip1/A": {
+     "trials": 12,
+     "state_recovered": 12,
+     "readout_recovered": 12,
+     "other_module_readout_changed": 0
+    },
+    "flip2/A": {
+     "trials": 18,
+     "state_recovered": 18,
+     "readout_recovered": 18,
+     "other_module_readout_changed": 0
+    },
+    "switch/A": {
+     "trials": 3,
+     "state_recovered": 0,
+     "readout_recovered": 0,
+     "other_module_readout_changed": 0
+    },
+    "flip1/B": {
+     "trials": 12,
+     "state_recovered": 12,
+     "readout_recovered": 12,
+     "other_module_readout_changed": 0
+    },
+    "flip2/B": {
+     "trials": 18,
+     "state_recovered": 18,
+     "readout_recovered": 18,
+     "other_module_readout_changed": 0
+    },
+    "switch/B": {
+     "trials": 3,
+     "state_recovered": 0,
+     "readout_recovered": 0,
+     "other_module_readout_changed": 0
+    },
+    "flip1/K": {
+     "trials": 12,
+     "state_recovered": 12,
+     "readout_recovered": 12,
+     "other_module_readout_changed": 0
+    },
+    "flip2/K": {
+     "trials": 18,
+     "state_recovered": 18,
+     "readout_recovered": 18,
+     "other_module_readout_changed": 0
+    },
+    "switch/K": {
+     "trials": 3,
+     "state_recovered": 0,
+     "readout_recovered": 0,
+     "other_module_readout_changed": 0
+    }
+   },
+   "census": {
+    "states": 4096,
+    "terminals": 104,
+    "spurious_terminals": 101,
+    "spurious_by_popcount_class": {
+     "0/0/3 reads (0, 0, 1)": 4,
+     "0/0/4 reads (0, 0, 1)": 1,
+     "0/1/4 reads (0, 0, 1)": 4,
+     "0/3/0 reads (0, 1, 0)": 4,
+     "0/4/0 reads (0, 1, 0)": 1,
+     "0/4/1 reads (0, 1, 0)": 4,
+     "1/0/4 reads (0, 0, 1)": 4,
+     "3/0/0 reads (1, 0, 0)": 4,
+     "3/3/0 reads (1, 1, 0)": 16,
+     "3/4/0 reads (1, 1, 0)": 4,
+     "3/4/1 reads (1, 1, 0)": 16,
+     "3/4/4 reads (1, 1, 1)": 4,
+     "4/0/0 reads (1, 0, 0)": 1,
+     "4/0/1 reads (1, 0, 0)": 4,
+     "4/3/0 reads (1, 1, 0)": 4,
+     "4/3/1 reads (1, 1, 0)": 16,
+     "4/3/4 reads (1, 1, 1)": 4,
+     "4/4/0 reads (1, 1, 0)": 1,
+     "4/4/1 reads (1, 1, 0)": 4,
+     "4/4/4 reads (1, 1, 1)": 1
+    },
+    "committed_to_target": 681,
+    "basins": {
+     "(0, 0, 0)": 227,
+     "(0, 0, 1)": 125,
+     "(0, 1, 0)": 179,
+     "(0, 1, 1)": 227,
+     "(1, 0, 0)": 179,
+     "(1, 0, 1)": 227,
+     "(1, 1, 0)": 125,
+     "(1, 1, 1)": 179,
+     "ambiguous": 2628
+    }
+   }
+  },
+  {
+   "sigma": 8,
+   "lam": 3,
+   "h": 8,
+   "P1": true,
+   "P2": true,
+   "joint": false,
+   "pulses": [
+    {
+     "start": [
+      0,
+      0,
+      0
+     ],
+     "e": 1,
+     "final": [
+      [
+       1,
+       0,
+       0
+      ]
+     ],
+     "core_removed": [
+      [
+       1,
+       0
+      ]
+     ],
+     "core_clamped": [
+      [
+       1,
+       0,
+       0
+      ]
+     ],
+     "P3": false,
+     "P4": false,
+     "P5": false
+    },
+    {
+     "start": [
+      0,
+      1,
+      1
+     ],
+     "e": 1,
+     "final": [
+      [
+       1,
+       1,
+       1
+      ]
+     ],
+     "core_removed": [
+      [
+       1,
+       1
+      ]
+     ],
+     "core_clamped": [
+      [
+       1,
+       1,
+       1
+      ]
+     ],
+     "P3": false,
+     "P4": false,
+     "P5": false
+    },
+    {
+     "start": [
+      1,
+      0,
+      1
+     ],
+     "e": 0,
+     "final": [
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "core_removed": [
+      [
+       0,
+       0
+      ]
+     ],
+     "core_clamped": [
+      [
+       0,
+       0,
+       1
+      ]
+     ],
+     "P3": false,
+     "P4": false,
+     "P5": false
+    }
+   ],
+   "perturbations": {
+    "flip1/A": {
+     "trials": 12,
+     "state_recovered": 12,
+     "readout_recovered": 12,
+     "other_module_readout_changed": 0
+    },
+    "flip2/A": {
+     "trials": 18,
+     "state_recovered": 0,
+     "readout_recovered": 0,
+     "other_module_readout_changed": 0
+    },
+    "switch/A": {
+     "trials": 3,
+     "state_recovered": 0,
+     "readout_recovered": 0,
+     "other_module_readout_changed": 0
+    },
+    "flip1/B": {
+     "trials": 12,
+     "state_recovered": 12,
+     "readout_recovered": 12,
+     "other_module_readout_changed": 0
+    },
+    "flip2/B": {
+     "trials": 18,
+     "state_recovered": 0,
+     "readout_recovered": 0,
+     "other_module_readout_changed": 0
+    },
+    "switch/B": {
+     "trials": 3,
+     "state_recovered": 0,
+     "readout_recovered": 0,
+     "other_module_readout_changed": 0
+    },
+    "flip1/K": {
+     "trials": 12,
+     "state_recovered": 12,
+     "readout_recovered": 12,
+     "other_module_readout_changed": 0
+    },
+    "flip2/K": {
+     "trials": 18,
+     "state_recovered": 0,
+     "readout_recovered": 0,
+     "other_module_readout_changed": 0
+    },
+    "switch/K": {
+     "trials": 3,
+     "state_recovered": 0,
+     "readout_recovered": 0,
+     "other_module_readout_changed": 0
+    }
+   },
+   "census": {
+    "states": 4096,
+    "terminals": 8,
+    "spurious_terminals": 5,
+    "spurious_by_popcount_class": {
+     "0/0/4 reads (0, 0, 1)": 1,
+     "0/4/0 reads (0, 1, 0)": 1,
+     "4/0/0 reads (1, 0, 0)": 1,
+     "4/4/0 reads (1, 1, 0)": 1,
+     "4/4/4 reads (1, 1, 1)": 1
+    },
+    "committed_to_target": 375,
+    "basins": {
+     "(0, 0, 0)": 125,
+     "(0, 0, 1)": 125,
+     "(0, 1, 0)": 125,
+     "(0, 1, 1)": 125,
+     "(1, 0, 0)": 125,
+     "(1, 0, 1)": 125,
+     "(1, 1, 0)": 125,
+     "(1, 1, 1)": 125,
+     "ambiguous": 3096
+    }
+   }
+  }
+ ]
+}

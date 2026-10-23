@@ -1,0 +1,2330 @@
+{
+ "experiment": "learned-compatibility-v1",
+ "contract": "docs/learned-compatibility-v1-contract.md",
+ "relations": {
+  "blocks": [
+   [
+    0,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    1,
+    1
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    2,
+    0
+   ],
+   [
+    2,
+    1
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    3,
+    3
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    4,
+    3
+   ],
+   [
+    4,
+    4
+   ],
+   [
+    5,
+    5
+   ]
+  ],
+  "overlap": [
+   [
+    0,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    1,
+    1
+   ],
+   [
+    2,
+    0
+   ],
+   [
+    2,
+    1
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    2,
+    4
+   ],
+   [
+    3,
+    0
+   ],
+   [
+    3,
+    1
+   ],
+   [
+    3,
+    2
+   ],
+   [
+    3,
+    3
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    4,
+    2
+   ],
+   [
+    4,
+    3
+   ],
+   [
+    4,
+    4
+   ],
+   [
+    5,
+    2
+   ],
+   [
+    5,
+    3
+   ],
+   [
+    5,
+    4
+   ]
+  ],
+  "random": [
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    1,
+    5
+   ],
+   [
+    2,
+    0
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    2,
+    4
+   ],
+   [
+    3,
+    0
+   ],
+   [
+    4,
+    0
+   ],
+   [
+    4,
+    1
+   ],
+   [
+    4,
+    2
+   ],
+   [
+    4,
+    5
+   ],
+   [
+    5,
+    1
+   ],
+   [
+    5,
+    4
+   ]
+  ]
+ },
+ "relation_components": {
+  "blocks": 3,
+  "overlap": 1,
+  "random": 1
+ },
+ "grid": {
+  "core_sizes": [
+   2,
+   3,
+   4,
+   8
+  ],
+  "orders": 20
+ },
+ "splits": {
+  "blocks": {
+   "leave_one_out": {
+    "admissible": 13,
+    "inadmissible": 1
+   },
+   "leave_two_out": {
+    "admissible": 74,
+    "inadmissible": 17
+   },
+   "half": {
+    "admissible": 100,
+    "inadmissible": 6606
+   }
+  },
+  "overlap": {
+   "leave_one_out": {
+    "admissible": 20,
+    "inadmissible": 0
+   },
+   "leave_two_out": {
+    "admissible": 188,
+    "inadmissible": 2
+   },
+   "half": {
+    "admissible": 100,
+    "inadmissible": 194
+   }
+  },
+  "random": {
+   "leave_one_out": {
+    "admissible": 12,
+    "inadmissible": 2
+   },
+   "leave_two_out": {
+    "admissible": 61,
+    "inadmissible": 30
+   },
+   "half": {
+    "admissible": 36,
+    "inadmissible": 197908
+   }
+  }
+ },
+ "proposition_checks": {
+  "response_violations": 0,
+  "runs": 98452,
+  "merge_declared_condition_runs": 38300,
+  "merge_declared_condition_mismatch": 1800,
+  "merge_corrected_condition_runs": 29999,
+  "merge_corrected_condition_mismatch": 0,
+  "merge_corrected_condition_forced": 0,
+  "control_runs": 1812,
+  "control_heldout_recovered": 0,
+  "join_subset_checks": 48320,
+  "join_not_subset": 3435,
+  "join_subset_checks_without_forced_reuse": 26681,
+  "join_not_subset_without_forced_reuse": 0
+ },
+ "source_sha256": {
+  "src/compat_learning.py": "04e92009d42966633a500c156740fc77d37fe900c2c5d2accbe39e5e1e1f7749",
+  "experiments/learned_compatibility.py": "5af3aab6b2b2e347224fc4f48c158a1347b9b6678855ec95565c121e9df2de24",
+  "docs/learned-compatibility-v1-contract.md": "78a76202752928c0f041acd873f18a7ba04679c97b947b2e6456fde8b9664f7d"
+ },
+ "results": [
+  {
+   "relation": "blocks",
+   "split": "half",
+   "learner": "enumerate",
+   "n": null,
+   "runs": 100,
+   "means": {
+    "heldout_recall": 0.0,
+    "seen_recall": 1.0,
+    "precision": 1.0,
+    "invalid_responses": 0.0,
+    "exact_cues": 0.203333,
+    "single_cues_unique": 1.0,
+    "multi_cues_multiple": 0.2,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 0.0
+  },
+  {
+   "relation": "blocks",
+   "split": "half",
+   "learner": "join",
+   "n": 2,
+   "runs": 2000,
+   "means": {
+    "heldout_recall": 0.655071,
+    "seen_recall": 1.0,
+    "precision": 0.461982,
+    "invalid_responses": 27.519,
+    "exact_cues": 0.04525,
+    "single_cues_unique": 0.1775,
+    "multi_cues_multiple": 0.8824,
+    "cues_needing_dynamic_core": 0.059
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 2000,
+   "total_merges": 0,
+   "mean_core_modes_used": 2.0
+  },
+  {
+   "relation": "blocks",
+   "split": "half",
+   "learner": "join",
+   "n": 3,
+   "runs": 2000,
+   "means": {
+    "heldout_recall": 0.395071,
+    "seen_recall": 1.0,
+    "precision": 0.573994,
+    "invalid_responses": 15.154,
+    "exact_cues": 0.0945,
+    "single_cues_unique": 0.36,
+    "multi_cues_multiple": 0.7476,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0185,
+   "runs_with_forced_reuse": 2000,
+   "total_merges": 0,
+   "mean_core_modes_used": 3.0
+  },
+  {
+   "relation": "blocks",
+   "split": "half",
+   "learner": "join",
+   "n": 4,
+   "runs": 2000,
+   "means": {
+    "heldout_recall": 0.215286,
+    "seen_recall": 1.0,
+    "precision": 0.742944,
+    "invalid_responses": 6.361,
+    "exact_cues": 0.181583,
+    "single_cues_unique": 0.5705,
+    "multi_cues_multiple": 0.6097,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 2000,
+   "total_merges": 0,
+   "mean_core_modes_used": 4.0
+  },
+  {
+   "relation": "blocks",
+   "split": "half",
+   "learner": "join",
+   "n": 8,
+   "runs": 2000,
+   "means": {
+    "heldout_recall": 0.081357,
+    "seen_recall": 1.0,
+    "precision": 1.0,
+    "invalid_responses": 0.0,
+    "exact_cues": 0.22825,
+    "single_cues_unique": 1.0,
+    "multi_cues_multiple": 0.3139,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 5.2905
+  },
+  {
+   "relation": "blocks",
+   "split": "half",
+   "learner": "memorize",
+   "n": null,
+   "runs": 100,
+   "means": {
+    "heldout_recall": 0.0,
+    "seen_recall": 1.0,
+    "precision": 1.0,
+    "invalid_responses": 0.0,
+    "exact_cues": 0.203333,
+    "single_cues_unique": 1.0,
+    "multi_cues_multiple": 0.2,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 0.0
+  },
+  {
+   "relation": "blocks",
+   "split": "half",
+   "learner": "merge",
+   "n": 2,
+   "runs": 2000,
+   "means": {
+    "heldout_recall": 0.653714,
+    "seen_recall": 1.0,
+    "precision": 0.468712,
+    "invalid_responses": 26.736,
+    "exact_cues": 0.049833,
+    "single_cues_unique": 0.1935,
+    "multi_cues_multiple": 0.8864,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 2000,
+   "total_merges": 254,
+   "mean_core_modes_used": 1.959
+  },
+  {
+   "relation": "blocks",
+   "split": "half",
+   "learner": "merge",
+   "n": 3,
+   "runs": 2000,
+   "means": {
+    "heldout_recall": 0.403357,
+    "seen_recall": 1.0,
+    "precision": 0.591474,
+    "invalid_responses": 14.158,
+    "exact_cues": 0.105917,
+    "single_cues_unique": 0.3925,
+    "multi_cues_multiple": 0.757,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0225,
+   "runs_with_forced_reuse": 2000,
+   "total_merges": 416,
+   "mean_core_modes_used": 2.9295
+  },
+  {
+   "relation": "blocks",
+   "split": "half",
+   "learner": "merge",
+   "n": 4,
+   "runs": 2000,
+   "means": {
+    "heldout_recall": 0.234571,
+    "seen_recall": 1.0,
+    "precision": 0.772608,
+    "invalid_responses": 5.528,
+    "exact_cues": 0.20325,
+    "single_cues_unique": 0.6065,
+    "multi_cues_multiple": 0.6234,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0015,
+   "runs_with_forced_reuse": 2000,
+   "total_merges": 519,
+   "mean_core_modes_used": 3.9025
+  },
+  {
+   "relation": "blocks",
+   "split": "half",
+   "learner": "merge",
+   "n": 8,
+   "runs": 2000,
+   "means": {
+    "heldout_recall": 0.122857,
+    "seen_recall": 1.0,
+    "precision": 1.0,
+    "invalid_responses": 0.0,
+    "exact_cues": 0.24,
+    "single_cues_unique": 1.0,
+    "multi_cues_multiple": 0.372,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 581,
+   "mean_core_modes_used": 5.0
+  },
+  {
+   "relation": "blocks",
+   "split": "half",
+   "learner": "ternary",
+   "n": null,
+   "runs": 100,
+   "means": {
+    "heldout_recall": 0.0,
+    "seen_recall": 1.0,
+    "precision": 1.0,
+    "invalid_responses": 0.0,
+    "exact_cues": 0.203333,
+    "single_cues_unique": 1.0,
+    "multi_cues_multiple": 0.2,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 5.26
+  },
+  {
+   "relation": "blocks",
+   "split": "leave_one_out",
+   "learner": "enumerate",
+   "n": null,
+   "runs": 13,
+   "means": {
+    "heldout_recall": 0.0,
+    "seen_recall": 1.0,
+    "precision": 1.0,
+    "invalid_responses": 0.0,
+    "exact_cues": 0.833333,
+    "single_cues_unique": 1.0,
+    "multi_cues_multiple": 0.938462,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 0.0
+  },
+  {
+   "relation": "blocks",
+   "split": "leave_one_out",
+   "learner": "join",
+   "n": 2,
+   "runs": 260,
+   "means": {
+    "heldout_recall": 0.888462,
+    "seen_recall": 1.0,
+    "precision": 0.511553,
+    "invalid_responses": 30.584615,
+    "exact_cues": 0.135897,
+    "single_cues_unique": 0.130769,
+    "multi_cues_multiple": 0.995,
+    "cues_needing_dynamic_core": 0.084615
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 260,
+   "total_merges": 0,
+   "mean_core_modes_used": 2.0
+  },
+  {
+   "relation": "blocks",
+   "split": "leave_one_out",
+   "learner": "join",
+   "n": 3,
+   "runs": 260,
+   "means": {
+    "heldout_recall": 0.823077,
+    "seen_recall": 1.0,
+    "precision": 0.714279,
+    "invalid_responses": 14.761538,
+    "exact_cues": 0.440385,
+    "single_cues_unique": 0.430769,
+    "multi_cues_multiple": 0.989615,
+    "cues_needing_dynamic_core": 0.057692
+   },
+   "fraction_perfect_generalization": 0.261538,
+   "runs_with_forced_reuse": 200,
+   "total_merges": 0,
+   "mean_core_modes_used": 3.0
+  },
+  {
+   "relation": "blocks",
+   "split": "leave_one_out",
+   "learner": "join",
+   "n": 4,
+   "runs": 260,
+   "means": {
+    "heldout_recall": 0.8,
+    "seen_recall": 1.0,
+    "precision": 0.907577,
+    "invalid_responses": 4.138462,
+    "exact_cues": 0.791667,
+    "single_cues_unique": 0.838462,
+    "multi_cues_multiple": 0.980769,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.65,
+   "runs_with_forced_reuse": 77,
+   "total_merges": 0,
+   "mean_core_modes_used": 3.769231
+  },
+  {
+   "relation": "blocks",
+   "split": "leave_one_out",
+   "learner": "join",
+   "n": 8,
+   "runs": 260,
+   "means": {
+    "heldout_recall": 0.792308,
+    "seen_recall": 1.0,
+    "precision": 1.0,
+    "invalid_responses": 0.0,
+    "exact_cues": 0.965385,
+    "single_cues_unique": 1.0,
+    "multi_cues_multiple": 0.976154,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.792308,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 4.1
+  },
+  {
+   "relation": "blocks",
+   "split": "leave_one_out",
+   "learner": "memorize",
+   "n": null,
+   "runs": 13,
+   "means": {
+    "heldout_recall": 0.0,
+    "seen_recall": 1.0,
+    "precision": 1.0,
+    "invalid_responses": 0.0,
+    "exact_cues": 0.833333,
+    "single_cues_unique": 1.0,
+    "multi_cues_multiple": 0.938462,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 0.0
+  },
+  {
+   "relation": "blocks",
+   "split": "leave_one_out",
+   "learner": "merge",
+   "n": 2,
+   "runs": 260,
+   "means": {
+    "heldout_recall": 1.0,
+    "seen_recall": 1.0,
+    "precision": 0.576729,
+    "invalid_responses": 23.276923,
+    "exact_cues": 0.213462,
+    "single_cues_unique": 0.403846,
+    "multi_cues_multiple": 1.0,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 260,
+   "total_merges": 169,
+   "mean_core_modes_used": 1.784615
+  },
+  {
+   "relation": "blocks",
+   "split": "leave_one_out",
+   "learner": "merge",
+   "n": 3,
+   "runs": 260,
+   "means": {
+    "heldout_recall": 1.0,
+    "seen_recall": 1.0,
+    "precision": 0.847804,
+    "invalid_responses": 7.846154,
+    "exact_cues": 0.711538,
+    "single_cues_unique": 0.811538,
+    "multi_cues_multiple": 1.0,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.623077,
+   "runs_with_forced_reuse": 115,
+   "total_merges": 254,
+   "mean_core_modes_used": 2.584615
+  },
+  {
+   "relation": "blocks",
+   "split": "leave_one_out",
+   "learner": "merge",
+   "n": 4,
+   "runs": 260,
+   "means": {
+    "heldout_recall": 1.0,
+    "seen_recall": 1.0,
+    "precision": 0.972074,
+    "invalid_responses": 1.369231,
+    "exact_cues": 0.946795,
+    "single_cues_unique": 0.976923,
+    "multi_cues_multiple": 1.0,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.930769,
+   "runs_with_forced_reuse": 22,
+   "total_merges": 280,
+   "mean_core_modes_used": 2.930769
+  },
+  {
+   "relation": "blocks",
+   "split": "leave_one_out",
+   "learner": "merge",
+   "n": 8,
+   "runs": 260,
+   "means": {
+    "heldout_recall": 1.0,
+    "seen_recall": 1.0,
+    "precision": 1.0,
+    "invalid_responses": 0.0,
+    "exact_cues": 1.0,
+    "single_cues_unique": 1.0,
+    "multi_cues_multiple": 1.0,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 1.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 286,
+   "mean_core_modes_used": 3.0
+  },
+  {
+   "relation": "blocks",
+   "split": "leave_one_out",
+   "learner": "ternary",
+   "n": null,
+   "runs": 13,
+   "means": {
+    "heldout_recall": 0.0,
+    "seen_recall": 1.0,
+    "precision": 1.0,
+    "invalid_responses": 0.0,
+    "exact_cues": 0.833333,
+    "single_cues_unique": 1.0,
+    "multi_cues_multiple": 0.938462,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 3.923077
+  },
+  {
+   "relation": "blocks",
+   "split": "leave_two_out",
+   "learner": "enumerate",
+   "n": null,
+   "runs": 74,
+   "means": {
+    "heldout_recall": 0.0,
+    "seen_recall": 1.0,
+    "precision": 1.0,
+    "invalid_responses": 0.0,
+    "exact_cues": 0.686937,
+    "single_cues_unique": 1.0,
+    "multi_cues_multiple": 0.867568,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 0.0
+  },
+  {
+   "relation": "blocks",
+   "split": "leave_two_out",
+   "learner": "join",
+   "n": 2,
+   "runs": 1480,
+   "means": {
+    "heldout_recall": 0.869257,
+    "seen_recall": 1.0,
+    "precision": 0.509995,
+    "invalid_responses": 30.321622,
+    "exact_cues": 0.132545,
+    "single_cues_unique": 0.107432,
+    "multi_cues_multiple": 0.990338,
+    "cues_needing_dynamic_core": 0.152703
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 1480,
+   "total_merges": 0,
+   "mean_core_modes_used": 2.0
+  },
+  {
+   "relation": "blocks",
+   "split": "leave_two_out",
+   "learner": "join",
+   "n": 3,
+   "runs": 1480,
+   "means": {
+    "heldout_recall": 0.793919,
+    "seen_recall": 1.0,
+    "precision": 0.70106,
+    "invalid_responses": 15.232432,
+    "exact_cues": 0.408671,
+    "single_cues_unique": 0.408108,
+    "multi_cues_multiple": 0.978581,
+    "cues_needing_dynamic_core": 0.089865
+   },
+   "fraction_perfect_generalization": 0.235135,
+   "runs_with_forced_reuse": 1190,
+   "total_merges": 0,
+   "mean_core_modes_used": 3.0
+  },
+  {
+   "relation": "blocks",
+   "split": "leave_two_out",
+   "learner": "join",
+   "n": 4,
+   "runs": 1480,
+   "means": {
+    "heldout_recall": 0.762838,
+    "seen_recall": 1.0,
+    "precision": 0.898936,
+    "invalid_responses": 4.401351,
+    "exact_cues": 0.746059,
+    "single_cues_unique": 0.794595,
+    "multi_cues_multiple": 0.964527,
+    "cues_needing_dynamic_core": 0.011486
+   },
+   "fraction_perfect_generalization": 0.545946,
+   "runs_with_forced_reuse": 487,
+   "total_merges": 0,
+   "mean_core_modes_used": 3.804054
+  },
+  {
+   "relation": "blocks",
+   "split": "leave_two_out",
+   "learner": "join",
+   "n": 8,
+   "runs": 1480,
+   "means": {
+    "heldout_recall": 0.742568,
+    "seen_recall": 1.0,
+    "precision": 1.0,
+    "invalid_responses": 0.0,
+    "exact_cues": 0.919538,
+    "single_cues_unique": 1.0,
+    "multi_cues_multiple": 0.951419,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.621622,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 4.172973
+  },
+  {
+   "relation": "blocks",
+   "split": "leave_two_out",
+   "learner": "memorize",
+   "n": null,
+   "runs": 74,
+   "means": {
+    "heldout_recall": 0.0,
+    "seen_recall": 1.0,
+    "precision": 1.0,
+    "invalid_responses": 0.0,
+    "exact_cues": 0.686937,
+    "single_cues_unique": 1.0,
+    "multi_cues_multiple": 0.867568,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 0.0
+  },
+  {
+   "relation": "blocks",
+   "split": "leave_two_out",
+   "learner": "merge",
+   "n": 2,
+   "runs": 1480,
+   "means": {
+    "heldout_recall": 0.985135,
+    "seen_recall": 1.0,
+    "precision": 0.566807,
+    "invalid_responses": 24.486486,
+    "exact_cues": 0.201239,
+    "single_cues_unique": 0.341892,
+    "multi_cues_multiple": 0.997703,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 1480,
+   "total_merges": 1009,
+   "mean_core_modes_used": 1.729054
+  },
+  {
+   "relation": "blocks",
+   "split": "leave_two_out",
+   "learner": "merge",
+   "n": 3,
+   "runs": 1480,
+   "means": {
+    "heldout_recall": 0.975676,
+    "seen_recall": 1.0,
+    "precision": 0.830044,
+    "invalid_responses": 8.489189,
+    "exact_cues": 0.669032,
+    "single_cues_unique": 0.758108,
+    "multi_cues_multiple": 0.994324,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.552703,
+   "runs_with_forced_reuse": 767,
+   "total_merges": 1482,
+   "mean_core_modes_used": 2.538514
+  },
+  {
+   "relation": "blocks",
+   "split": "leave_two_out",
+   "learner": "merge",
+   "n": 4,
+   "runs": 1480,
+   "means": {
+    "heldout_recall": 0.972973,
+    "seen_recall": 1.0,
+    "precision": 0.971615,
+    "invalid_responses": 1.37027,
+    "exact_cues": 0.935923,
+    "single_cues_unique": 0.958784,
+    "multi_cues_multiple": 0.989324,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.896622,
+   "runs_with_forced_reuse": 144,
+   "total_merges": 1663,
+   "mean_core_modes_used": 2.946622
+  },
+  {
+   "relation": "blocks",
+   "split": "leave_two_out",
+   "learner": "merge",
+   "n": 8,
+   "runs": 1480,
+   "means": {
+    "heldout_recall": 0.972973,
+    "seen_recall": 1.0,
+    "precision": 1.0,
+    "invalid_responses": 0.0,
+    "exact_cues": 0.990991,
+    "single_cues_unique": 1.0,
+    "multi_cues_multiple": 0.989189,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.972973,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 1696,
+   "mean_core_modes_used": 3.027027
+  },
+  {
+   "relation": "blocks",
+   "split": "leave_two_out",
+   "learner": "ternary",
+   "n": null,
+   "runs": 74,
+   "means": {
+    "heldout_recall": 0.0,
+    "seen_recall": 1.0,
+    "precision": 1.0,
+    "invalid_responses": 0.0,
+    "exact_cues": 0.686937,
+    "single_cues_unique": 1.0,
+    "multi_cues_multiple": 0.867568,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 4.27027
+  },
+  {
+   "relation": "overlap",
+   "split": "half",
+   "learner": "enumerate",
+   "n": null,
+   "runs": 100,
+   "means": {
+    "heldout_recall": 0.0,
+    "seen_recall": 1.0,
+    "precision": 1.0,
+    "invalid_responses": 0.0,
+    "exact_cues": 0.075455,
+    "multi_cues_multiple": 0.6,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 0.0
+  },
+  {
+   "relation": "overlap",
+   "split": "half",
+   "learner": "join",
+   "n": 2,
+   "runs": 2000,
+   "means": {
+    "heldout_recall": 0.68905,
+    "seen_recall": 1.0,
+    "precision": 0.733672,
+    "invalid_responses": 12.904,
+    "exact_cues": 0.149045,
+    "multi_cues_multiple": 0.936409,
+    "cues_needing_dynamic_core": 0.417
+   },
+   "fraction_perfect_generalization": 0.0005,
+   "runs_with_forced_reuse": 1804,
+   "total_merges": 0,
+   "mean_core_modes_used": 1.997
+  },
+  {
+   "relation": "overlap",
+   "split": "half",
+   "learner": "join",
+   "n": 3,
+   "runs": 2000,
+   "means": {
+    "heldout_recall": 0.42755,
+    "seen_recall": 1.0,
+    "precision": 0.820782,
+    "invalid_responses": 6.888,
+    "exact_cues": 0.142455,
+    "multi_cues_multiple": 0.857909,
+    "cues_needing_dynamic_core": 0.241
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 937,
+   "total_merges": 0,
+   "mean_core_modes_used": 2.899
+  },
+  {
+   "relation": "overlap",
+   "split": "half",
+   "learner": "join",
+   "n": 4,
+   "runs": 2000,
+   "means": {
+    "heldout_recall": 0.3154,
+    "seen_recall": 1.0,
+    "precision": 0.873649,
+    "invalid_responses": 4.274,
+    "exact_cues": 0.145409,
+    "multi_cues_multiple": 0.805455,
+    "cues_needing_dynamic_core": 0.0375
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 157,
+   "total_merges": 0,
+   "mean_core_modes_used": 3.3675
+  },
+  {
+   "relation": "overlap",
+   "split": "half",
+   "learner": "join",
+   "n": 8,
+   "runs": 2000,
+   "means": {
+    "heldout_recall": 0.29745,
+    "seen_recall": 1.0,
+    "precision": 0.883613,
+    "invalid_responses": 3.887,
+    "exact_cues": 0.145227,
+    "multi_cues_multiple": 0.794409,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 3.446
+  },
+  {
+   "relation": "overlap",
+   "split": "half",
+   "learner": "memorize",
+   "n": null,
+   "runs": 100,
+   "means": {
+    "heldout_recall": 0.0,
+    "seen_recall": 1.0,
+    "precision": 1.0,
+    "invalid_responses": 0.0,
+    "exact_cues": 0.075455,
+    "multi_cues_multiple": 0.6,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 0.0
+  },
+  {
+   "relation": "overlap",
+   "split": "half",
+   "learner": "merge",
+   "n": 2,
+   "runs": 2000,
+   "means": {
+    "heldout_recall": 0.8697,
+    "seen_recall": 1.0,
+    "precision": 0.699142,
+    "invalid_responses": 16.951,
+    "exact_cues": 0.166045,
+    "multi_cues_multiple": 0.960818,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 1625,
+   "total_merges": 2027,
+   "mean_core_modes_used": 1.266
+  },
+  {
+   "relation": "overlap",
+   "split": "half",
+   "learner": "merge",
+   "n": 3,
+   "runs": 2000,
+   "means": {
+    "heldout_recall": 0.763,
+    "seen_recall": 1.0,
+    "precision": 0.732667,
+    "invalid_responses": 14.24,
+    "exact_cues": 0.164182,
+    "multi_cues_multiple": 0.925909,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 550,
+   "total_merges": 3280,
+   "mean_core_modes_used": 1.502
+  },
+  {
+   "relation": "overlap",
+   "split": "half",
+   "learner": "merge",
+   "n": 4,
+   "runs": 2000,
+   "means": {
+    "heldout_recall": 0.725,
+    "seen_recall": 1.0,
+    "precision": 0.742759,
+    "invalid_responses": 13.356,
+    "exact_cues": 0.161182,
+    "multi_cues_multiple": 0.914,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 55,
+   "total_merges": 3672,
+   "mean_core_modes_used": 1.5825
+  },
+  {
+   "relation": "overlap",
+   "split": "half",
+   "learner": "merge",
+   "n": 8,
+   "runs": 2000,
+   "means": {
+    "heldout_recall": 0.722,
+    "seen_recall": 1.0,
+    "precision": 0.743679,
+    "invalid_responses": 13.28,
+    "exact_cues": 0.160909,
+    "multi_cues_multiple": 0.912727,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 3712,
+   "mean_core_modes_used": 1.59
+  },
+  {
+   "relation": "overlap",
+   "split": "half",
+   "learner": "ternary",
+   "n": null,
+   "runs": 100,
+   "means": {
+    "heldout_recall": 0.0,
+    "seen_recall": 1.0,
+    "precision": 1.0,
+    "invalid_responses": 0.0,
+    "exact_cues": 0.075455,
+    "multi_cues_multiple": 0.6,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 3.35
+  },
+  {
+   "relation": "overlap",
+   "split": "leave_one_out",
+   "learner": "enumerate",
+   "n": null,
+   "runs": 20,
+   "means": {
+    "heldout_recall": 0.0,
+    "seen_recall": 1.0,
+    "precision": 1.0,
+    "invalid_responses": 0.0,
+    "exact_cues": 0.818182,
+    "multi_cues_multiple": 0.981818,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 0.0
+  },
+  {
+   "relation": "overlap",
+   "split": "leave_one_out",
+   "learner": "join",
+   "n": 2,
+   "runs": 400,
+   "means": {
+    "heldout_recall": 0.9275,
+    "seen_recall": 1.0,
+    "precision": 0.689754,
+    "invalid_responses": 18.285,
+    "exact_cues": 0.226136,
+    "multi_cues_multiple": 0.997727,
+    "cues_needing_dynamic_core": 0.13
+   },
+   "fraction_perfect_generalization": 0.015,
+   "runs_with_forced_reuse": 315,
+   "total_merges": 0,
+   "mean_core_modes_used": 1.985
+  },
+  {
+   "relation": "overlap",
+   "split": "leave_one_out",
+   "learner": "join",
+   "n": 3,
+   "runs": 400,
+   "means": {
+    "heldout_recall": 0.87,
+    "seen_recall": 1.0,
+    "precision": 0.729511,
+    "invalid_responses": 15.485,
+    "exact_cues": 0.306364,
+    "multi_cues_multiple": 0.995909,
+    "cues_needing_dynamic_core": 0.3625
+   },
+   "fraction_perfect_generalization": 0.04,
+   "runs_with_forced_reuse": 120,
+   "total_merges": 0,
+   "mean_core_modes_used": 2.7725
+  },
+  {
+   "relation": "overlap",
+   "split": "leave_one_out",
+   "learner": "join",
+   "n": 4,
+   "runs": 400,
+   "means": {
+    "heldout_recall": 0.8325,
+    "seen_recall": 1.0,
+    "precision": 0.74727,
+    "invalid_responses": 14.185,
+    "exact_cues": 0.337955,
+    "multi_cues_multiple": 0.995682,
+    "cues_needing_dynamic_core": 0.185
+   },
+   "fraction_perfect_generalization": 0.0425,
+   "runs_with_forced_reuse": 17,
+   "total_merges": 0,
+   "mean_core_modes_used": 3.0725
+  },
+  {
+   "relation": "overlap",
+   "split": "leave_one_out",
+   "learner": "join",
+   "n": 8,
+   "runs": 400,
+   "means": {
+    "heldout_recall": 0.8275,
+    "seen_recall": 1.0,
+    "precision": 0.749323,
+    "invalid_responses": 14.045,
+    "exact_cues": 0.341591,
+    "multi_cues_multiple": 0.995455,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.045,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 3.115
+  },
+  {
+   "relation": "overlap",
+   "split": "leave_one_out",
+   "learner": "memorize",
+   "n": null,
+   "runs": 20,
+   "means": {
+    "heldout_recall": 0.0,
+    "seen_recall": 1.0,
+    "precision": 1.0,
+    "invalid_responses": 0.0,
+    "exact_cues": 0.818182,
+    "multi_cues_multiple": 0.981818,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 0.0
+  },
+  {
+   "relation": "overlap",
+   "split": "leave_one_out",
+   "learner": "merge",
+   "n": 2,
+   "runs": 400,
+   "means": {
+    "heldout_recall": 1.0,
+    "seen_recall": 1.0,
+    "precision": 0.666667,
+    "invalid_responses": 20.0,
+    "exact_cues": 0.181818,
+    "multi_cues_multiple": 1.0,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 274,
+   "total_merges": 488,
+   "mean_core_modes_used": 1.0
+  },
+  {
+   "relation": "overlap",
+   "split": "leave_one_out",
+   "learner": "merge",
+   "n": 3,
+   "runs": 400,
+   "means": {
+    "heldout_recall": 1.0,
+    "seen_recall": 1.0,
+    "precision": 0.666667,
+    "invalid_responses": 20.0,
+    "exact_cues": 0.181818,
+    "multi_cues_multiple": 1.0,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 64,
+   "total_merges": 777,
+   "mean_core_modes_used": 1.0
+  },
+  {
+   "relation": "overlap",
+   "split": "leave_one_out",
+   "learner": "merge",
+   "n": 4,
+   "runs": 400,
+   "means": {
+    "heldout_recall": 1.0,
+    "seen_recall": 1.0,
+    "precision": 0.666667,
+    "invalid_responses": 20.0,
+    "exact_cues": 0.181818,
+    "multi_cues_multiple": 1.0,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 5,
+   "total_merges": 841,
+   "mean_core_modes_used": 1.0
+  },
+  {
+   "relation": "overlap",
+   "split": "leave_one_out",
+   "learner": "merge",
+   "n": 8,
+   "runs": 400,
+   "means": {
+    "heldout_recall": 1.0,
+    "seen_recall": 1.0,
+    "precision": 0.666667,
+    "invalid_responses": 20.0,
+    "exact_cues": 0.181818,
+    "multi_cues_multiple": 1.0,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 846,
+   "mean_core_modes_used": 1.0
+  },
+  {
+   "relation": "overlap",
+   "split": "leave_one_out",
+   "learner": "ternary",
+   "n": null,
+   "runs": 20,
+   "means": {
+    "heldout_recall": 0.0,
+    "seen_recall": 1.0,
+    "precision": 1.0,
+    "invalid_responses": 0.0,
+    "exact_cues": 0.818182,
+    "multi_cues_multiple": 0.981818,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 3.4
+  },
+  {
+   "relation": "overlap",
+   "split": "leave_two_out",
+   "learner": "enumerate",
+   "n": null,
+   "runs": 188,
+   "means": {
+    "heldout_recall": 0.0,
+    "seen_recall": 1.0,
+    "precision": 1.0,
+    "invalid_responses": 0.0,
+    "exact_cues": 0.663443,
+    "multi_cues_multiple": 0.962282,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 0.0
+  },
+  {
+   "relation": "overlap",
+   "split": "leave_two_out",
+   "learner": "join",
+   "n": 2,
+   "runs": 3760,
+   "means": {
+    "heldout_recall": 0.923404,
+    "seen_recall": 1.0,
+    "precision": 0.693259,
+    "invalid_responses": 17.955851,
+    "exact_cues": 0.227321,
+    "multi_cues_multiple": 0.995938,
+    "cues_needing_dynamic_core": 0.156649
+   },
+   "fraction_perfect_generalization": 0.011702,
+   "runs_with_forced_reuse": 2889,
+   "total_merges": 0,
+   "mean_core_modes_used": 1.980053
+  },
+  {
+   "relation": "overlap",
+   "split": "leave_two_out",
+   "learner": "join",
+   "n": 3,
+   "runs": 3760,
+   "means": {
+    "heldout_recall": 0.834707,
+    "seen_recall": 1.0,
+    "precision": 0.730765,
+    "invalid_responses": 15.225532,
+    "exact_cues": 0.289338,
+    "multi_cues_multiple": 0.991272,
+    "cues_needing_dynamic_core": 0.344415
+   },
+   "fraction_perfect_generalization": 0.028989,
+   "runs_with_forced_reuse": 1076,
+   "total_merges": 0,
+   "mean_core_modes_used": 2.748404
+  },
+  {
+   "relation": "overlap",
+   "split": "leave_two_out",
+   "learner": "join",
+   "n": 4,
+   "runs": 3760,
+   "means": {
+    "heldout_recall": 0.791755,
+    "seen_recall": 1.0,
+    "precision": 0.749307,
+    "invalid_responses": 13.914362,
+    "exact_cues": 0.318037,
+    "multi_cues_multiple": 0.989241,
+    "cues_needing_dynamic_core": 0.189362
+   },
+   "fraction_perfect_generalization": 0.032979,
+   "runs_with_forced_reuse": 109,
+   "total_merges": 0,
+   "mean_core_modes_used": 3.034574
+  },
+  {
+   "relation": "overlap",
+   "split": "leave_two_out",
+   "learner": "join",
+   "n": 8,
+   "runs": 3760,
+   "means": {
+    "heldout_recall": 0.786702,
+    "seen_recall": 1.0,
+    "precision": 0.751316,
+    "invalid_responses": 13.771277,
+    "exact_cues": 0.321277,
+    "multi_cues_multiple": 0.989072,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.033511,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 3.063564
+  },
+  {
+   "relation": "overlap",
+   "split": "leave_two_out",
+   "learner": "memorize",
+   "n": null,
+   "runs": 188,
+   "means": {
+    "heldout_recall": 0.0,
+    "seen_recall": 1.0,
+    "precision": 1.0,
+    "invalid_responses": 0.0,
+    "exact_cues": 0.663443,
+    "multi_cues_multiple": 0.962282,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 0.0
+  },
+  {
+   "relation": "overlap",
+   "split": "leave_two_out",
+   "learner": "merge",
+   "n": 2,
+   "runs": 3760,
+   "means": {
+    "heldout_recall": 1.0,
+    "seen_recall": 1.0,
+    "precision": 0.666667,
+    "invalid_responses": 20.0,
+    "exact_cues": 0.181818,
+    "multi_cues_multiple": 1.0,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 2403,
+   "total_merges": 4620,
+   "mean_core_modes_used": 1.0
+  },
+  {
+   "relation": "overlap",
+   "split": "leave_two_out",
+   "learner": "merge",
+   "n": 3,
+   "runs": 3760,
+   "means": {
+    "heldout_recall": 1.0,
+    "seen_recall": 1.0,
+    "precision": 0.666667,
+    "invalid_responses": 20.0,
+    "exact_cues": 0.181818,
+    "multi_cues_multiple": 1.0,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 590,
+   "total_merges": 7130,
+   "mean_core_modes_used": 1.0
+  },
+  {
+   "relation": "overlap",
+   "split": "leave_two_out",
+   "learner": "merge",
+   "n": 4,
+   "runs": 3760,
+   "means": {
+    "heldout_recall": 1.0,
+    "seen_recall": 1.0,
+    "precision": 0.666667,
+    "invalid_responses": 20.0,
+    "exact_cues": 0.181818,
+    "multi_cues_multiple": 1.0,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 32,
+   "total_merges": 7727,
+   "mean_core_modes_used": 1.0
+  },
+  {
+   "relation": "overlap",
+   "split": "leave_two_out",
+   "learner": "merge",
+   "n": 8,
+   "runs": 3760,
+   "means": {
+    "heldout_recall": 1.0,
+    "seen_recall": 1.0,
+    "precision": 0.666667,
+    "invalid_responses": 20.0,
+    "exact_cues": 0.181818,
+    "multi_cues_multiple": 1.0,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 7759,
+   "mean_core_modes_used": 1.0
+  },
+  {
+   "relation": "overlap",
+   "split": "leave_two_out",
+   "learner": "ternary",
+   "n": null,
+   "runs": 188,
+   "means": {
+    "heldout_recall": 0.0,
+    "seen_recall": 1.0,
+    "precision": 1.0,
+    "invalid_responses": 0.0,
+    "exact_cues": 0.663443,
+    "multi_cues_multiple": 0.962282,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 3.015957
+  },
+  {
+   "relation": "random",
+   "split": "half",
+   "learner": "enumerate",
+   "n": null,
+   "runs": 36,
+   "means": {
+    "heldout_recall": 0.0,
+    "seen_recall": 1.0,
+    "precision": 1.0,
+    "invalid_responses": 0.0,
+    "exact_cues": 0.233796,
+    "single_cues_unique": 1.0,
+    "multi_cues_multiple": 0.2,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 0.0
+  },
+  {
+   "relation": "random",
+   "split": "half",
+   "learner": "join",
+   "n": 2,
+   "runs": 720,
+   "means": {
+    "heldout_recall": 0.605952,
+    "seen_recall": 1.0,
+    "precision": 0.460411,
+    "invalid_responses": 26.594444,
+    "exact_cues": 0.04838,
+    "single_cues_unique": 0.161806,
+    "multi_cues_multiple": 0.854583,
+    "cues_needing_dynamic_core": 0.033333
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 720,
+   "total_merges": 0,
+   "mean_core_modes_used": 2.0
+  },
+  {
+   "relation": "random",
+   "split": "half",
+   "learner": "join",
+   "n": 3,
+   "runs": 720,
+   "means": {
+    "heldout_recall": 0.317262,
+    "seen_recall": 1.0,
+    "precision": 0.572496,
+    "invalid_responses": 14.163889,
+    "exact_cues": 0.098032,
+    "single_cues_unique": 0.345139,
+    "multi_cues_multiple": 0.707639,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 720,
+   "total_merges": 0,
+   "mean_core_modes_used": 3.0
+  },
+  {
+   "relation": "random",
+   "split": "half",
+   "learner": "join",
+   "n": 4,
+   "runs": 720,
+   "means": {
+    "heldout_recall": 0.123016,
+    "seen_recall": 1.0,
+    "precision": 0.739824,
+    "invalid_responses": 5.844444,
+    "exact_cues": 0.14838,
+    "single_cues_unique": 0.529167,
+    "multi_cues_multiple": 0.554028,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 720,
+   "total_merges": 0,
+   "mean_core_modes_used": 4.0
+  },
+  {
+   "relation": "random",
+   "split": "half",
+   "learner": "join",
+   "n": 8,
+   "runs": 720,
+   "means": {
+    "heldout_recall": 0.0,
+    "seen_recall": 1.0,
+    "precision": 0.963542,
+    "invalid_responses": 0.583333,
+    "exact_cues": 0.221644,
+    "single_cues_unique": 0.927083,
+    "multi_cues_multiple": 0.24375,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 5.152778
+  },
+  {
+   "relation": "random",
+   "split": "half",
+   "learner": "memorize",
+   "n": null,
+   "runs": 36,
+   "means": {
+    "heldout_recall": 0.0,
+    "seen_recall": 1.0,
+    "precision": 1.0,
+    "invalid_responses": 0.0,
+    "exact_cues": 0.233796,
+    "single_cues_unique": 1.0,
+    "multi_cues_multiple": 0.2,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 0.0
+  },
+  {
+   "relation": "random",
+   "split": "half",
+   "learner": "merge",
+   "n": 2,
+   "runs": 720,
+   "means": {
+    "heldout_recall": 0.596032,
+    "seen_recall": 1.0,
+    "precision": 0.460904,
+    "invalid_responses": 26.416667,
+    "exact_cues": 0.048148,
+    "single_cues_unique": 0.157639,
+    "multi_cues_multiple": 0.854306,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 720,
+   "total_merges": 44,
+   "mean_core_modes_used": 1.977778
+  },
+  {
+   "relation": "random",
+   "split": "half",
+   "learner": "merge",
+   "n": 3,
+   "runs": 720,
+   "means": {
+    "heldout_recall": 0.306349,
+    "seen_recall": 1.0,
+    "precision": 0.574927,
+    "invalid_responses": 13.927778,
+    "exact_cues": 0.09838,
+    "single_cues_unique": 0.338889,
+    "multi_cues_multiple": 0.708056,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 720,
+   "total_merges": 82,
+   "mean_core_modes_used": 2.956944
+  },
+  {
+   "relation": "random",
+   "split": "half",
+   "learner": "merge",
+   "n": 4,
+   "runs": 720,
+   "means": {
+    "heldout_recall": 0.11131,
+    "seen_recall": 1.0,
+    "precision": 0.742535,
+    "invalid_responses": 5.738889,
+    "exact_cues": 0.148032,
+    "single_cues_unique": 0.520833,
+    "multi_cues_multiple": 0.556667,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 720,
+   "total_merges": 99,
+   "mean_core_modes_used": 3.944444
+  },
+  {
+   "relation": "random",
+   "split": "half",
+   "learner": "merge",
+   "n": 8,
+   "runs": 720,
+   "means": {
+    "heldout_recall": 0.0,
+    "seen_recall": 1.0,
+    "precision": 0.944444,
+    "invalid_responses": 0.888889,
+    "exact_cues": 0.215278,
+    "single_cues_unique": 0.888889,
+    "multi_cues_multiple": 0.266667,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 110,
+   "mean_core_modes_used": 5.0
+  },
+  {
+   "relation": "random",
+   "split": "half",
+   "learner": "ternary",
+   "n": null,
+   "runs": 36,
+   "means": {
+    "heldout_recall": 0.0,
+    "seen_recall": 1.0,
+    "precision": 1.0,
+    "invalid_responses": 0.0,
+    "exact_cues": 0.233796,
+    "single_cues_unique": 1.0,
+    "multi_cues_multiple": 0.2,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 5.055556
+  },
+  {
+   "relation": "random",
+   "split": "leave_one_out",
+   "learner": "enumerate",
+   "n": null,
+   "runs": 12,
+   "means": {
+    "heldout_recall": 0.0,
+    "seen_recall": 1.0,
+    "precision": 1.0,
+    "invalid_responses": 0.0,
+    "exact_cues": 0.833333,
+    "single_cues_unique": 1.0,
+    "multi_cues_multiple": 0.908333,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 0.0
+  },
+  {
+   "relation": "random",
+   "split": "leave_one_out",
+   "learner": "join",
+   "n": 2,
+   "runs": 240,
+   "means": {
+    "heldout_recall": 0.766667,
+    "seen_recall": 1.0,
+    "precision": 0.44634,
+    "invalid_responses": 34.958333,
+    "exact_cues": 0.054514,
+    "single_cues_unique": 0.1125,
+    "multi_cues_multiple": 0.985833,
+    "cues_needing_dynamic_core": 0.545833
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 227,
+   "total_merges": 0,
+   "mean_core_modes_used": 1.991667
+  },
+  {
+   "relation": "random",
+   "split": "leave_one_out",
+   "learner": "join",
+   "n": 3,
+   "runs": 240,
+   "means": {
+    "heldout_recall": 0.479167,
+    "seen_recall": 1.0,
+    "precision": 0.528182,
+    "invalid_responses": 25.183333,
+    "exact_cues": 0.137153,
+    "single_cues_unique": 0.23125,
+    "multi_cues_multiple": 0.970417,
+    "cues_needing_dynamic_core": 0.579167
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 143,
+   "total_merges": 0,
+   "mean_core_modes_used": 2.9375
+  },
+  {
+   "relation": "random",
+   "split": "leave_one_out",
+   "learner": "join",
+   "n": 4,
+   "runs": 240,
+   "means": {
+    "heldout_recall": 0.291667,
+    "seen_recall": 1.0,
+    "precision": 0.591365,
+    "invalid_responses": 19.491667,
+    "exact_cues": 0.210069,
+    "single_cues_unique": 0.314583,
+    "multi_cues_multiple": 0.959167,
+    "cues_needing_dynamic_core": 0.229167
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 33,
+   "total_merges": 0,
+   "mean_core_modes_used": 3.533333
+  },
+  {
+   "relation": "random",
+   "split": "leave_one_out",
+   "learner": "join",
+   "n": 8,
+   "runs": 240,
+   "means": {
+    "heldout_recall": 0.275,
+    "seen_recall": 1.0,
+    "precision": 0.605405,
+    "invalid_responses": 18.491667,
+    "exact_cues": 0.226042,
+    "single_cues_unique": 0.341667,
+    "multi_cues_multiple": 0.956667,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 3.670833
+  },
+  {
+   "relation": "random",
+   "split": "leave_one_out",
+   "learner": "memorize",
+   "n": null,
+   "runs": 12,
+   "means": {
+    "heldout_recall": 0.0,
+    "seen_recall": 1.0,
+    "precision": 1.0,
+    "invalid_responses": 0.0,
+    "exact_cues": 0.833333,
+    "single_cues_unique": 1.0,
+    "multi_cues_multiple": 0.908333,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 0.0
+  },
+  {
+   "relation": "random",
+   "split": "leave_one_out",
+   "learner": "merge",
+   "n": 2,
+   "runs": 240,
+   "means": {
+    "heldout_recall": 0.958333,
+    "seen_recall": 1.0,
+    "precision": 0.393519,
+    "invalid_responses": 43.25,
+    "exact_cues": 0.003472,
+    "single_cues_unique": 0.020833,
+    "multi_cues_multiple": 0.995833,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 197,
+   "total_merges": 323,
+   "mean_core_modes_used": 1.041667
+  },
+  {
+   "relation": "random",
+   "split": "leave_one_out",
+   "learner": "merge",
+   "n": 3,
+   "runs": 240,
+   "means": {
+    "heldout_recall": 0.916667,
+    "seen_recall": 1.0,
+    "precision": 0.398148,
+    "invalid_responses": 42.5,
+    "exact_cues": 0.006944,
+    "single_cues_unique": 0.041667,
+    "multi_cues_multiple": 0.991667,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 86,
+   "total_merges": 525,
+   "mean_core_modes_used": 1.083333
+  },
+  {
+   "relation": "random",
+   "split": "leave_one_out",
+   "learner": "merge",
+   "n": 4,
+   "runs": 240,
+   "means": {
+    "heldout_recall": 0.916667,
+    "seen_recall": 1.0,
+    "precision": 0.398148,
+    "invalid_responses": 42.5,
+    "exact_cues": 0.006944,
+    "single_cues_unique": 0.041667,
+    "multi_cues_multiple": 0.991667,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 9,
+   "total_merges": 612,
+   "mean_core_modes_used": 1.083333
+  },
+  {
+   "relation": "random",
+   "split": "leave_one_out",
+   "learner": "merge",
+   "n": 8,
+   "runs": 240,
+   "means": {
+    "heldout_recall": 0.916667,
+    "seen_recall": 1.0,
+    "precision": 0.398148,
+    "invalid_responses": 42.5,
+    "exact_cues": 0.006944,
+    "single_cues_unique": 0.041667,
+    "multi_cues_multiple": 0.991667,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 621,
+   "mean_core_modes_used": 1.083333
+  },
+  {
+   "relation": "random",
+   "split": "leave_one_out",
+   "learner": "ternary",
+   "n": null,
+   "runs": 12,
+   "means": {
+    "heldout_recall": 0.0,
+    "seen_recall": 1.0,
+    "precision": 1.0,
+    "invalid_responses": 0.0,
+    "exact_cues": 0.833333,
+    "single_cues_unique": 1.0,
+    "multi_cues_multiple": 0.908333,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 3.0
+  },
+  {
+   "relation": "random",
+   "split": "leave_two_out",
+   "learner": "enumerate",
+   "n": null,
+   "runs": 61,
+   "means": {
+    "heldout_recall": 0.0,
+    "seen_recall": 1.0,
+    "precision": 1.0,
+    "invalid_responses": 0.0,
+    "exact_cues": 0.687158,
+    "single_cues_unique": 1.0,
+    "multi_cues_multiple": 0.814754,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 0.0
+  },
+  {
+   "relation": "random",
+   "split": "leave_two_out",
+   "learner": "join",
+   "n": 2,
+   "runs": 1220,
+   "means": {
+    "heldout_recall": 0.69959,
+    "seen_recall": 1.0,
+    "precision": 0.457448,
+    "invalid_responses": 32.660656,
+    "exact_cues": 0.05485,
+    "single_cues_unique": 0.105738,
+    "multi_cues_multiple": 0.975,
+    "cues_needing_dynamic_core": 0.52459
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 1124,
+   "total_merges": 0,
+   "mean_core_modes_used": 1.994262
+  },
+  {
+   "relation": "random",
+   "split": "leave_two_out",
+   "learner": "join",
+   "n": 3,
+   "runs": 1220,
+   "means": {
+    "heldout_recall": 0.418443,
+    "seen_recall": 1.0,
+    "precision": 0.551505,
+    "invalid_responses": 22.029508,
+    "exact_cues": 0.134973,
+    "single_cues_unique": 0.228279,
+    "multi_cues_multiple": 0.942295,
+    "cues_needing_dynamic_core": 0.39918
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 671,
+   "total_merges": 0,
+   "mean_core_modes_used": 2.915574
+  },
+  {
+   "relation": "random",
+   "split": "leave_two_out",
+   "learner": "join",
+   "n": 4,
+   "runs": 1220,
+   "means": {
+    "heldout_recall": 0.266803,
+    "seen_recall": 1.0,
+    "precision": 0.620018,
+    "invalid_responses": 16.486885,
+    "exact_cues": 0.205123,
+    "single_cues_unique": 0.341393,
+    "multi_cues_multiple": 0.918197,
+    "cues_needing_dynamic_core": 0.12459
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 163,
+   "total_merges": 0,
+   "mean_core_modes_used": 3.465574
+  },
+  {
+   "relation": "random",
+   "split": "leave_two_out",
+   "learner": "join",
+   "n": 8,
+   "runs": 1220,
+   "means": {
+    "heldout_recall": 0.231557,
+    "seen_recall": 1.0,
+    "precision": 0.64008,
+    "invalid_responses": 15.277049,
+    "exact_cues": 0.226981,
+    "single_cues_unique": 0.378279,
+    "multi_cues_multiple": 0.910574,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 3.601639
+  },
+  {
+   "relation": "random",
+   "split": "leave_two_out",
+   "learner": "memorize",
+   "n": null,
+   "runs": 61,
+   "means": {
+    "heldout_recall": 0.0,
+    "seen_recall": 1.0,
+    "precision": 1.0,
+    "invalid_responses": 0.0,
+    "exact_cues": 0.687158,
+    "single_cues_unique": 1.0,
+    "multi_cues_multiple": 0.814754,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 0.0
+  },
+  {
+   "relation": "random",
+   "split": "leave_two_out",
+   "learner": "merge",
+   "n": 2,
+   "runs": 1220,
+   "means": {
+    "heldout_recall": 0.927049,
+    "seen_recall": 1.0,
+    "precision": 0.401605,
+    "invalid_responses": 41.862295,
+    "exact_cues": 0.008197,
+    "single_cues_unique": 0.045902,
+    "multi_cues_multiple": 0.98541,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 1027,
+   "total_merges": 1458,
+   "mean_core_modes_used": 1.118852
+  },
+  {
+   "relation": "random",
+   "split": "leave_two_out",
+   "learner": "merge",
+   "n": 3,
+   "runs": 1220,
+   "means": {
+    "heldout_recall": 0.883197,
+    "seen_recall": 1.0,
+    "precision": 0.409639,
+    "invalid_responses": 40.536066,
+    "exact_cues": 0.013525,
+    "single_cues_unique": 0.07418,
+    "multi_cues_multiple": 0.976639,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 398,
+   "total_merges": 2478,
+   "mean_core_modes_used": 1.190984
+  },
+  {
+   "relation": "random",
+   "split": "leave_two_out",
+   "learner": "merge",
+   "n": 4,
+   "runs": 1220,
+   "means": {
+    "heldout_recall": 0.863525,
+    "seen_recall": 1.0,
+    "precision": 0.413236,
+    "invalid_responses": 39.939344,
+    "exact_cues": 0.015915,
+    "single_cues_unique": 0.087295,
+    "multi_cues_multiple": 0.972705,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 58,
+   "total_merges": 2840,
+   "mean_core_modes_used": 1.22377
+  },
+  {
+   "relation": "random",
+   "split": "leave_two_out",
+   "learner": "merge",
+   "n": 8,
+   "runs": 1220,
+   "means": {
+    "heldout_recall": 0.860656,
+    "seen_recall": 1.0,
+    "precision": 0.413874,
+    "invalid_responses": 39.836066,
+    "exact_cues": 0.016393,
+    "single_cues_unique": 0.090164,
+    "multi_cues_multiple": 0.972131,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 2894,
+   "mean_core_modes_used": 1.229508
+  },
+  {
+   "relation": "random",
+   "split": "leave_two_out",
+   "learner": "ternary",
+   "n": null,
+   "runs": 61,
+   "means": {
+    "heldout_recall": 0.0,
+    "seen_recall": 1.0,
+    "precision": 1.0,
+    "invalid_responses": 0.0,
+    "exact_cues": 0.687158,
+    "single_cues_unique": 1.0,
+    "multi_cues_multiple": 0.814754,
+    "cues_needing_dynamic_core": 0.0
+   },
+   "fraction_perfect_generalization": 0.0,
+   "runs_with_forced_reuse": 0,
+   "total_merges": 0,
+   "mean_core_modes_used": 3.622951
+  }
+ ]
+}
