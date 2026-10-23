@@ -1,0 +1,24 @@
+{
+ "seconds": {
+  "battery": 51.275,
+  "oracle_projection_and_reproduction": 11.163,
+  "ceilings": 1.152,
+  "learning_and_evaluation": 68.982,
+  "reproduction_targets_and_local_gates": 42.53,
+  "tests": 3.624
+ },
+ "total_including_preprocessing": 180.416,
+ "workers": 8,
+ "peak_rss_kib": {
+  "main": 579352,
+  "largest_child": 29928,
+  "method": "getrusage ru_maxrss: main process peak, and the largest single terminated child; not the sum over concurrent workers"
+ },
+ "python": "3.12.3",
+ "machine": "x86_64",
+ "platform": "Linux-7.1.5-76070105-generic-x86_64-with-glibc2.39",
+ "out_dir": "/home/debjit/code/sri/reports",
+ "command": "/home/debjit/code/sri/experiments/local_supervision.py",
+ "git_revision": "eb842bc49dfecb5aac932d20f30e629745bb208a",
+ "dirty_worktree": true
+}

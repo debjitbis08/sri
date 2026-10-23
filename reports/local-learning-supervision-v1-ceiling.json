@@ -1,0 +1,364 @@
+{
+ "experiment": "local-learning-supervision-v1",
+ "manifest_sha256": "95a75b08011c50452bae47966a9c569451e5faf16e36132cec4c4c365a5565f7",
+ "atom_schema_sha256": "b3b1c079496c1b7d66a23e098bce0d1be323c61f58d2e6934f0ba10b17587e4e",
+ "ceilings": {
+  "S1": {
+   "O": {
+    "class_size": 2,
+    "mechanism_subclasses": 1,
+    "teacher_subclass_size": 2,
+    "mechanism_homogeneous": true,
+    "separating_atoms_by_item": {},
+    "members_with_B8_differences_by_template": {
+     "SF": 0,
+     "SR": 0,
+     "CF": 0,
+     "CR": 0
+    },
+    "members_with_forward_witness": {
+     "SF": 2,
+     "CF": 0,
+     "union": 2
+    },
+    "core_sign_mirror": {
+     "index": 2140,
+     "in_class": true,
+     "mechanism_equivalent": true,
+     "is_teacher": false
+    },
+    "indistinguishable_different_mechanism": [],
+    "further_pairs_not_listed": 0
+   },
+   "I": {
+    "class_size": 2,
+    "mechanism_subclasses": 1,
+    "teacher_subclass_size": 2,
+    "mechanism_homogeneous": true,
+    "separating_atoms_by_item": {},
+    "members_with_B8_differences_by_template": {
+     "SF": 0,
+     "SR": 0,
+     "CF": 0,
+     "CR": 0
+    },
+    "members_with_forward_witness": {
+     "SF": 2,
+     "CF": 0,
+     "union": 2
+    },
+    "core_sign_mirror": {
+     "index": 2140,
+     "in_class": true,
+     "mechanism_equivalent": true,
+     "is_teacher": false
+    },
+    "indistinguishable_different_mechanism": [],
+    "further_pairs_not_listed": 0
+   },
+   "IB": {
+    "class_size": 2,
+    "mechanism_subclasses": 1,
+    "teacher_subclass_size": 2,
+    "mechanism_homogeneous": true,
+    "separating_atoms_by_item": {},
+    "members_with_B8_differences_by_template": {
+     "SF": 0,
+     "SR": 0,
+     "CF": 0,
+     "CR": 0
+    },
+    "members_with_forward_witness": {
+     "SF": 2,
+     "CF": 0,
+     "union": 2
+    },
+    "core_sign_mirror": {
+     "index": 2140,
+     "in_class": true,
+     "mechanism_equivalent": true,
+     "is_teacher": false
+    },
+    "indistinguishable_different_mechanism": [],
+    "further_pairs_not_listed": 0
+   },
+   "O+": {
+    "same_as": "O",
+    "note": "O+ supplies B1 only; its complete-information class is that of O"
+   }
+  },
+  "C2": {
+   "O": {
+    "class_size": 2,
+    "mechanism_subclasses": 1,
+    "teacher_subclass_size": 2,
+    "mechanism_homogeneous": true,
+    "separating_atoms_by_item": {},
+    "members_with_B8_differences_by_template": {
+     "SF": 0,
+     "SR": 0,
+     "CF": 0,
+     "CR": 0
+    },
+    "members_with_forward_witness": {
+     "SF": 0,
+     "CF": 2,
+     "union": 2
+    },
+    "core_sign_mirror": {
+     "index": 1788,
+     "in_class": true,
+     "mechanism_equivalent": true,
+     "is_teacher": false
+    },
+    "indistinguishable_different_mechanism": [],
+    "further_pairs_not_listed": 0
+   },
+   "I": {
+    "class_size": 2,
+    "mechanism_subclasses": 1,
+    "teacher_subclass_size": 2,
+    "mechanism_homogeneous": true,
+    "separating_atoms_by_item": {},
+    "members_with_B8_differences_by_template": {
+     "SF": 0,
+     "SR": 0,
+     "CF": 0,
+     "CR": 0
+    },
+    "members_with_forward_witness": {
+     "SF": 0,
+     "CF": 2,
+     "union": 2
+    },
+    "core_sign_mirror": {
+     "index": 1788,
+     "in_class": true,
+     "mechanism_equivalent": true,
+     "is_teacher": false
+    },
+    "indistinguishable_different_mechanism": [],
+    "further_pairs_not_listed": 0
+   },
+   "IB": {
+    "class_size": 2,
+    "mechanism_subclasses": 1,
+    "teacher_subclass_size": 2,
+    "mechanism_homogeneous": true,
+    "separating_atoms_by_item": {},
+    "members_with_B8_differences_by_template": {
+     "SF": 0,
+     "SR": 0,
+     "CF": 0,
+     "CR": 0
+    },
+    "members_with_forward_witness": {
+     "SF": 0,
+     "CF": 2,
+     "union": 2
+    },
+    "core_sign_mirror": {
+     "index": 1788,
+     "in_class": true,
+     "mechanism_equivalent": true,
+     "is_teacher": false
+    },
+    "indistinguishable_different_mechanism": [],
+    "further_pairs_not_listed": 0
+   },
+   "O+": {
+    "same_as": "O",
+    "note": "O+ supplies B1 only; its complete-information class is that of O"
+   }
+  },
+  "S2": {
+   "O": {
+    "class_size": 2,
+    "mechanism_subclasses": 1,
+    "teacher_subclass_size": 2,
+    "mechanism_homogeneous": true,
+    "separating_atoms_by_item": {},
+    "members_with_B8_differences_by_template": {
+     "SF": 0,
+     "SR": 0,
+     "CF": 0,
+     "CR": 0
+    },
+    "members_with_forward_witness": {
+     "SF": 0,
+     "CF": 0,
+     "union": 0
+    },
+    "core_sign_mirror": {
+     "index": 2134,
+     "in_class": true,
+     "mechanism_equivalent": true,
+     "is_teacher": false
+    },
+    "indistinguishable_different_mechanism": [],
+    "further_pairs_not_listed": 0
+   },
+   "I": {
+    "class_size": 2,
+    "mechanism_subclasses": 1,
+    "teacher_subclass_size": 2,
+    "mechanism_homogeneous": true,
+    "separating_atoms_by_item": {},
+    "members_with_B8_differences_by_template": {
+     "SF": 0,
+     "SR": 0,
+     "CF": 0,
+     "CR": 0
+    },
+    "members_with_forward_witness": {
+     "SF": 0,
+     "CF": 0,
+     "union": 0
+    },
+    "core_sign_mirror": {
+     "index": 2134,
+     "in_class": true,
+     "mechanism_equivalent": true,
+     "is_teacher": false
+    },
+    "indistinguishable_different_mechanism": [],
+    "further_pairs_not_listed": 0
+   },
+   "IB": {
+    "class_size": 2,
+    "mechanism_subclasses": 1,
+    "teacher_subclass_size": 2,
+    "mechanism_homogeneous": true,
+    "separating_atoms_by_item": {},
+    "members_with_B8_differences_by_template": {
+     "SF": 0,
+     "SR": 0,
+     "CF": 0,
+     "CR": 0
+    },
+    "members_with_forward_witness": {
+     "SF": 0,
+     "CF": 0,
+     "union": 0
+    },
+    "core_sign_mirror": {
+     "index": 2134,
+     "in_class": true,
+     "mechanism_equivalent": true,
+     "is_teacher": false
+    },
+    "indistinguishable_different_mechanism": [],
+    "further_pairs_not_listed": 0
+   },
+   "O+": {
+    "same_as": "O",
+    "note": "O+ supplies B1 only; its complete-information class is that of O"
+   }
+  },
+  "T1": {
+   "O": {
+    "class_size": 2,
+    "mechanism_subclasses": 1,
+    "teacher_subclass_size": 2,
+    "mechanism_homogeneous": true,
+    "separating_atoms_by_item": {},
+    "members_with_B8_differences_by_template": {
+     "SF": 0,
+     "SR": 0,
+     "CF": 0,
+     "CR": 0
+    },
+    "members_with_forward_witness": {
+     "SF": 0,
+     "CF": 0,
+     "union": 0
+    },
+    "core_sign_mirror": {
+     "index": 1789,
+     "in_class": true,
+     "mechanism_equivalent": true,
+     "is_teacher": false
+    },
+    "indistinguishable_different_mechanism": [],
+    "further_pairs_not_listed": 0
+   },
+   "I": {
+    "class_size": 2,
+    "mechanism_subclasses": 1,
+    "teacher_subclass_size": 2,
+    "mechanism_homogeneous": true,
+    "separating_atoms_by_item": {},
+    "members_with_B8_differences_by_template": {
+     "SF": 0,
+     "SR": 0,
+     "CF": 0,
+     "CR": 0
+    },
+    "members_with_forward_witness": {
+     "SF": 0,
+     "CF": 0,
+     "union": 0
+    },
+    "core_sign_mirror": {
+     "index": 1789,
+     "in_class": true,
+     "mechanism_equivalent": true,
+     "is_teacher": false
+    },
+    "indistinguishable_different_mechanism": [],
+    "further_pairs_not_listed": 0
+   },
+   "IB": {
+    "class_size": 2,
+    "mechanism_subclasses": 1,
+    "teacher_subclass_size": 2,
+    "mechanism_homogeneous": true,
+    "separating_atoms_by_item": {},
+    "members_with_B8_differences_by_template": {
+     "SF": 0,
+     "SR": 0,
+     "CF": 0,
+     "CR": 0
+    },
+    "members_with_forward_witness": {
+     "SF": 0,
+     "CF": 0,
+     "union": 0
+    },
+    "core_sign_mirror": {
+     "index": 1789,
+     "in_class": true,
+     "mechanism_equivalent": true,
+     "is_teacher": false
+    },
+    "indistinguishable_different_mechanism": [],
+    "further_pairs_not_listed": 0
+   },
+   "O+": {
+    "same_as": "O",
+    "note": "O+ supplies B1 only; its complete-information class is that of O"
+   }
+  }
+ },
+ "v1_reproduction": {
+  "per_teacher": {
+   "S1": {
+    "O": true,
+    "I": true
+   },
+   "C2": {
+    "O": true,
+    "I": true
+   },
+   "S2": {
+    "O": true,
+    "I": true
+   },
+   "T1": {
+    "O": true,
+    "I": true
+   }
+  },
+  "passed": true
+ }
+}
