@@ -3,6 +3,7 @@
 **Status: pre-theory / finite reference model.** This repository is an executable starting point for hypotheses about core–satellite intelligence, not an implemented intelligent model.
 
 ## Reproduce
+
 Requires Python >= 3.10. Studies up to graded cellular v1 use only the standard
 library. Core mediation v1 additionally needs the pinned numpy and scipy:
 
@@ -15,6 +16,7 @@ python -m experiments.baseline
 The second command overwrites `reports/baseline.json` deterministically.
 
 ## Layout
+
 - `docs/foundations.md`: definitions, analytic proofs for the baseline, limitations and proof obligations.
 - `src/model.py`: finite weighted core–satellite reachability model.
 - `tests/`: executable invariants.
@@ -28,7 +30,20 @@ The second command overwrites `reports/baseline.json` deterministically.
 - `docs/core-graded-v1-contract.md`, `docs/core-graded-v1-results.md`: graded unit-level coupling; one worked example where recovery and input-driven core participation coexist. Reproduce with `.venv/bin/python -m experiments.core_graded`.
 - `docs/core-graded-basins-contract.md`, `docs/core-graded-basins-results.md`: exact basins, tie and terminal propositions, and the joint-success window; reproduce with `.venv/bin/python -m experiments.core_graded_basins`.
 - `docs/learned-compatibility-v1-contract.md`, `docs/learned-compatibility-v1-results.md`: learned core compatibility, generalization to unseen combinations, set-valued responses; reproduce with `.venv/bin/python -m experiments.learned_compatibility`.
+- `docs/selective-satellite-mediation-v1-contract.md`, `docs/selective-satellite-mediation-v1-results.md`: learned context-gated repair under immutable domains; exact version space, transfer to an unseen context, matched controls (the positive-only ablation and selection prior are reported limits). Reproduce with `.venv/bin/python -m experiments.selective_mediation`.
+- `docs/learned-reciprocal-participation-v1-contract.md`, `docs/learned-reciprocal-participation-v1-results.md`: signed-energy input/core/satellite dynamics; phase-A gate fails (input revision never changes responses for the declared teachers), so no learning was run. Reproduce with `.venv/bin/python -m experiments.reciprocal_participation`.
+- `docs/shared-input-mediation-v1-contract.md`, `docs/shared-input-mediation-v1-results.md`: causal chain A → input → B through a shared or internally coupled input; 2 of 6 declared teachers (S1, C2) pass the full gate, mechanism only, no learning. Reproduce with `.venv/bin/python -m experiments.shared_input_mediation`.
+- `docs/learned-input-mediation-v1-contract.md`, `docs/learned-input-mediation-v1-results.md`: learning couplings from outcomes and checking the learned mechanism on a held-out intervention battery; exact learners identify S1/C2 mechanisms, a negative control exposes false mechanism attribution under outputs alone. Reproduce with `.venv/bin/python -m experiments.mechanism_learning`.
 - `docs/graded-cellular-v1-results.md`: nonlinear graded-cellular follow-up, recovery results and explicit scope discount; reproduce with `python -m experiments.graded_cellular`.
 
 ## Why so minimal?
+
 The first task is a reliable research harness. Its current monotone reachability law is a **control**, not our proposed interference algebra. Replacing it with genuinely compositional, possibly nonmonotone interactions is the next research step. No distinct replay store is introduced. The baseline stores only graph structure and transient activation.
+
+## License and Copyright
+
+Copyright © 2026 Debjit Biswas. All rights reserved.
+
+This repository is publicly available for viewing and scientific discussion. No license is granted to copy, modify, redistribute, or commercially use the source code or documentation, except as permitted by applicable law or GitHub's Terms of Service.
+
+For permissions, please contact the repository owner.

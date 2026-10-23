@@ -1,0 +1,158 @@
+{
+ "schema": "learned-input-mediation-v1",
+ "contract": "docs/learned-input-mediation-v1-contract.md",
+ "contract_sha256": "48b17786ee5223c6d191a8e7750b6ee5c133ed1831d018e2da0695c67b80a1ff",
+ "split_file": "reports/learned-reciprocal-participation-v1-splits.json",
+ "split_file_sha256": "5f34bc3bc70a84054796f2cf4aa857792046b5361ac028c1cc3704512d5aee47",
+ "coefficient_order": [
+  "w_1A",
+  "w_2A",
+  "w_1B",
+  "w_2B",
+  "w_KA",
+  "w_KB",
+  "w_12"
+ ],
+ "teachers": {
+  "S1": [
+   3,
+   3,
+   3,
+   0,
+   3,
+   -3,
+   0
+  ],
+  "C2": [
+   3,
+   0,
+   0,
+   -3,
+   3,
+   -3,
+   -3
+  ],
+  "S2": [
+   3,
+   3,
+   3,
+   0,
+   3,
+   3,
+   0
+  ],
+  "T1": [
+   3,
+   0,
+   0,
+   -3,
+   3,
+   -3,
+   0
+  ]
+ },
+ "positive_teachers": [
+  "S1",
+  "C2"
+ ],
+ "negative_controls": [
+  "S2",
+  "T1"
+ ],
+ "gate_templates": {
+  "S1": [
+   "SF"
+  ],
+  "S2": [
+   "SF"
+  ],
+  "C2": [
+   "CF"
+  ],
+  "T1": [
+   "SF",
+   "CF"
+  ]
+ },
+ "chain_templates": {
+  "SF": {
+   "source": "A",
+   "target": "B",
+   "donor": "i1",
+   "recipient": "i1",
+   "links": [
+    "w_1A",
+    "w_1B"
+   ]
+  },
+  "SR": {
+   "source": "B",
+   "target": "A",
+   "donor": "i1",
+   "recipient": "i1",
+   "links": [
+    "w_1B",
+    "w_1A"
+   ]
+  },
+  "CF": {
+   "source": "A",
+   "target": "B",
+   "donor": "i1",
+   "recipient": "i2",
+   "links": [
+    "w_1A",
+    "w_12",
+    "w_2B"
+   ]
+  },
+  "CR": {
+   "source": "B",
+   "target": "A",
+   "donor": "i2",
+   "recipient": "i1",
+   "links": [
+    "w_2B",
+    "w_12",
+    "w_1A"
+   ]
+  }
+ },
+ "checkpoints": [
+  0,
+  5,
+  10,
+  15
+ ],
+ "arms_observation_types": {
+  "O": [
+   "B1"
+  ],
+  "I": [
+   "B1",
+   "B6",
+   "B7"
+  ]
+ },
+ "rules": [
+  "battery items B1-B8 as contract section 4; atoms keyed (item, query, arguments); set values as bitmasks",
+  "B1-B5 masks over (a,b); B6 over (i1,i2,b) under do(A=v); B7 over (i1,i2,a) under do(B=v)",
+  "B8E: any tuple (v,v2,r,r2) qualifies under 8(a)-(d) for the template on the query; r,r2 range over {-1,0,1}",
+  "B8W: fixed union of the four teachers qualifying tuples over all four templates, frozen before the full battery",
+  "mechanism atoms are B2-B8; observational signature arm O = B1; arm I = B1, B6, B7 (all 81 queries)",
+  "one feedback map per training query is one experience; full filter equality on every key; positive-only containment",
+  "block learner: blocks (w_1A,w_2A),(w_1B,w_2B),(w_KA,w_KB),(w_12); 26 neighbours plus unchanged; strict improvement",
+  "memory answers only observed (query, key); zero baseline is all-zero coefficients",
+  "splits, orders and query IDs imported from the frozen v1 split manifest; no resampling"
+ ],
+ "prior_artifacts": {
+  "reports/shared-input-mediation-v1-gate.json": "c838d7d73cc15c8c6a56bade05bd58dfae56e765a256bbb2d90ad132c0939f0a",
+  "reports/shared-input-mediation-v1-manifest.json": "d03c9ee2eebdd182bb2d1d60eed6682d26a43bf5ad4c489634deb3e438f153a5",
+  "reports/learned-reciprocal-participation-v1-phase-a.json": "5848e81771d5fcdbffee29d1577e6d827d38cc694918274d5122fb057e3de8af",
+  "reports/learned-reciprocal-participation-v1-splits.json": "5f34bc3bc70a84054796f2cf4aa857792046b5361ac028c1cc3704512d5aee47",
+  "src/shared_input_mediation.py": "9ff606b02717121c032ec2a2ae0110b7202406f2a1fb3a77e96308fdd21d3374",
+  "src/reciprocal_participation.py": "00bd3c095ff568fd25a976ca4f82357df9c54c7bdf9c03929eba22187ba8748c",
+  "experiments/shared_input_mediation.py": "4f025415a333cac11ba569884a699d0579e0bb9f359e634bc1b1bf522ef55e87"
+ },
+ "sha256": "44395f973eb1fd9f4356249e542cc4e5ea4616f2ea650810bb6e43034c5b474c"
+}

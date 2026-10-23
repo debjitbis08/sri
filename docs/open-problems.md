@@ -241,3 +241,47 @@ A measured correlation is not a theorem; a verified finite example is not a gene
 - Code revision: the commit introducing this evidence entry, its accompanying source, tests, and frozen report.
 - Limits: fixed Boolean local rules, three internal nodes, zero initial state, fixed evidence pairs, declared schedules and one-shot perturbations. No general robustness/expressivity impossibility is claimed.
 - Next question: can an explicitly defined graded, layer-resolved model correct disturbances while retaining two contextual response signatures?
+
+## Evidence entry — selective satellite mediation v1 (OP-04, OP-13, OP-20)
+
+- Claim: in the declared two-satellite, four-generator, 256-hypothesis class, exact version-space learning of transformation gates repairs held-out and unseen-context conflicts with zero constraint/path violations and zero false-feasible predictions, while retaining every observed response set.
+- Status: PROVED (scoped) BFS exactness, retention, order independence, certain/possible containment, core-free equivalence and an empty all-enabled obstruction class; EXHAUSTIVE (bounded) oracle check over 147,456 cases; SAMPLE-SUPPORTED transfer over 5 frozen splits × 5 orders × 4 teachers. All 8 declared transfer targets pass.
+- Contract and results: [contract](selective-satellite-mediation-v1-contract.md), [results](selective-satellite-mediation-v1-results.md).
+- Experiment: `.venv/bin/python -m experiments.selective_mediation`; frozen [split manifest](../reports/selective-satellite-mediation-v1-splits.json), no cap.
+- Frozen report: [selective-satellite-mediation-v1.json](../reports/selective-satellite-mediation-v1.json).
+- Code revision: the commit introducing this evidence entry, its accompanying source, tests, and frozen report.
+- Limits: the positive-only ablation executes identically (exclusions shrink V but the smallest-id prior does the selecting); no mediation alone meets the accuracy and false-feasible conditions in some cells; T3 is the initial selection; T1's unseen context has no permission exclusions; the core-free control is equivalent, so no core advantage; equality target only; complete clean supervision; centralized search.
+- Next question: does learned selectivity survive a non-equality compatibility relation, or realization inside graded satellite dynamics, with a selection/evaluation rule that separates exclusion evidence from a conservative prior?
+
+## Evidence entry — learned reciprocal participation v1, phase A (OP-04)
+
+- Claim: in the declared signed-energy candidate, none of the declared teachers T1–T3 satisfies the mechanism gate. Each realizes input revision, core-dependent participation (no fixed core state reproduces it), core-mediated cross-satellite clamp influence and selective participation, but input revision never changes the response set (81/81 queries equal the input-frozen control).
+- Status: REFUTED in the declared teacher family; EXHAUSTIVE (bounded) phase-A diagnostics over 81 queries × 4 teachers; oracle-verified dynamics on 59,049 cases; EXHAUSTIVE (bounded) check that none of the 225 hypotheses with single-satellite input couplings shows a feedback effect (no analytic proof).
+- Contract and results: [contract](learned-reciprocal-participation-v1-contract.md), [results](learned-reciprocal-participation-v1-results.md).
+- Experiment: `.venv/bin/python -m experiments.reciprocal_participation`; frozen [split manifest](../reports/learned-reciprocal-participation-v1-splits.json), no cap.
+- Frozen report: [phase A](../reports/learned-reciprocal-participation-v1-phase-a.json).
+- Code revision: the commit introducing this evidence entry, its accompanying source, tests, and frozen report.
+- Limits: phase B (learning) not run under the stop rule; 312 hypotheses with feedback effects exist in the coefficient family but were not gate-tested; mode-level energy candidate only.
+- Next question: under a new prospective contract, do declared teachers with an input coordinate shared by both satellites satisfy feedback necessity together with the other six conditions?
+
+## Evidence entry — shared input interpretation v1 (OP-04)
+
+- Claim: in the signed-energy candidate, satellite feedback into a shared input coordinate (S1) or into internally coupled input coordinates (C2) gives an interventional set-level chain A → input → B. A's clamp changes the input, the recipient-input clamp changes B, and the A→B contrast vanishes under directed feedback removal, under input fixed at evidence, and under removal of each chain link. Both teachers also pass the unchanged v1 gate conditions 1–7.
+- Status: EXHAUSTIVE (bounded) over 81 queries × 6 declared teachers, all ordered clamp pairs and recipient values; oracle-verified dynamics (177,147 cases) and every scoring run; v1 regression controls reproduced exactly. S2, S3 (core bypass makes the input route redundant), C1 and C3 (no contrast vanishes under both controls) fail.
+- Contract and results: [contract](shared-input-mediation-v1-contract.md), [results](shared-input-mediation-v1-results.md).
+- Experiment: `.venv/bin/python -m experiments.shared_input_mediation`; frozen [manifest](../reports/shared-input-mediation-v1-manifest.json).
+- Frozen report: [gate](../reports/shared-input-mediation-v1-gate.json).
+- Code revision: the commit introducing this evidence entry, its accompanying source, tests, and frozen report.
+- Limits: the chains make a B response available rather than forcing it; they persist without the core, so they are not core-mediated; a core bypass exists at non-evidence input values; C2's canonical-start feedback effects lie on different queries from its chain; two of six hand-declared teachers; no learning.
+- Next question: under a new contract, can learning from outcome sets acquire the S1 or C2 couplings, including the chain links, from withheld-query feedback?
+
+## Evidence entry — learned input mediation v1 (OP-11, OP-14, OP-20)
+
+- Claim: in the 2,187-vector signed-energy space, canonical outputs on all 81 queries determine each declared teacher's battery mechanism up to the core-sign symmetry; from 15 axis-evidence training queries, exact version-space learning certifies all held-out outputs and the mechanism for S1 and C2 in every split. With outputs alone, the negative control S2 leaves 5 survivors per split that match all within-context held-out outputs but carry a false input chain; clamp supervision with internal readouts removes them. A block-local learner recovers S1/C2 behaviour only with clamp supervision.
+- Status: EXHAUSTIVE (bounded) ceilings and version-space results over the declared grid; oracle-verified on a declared sample of 54 hypotheses; local-learner results SAMPLE-SUPPORTED over 25 streams per arm.
+- Contract and results: [contract](learned-input-mediation-v1-contract.md), [results](learned-input-mediation-v1-results.md).
+- Experiment: `.venv/bin/python -m experiments.mechanism_learning`; frozen [manifest](../reports/learned-input-mediation-v1-manifest.json); v1 split manifest reused.
+- Frozen reports: [battery summary](../reports/learned-input-mediation-v1-battery-summary.json), [ceilings](../reports/learned-input-mediation-v1-ceiling.json), [learning](../reports/learned-input-mediation-v1-learning.json).
+- Code revision: the commit introducing this evidence entry, its accompanying source, tests, and frozen report.
+- Limits: finite battery equivalence only; realizable noise-free complete-set supervision from four teachers known to the researchers; arm I mixes intervention with internal readouts; the local learner uses global error and fails with outputs alone (C2 arm I also misses the 95% retention target, at 77.2%).
+- Next question: which observational coverage or intervention readout removes false mechanism attribution without internal input readouts, and can a local rule coordinate edits across coupling blocks?
