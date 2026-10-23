@@ -1,7 +1,25 @@
 # Core abstraction v2 — context-consistent preservation and relational evidence
 
-**Status:** prospective draft for review and implementation handoff. Not frozen,
-implemented, or scored. The v1 contract, code, and reports remain unchanged.
+**Status:** prospective; frozen for implementation on 2026-10-24. The v1
+contract, code, and reports remain unchanged. Freeze this contract's hash in the
+v2 manifest before any scored computation.
+
+**Pre-implementation review (2026-10-24).** Three substantive changes, all made
+before any v2 quantity was computed:
+
+1. **Executable private branch.** The draft's `p*=(min V_A, min V_B)` is wrong
+   for C2 in all 10 runs (archived v1 masks: `V_A={(0,-3),(3,-3),(3,0)}`, true
+   A block `(3,0)`), wrong for S1, S2 and T1 in one run each, and would make
+   C2's executable target unattainable by construction. Replaced by a declared
+   label-free rule using only training observations (section 4).
+2. **Core tie order.** Lexicographic-first would install `(-3,-3)` whenever a
+   mask is full, turning arms I and IR into a hidden fixed `±(3,3)` prior (S2's
+   core). Ties now prefer minimal change (section 5).
+3. **Exact predicates** for feasibility, the selector pass, witness conditions,
+   fixed-core controls and failure labels (sections 6.1 and 7.1).
+
+The review also records consequences that follow before computation (section
+4.1). The question, arms, budgets, teachers and stopping rule are unchanged.
 
 ## 1. Why v1 failed and what changes
 
@@ -71,12 +89,23 @@ secondary held-out tests. Neither selector may inspect them.
 
 First reproduce v1's isolated acquisition, obtaining nine-bit masks `V_A,V_B`
 from 15 total addressed-satellite observations. Record the same uncertainty and
-assembly-interference results. No new private-block fitting rule is introduced.
+assembly-interference results. No new private-block fitting rule is introduced;
+the branch rule below only chooses among blocks that survive filtering.
 
-Before any connected observation, choose an executable private assembly
-`p*=(min V_A,min V_B)` using the frozen lexicographic block order. Freeze both
-private blocks thereafter. This deliberately explicit prior can be wrong; do
-not switch to another assembly after learning its performance.
+The executable private assembly is chosen by one declared rule, applied
+identically in every arm after that arm's observations and before installation.
+It uses only the arm's own observation-derived masks:
+
+> Order `V_A × V_B` by `(index(p_A), index(p_B))` in the frozen lexicographic
+> block order. The executable branch is the first `p` whose consolidated core
+> mask `C_AB(p)` (section 5) is nonempty. If none is, it is
+> `p*=(min V_A, min V_B)` and the run is `inconsistent_private_assembly`.
+
+In I and IR the core masks are full, so this is always `p*`. In C, connected
+observations can rule out private assemblies that no core reconciles. The rule
+can still choose a wrong assembly when several are consistent. Freeze both
+private blocks once chosen. Do not switch to another assembly after learning its
+performance, and never use held-out data, teacher identity or block truth.
 
 In addition to that executable branch, evaluate every `p in V_A × V_B` as a
 reference branch with private blocks fixed throughout. Report true-private-block
@@ -99,6 +128,31 @@ IDs are those already assigned without labels. No new mixed inputs are added.
 Total external observations: I has 15; IR and C each have 30. Count target-set
 cardinalities and simulations separately; these arms are not compute-matched.
 
+### 4.1 Knowledge at declaration (disclosure)
+
+- All v1 outcomes are known, including the private masks per run. v2 isolated
+  acquisition reproduces those masks; verify equality with the v1 archive.
+- **IR equals I by construction.** The private filter is idempotent (verified
+  in v1) and neither arm touches core masks, so IR reproduces I's state exactly.
+  It is still run, and the equality verified, as the label-count control.
+- With the minimal-change tie order, I and IR install `c0`. They have no
+  installation gain, so the witness condition 3 comparison with them holds
+  whenever a gain exists. The memorization comparator never answers a mixed
+  query.
+- Core-sign symmetry (v1, exhaustive) implies `c` and `-c` are both in or both
+  out of every mask, so a nonempty mask is never a two-link singleton. Only
+  sign classes are informative.
+- On the true private branch, the teacher core and its mirror survive every
+  connected observation, and they reproduce the teacher on all 81 queries.
+  Coupled preservation and the transfer conditions therefore hold for the
+  teacher core there whenever `c0` is wrong on some mixed marginal (v1: C2
+  20/36, S1 28/36 per satellite at `c0`). Unknown before computation: whether
+  connected evidence excludes other cores (the tie order prefers `c0` and
+  one-link cores if they survive), and which branch the declared rule chooses.
+- In witness condition 2, a failing recipient-only core already lies in `C_s(p)`
+  and predicts a different response, so the second clause follows from the
+  first. Both are computed and their consistency verified.
+
 ## 5. Finite structural reference and selector
 
 For each fixed private branch `p`, each satellite has a nine-bit core constraint
@@ -112,8 +166,10 @@ Discard the observation after updating. I and IR leave these core masks full;
 IR repeats the original private filtering and verifies its idempotence.
 
 Consolidation computes `C_AB(p)=C_A(p) ∩ C_B(p)`. If nonempty, install its
-lexicographically first core; ties cannot use held-out performance, teacher
-identity, or private-block truth. If empty, retain `c0` for defined output and
+first core in the **minimal-change order**: fewest nonzero links first, then
+lexicographic (`-3 < 0 < 3`), that is `(0,0)`, `(-3,0)`, `(0,-3)`, `(0,3)`,
+`(3,0)`, `(-3,-3)`, `(-3,3)`, `(3,-3)`, `(3,3)`. Ties cannot use held-out
+performance, teacher identity, or private-block truth. If empty, retain `c0` for defined output and
 mark the branch `inconsistent_private_assembly`, which cannot pass. Never reset
 the mask, edit private blocks, or silently omit these failures from denominators.
 The true-private branch must retain the teacher core; the preselected executable
@@ -122,9 +178,11 @@ branch need not. A selected core of `c0` is valid but gives no installation gain
 Persisting the masks requires no raw episode list. However, their semantics
 reference both satellites' private blocks and full-system simulations. This is
 a global finite hypothesis representation, not evidence of local structural
-learning or a scalable memory mechanism. For one executable branch the two
-masks use 18 logical bits plus executable coefficients; all-branch reference
-tables use up to `2*81*9` bits. Account for runtime caches separately.
+learning or a scalable memory mechanism. Because the executable branch rule
+consults `C_AB(p)` for every surviving branch, the executable learner holds the
+all-branch masks until installation: `2·|V_A|·|V_B|·9` bits (at most `2·81·9`),
+plus the private masks (18 bits) and executable coefficients. After installation
+only the coefficient vector is kept. Account for runtime caches separately.
 
 At inference, use only the installed coefficient vector and the existing
 dynamics. Test serialization/reload after deleting feedback records and masks.
@@ -162,6 +220,37 @@ These feasibility conditions may be known to be attainable on true blocks
 with the teacher core under the revised target; disclose that analytical
 expectation. The unknown is whether the permitted evidence and fixed selector
 support useful, donor-dependent transfer without private-block oracle access.
+
+### 6.1 Exact predicates
+
+For run `(teacher T, split, assignment)`, branch `p=(p_A,p_B)` and core `c`:
+`w(c)=(p_A,p_B,c,r)`; `M_s(w,x)` is satellite `s`'s marginal of the complete
+response set; `T_s(x)=M_s(T,x)`; `W_s(x)` is the isolated waking target.
+
+- **Isolated retention** `IR_ok(p)`: every surviving private block reproduces
+  `W_s(x)` on its satellite's training queries in the isolated vector. This is
+  independent of `c` and holds by construction.
+- **Coupled preservation** `CP(p,c)`: let `P0(p)` be the pairs `(s,x)`, `s in
+  {A,B}` and `x` in all 15 training queries, with `M_s(w(c0),x)=T_s(x)`. Every
+  pair in `P0(p)` has `M_s(w(c),x)=T_s(x)`. **Nonvacuous** if `P0(p)` contains at
+  least one pair for each satellite; report `|P0|` per satellite.
+- **Connected acquisition** `CA(p,c)`: `c in C_AB(p)` (arm C only), i.e. every
+  supplied connected marginal is reproduced.
+- **Transfer** `TR(p,c)`: some recipient has positive net gain on the 36 mixed
+  queries versus `c0` on the same branch, at least one mixed marginal becomes
+  exact, and no mixed marginal of either satellite regresses.
+- **Core-dependent gain** `(s,x)`: `x` is a gain of recipient `s`, and with
+  `c_A` set to zero, and separately `c_B`, `M_s(·,x) != T_s(x)`.
+- **V1-route gain:** additionally, with both inputs clamped to evidence,
+  `M_s(w(c),x) != M_s(w(c0),x)`.
+- **Cross-context change** (diagnostic): count of isolated waking items with
+  `M_s(w(c),x) != W_s(x)`.
+
+**Feasibility (Stage A, evaluator-only)** of `(p,c)`: `CP` nonvacuous and
+holding, `TR`, and at least one core-dependent gain. Report feasibility with and
+without `CA`, under both route criteria, for all branches and all nine cores.
+Report the true-private branch, the executable branch of each arm and all
+branches separately. Count `c` and `-c` once per sign class in summaries.
 
 ## 7. Stage B: acquired transfer and controls
 
@@ -210,6 +299,44 @@ for each of S1 and C2; publish all 10 conditions per teacher, not just witnesses
 This is not a reliability threshold. A ceiling-only pass is not acquired
 transfer by the specified learner.
 
+### 7.1 Selector pass, witnesses and labels
+
+For each arm and run, with executable branch `p` and installed core `c`:
+
+- **Selector pass:** `IR_ok`, nonvacuous `CP(p,c)`, `CA(p,c)` in arm C, `TR(p,c)`,
+  and at least one witness.
+- **Witness** `(s,x)`: a core-dependent gain (condition 1; `c0` loses it by
+  definition) that also satisfies:
+  - condition 2: recipient-only core `c_s` = first of `C_s(p)` in the
+    minimal-change order gives `M_s(w(c_s),x) != T_s(x)`, and some `c' in
+    C_s(p)` gives `M_s(w(c'),x) != M_s(w(c),x)`;
+  - condition 3: on the same branch, the cores installed by arms I and IR give
+    `M_s != T_s(x)`, and memorization has no entry for `x`;
+  - condition 4: installed coefficients are unchanged across all evaluation
+    queries, and private blocks are byte-identical to the pre-installation state.
+  Count witnesses separately under the core-dependent and v1-route criteria.
+- **Executable success** for a run: selector pass in arm C on an executable
+  branch equal to the teacher's private blocks. A pass on a different branch is
+  reported as `compensating` and does not count toward the minimal target.
+- **Reference branches:** apply the same consolidation and witness checks to
+  every `p in V_A × V_B`. Report the true-block branch as a ceiling only.
+- **Fixed-core controls:** each of the nine cores installed on the executable
+  branch of arm C and on the true branch, scored by `CP`, `TR` and condition 1
+  (with and without `CA`). Report, per teacher, whether one fixed core passes in
+  every run where arm C passes.
+- **Failure labels** (multi-label, not an early-exit order):
+  `inconsistent_private_assembly`, `wrong_private_branch` (evaluator-only),
+  `core_ambiguity` (`C_AB` spans more than one sign class), `selected_c0`,
+  `preservation_vacuous`, `preservation_lost`, `connected_acquisition_failed`,
+  `no_transfer`, `mixed_regression`, `no_core_dependent_gain`,
+  `donor_control_failed`, `comparator_control_failed`.
+- **Information:** `|C_A|`, `|C_B|`, `|C_AB|` and their sign classes per branch;
+  donor reduction `|C_s| - |C_AB|`; and, evaluator-only, the number of mixed
+  queries on which cores in `C_AB(p)` disagree in recipient marginal.
+- **Serialization:** write the installed vector alone to JSON, delete
+  observations and masks, reload, and reproduce the installed model's response
+  sets on all 81 queries.
+
 ## 8. Information and provenance checks
 
 Compare before/after core masks, behavioral sign classes, disagreement on held-
@@ -230,7 +357,17 @@ Freeze the reviewed contract, source hashes, assignments, targets, and manifest
 before scored computation. Preserve all v1 artifacts. Use new v2 paths and
 deterministic scientific reports, separate from volatile runtime metadata.
 Run the relevant tests and full suite; require byte-identical regeneration.
-No computation under this draft has been performed.
+No computation under this contract was performed before freezing.
+
+Artifacts: `src/core_abstraction_v2.py` (imports v1's `src/core_abstraction.py`
+unchanged), `experiments/core_abstraction_v2.py`,
+`tests/test_core_abstraction_v2.py`, and
+`reports/core-abstraction-v2-{manifest,feasibility,selector,runtime}.json`.
+Correctness gate before scoring: prior-artifact hashes; v1 private masks
+reproduced; core masks order-independent over the five frozen orders; teacher
+core in `C_AB` on the true branch; IR state equals I; oracle agreement for every
+response set used; private blocks unchanged by installation; serialization
+round trip.
 
 ## 9. Stopping rule and the dream question
 

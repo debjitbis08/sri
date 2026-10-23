@@ -1,0 +1,394 @@
+{
+ "schema": "core-abstraction-v2",
+ "contract": "docs/core-abstraction-v2-contract.md",
+ "contract_sha256": "e724d8fc71827e67db75924ff54599383844bb284e18f00f11bc49e92a5d280b",
+ "split_file": "reports/learned-reciprocal-participation-v1-splits.json",
+ "split_file_sha256": "5f34bc3bc70a84054796f2cf4aa857792046b5361ac028c1cc3704512d5aee47",
+ "coefficient_order": [
+  "w_1A",
+  "w_2A",
+  "w_1B",
+  "w_2B",
+  "w_KA",
+  "w_KB",
+  "w_12"
+ ],
+ "teachers": {
+  "S1": [
+   3,
+   3,
+   3,
+   0,
+   3,
+   -3,
+   0
+  ],
+  "C2": [
+   3,
+   0,
+   0,
+   -3,
+   3,
+   -3,
+   -3
+  ],
+  "S2": [
+   3,
+   3,
+   3,
+   0,
+   3,
+   3,
+   0
+  ],
+  "T1": [
+   3,
+   0,
+   0,
+   -3,
+   3,
+   -3,
+   0
+  ]
+ },
+ "positive_teachers": [
+  "S1",
+  "C2"
+ ],
+ "specificity_controls": [
+  "S2",
+  "T1"
+ ],
+ "arms": [
+  "I",
+  "IR",
+  "C"
+ ],
+ "assignments": {
+  "0/base": {
+   "A": [
+    10,
+    16,
+    33,
+    39,
+    42,
+    50,
+    64,
+    69
+   ],
+   "B": [
+    14,
+    32,
+    34,
+    40,
+    46,
+    51,
+    65
+   ]
+  },
+  "0/swapped": {
+   "A": [
+    14,
+    32,
+    34,
+    40,
+    46,
+    51,
+    65
+   ],
+   "B": [
+    10,
+    16,
+    33,
+    39,
+    42,
+    50,
+    64,
+    69
+   ]
+  },
+  "1/base": {
+   "A": [
+    13,
+    16,
+    29,
+    36,
+    40,
+    47,
+    63,
+    66
+   ],
+   "B": [
+    14,
+    28,
+    32,
+    39,
+    45,
+    51,
+    65
+   ]
+  },
+  "1/swapped": {
+   "A": [
+    14,
+    28,
+    32,
+    39,
+    45,
+    51,
+    65
+   ],
+   "B": [
+    13,
+    16,
+    29,
+    36,
+    40,
+    47,
+    63,
+    66
+   ]
+  },
+  "2/base": {
+   "A": [
+    13,
+    17,
+    29,
+    37,
+    39,
+    50,
+    66,
+    70
+   ],
+   "B": [
+    14,
+    28,
+    30,
+    38,
+    49,
+    53,
+    68
+   ]
+  },
+  "2/swapped": {
+   "A": [
+    14,
+    28,
+    30,
+    38,
+    49,
+    53,
+    68
+   ],
+   "B": [
+    13,
+    17,
+    29,
+    37,
+    39,
+    50,
+    66,
+    70
+   ]
+  },
+  "3/base": {
+   "A": [
+    12,
+    16,
+    30,
+    37,
+    41,
+    49,
+    65,
+    69
+   ],
+   "B": [
+    15,
+    27,
+    35,
+    38,
+    48,
+    51,
+    66
+   ]
+  },
+  "3/swapped": {
+   "A": [
+    15,
+    27,
+    35,
+    38,
+    48,
+    51,
+    66
+   ],
+   "B": [
+    12,
+    16,
+    30,
+    37,
+    41,
+    49,
+    65,
+    69
+   ]
+  },
+  "4/base": {
+   "A": [
+    9,
+    13,
+    32,
+    38,
+    40,
+    51,
+    64,
+    71
+   ],
+   "B": [
+    11,
+    27,
+    34,
+    39,
+    49,
+    52,
+    65
+   ]
+  },
+  "4/swapped": {
+   "A": [
+    11,
+    27,
+    34,
+    39,
+    49,
+    52,
+    65
+   ],
+   "B": [
+    9,
+    13,
+    32,
+    38,
+    40,
+    51,
+    64,
+    71
+   ]
+  }
+ },
+ "block_order": [
+  [
+   -3,
+   -3
+  ],
+  [
+   -3,
+   0
+  ],
+  [
+   -3,
+   3
+  ],
+  [
+   0,
+   -3
+  ],
+  [
+   0,
+   0
+  ],
+  [
+   0,
+   3
+  ],
+  [
+   3,
+   -3
+  ],
+  [
+   3,
+   0
+  ],
+  [
+   3,
+   3
+  ]
+ ],
+ "core_order": [
+  [
+   0,
+   0
+  ],
+  [
+   -3,
+   0
+  ],
+  [
+   0,
+   -3
+  ],
+  [
+   0,
+   3
+  ],
+  [
+   3,
+   0
+  ],
+  [
+   -3,
+   -3
+  ],
+  [
+   -3,
+   3
+  ],
+  [
+   3,
+   -3
+  ],
+  [
+   3,
+   3
+  ]
+ ],
+ "labels": [
+  "inconsistent_private_assembly",
+  "wrong_private_branch",
+  "core_ambiguity",
+  "selected_c0",
+  "preservation_vacuous",
+  "preservation_lost",
+  "connected_acquisition_failed",
+  "no_transfer",
+  "mixed_regression",
+  "no_core_dependent_gain",
+  "donor_control_failed",
+  "comparator_control_failed"
+ ],
+ "rules": [
+  "dynamics, responses, isolated waking filters and assemblies: v1 src/core_abstraction.py unchanged",
+  "isolated acquisition: v1 masks over the five frozen orders; must equal the archived v1 V_A, V_B",
+  "IR: re-present the 15 isolated observations once after the first order; state must equal I; core masks full",
+  "C: per branch in V_A x V_B, nine-bit core masks C_A, C_B filtered by the addressed satellite marginal under the full teacher on its assigned training queries; masks must agree over the five frozen orders",
+  "branches ordered (index p_A, index p_B); executable branch = first with nonempty C_A & C_B, else p* (inconsistent_private_assembly); I and IR therefore use p*",
+  "installation: first core of C_A & C_B in minimal-change order 0,0 -3,0 0,-3 0,3 3,0 -3,-3 -3,3 3,-3 3,3",
+  "predicates: contract sections 6.1 and 7.1; transfer requires no mixed regression in either satellite",
+  "executable success: arm C selector pass on the teacher private blocks; other branches are compensating",
+  "response encoding in reports: marginals as sorted lists; mask bits in v1 PAIRS order"
+ ],
+ "prior_artifacts": {
+  "reports/learned-reciprocal-participation-v1-splits.json": "5f34bc3bc70a84054796f2cf4aa857792046b5361ac028c1cc3704512d5aee47",
+  "src/shared_input_mediation.py": "9ff606b02717121c032ec2a2ae0110b7202406f2a1fb3a77e96308fdd21d3374",
+  "tests/test_shared_input_mediation.py": "c0046f494bf44ef1aff29ef952395df62114c7cfabf2aa9ac26183b1e7df4d23",
+  "src/core_abstraction.py": "32304d6520ab3df7affc0aaae7d4c52a59baaf4e950d5d944df91ea29c890c71",
+  "experiments/core_abstraction.py": "9d66de66ec650e38af1f86a8619e545b1bbb33353a965751964f91130dbf6f3c",
+  "tests/test_core_abstraction.py": "714bc21bb143eef04de18f136d2190a26b7c9d96b27f5d569016f1a4132d6167",
+  "docs/core-abstraction-v1-contract.md": "fe8cf4efa2b900899f7738912d701d3d7bfca8f42f6e7269d5ad9a5c8cff71c3",
+  "docs/core-abstraction-v1-results.md": "713643ddc28d2c14edfc578b2ddf183f811b5bf996fcb9cf2a546bee04336fc4",
+  "reports/core-abstraction-v1-manifest.json": "c6dfc0bbd9bd11e1f0deb20b0d0823b756bc81d9b074a09b3ced555c1f0556a3",
+  "reports/core-abstraction-v1-ceiling.json": "7701a0821c56c7ef82866d4667cbdef38346d6ad8317ac1872427079e727311b",
+  "reports/core-abstraction-v1-information.json": "4099901dacbbdd1d159a548f7084e39bb6065f3c38920e6d4ad4d4671e82a9b1"
+ },
+ "sha256": "6b1e0973058bd84e007e757bc9b9118abeb455ceff8a3b31dbc43bd9a9d9bf8c"
+}
