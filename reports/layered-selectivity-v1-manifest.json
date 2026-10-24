@@ -1,0 +1,158 @@
+{
+ "schema": "layered-selectivity-v1",
+ "contract": "docs/layered-selectivity-v1-contract.md",
+ "contract_sha256": "9abd7ed862370de4b13e7dd0e1ee2dce4e11dce0099c6d0aaf5dead729eb5c23",
+ "requirements_sha256": "983665a6331eda07ab1f4b23ef92d66f4b024c27b360ee0e7420511ef3b28c64",
+ "numpy": "2.5.4",
+ "scipy": "1.18.1",
+ "blas_threads": 1,
+ "code": {
+  "src/layered_module.py": "1606c37849ab45b08b8ea67b0b7ed1a442b5876f3a44629db61cb2024fb0e617",
+  "src/layered_module_v2.py": "2b7f84567879c5a249d8869dd19efa1cd308250f741ab8fee244dbf69dfc66ed",
+  "src/layered_selectivity.py": "7c26243cf263852f9cef5f2023eff37493926cd02a6fe5195c7880c4ab174d1a",
+  "experiments/layered_module.py": "b0a66006a9412b6f9f8f6012a596ac45c5515e4f3ec2a1675c4fd8c9824a64f6",
+  "experiments/mechanism_learning.py": "8ab395cfeb65d99062f5149a4fcf7f327774501633184036bc4d011d39ac5393",
+  "experiments/layered_selectivity.py": "15129e7433192a1e3a4a7b6028a911486035330700c0fa5d1f60436e9ecfec41",
+  "tests/test_layered_selectivity.py": "2802373a7ed41a3393f4f860e07c9d82f52dba4a90477c5ad2a0a38c1d755839"
+ },
+ "prior_artifacts": {
+  "reports/layered-module-design-analysis.json": "798b46c4a38cbdba317617f5c97d8e0f0e8d44332686865f989295e61653832f"
+ },
+ "n": 32,
+ "arms": [
+  "selective",
+  "no_lateral",
+  "ordinary_smoothing",
+  "wrong_bands"
+ ],
+ "bands": {
+  "selective": [
+   1,
+   8
+  ],
+  "wrong_bands": [
+   1,
+   4
+  ]
+ },
+ "tau": {
+  "selective": 169.2824418989257,
+  "wrong_bands": 1973.3007522139392
+ },
+ "max_lateral_stiffness": {
+  "selective": 10626.90254369161,
+  "no_lateral": 0.0,
+  "ordinary_smoothing": 4.0,
+  "wrong_bands": 361001.8596824272
+ },
+ "depths": [
+  2,
+  4
+ ],
+ "alphas": [
+  0.5,
+  1.0
+ ],
+ "families": {
+  "F-low": 1,
+  "F-high": 8
+ },
+ "classes": 4,
+ "draws": 50,
+ "train_draws": 25,
+ "replicates": 20,
+ "sigma": 0.1,
+ "seeds": {
+  "base": 20261030,
+  "nuisance": [
+   20261030,
+   0,
+   "r"
+  ],
+  "readout": [
+   20261030,
+   1,
+   "r",
+   "l",
+   "family"
+  ],
+  "gates": [
+   20261030,
+   2,
+   "arm_index",
+   "L"
+  ]
+ },
+ "primary": {
+  "arm": "selective",
+  "L": 4,
+  "alpha": 1.0,
+  "successes_required": 18
+ },
+ "thresholds": {
+  "T2_max": 0.25,
+  "T3_min": 0.9,
+  "T4_max": 0.5,
+  "J_floor": 1e-12,
+  "ci_level": 0.95
+ },
+ "tolerances": {
+  "fd_step": 1e-06,
+  "fd": 1e-05,
+  "energy_identity": 1e-12,
+  "transfer": 1e-09,
+  "direct": 1e-07,
+  "gain": 1e-09,
+  "monotone": 1e-10
+ },
+ "lbfgs_options": {
+  "maxiter": 20000,
+  "maxcor": 20,
+  "ftol": 0.0,
+  "gtol": 1e-11,
+  "maxls": 50
+ },
+ "certification": {
+  "grad": 1e-08,
+  "min_eig": 1e-08
+ },
+ "polish_grad": 1e-12,
+ "predictions": {
+  "selective": {
+   "signal_gains": [
+    0.8,
+    0.6,
+    0.4,
+    0.2
+   ],
+   "suppression": 0.0165802463,
+   "J": 0.265283941,
+   "gaussian_accuracy": 0.9989094623,
+   "spherical_lower_bound": 0.9903441
+  },
+  "no_lateral": {
+   "signal_gains": [
+    0.8,
+    0.6,
+    0.4,
+    0.2
+   ],
+   "suppression": 0.1074856046,
+   "J": 1.7197696737
+  }
+ },
+ "rules": [
+  "disk: L rings of 32 and one centre; radial j <-> j and ring L <-> centre, unit strength; unit exterior tie; no exterior lateral penalty; no local potential; interior lateral energy 1/2 u_l^T K u_l on rings 2..L",
+  "arms: selective K = tau B^T B, B = (C - e_1 I)(C - e_8 I), tau = 1 / min q_k over k not in {1,8,24,31}; no_lateral K = 0; ordinary_smoothing K = C; wrong_bands as selective with modes 1, 4 (excluded {1,4,28,31})",
+  "grid: arms x L in {2, 4} x alpha in {0.5, 1}; 20 replicates; primary selective L = 4 alpha = 1",
+  "settling: v1 L-BFGS-B from u = 0 and Newton polish; certified iff max|grad| < 1e-8 and min Hessian eigenvalue > 1e-8; every canonical state within 1e-7 (inf-norm) of the Cholesky direct solve",
+  "nuisance: v1 Fourier basis, N(0,1) coefficients from default_rng([20261030, 0, r]) shape (2,4,50,32), rescaled per draw to RMS alpha/sqrt(2); same draws for every arm, depth and alpha; draws 0-24 train, 25-49 test",
+  "readout: absolute sigma = 0.1 times eps from default_rng([20261030, 1, r, l, family]) shape (4,50,32), l 1-based, family 0 = F-low, 1 = F-high; v1 nearest_mean on all 32 coordinates, means from certified noisy training states",
+  "pure signal: 4 drives per family and configuration, canonical start; Vsig(l) = mean_{c,j} (u - mean_d u)^2",
+  "criteria per family: T1 S(1) >= S(l); T2 P(L)/P(1) <= 0.25; T3 strict NM at layer L >= 0.9; T4 J_n <= 0.5, J_n = [P(L)/P(1)] / [Vsig(L)/Vsig(1)], unavailable (T4 not met) if a pure-signal drive is unsettled or P(1), Vsig(1) or Vsig(L) < 1e-12; replicate eligible iff all 400 canonical settlings certified",
+  "replicate success: eligible and T1-T4 in both families; primary success iff >= 18 of 20; Clopper-Pearson 95%",
+  "gates: Hessian symmetric PD; lateral coupling distance per arm; radial/centre structure; derivatives by central differences step 1e-6 with |fd - analytic| <= 1e-5 max(1, max|analytic|) and the quadratic energy identity to 1e-12 relative; spatial versus tridiagonal transfer 1e-9; gains in [0, 1] and nonincreasing inward to 1e-10; pure-signal responses equal declared gains to 1e-9; NM equals an independent vectorized implementation",
+  "parallel over (configuration, replicate) units with one BLAS thread per process; results do not depend on worker count; reported floats rounded to 10 significant digits"
+ ],
+ "sha256": "f4ca391c8ea3eb23d6751b001ba4f619e59b43cd615d609b437c97932c41814d"
+}
