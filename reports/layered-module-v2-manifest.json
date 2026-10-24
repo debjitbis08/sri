@@ -1,0 +1,218 @@
+{
+ "schema": "layered-module-v2",
+ "contract": "docs/layered-module-v2-contract.md",
+ "contract_sha256": "eb4976147bcd10a1a23245f8fbdbd9dfbfa408975b4127fa90f8ead53bc2eeb5",
+ "requirements_sha256": "983665a6331eda07ab1f4b23ef92d66f4b024c27b360ee0e7420511ef3b28c64",
+ "numpy": "2.5.4",
+ "scipy": "1.18.1",
+ "blas_threads": 1,
+ "n1": 32,
+ "lam": 1.0,
+ "depths": [
+  2,
+  3,
+  4,
+  6
+ ],
+ "ring_sizes": {
+  "shrinking": {
+   "2": [
+    32,
+    16
+   ],
+   "3": [
+    32,
+    21,
+    11
+   ],
+   "4": [
+    32,
+    24,
+    16,
+    8
+   ],
+   "6": [
+    32,
+    27,
+    21,
+    16,
+    11,
+    5
+   ]
+  },
+  "constant": {
+   "2": [
+    32,
+    32
+   ],
+   "3": [
+    32,
+    32,
+    32
+   ],
+   "4": [
+    32,
+    32,
+    32,
+    32
+   ],
+   "6": [
+    32,
+    32,
+    32,
+    32,
+    32,
+    32
+   ]
+  }
+ },
+ "geometries": [
+  "shrinking",
+  "constant"
+ ],
+ "drive_potentials": [
+  [
+   "tie",
+   [
+    "linear",
+    0
+   ]
+  ],
+  [
+   "tie",
+   [
+    "linear",
+    1
+   ]
+  ],
+  [
+   "tie",
+   [
+    "double_well",
+    0.5
+   ]
+  ],
+  [
+   "tie",
+   [
+    "double_well",
+    1
+   ]
+  ],
+  [
+   "tie",
+   [
+    "double_well",
+    2
+   ]
+  ],
+  [
+   "field",
+   [
+    "linear",
+    1
+   ]
+  ],
+  [
+   "field",
+   [
+    "double_well",
+    0.5
+   ]
+  ],
+  [
+   "field",
+   [
+    "double_well",
+    1
+   ]
+  ],
+  [
+   "field",
+   [
+    "double_well",
+    2
+   ]
+  ]
+ ],
+ "gammas": [
+  1,
+  2
+ ],
+ "alphas": [
+  0.5,
+  1
+ ],
+ "families": {
+  "F-low": 1,
+  "F-high": 8
+ },
+ "noise": {
+  "absolute": [
+   0.03,
+   0.1,
+   0.3
+  ],
+  "relative": [
+   0.03,
+   0.1,
+   0.3
+  ],
+  "relative_min_scale": 1e-12
+ },
+ "sigma_profile": 0.1,
+ "classes": 4,
+ "draws": 50,
+ "train_draws": 25,
+ "seeds": {
+  "nuisance": 20261024,
+  "readout": 20261025,
+  "starts": 20261026,
+  "checks": 20261027,
+  "reference": 20261027,
+  "gates": 20261028
+ },
+ "reference": {
+  "draws": 1000000,
+  "interval": "clopper-pearson",
+  "level": 0.999999
+ },
+ "lbfgs_options": {
+  "maxiter": 20000,
+  "maxcor": 20,
+  "ftol": 0.0,
+  "gtol": 1e-11,
+  "maxls": 50
+ },
+ "certification": {
+  "grad": 1e-08,
+  "min_eig": 1e-08
+ },
+ "polish_grad": 1e-12,
+ "starts": 16,
+ "merge_tol": 1e-06,
+ "thresholds": {
+  "T2_max": 0.25,
+  "T3_min": 0.9,
+  "reading_margin": 0.1,
+  "prediction_tolerance": 0.1
+ },
+ "prior_artifacts": {
+  "reports/layered-module-v1-results.json": "6c41db61063d9407dc97029a6bb5d4feac726e93b25de80cf3d8cabd5ebeb261"
+ },
+ "rules": [
+  "geometries: shrinking (v1 ring sizes and Disk class unchanged) and constant (every ring 32, built by the v1 radial rule, which gives j <-> j); centre joined to ring L",
+  "drives: tie (v1 Module unchanged, lambda = 1) or field E = 1/2 u^T K u + sum V(u) - sum_ring1 h u; field arm potentials linear mu = 1 and double well beta 0.5, 1, 2",
+  "settling, certification, multistability, superposition, drives, nuisance, halves and readout eps exactly as v1",
+  "pure-signal drives (4 per family, no nuisance) from the canonical start; R_l = RMS over units and classes of layer l; null if any unsettled or R_l < 1e-12",
+  "readout noise sigma * eps with sigma = sigma0 in {0.03, 0.1, 0.3} (absolute) or sigma_rel R_l with sigma_rel in {0.03, 0.1, 0.3} (relative)",
+  "readouts fitted on noisy certified training states: NM (v1); LDA pooled covariance dof N_cert,train - 4, Cholesky, equal priors, argmax ties lowest; null if class missing, N_cert,train - 4 < n_l or Cholesky fails; mode projection onto orthonormal cos/sin(n phi) when n_l > 2n, NM in 2-D; oracle-covariance LDA (linear) with LDA means and population Sigma",
+  "strict accuracy out of 100 (unsettled and null count wrong) for profile accounting; null readouts are unavailable for readings",
+  "population reference (linear): G from a dense solve; Sigma = (alpha^2/2) G G^T + sigma^2 I handled through the SVD of G; Bayes accuracy by Monte Carlo, 1e6 2-D standard normal draws from default_rng(20261027), draw i paired with class i mod 4, nearest whitened mean; Clopper-Pearson interval at level 1 - 1e-6",
+  "spectra: orthonormal real Fourier basis of each ring; P_k within-class variance averaged over classes, B_k between-class variance of class means, cos and sin summed; certified drives of both halves, no readout noise",
+  "profile at sigma0 = 0.1 (T1, T2, T3 >= 0.9 strict at layer L) with NM and with LDA as the T3 readout; eligible only if all 400 canonical settlings certified; nothing selected for Stage 2",
+  "readings G, A, R as contract section 9, margin 0.10, with validity conditions; not-evaluable cases listed",
+  "reported floats rounded to 10 significant digits; BLAS pinned to one thread before numpy import"
+ ],
+ "sha256": "a7ad54f8573f38d69b02a735d98c73453653b6aac68c0eb02c8aedb947580075"
+}

@@ -1,7 +1,46 @@
 # Layered module v2 — separating geometric loss, attenuation and readout limits in one module, with soft-tie and field drives
 
-**Status:** draft for review (2026-10-24). Not frozen. Freeze this contract's
-hash in the manifest before any scored computation.
+**Status:** prospective; frozen for implementation on 2026-10-24. Freeze this
+contract's hash in the manifest before any scored computation.
+
+**Pre-implementation specifications (2026-10-24, before any scored
+computation).** The draft left these details open. They are fixed here, and
+no threshold, factor or readout changed.
+
+1. **Monte Carlo pairing.** In the population reference (section 5.3), draw
+   `i` is paired with class `i mod 4`, so each class gets 250,000 draws. Each
+   draw is assigned to the nearest whitened class mean.
+2. **Whitening.** `Σ_ℓ` is handled through the singular value decomposition
+   `G_ℓ = U S Vᵀ`. Because `n_ℓ ≤ 32`, `U` is square, and
+   `Σ_ℓ⁻¹ = U diag(1/((α²/2) s² + σ²)) Uᵀ` exactly. This avoids an
+   ill-conditioned Cholesky factorization when mode gains span many orders of
+   magnitude. The class means are `±a, ±b`, so the Monte Carlo works in at
+   most 2 dimensions, even if rounding adds tiny further components.
+3. **Oracle-covariance LDA** is `null` if any class has no certified training
+   drive.
+4. **Spectra** use the certified drives of both halves, without readout
+   noise, like `S` and `P`.
+5. **Reading G.** For the linear arm, if only the LDA difference reaches the
+   margin, the outcome is "not shown"; both values are still reported.
+6. **Reading R.** The projection and covariance-estimation sub-readings are
+   "not evaluable" when their own readout is `null`. The NM sub-reading
+   still stands.
+7. **Prediction check.** It uses the closed form at absolute `σ₀ = 0.1`, for
+   both `α`, at layer `L`. A difference counts as larger than sampling
+   variation when `|LDA − A_ref| > 0.1`.
+8. **Estimation-gap table.** At layer `L`, for absolute `σ₀ = 0.1` and
+   relative `σ_rel = 0.1`. Values for every layer are in the per-configuration
+   records.
+9. **Field versus tie.** Strict accuracies at layer `L` and absolute
+   `σ₀ = 0.1`. The LDA difference is reported only when both LDA readouts are
+   available.
+10. **Gate inputs.** The derivative and LDA-implementation gates draw from
+    `default_rng(20261028, …)`. The per-mode gain gate settles pure
+    `cos(nθ)` and `sin(nθ)` drives. None of these settlings enters any
+    measure.
+11. **v1's Mahalanobis diagnostic** is not carried into v2's outputs, because
+    it counts readout noise twice (section 5.4). The v1 replication gate
+    compares the quantities listed in section 11 only.
 
 ## 0. Where this sits
 
