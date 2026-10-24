@@ -1,0 +1,159 @@
+{
+  "byte_identical": true,
+  "command": ".venv/bin/python -m experiments.layered_reuse_analysis",
+  "cpu": "AMD Ryzen 5 3600 6-Core Processor",
+  "cpu_seconds": 0.6131022700000001,
+  "dirty_paths": [
+    "?? docs/layered-reuse-analysis.md",
+    "?? experiments/layered_reuse_analysis.py",
+    "?? reports/layered-reuse-analysis-runtime.json",
+    "?? reports/layered-reuse-analysis.json",
+    "?? reports/layered-reuse-architecture.svg"
+  ],
+  "dtype": "float64",
+  "flops": null,
+  "flops_reason": "not measured; complexity in analysis document",
+  "numpy": "2.5.4",
+  "numpy_build": {
+    "Build Dependencies": {
+      "blas": {
+        "detection method": "pkgconfig",
+        "found": true,
+        "include directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include",
+        "lib directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib",
+        "name": "scipy-openblas",
+        "openblas configuration": "OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64",
+        "pc file directory": "/project/.openblas",
+        "version": "0.3.34.106.0"
+      },
+      "lapack": {
+        "detection method": "pkgconfig",
+        "found": true,
+        "include directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include",
+        "lib directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib",
+        "name": "scipy-openblas",
+        "openblas configuration": "OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64",
+        "pc file directory": "/project/.openblas",
+        "version": "0.3.34.106.0"
+      }
+    },
+    "Compilers": {
+      "c": {
+        "commands": "cc",
+        "linker": "ld.bfd",
+        "name": "gcc",
+        "version": "14.2.1"
+      },
+      "c++": {
+        "commands": "c++",
+        "linker": "ld.bfd",
+        "name": "gcc",
+        "version": "14.2.1"
+      },
+      "cython": {
+        "commands": "cython",
+        "linker": "cython",
+        "name": "cython",
+        "version": "3.3.0"
+      }
+    },
+    "Machine Information": {
+      "build": {
+        "cpu": "x86_64",
+        "endian": "little",
+        "family": "x86_64",
+        "system": "linux"
+      },
+      "host": {
+        "cpu": "x86_64",
+        "endian": "little",
+        "family": "x86_64",
+        "system": "linux"
+      }
+    },
+    "Python Information": {
+      "path": "/tmp/build-env-ptu49_tp/bin/python",
+      "version": "3.12"
+    },
+    "SIMD Extensions": {
+      "baseline": [
+        "X86_V2"
+      ],
+      "found": [
+        "X86_V3"
+      ],
+      "not found": [
+        "X86_V4",
+        "AVX512_ICL",
+        "AVX512_SPR"
+      ]
+    }
+  },
+  "os": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+  "peak_rss_kib": 34212,
+  "phases": {
+    "first_pass": {
+      "cpu_seconds": 0.306194984,
+      "wall_seconds": 0.3063497130005999
+    },
+    "reproducibility_pass": {
+      "cpu_seconds": 0.306050315,
+      "wall_seconds": 0.3060711070002071
+    }
+  },
+  "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+  "revision": "2eee188de666238d0f87b775b00e9a1d1e0d66ea",
+  "rss_scope": "whole-process Linux KiB including imports; not per configuration",
+  "scientific_sha256": "89681ed5878148bbaea888f28c6e72d9527008c75f47632c2f988d08202c0053",
+  "scope": "two complete analytical passes and artifact writes; excludes imports and receipt write",
+  "seed_policy": "none; explicit matrices",
+  "source_sha256": {
+    "docs/computation-reporting.md": "23bf1c17abc71f849c8c1bedaf8c106f9637a1051a669f391f374a43fa9a3b12",
+    "docs/layered-module-design-analysis.md": "f4f8710e73892d77d303c534b771fc0e0e3d851eb5993d7248e9d803c2e764c5",
+    "docs/layered-module-v1-contract.md": "7cb93213bb7eb1c5c695e216fa5ce470c4d1769693f46fb267ba197770ff6fd6",
+    "docs/layered-module-v2-results.md": "83e2546567140df517ffebf1baab8db271e54d8a97e1d53cf89587d52b0d766b",
+    "docs/layered-reuse-analysis.md": "6babcb3818368a697edf6937ef25fe676552537b22f3a5d74ad4f0f04844992d",
+    "docs/representation-reuse-v1-results.md": "36f209655670afbb660f8146c417a6df0253d8f7903e18aa2846086baf1d60ca",
+    "docs/research-program.md": "3dd29f2535df206a9b2e2bfa597216e7cbc0953a3635a1fabc4a8d55c354e2d4",
+    "experiments/layered_reuse_analysis.py": "0a4058cb654b67f3fe7118f0e06413223c144077553ae11b1c15ef87b78bbdc3"
+  },
+  "temporary_bytes": null,
+  "temporary_bytes_reason": "RSS only; no isolated allocation tracking",
+  "threads": {
+    "MKL_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1"
+  },
+  "total_work": {
+    "candidate_selections": 0,
+    "dense_solves_32_rhs32": 8,
+    "dense_solves_49_rhs32": 8,
+    "dense_solves_81_rhs32": 16,
+    "eigensolves_81": 16,
+    "ema_moment_steps": 60000,
+    "fitted_models": 0,
+    "independent_error_map_checks": 8,
+    "iterative_inference_steps": 0,
+    "rank_checks": 6,
+    "sampled_examples": 0,
+    "scalar_energy_evaluations": 26568,
+    "tuning_trials": 0
+  },
+  "wall_seconds": 0.613279127000169,
+  "work_per_pass": {
+    "candidate_selections": 0,
+    "dense_solves_32_rhs32": 4,
+    "dense_solves_49_rhs32": 4,
+    "dense_solves_81_rhs32": 8,
+    "eigensolves_81": 8,
+    "ema_moment_steps": 30000,
+    "fitted_models": 0,
+    "independent_error_map_checks": 4,
+    "iterative_inference_steps": 0,
+    "rank_checks": 3,
+    "sampled_examples": 0,
+    "scalar_energy_evaluations": 13284,
+    "tuning_trials": 0
+  },
+  "workers": 1
+}

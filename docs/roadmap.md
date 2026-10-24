@@ -3,6 +3,15 @@
 **Version:** 0.1 · **Status:** Proposed, not a promise of eventual intelligence.  
 **Operating rule:** Advance by proof-quality and falsifiable results, not by model size or benchmark excitement.
 
+**Current experimental scope, 2026-10-24:** the next study remains one circular
+layered module. See the [current design](single-module-plasticity-design.md)
+and [draft routed-plasticity contract](single-module-plasticity-v1-contract.md).
+Routing here means local weighting inside that module. The four rings have
+32,24,16,8 units; the scalar centre is omitted. Multiple modules and inter-module
+routing are deferred unless subsequent evidence motivates them. The broader
+milestones below remain long-term research questions, not dependencies that
+expand this experiment's scope.
+
 ## Milestone 0 — Reproducible finite control (existing starter)
 
 **Aim:** a permanent reproducible baseline, explicitly weaker than the proposed architecture.
@@ -141,7 +150,11 @@
 5. `reports/`: frozen machine-readable result plus short interpretation.
 6. `docs/open-problems.md`: updated status, counterexamples and next obligations.
 
-### Immediate next iteration
+### Earlier immediate-iteration notes
+
+These notes preserve the preceding research agenda. The dated single-module
+scope decision at the top of this roadmap governs the next experiment; these
+earlier collective-interaction questions do not expand its scope.
 
 The narrow [OP-03B investigation](op-03b-response-family.md) is complete. Preserve OP-02 through OP-03B as valid restricted controls, including the Boolean impossibility result, scoped OR theorem, and unresolved OP-02B target.
 

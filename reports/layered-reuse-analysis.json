@@ -1,0 +1,130 @@
+{
+  "ema": [
+    {
+      "eta": 0.5,
+      "illustrative_mse": 0.3333343333333333,
+      "stationary_noise_variance": 0.3333333333333333,
+      "steady_drift_lag": -0.0009999999999994458
+    },
+    {
+      "eta": 0.1,
+      "illustrative_mse": 0.052712578947368374,
+      "stationary_noise_variance": 0.05263157894736843,
+      "steady_drift_lag": -0.008999999999996788
+    },
+    {
+      "eta": 0.01,
+      "illustrative_mse": 0.014826125628142485,
+      "stationary_noise_variance": 0.005025125628140688,
+      "steady_drift_lag": -0.09900000000000908
+    }
+  ],
+  "equilibrium": [
+    {
+      "centre": "summary",
+      "condition_number": 40.50585184818858,
+      "exterior_reconstruction_E": 2.038472222222222,
+      "exterior_signal_error": 8.63410139000262e-32,
+      "graded_relaxation_slowest_rate": 0.0014713598959376515,
+      "lambda_outer": 1.0,
+      "min_hessian_eigenvalue": 0.09590200976943657,
+      "schur_error": 1.1102230246251565e-16,
+      "signal_mode_gains": [
+        0.9999999999999991,
+        0.9999999999999993,
+        0.9999999999999996,
+        0.9999999999999996
+      ],
+      "uniform_relaxation_slowest_rate": 0.09590200976943657
+    },
+    {
+      "centre": "original_spring",
+      "condition_number": 23.606821330933716,
+      "exterior_reconstruction_E": 1.9825123349993596,
+      "exterior_signal_error": 0.035622837370242244,
+      "graded_relaxation_slowest_rate": 0.0024403967331196722,
+      "lambda_outer": 1.0,
+      "min_hessian_eigenvalue": 0.16824310083988278,
+      "schur_error": 3.3306690738754696e-16,
+      "signal_mode_gains": [
+        0.7999999999999994,
+        0.7999999999999998,
+        0.7999999999999998,
+        0.8529411764705879
+      ],
+      "uniform_relaxation_slowest_rate": 0.16824310083988278
+    },
+    {
+      "centre": "summary",
+      "condition_number": 192.74858267891702,
+      "exterior_reconstruction_E": 0.348114353733733,
+      "exterior_signal_error": 8.11132734933791e-30,
+      "graded_relaxation_slowest_rate": 0.00046805540566272313,
+      "lambda_outer": 0.1,
+      "min_hessian_eigenvalue": 0.020010366677044204,
+      "schur_error": 4.440892098500626e-16,
+      "signal_mode_gains": [
+        0.9999999999999968,
+        0.9999999999999969,
+        0.9999999999999969,
+        0.9999999999999971
+      ],
+      "uniform_relaxation_slowest_rate": 0.020010366677044204
+    },
+    {
+      "centre": "original_spring",
+      "condition_number": 52.57727807227207,
+      "exterior_reconstruction_E": 0.6012028603624807,
+      "exterior_signal_error": 0.48168984056853453,
+      "graded_relaxation_slowest_rate": 0.0017139281791241025,
+      "lambda_outer": 0.1,
+      "min_hessian_eigenvalue": 0.07515110229523458,
+      "schur_error": 1.1102230246251565e-16,
+      "signal_mode_gains": [
+        0.2857142857142855,
+        0.28571428571428553,
+        0.2857142857142857,
+        0.37219730941704005
+      ],
+      "uniform_relaxation_slowest_rate": 0.07515110229523458
+    }
+  ],
+  "rank3_unit_signal_loss": 0.2500000000000002,
+  "scope": "constructed analytical checks only",
+  "status": "complete",
+  "transport": [
+    {
+      "all_state_transport_error": 0.0,
+      "degrees": 0,
+      "source_target_union_rank": 4,
+      "target_subspace_source_loss": 2.220446049250313e-16
+    },
+    {
+      "all_state_transport_error": 2.220446049250313e-16,
+      "degrees": 30,
+      "source_target_union_rank": 8,
+      "target_subspace_source_loss": 0.2500000000000002
+    },
+    {
+      "all_state_transport_error": 1.609823385706477e-15,
+      "degrees": 90,
+      "source_target_union_rank": 8,
+      "target_subspace_source_loss": 1.0
+    }
+  ],
+  "work": {
+    "candidate_selections": 0,
+    "dense_solves_32_rhs32": 4,
+    "dense_solves_49_rhs32": 4,
+    "dense_solves_81_rhs32": 8,
+    "eigensolves_81": 8,
+    "ema_moment_steps": 30000,
+    "fitted_models": 0,
+    "independent_error_map_checks": 4,
+    "iterative_inference_steps": 0,
+    "rank_checks": 3,
+    "sampled_examples": 0,
+    "scalar_energy_evaluations": 13284,
+    "tuning_trials": 0
+  }
+}
