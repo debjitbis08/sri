@@ -5,7 +5,8 @@
 
 **Current experimental scope, 2026-10-24:** the next study remains one circular
 layered module. See the [current design](single-module-plasticity-design.md)
-and [draft routed-plasticity contract](single-module-plasticity-v1-contract.md).
+and [routed-plasticity contract](single-module-plasticity-v1-contract.md);
+its [v1 results](single-module-plasticity-v1-results.md) (2026-10-25) are an overall `fail`.
 Routing here means local weighting inside that module. The four rings have
 32,24,16,8 units; the scalar centre is omitted. Multiple modules and inter-module
 routing are deferred unless subsequent evidence motivates them. The broader

@@ -135,7 +135,7 @@
       "warm_up_updates": 128
     }
   },
-  "command": "python -m experiments.single_module_plasticity --phase dev",
+  "command": "python -m experiments.single_module_plasticity --phase timing",
   "complexity": {
     "bytes": {
       "current_minibatch": 4096,
@@ -181,6 +181,300 @@
       "solves": "O(M^2) per pilot, second and adjoint solve",
       "source_acquisition": "v2 CV + refit (33 local fits) + O(J q^3) basis completion"
     }
+  },
+  "confirmation": {
+    "dirty_paths": [
+      "?? reports/single-module-plasticity-v1-results.json"
+    ],
+    "evaluator": {
+      "evaluator": {
+        "counts": {
+          "curvature_assemblies": 15040,
+          "evaluator_inputs": 20283392,
+          "pilot_factorizations": 15040,
+          "pilot_solves": 15608320,
+          "route_evaluations": 15608320,
+          "schur_checked_inputs": 240128,
+          "second_factorizations": 15608320,
+          "second_solves": 15608320
+        },
+        "seconds": {
+          "controls": 0.103146844993,
+          "hessian_assembly": 4.08176237301,
+          "inference": 1884.82360411,
+          "metrics": 9.93712987011,
+          "pilot_factor": 0.462766140947,
+          "pilot_solve": 28.4804758594,
+          "pre_warm_up_diagnostic": 4.25693725001,
+          "routes": 25.1602469691,
+          "schur_reference": 82.4827549071,
+          "second_factor": 369.991633644,
+          "second_solve": 359.320060552
+        },
+        "stats": {
+          "pilot_max_condition": 146.007506528,
+          "pilot_max_relative_residual": 6.86116641556e-15,
+          "second_max_condition_lower_bound": 18.6584718709,
+          "second_max_relative_residual": 6.25094215329e-15
+        }
+      }
+    },
+    "executed_timing_and_counts": {
+      "frozen_layered": {
+        "counts": {},
+        "seconds": {},
+        "stats": {}
+      },
+      "graded_matched": {
+        "counts": {
+          "adjoint_solves": 786432,
+          "curvature_assemblies": 49152,
+          "parameter_updates": 49152,
+          "pilot_factorizations": 49152,
+          "pilot_solves": 786432,
+          "retractions": 786432,
+          "route_evaluations": 786432,
+          "second_factorizations": 786432,
+          "second_solves": 786432
+        },
+        "seconds": {
+          "adjoint_solve": 17.1695511633,
+          "gradient_assembly": 8.2860685119,
+          "hessian_assembly": 13.2446801043,
+          "learning": 138.75933169,
+          "pilot_factor": 1.50841834711,
+          "pilot_solve": 4.06552594161,
+          "retraction": 14.6179892622,
+          "routes": 8.48853221984,
+          "second_factor": 13.7267214089,
+          "second_solve": 17.7702155729
+        },
+        "stats": {
+          "adjoint_max_relative_residual": 6.231673944e-17,
+          "pilot_max_condition": 144.540305555,
+          "pilot_max_relative_residual": 4.86002294319e-15,
+          "second_max_condition_lower_bound": 18.5144765661,
+          "second_max_relative_residual": 5.40978206411e-15
+        }
+      },
+      "graded_mean": {
+        "counts": {
+          "adjoint_solves": 786432,
+          "curvature_assemblies": 49152,
+          "parameter_updates": 49152,
+          "pilot_factorizations": 49152,
+          "pilot_solves": 786432,
+          "retractions": 786432,
+          "route_evaluations": 786432,
+          "second_factorizations": 786432,
+          "second_solves": 786432
+        },
+        "seconds": {
+          "adjoint_solve": 17.172793524,
+          "gradient_assembly": 8.28849527122,
+          "hessian_assembly": 13.2507879303,
+          "learning": 138.972908617,
+          "pilot_factor": 1.50808223212,
+          "pilot_solve": 4.06646985734,
+          "retraction": 14.622918518,
+          "routes": 8.68233996187,
+          "second_factor": 13.723488306,
+          "second_solve": 17.7694427318
+        },
+        "stats": {
+          "adjoint_max_relative_residual": 5.90775928433e-17,
+          "pilot_max_condition": 144.545513176,
+          "pilot_max_relative_residual": 5.18514418942e-15,
+          "second_max_condition_lower_bound": 14.6250488529,
+          "second_max_relative_residual": 5.45178145933e-15
+        }
+      },
+      "graded_shifted": {
+        "counts": {
+          "adjoint_solves": 786432,
+          "curvature_assemblies": 49152,
+          "parameter_updates": 49152,
+          "pilot_factorizations": 49152,
+          "pilot_solves": 786432,
+          "retractions": 786432,
+          "route_evaluations": 786432,
+          "second_factorizations": 786432,
+          "second_solves": 786432
+        },
+        "seconds": {
+          "adjoint_solve": 17.1981430081,
+          "gradient_assembly": 8.31011965719,
+          "hessian_assembly": 13.2785532008,
+          "learning": 139.869372105,
+          "pilot_factor": 1.51147192779,
+          "pilot_solve": 4.07555565321,
+          "retraction": 14.6634529533,
+          "routes": 9.30432964007,
+          "second_factor": 13.7598286792,
+          "second_solve": 17.7989443998
+        },
+        "stats": {
+          "adjoint_max_relative_residual": 5.98431107815e-17,
+          "pilot_max_condition": 144.538922629,
+          "pilot_max_relative_residual": 5.44098910747e-15,
+          "second_max_condition_lower_bound": 18.5326947054,
+          "second_max_relative_residual": 4.74144915347e-15
+        }
+      },
+      "phase_target_cca": {
+        "counts": {
+          "cholesky_8": 9216,
+          "eigh_8": 9216,
+          "local_solves": 2304,
+          "target_pairs": 98304
+        },
+        "seconds": {
+          "solve": 1.27750835105,
+          "target_update": 1.76536682307
+        },
+        "stats": {}
+      },
+      "pooled_local_cca": {
+        "counts": {
+          "cholesky_8": 9216,
+          "eigh_8": 9216,
+          "local_solves": 2304,
+          "target_pairs": 98304
+        },
+        "seconds": {
+          "solve": 1.26179406696,
+          "target_update": 1.75641241528
+        },
+        "stats": {}
+      },
+      "reversed_matched": {
+        "counts": {
+          "adjoint_solves": 786432,
+          "curvature_assemblies": 49152,
+          "parameter_updates": 49152,
+          "pilot_factorizations": 49152,
+          "pilot_solves": 786432,
+          "retractions": 786432,
+          "route_evaluations": 786432,
+          "second_factorizations": 786432,
+          "second_solves": 786432
+        },
+        "seconds": {
+          "adjoint_solve": 17.177606585,
+          "gradient_assembly": 8.28870908189,
+          "hessian_assembly": 13.2570310097,
+          "learning": 138.877629825,
+          "pilot_factor": 1.50871464807,
+          "pilot_solve": 4.06858385185,
+          "retraction": 14.6363109089,
+          "routes": 8.49835271176,
+          "second_factor": 13.7311301481,
+          "second_solve": 17.781928111
+        },
+        "stats": {
+          "adjoint_max_relative_residual": 6.49956338362e-17,
+          "pilot_max_condition": 146.007506528,
+          "pilot_max_relative_residual": 5.28525220038e-15,
+          "second_max_condition_lower_bound": 18.4028035765,
+          "second_max_relative_residual": 5.46655627093e-15
+        }
+      },
+      "source_acquisition": {
+        "counts": {
+          "candidate_scores": 2048,
+          "cholesky_8": 8448,
+          "eigh_8": 8448,
+          "fit_row_exposures": 409600,
+          "fits": 2112,
+          "local_solves": 64,
+          "refits": 64,
+          "source_pairs": 16384,
+          "validation_row_exposures": 131072
+        },
+        "seconds": {
+          "basis_completion": 0.0474004019979,
+          "covariance": 0.19899172901,
+          "factorization": 1.10599695412,
+          "solve": 0.0352276869962,
+          "source_selection": 1.498209464,
+          "source_statistics": 0.0117656900056,
+          "validation": 0.0860766900096
+        },
+        "stats": {}
+      },
+      "source_warm_up": {
+        "counts": {
+          "adjoint_solves": 131072,
+          "curvature_assemblies": 8192,
+          "fixed_route_factorizations": 8192,
+          "parameter_updates": 8192,
+          "retractions": 131072,
+          "second_solves": 131072
+        },
+        "seconds": {
+          "adjoint_solve": 0.571317760001,
+          "fixed_route_factor": 0.251222657984,
+          "gradient_assembly": 1.39611374816,
+          "hessian_assembly": 2.20444796706,
+          "retraction": 2.41995959495,
+          "second_solve": 0.66835674806,
+          "warm_up": 8.860590501
+        },
+        "stats": {
+          "adjoint_max_relative_residual": 4.88819995355e-17,
+          "second_max_relative_residual": 4.43653412988e-15
+        }
+      },
+      "uniform_matched": {
+        "counts": {
+          "adjoint_solves": 786432,
+          "curvature_assemblies": 49152,
+          "parameter_updates": 49152,
+          "pilot_factorizations": 49152,
+          "pilot_solves": 786432,
+          "retractions": 786432,
+          "route_evaluations": 786432,
+          "second_factorizations": 786432,
+          "second_solves": 786432
+        },
+        "seconds": {
+          "adjoint_solve": 17.1726524319,
+          "gradient_assembly": 8.28784117116,
+          "hessian_assembly": 13.2427500183,
+          "learning": 138.771695387,
+          "pilot_factor": 1.50785178973,
+          "pilot_solve": 4.06861559026,
+          "retraction": 14.6275124531,
+          "routes": 8.49277154084,
+          "second_factor": 13.7198704899,
+          "second_solve": 17.773992238
+        },
+        "stats": {
+          "adjoint_max_relative_residual": 6.53020610113e-17,
+          "pilot_max_condition": 145.176913885,
+          "pilot_max_relative_residual": 4.80553968716e-15,
+          "second_max_condition_lower_bound": 18.5472197559,
+          "second_max_relative_residual": 4.85296344421e-15
+        }
+      }
+    },
+    "execution_note": "source acquisition and warm-up execute once per world and are shared by every arm and branch; each standalone arm is charged them in charged_counts_per_arm_and_branch. Arm meters count adaptation only; evaluator inference, controls and Schur references are in the evaluator meter.",
+    "frozen_revision": "927e0504f5c4adb33df265965baa86d40803f2d3",
+    "independent_pairs": {
+      "b_per_world": 256,
+      "evaluator_per_set": 256,
+      "note": "B, return and evaluator draws are shared across branches; evaluator second views are generated but unused",
+      "return_per_world": 256,
+      "source_per_world": 256,
+      "worlds": 64
+    },
+    "peak_rss_kib": 235540,
+    "process_cpu_seconds": 2695.10298538,
+    "revision": "3556b245c4fbf77a3ac7bc54097fb88182298c85",
+    "rss_scope": "cumulative parent-process high-water RSS (Linux KiB), not per-arm memory",
+    "scope": "single process: generation, acquisition, warm-up, branches, evaluator, analysis, write",
+    "solver_failures": 0,
+    "wall_seconds": 2695.63660304
   },
   "development": {
     "dirty_paths": [
@@ -628,5 +922,3657 @@
         "weights": 256
       }
     }
+  },
+  "timing_panel": {
+    "dirty_paths": [
+      "M reports/single-module-plasticity-v1-runtime.json",
+      "?? reports/single-module-plasticity-v1-results.json"
+    ],
+    "idle_worker_rss_kib": 98072,
+    "parent_cpu_seconds": 0.036875429,
+    "peak_rss_kib": 98200,
+    "protocol": {
+      "amortization": "acquisition (+ warm-up) + updates x median one-update + Q x single-input median; direct references: per-batch statistic update + solve per batch, an overestimate of checkpoint-only solves; arithmetic estimates, not measured",
+      "batch": 32,
+      "branch": "regional",
+      "calls_per_block": 20,
+      "checkpoints": [
+        "post_source",
+        "post_32_B"
+      ],
+      "inference_blocks": 7,
+      "note": "one-size instrumentation at M=80; no scaling or speed claim; stage-2 data never scored",
+      "repeats": 7,
+      "stage": 2,
+      "warmup_executions": 1,
+      "world": 0
+    },
+    "records": [
+      {
+        "acquisition": {
+          "iqr": [
+            0.0264194770007,
+            0.0265109484999
+          ],
+          "median": 0.026461548001,
+          "repeats": [
+            {
+              "cpu_seconds": 0.026426327,
+              "wall_seconds": 0.0264262670007
+            },
+            {
+              "cpu_seconds": 0.026181558,
+              "wall_seconds": 0.0261816620005
+            },
+            {
+              "cpu_seconds": 0.026412727,
+              "wall_seconds": 0.0264126870006
+            },
+            {
+              "cpu_seconds": 0.026525867,
+              "wall_seconds": 0.0265257789997
+            },
+            {
+              "cpu_seconds": 0.026496128,
+              "wall_seconds": 0.0264961180001
+            },
+            {
+              "cpu_seconds": 0.026551277,
+              "wall_seconds": 0.0265513590002
+            },
+            {
+              "cpu_seconds": 0.026451927,
+              "wall_seconds": 0.026461548001
+            }
+          ],
+          "warmup": {
+            "cpu_seconds": 0.027437838,
+            "wall_seconds": 0.0274393560012
+          }
+        },
+        "amortized_estimate_seconds": {
+          "final_B": {
+            "1": 0.75619198569,
+            "100": 0.87057081399,
+            "10000": 12.3084536439
+          },
+          "final_return": {
+            "1": 1.33809355368,
+            "100": 1.45247238198,
+            "10000": 12.8903552119
+          }
+        },
+        "arm": "graded_matched",
+        "checkpoint": "post_source",
+        "inference": {
+          "batch_32": {
+            "iqr": [
+              0.00475039982498,
+              0.00493746732495
+            ],
+            "median": 0.00475109734998,
+            "per_call_seconds": [
+              0.00510239545001,
+              0.00503012054996,
+              0.00484481409994,
+              0.00475069929998,
+              0.00475109734998,
+              0.00474793075,
+              0.00475010034997
+            ]
+          },
+          "scope": "two passes incl. pilot factor construction (fresh per call: no cached factor across calls), routes, second factors and solves; allocation included, generation excluded",
+          "single_input": {
+            "iqr": [
+              0.00115392067501,
+              0.00115667002501
+            ],
+            "median": 0.0011553417,
+            "per_call_seconds": [
+              0.0011573838,
+              0.0011553417,
+              0.00115441570006,
+              0.00118123875,
+              0.00115239915003,
+              0.00115595625002,
+              0.00115342564995
+            ]
+          }
+        },
+        "one_update": {
+          "components_seconds_per_repeat": [
+            {
+              "adjoint_solve": 0.000378536999051,
+              "gradient_assembly": 0.000176903000465,
+              "hessian_assembly": 0.000562909999644,
+              "pilot_factor": 3.39910002367e-05,
+              "pilot_solve": 8.99110000319e-05,
+              "retraction": 0.00031580599898,
+              "routes": 0.00019641399922,
+              "second_factor": 0.000297365999359,
+              "second_solve": 0.000389906999771
+            },
+            {
+              "adjoint_solve": 0.000369356999727,
+              "gradient_assembly": 0.000184534001164,
+              "hessian_assembly": 0.000553231000595,
+              "pilot_factor": 3.37000001309e-05,
+              "pilot_solve": 9.06320001377e-05,
+              "retraction": 0.000314766000884,
+              "routes": 0.00018373400053,
+              "second_factor": 0.000303215998429,
+              "second_solve": 0.000385138000638
+            },
+            {
+              "adjoint_solve": 0.000376787000278,
+              "gradient_assembly": 0.000178653999683,
+              "hessian_assembly": 0.000554180000108,
+              "pilot_factor": 3.36399989465e-05,
+              "pilot_solve": 8.93819997145e-05,
+              "retraction": 0.000330646000293,
+              "routes": 0.000196213999516,
+              "second_factor": 0.000297186001262,
+              "second_solve": 0.000393248001274
+            },
+            {
+              "adjoint_solve": 0.000376126999981,
+              "gradient_assembly": 0.000186493000001,
+              "hessian_assembly": 0.000547859999642,
+              "pilot_factor": 3.59410005331e-05,
+              "pilot_solve": 9.05219985725e-05,
+              "retraction": 0.000317285999699,
+              "routes": 0.000185812999916,
+              "second_factor": 0.000309315999402,
+              "second_solve": 0.000385907000236
+            },
+            {
+              "adjoint_solve": 0.000373775999833,
+              "gradient_assembly": 0.000179532999027,
+              "hessian_assembly": 0.000560570000744,
+              "pilot_factor": 3.36510001944e-05,
+              "pilot_solve": 0.000100351999208,
+              "retraction": 0.000333505999151,
+              "routes": 0.000184844000614,
+              "second_factor": 0.000296725000226,
+              "second_solve": 0.000398836999011
+            },
+            {
+              "adjoint_solve": 0.000384766999559,
+              "gradient_assembly": 0.000177854000867,
+              "hessian_assembly": 0.000555791000806,
+              "pilot_factor": 3.39099988196e-05,
+              "pilot_solve": 9.0071998784e-05,
+              "retraction": 0.000319185999615,
+              "routes": 0.000183774000106,
+              "second_factor": 0.000305816000036,
+              "second_solve": 0.000386788000469
+            },
+            {
+              "adjoint_solve": 0.000370227000531,
+              "gradient_assembly": 0.000177713000085,
+              "hessian_assembly": 0.00056511999901,
+              "pilot_factor": 3.36909997714e-05,
+              "pilot_solve": 9.07620014914e-05,
+              "retraction": 0.000328365998939,
+              "routes": 0.000183733000085,
+              "second_factor": 0.000297646000035,
+              "second_solve": 0.000403678001021
+            }
+          ],
+          "iqr": [
+            0.00453695499982,
+            0.00456501099961
+          ],
+          "median": 0.00454610599991,
+          "repeats": [
+            {
+              "cpu_seconds": 0.004563911,
+              "wall_seconds": 0.00456356599898
+            },
+            {
+              "cpu_seconds": 0.004523511,
+              "wall_seconds": 0.00452305500039
+            },
+            {
+              "cpu_seconds": 0.004546521,
+              "wall_seconds": 0.00454610599991
+            },
+            {
+              "cpu_seconds": 0.004541382,
+              "wall_seconds": 0.00454090499989
+            },
+            {
+              "cpu_seconds": 0.004566911,
+              "wall_seconds": 0.00456645600025
+            },
+            {
+              "cpu_seconds": 0.004533471,
+              "wall_seconds": 0.00453300499976
+            },
+            {
+              "cpu_seconds": 0.004566371,
+              "wall_seconds": 0.0045708760008
+            }
+          ],
+          "scope": "parameter copy + pilot factor + pilot solves + routes + second factors/solves + adjoint solves + gradient + retraction",
+          "warmup": {
+            "cpu_seconds": 0.004527122,
+            "wall_seconds": 0.0045270849987
+          },
+          "work": {
+            "adjoint_solves": 16,
+            "curvature_assemblies": 1,
+            "parameter_updates": 1,
+            "pilot_factorizations": 1,
+            "pilot_solves": 16,
+            "retractions": 16,
+            "route_evaluations": 16,
+            "second_factorizations": 16,
+            "second_solves": 16
+          }
+        },
+        "peak_tracemalloc_bytes": {
+          "batch_32_inference": 5873236,
+          "scope": "NumPy/Python allocations in a separate untimed pass; LAPACK workspace excluded",
+          "update": 3399264
+        },
+        "rss_kib": {
+          "after_imports_and_spawn": 97532,
+          "peak": 108692,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        },
+        "warm_up": {
+          "iqr": [
+            0.146318876,
+            0.146720633999
+          ],
+          "median": 0.146673528001,
+          "repeats": [
+            {
+              "cpu_seconds": 0.14625481,
+              "wall_seconds": 0.14626365
+            },
+            {
+              "cpu_seconds": 0.147144931,
+              "wall_seconds": 0.147179688
+            },
+            {
+              "cpu_seconds": 0.146129011,
+              "wall_seconds": 0.146140888
+            },
+            {
+              "cpu_seconds": 0.14673077,
+              "wall_seconds": 0.146732939
+            },
+            {
+              "cpu_seconds": 0.146671431,
+              "wall_seconds": 0.146673528001
+            },
+            {
+              "cpu_seconds": 0.146338261,
+              "wall_seconds": 0.146374102
+            },
+            {
+              "cpu_seconds": 0.1466899,
+              "wall_seconds": 0.146708328999
+            }
+          ],
+          "warmup": {
+            "cpu_seconds": 0.149096382,
+            "wall_seconds": 0.149131754
+          }
+        }
+      },
+      {
+        "acquisition": {
+          "iqr": [
+            0.0244267140006,
+            0.0245067305004
+          ],
+          "median": 0.0244784810002,
+          "repeats": [
+            {
+              "cpu_seconds": 0.024674307,
+              "wall_seconds": 0.0246742940017
+            },
+            {
+              "cpu_seconds": 0.024478517,
+              "wall_seconds": 0.0244784810002
+            },
+            {
+              "cpu_seconds": 0.024507537,
+              "wall_seconds": 0.0245075300008
+            },
+            {
+              "cpu_seconds": 0.024374616,
+              "wall_seconds": 0.0243746289998
+            },
+            {
+              "cpu_seconds": 0.024424437,
+              "wall_seconds": 0.0244242190001
+            },
+            {
+              "cpu_seconds": 0.024498257,
+              "wall_seconds": 0.024505931
+            },
+            {
+              "cpu_seconds": 0.024429207,
+              "wall_seconds": 0.024429209001
+            }
+          ],
+          "warmup": {
+            "cpu_seconds": 0.025303397,
+            "wall_seconds": 0.0253049959992
+          }
+        },
+        "amortized_estimate_seconds": {
+          "final_B": {
+            "1": 0.653385723695,
+            "100": 0.759645363996,
+            "10000": 11.3856093941
+          },
+          "final_return": {
+            "1": 1.14472293969,
+            "100": 1.25098257999,
+            "10000": 11.8769466101
+          }
+        },
+        "arm": "uniform_matched",
+        "checkpoint": "post_source",
+        "inference": {
+          "batch_32": {
+            "iqr": [
+              0.00476923044998,
+              0.00477932762501
+            ],
+            "median": 0.00477660229999,
+            "per_call_seconds": [
+              0.0047459892,
+              0.00477767285001,
+              0.00477198925,
+              0.00479039604998,
+              0.00476647164996,
+              0.00477660229999,
+              0.00478098240001
+            ]
+          },
+          "scope": "two passes incl. pilot factor construction (fresh per call: no cached factor across calls), routes, second factors and solves; allocation included, generation excluded",
+          "single_input": {
+            "iqr": [
+              0.00107047687502,
+              0.00107397044999
+            ],
+            "median": 0.00107332970001,
+            "per_call_seconds": [
+              0.00107443369998,
+              0.00106886559997,
+              0.0010735072,
+              0.00107602574999,
+              0.00107042910004,
+              0.00107052465,
+              0.00107332970001
+            ]
+          }
+        },
+        "one_update": {
+          "components_seconds_per_repeat": [
+            {
+              "adjoint_solve": 0.000344866999512,
+              "gradient_assembly": 0.000166162999449,
+              "hessian_assembly": 0.000269784999546,
+              "pilot_factor": 3.11299991154e-05,
+              "pilot_solve": 9.12519990379e-05,
+              "retraction": 0.00030823599991,
+              "routes": 0.000176023000677,
+              "second_factor": 0.000276455000858,
+              "second_solve": 0.0003674769996
+            },
+            {
+              "adjoint_solve": 0.000354595998942,
+              "gradient_assembly": 0.00016485299966,
+              "hessian_assembly": 0.000266254999588,
+              "pilot_factor": 3.07009995595e-05,
+              "pilot_solve": 8.18420012365e-05,
+              "retraction": 0.000292426000669,
+              "routes": 0.000192252999113,
+              "second_factor": 0.00027607499942,
+              "second_solve": 0.000360296000508
+            },
+            {
+              "adjoint_solve": 0.000351635999323,
+              "gradient_assembly": 0.000165952998941,
+              "hessian_assembly": 0.000275456000963,
+              "pilot_factor": 3.06799993268e-05,
+              "pilot_solve": 8.1971000327e-05,
+              "retraction": 0.00029680499938,
+              "routes": 0.000171402998603,
+              "second_factor": 0.000278355999399,
+              "second_solve": 0.000358137000148
+            },
+            {
+              "adjoint_solve": 0.000348716999724,
+              "gradient_assembly": 0.000178022999535,
+              "hessian_assembly": 0.000275714999589,
+              "pilot_factor": 3.07200007228e-05,
+              "pilot_solve": 8.20810000732e-05,
+              "retraction": 0.000290626001515,
+              "routes": 0.000171842999407,
+              "second_factor": 0.000290916001177,
+              "second_solve": 0.000359637000656
+            },
+            {
+              "adjoint_solve": 0.000341407001542,
+              "gradient_assembly": 0.000164283001141,
+              "hessian_assembly": 0.000265664999461,
+              "pilot_factor": 3.30109996867e-05,
+              "pilot_solve": 8.15220009827e-05,
+              "retraction": 0.00029169499976,
+              "routes": 0.000168813001437,
+              "second_factor": 0.000286166001388,
+              "second_solve": 0.000356406999344
+            },
+            {
+              "adjoint_solve": 0.000341525999829,
+              "gradient_assembly": 0.000163962999068,
+              "hessian_assembly": 0.00026504500056,
+              "pilot_factor": 3.07299997075e-05,
+              "pilot_solve": 8.18810003693e-05,
+              "retraction": 0.000298706001558,
+              "routes": 0.000170653000168,
+              "second_factor": 0.000276134998785,
+              "second_solve": 0.000371866999558
+            },
+            {
+              "adjoint_solve": 0.000341446000675,
+              "gradient_assembly": 0.000165243000083,
+              "hessian_assembly": 0.000265164999291,
+              "pilot_factor": 3.04200002574e-05,
+              "pilot_solve": 8.20820005174e-05,
+              "retraction": 0.000291536000077,
+              "routes": 0.000170073000845,
+              "second_factor": 0.000275964999673,
+              "second_solve": 0.000369056000636
+            }
+          ],
+          "iqr": [
+            0.00382264149994,
+            0.00386191799953
+          ],
+          "median": 0.00383857199995,
+          "repeats": [
+            {
+              "cpu_seconds": 0.003873631,
+              "wall_seconds": 0.00387318299909
+            },
+            {
+              "cpu_seconds": 0.003832671,
+              "wall_seconds": 0.00383218199931
+            },
+            {
+              "cpu_seconds": 0.003839081,
+              "wall_seconds": 0.00383857199995
+            },
+            {
+              "cpu_seconds": 0.003851131,
+              "wall_seconds": 0.00385065299997
+            },
+            {
+              "cpu_seconds": 0.003810291,
+              "wall_seconds": 0.00380981200033
+            },
+            {
+              "cpu_seconds": 0.003813561,
+              "wall_seconds": 0.00381310100056
+            },
+            {
+              "cpu_seconds": 0.003906032,
+              "wall_seconds": 0.00390561399945
+            }
+          ],
+          "scope": "parameter copy + pilot factor + pilot solves + routes + second factors/solves + adjoint solves + gradient + retraction",
+          "warmup": {
+            "cpu_seconds": 0.004146651,
+            "wall_seconds": 0.00414663800075
+          },
+          "work": {
+            "adjoint_solves": 16,
+            "curvature_assemblies": 1,
+            "parameter_updates": 1,
+            "pilot_factorizations": 1,
+            "pilot_solves": 16,
+            "retractions": 16,
+            "route_evaluations": 16,
+            "second_factorizations": 16,
+            "second_solves": 16
+          }
+        },
+        "peak_tracemalloc_bytes": {
+          "batch_32_inference": 5873236,
+          "scope": "NumPy/Python allocations in a separate untimed pass; LAPACK workspace excluded",
+          "update": 3399264
+        },
+        "rss_kib": {
+          "after_imports_and_spawn": 97944,
+          "peak": 108916,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        },
+        "warm_up": {
+          "iqr": [
+            0.136025581999,
+            0.136562918
+          ],
+          "median": 0.136496697001,
+          "repeats": [
+            {
+              "cpu_seconds": 0.137057578,
+              "wall_seconds": 0.137078357
+            },
+            {
+              "cpu_seconds": 0.136487948,
+              "wall_seconds": 0.136496697001
+            },
+            {
+              "cpu_seconds": 0.136542708,
+              "wall_seconds": 0.136552058
+            },
+            {
+              "cpu_seconds": 0.135741528,
+              "wall_seconds": 0.135743502
+            },
+            {
+              "cpu_seconds": 0.136541097,
+              "wall_seconds": 0.136573778
+            },
+            {
+              "cpu_seconds": 0.136058008,
+              "wall_seconds": 0.136059928
+            },
+            {
+              "cpu_seconds": 0.135989308,
+              "wall_seconds": 0.135991235999
+            }
+          ],
+          "warmup": {
+            "cpu_seconds": 0.138122478,
+            "wall_seconds": 0.138141927999
+          }
+        }
+      },
+      {
+        "acquisition": {
+          "iqr": [
+            0.0264712929993,
+            0.0265536889992
+          ],
+          "median": 0.0264837969989,
+          "repeats": [
+            {
+              "cpu_seconds": 0.026757578,
+              "wall_seconds": 0.0267575230009
+            },
+            {
+              "cpu_seconds": 0.026354147,
+              "wall_seconds": 0.0263541550012
+            },
+            {
+              "cpu_seconds": 0.026483807,
+              "wall_seconds": 0.0264837969989
+            },
+            {
+              "cpu_seconds": 0.026554108,
+              "wall_seconds": 0.0265541489989
+            },
+            {
+              "cpu_seconds": 0.026553217,
+              "wall_seconds": 0.0265532289995
+            },
+            {
+              "cpu_seconds": 0.026470847,
+              "wall_seconds": 0.026470847999
+            },
+            {
+              "cpu_seconds": 0.026471758,
+              "wall_seconds": 0.0264717379996
+            }
+          ],
+          "warmup": {
+            "cpu_seconds": 0.027404017,
+            "wall_seconds": 0.0274062459994
+          }
+        },
+        "amortized_estimate_seconds": {
+          "final_B": {
+            "1": 0.666280593654,
+            "100": 0.772804271906,
+            "10000": 11.4251720971
+          },
+          "final_return": {
+            "1": 1.15792897756,
+            "100": 1.26445265581,
+            "10000": 11.916820481
+          }
+        },
+        "arm": "reversed_matched",
+        "checkpoint": "post_source",
+        "inference": {
+          "batch_32": {
+            "iqr": [
+              0.00482426147505,
+              0.00483052582504
+            ],
+            "median": 0.00482627974998,
+            "per_call_seconds": [
+              0.00480318529999,
+              0.00482627974998,
+              0.00482350970005,
+              0.00482933980002,
+              0.00482501325005,
+              0.00483171185006,
+              0.00483248635001
+            ]
+          },
+          "scope": "two passes incl. pilot factor construction (fresh per call: no cached factor across calls), routes, second factors and solves; allocation included, generation excluded",
+          "single_input": {
+            "iqr": [
+              0.00107488594999,
+              0.00107725652501
+            ],
+            "median": 0.00107599675002,
+            "per_call_seconds": [
+              0.00107853930003,
+              0.00107666624999,
+              0.00107599675002,
+              0.00107406415,
+              0.00107784680004,
+              0.00107552270001,
+              0.00107424919997
+            ]
+          }
+        },
+        "one_update": {
+          "components_seconds_per_repeat": [
+            {
+              "adjoint_solve": 0.000338626001394,
+              "gradient_assembly": 0.000163853999766,
+              "hessian_assembly": 0.000269314999969,
+              "pilot_factor": 3.09210008709e-05,
+              "pilot_solve": 8.97520003491e-05,
+              "retraction": 0.000308525999571,
+              "routes": 0.000175323000803,
+              "second_factor": 0.000276274999123,
+              "second_solve": 0.000370296998881
+            },
+            {
+              "adjoint_solve": 0.000349486999767,
+              "gradient_assembly": 0.000164983001014,
+              "hessian_assembly": 0.000264714999503,
+              "pilot_factor": 3.05800003844e-05,
+              "pilot_solve": 8.8462000349e-05,
+              "retraction": 0.000304674998915,
+              "routes": 0.000169273000211,
+              "second_factor": 0.000275985999906,
+              "second_solve": 0.0003666169996
+            },
+            {
+              "adjoint_solve": 0.000354096999217,
+              "gradient_assembly": 0.000165302999449,
+              "hessian_assembly": 0.000265144999503,
+              "pilot_factor": 3.04499990307e-05,
+              "pilot_solve": 8.18810003693e-05,
+              "retraction": 0.000291505999485,
+              "routes": 0.00017855400074,
+              "second_factor": 0.000275865000731,
+              "second_solve": 0.00035460700019
+            },
+            {
+              "adjoint_solve": 0.000360136999006,
+              "gradient_assembly": 0.000164013001267,
+              "hessian_assembly": 0.000276785000096,
+              "pilot_factor": 3.04009990941e-05,
+              "pilot_solve": 8.19510005385e-05,
+              "retraction": 0.000294636000035,
+              "routes": 0.000168392998603,
+              "second_factor": 0.000276594999377,
+              "second_solve": 0.000355255999239
+            },
+            {
+              "adjoint_solve": 0.000338345998898,
+              "gradient_assembly": 0.000174613000127,
+              "hessian_assembly": 0.000272314999165,
+              "pilot_factor": 3.06609999825e-05,
+              "pilot_solve": 8.19619999675e-05,
+              "retraction": 0.000290566000331,
+              "routes": 0.00016805300038,
+              "second_factor": 0.000287265000225,
+              "second_solve": 0.000353315999746
+            },
+            {
+              "adjoint_solve": 0.000338636999004,
+              "gradient_assembly": 0.000163782999152,
+              "hessian_assembly": 0.00026253499891,
+              "pilot_factor": 3.04610002786e-05,
+              "pilot_solve": 8.13420010672e-05,
+              "retraction": 0.00030453600084,
+              "routes": 0.000167882999449,
+              "second_factor": 0.000274455000181,
+              "second_solve": 0.000361307000276
+            },
+            {
+              "adjoint_solve": 0.000343706000422,
+              "gradient_assembly": 0.000166854000781,
+              "hessian_assembly": 0.000267974999588,
+              "pilot_factor": 3.07309983327e-05,
+              "pilot_solve": 8.25820006867e-05,
+              "retraction": 0.000308986000164,
+              "routes": 0.00017149300038,
+              "second_factor": 0.000276115000815,
+              "second_solve": 0.000376997000785
+            }
+          ],
+          "iqr": [
+            0.00382771699969,
+            0.00385139199989
+          ],
+          "median": 0.00384100299925,
+          "repeats": [
+            {
+              "cpu_seconds": 0.003870261,
+              "wall_seconds": 0.00386978200004
+            },
+            {
+              "cpu_seconds": 0.003841442,
+              "wall_seconds": 0.00384100299925
+            },
+            {
+              "cpu_seconds": 0.003826521,
+              "wall_seconds": 0.00382602199898
+            },
+            {
+              "cpu_seconds": 0.003845001,
+              "wall_seconds": 0.0038445120008
+            },
+            {
+              "cpu_seconds": 0.003816871,
+              "wall_seconds": 0.00381639199986
+            },
+            {
+              "cpu_seconds": 0.003829921,
+              "wall_seconds": 0.00382941200041
+            },
+            {
+              "cpu_seconds": 0.003858751,
+              "wall_seconds": 0.00385827199898
+            }
+          ],
+          "scope": "parameter copy + pilot factor + pilot solves + routes + second factors/solves + adjoint solves + gradient + retraction",
+          "warmup": {
+            "cpu_seconds": 0.004126431,
+            "wall_seconds": 0.00412635799876
+          },
+          "work": {
+            "adjoint_solves": 16,
+            "curvature_assemblies": 1,
+            "parameter_updates": 1,
+            "pilot_factorizations": 1,
+            "pilot_solves": 16,
+            "retractions": 16,
+            "route_evaluations": 16,
+            "second_factorizations": 16,
+            "second_solves": 16
+          }
+        },
+        "peak_tracemalloc_bytes": {
+          "batch_32_inference": 5873192,
+          "scope": "NumPy/Python allocations in a separate untimed pass; LAPACK workspace excluded",
+          "update": 3399220
+        },
+        "rss_kib": {
+          "after_imports_and_spawn": 97944,
+          "peak": 108628,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        },
+        "warm_up": {
+          "iqr": [
+            0.145899153,
+            0.147252908499
+          ],
+          "median": 0.147072416001,
+          "repeats": [
+            {
+              "cpu_seconds": 0.147111861,
+              "wall_seconds": 0.147114046
+            },
+            {
+              "cpu_seconds": 0.147389671,
+              "wall_seconds": 0.147391770999
+            },
+            {
+              "cpu_seconds": 0.14748118,
+              "wall_seconds": 0.147510194001
+            },
+            {
+              "cpu_seconds": 0.147013761,
+              "wall_seconds": 0.147022714
+            },
+            {
+              "cpu_seconds": 0.147062631,
+              "wall_seconds": 0.147072416001
+            },
+            {
+              "cpu_seconds": 0.14476416,
+              "wall_seconds": 0.144775592
+            },
+            {
+              "cpu_seconds": 0.137046688,
+              "wall_seconds": 0.137048707
+            }
+          ],
+          "warmup": {
+            "cpu_seconds": 0.148232381,
+            "wall_seconds": 0.148235007
+          }
+        }
+      },
+      {
+        "acquisition": {
+          "iqr": [
+            0.0245026155008,
+            0.0245710475001
+          ],
+          "median": 0.0245188610006,
+          "repeats": [
+            {
+              "cpu_seconds": 0.024695587,
+              "wall_seconds": 0.0247065339991
+            },
+            {
+              "cpu_seconds": 0.024576297,
+              "wall_seconds": 0.0245763319999
+            },
+            {
+              "cpu_seconds": 0.024557887,
+              "wall_seconds": 0.0245657630003
+            },
+            {
+              "cpu_seconds": 0.024504206,
+              "wall_seconds": 0.0245042300012
+            },
+            {
+              "cpu_seconds": 0.024501017,
+              "wall_seconds": 0.0245010010003
+            },
+            {
+              "cpu_seconds": 0.024511997,
+              "wall_seconds": 0.0245188610006
+            },
+            {
+              "cpu_seconds": 0.024433557,
+              "wall_seconds": 0.0244335399984
+            }
+          ],
+          "warmup": {
+            "cpu_seconds": 0.025418537,
+            "wall_seconds": 0.0254390089995
+          }
+        },
+        "amortized_estimate_seconds": {
+          "final_B": {
+            "1": 0.640507674698,
+            "100": 0.755035799946,
+            "10000": 12.2078483248
+          },
+          "final_return": {
+            "1": 1.11833692264,
+            "100": 1.23286504789,
+            "10000": 12.6856775728
+          }
+        },
+        "arm": "graded_mean",
+        "checkpoint": "post_source",
+        "inference": {
+          "batch_32": {
+            "iqr": [
+              0.00438311017501,
+              0.00438791700003
+            ],
+            "median": 0.00438723349998,
+            "per_call_seconds": [
+              0.00436856365004,
+              0.00438050140001,
+              0.00438780150007,
+              0.00438571895002,
+              0.00438803249999,
+              0.00438723349998,
+              0.00438886455004
+            ]
+          },
+          "scope": "two passes incl. pilot factor construction (fresh per call: no cached factor across calls), routes, second factors and solves; allocation included, generation excluded",
+          "single_input": {
+            "iqr": [
+              0.00115315417502,
+              0.00115759750001
+            ],
+            "median": 0.00115684974999,
+            "per_call_seconds": [
+              0.00115684974999,
+              0.00115692075005,
+              0.00115331420002,
+              0.00115299415002,
+              0.00115257970001,
+              0.00115827424997,
+              0.00115847979996
+            ]
+          }
+        },
+        "one_update": {
+          "components_seconds_per_repeat": [
+            {
+              "adjoint_solve": 0.000367616999938,
+              "gradient_assembly": 0.000184483998964,
+              "hessian_assembly": 0.000300615000015,
+              "pilot_factor": 3.31299997924e-05,
+              "pilot_solve": 8.76920003066e-05,
+              "retraction": 0.000313426000503,
+              "routes": 0.000190292999832,
+              "second_factor": 0.000304495000819,
+              "second_solve": 0.000383856999179
+            },
+            {
+              "adjoint_solve": 0.000369166999008,
+              "gradient_assembly": 0.000175352999577,
+              "hessian_assembly": 0.000284715999442,
+              "pilot_factor": 3.2760999602e-05,
+              "pilot_solve": 8.81319992914e-05,
+              "retraction": 0.00032108600135,
+              "routes": 0.000186123999811,
+              "second_factor": 0.000297305999993,
+              "second_solve": 0.000392828000258
+            },
+            {
+              "adjoint_solve": 0.000378786999136,
+              "gradient_assembly": 0.000176383000507,
+              "hessian_assembly": 0.000285464999251,
+              "pilot_factor": 3.2721000025e-05,
+              "pilot_solve": 8.8450999101e-05,
+              "retraction": 0.000310495999656,
+              "routes": 0.000191294000615,
+              "second_factor": 0.000297716000205,
+              "second_solve": 0.000381698000638
+            },
+            {
+              "adjoint_solve": 0.000383557999157,
+              "gradient_assembly": 0.000177212999915,
+              "hessian_assembly": 0.000286485001197,
+              "pilot_factor": 3.28709993482e-05,
+              "pilot_solve": 8.66610007506e-05,
+              "retraction": 0.000313695998557,
+              "routes": 0.000194174001081,
+              "second_factor": 0.000309044999085,
+              "second_solve": 0.000386277000871
+            },
+            {
+              "adjoint_solve": 0.000367816999642,
+              "gradient_assembly": 0.000193062998733,
+              "hessian_assembly": 0.000295105999612,
+              "pilot_factor": 3.30710008711e-05,
+              "pilot_solve": 8.98519992916e-05,
+              "retraction": 0.000314155999149,
+              "routes": 0.000184163000085,
+              "second_factor": 0.000306046000333,
+              "second_solve": 0.000383476999559
+            },
+            {
+              "adjoint_solve": 0.0003681470007,
+              "gradient_assembly": 0.000176832998477,
+              "hessian_assembly": 0.000285615000394,
+              "pilot_factor": 3.26509998558e-05,
+              "pilot_solve": 8.86310008354e-05,
+              "retraction": 0.000319955999657,
+              "routes": 0.000185344000784,
+              "second_factor": 0.000297446000332,
+              "second_solve": 0.000394647999201
+            },
+            {
+              "adjoint_solve": 0.000367276999896,
+              "gradient_assembly": 0.000176923000254,
+              "hessian_assembly": 0.00028564600143,
+              "pilot_factor": 3.27999987348e-05,
+              "pilot_solve": 8.64020003064e-05,
+              "retraction": 0.000321645999065,
+              "routes": 0.000192392999452,
+              "second_factor": 0.000296636000712,
+              "second_solve": 0.00039348700011
+            }
+          ],
+          "iqr": [
+            0.00366007399953,
+            0.00374164000004
+          ],
+          "median": 0.00373304099958,
+          "repeats": [
+            {
+              "cpu_seconds": 0.003762891,
+              "wall_seconds": 0.00376233000134
+            },
+            {
+              "cpu_seconds": 0.003725301,
+              "wall_seconds": 0.00372475999939
+            },
+            {
+              "cpu_seconds": 0.003733541,
+              "wall_seconds": 0.00373304099958
+            },
+            {
+              "cpu_seconds": 0.003743201,
+              "wall_seconds": 0.00374265999926
+            },
+            {
+              "cpu_seconds": 0.003741181,
+              "wall_seconds": 0.00374062000083
+            },
+            {
+              "cpu_seconds": 0.003595901,
+              "wall_seconds": 0.00359538799967
+            },
+            {
+              "cpu_seconds": 0.003017051,
+              "wall_seconds": 0.00301648700042
+            }
+          ],
+          "scope": "parameter copy + pilot factor + pilot solves + routes + second factors/solves + adjoint solves + gradient + retraction",
+          "warmup": {
+            "cpu_seconds": 0.004363891,
+            "wall_seconds": 0.00436378300037
+          },
+          "work": {
+            "adjoint_solves": 16,
+            "curvature_assemblies": 1,
+            "parameter_updates": 1,
+            "pilot_factorizations": 1,
+            "pilot_solves": 16,
+            "retractions": 16,
+            "route_evaluations": 16,
+            "second_factorizations": 16,
+            "second_solves": 16
+          }
+        },
+        "peak_tracemalloc_bytes": {
+          "batch_32_inference": 5873312,
+          "scope": "NumPy/Python allocations in a separate untimed pass; LAPACK workspace excluded",
+          "update": 3399384
+        },
+        "rss_kib": {
+          "after_imports_and_spawn": 98072,
+          "peak": 108476,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        },
+        "warm_up": {
+          "iqr": [
+            0.1364683105,
+            0.146468088999
+          ],
+          "median": 0.137002716001,
+          "repeats": [
+            {
+              "cpu_seconds": 0.136173578,
+              "wall_seconds": 0.136181330001
+            },
+            {
+              "cpu_seconds": 0.136370377,
+              "wall_seconds": 0.136372344001
+            },
+            {
+              "cpu_seconds": 0.136967788,
+              "wall_seconds": 0.137002716001
+            },
+            {
+              "cpu_seconds": 0.136540988,
+              "wall_seconds": 0.136564277
+            },
+            {
+              "cpu_seconds": 0.147360281,
+              "wall_seconds": 0.147382940999
+            },
+            {
+              "cpu_seconds": 0.146561521,
+              "wall_seconds": 0.146569705999
+            },
+            {
+              "cpu_seconds": 0.14635708,
+              "wall_seconds": 0.146366471999
+            }
+          ],
+          "warmup": {
+            "cpu_seconds": 0.137040148,
+            "wall_seconds": 0.137056416001
+          }
+        }
+      },
+      {
+        "acquisition": {
+          "iqr": [
+            0.0244489640008,
+            0.0250279654992
+          ],
+          "median": 0.0246121630007,
+          "repeats": [
+            {
+              "cpu_seconds": 0.025570607,
+              "wall_seconds": 0.0255706109983
+            },
+            {
+              "cpu_seconds": 0.025216107,
+              "wall_seconds": 0.0252161039989
+            },
+            {
+              "cpu_seconds": 0.024839817,
+              "wall_seconds": 0.0248398269996
+            },
+            {
+              "cpu_seconds": 0.024599747,
+              "wall_seconds": 0.0246121630007
+            },
+            {
+              "cpu_seconds": 0.024435947,
+              "wall_seconds": 0.0244359490007
+            },
+            {
+              "cpu_seconds": 0.024453087,
+              "wall_seconds": 0.024461979001
+            },
+            {
+              "cpu_seconds": 0.024392576,
+              "wall_seconds": 0.0243926089988
+            }
+          ],
+          "warmup": {
+            "cpu_seconds": 0.026545847,
+            "wall_seconds": 0.0265473290001
+          }
+        },
+        "amortized_estimate_seconds": {
+          "final_B": {
+            "1": 0.614784006118,
+            "100": 0.723098129067,
+            "10000": 11.5545104239
+          },
+          "final_return": {
+            "1": 1.06748122219,
+            "100": 1.17579534513,
+            "10000": 12.00720764
+          }
+        },
+        "arm": "graded_shifted",
+        "checkpoint": "post_source",
+        "inference": {
+          "batch_32": {
+            "iqr": [
+              0.005178508375,
+              0.00519571519999
+            ],
+            "median": 0.00519280164999,
+            "per_call_seconds": [
+              0.00516632865001,
+              0.00511291760004,
+              0.00519280164999,
+              0.00519068809999,
+              0.00519497169998,
+              0.00520627989999,
+              0.00519645869999
+            ]
+          },
+          "scope": "two passes incl. pilot factor construction (fresh per call: no cached factor across calls), routes, second factors and solves; allocation included, generation excluded",
+          "single_input": {
+            "iqr": [
+              0.00109387707503,
+              0.00109590435004
+            ],
+            "median": 0.00109408204999,
+            "per_call_seconds": [
+              0.00109349405002,
+              0.00109408204999,
+              0.00109403860006,
+              0.00109543110002,
+              0.00109637760006,
+              0.00109820264997,
+              0.00109371555
+            ]
+          }
+        },
+        "one_update": {
+          "components_seconds_per_repeat": [
+            {
+              "adjoint_solve": 0.000340147000315,
+              "gradient_assembly": 0.000178732998393,
+              "hessian_assembly": 0.000271165999948,
+              "pilot_factor": 3.09600000037e-05,
+              "pilot_solve": 8.25309998618e-05,
+              "retraction": 0.00029789600012,
+              "routes": 0.000199083999178,
+              "second_factor": 0.000283225999738,
+              "second_solve": 0.00036167700091
+            },
+            {
+              "adjoint_solve": 0.000346446000549,
+              "gradient_assembly": 0.000167603000591,
+              "hessian_assembly": 0.000269534999461,
+              "pilot_factor": 3.08010003209e-05,
+              "pilot_solve": 8.22519996291e-05,
+              "retraction": 0.000307665999571,
+              "routes": 0.000188123000044,
+              "second_factor": 0.000274734999039,
+              "second_solve": 0.000372746999346
+            },
+            {
+              "adjoint_solve": 0.000357696999345,
+              "gradient_assembly": 0.000167463000253,
+              "hessian_assembly": 0.000269485000899,
+              "pilot_factor": 3.09400002152e-05,
+              "pilot_solve": 8.92320003913e-05,
+              "retraction": 0.000295016001473,
+              "routes": 0.000191393999557,
+              "second_factor": 0.00028029600071,
+              "second_solve": 0.000361287000487
+            },
+            {
+              "adjoint_solve": 0.000353295999957,
+              "gradient_assembly": 0.000165903000379,
+              "hessian_assembly": 0.000277954999547,
+              "pilot_factor": 3.13410000672e-05,
+              "pilot_solve": 8.21820012789e-05,
+              "retraction": 0.000306685999021,
+              "routes": 0.00018785300017,
+              "second_factor": 0.00027624500035,
+              "second_solve": 0.000369597000827
+            },
+            {
+              "adjoint_solve": 0.000355817001036,
+              "gradient_assembly": 0.000167513000633,
+              "hessian_assembly": 0.000270775999525,
+              "pilot_factor": 3.09299994115e-05,
+              "pilot_solve": 9.29609996092e-05,
+              "retraction": 0.000296624999464,
+              "routes": 0.000188873998923,
+              "second_factor": 0.000278976000118,
+              "second_solve": 0.000363556999218
+            },
+            {
+              "adjoint_solve": 0.000356346999979,
+              "gradient_assembly": 0.000166502999491,
+              "hessian_assembly": 0.000532460000613,
+              "pilot_factor": 3.15209999826e-05,
+              "pilot_solve": 9.69619995885e-05,
+              "retraction": 0.000307505999444,
+              "routes": 0.000191393999557,
+              "second_factor": 0.000275356000202,
+              "second_solve": 0.000367967000784
+            },
+            {
+              "adjoint_solve": 0.000340315998983,
+              "gradient_assembly": 0.000164803001098,
+              "hessian_assembly": 0.000522129999808,
+              "pilot_factor": 3.19910013786e-05,
+              "pilot_solve": 8.35709997773e-05,
+              "retraction": 0.00029500600067,
+              "routes": 0.000186353998288,
+              "second_factor": 0.000274115000138,
+              "second_solve": 0.000365587000488
+            }
+          ],
+          "iqr": [
+            0.0035332059997,
+            0.00396194949917
+          ],
+          "median": 0.00353669700053,
+          "repeats": [
+            {
+              "cpu_seconds": 0.003531641,
+              "wall_seconds": 0.0035311770007
+            },
+            {
+              "cpu_seconds": 0.003532141,
+              "wall_seconds": 0.00353168599941
+            },
+            {
+              "cpu_seconds": 0.003537201,
+              "wall_seconds": 0.00353669700053
+            },
+            {
+              "cpu_seconds": 0.003535231,
+              "wall_seconds": 0.003534726
+            },
+            {
+              "cpu_seconds": 0.003678191,
+              "wall_seconds": 0.0036777489986
+            },
+            {
+              "cpu_seconds": 0.004306051,
+              "wall_seconds": 0.00430565999886
+            },
+            {
+              "cpu_seconds": 0.004246591,
+              "wall_seconds": 0.00424614999974
+            }
+          ],
+          "scope": "parameter copy + pilot factor + pilot solves + routes + second factors/solves + adjoint solves + gradient + retraction",
+          "warmup": {
+            "cpu_seconds": 0.004100511,
+            "wall_seconds": 0.00410031700085
+          },
+          "work": {
+            "adjoint_solves": 16,
+            "curvature_assemblies": 1,
+            "parameter_updates": 1,
+            "pilot_factorizations": 1,
+            "pilot_solves": 16,
+            "retractions": 16,
+            "route_evaluations": 16,
+            "second_factorizations": 16,
+            "second_solves": 16
+          }
+        },
+        "peak_tracemalloc_bytes": {
+          "batch_32_inference": 5873452,
+          "scope": "NumPy/Python allocations in a separate untimed pass; LAPACK workspace excluded",
+          "update": 3399320
+        },
+        "rss_kib": {
+          "after_imports_and_spawn": 98072,
+          "peak": 107472,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        },
+        "warm_up": {
+          "iqr": [
+            0.136313873,
+            0.136481795999
+          ],
+          "median": 0.136380545,
+          "repeats": [
+            {
+              "cpu_seconds": 0.136333988,
+              "wall_seconds": 0.136336014
+            },
+            {
+              "cpu_seconds": 0.135912607,
+              "wall_seconds": 0.135914656001
+            },
+            {
+              "cpu_seconds": 0.136431648,
+              "wall_seconds": 0.136447505
+            },
+            {
+              "cpu_seconds": 0.136517748,
+              "wall_seconds": 0.136519756999
+            },
+            {
+              "cpu_seconds": 0.136514078,
+              "wall_seconds": 0.136516086999
+            },
+            {
+              "cpu_seconds": 0.136238288,
+              "wall_seconds": 0.136380545
+            },
+            {
+              "cpu_seconds": 0.136262908,
+              "wall_seconds": 0.136291732
+            }
+          ],
+          "warmup": {
+            "cpu_seconds": 0.138112458,
+            "wall_seconds": 0.138122037
+          }
+        }
+      },
+      {
+        "acquisition": {
+          "iqr": [
+            0.0247046550003,
+            0.0248432365006
+          ],
+          "median": 0.0247737259997,
+          "repeats": [
+            {
+              "cpu_seconds": 0.024835977,
+              "wall_seconds": 0.024835956001
+            },
+            {
+              "cpu_seconds": 0.024911447,
+              "wall_seconds": 0.0249114479993
+            },
+            {
+              "cpu_seconds": 0.024850507,
+              "wall_seconds": 0.0248505170002
+            },
+            {
+              "cpu_seconds": 0.024773736,
+              "wall_seconds": 0.0247737259997
+            },
+            {
+              "cpu_seconds": 0.024711747,
+              "wall_seconds": 0.0247117250001
+            },
+            {
+              "cpu_seconds": 0.024688437,
+              "wall_seconds": 0.0246884340013
+            },
+            {
+              "cpu_seconds": 0.024697587,
+              "wall_seconds": 0.0246975850005
+            }
+          ],
+          "warmup": {
+            "cpu_seconds": 0.025545227,
+            "wall_seconds": 0.0255475699996
+          }
+        },
+        "amortized_estimate_seconds": {
+          "final_B": {
+            "1": 0.162604400251,
+            "100": 0.269313851997,
+            "10000": 10.9402590266
+          },
+          "final_return": {
+            "1": 0.162604400251,
+            "100": 0.269313851997,
+            "10000": 10.9402590266
+          }
+        },
+        "arm": "frozen_layered",
+        "checkpoint": "post_source",
+        "inference": {
+          "batch_32": {
+            "iqr": [
+              0.00517201724997,
+              0.00518185117503
+            ],
+            "median": 0.0051749448,
+            "per_call_seconds": [
+              0.00515562195005,
+              0.00518343095,
+              0.00518688704997,
+              0.00518027140006,
+              0.0051749448,
+              0.00517160524996,
+              0.00517242924998
+            ]
+          },
+          "scope": "two passes incl. pilot factor construction (fresh per call: no cached factor across calls), routes, second factors and solves; allocation included, generation excluded",
+          "single_input": {
+            "iqr": [
+              0.00107619875002,
+              0.00108109234998
+            ],
+            "median": 0.00107787324996,
+            "per_call_seconds": [
+              0.00108279639999,
+              0.00107787324996,
+              0.00108078884996,
+              0.00107396915,
+              0.00107620625004,
+              0.00108139585,
+              0.00107619125001
+            ]
+          }
+        },
+        "one_update": {
+          "median": 0.0,
+          "note": "frozen arm: no update cost"
+        },
+        "peak_tracemalloc_bytes": {
+          "batch_32_inference": 5872088,
+          "scope": "NumPy/Python allocations in a separate untimed pass; LAPACK workspace excluded",
+          "update": 0
+        },
+        "rss_kib": {
+          "after_imports_and_spawn": 98072,
+          "peak": 107268,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        },
+        "warm_up": {
+          "iqr": [
+            0.1366495445,
+            0.1368077725
+          ],
+          "median": 0.136752801001,
+          "repeats": [
+            {
+              "cpu_seconds": 0.136805238,
+              "wall_seconds": 0.136811992999
+            },
+            {
+              "cpu_seconds": 0.136353818,
+              "wall_seconds": 0.136361824001
+            },
+            {
+              "cpu_seconds": 0.136744008,
+              "wall_seconds": 0.136752801001
+            },
+            {
+              "cpu_seconds": 0.136645518,
+              "wall_seconds": 0.136656430001
+            },
+            {
+              "cpu_seconds": 0.136801528,
+              "wall_seconds": 0.136803552001
+            },
+            {
+              "cpu_seconds": 0.136807178,
+              "wall_seconds": 0.136816022999
+            },
+            {
+              "cpu_seconds": 0.136624998,
+              "wall_seconds": 0.136642658999
+            }
+          ],
+          "warmup": {
+            "cpu_seconds": 0.138644508,
+            "wall_seconds": 0.138677817
+          }
+        }
+      },
+      {
+        "acquisition": {
+          "iqr": [
+            0.0243554830004,
+            0.024477035
+          ],
+          "median": 0.0243762190003,
+          "repeats": [
+            {
+              "cpu_seconds": 0.024665017,
+              "wall_seconds": 0.0246650239988
+            },
+            {
+              "cpu_seconds": 0.024522847,
+              "wall_seconds": 0.0245228610002
+            },
+            {
+              "cpu_seconds": 0.024431226,
+              "wall_seconds": 0.0244312089999
+            },
+            {
+              "cpu_seconds": 0.024353847,
+              "wall_seconds": 0.0243538279992
+            },
+            {
+              "cpu_seconds": 0.024364927,
+              "wall_seconds": 0.0243762190003
+            },
+            {
+              "cpu_seconds": 0.024357117,
+              "wall_seconds": 0.0243571380015
+            },
+            {
+              "cpu_seconds": 0.024334296,
+              "wall_seconds": 0.0243342469985
+            }
+          ],
+          "warmup": {
+            "cpu_seconds": 0.025171507,
+            "wall_seconds": 0.025173004
+          }
+        },
+        "amortized_estimate_seconds": {
+          "final_B": {
+            "1": 0.0485989697423,
+            "100": 0.0498248619915,
+            "10000": 0.172414086912
+          },
+          "final_return": {
+            "1": 0.0728093377344,
+            "100": 0.0740352299836,
+            "10000": 0.196624454904
+          }
+        },
+        "arm": "phase_target_cca",
+        "checkpoint": "post_source",
+        "inference": {
+          "batch_32": {
+            "iqr": [
+              1.37870250001e-05,
+              1.40014999943e-05
+            ],
+            "median": 1.38288000016e-05,
+            "per_call_seconds": [
+              1.39002499964e-05,
+              1.3815300008e-05,
+              1.4114250007e-05,
+              1.37587499921e-05,
+              1.37557500238e-05,
+              1.38288000016e-05,
+              1.41027499922e-05
+            ]
+          },
+          "scope": "dense projector from deployed weights + apply; allocation included",
+          "single_input": {
+            "iqr": [
+              1.23604750115e-05,
+              1.2668474983e-05
+            ],
+            "median": 1.2382749992e-05,
+            "per_call_seconds": [
+              1.27041999804e-05,
+              1.2382749992e-05,
+              1.28362500618e-05,
+              1.23367499327e-05,
+              1.23636999888e-05,
+              1.23572500343e-05,
+              1.26327499856e-05
+            ]
+          }
+        },
+        "one_update": {
+          "iqr": [
+            0.000754389000576,
+            0.000757980000344
+          ],
+          "median": 0.000756573999752,
+          "repeats": [
+            {
+              "cpu_seconds": 0.00077012,
+              "wall_seconds": 0.000769603999288
+            },
+            {
+              "cpu_seconds": 0.00075888,
+              "wall_seconds": 0.000758385000154
+            },
+            {
+              "cpu_seconds": 0.00075705,
+              "wall_seconds": 0.000756573999752
+            },
+            {
+              "cpu_seconds": 0.000746431,
+              "wall_seconds": 0.00074589399992
+            },
+            {
+              "cpu_seconds": 0.000755,
+              "wall_seconds": 0.000754464001147
+            },
+            {
+              "cpu_seconds": 0.00075481,
+              "wall_seconds": 0.000754314000005
+            },
+            {
+              "cpu_seconds": 0.00075806,
+              "wall_seconds": 0.000757575000534
+            }
+          ],
+          "scope": "deep copy + 8 pair statistic updates + one checkpoint solve",
+          "warmup": {
+            "cpu_seconds": 0.00081037,
+            "wall_seconds": 0.000810206000097
+          }
+        },
+        "peak_tracemalloc_bytes": {
+          "batch_32_inference": 12822,
+          "scope": "NumPy/Python allocations in a separate untimed pass; LAPACK workspace excluded",
+          "update": 18800
+        },
+        "rss_kib": {
+          "after_imports_and_spawn": 98072,
+          "peak": 101160,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        }
+      },
+      {
+        "acquisition": {
+          "iqr": [
+            0.0244427845,
+            0.0245853719998
+          ],
+          "median": 0.0244965299989,
+          "repeats": [
+            {
+              "cpu_seconds": 0.024660637,
+              "wall_seconds": 0.0246605639986
+            },
+            {
+              "cpu_seconds": 0.024510216,
+              "wall_seconds": 0.024510180001
+            },
+            {
+              "cpu_seconds": 0.024496577,
+              "wall_seconds": 0.0244965299989
+            },
+            {
+              "cpu_seconds": 0.024493897,
+              "wall_seconds": 0.0244961110002
+            },
+            {
+              "cpu_seconds": 0.024349627,
+              "wall_seconds": 0.0243495779996
+            },
+            {
+              "cpu_seconds": 0.024389456,
+              "wall_seconds": 0.0243894579999
+            },
+            {
+              "cpu_seconds": 0.025047987,
+              "wall_seconds": 0.0250692319987
+            }
+          ],
+          "warmup": {
+            "cpu_seconds": 0.025263687,
+            "wall_seconds": 0.0252751349999
+          }
+        },
+        "amortized_estimate_seconds": {
+          "final_B": {
+            "1": 0.0484046922288,
+            "100": 0.0496277580241,
+            "10000": 0.171934337557
+          },
+          "final_return": {
+            "1": 0.0723005002587,
+            "100": 0.0735235660541,
+            "10000": 0.195830145587
+          }
+        },
+        "arm": "pooled_local_cca",
+        "checkpoint": "post_source",
+        "inference": {
+          "batch_32": {
+            "iqr": [
+              1.37077500312e-05,
+              1.41455000175e-05
+            ],
+            "median": 1.40778000059e-05,
+            "per_call_seconds": [
+              1.45027500366e-05,
+              1.40907500281e-05,
+              1.3710750045e-05,
+              1.40778000059e-05,
+              1.4200250007e-05,
+              1.37047500175e-05,
+              1.36767499498e-05
+            ]
+          },
+          "scope": "dense projector from deployed weights + apply; allocation included",
+          "single_input": {
+            "iqr": [
+              1.23079749756e-05,
+              1.24744999994e-05
+            ],
+            "median": 1.23541999528e-05,
+            "per_call_seconds": [
+              1.25657499666e-05,
+              1.23541999528e-05,
+              1.23257499581e-05,
+              1.26477500089e-05,
+              1.2290199993e-05,
+              1.23832500321e-05,
+              1.22152500808e-05
+            ]
+          }
+        },
+        "one_update": {
+          "iqr": [
+            0.000744499000575,
+            0.000763823999478
+          ],
+          "median": 0.000746744000935,
+          "repeats": [
+            {
+              "cpu_seconds": 0.00089363,
+              "wall_seconds": 0.000900966999325
+            },
+            {
+              "cpu_seconds": 0.00075716,
+              "wall_seconds": 0.000756663999709
+            },
+            {
+              "cpu_seconds": 0.00074519,
+              "wall_seconds": 0.000744684000892
+            },
+            {
+              "cpu_seconds": 0.000771551,
+              "wall_seconds": 0.000770983999246
+            },
+            {
+              "cpu_seconds": 0.00074726,
+              "wall_seconds": 0.000746744000935
+            },
+            {
+              "cpu_seconds": 0.00074484,
+              "wall_seconds": 0.000744314000258
+            },
+            {
+              "cpu_seconds": 0.00073317,
+              "wall_seconds": 0.000732644000891
+            }
+          ],
+          "scope": "deep copy + 8 pair statistic updates + one checkpoint solve",
+          "warmup": {
+            "cpu_seconds": 0.001000971,
+            "wall_seconds": 0.00100836900128
+          }
+        },
+        "peak_tracemalloc_bytes": {
+          "batch_32_inference": 12775,
+          "scope": "NumPy/Python allocations in a separate untimed pass; LAPACK workspace excluded",
+          "update": 19152
+        },
+        "rss_kib": {
+          "after_imports_and_spawn": 98072,
+          "peak": 101020,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        }
+      },
+      {
+        "acquisition": {
+          "iqr": [
+            0.0244887299996,
+            0.0248553219999
+          ],
+          "median": 0.0245284820012,
+          "repeats": [
+            {
+              "cpu_seconds": 0.024794726,
+              "wall_seconds": 0.0248002460012
+            },
+            {
+              "cpu_seconds": 0.025114557,
+              "wall_seconds": 0.0251315730002
+            },
+            {
+              "cpu_seconds": 0.024485297,
+              "wall_seconds": 0.0244853099994
+            },
+            {
+              "cpu_seconds": 0.024528477,
+              "wall_seconds": 0.0245284820012
+            },
+            {
+              "cpu_seconds": 0.024485727,
+              "wall_seconds": 0.0244921499998
+            },
+            {
+              "cpu_seconds": 0.024894997,
+              "wall_seconds": 0.0249103979986
+            },
+            {
+              "cpu_seconds": 0.024433946,
+              "wall_seconds": 0.0244388390001
+            }
+          ],
+          "warmup": {
+            "cpu_seconds": 0.025369658,
+            "wall_seconds": 0.0253890380009
+          }
+        },
+        "amortized_estimate_seconds": {
+          "final_B": {
+            "1": 0.701449728316,
+            "100": 0.807931475114,
+            "10000": 11.4561061549
+          },
+          "final_return": {
+            "1": 1.24160192043,
+            "100": 1.34808366723,
+            "10000": 11.996258347
+          }
+        },
+        "arm": "graded_matched",
+        "checkpoint": "post_32_B",
+        "inference": {
+          "batch_32": {
+            "iqr": [
+              0.00394674322497,
+              0.00395337782497
+            ],
+            "median": 0.00394995179995,
+            "per_call_seconds": [
+              0.00395428184993,
+              0.00395620785002,
+              0.00394744224996,
+              0.0039412481,
+              0.00394995179995,
+              0.00395247380002,
+              0.00394604419998
+            ]
+          },
+          "scope": "two passes incl. pilot factor construction (fresh per call: no cached factor across calls), routes, second factors and solves; allocation included, generation excluded",
+          "single_input": {
+            "iqr": [
+              0.001072579425,
+              0.0010769475
+            ],
+            "median": 0.00107557319998,
+            "per_call_seconds": [
+              0.00107778474994,
+              0.00107718624995,
+              0.00107121864994,
+              0.00107165264999,
+              0.00107670875004,
+              0.00107557319998,
+              0.00107350620001
+            ]
+          }
+        },
+        "one_update": {
+          "components_seconds_per_repeat": [
+            {
+              "adjoint_solve": 0.000346497001374,
+              "gradient_assembly": 0.000164393000887,
+              "hessian_assembly": 0.000513190001584,
+              "pilot_factor": 3.37199999194e-05,
+              "pilot_solve": 8.29609998618e-05,
+              "retraction": 0.000291885000479,
+              "routes": 0.000179804001164,
+              "second_factor": 0.000275455000519,
+              "second_solve": 0.000353366998752
+            },
+            {
+              "adjoint_solve": 0.000344306999978,
+              "gradient_assembly": 0.000165702998856,
+              "hessian_assembly": 0.000511190000907,
+              "pilot_factor": 3.14110002364e-05,
+              "pilot_solve": 8.31810011732e-05,
+              "retraction": 0.000307684998916,
+              "routes": 0.000170152999999,
+              "second_factor": 0.00028061500052,
+              "second_solve": 0.000364587000149
+            },
+            {
+              "adjoint_solve": 0.000350296000761,
+              "gradient_assembly": 0.000165092998941,
+              "hessian_assembly": 0.000508258999616,
+              "pilot_factor": 3.11399999191e-05,
+              "pilot_solve": 8.34620004753e-05,
+              "retraction": 0.000304495999444,
+              "routes": 0.000175883000338,
+              "second_factor": 0.000276034999843,
+              "second_solve": 0.000365445999705
+            },
+            {
+              "adjoint_solve": 0.000342596000337,
+              "gradient_assembly": 0.000175553999725,
+              "hessian_assembly": 0.00052198999947,
+              "pilot_factor": 3.13310010824e-05,
+              "pilot_solve": 8.28519987408e-05,
+              "retraction": 0.000296046000585,
+              "routes": 0.000171192999915,
+              "second_factor": 0.000281615000858,
+              "second_solve": 0.00035964700146
+            },
+            {
+              "adjoint_solve": 0.000357617000191,
+              "gradient_assembly": 0.000166122999872,
+              "hessian_assembly": 0.000526970001374,
+              "pilot_factor": 3.13809996442e-05,
+              "pilot_solve": 8.36009985505e-05,
+              "retraction": 0.000298914999803,
+              "routes": 0.000171282999872,
+              "second_factor": 0.000275516000329,
+              "second_solve": 0.000366536998627
+            },
+            {
+              "adjoint_solve": 0.000343576999512,
+              "gradient_assembly": 0.000166662999618,
+              "hessian_assembly": 0.000525190000189,
+              "pilot_factor": 3.13010004902e-05,
+              "pilot_solve": 9.00520008145e-05,
+              "retraction": 0.000292005999654,
+              "routes": 0.000171142999534,
+              "second_factor": 0.000280825999653,
+              "second_solve": 0.000359146999472
+            },
+            {
+              "adjoint_solve": 0.00035393699909,
+              "gradient_assembly": 0.000166592999449,
+              "hessian_assembly": 0.000508519000505,
+              "pilot_factor": 3.12209995172e-05,
+              "pilot_solve": 8.36219987832e-05,
+              "retraction": 0.000307394999254,
+              "routes": 0.000170813000295,
+              "second_factor": 0.000278595000054,
+              "second_solve": 0.000371136999092
+            }
+          ],
+          "iqr": [
+            0.0042059794996,
+            0.00422725950011
+          ],
+          "median": 0.0042199390009,
+          "repeats": [
+            {
+              "cpu_seconds": 0.004205352,
+              "wall_seconds": 0.00420502899942
+            },
+            {
+              "cpu_seconds": 0.004220361,
+              "wall_seconds": 0.0042199390009
+            },
+            {
+              "cpu_seconds": 0.004206361,
+              "wall_seconds": 0.00420597999982
+            },
+            {
+              "cpu_seconds": 0.004206371,
+              "wall_seconds": 0.00420597899938
+            },
+            {
+              "cpu_seconds": 0.004229711,
+              "wall_seconds": 0.00422926899955
+            },
+            {
+              "cpu_seconds": 0.004227071,
+              "wall_seconds": 0.0042267000008
+            },
+            {
+              "cpu_seconds": 0.004228262,
+              "wall_seconds": 0.00422781899942
+            }
+          ],
+          "scope": "parameter copy + pilot factor + pilot solves + routes + second factors/solves + adjoint solves + gradient + retraction",
+          "warmup": {
+            "cpu_seconds": 0.004200691,
+            "wall_seconds": 0.00420074900103
+          },
+          "work": {
+            "adjoint_solves": 16,
+            "curvature_assemblies": 1,
+            "parameter_updates": 1,
+            "pilot_factorizations": 1,
+            "pilot_solves": 16,
+            "retractions": 16,
+            "route_evaluations": 16,
+            "second_factorizations": 16,
+            "second_solves": 16
+          }
+        },
+        "peak_tracemalloc_bytes": {
+          "batch_32_inference": 5873328,
+          "scope": "NumPy/Python allocations in a separate untimed pass; LAPACK workspace excluded",
+          "update": 3399264
+        },
+        "rss_kib": {
+          "after_imports_and_spawn": 98072,
+          "peak": 109040,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        },
+        "warm_up": {
+          "iqr": [
+            0.135555858999,
+            0.136032167999
+          ],
+          "median": 0.135693480999,
+          "repeats": [
+            {
+              "cpu_seconds": 0.136543568,
+              "wall_seconds": 0.136554357001
+            },
+            {
+              "cpu_seconds": 0.136064857,
+              "wall_seconds": 0.136075749
+            },
+            {
+              "cpu_seconds": 0.135986618,
+              "wall_seconds": 0.135988586999
+            },
+            {
+              "cpu_seconds": 0.135388278,
+              "wall_seconds": 0.135396395999
+            },
+            {
+              "cpu_seconds": 0.135670537,
+              "wall_seconds": 0.135693480999
+            },
+            {
+              "cpu_seconds": 0.135621328,
+              "wall_seconds": 0.135641310999
+            },
+            {
+              "cpu_seconds": 0.135456757,
+              "wall_seconds": 0.135470407
+            }
+          ],
+          "warmup": {
+            "cpu_seconds": 0.137958708,
+            "wall_seconds": 0.137970655
+          }
+        }
+      },
+      {
+        "acquisition": {
+          "iqr": [
+            0.0245629864994,
+            0.0246429729996
+          ],
+          "median": 0.0245925229992,
+          "repeats": [
+            {
+              "cpu_seconds": 0.024639207,
+              "wall_seconds": 0.0246392129993
+            },
+            {
+              "cpu_seconds": 0.024578217,
+              "wall_seconds": 0.0245782120001
+            },
+            {
+              "cpu_seconds": 0.024708476,
+              "wall_seconds": 0.0247084450002
+            },
+            {
+              "cpu_seconds": 0.024646707,
+              "wall_seconds": 0.0246467329998
+            },
+            {
+              "cpu_seconds": 0.024592437,
+              "wall_seconds": 0.0245925229992
+            },
+            {
+              "cpu_seconds": 0.024538237,
+              "wall_seconds": 0.0245477609988
+            },
+            {
+              "cpu_seconds": 0.024547577,
+              "wall_seconds": 0.0245476219989
+            }
+          ],
+          "warmup": {
+            "cpu_seconds": 0.025439297,
+            "wall_seconds": 0.0254406490003
+          }
+        },
+        "amortized_estimate_seconds": {
+          "final_B": {
+            "1": 0.703464744287,
+            "100": 0.810340619981,
+            "10000": 11.4979281894
+          },
+          "final_return": {
+            "1": 1.24417386428,
+            "100": 1.35104973997,
+            "10000": 12.0386373094
+          }
+        },
+        "arm": "uniform_matched",
+        "checkpoint": "post_32_B",
+        "inference": {
+          "batch_32": {
+            "iqr": [
+              0.00395209130002,
+              0.00396244377498
+            ],
+            "median": 0.00396123849996,
+            "per_call_seconds": [
+              0.00395114575003,
+              0.00396135399997,
+              0.00396353355,
+              0.00396553005003,
+              0.00396123849996,
+              0.00394850020002,
+              0.00395303685
+            ]
+          },
+          "scope": "two passes incl. pilot factor construction (fresh per call: no cached factor across calls), routes, second factors and solves; allocation included, generation excluded",
+          "single_input": {
+            "iqr": [
+              0.00107803877504,
+              0.00108026579996
+            ],
+            "median": 0.00107955429994,
+            "per_call_seconds": [
+              0.00107843880005,
+              0.00107635274999,
+              0.00108066379998,
+              0.00107763875003,
+              0.00108238185003,
+              0.00107955429994,
+              0.00107986779994
+            ]
+          }
+        },
+        "one_update": {
+          "components_seconds_per_repeat": [
+            {
+              "adjoint_solve": 0.000352897000994,
+              "gradient_assembly": 0.000170462999449,
+              "hessian_assembly": 0.000525350000316,
+              "pilot_factor": 3.14500011882e-05,
+              "pilot_solve": 8.32909991004e-05,
+              "retraction": 0.000298416000078,
+              "routes": 0.000183043999641,
+              "second_factor": 0.000276085000223,
+              "second_solve": 0.000357547000021
+            },
+            {
+              "adjoint_solve": 0.00034679700002,
+              "gradient_assembly": 0.000169512999491,
+              "hessian_assembly": 0.000510048999786,
+              "pilot_factor": 3.14509998134e-05,
+              "pilot_solve": 8.37320003484e-05,
+              "retraction": 0.000308326001687,
+              "routes": 0.000173143000211,
+              "second_factor": 0.000285056001303,
+              "second_solve": 0.000367296999684
+            },
+            {
+              "adjoint_solve": 0.000347736000549,
+              "gradient_assembly": 0.000166374000401,
+              "hessian_assembly": 0.000514600000315,
+              "pilot_factor": 4.08610012528e-05,
+              "pilot_solve": 8.34220008983e-05,
+              "retraction": 0.000299045001157,
+              "routes": 0.000179283000762,
+              "second_factor": 0.000281384998743,
+              "second_solve": 0.000355735999619
+            },
+            {
+              "adjoint_solve": 0.00035030700019,
+              "gradient_assembly": 0.000166653000633,
+              "hessian_assembly": 0.000520759998835,
+              "pilot_factor": 3.15999986924e-05,
+              "pilot_solve": 8.24810013e-05,
+              "retraction": 0.000299085000734,
+              "routes": 0.000172302999999,
+              "second_factor": 0.000282274999336,
+              "second_solve": 0.000355947000571
+            },
+            {
+              "adjoint_solve": 0.000350656999217,
+              "gradient_assembly": 0.000165973000549,
+              "hessian_assembly": 0.000520399999004,
+              "pilot_factor": 3.17600006383e-05,
+              "pilot_solve": 8.2640999608e-05,
+              "retraction": 0.000301455998851,
+              "routes": 0.000181494000572,
+              "second_factor": 0.000276095001027,
+              "second_solve": 0.000360237001587
+            },
+            {
+              "adjoint_solve": 0.000341725999533,
+              "gradient_assembly": 0.000165662999279,
+              "hessian_assembly": 0.000511270000061,
+              "pilot_factor": 3.16499990731e-05,
+              "pilot_solve": 8.32519999676e-05,
+              "retraction": 0.000305225001284,
+              "routes": 0.000172033000126,
+              "second_factor": 0.000277385001027,
+              "second_solve": 0.000364986999557
+            },
+            {
+              "adjoint_solve": 0.000342165998518,
+              "gradient_assembly": 0.000165453000591,
+              "hessian_assembly": 0.000517489999766,
+              "pilot_factor": 3.15600009344e-05,
+              "pilot_solve": 8.34310012578e-05,
+              "retraction": 0.000305015999402,
+              "routes": 0.000171143001353,
+              "second_factor": 0.00027846500052,
+              "second_solve": 0.000368797000192
+            }
+          ],
+          "iqr": [
+            0.00420598900018,
+            0.00423240950022
+          ],
+          "median": 0.00422428999991,
+          "repeats": [
+            {
+              "cpu_seconds": 0.004244851,
+              "wall_seconds": 0.0042445199997
+            },
+            {
+              "cpu_seconds": 0.004234411,
+              "wall_seconds": 0.00423403900095
+            },
+            {
+              "cpu_seconds": 0.004231211,
+              "wall_seconds": 0.00423077999949
+            },
+            {
+              "cpu_seconds": 0.004210751,
+              "wall_seconds": 0.00421033900056
+            },
+            {
+              "cpu_seconds": 0.004201931,
+              "wall_seconds": 0.0042016389998
+            },
+            {
+              "cpu_seconds": 0.004201042,
+              "wall_seconds": 0.00420063899946
+            },
+            {
+              "cpu_seconds": 0.004224681,
+              "wall_seconds": 0.00422428999991
+            }
+          ],
+          "scope": "parameter copy + pilot factor + pilot solves + routes + second factors/solves + adjoint solves + gradient + retraction",
+          "warmup": {
+            "cpu_seconds": 0.004229772,
+            "wall_seconds": 0.00422986999911
+          },
+          "work": {
+            "adjoint_solves": 16,
+            "curvature_assemblies": 1,
+            "parameter_updates": 1,
+            "pilot_factorizations": 1,
+            "pilot_solves": 16,
+            "retractions": 16,
+            "route_evaluations": 16,
+            "second_factorizations": 16,
+            "second_solves": 16
+          }
+        },
+        "peak_tracemalloc_bytes": {
+          "batch_32_inference": 5873192,
+          "scope": "NumPy/Python allocations in a separate untimed pass; LAPACK workspace excluded",
+          "update": 3399264
+        },
+        "rss_kib": {
+          "after_imports_and_spawn": 98072,
+          "peak": 108932,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        },
+        "warm_up": {
+          "iqr": [
+            0.136480196001,
+            0.137236995501
+          ],
+          "median": 0.137083546999,
+          "repeats": [
+            {
+              "cpu_seconds": 0.137379588,
+              "wall_seconds": 0.137393594001
+            },
+            {
+              "cpu_seconds": 0.137233318,
+              "wall_seconds": 0.137246730001
+            },
+            {
+              "cpu_seconds": 0.136825618,
+              "wall_seconds": 0.136827583001
+            },
+            {
+              "cpu_seconds": 0.135997418,
+              "wall_seconds": 0.135999378001
+            },
+            {
+              "cpu_seconds": 0.136130788,
+              "wall_seconds": 0.136132809001
+            },
+            {
+              "cpu_seconds": 0.137225218,
+              "wall_seconds": 0.137227261001
+            },
+            {
+              "cpu_seconds": 0.137081548,
+              "wall_seconds": 0.137083546999
+            }
+          ],
+          "warmup": {
+            "cpu_seconds": 0.139113648,
+            "wall_seconds": 0.139145495999
+          }
+        }
+      },
+      {
+        "acquisition": {
+          "iqr": [
+            0.0242908514992,
+            0.0243573280004
+          ],
+          "median": 0.0243347480009,
+          "repeats": [
+            {
+              "cpu_seconds": 0.024411237,
+              "wall_seconds": 0.0244111890006
+            },
+            {
+              "cpu_seconds": 0.024247017,
+              "wall_seconds": 0.0242471459987
+            },
+            {
+              "cpu_seconds": 0.024258556,
+              "wall_seconds": 0.0242585759988
+            },
+            {
+              "cpu_seconds": 0.024346637,
+              "wall_seconds": 0.0243466480006
+            },
+            {
+              "cpu_seconds": 0.024334807,
+              "wall_seconds": 0.0243347480009
+            },
+            {
+              "cpu_seconds": 0.024323107,
+              "wall_seconds": 0.0243231269997
+            },
+            {
+              "cpu_seconds": 0.024368056,
+              "wall_seconds": 0.0243680080002
+            }
+          ],
+          "warmup": {
+            "cpu_seconds": 0.025289287,
+            "wall_seconds": 0.0252906860005
+          }
+        },
+        "amortized_estimate_seconds": {
+          "final_B": {
+            "1": 0.753263455736,
+            "100": 0.866687513182,
+            "10000": 12.2090932578
+          },
+          "final_return": {
+            "1": 1.33478857592,
+            "100": 1.44821263337,
+            "10000": 12.790618378
+          }
+        },
+        "arm": "reversed_matched",
+        "checkpoint": "post_32_B",
+        "inference": {
+          "batch_32": {
+            "iqr": [
+              0.00529587609999,
+              0.00553563057501
+            ],
+            "median": 0.00548562664999,
+            "per_call_seconds": [
+              0.00548562664999,
+              0.00553537360001,
+              0.0055366216,
+              0.00553588755001,
+              0.00541166829998,
+              0.0051800839,
+              0.0051292399
+            ]
+          },
+          "scope": "two passes incl. pilot factor construction (fresh per call: no cached factor across calls), routes, second factors and solves; allocation included, generation excluded",
+          "single_input": {
+            "iqr": [
+              0.00114490380001,
+              0.00114757707497
+            ],
+            "median": 0.00114569754996,
+            "per_call_seconds": [
+              0.00114942110004,
+              0.00114522155,
+              0.00114573704996,
+              0.00114447650003,
+              0.00114458605003,
+              0.00114569754996,
+              0.00114941709999
+            ]
+          }
+        },
+        "one_update": {
+          "components_seconds_per_repeat": [
+            {
+              "adjoint_solve": 0.000373696999304,
+              "gradient_assembly": 0.000189983999007,
+              "hessian_assembly": 0.000553081001271,
+              "pilot_factor": 4.31000007666e-05,
+              "pilot_solve": 8.85820008989e-05,
+              "retraction": 0.000319955999657,
+              "routes": 0.00018409400036,
+              "second_factor": 0.000300285999401,
+              "second_solve": 0.000384898001357
+            },
+            {
+              "adjoint_solve": 0.000368476999938,
+              "gradient_assembly": 0.000177813000846,
+              "hessian_assembly": 0.00056394999956,
+              "pilot_factor": 3.35210006597e-05,
+              "pilot_solve": 9.67619998846e-05,
+              "retraction": 0.000328485999489,
+              "routes": 0.000184432999959,
+              "second_factor": 0.000294514999041,
+              "second_solve": 0.00039434700011
+            },
+            {
+              "adjoint_solve": 0.000385557001209,
+              "gradient_assembly": 0.000177604000783,
+              "hessian_assembly": 0.000555881000764,
+              "pilot_factor": 3.34299984388e-05,
+              "pilot_solve": 8.84519995452e-05,
+              "retraction": 0.00031998600025,
+              "routes": 0.000189923999642,
+              "second_factor": 0.000303216000248,
+              "second_solve": 0.000385586999982
+            },
+            {
+              "adjoint_solve": 0.000370346999262,
+              "gradient_assembly": 0.000177623000127,
+              "hessian_assembly": 0.000556269998924,
+              "pilot_factor": 3.33209991368e-05,
+              "pilot_solve": 8.92320003913e-05,
+              "retraction": 0.000322436000715,
+              "routes": 0.000183853000635,
+              "second_factor": 0.000299405999613,
+              "second_solve": 0.00039655799992
+            },
+            {
+              "adjoint_solve": 0.000378876999093,
+              "gradient_assembly": 0.000176853000085,
+              "hessian_assembly": 0.00055410099958,
+              "pilot_factor": 3.34199994541e-05,
+              "pilot_solve": 8.87320002221e-05,
+              "retraction": 0.00031592599953,
+              "routes": 0.00018354399981,
+              "second_factor": 0.000294606001262,
+              "second_solve": 0.000385358000131
+            },
+            {
+              "adjoint_solve": 0.000368566999896,
+              "gradient_assembly": 0.000177743999302,
+              "hessian_assembly": 0.000551030001589,
+              "pilot_factor": 3.34409996867e-05,
+              "pilot_solve": 8.98910002434e-05,
+              "retraction": 0.000317156000165,
+              "routes": 0.00018422300127,
+              "second_factor": 0.00029427499976,
+              "second_solve": 0.000392807000026
+            },
+            {
+              "adjoint_solve": 0.000377976999516,
+              "gradient_assembly": 0.000178113001311,
+              "hessian_assembly": 0.000565550999454,
+              "pilot_factor": 3.3431000702e-05,
+              "pilot_solve": 8.91119998414e-05,
+              "retraction": 0.000316006000503,
+              "routes": 0.000184432999959,
+              "second_factor": 0.000294245999612,
+              "second_solve": 0.000391016999856
+            }
+          ],
+          "iqr": [
+            0.00453750050019,
+            0.00454584500039
+          ],
+          "median": 0.00454316500145,
+          "repeats": [
+            {
+              "cpu_seconds": 0.004543441,
+              "wall_seconds": 0.00454301600075
+            },
+            {
+              "cpu_seconds": 0.004546792,
+              "wall_seconds": 0.00454632500077
+            },
+            {
+              "cpu_seconds": 0.004556061,
+              "wall_seconds": 0.00455562600109
+            },
+            {
+              "cpu_seconds": 0.004543591,
+              "wall_seconds": 0.00454316500145
+            },
+            {
+              "cpu_seconds": 0.004532321,
+              "wall_seconds": 0.00453198499963
+            },
+            {
+              "cpu_seconds": 0.004531602,
+              "wall_seconds": 0.00453111599927
+            },
+            {
+              "cpu_seconds": 0.004545721,
+              "wall_seconds": 0.00454536500001
+            }
+          ],
+          "scope": "parameter copy + pilot factor + pilot solves + routes + second factors/solves + adjoint solves + gradient + retraction",
+          "warmup": {
+            "cpu_seconds": 0.004554191,
+            "wall_seconds": 0.00455452599999
+          },
+          "work": {
+            "adjoint_solves": 16,
+            "curvature_assemblies": 1,
+            "parameter_updates": 1,
+            "pilot_factorizations": 1,
+            "pilot_solves": 16,
+            "retractions": 16,
+            "route_evaluations": 16,
+            "second_factorizations": 16,
+            "second_solves": 16
+          }
+        },
+        "peak_tracemalloc_bytes": {
+          "batch_32_inference": 5873238,
+          "scope": "NumPy/Python allocations in a separate untimed pass; LAPACK workspace excluded",
+          "update": 3399264
+        },
+        "rss_kib": {
+          "after_imports_and_spawn": 98072,
+          "peak": 108860,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        },
+        "warm_up": {
+          "iqr": [
+            0.1386700775,
+            0.146454708501
+          ],
+          "median": 0.146257889999,
+          "repeats": [
+            {
+              "cpu_seconds": 0.135621738,
+              "wall_seconds": 0.1356237
+            },
+            {
+              "cpu_seconds": 0.135883748,
+              "wall_seconds": 0.135893725001
+            },
+            {
+              "cpu_seconds": 0.141389979,
+              "wall_seconds": 0.14144643
+            },
+            {
+              "cpu_seconds": 0.146702981,
+              "wall_seconds": 0.146704928
+            },
+            {
+              "cpu_seconds": 0.14656156,
+              "wall_seconds": 0.146590596001
+            },
+            {
+              "cpu_seconds": 0.146255801,
+              "wall_seconds": 0.146257889999
+            },
+            {
+              "cpu_seconds": 0.14628792,
+              "wall_seconds": 0.146318821
+            }
+          ],
+          "warmup": {
+            "cpu_seconds": 0.137041528,
+            "wall_seconds": 0.137043866998
+          }
+        }
+      },
+      {
+        "acquisition": {
+          "iqr": [
+            0.0263473350005,
+            0.0264529275
+          ],
+          "median": 0.0263766360004,
+          "repeats": [
+            {
+              "cpu_seconds": 0.026539197,
+              "wall_seconds": 0.0265514790008
+            },
+            {
+              "cpu_seconds": 0.026468368,
+              "wall_seconds": 0.026468348
+            },
+            {
+              "cpu_seconds": 0.026437557,
+              "wall_seconds": 0.0264375070001
+            },
+            {
+              "cpu_seconds": 0.026376627,
+              "wall_seconds": 0.0263766360004
+            },
+            {
+              "cpu_seconds": 0.026342948,
+              "wall_seconds": 0.0263429349998
+            },
+            {
+              "cpu_seconds": 0.026334317,
+              "wall_seconds": 0.0263342149992
+            },
+            {
+              "cpu_seconds": 0.026351757,
+              "wall_seconds": 0.0263517350013
+            }
+          ],
+          "warmup": {
+            "cpu_seconds": 0.027290688,
+            "wall_seconds": 0.0272929740004
+          }
+        },
+        "amortized_estimate_seconds": {
+          "final_B": {
+            "1": 0.756264696819,
+            "100": 0.870760449068,
+            "10000": 12.320335674
+          },
+          "final_return": {
+            "1": 1.33766322489,
+            "100": 1.45215897714,
+            "10000": 12.901734202
+          }
+        },
+        "arm": "graded_mean",
+        "checkpoint": "post_32_B",
+        "inference": {
+          "batch_32": {
+            "iqr": [
+              0.00511944577497,
+              0.00512972769998
+            ],
+            "median": 0.00512395434998,
+            "per_call_seconds": [
+              0.00516240609995,
+              0.00513268699997,
+              0.00512395434998,
+              0.00512676839999,
+              0.00512053979992,
+              0.00511835175002,
+              0.00511707019996
+            ]
+          },
+          "scope": "two passes incl. pilot factor construction (fresh per call: no cached factor across calls), routes, second factors and solves; allocation included, generation excluded",
+          "single_input": {
+            "iqr": [
+              0.00115613997505,
+              0.00115825727503
+            ],
+            "median": 0.00115652274999,
+            "per_call_seconds": [
+              0.0011624834,
+              0.00115632270008,
+              0.00115595725001,
+              0.00115742780008,
+              0.00115908674998,
+              0.00115652274999,
+              0.00115418969999
+            ]
+          }
+        },
+        "one_update": {
+          "components_seconds_per_repeat": [
+            {
+              "adjoint_solve": 0.000366055999621,
+              "gradient_assembly": 0.000178522999704,
+              "hessian_assembly": 0.000563679999686,
+              "pilot_factor": 3.33210009558e-05,
+              "pilot_solve": 9.5921999673e-05,
+              "retraction": 0.000326466000843,
+              "routes": 0.00018842299869,
+              "second_factor": 0.00029439500031,
+              "second_solve": 0.000393207001252
+            },
+            {
+              "adjoint_solve": 0.000377106998712,
+              "gradient_assembly": 0.000178643000254,
+              "hessian_assembly": 0.000553771000341,
+              "pilot_factor": 3.37500005116e-05,
+              "pilot_solve": 8.92120006029e-05,
+              "retraction": 0.000316705998557,
+              "routes": 0.000187902998732,
+              "second_factor": 0.000294216000839,
+              "second_solve": 0.00038457699884
+            },
+            {
+              "adjoint_solve": 0.000372336999135,
+              "gradient_assembly": 0.000178263000635,
+              "hessian_assembly": 0.000555841001187,
+              "pilot_factor": 3.34699998348e-05,
+              "pilot_solve": 8.95520006452e-05,
+              "retraction": 0.000326006998876,
+              "routes": 0.000190123999346,
+              "second_factor": 0.000294645000395,
+              "second_solve": 0.000391748000766
+            },
+            {
+              "adjoint_solve": 0.000375107001673,
+              "gradient_assembly": 0.000177412999619,
+              "hessian_assembly": 0.000556250000955,
+              "pilot_factor": 3.3311000152e-05,
+              "pilot_solve": 8.87210007932e-05,
+              "retraction": 0.000316366000334,
+              "routes": 0.000188804000572,
+              "second_factor": 0.000294486000712,
+              "second_solve": 0.00038309699994
+            },
+            {
+              "adjoint_solve": 0.000365337000403,
+              "gradient_assembly": 0.000177002999408,
+              "hessian_assembly": 0.000552730998606,
+              "pilot_factor": 3.34209998982e-05,
+              "pilot_solve": 8.91119998414e-05,
+              "retraction": 0.000318125999911,
+              "routes": 0.000188623000213,
+              "second_factor": 0.000294155999654,
+              "second_solve": 0.000394437000068
+            },
+            {
+              "adjoint_solve": 0.000376667001547,
+              "gradient_assembly": 0.000178533999133,
+              "hessian_assembly": 0.000567941000554,
+              "pilot_factor": 3.3420001273e-05,
+              "pilot_solve": 9.45619995036e-05,
+              "retraction": 0.000320355999065,
+              "routes": 0.000188173999049,
+              "second_factor": 0.000294134999422,
+              "second_solve": 0.000382827000067
+            },
+            {
+              "adjoint_solve": 0.000371916999939,
+              "gradient_assembly": 0.000177463,
+              "hessian_assembly": 0.00055532999977,
+              "pilot_factor": 3.3390999306e-05,
+              "pilot_solve": 9.08719994186e-05,
+              "retraction": 0.000318966000123,
+              "routes": 0.000189132999367,
+              "second_factor": 0.000302825999825,
+              "second_solve": 0.000388056998418
+            }
+          ],
+          "iqr": [
+            0.00452971499999,
+            0.00454718999936
+          ],
+          "median": 0.00454217600054,
+          "repeats": [
+            {
+              "cpu_seconds": 0.004546241,
+              "wall_seconds": 0.0045458149998
+            },
+            {
+              "cpu_seconds": 0.004528051,
+              "wall_seconds": 0.00452762499845
+            },
+            {
+              "cpu_seconds": 0.004542631,
+              "wall_seconds": 0.00454217600054
+            },
+            {
+              "cpu_seconds": 0.004532172,
+              "wall_seconds": 0.00453180500153
+            },
+            {
+              "cpu_seconds": 0.004522491,
+              "wall_seconds": 0.00452204500107
+            },
+            {
+              "cpu_seconds": 0.004551641,
+              "wall_seconds": 0.0045512960005
+            },
+            {
+              "cpu_seconds": 0.004548981,
+              "wall_seconds": 0.00454856499891
+            }
+          ],
+          "scope": "parameter copy + pilot factor + pilot solves + routes + second factors/solves + adjoint solves + gradient + retraction",
+          "warmup": {
+            "cpu_seconds": 0.004194032,
+            "wall_seconds": 0.00419459799923
+          },
+          "work": {
+            "adjoint_solves": 16,
+            "curvature_assemblies": 1,
+            "parameter_updates": 1,
+            "pilot_factorizations": 1,
+            "pilot_solves": 16,
+            "retractions": 16,
+            "route_evaluations": 16,
+            "second_factorizations": 16,
+            "second_solves": 16
+          }
+        },
+        "peak_tracemalloc_bytes": {
+          "batch_32_inference": 5873312,
+          "scope": "NumPy/Python allocations in a separate untimed pass; LAPACK workspace excluded",
+          "update": 3399384
+        },
+        "rss_kib": {
+          "after_imports_and_spawn": 98072,
+          "peak": 107184,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        },
+        "warm_up": {
+          "iqr": [
+            0.1463923825,
+            0.147432612001
+          ],
+          "median": 0.14733301,
+          "repeats": [
+            {
+              "cpu_seconds": 0.147660291,
+              "wall_seconds": 0.147662447
+            },
+            {
+              "cpu_seconds": 0.14749598,
+              "wall_seconds": 0.147505813
+            },
+            {
+              "cpu_seconds": 0.147307131,
+              "wall_seconds": 0.14733301
+            },
+            {
+              "cpu_seconds": 0.147022741,
+              "wall_seconds": 0.147049425001
+            },
+            {
+              "cpu_seconds": 0.145733241,
+              "wall_seconds": 0.14573534
+            },
+            {
+              "cpu_seconds": 0.137897488,
+              "wall_seconds": 0.137898962999
+            },
+            {
+              "cpu_seconds": 0.147340161,
+              "wall_seconds": 0.147359411001
+            }
+          ],
+          "warmup": {
+            "cpu_seconds": 0.149072832,
+            "wall_seconds": 0.149075403
+          }
+        }
+      },
+      {
+        "acquisition": {
+          "iqr": [
+            0.0263602559999,
+            0.0264001365003
+          ],
+          "median": 0.0263785860006,
+          "repeats": [
+            {
+              "cpu_seconds": 0.026527557,
+              "wall_seconds": 0.0265275390011
+            },
+            {
+              "cpu_seconds": 0.026301478,
+              "wall_seconds": 0.0263014540014
+            },
+            {
+              "cpu_seconds": 0.026404917,
+              "wall_seconds": 0.0264048669997
+            },
+            {
+              "cpu_seconds": 0.026395377,
+              "wall_seconds": 0.026395406001
+            },
+            {
+              "cpu_seconds": 0.026378587,
+              "wall_seconds": 0.0263785860006
+            },
+            {
+              "cpu_seconds": 0.026364808,
+              "wall_seconds": 0.0263648260006
+            },
+            {
+              "cpu_seconds": 0.026355687,
+              "wall_seconds": 0.0263556859991
+            }
+          ],
+          "warmup": {
+            "cpu_seconds": 0.027161948,
+            "wall_seconds": 0.0271641309992
+          }
+        },
+        "amortized_estimate_seconds": {
+          "final_B": {
+            "1": 0.716558527804,
+            "100": 0.82415558385,
+            "10000": 11.5838611884
+          },
+          "final_return": {
+            "1": 1.25975724766,
+            "100": 1.3673543037,
+            "10000": 12.1270599083
+          }
+        },
+        "arm": "graded_shifted",
+        "checkpoint": "post_32_B",
+        "inference": {
+          "batch_32": {
+            "iqr": [
+              0.00478814054995,
+              0.00479240857499
+            ],
+            "median": 0.0047913761,
+            "per_call_seconds": [
+              0.00476632065001,
+              0.00480039224994,
+              0.00479324560001,
+              0.00478793254997,
+              0.00478834854994,
+              0.00479157154996,
+              0.0047913761
+            ]
+          },
+          "scope": "two passes incl. pilot factor construction (fresh per call: no cached factor across calls), routes, second factors and solves; allocation included, generation excluded",
+          "single_input": {
+            "iqr": [
+              0.00108586214997,
+              0.001087758225
+            ],
+            "median": 0.00108683894996,
+            "per_call_seconds": [
+              0.00109051400004,
+              0.00108520489994,
+              0.00108568489995,
+              0.00108824600002,
+              0.00108603939998,
+              0.00108727044999,
+              0.00108683894996
+            ]
+          }
+        },
+        "one_update": {
+          "components_seconds_per_repeat": [
+            {
+              "adjoint_solve": 0.00034458600021,
+              "gradient_assembly": 0.000165732999449,
+              "hessian_assembly": 0.000515910000104,
+              "pilot_factor": 3.11599997076e-05,
+              "pilot_solve": 8.3741000708e-05,
+              "retraction": 0.000306736001221,
+              "routes": 0.000186854000276,
+              "second_factor": 0.000280784999632,
+              "second_solve": 0.00036858599924
+            },
+            {
+              "adjoint_solve": 0.000342777000697,
+              "gradient_assembly": 0.000172503001522,
+              "hessian_assembly": 0.000516320000315,
+              "pilot_factor": 3.11009989673e-05,
+              "pilot_solve": 8.3001999883e-05,
+              "retraction": 0.000294675000987,
+              "routes": 0.000186422999832,
+              "second_factor": 0.000282565999441,
+              "second_solve": 0.000358336999852
+            },
+            {
+              "adjoint_solve": 0.00035891600055,
+              "gradient_assembly": 0.000166454001373,
+              "hessian_assembly": 0.000514749999638,
+              "pilot_factor": 3.0790000892e-05,
+              "pilot_solve": 8.30110002425e-05,
+              "retraction": 0.000301275998936,
+              "routes": 0.000195704000362,
+              "second_factor": 0.000276294998912,
+              "second_solve": 0.000360025998816
+            },
+            {
+              "adjoint_solve": 0.000346527000147,
+              "gradient_assembly": 0.000166132998856,
+              "hessian_assembly": 0.000517669999681,
+              "pilot_factor": 3.15409997711e-05,
+              "pilot_solve": 9.45120009419e-05,
+              "retraction": 0.00031137500082,
+              "routes": 0.000189263999346,
+              "second_factor": 0.000277515000562,
+              "second_solve": 0.000376116999178
+            },
+            {
+              "adjoint_solve": 0.000343826999597,
+              "gradient_assembly": 0.000165412999195,
+              "hessian_assembly": 0.00051490000078,
+              "pilot_factor": 3.56910004484e-05,
+              "pilot_solve": 8.4492001406e-05,
+              "retraction": 0.000304625000354,
+              "routes": 0.000187243000255,
+              "second_factor": 0.000275844999123,
+              "second_solve": 0.000367386999642
+            },
+            {
+              "adjoint_solve": 0.00034495699947,
+              "gradient_assembly": 0.000172722999196,
+              "hessian_assembly": 0.000531620000402,
+              "pilot_factor": 3.12510001095e-05,
+              "pilot_solve": 8.41919991217e-05,
+              "retraction": 0.000296885000353,
+              "routes": 0.000187862999155,
+              "second_factor": 0.000282266000795,
+              "second_solve": 0.000359177000064
+            },
+            {
+              "adjoint_solve": 0.000359515999662,
+              "gradient_assembly": 0.000165772999026,
+              "hessian_assembly": 0.000519319999512,
+              "pilot_factor": 3.12299998768e-05,
+              "pilot_solve": 8.32910009194e-05,
+              "retraction": 0.000296475998766,
+              "routes": 0.000187113999345,
+              "second_factor": 0.000275774998954,
+              "second_solve": 0.000362446000508
+            }
+          ],
+          "iqr": [
+            0.00424182999996,
+            0.00424586999998
+          ],
+          "median": 0.00424373999886,
+          "repeats": [
+            {
+              "cpu_seconds": 0.004244151,
+              "wall_seconds": 0.00424373999886
+            },
+            {
+              "cpu_seconds": 0.004215922,
+              "wall_seconds": 0.00421551899854
+            },
+            {
+              "cpu_seconds": 0.004242381,
+              "wall_seconds": 0.00424197999928
+            },
+            {
+              "cpu_seconds": 0.004279381,
+              "wall_seconds": 0.0042789500003
+            },
+            {
+              "cpu_seconds": 0.004242121,
+              "wall_seconds": 0.00424168000063
+            },
+            {
+              "cpu_seconds": 0.004245121,
+              "wall_seconds": 0.00424467999983
+            },
+            {
+              "cpu_seconds": 0.004247482,
+              "wall_seconds": 0.00424706000013
+            }
+          ],
+          "scope": "parameter copy + pilot factor + pilot solves + routes + second factors/solves + adjoint solves + gradient + retraction",
+          "warmup": {
+            "cpu_seconds": 0.004247841,
+            "wall_seconds": 0.00424801999907
+          },
+          "work": {
+            "adjoint_solves": 16,
+            "curvature_assemblies": 1,
+            "parameter_updates": 1,
+            "pilot_factorizations": 1,
+            "pilot_solves": 16,
+            "retractions": 16,
+            "route_evaluations": 16,
+            "second_factorizations": 16,
+            "second_solves": 16
+          }
+        },
+        "peak_tracemalloc_bytes": {
+          "batch_32_inference": 5873452,
+          "scope": "NumPy/Python allocations in a separate untimed pass; LAPACK workspace excluded",
+          "update": 3399320
+        },
+        "rss_kib": {
+          "after_imports_and_spawn": 98072,
+          "peak": 108660,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        },
+        "warm_up": {
+          "iqr": [
+            0.1372915465,
+            0.1472331885
+          ],
+          "median": 0.145894383,
+          "repeats": [
+            {
+              "cpu_seconds": 0.147830661,
+              "wall_seconds": 0.14783279
+            },
+            {
+              "cpu_seconds": 0.147278471,
+              "wall_seconds": 0.147287659
+            },
+            {
+              "cpu_seconds": 0.147157231,
+              "wall_seconds": 0.147178718
+            },
+            {
+              "cpu_seconds": 0.14588716,
+              "wall_seconds": 0.145894383
+            },
+            {
+              "cpu_seconds": 0.138361699,
+              "wall_seconds": 0.138387022
+            },
+            {
+              "cpu_seconds": 0.136186048,
+              "wall_seconds": 0.136196071
+            },
+            {
+              "cpu_seconds": 0.135710337,
+              "wall_seconds": 0.135712292
+            }
+          ],
+          "warmup": {
+            "cpu_seconds": 0.148376321,
+            "wall_seconds": 0.148392290001
+          }
+        }
+      },
+      {
+        "acquisition": {
+          "iqr": [
+            0.0263406605009,
+            0.0264866574998
+          ],
+          "median": 0.026441217,
+          "repeats": [
+            {
+              "cpu_seconds": 0.026512877,
+              "wall_seconds": 0.0265128690007
+            },
+            {
+              "cpu_seconds": 0.026494208,
+              "wall_seconds": 0.0264942079993
+            },
+            {
+              "cpu_seconds": 0.026426507,
+              "wall_seconds": 0.026441217
+            },
+            {
+              "cpu_seconds": 0.026471837,
+              "wall_seconds": 0.0264791070003
+            },
+            {
+              "cpu_seconds": 0.026439398,
+              "wall_seconds": 0.0264393980015
+            },
+            {
+              "cpu_seconds": 0.026228057,
+              "wall_seconds": 0.0262419230003
+            },
+            {
+              "cpu_seconds": 0.026124987,
+              "wall_seconds": 0.0261250610001
+            }
+          ],
+          "warmup": {
+            "cpu_seconds": 0.027283648,
+            "wall_seconds": 0.0272851730006
+          }
+        },
+        "amortized_estimate_seconds": {
+          "final_B": {
+            "1": 0.17458626365,
+            "100": 0.280744028005,
+            "10000": 10.8965204635
+          },
+          "final_return": {
+            "1": 0.17458626365,
+            "100": 0.280744028005,
+            "10000": 10.8965204635
+          }
+        },
+        "arm": "frozen_layered",
+        "checkpoint": "post_32_B",
+        "inference": {
+          "batch_32": {
+            "iqr": [
+              0.00480217129998,
+              0.00481446052499
+            ],
+            "median": 0.00481335949999,
+            "per_call_seconds": [
+              0.00478030590002,
+              0.00481538105005,
+              0.00481335949999,
+              0.00480454085,
+              0.00481353999994,
+              0.00479980174996,
+              0.00481847809997
+            ]
+          },
+          "scope": "two passes incl. pilot factor construction (fresh per call: no cached factor across calls), routes, second factors and solves; allocation included, generation excluded",
+          "single_input": {
+            "iqr": [
+              0.00107025360003,
+              0.00107504272501
+            ],
+            "median": 0.00107230065005,
+            "per_call_seconds": [
+              0.00107999080001,
+              0.00107604075001,
+              0.00107230065005,
+              0.0010740447,
+              0.00107013859997,
+              0.00106975164999,
+              0.00107036860009
+            ]
+          }
+        },
+        "one_update": {
+          "median": 0.0,
+          "note": "frozen arm: no update cost"
+        },
+        "peak_tracemalloc_bytes": {
+          "batch_32_inference": 5872088,
+          "scope": "NumPy/Python allocations in a separate untimed pass; LAPACK workspace excluded",
+          "update": 0
+        },
+        "rss_kib": {
+          "after_imports_and_spawn": 98072,
+          "peak": 107236,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        },
+        "warm_up": {
+          "iqr": [
+            0.1455317465,
+            0.1473192
+          ],
+          "median": 0.147072746,
+          "repeats": [
+            {
+              "cpu_seconds": 0.147617901,
+              "wall_seconds": 0.147693946999
+            },
+            {
+              "cpu_seconds": 0.14743931,
+              "wall_seconds": 0.147455023
+            },
+            {
+              "cpu_seconds": 0.146785651,
+              "wall_seconds": 0.146821691
+            },
+            {
+              "cpu_seconds": 0.147162971,
+              "wall_seconds": 0.147183377001
+            },
+            {
+              "cpu_seconds": 0.147062921,
+              "wall_seconds": 0.147072746
+            },
+            {
+              "cpu_seconds": 0.14417346,
+              "wall_seconds": 0.144241802
+            },
+            {
+              "cpu_seconds": 0.136582318,
+              "wall_seconds": 0.136584267999
+            }
+          ],
+          "warmup": {
+            "cpu_seconds": 0.149184072,
+            "wall_seconds": 0.149196884999
+          }
+        }
+      },
+      {
+        "acquisition": {
+          "iqr": [
+            0.0242567209998,
+            0.0243448830006
+          ],
+          "median": 0.0242977769994,
+          "repeats": [
+            {
+              "cpu_seconds": 0.024392667,
+              "wall_seconds": 0.024392678999
+            },
+            {
+              "cpu_seconds": 0.024287167,
+              "wall_seconds": 0.024287057
+            },
+            {
+              "cpu_seconds": 0.024284966,
+              "wall_seconds": 0.0242977769994
+            },
+            {
+              "cpu_seconds": 0.024226347,
+              "wall_seconds": 0.0242263849996
+            },
+            {
+              "cpu_seconds": 0.024197657,
+              "wall_seconds": 0.0241976249999
+            },
+            {
+              "cpu_seconds": 0.024299167,
+              "wall_seconds": 0.024299097
+            },
+            {
+              "cpu_seconds": 0.024390676,
+              "wall_seconds": 0.0243906690011
+            }
+          ],
+          "warmup": {
+            "cpu_seconds": 0.025112937,
+            "wall_seconds": 0.0251236120002
+          }
+        },
+        "amortized_estimate_seconds": {
+          "final_B": {
+            "1": 0.0487517827186,
+            "100": 0.0499672750175,
+            "10000": 0.171516504906
+          },
+          "final_return": {
+            "1": 0.0731935107377,
+            "100": 0.0744090030366,
+            "10000": 0.195958232925
+          }
+        },
+        "arm": "phase_target_cca",
+        "checkpoint": "post_32_B",
+        "inference": {
+          "batch_32": {
+            "iqr": [
+              1.37160000122e-05,
+              1.38319999678e-05
+            ],
+            "median": 1.37577500027e-05,
+            "per_call_seconds": [
+              1.38697500006e-05,
+              1.3794249935e-05,
+              1.37047500175e-05,
+              1.40352999551e-05,
+              1.37137500133e-05,
+              1.37577500027e-05,
+              1.37182500112e-05
+            ]
+          },
+          "scope": "dense projector from deployed weights + apply; allocation included",
+          "single_input": {
+            "iqr": [
+              1.22457249745e-05,
+              1.24470000173e-05
+            ],
+            "median": 1.22776999888e-05,
+            "per_call_seconds": [
+              1.25727500745e-05,
+              1.23212499602e-05,
+              1.22776999888e-05,
+              1.28327499624e-05,
+              1.22317499518e-05,
+              1.22596999972e-05,
+              1.22202500279e-05
+            ]
+          }
+        },
+        "one_update": {
+          "iqr": [
+            0.000758678999773,
+            0.000768974499806
+          ],
+          "median": 0.000763804000599,
+          "repeats": [
+            {
+              "cpu_seconds": 0.00077648,
+              "wall_seconds": 0.000776005001171
+            },
+            {
+              "cpu_seconds": 0.00077422,
+              "wall_seconds": 0.000773714000388
+            },
+            {
+              "cpu_seconds": 0.000751621,
+              "wall_seconds": 0.000751145000322
+            },
+            {
+              "cpu_seconds": 0.00076337,
+              "wall_seconds": 0.000762863999626
+            },
+            {
+              "cpu_seconds": 0.00076429,
+              "wall_seconds": 0.000763804000599
+            },
+            {
+              "cpu_seconds": 0.00076473,
+              "wall_seconds": 0.000764234999224
+            },
+            {
+              "cpu_seconds": 0.00075501,
+              "wall_seconds": 0.000754493999921
+            }
+          ],
+          "scope": "deep copy + 8 pair statistic updates + one checkpoint solve",
+          "warmup": {
+            "cpu_seconds": 0.00079951,
+            "wall_seconds": 0.000799565001216
+          }
+        },
+        "peak_tracemalloc_bytes": {
+          "batch_32_inference": 12809,
+          "scope": "NumPy/Python allocations in a separate untimed pass; LAPACK workspace excluded",
+          "update": 19632
+        },
+        "rss_kib": {
+          "after_imports_and_spawn": 98072,
+          "peak": 101032,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        }
+      },
+      {
+        "acquisition": {
+          "iqr": [
+            0.0244517544998,
+            0.0245374815004
+          ],
+          "median": 0.024466339999,
+          "repeats": [
+            {
+              "cpu_seconds": 0.024546047,
+              "wall_seconds": 0.024546052
+            },
+            {
+              "cpu_seconds": 0.024528897,
+              "wall_seconds": 0.0245289110007
+            },
+            {
+              "cpu_seconds": 0.024546867,
+              "wall_seconds": 0.0245468609992
+            },
+            {
+              "cpu_seconds": 0.024466297,
+              "wall_seconds": 0.0244663100002
+            },
+            {
+              "cpu_seconds": 0.024466306,
+              "wall_seconds": 0.024466339999
+            },
+            {
+              "cpu_seconds": 0.024437177,
+              "wall_seconds": 0.0244371989993
+            },
+            {
+              "cpu_seconds": 0.024430207,
+              "wall_seconds": 0.024430219999
+            }
+          ],
+          "warmup": {
+            "cpu_seconds": 0.025188377,
+            "wall_seconds": 0.0251906840003
+          }
+        },
+        "amortized_estimate_seconds": {
+          "final_B": {
+            "1": 0.0489015862283,
+            "100": 0.0501258400291,
+            "10000": 0.172551220106
+          },
+          "final_return": {
+            "1": 0.0733244662576,
+            "100": 0.0745487200584,
+            "10000": 0.196974100136
+          }
+        },
+        "arm": "pooled_local_cca",
+        "checkpoint": "post_32_B",
+        "inference": {
+          "batch_32": {
+            "iqr": [
+              1.39262750054e-05,
+              1.41484999858e-05
+            ],
+            "median": 1.39737499921e-05,
+            "per_call_seconds": [
+              1.40382499922e-05,
+              1.39197500175e-05,
+              1.42587499795e-05,
+              1.39327999932e-05,
+              1.38957499985e-05,
+              1.39737499921e-05,
+              1.4500799989e-05
+            ]
+          },
+          "scope": "dense projector from deployed weights + apply; allocation included",
+          "single_input": {
+            "iqr": [
+              1.22640000427e-05,
+              1.26147500396e-05
+            ],
+            "median": 1.23662000078e-05,
+            "per_call_seconds": [
+              1.26657500005e-05,
+              1.23662000078e-05,
+              1.28972500534e-05,
+              1.2268250066e-05,
+              1.22487000226e-05,
+              1.22597500194e-05,
+              1.25637500787e-05
+            ]
+          }
+        },
+        "one_update": {
+          "iqr": [
+            0.000761294000768,
+            0.000770009500229
+          ],
+          "median": 0.000763215000916,
+          "repeats": [
+            {
+              "cpu_seconds": 0.00077004,
+              "wall_seconds": 0.000769563999711
+            },
+            {
+              "cpu_seconds": 0.00077094,
+              "wall_seconds": 0.000770455000747
+            },
+            {
+              "cpu_seconds": 0.00077742,
+              "wall_seconds": 0.00077695499931
+            },
+            {
+              "cpu_seconds": 0.00075268,
+              "wall_seconds": 0.000752183999793
+            },
+            {
+              "cpu_seconds": 0.000762731,
+              "wall_seconds": 0.000762254001529
+            },
+            {
+              "cpu_seconds": 0.0007608,
+              "wall_seconds": 0.000760334000006
+            },
+            {
+              "cpu_seconds": 0.00076369,
+              "wall_seconds": 0.000763215000916
+            }
+          ],
+          "scope": "deep copy + 8 pair statistic updates + one checkpoint solve",
+          "warmup": {
+            "cpu_seconds": 0.000793271,
+            "wall_seconds": 0.000793144999989
+          }
+        },
+        "peak_tracemalloc_bytes": {
+          "batch_32_inference": 12349,
+          "scope": "NumPy/Python allocations in a separate untimed pass; LAPACK workspace excluded",
+          "update": 19632
+        },
+        "rss_kib": {
+          "after_imports_and_spawn": 98072,
+          "peak": 101216,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        }
+      }
+    ],
+    "revision": "3556b245c4fbf77a3ac7bc54097fb88182298c85",
+    "rss_scope": "cumulative parent-process high-water RSS (Linux KiB), not per-arm memory",
+    "solver_failures": 0,
+    "wall_seconds": 37.391808437,
+    "worker_cpu_note": "per-execution worker CPU seconds are recorded per repeat; parent CPU excludes workers"
   }
 }
