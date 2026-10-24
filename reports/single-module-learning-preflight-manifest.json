@@ -1,0 +1,42 @@
+{
+  "environment": {
+    "blas_threads": 1,
+    "numpy": "2.5.4",
+    "python": "3.12.3",
+    "scipy": "1.18.1"
+  },
+  "hashes": {
+    "docs/single-module-learning-preflight.md": "27ea76bd59633ec8d8ae9990d869022dbddcf84797029ba6b0b73ad6b622c7ab",
+    "experiments/learning_preflight.py": "53ad61f1d6f481a36be19db4a0444e8f0d5a340193f6eb4e05582f8b33ec3bc3",
+    "requirements.txt": "983665a6331eda07ab1f4b23ef92d66f4b024c27b360ee0e7420511ef3b28c64",
+    "src/learning_preflight.py": "0f44f5ade4f015473a9ff5ce7f8a66b43580fc569c8162d19ce18fd5a6de0167",
+    "tests/test_learning_preflight.py": "137eddbec24167043fef5bbcc131351ac4157f433a1d01bcd0b691fe7a8369e7"
+  },
+  "methods": [
+    "global_spectral",
+    "local_spectral",
+    "fixed_averaging"
+  ],
+  "nuisance_variances": [
+    0.25,
+    1.0
+  ],
+  "pair_budgets": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    128,
+    256
+  ],
+  "regimes": [
+    "aligned",
+    "shifted",
+    "dense"
+  ],
+  "scope": "analytical equivalence and spectral development preflight only",
+  "seed": 20261101,
+  "streams_per_world": 8,
+  "worlds": 64
+}
