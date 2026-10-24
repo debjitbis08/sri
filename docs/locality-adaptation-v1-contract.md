@@ -6,6 +6,13 @@ correctness gates, freeze the source/environment manifest and commit it before
 generating confirmation worlds. Any substantive change requires a dated
 amendment before confirmation, or a new version after confirmation starts.
 
+**Pre-implementation review, 2026-10-24.** Before any implementation, the
+contract was edited only to remove ambiguities: per-block ridge trace,
+spectral tie handling, absence of covariance reuse in the bank, the score
+entering each primary claim, the timing seed, memory-measurement scope, the
+artifact layout, and exact descriptive control values. No threshold, arm,
+budget, regime, seed or decision rule changed.
+
 Follows the [locality analysis](locality-adaptation-analysis.md),
 [transfer analysis](broad-structure-transfer-analysis.md), and
 [computation protocol](computation-reporting.md). Historical experiments and
@@ -54,7 +61,7 @@ Use four paired regimes from the same world:
 | aligned | identity | primary preservation test |
 | half-shifted | circular shift by four sites | primary adaptation test |
 | unknown-shift | circular shift by one uniformly drawn integer in 1–7 | secondary boundary-generalization check |
-| dense | full random orthogonal matrix from Gaussian QR with positive diagonal of R in the QR factorization | secondary limit case |
+| dense | Q from the QR factorization Q·T_r of a d×d standard Gaussian matrix, with column signs fixed so diag(T_r) > 0 | secondary limit case |
 
 Rotate both signal and nuisance. For every independent training pair draw
 
@@ -92,8 +99,9 @@ T = (X^T X + Y^T Y)/(2m).
 **Ridge CCA reference convention:** in each allowed block solve the symmetric
 generalized eigenproblem `(K, T + r I)`, where
 `r=0.1 tr(T)/block_dimension`. Choose the largest algebraic eigenvalue's
-direction, normalized in Euclidean norm. Global CCA takes the top k such
-directions using global T and r. This matches v1's pooled-covariance
+direction, normalized in Euclidean norm. Here T and K are the block's own
+submatrices and block_dimension=b, so `r=0.1 tr(T_gg)/b`. Global CCA takes
+the top k such directions using global T and `r=0.1 tr(T)/d`. This matches v1's pooled-covariance
 ridge-CCA convention; it is not claimed to be every definition of CCA.
 Use Cholesky whitening and symmetric eigensolvers, float64. Spectral arms
 use the largest algebraic eigenvectors of K with no whitening.
@@ -103,8 +111,9 @@ gap is at most `1e-12 * max(1, spectral_radius)`. Within each group construct
 a canonical basis by projecting coordinate axes in index order into the
 eigenspace and applying Gram–Schmidt, skipping residual norms below 1e-10.
 Use this basis to fill a cutoff through a tied group. Apply this convention
-in whitened coordinates for CCA. Orient each resulting vector so its first
-largest-magnitude coordinate is positive. Record the tolerance convention;
+in whitened coordinates for CCA and in raw coordinates for spectral arms.
+After back-transformation and normalization, orient each resulting weight
+vector so its first largest-magnitude coordinate is positive. Record the tolerance convention;
 do not claim invariance across unpinned numerical environments.
 
 Convert each fitted feature matrix W to its orthogonal span projector
@@ -152,8 +161,10 @@ There are no epochs, gradient updates, augmentations, or development
 hyperparameter searches. Reusing examples across eight fits counts as eight
 fit exposures, not eight times as many independent examples. At each n,
 fit from scratch; caching across budgets is forbidden in the primary cost
-measurement. Within an arm, reusable covariance entries may be computed once
-if their construction, retained storage, and implementation are disclosed.
+measurement. The reference implementation computes every phase's block
+statistics independently from the fitting rows, with no reuse between phases
+or arms; this matches the complexity stated in section 7. Any later reuse
+requires disclosure of its construction, retained storage and implementation.
 No computational work may be credited free because another arm computed it.
 
 ## 4. Evaluator-only ceilings and failure diagnosis
@@ -200,8 +211,9 @@ E(P) = E||P h-s||² / E||s||²
 Report bias/signal loss L and projected-noise contribution separately. A
 projector capturing nuisance can preserve signal better yet reconstruct
 worse. Fixed rank k prevents zero-code collapse from passing as a learned
-code. Include zero-output NMSE=1 and raw-input NMSE=`tr(N)/k` as descriptive
-controls, plus oracle signal projector P=S for reconstruction. The oracle
+code. Include zero-output NMSE=1 and raw-input NMSE=`tr(N)/k` (6 in
+distribution) as descriptive controls, plus oracle signal projector P=S for
+reconstruction (NMSE 0.25 in distribution, since U is orthogonal to V). The oracle
 signal projector is not claimed to be the optimal shrinkage estimator.
 
 Primary low-data scores are arithmetic means over n in `{16,32,64,128,256}`,
@@ -226,7 +238,8 @@ stage 0 for development, 1 for confirmation, 2 for timing; w is world index.
 Part 0 draws signal/texture template coefficients, interleaved by block;
 part 1 draws the dense Gaussian matrix for QR; part 2 draws unknown phase;
 part 3 draws c, g1, g2, e1, e2 arrays in that order. Freeze shapes and loop
-order in the manifest. For timing, append d to the SeedSequence entropy.
+order in the manifest. For timing, append d to the SeedSequence entropy:
+`[root,2,0,part,d]`.
 
 Development worlds `w=0..7` are for implementation and correctness checks
 only. Confirmation uses `w=0..63` with stage 1: 64 independent worlds, one
@@ -235,7 +248,9 @@ No development result is pooled into confirmation. No seed substitution,
 optional stopping, or additional worlds after inspecting a confidence bound.
 
 For each world compute improvement `D = fixed_cca_all - adaptive_cca` in
-each lower-is-better score. Four primary claims are jointly required:
+each lower-is-better score. Each claim uses the primary mean log-spaced-budget
+score of section 5 (n in 16–256), computed per world before differencing.
+Four primary claims are jointly required:
 
 | Claim | Regime / score | Required population improvement |
 | --- | --- | --- |
@@ -285,7 +300,11 @@ per-arm cost attribution straightforward. Time covariance construction,
 factorization, validation/selection, and inference separately. Keep generation,
 oracle diagnostics, metric evaluation and report writing in separate phases.
 Record RSS in isolated worker processes for standalone per-arm memory where
-needed; do not label a cumulative process maximum as per-arm memory.
+needed; do not label a cumulative process maximum as per-arm memory. The
+timing panel runs each (d, regime, arm) in a fresh spawned process and also
+records an idle worker's RSS baseline. Peak temporary NumPy bytes come from
+`tracemalloc` in a separate untimed pass; LAPACK-internal workspace is not
+visible to it and is reported as an analytical estimate, labelled as such.
 
 After the manifest freeze, a separate **descriptive timing panel** uses
 stage-2 world 0, dimensions `{32,128,512}`, b=8, k=d/8, n=256. Run the aligned
@@ -360,7 +379,9 @@ cannot satisfy primary claims.
 
 Planned artifacts (not yet produced):
 
-- `experiments/locality_adaptation.py`, reference implementation and tests;
+- `src/locality_adaptation.py` (estimators, generator, metrics),
+  `experiments/locality_adaptation.py` (runner) and
+  `tests/test_locality_adaptation.py` (correctness gates);
 - `reports/locality-adaptation-v1-manifest.json`;
 - `reports/locality-adaptation-v1-development.json`;
 - `reports/locality-adaptation-v1-results.json`, including per-world metrics,
