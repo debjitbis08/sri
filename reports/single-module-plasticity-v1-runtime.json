@@ -1,0 +1,632 @@
+{
+  "charged_counts_per_arm_and_branch": {
+    "frozen_layered": {
+      "basis_completions": 4,
+      "candidate_scores": 32,
+      "fixed_route_factorizations": 128,
+      "local_fits": 33,
+      "source_pair_exposures": 1024,
+      "source_pairs": 256,
+      "warm_up_adjoint_solves": 2048,
+      "warm_up_second_solves": 2048,
+      "warm_up_updates": 128
+    },
+    "graded_matched": {
+      "adaptation_updates": 256,
+      "adjoint_solves": 4096,
+      "basis_completions": 4,
+      "candidate_scores": 32,
+      "fixed_route_factorizations": 128,
+      "local_fits": 33,
+      "pilot_factorizations": 256,
+      "pilot_solves": 4096,
+      "retracted_blocks": 4096,
+      "route_evaluations": 4096,
+      "second_factorizations": 4096,
+      "second_solves": 4096,
+      "source_pair_exposures": 1024,
+      "source_pairs": 256,
+      "target_pair_exposures": 2048,
+      "target_pairs": 512,
+      "warm_up_adjoint_solves": 2048,
+      "warm_up_second_solves": 2048,
+      "warm_up_updates": 128
+    },
+    "graded_mean": {
+      "adaptation_updates": 256,
+      "adjoint_solves": 4096,
+      "basis_completions": 4,
+      "candidate_scores": 32,
+      "fixed_route_factorizations": 128,
+      "local_fits": 33,
+      "pilot_factorizations": 256,
+      "pilot_solves": 4096,
+      "retracted_blocks": 4096,
+      "route_evaluations": 4096,
+      "second_factorizations": 4096,
+      "second_solves": 4096,
+      "source_pair_exposures": 1024,
+      "source_pairs": 256,
+      "target_pair_exposures": 2048,
+      "target_pairs": 512,
+      "warm_up_adjoint_solves": 2048,
+      "warm_up_second_solves": 2048,
+      "warm_up_updates": 128
+    },
+    "graded_shifted": {
+      "adaptation_updates": 256,
+      "adjoint_solves": 4096,
+      "basis_completions": 4,
+      "candidate_scores": 32,
+      "fixed_route_factorizations": 128,
+      "local_fits": 33,
+      "pilot_factorizations": 256,
+      "pilot_solves": 4096,
+      "retracted_blocks": 4096,
+      "route_evaluations": 4096,
+      "second_factorizations": 4096,
+      "second_solves": 4096,
+      "source_pair_exposures": 1024,
+      "source_pairs": 256,
+      "target_pair_exposures": 2048,
+      "target_pairs": 512,
+      "warm_up_adjoint_solves": 2048,
+      "warm_up_second_solves": 2048,
+      "warm_up_updates": 128
+    },
+    "phase_target_cca": {
+      "basis_completions": 4,
+      "candidate_scores": 32,
+      "checkpoint_solves": 12,
+      "local_fits": 33,
+      "note": "no layered warm-up; pooled deploys its source fit at m=0",
+      "source_pairs": 256,
+      "target_pairs_per_episode": 256
+    },
+    "pooled_local_cca": {
+      "basis_completions": 4,
+      "candidate_scores": 32,
+      "checkpoint_solves": 12,
+      "local_fits": 33,
+      "note": "no layered warm-up; pooled deploys its source fit at m=0",
+      "source_pairs": 256,
+      "target_pairs_per_episode": 256
+    },
+    "reversed_matched": {
+      "adaptation_updates": 256,
+      "adjoint_solves": 4096,
+      "basis_completions": 4,
+      "candidate_scores": 32,
+      "fixed_route_factorizations": 128,
+      "local_fits": 33,
+      "pilot_factorizations": 256,
+      "pilot_solves": 4096,
+      "retracted_blocks": 4096,
+      "route_evaluations": 4096,
+      "second_factorizations": 4096,
+      "second_solves": 4096,
+      "source_pair_exposures": 1024,
+      "source_pairs": 256,
+      "target_pair_exposures": 2048,
+      "target_pairs": 512,
+      "warm_up_adjoint_solves": 2048,
+      "warm_up_second_solves": 2048,
+      "warm_up_updates": 128
+    },
+    "uniform_matched": {
+      "adaptation_updates": 256,
+      "adjoint_solves": 4096,
+      "basis_completions": 4,
+      "candidate_scores": 32,
+      "fixed_route_factorizations": 128,
+      "local_fits": 33,
+      "pilot_factorizations": 256,
+      "pilot_solves": 4096,
+      "retracted_blocks": 4096,
+      "route_evaluations": 4096,
+      "second_factorizations": 4096,
+      "second_solves": 4096,
+      "source_pair_exposures": 1024,
+      "source_pairs": 256,
+      "target_pair_exposures": 2048,
+      "target_pairs": 512,
+      "warm_up_adjoint_solves": 2048,
+      "warm_up_second_solves": 2048,
+      "warm_up_updates": 128
+    }
+  },
+  "command": "python -m experiments.single_module_plasticity --phase dev",
+  "complexity": {
+    "bytes": {
+      "current_minibatch": 4096,
+      "curvature_cache": 819200,
+      "direct_reference_state": "2 J q^2 float64 sums + count + d weights",
+      "note": "ring topology is immutable index metadata, reported separately",
+      "optimizer_state": 0,
+      "persistent_parameters": 2624,
+      "phase_metadata": 8,
+      "routed_batch_hessians_per_input": 51200
+    },
+    "dimensions": {
+      "J": 4,
+      "K": 8,
+      "M": 80,
+      "batch_pairs": 8,
+      "d": 32,
+      "directions_per_update": 16,
+      "q": 8,
+      "sector_widths": [
+        8,
+        6,
+        4,
+        2
+      ],
+      "stored_parameters": 328,
+      "widths": [
+        32,
+        24,
+        16,
+        8
+      ]
+    },
+    "flops": "not measured; not inferred from wall time or parameter counts",
+    "orders": {
+      "factorization": "dense Cholesky O(M^3) per routed input; pilot factor O(M^3) per parameter state",
+      "fixed_route_update": "O(M^3 + 2B 2 M^2): one shared factor for all directions and adjoints",
+      "gradient": "O(n sum_l J n_l n_(l+1)) block contractions; retraction O(sum_l J n_l n_(l+1)^2)",
+      "hessian_assembly": "dense in this implementation: O(16 M^2) per parameter state plus O(n 16 M^2) per routed batch of n inputs (dense tensordot)",
+      "inference": "two passes: O(M^2) pilot solve with shared factor + O(M^3) second factor and solve",
+      "routed_update": "O(M^3 + 2B (M^3 + 3 M^2) + 16 M^2 (2B+1) + retractions)",
+      "schur_reference": "diagnostic only: O(M^3) LU solves on 8 inputs per set and checkpoint",
+      "solves": "O(M^2) per pilot, second and adjoint solve",
+      "source_acquisition": "v2 CV + refit (33 local fits) + O(J q^3) basis completion"
+    }
+  },
+  "development": {
+    "dirty_paths": [
+      "?? experiments/single_module_plasticity.py",
+      "?? reports/single-module-plasticity-v1-development.json",
+      "?? src/single_module_plasticity.py",
+      "?? tests/test_single_module_plasticity.py"
+    ],
+    "evaluator": {
+      "evaluator": {
+        "counts": {
+          "curvature_assemblies": 1880,
+          "evaluator_inputs": 2535424,
+          "pilot_factorizations": 1880,
+          "pilot_solves": 1951040,
+          "route_evaluations": 1951040,
+          "schur_checked_inputs": 30016,
+          "second_factorizations": 1951040,
+          "second_solves": 1951040
+        },
+        "seconds": {
+          "controls": 0.013001254998,
+          "hessian_assembly": 0.512857046995,
+          "inference": 228.8494456,
+          "metrics": 1.25913003593,
+          "pilot_factor": 0.0580650259508,
+          "pilot_solve": 3.59582344785,
+          "pre_warm_up_diagnostic": 0.514481991999,
+          "routes": 3.17966269394,
+          "schur_reference": 10.2936836221,
+          "second_factor": 46.405422883,
+          "second_solve": 45.336063714
+        },
+        "stats": {
+          "pilot_max_condition": 145.362920988,
+          "pilot_max_relative_residual": 5.71031232173e-15,
+          "second_max_condition_lower_bound": 18.4374051465,
+          "second_max_relative_residual": 5.39302709351e-15
+        }
+      }
+    },
+    "executed_timing_and_counts": {
+      "frozen_layered": {
+        "counts": {},
+        "seconds": {},
+        "stats": {}
+      },
+      "graded_matched": {
+        "counts": {
+          "adjoint_solves": 98304,
+          "curvature_assemblies": 6144,
+          "parameter_updates": 6144,
+          "pilot_factorizations": 6144,
+          "pilot_solves": 98304,
+          "retractions": 98304,
+          "route_evaluations": 98304,
+          "second_factorizations": 98304,
+          "second_solves": 98304
+        },
+        "seconds": {
+          "adjoint_solve": 2.1480423449,
+          "gradient_assembly": 1.03753659995,
+          "hessian_assembly": 1.65982695102,
+          "learning": 17.3928119451,
+          "pilot_factor": 0.188957524071,
+          "pilot_solve": 0.5090060209,
+          "retraction": 1.83388693503,
+          "routes": 1.065350055,
+          "second_factor": 1.71374886504,
+          "second_solve": 2.22601978098
+        },
+        "stats": {
+          "adjoint_max_relative_residual": 5.45227111798e-17,
+          "pilot_max_condition": 144.508999259,
+          "pilot_max_relative_residual": 4.21318804679e-15,
+          "second_max_condition_lower_bound": 18.4365105295,
+          "second_max_relative_residual": 4.28702332666e-15
+        }
+      },
+      "graded_mean": {
+        "counts": {
+          "adjoint_solves": 98304,
+          "curvature_assemblies": 6144,
+          "parameter_updates": 6144,
+          "pilot_factorizations": 6144,
+          "pilot_solves": 98304,
+          "retractions": 98304,
+          "route_evaluations": 98304,
+          "second_factorizations": 98304,
+          "second_solves": 98304
+        },
+        "seconds": {
+          "adjoint_solve": 2.14404585491,
+          "gradient_assembly": 1.03581726495,
+          "hessian_assembly": 1.66019284296,
+          "learning": 17.393514551,
+          "pilot_factor": 0.188642026911,
+          "pilot_solve": 0.508819065055,
+          "retraction": 1.8300626801,
+          "routes": 1.08721340998,
+          "second_factor": 1.71105202897,
+          "second_solve": 2.22251226893
+        },
+        "stats": {
+          "adjoint_max_relative_residual": 5.17260076515e-17,
+          "pilot_max_condition": 144.500728833,
+          "pilot_max_relative_residual": 4.5243527977e-15,
+          "second_max_condition_lower_bound": 14.1356957764,
+          "second_max_relative_residual": 4.19453799805e-15
+        }
+      },
+      "graded_shifted": {
+        "counts": {
+          "adjoint_solves": 98304,
+          "curvature_assemblies": 6144,
+          "parameter_updates": 6144,
+          "pilot_factorizations": 6144,
+          "pilot_solves": 98304,
+          "retractions": 98304,
+          "route_evaluations": 98304,
+          "second_factorizations": 98304,
+          "second_solves": 98304
+        },
+        "seconds": {
+          "adjoint_solve": 2.14353855302,
+          "gradient_assembly": 1.03675513201,
+          "hessian_assembly": 1.65899490406,
+          "learning": 17.468995885,
+          "pilot_factor": 0.188773314965,
+          "pilot_solve": 0.507911374019,
+          "retraction": 1.83127055804,
+          "routes": 1.16327680701,
+          "second_factor": 1.71368083894,
+          "second_solve": 2.22010378009
+        },
+        "stats": {
+          "adjoint_max_relative_residual": 5.52355963779e-17,
+          "pilot_max_condition": 144.498810485,
+          "pilot_max_relative_residual": 5.40383614622e-15,
+          "second_max_condition_lower_bound": 18.5691982592,
+          "second_max_relative_residual": 4.78728304643e-15
+        }
+      },
+      "phase_target_cca": {
+        "counts": {
+          "cholesky_8": 1152,
+          "eigh_8": 1152,
+          "local_solves": 288,
+          "target_pairs": 12288
+        },
+        "seconds": {
+          "solve": 0.160864019996,
+          "target_update": 0.221583779097
+        },
+        "stats": {}
+      },
+      "pooled_local_cca": {
+        "counts": {
+          "cholesky_8": 1152,
+          "eigh_8": 1152,
+          "local_solves": 288,
+          "target_pairs": 12288
+        },
+        "seconds": {
+          "solve": 0.158598455982,
+          "target_update": 0.220074614894
+        },
+        "stats": {}
+      },
+      "reversed_matched": {
+        "counts": {
+          "adjoint_solves": 98304,
+          "curvature_assemblies": 6144,
+          "parameter_updates": 6144,
+          "pilot_factorizations": 6144,
+          "pilot_solves": 98304,
+          "retractions": 98304,
+          "route_evaluations": 98304,
+          "second_factorizations": 98304,
+          "second_solves": 98304
+        },
+        "seconds": {
+          "adjoint_solve": 2.15839517305,
+          "gradient_assembly": 1.04271968394,
+          "hessian_assembly": 1.67078299695,
+          "learning": 17.486460753,
+          "pilot_factor": 0.189903830993,
+          "pilot_solve": 0.512928399963,
+          "retraction": 1.84232269088,
+          "routes": 1.07021965116,
+          "second_factor": 1.7239698049,
+          "second_solve": 2.23753029693
+        },
+        "stats": {
+          "adjoint_max_relative_residual": 5.17703566727e-17,
+          "pilot_max_condition": 145.362920988,
+          "pilot_max_relative_residual": 4.96863503073e-15,
+          "second_max_condition_lower_bound": 18.093716722,
+          "second_max_relative_residual": 4.09008580809e-15
+        }
+      },
+      "source_acquisition": {
+        "counts": {
+          "candidate_scores": 256,
+          "cholesky_8": 1056,
+          "eigh_8": 1056,
+          "fit_row_exposures": 51200,
+          "fits": 264,
+          "local_solves": 8,
+          "refits": 8,
+          "source_pairs": 2048,
+          "validation_row_exposures": 16384
+        },
+        "seconds": {
+          "basis_completion": 0.00587355100106,
+          "covariance": 0.0246919649671,
+          "factorization": 0.136376310973,
+          "solve": 0.00435286399807,
+          "source_selection": 0.184978563002,
+          "source_statistics": 0.00148181700024,
+          "validation": 0.0106493880212
+        },
+        "stats": {}
+      },
+      "source_warm_up": {
+        "counts": {
+          "adjoint_solves": 16384,
+          "curvature_assemblies": 1024,
+          "fixed_route_factorizations": 1024,
+          "parameter_updates": 1024,
+          "retractions": 16384,
+          "second_solves": 16384
+        },
+        "seconds": {
+          "adjoint_solve": 0.0707162479721,
+          "fixed_route_factor": 0.0312167430147,
+          "gradient_assembly": 0.172528326999,
+          "hessian_assembly": 0.274162561016,
+          "retraction": 0.300015154999,
+          "second_solve": 0.0826071640349,
+          "warm_up": 1.098992426
+        },
+        "stats": {
+          "adjoint_max_relative_residual": 5.08912103888e-17,
+          "second_max_relative_residual": 3.62547702983e-15
+        }
+      },
+      "uniform_matched": {
+        "counts": {
+          "adjoint_solves": 98304,
+          "curvature_assemblies": 6144,
+          "parameter_updates": 6144,
+          "pilot_factorizations": 6144,
+          "pilot_solves": 98304,
+          "retractions": 98304,
+          "route_evaluations": 98304,
+          "second_factorizations": 98304,
+          "second_solves": 98304
+        },
+        "seconds": {
+          "adjoint_solve": 2.15657579392,
+          "gradient_assembly": 1.04204253105,
+          "hessian_assembly": 1.66628760695,
+          "learning": 17.459957752,
+          "pilot_factor": 0.189708341062,
+          "pilot_solve": 0.511107282966,
+          "retraction": 1.84057869195,
+          "routes": 1.06958533691,
+          "second_factor": 1.72193524597,
+          "second_solve": 2.23540669999
+        },
+        "stats": {
+          "adjoint_max_relative_residual": 5.08757840583e-17,
+          "pilot_max_condition": 144.729915582,
+          "pilot_max_relative_residual": 4.84415650637e-15,
+          "second_max_condition_lower_bound": 18.1772976286,
+          "second_max_relative_residual": 4.87360633157e-15
+        }
+      }
+    },
+    "execution_note": "source acquisition and warm-up execute once per world and are shared by every arm and branch; each standalone arm is charged them in charged_counts_per_arm_and_branch. Arm meters count adaptation only; evaluator inference, controls and Schur references are in the evaluator meter.",
+    "independent_pairs": {
+      "b_per_world": 256,
+      "evaluator_per_set": 256,
+      "note": "B, return and evaluator draws are shared across branches; evaluator second views are generated but unused",
+      "return_per_world": 256,
+      "source_per_world": 256,
+      "worlds": 8
+    },
+    "peak_rss_kib": 162544,
+    "process_cpu_seconds": 659.77515649,
+    "revision": "927e0504f5c4adb33df265965baa86d40803f2d3",
+    "rss_scope": "cumulative parent-process high-water RSS (Linux KiB), not per-arm memory",
+    "scope": "two complete development passes (determinism check) and JSON write; meters from pass 1",
+    "solver_failures": 0,
+    "wall_seconds": 659.896906516
+  },
+  "environment": {
+    "cpu": "AMD Ryzen 5 3600 6-Core Processor",
+    "dtype": "float64",
+    "logical_cpus": 12,
+    "machine": "x86_64",
+    "numpy": "2.5.4",
+    "numpy_build": {
+      "Build Dependencies": {
+        "blas": {
+          "detection method": "pkgconfig",
+          "found": true,
+          "include directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include",
+          "lib directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib",
+          "name": "scipy-openblas",
+          "openblas configuration": "OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64",
+          "pc file directory": "/project/.openblas",
+          "version": "0.3.34.106.0"
+        },
+        "lapack": {
+          "detection method": "pkgconfig",
+          "found": true,
+          "include directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include",
+          "lib directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib",
+          "name": "scipy-openblas",
+          "openblas configuration": "OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64",
+          "pc file directory": "/project/.openblas",
+          "version": "0.3.34.106.0"
+        }
+      },
+      "Compilers": {
+        "c": {
+          "commands": "cc",
+          "linker": "ld.bfd",
+          "name": "gcc",
+          "version": "14.2.1"
+        },
+        "c++": {
+          "commands": "c++",
+          "linker": "ld.bfd",
+          "name": "gcc",
+          "version": "14.2.1"
+        },
+        "cython": {
+          "commands": "cython",
+          "linker": "cython",
+          "name": "cython",
+          "version": "3.3.0"
+        }
+      },
+      "Machine Information": {
+        "build": {
+          "cpu": "x86_64",
+          "endian": "little",
+          "family": "x86_64",
+          "system": "linux"
+        },
+        "host": {
+          "cpu": "x86_64",
+          "endian": "little",
+          "family": "x86_64",
+          "system": "linux"
+        }
+      },
+      "Python Information": {
+        "path": "/tmp/build-env-ptu49_tp/bin/python",
+        "version": "3.12"
+      },
+      "SIMD Extensions": {
+        "baseline": [
+          "X86_V2"
+        ],
+        "found": [
+          "X86_V3"
+        ],
+        "not found": [
+          "X86_V4",
+          "AVX512_ICL",
+          "AVX512_SPR"
+        ]
+      }
+    },
+    "platform": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+    "processes": 1,
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "scipy": "1.18.1",
+    "thread_environment": {
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    }
+  },
+  "seed_policy": "SeedSequence([2026102410, stage, world, part])",
+  "sources": {
+    "docs/locality-adaptation-v1-contract.md": "1231719cd110757fac6a2f34ba7d91db1f2de18f894cf60568e9c8875f479c7e",
+    "docs/locality-adaptation-v2-contract.md": "00099acca6bdb69dbad67789274913cec664675e6b819a6345fe605fdbd20f9b",
+    "docs/representation-reuse-v1-contract.md": "fa3a5915ac7d2affa406626fc6f5325007a35519516363b20c4af4bcc0cf5af6",
+    "docs/single-module-plasticity-v1-contract.md": "c20746482369e0fe07c6c77242946d1876505fd474198623eb5201d5492b5e31",
+    "experiments/locality_adaptation.py": "3a9e5388a848bb6f85077a57f15e849fd46f602cf73bcd25b922ef62eca89722",
+    "experiments/locality_adaptation_v2.py": "af5f61ba33d7e2ec491efc1cc0888a4c1fa1a49af7f047381b53bee22ec51df0",
+    "experiments/representation_reuse.py": "43f0a1879a56a73578dff254b2c43bc3fce45ba8aa3494a9e758d86d573579f7",
+    "experiments/single_module_plasticity.py": "4e2c5271090662699cbebfe31021da457cd7ba10b49637bf9c32f97c07efa86c",
+    "requirements.txt": "4c301c485945661f312de32ab996187af9230aa5064d0fe76ad627b8b0a75b0a",
+    "src/locality_adaptation.py": "b4e96a1382d892deebfe24b6daa286c08b49ce4c67ed83fd030a4320cb4139ce",
+    "src/locality_adaptation_v2.py": "4c350ec49bbe0a71668a7b6c18429beaad69a5501765c226e6b13856027a2df6",
+    "src/representation_reuse.py": "1530b8cb78b292849ff49e6cc62e01adc67ed337cec2073f1805daadb27c90da",
+    "src/single_module_plasticity.py": "9c8632fce528f72129446bec009021ef6c1cf4e0f4145182d46e2239c28ddeb3",
+    "tests/test_locality_adaptation.py": "e5ae05affbc8abbc05abead66d809503f3f1da26e39d3b83e8623b0a8083ca0d",
+    "tests/test_locality_adaptation_v2.py": "cd864f576ab6a95dabd0f0eaacd1009f6a27c15cc9ed7bfe307f7d1ddd6d8c04",
+    "tests/test_representation_reuse.py": "4e82f81004a27e76889c6681e67e40ed04af60f0b5b1c5c771f332ce509f862d",
+    "tests/test_single_module_plasticity.py": "38eb5d8a0b4aed44d4e8dbe75f2e70900c0b1f5e3df437d0bd0343015fe427b0"
+  },
+  "state_bytes": {
+    "layered": {
+      "maps_and_terminal": 2624,
+      "phase": 8,
+      "topology_indices": 640
+    },
+    "phase_target_cca": {
+      "after_256_pairs": {
+        "a": 2048,
+        "c": 2048,
+        "count": 8,
+        "phase": 8,
+        "weights": 256
+      },
+      "transition": {
+        "a": 2048,
+        "c": 2048,
+        "count": 8,
+        "phase": 8
+      }
+    },
+    "pooled_local_cca": {
+      "after_256_pairs": {
+        "a": 2048,
+        "c": 2048,
+        "count": 8,
+        "phase": 8,
+        "source_count": 8,
+        "weights": 256
+      },
+      "transition": {
+        "a": 2048,
+        "c": 2048,
+        "count": 8,
+        "phase": 8,
+        "source_count": 8,
+        "weights": 256
+      }
+    }
+  }
+}

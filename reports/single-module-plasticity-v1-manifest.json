@@ -1,0 +1,363 @@
+{
+  "arms": {
+    "frozen_layered": [
+      null,
+      "matched"
+    ],
+    "graded_matched": [
+      "graded",
+      "matched"
+    ],
+    "graded_mean": [
+      "graded",
+      "mean"
+    ],
+    "graded_shifted": [
+      "graded",
+      "shifted"
+    ],
+    "reversed_matched": [
+      "reversed",
+      "matched"
+    ],
+    "uniform_matched": [
+      "uniform",
+      "matched"
+    ]
+  },
+  "b_checkpoints": [
+    0,
+    8,
+    16,
+    32,
+    64,
+    128,
+    256
+  ],
+  "branches": [
+    "stable",
+    "regional",
+    "global"
+  ],
+  "confirmation_worlds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63
+  ],
+  "contract": "docs/single-module-plasticity-v1-contract.md",
+  "correctness_tests": "Ran 91 tests in 10.456s / OK",
+  "decision_rule": {
+    "branch": "regional",
+    "candidate": "graded_matched",
+    "claims": [
+      [
+        "H1_matching_beats_mean_routing_on_target",
+        "E_B",
+        "graded_mean",
+        0.01
+      ],
+      [
+        "H2_matching_beats_shifted_routing_on_target",
+        "E_B",
+        "graded_shifted",
+        0.01
+      ],
+      [
+        "H3_slower_inner_learning_preserves_source",
+        "E_A",
+        "uniform_matched",
+        0.01
+      ],
+      [
+        "H4_target_adaptation_noninferior_to_uniform",
+        "E_B",
+        "uniform_matched",
+        -0.02
+      ]
+    ],
+    "confidence": 0.9875,
+    "test": "one-sided paired Student-t lower bound over 64 worlds; all four required"
+  },
+  "dependency_hashes": {
+    "docs/locality-adaptation-v1-contract.md": "1231719cd110757fac6a2f34ba7d91db1f2de18f894cf60568e9c8875f479c7e",
+    "docs/locality-adaptation-v2-contract.md": "00099acca6bdb69dbad67789274913cec664675e6b819a6345fe605fdbd20f9b",
+    "docs/representation-reuse-v1-contract.md": "fa3a5915ac7d2affa406626fc6f5325007a35519516363b20c4af4bcc0cf5af6",
+    "experiments/locality_adaptation.py": "3a9e5388a848bb6f85077a57f15e849fd46f602cf73bcd25b922ef62eca89722",
+    "experiments/locality_adaptation_v2.py": "af5f61ba33d7e2ec491efc1cc0888a4c1fa1a49af7f047381b53bee22ec51df0",
+    "experiments/representation_reuse.py": "43f0a1879a56a73578dff254b2c43bc3fce45ba8aa3494a9e758d86d573579f7",
+    "src/locality_adaptation.py": "b4e96a1382d892deebfe24b6daa286c08b49ce4c67ed83fd030a4320cb4139ce",
+    "src/locality_adaptation_v2.py": "4c350ec49bbe0a71668a7b6c18429beaad69a5501765c226e6b13856027a2df6",
+    "src/representation_reuse.py": "1530b8cb78b292849ff49e6cc62e01adc67ed337cec2073f1805daadb27c90da",
+    "tests/test_locality_adaptation.py": "e5ae05affbc8abbc05abead66d809503f3f1da26e39d3b83e8623b0a8083ca0d",
+    "tests/test_locality_adaptation_v2.py": "cd864f576ab6a95dabd0f0eaacd1009f6a27c15cc9ed7bfe307f7d1ddd6d8c04",
+    "tests/test_representation_reuse.py": "4e82f81004a27e76889c6681e67e40ed04af60f0b5b1c5c771f332ce509f862d"
+  },
+  "development_report_sha256": "352d6cea66470d724d52f8548bdc0f3917f02397698b353c4686fdf10a2c8bb5",
+  "development_worlds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "dimensions": {
+    "M": 80,
+    "b": 8,
+    "d": 32,
+    "folds": 4,
+    "k": 4,
+    "phases": 8,
+    "sectors": [
+      8,
+      6,
+      4,
+      2
+    ],
+    "widths": [
+      32,
+      24,
+      16,
+      8
+    ]
+  },
+  "direct_arms": [
+    "phase_target_cca",
+    "pooled_local_cca"
+  ],
+  "environment": {
+    "cpu": "AMD Ryzen 5 3600 6-Core Processor",
+    "dtype": "float64",
+    "logical_cpus": 12,
+    "machine": "x86_64",
+    "numpy": "2.5.4",
+    "numpy_build": {
+      "Build Dependencies": {
+        "blas": {
+          "detection method": "pkgconfig",
+          "found": true,
+          "include directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include",
+          "lib directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib",
+          "name": "scipy-openblas",
+          "openblas configuration": "OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64",
+          "pc file directory": "/project/.openblas",
+          "version": "0.3.34.106.0"
+        },
+        "lapack": {
+          "detection method": "pkgconfig",
+          "found": true,
+          "include directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include",
+          "lib directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib",
+          "name": "scipy-openblas",
+          "openblas configuration": "OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64",
+          "pc file directory": "/project/.openblas",
+          "version": "0.3.34.106.0"
+        }
+      },
+      "Compilers": {
+        "c": {
+          "commands": "cc",
+          "linker": "ld.bfd",
+          "name": "gcc",
+          "version": "14.2.1"
+        },
+        "c++": {
+          "commands": "c++",
+          "linker": "ld.bfd",
+          "name": "gcc",
+          "version": "14.2.1"
+        },
+        "cython": {
+          "commands": "cython",
+          "linker": "cython",
+          "name": "cython",
+          "version": "3.3.0"
+        }
+      },
+      "Machine Information": {
+        "build": {
+          "cpu": "x86_64",
+          "endian": "little",
+          "family": "x86_64",
+          "system": "linux"
+        },
+        "host": {
+          "cpu": "x86_64",
+          "endian": "little",
+          "family": "x86_64",
+          "system": "linux"
+        }
+      },
+      "Python Information": {
+        "path": "/tmp/build-env-ptu49_tp/bin/python",
+        "version": "3.12"
+      },
+      "SIMD Extensions": {
+        "baseline": [
+          "X86_V2"
+        ],
+        "found": [
+          "X86_V3"
+        ],
+        "not found": [
+          "X86_V4",
+          "AVX512_ICL",
+          "AVX512_SPR"
+        ]
+      }
+    },
+    "platform": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+    "processes": 1,
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "scipy": "1.18.1",
+    "thread_environment": {
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    }
+  },
+  "hashes": {
+    "docs/single-module-plasticity-v1-contract.md": "c20746482369e0fe07c6c77242946d1876505fd474198623eb5201d5492b5e31",
+    "experiments/single_module_plasticity.py": "4e2c5271090662699cbebfe31021da457cd7ba10b49637bf9c32f97c07efa86c",
+    "requirements.txt": "4c301c485945661f312de32ab996187af9230aa5064d0fe76ad627b8b0a75b0a",
+    "src/single_module_plasticity.py": "9c8632fce528f72129446bec009021ef6c1cf4e0f4145182d46e2239c28ddeb3",
+    "tests/test_single_module_plasticity.py": "38eb5d8a0b4aed44d4e8dbe75f2e70900c0b1f5e3df437d0bd0343015fe427b0"
+  },
+  "learning": {
+    "drift_degrees": 60,
+    "eta": 0.1,
+    "pairs_per_batch": 8,
+    "profiles": {
+      "graded": [
+        2.13333333333,
+        1.06666666667,
+        0.533333333333,
+        0.266666666667
+      ],
+      "reversed": [
+        0.266666666667,
+        0.533333333333,
+        1.06666666667,
+        2.13333333333
+      ],
+      "uniform": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "updates_per_batch": 4
+  },
+  "primary_window": [
+    16,
+    32,
+    64,
+    128,
+    256
+  ],
+  "return_checkpoints": [
+    8,
+    16,
+    32,
+    64,
+    128,
+    256
+  ],
+  "reuse_manifest_sha256": "6c4ceab05555c819f96b1e263d3d203bb1a71e1b709bc7ed2d96a4bcfb155d0a",
+  "revision_at_freeze": "927e0504f5c4adb33df265965baa86d40803f2d3",
+  "scope": "single-module plasticity v1 confirmation",
+  "seeds": {
+    "entropy": "[root, stage, world, part]",
+    "loop_order": "world > source acquisition > warm-up > branch > layered arms > direct arms > B batches > return batches; evaluation at checkpoints",
+    "parts": {
+      "0": "templates: per block 3 signal then 5 texture normals (v1 recipe)",
+      "1": "reserved, never drawn",
+      "2": "source phase integers(0, 8)",
+      "3": "source stream c (256,k), g1 (256,k), g2 (256,k), e1 (256,d), e2 (256,d)",
+      "4": "B stream, same shapes and order",
+      "5": "drift directions (k, b) Gaussian",
+      "6": "regional drifted sector integers(0, 4)",
+      "7": "A-return stream",
+      "8": "evaluator A (first view and clean signal used)",
+      "9": "evaluator B"
+    },
+    "root": 2026102410,
+    "stages": {
+      "confirmation": 1,
+      "development": 0,
+      "timing": 2
+    }
+  },
+  "test_modules": [
+    "tests.test_single_module_plasticity",
+    "tests.test_representation_reuse",
+    "tests.test_locality_adaptation_v2",
+    "tests.test_locality_adaptation"
+  ],
+  "v1_manifest_sha256": "24ad9aa4556482a84abe6210b18ae7e61da4137f4ae75474f5a7af0dea10023a",
+  "v2_manifest_sha256": "68d7a44c7448a5eb67b30141b97754d23ffc52f1ecc9b6a75056c9b37d474658"
+}
