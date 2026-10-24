@@ -190,7 +190,7 @@ solve once. Totals are arithmetic estimates using the m=32 endpoint.
   single-episode totals. With 100 episodes the source is acquired once, and
   phase reuse (1.6 s) is about 20× cheaper than fresh local CV (33 s).
 - **Global costs grow faster.** At d=512, per-pair d² updates plus d³ solves
-  make pooled and fresh global adaptation 15–65× slower than local. Their
+  make pooled and fresh global adaptation 14–41× slower than local. Their
   deployed basis is 64× larger, but inference is about 2× faster in this
   NumPy implementation.
 - **Retained state differs by policy.** Phase reuse and pooled local hold
