@@ -1,0 +1,158 @@
+{
+  "linear_mmse_nmse_alpha1_sigma0_1": 0.1311111111111111,
+  "maximum_lambda_sufficient_for_nuisance_power_0_15": 0.1251779146262374,
+  "minimum_unwanted_surface_stiffness": 0.6153846153846154,
+  "records": {
+    "current_centre": [
+      {
+        "clean_bias_mse": 0.3985969387755166,
+        "full_hessian_min_eigenvalue": 0.13336139380684894,
+        "lambda_tie": 0.03,
+        "nmse_alpha0_5_sigma0_1": 0.8177535373966143,
+        "nmse_alpha1_sigma0_1": 0.8194325169333575,
+        "nuisance_power_fraction": 0.00223863938232448,
+        "signal_gain": 0.10714285714285712,
+        "spatial_surface_max_error": 1.099641211421698e-14,
+        "surface_spectral_max_error": 8.11980691017844e-15
+      },
+      {
+        "clean_bias_mse": 0.2551020408163373,
+        "full_hessian_min_eigenvalue": 0.16167793523301377,
+        "lambda_tie": 0.1,
+        "nmse_alpha0_5_sigma0_1": 0.5346971751445545,
+        "nmse_alpha1_sigma0_1": 0.5481764556801941,
+        "nuisance_power_fraction": 0.017972374047520598,
+        "signal_gain": 0.28571428571428575,
+        "spatial_surface_max_error": 3.054501096499962e-14,
+        "surface_spectral_max_error": 1.7550956347978097e-14
+      },
+      {
+        "clean_bias_mse": 0.10330578512397538,
+        "full_hessian_min_eigenvalue": 0.23199745747154119,
+        "lambda_tie": 0.3,
+        "nmse_alpha0_5_sigma0_1": 0.2482289087431524,
+        "nmse_alpha1_sigma0_1": 0.31308092422875733,
+        "nuisance_power_fraction": 0.08646935398080935,
+        "signal_gain": 0.5454545454545454,
+        "spatial_surface_max_error": 3.8968828164342995e-14,
+        "surface_spectral_max_error": 2.1913026948539027e-14
+      },
+      {
+        "clean_bias_mse": 0.02000000000000239,
+        "full_hessian_min_eigenvalue": 0.38196601124955554,
+        "lambda_tie": 1.0,
+        "nmse_alpha0_5_sigma0_1": 0.1364597612990342,
+        "nmse_alpha1_sigma0_1": 0.3658390451961224,
+        "nuisance_power_fraction": 0.3058390451961205,
+        "signal_gain": 0.8,
+        "spatial_surface_max_error": 8.7360674250192e-15,
+        "surface_spectral_max_error": 1.482147737874584e-14
+      },
+      {
+        "clean_bias_mse": 0.002958579881657212,
+        "full_hessian_min_eigenvalue": 0.504492343394786,
+        "lambda_tie": 3.0,
+        "nmse_alpha0_5_sigma0_1": 0.1773763558991794,
+        "nmse_alpha1_sigma0_1": 0.6317539443067745,
+        "nuisance_power_fraction": 0.6058367845434618,
+        "signal_gain": 0.9230769230769231,
+        "spatial_surface_max_error": 5.872038966181492e-15,
+        "surface_spectral_max_error": 6.832208410134655e-15
+      },
+      {
+        "clean_bias_mse": 0.00029744199881027517,
+        "full_hessian_min_eigenvalue": 0.5607968692545509,
+        "lambda_tie": 10.0,
+        "nmse_alpha0_5_sigma0_1": 0.23202091426658247,
+        "nmse_alpha1_sigma0_1": 0.8662990050734682,
+        "nuisance_power_fraction": 0.8457041210758487,
+        "signal_gain": 0.975609756097561,
+        "spatial_surface_max_error": 3.178880769727499e-15,
+        "surface_spectral_max_error": 2.3444787777826548e-15
+      }
+    ],
+    "free_terminal": [
+      {
+        "clean_bias_mse": 1.3835038057419172e-22,
+        "full_hessian_min_eigenvalue": 0.007306087855373464,
+        "lambda_tie": 0.03,
+        "nmse_alpha0_5_sigma0_1": 0.05145092265787325,
+        "nmse_alpha1_sigma0_1": 0.145803690631493,
+        "nuisance_power_fraction": 0.1258036906322934,
+        "signal_gain": 1.0,
+        "slowest_target_time_constant": 136.87215643851107,
+        "spatial_surface_max_error": 2.0723180116366535e-12,
+        "surface_spectral_max_error": 2.2943467872099665e-12,
+        "surface_step_t95": 406.40767164777776
+      },
+      {
+        "clean_bias_mse": 1.2450933367987951e-23,
+        "full_hessian_min_eigenvalue": 0.022922605537741482,
+        "lambda_tie": 0.1,
+        "nmse_alpha0_5_sigma0_1": 0.053192073615800375,
+        "nmse_alpha1_sigma0_1": 0.1527682944632015,
+        "nuisance_power_fraction": 0.1327682944634415,
+        "signal_gain": 1.0,
+        "slowest_target_time_constant": 43.625058169115675,
+        "spatial_surface_max_error": 1.2853051956085437e-12,
+        "surface_spectral_max_error": 6.874539999757179e-13,
+        "surface_step_t95": 126.77465292505552
+      },
+      {
+        "clean_bias_mse": 1.383694721940173e-24,
+        "full_hessian_min_eigenvalue": 0.058235976743238105,
+        "lambda_tie": 0.3,
+        "nmse_alpha0_5_sigma0_1": 0.06356982049258945,
+        "nmse_alpha1_sigma0_1": 0.19427928197035782,
+        "nuisance_power_fraction": 0.1742792819704381,
+        "signal_gain": 1.0,
+        "slowest_target_time_constant": 17.171515889631383,
+        "spatial_surface_max_error": 3.573807916268379e-13,
+        "surface_spectral_max_error": 2.2861272201473923e-13,
+        "surface_step_t95": 46.726980090886485
+      },
+      {
+        "clean_bias_mse": 1.2457854072782074e-25,
+        "full_hessian_min_eigenvalue": 0.12061475842765006,
+        "lambda_tie": 1.0,
+        "nmse_alpha0_5_sigma0_1": 0.10770976869564379,
+        "nmse_alpha1_sigma0_1": 0.37083907478257516,
+        "nuisance_power_fraction": 0.3508390747825996,
+        "signal_gain": 1.0,
+        "slowest_target_time_constant": 8.290859369381598,
+        "spatial_surface_max_error": 6.09512440519211e-14,
+        "surface_spectral_max_error": 7.032742443957574e-14,
+        "surface_step_t95": 17.860040837992155
+      },
+      {
+        "clean_bias_mse": 1.3846507614047673e-26,
+        "full_hessian_min_eigenvalue": 0.16575681568584977,
+        "lambda_tie": 3.0,
+        "nmse_alpha0_5_sigma0_1": 0.1760819848571657,
+        "nmse_alpha1_sigma0_1": 0.6443279394286628,
+        "nuisance_power_fraction": 0.6243279394286712,
+        "signal_gain": 1.0,
+        "slowest_target_time_constant": 6.032934427829924,
+        "spatial_surface_max_error": 2.008115895790752e-14,
+        "surface_spectral_max_error": 2.3935714521527984e-14,
+        "surface_step_t95": 7.502228597021009
+      },
+      {
+        "clean_bias_mse": 1.2469123640667258e-27,
+        "full_hessian_min_eigenvalue": 0.18761915671927779,
+        "lambda_tie": 10.0,
+        "nmse_alpha0_5_sigma0_1": 0.23293183427183148,
+        "nmse_alpha1_sigma0_1": 0.871727337087326,
+        "nuisance_power_fraction": 0.8517273370873284,
+        "signal_gain": 1.0,
+        "slowest_target_time_constant": 5.329946139214435,
+        "spatial_surface_max_error": 9.017092628127443e-15,
+        "surface_spectral_max_error": 7.277923923243446e-15,
+        "surface_step_t95": 1.2111329790759502
+      }
+    ]
+  },
+  "status": "exact operator and moment calculations; no random draws",
+  "target_stiffness_tolerance_for_gain_0_95_at_lambda_0_1": 0.005263157894736842,
+  "unbiased_projection_nmse_alpha1_sigma0_1": 0.145
+}

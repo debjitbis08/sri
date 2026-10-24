@@ -1,0 +1,113 @@
+{
+  "alpha1_noise_variance_physical_averages": {
+    "core": 0.0625,
+    "mid": 0.125,
+    "surface": 0.5
+  },
+  "eta1_perfect_context_nuisance_fraction": 0.9453125,
+  "innovation_dimensions": [
+    24,
+    4,
+    4
+  ],
+  "maximum_total_white_noise_reduction_by_coarse_only_correction": 0.125,
+  "mode_retained_power": {
+    "1": {
+      "cos": {
+        "core_retained_power": 0.8131786634360738,
+        "mid_retained_power": 0.9526980648168513
+      },
+      "sin": {
+        "core_retained_power": 0.8131786634360736,
+        "mid_retained_power": 0.9526980648168513
+      }
+    },
+    "8": {
+      "cos": {
+        "core_retained_power": 1.0873824435823273e-30,
+        "mid_retained_power": 1.1120343468704841e-30
+      },
+      "sin": {
+        "core_retained_power": 1.1407862361542262e-31,
+        "mid_retained_power": 6.07116689378555e-31
+      }
+    }
+  },
+  "models": {
+    "0.0": {
+      "coarse_surface_gain": 1.0,
+      "detail_surface_gain": 1.0,
+      "effective_surface_stiffness": 0.0,
+      "models": {
+        "compact": {
+          "hessian_eigenvalue_range": [
+            0.2928932188134523,
+            1.7071067811865477
+          ],
+          "off_diagonal_interactions": 144,
+          "slowest_time_constant": 3.4142135623730967,
+          "states": 36,
+          "surface_closed_form_max_error": 1.9333367435161808e-17
+        },
+        "hierarchy": {
+          "hessian_eigenvalue_range": [
+            0.19806226419516168,
+            3.246979603717467
+          ],
+          "off_diagonal_interactions": 92,
+          "slowest_time_constant": 5.048917339522307,
+          "states": 44,
+          "surface_closed_form_max_error": 2.220446049250313e-16
+        },
+        "surface_only": {
+          "hessian_eigenvalue_range": [
+            1.0,
+            1.0
+          ],
+          "off_diagonal_interactions": 0,
+          "slowest_time_constant": 1.0,
+          "states": 32,
+          "surface_closed_form_max_error": 0.0
+        }
+      }
+    },
+    "1.0": {
+      "coarse_surface_gain": 0.75,
+      "detail_surface_gain": 1.0,
+      "effective_surface_stiffness": 0.3333333333333333,
+      "models": {
+        "compact": {
+          "hessian_eigenvalue_range": [
+            0.9999999999999986,
+            2.000000000000001
+          ],
+          "off_diagonal_interactions": 144,
+          "slowest_time_constant": 1.0000000000000016,
+          "states": 36,
+          "surface_closed_form_max_error": 3.3306690738754696e-16
+        },
+        "hierarchy": {
+          "hessian_eigenvalue_range": [
+            0.3819660112501046,
+            3.414213562373095
+          ],
+          "off_diagonal_interactions": 92,
+          "slowest_time_constant": 2.6180339887498985,
+          "states": 44,
+          "surface_closed_form_max_error": 1.1102230246251565e-16
+        },
+        "surface_only": {
+          "hessian_eigenvalue_range": [
+            0.9999999999999992,
+            1.3333333333333335
+          ],
+          "off_diagonal_interactions": 112,
+          "slowest_time_constant": 1.0000000000000009,
+          "states": 32,
+          "surface_closed_form_max_error": 3.3306690738754696e-16
+        }
+      }
+    }
+  },
+  "status": "deterministic matrix and moment analysis; no sampled data"
+}

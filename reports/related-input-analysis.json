@@ -1,0 +1,266 @@
+{
+  "context_reuse": {
+    "coarse_dimension": 4,
+    "data_weight": 0.75,
+    "examples": {
+      "0.0": {
+        "beneficial": true,
+        "coarse_mse_with_context": 1.25,
+        "coarse_mse_without_context": 2.0
+      },
+      "12.0": {
+        "beneficial": false,
+        "coarse_mse_with_context": 2.0,
+        "coarse_mse_without_context": 2.0
+      },
+      "16.0": {
+        "beneficial": false,
+        "coarse_mse_with_context": 2.25,
+        "coarse_mse_without_context": 2.0
+      },
+      "4.0": {
+        "beneficial": true,
+        "coarse_mse_with_context": 1.5,
+        "coarse_mse_without_context": 2.0
+      }
+    },
+    "new_noise_variance": 0.5,
+    "old_context_noise_variance": 0.5,
+    "squared_true_coarse_change_threshold": 12.0
+  },
+  "response": {
+    "0.0": {
+      "broad": {
+        "core_delta_norm": 0.9999999999999994,
+        "middle_delta_norm": 0.9999999999999997,
+        "minimum_energy": 7.853942313211148e-31,
+        "surface_delta_norm": 0.9999999999999998,
+        "transient": {
+          "0.0": {
+            "core_change_norm": 7.782855031703208e-16,
+            "middle_change_norm": 5.792923066512306e-16,
+            "remaining_full_state_error": 1.7320508075688772,
+            "surface_change_norm": 1.7478581040980917e-15
+          },
+          "0.1": {
+            "core_change_norm": 0.0001473292107168067,
+            "middle_change_norm": 0.004387955613636672,
+            "remaining_full_state_error": 1.6785805785448153,
+            "surface_change_norm": 0.09077832600834218
+          },
+          "1.0": {
+            "core_change_norm": 0.055710978170058656,
+            "middle_change_norm": 0.1695456588069972,
+            "remaining_full_state_error": 1.3621250878959847,
+            "surface_change_norm": 0.4765034999918396
+          },
+          "10.0": {
+            "core_change_norm": 0.8316037256821531,
+            "middle_change_norm": 0.8649566059469944,
+            "remaining_full_state_error": 0.228496275898926,
+            "surface_change_norm": 0.9250565238450236
+          },
+          "3.0": {
+            "core_change_norm": 0.3289546407681049,
+            "middle_change_norm": 0.45829359029564376,
+            "remaining_full_state_error": 0.9141253347595465,
+            "surface_change_norm": 0.6968871180767682
+          }
+        }
+      },
+      "fine": {
+        "core_delta_norm": 0.0,
+        "middle_delta_norm": 0.0,
+        "minimum_energy": 7.122088934343998e-31,
+        "surface_delta_norm": 0.9999999999999999,
+        "transient": {
+          "0.0": {
+            "core_change_norm": 3.350090883046984e-17,
+            "middle_change_norm": 9.74373592700732e-17,
+            "remaining_full_state_error": 0.9999999999999998,
+            "surface_change_norm": 4.920160586561915e-16
+          },
+          "0.1": {
+            "core_change_norm": 2.3569577122988058e-17,
+            "middle_change_norm": 7.483867621332349e-17,
+            "remaining_full_state_error": 0.9048374180359594,
+            "surface_change_norm": 0.09516258196404058
+          },
+          "1.0": {
+            "core_change_norm": 1.629863452409539e-17,
+            "middle_change_norm": 4.9627061269112045e-17,
+            "remaining_full_state_error": 0.3678794411714423,
+            "surface_change_norm": 0.6321205588285577
+          },
+          "10.0": {
+            "core_change_norm": 4.3557226159200875e-18,
+            "middle_change_norm": 3.855627216558851e-18,
+            "remaining_full_state_error": 4.539992976248479e-05,
+            "surface_change_norm": 0.9999546000702375
+          },
+          "3.0": {
+            "core_change_norm": 1.247410759650544e-17,
+            "middle_change_norm": 2.448212409264189e-17,
+            "remaining_full_state_error": 0.04978706836786392,
+            "surface_change_norm": 0.950212931632136
+          }
+        }
+      },
+      "middle": {
+        "core_delta_norm": 1.021204231692932e-16,
+        "middle_delta_norm": 0.9999999999999997,
+        "minimum_energy": 7.376311687003113e-31,
+        "surface_delta_norm": 0.9999999999999998,
+        "transient": {
+          "0.0": {
+            "core_change_norm": 3.221032370219672e-16,
+            "middle_change_norm": 8.016855675366231e-16,
+            "remaining_full_state_error": 1.4142135623730943,
+            "surface_change_norm": 9.456668345763444e-16
+          },
+          "0.1": {
+            "core_change_norm": 3.6102746992434063e-16,
+            "middle_change_norm": 0.004531656955931724,
+            "remaining_full_state_error": 1.3481968736673677,
+            "surface_change_norm": 0.09078188086490349
+          },
+          "1.0": {
+            "core_change_norm": 7.29898469354502e-16,
+            "middle_change_norm": 0.2133544006966328,
+            "remaining_full_state_error": 0.9397047346981985,
+            "surface_change_norm": 0.48596333835916106
+          },
+          "10.0": {
+            "core_change_norm": 5.342560867175583e-16,
+            "middle_change_norm": 0.9743177559441867,
+            "remaining_full_state_error": 0.030191288604422564,
+            "surface_change_norm": 0.9841275002645079
+          },
+          "3.0": {
+            "core_change_norm": 1.0252995871784518e-15,
+            "middle_change_norm": 0.6278176944393664,
+            "remaining_full_state_error": 0.4376045051746662,
+            "surface_change_norm": 0.7698304225647188
+          }
+        }
+      }
+    },
+    "1.0": {
+      "broad": {
+        "core_delta_norm": 0.24999999999999994,
+        "middle_delta_norm": 0.49999999999999994,
+        "minimum_energy": 0.12500000000000014,
+        "surface_delta_norm": 0.7499999999999999,
+        "transient": {
+          "0.0": {
+            "core_change_norm": 2.309773475877243e-17,
+            "middle_change_norm": 9.113860871561652e-16,
+            "remaining_full_state_error": 0.935414346693484,
+            "surface_change_norm": 9.889692303474356e-16
+          },
+          "0.1": {
+            "core_change_norm": 0.00014370135917574078,
+            "middle_change_norm": 0.004387883790146768,
+            "remaining_full_state_error": 0.8617614268063885,
+            "surface_change_norm": 0.09077832482018558
+          },
+          "1.0": {
+            "core_change_norm": 0.04385171882386646,
+            "middle_change_norm": 0.16742834031690346,
+            "remaining_full_state_error": 0.4775732218540043,
+            "surface_change_norm": 0.47618407720556033
+          },
+          "10.0": {
+            "core_change_norm": 0.24878055466030213,
+            "middle_change_norm": 0.49827544313329913,
+            "remaining_full_state_error": 0.0024388917099723083,
+            "surface_change_norm": 0.7487805536297253
+          },
+          "3.0": {
+            "core_change_norm": 0.17699819351223045,
+            "middle_change_norm": 0.39589086081835345,
+            "remaining_full_state_error": 0.14724038101661985,
+            "surface_change_norm": 0.6757588174238973
+          }
+        }
+      },
+      "fine": {
+        "core_delta_norm": 0.0,
+        "middle_delta_norm": 0.0,
+        "minimum_energy": 5.527418940391367e-31,
+        "surface_delta_norm": 0.9999999999999999,
+        "transient": {
+          "0.0": {
+            "core_change_norm": 4.185442047675787e-16,
+            "middle_change_norm": 1.273886196412329e-16,
+            "remaining_full_state_error": 0.9999999999999999,
+            "surface_change_norm": 3.9555059464619167e-16
+          },
+          "0.1": {
+            "core_change_norm": 3.380094281269182e-16,
+            "middle_change_norm": 8.396193677603009e-17,
+            "remaining_full_state_error": 0.9048374180359594,
+            "surface_change_norm": 0.09516258196404048
+          },
+          "1.0": {
+            "core_change_norm": 8.449195035028248e-17,
+            "middle_change_norm": 1.1130589105837282e-16,
+            "remaining_full_state_error": 0.3678794411714423,
+            "surface_change_norm": 0.6321205588285577
+          },
+          "10.0": {
+            "core_change_norm": 3.894730073236679e-19,
+            "middle_change_norm": 3.3748767813573895e-18,
+            "remaining_full_state_error": 4.539992976248485e-05,
+            "surface_change_norm": 0.9999546000702375
+          },
+          "3.0": {
+            "core_change_norm": 2.161395564461403e-17,
+            "middle_change_norm": 5.2887437359156707e-17,
+            "remaining_full_state_error": 0.04978706836786394,
+            "surface_change_norm": 0.950212931632136
+          }
+        }
+      },
+      "middle": {
+        "core_delta_norm": 2.4441710796718684e-17,
+        "middle_delta_norm": 0.9999999999999996,
+        "minimum_energy": 5.820160291938227e-31,
+        "surface_delta_norm": 0.9999999999999998,
+        "transient": {
+          "0.0": {
+            "core_change_norm": 8.219794262010656e-17,
+            "middle_change_norm": 4.998242108461407e-16,
+            "remaining_full_state_error": 1.414213562373094,
+            "surface_change_norm": 1.1608318371160127e-15
+          },
+          "0.1": {
+            "core_change_norm": 1.4039123085519513e-16,
+            "middle_change_norm": 0.004531656955931332,
+            "remaining_full_state_error": 1.3481968736673677,
+            "surface_change_norm": 0.090781880864904
+          },
+          "1.0": {
+            "core_change_norm": 3.319671537632411e-16,
+            "middle_change_norm": 0.21335440069663153,
+            "remaining_full_state_error": 0.9397047346981994,
+            "surface_change_norm": 0.4859633383591611
+          },
+          "10.0": {
+            "core_change_norm": 5.403563258802816e-18,
+            "middle_change_norm": 0.9743177559441862,
+            "remaining_full_state_error": 0.030191288604422897,
+            "surface_change_norm": 0.9841275002645077
+          },
+          "3.0": {
+            "core_change_norm": 2.556133967000744e-16,
+            "middle_change_norm": 0.6278176944393649,
+            "remaining_full_state_error": 0.43760450517466765,
+            "surface_change_norm": 0.7698304225647183
+          }
+        }
+      }
+    }
+  },
+  "status": "deterministic related-input response and moment identities; no learned model"
+}

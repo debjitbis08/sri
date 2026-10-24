@@ -1,0 +1,65 @@
+{
+  "assumptions": [
+    "fixed coarse context",
+    "exact previous equilibrium",
+    "batch changes known",
+    "unit parameters",
+    "disjoint coarse groups",
+    "incremental output allowed"
+  ],
+  "cases": {
+    "fine_redistribution": {
+      "cached_forward_difference_error": 8.326672684688672e-18,
+      "changed_core": 0,
+      "changed_inputs": 2,
+      "changed_middle": 0,
+      "changed_surface": 2,
+      "local_solve_global_residual_norm": 0.0,
+      "total_changed_states": 2
+    },
+    "middle_redistribution": {
+      "cached_forward_difference_error": 0.0,
+      "changed_core": 0,
+      "changed_inputs": 2,
+      "changed_middle": 2,
+      "changed_surface": 2,
+      "local_solve_global_residual_norm": 1.9229626863835638e-16,
+      "total_changed_states": 4
+    },
+    "one_site": {
+      "cached_forward_difference_error": 5.551115123125783e-17,
+      "changed_core": 1,
+      "changed_inputs": 1,
+      "changed_middle": 2,
+      "changed_surface": 8,
+      "local_solve_global_residual_norm": 1.252369433697723e-16,
+      "total_changed_states": 11
+    },
+    "unchanged": {
+      "cached_forward_difference_error": 0.0,
+      "changed_core": 0,
+      "changed_inputs": 0,
+      "changed_middle": 0,
+      "changed_surface": 0,
+      "local_solve_global_residual_norm": 0.0,
+      "total_changed_states": 0
+    },
+    "whole_coarse_block": {
+      "cached_forward_difference_error": 2.220446049250313e-16,
+      "changed_core": 1,
+      "changed_inputs": 8,
+      "changed_middle": 2,
+      "changed_surface": 8,
+      "local_solve_global_residual_norm": 3.3306690738754696e-16,
+      "total_changed_states": 11
+    }
+  },
+  "minimum_hessian_eigenvalue": 0.3819660112501046,
+  "one_site_only_guess": {
+    "certified_error_upper_bound": 1.385333371629341,
+    "error_norm": 0.44651427748729383,
+    "residual_norm": 0.5291502622129182
+  },
+  "status": "exact support and residual analysis; no wall-time speedup claimed",
+  "total_states": 44
+}
