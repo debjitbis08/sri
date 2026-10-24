@@ -1,9 +1,52 @@
 # Single-module learning: comparison with established architectures
 
-**Status:** proposal, 2026-10-24. Not a frozen experimental contract. No
-learning experiment or benchmark has been run. This records the requirement
+**Status:** proposal, 2026-10-24. Not a frozen experimental contract. The
+analytical/spectral development preflight is complete; no neural learning
+experiment or benchmark has been run. This records the requirement
 to test faster learning and resilience against established alternatives,
 not merely demonstrate a successful module in isolation.
+
+**Execution decision (2026-10-24): preflight first.** Implement and run only
+section 2 under the separate
+[analytical preflight specification](single-module-learning-preflight.md).
+Do not build or run the neural suite yet. Use the exact equivalences,
+population references, finite-pair learning curves, and aligned/misaligned
+locality costs to decide what candidate is worth studying. No retained-context
+learning rule or nonlinear energy is implicitly adopted as the candidate.
+The preflight uses the existing NumPy/SciPy environment. The later neural
+suite should use CPU PyTorch for autograd and established optimizers; do not
+add that dependency during this preflight.
+
+**Preflight outcome:** see the
+[results and candidate decision](single-module-learning-preflight-results.md).
+The current linear equilibrium and matched FF maps/gradients are equivalent.
+Local spectral learning reaches mean loss <=0.10 with 16 rather than 64
+pairs in the aligned moderate-noise task, but incurs population floors of
+0.3568 after a four-site shift and 0.5330 under dense rotation. Keep that
+spectral/compact learner as a required reference. Do not start the neural
+suite with the unchanged linear loop as a distinct candidate. The next
+candidate-design priority is a precisely specified retained-context/local
+learning rule, with explicit treatment of locality mismatch; it is not yet
+implemented or validated. Retained linear context alone remains reproducible
+by a feed-forward model receiving the same two views.
+A supplementary check (results section 7a) adds: the first-order locality
+benefit is a factor 28/7=4 in pairs; pair identity matters only under
+structured nuisance; held-out combinations cannot separate linear models;
+and VICReg cannot whiten a four-dimensional code from four pairs.
+
+**Neural benchmark v1 (2026-10-24):** at the researcher's direction the
+method comparison (section 4.2) was started under the
+[v1 contract](single-module-learning-benchmark-v1-contract.md), using CPU
+PyTorch. Its candidate is the learned coarse module, i.e. the locality
+prior. Section 4.1 is recorded as the analytical tie established by the
+preflight and is not re-run. Structured, view-specific nuisance is used so
+that pair identity matters. Ridge-CCA references are added as the strong
+analytical controls. Retained-context or local-rule candidates remain future
+work. [Results](single-module-learning-benchmark-v1-results.md): on aligned
+tasks the candidate beats every learned comparator on low-data learning and
+resilience. Local ridge CCA beats it, and on dense-rotated tasks it loses to
+dense learners. The gain belongs to the locality prior (section 8: gain only
+on aligned synthetic tasks).
 
 ## 1. Primary research claim
 
@@ -40,6 +83,14 @@ the same coarse maps as a suitably constrained compact 32 -> 4 encoder.
 Likewise, some equilibrium and skip-connected feed-forward surface maps are
 exactly equivalent. Such comparisons are controls for learning dynamics or
 regularization, not evidence of different representational power.
+
+If the parameterized equilibrium map and the matched feed-forward map are
+identical, the same differentiable objective has identical exact gradients
+with respect to the same parameters. Settling alone is then not a distinct
+learning mechanism. A measured difference from approximate differentiation,
+solver tolerance, optimizer, or parameterization must be identified as such.
+In particular, section 4.1 must not be advertised as a test of superior
+linear representational capacity when preflight establishes equivalence.
 
 Derive or calculate the attainable population solution, sensitivity to
 nuisance, and dependence on sample size before selecting numerical budgets.

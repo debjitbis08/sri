@@ -1,0 +1,384 @@
+{
+  "arms": [
+    "coarse_local_vicreg",
+    "dense_linear_vicreg",
+    "mlp_vicreg",
+    "conv_vicreg",
+    "dae_paired"
+  ],
+  "budgets": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    128,
+    256
+  ],
+  "conditions": [
+    "in_distribution",
+    "heldout_combination",
+    "changed_nuisance",
+    "new_detail"
+  ],
+  "confirmation_worlds": [
+    1000,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007,
+    1008,
+    1009,
+    1010,
+    1011,
+    1012,
+    1013,
+    1014,
+    1015,
+    1016,
+    1017,
+    1018,
+    1019,
+    1020,
+    1021,
+    1022,
+    1023,
+    1024,
+    1025,
+    1026,
+    1027,
+    1028,
+    1029,
+    1030,
+    1031
+  ],
+  "decision_rule": {
+    "alpha": 0.05,
+    "candidate": "coarse_local_vicreg",
+    "comparators": [
+      "dense_linear_vicreg",
+      "mlp_vicreg",
+      "conv_vicreg",
+      "dae_paired"
+    ],
+    "correction": "holm",
+    "established": [
+      "mlp_vicreg",
+      "conv_vicreg",
+      "dae_paired"
+    ],
+    "margin": 0.02,
+    "regime": "aligned",
+    "resilience_budget": 32,
+    "threshold": 0.6
+  },
+  "development_report_sha256": "23a892338fb0400f7f206829737c794b18d42efb0a73e93e1d73c37bcb7424f7",
+  "development_worlds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "environment": {
+    "numpy": "2.5.4",
+    "python": "3.12.3",
+    "scipy": "1.18.1",
+    "threads_per_process": 1,
+    "torch": "2.14.1+cpu"
+  },
+  "hashes": {
+    "docs/single-module-learning-benchmark-v1-contract.md": "60be3b9b15aa77075fc4c5a81ec31c0ce93224d782b464d68933b9f0893c6a32",
+    "experiments/learning_benchmark.py": "d0edb84b87860e4037be80851d23adce60f976f483b0388c804dc3309fc8594b",
+    "requirements.txt": "4c301c485945661f312de32ab996187af9230aa5064d0fe76ad627b8b0a75b0a",
+    "src/learning_benchmark.py": "69bf99d34734df265585503ed4a390c5f3fbfb0fefc95d195445cebb36b8e27e",
+    "tests/test_learning_benchmark.py": "18bbfa34c6fb872d45bfce627959c7b7faac9fff0267e0dc89e03d1e095ebb2e"
+  },
+  "parameter_counts": {
+    "coarse_local_vicreg": {
+      "128": 40,
+      "16": 40,
+      "256": 40,
+      "32": 40,
+      "4": 40,
+      "64": 40,
+      "8": 40
+    },
+    "conv_vicreg": {
+      "128": 1732,
+      "16": 1732,
+      "256": 708,
+      "32": 1732,
+      "4": 1732,
+      "64": 1732,
+      "8": 1732
+    },
+    "dae_paired": {
+      "128": 1220,
+      "16": 4772,
+      "256": 1220,
+      "32": 4772,
+      "4": 4772,
+      "64": 4772,
+      "8": 4772
+    },
+    "dense_linear_vicreg": {
+      "128": 128,
+      "16": 128,
+      "256": 128,
+      "32": 128,
+      "4": 128,
+      "64": 128,
+      "8": 128
+    },
+    "mlp_vicreg": {
+      "128": 6532,
+      "16": 6532,
+      "256": 6532,
+      "32": 6532,
+      "4": 6532,
+      "64": 6532,
+      "8": 6532
+    }
+  },
+  "references": [
+    "local_spectral",
+    "global_spectral",
+    "local_cca",
+    "global_cca",
+    "fixed_averaging"
+  ],
+  "regimes": [
+    "aligned",
+    "shifted",
+    "dense"
+  ],
+  "scope": "single-module learning benchmark v1 confirmation",
+  "seed": 20261201,
+  "selected_configurations": {
+    "coarse_local_vicreg": {
+      "128": {
+        "lr": 0.003,
+        "wd": 0.01
+      },
+      "16": {
+        "lr": 0.003,
+        "wd": 0.01
+      },
+      "256": {
+        "lr": 0.03,
+        "wd": 0.01
+      },
+      "32": {
+        "lr": 0.003,
+        "wd": 0.01
+      },
+      "4": {
+        "lr": 0.03,
+        "wd": 0.01
+      },
+      "64": {
+        "lr": 0.003,
+        "wd": 0.01
+      },
+      "8": {
+        "lr": 0.003,
+        "wd": 0.01
+      }
+    },
+    "conv_vicreg": {
+      "128": {
+        "lr": 0.003,
+        "wd": 0.0001,
+        "width": 8
+      },
+      "16": {
+        "lr": 0.003,
+        "wd": 0.0001,
+        "width": 8
+      },
+      "256": {
+        "lr": 0.001,
+        "wd": 0.0001,
+        "width": 4
+      },
+      "32": {
+        "lr": 0.003,
+        "wd": 0.0001,
+        "width": 8
+      },
+      "4": {
+        "lr": 0.01,
+        "wd": 0.0001,
+        "width": 8
+      },
+      "64": {
+        "lr": 0.01,
+        "wd": 0.0001,
+        "width": 8
+      },
+      "8": {
+        "lr": 0.01,
+        "wd": 0.0001,
+        "width": 8
+      }
+    },
+    "dae_paired": {
+      "128": {
+        "lr": 0.001,
+        "wd": 0.0001,
+        "width": 16
+      },
+      "16": {
+        "lr": 0.001,
+        "wd": 0.0001,
+        "width": 64
+      },
+      "256": {
+        "lr": 0.001,
+        "wd": 0.0001,
+        "width": 16
+      },
+      "32": {
+        "lr": 0.001,
+        "wd": 0.0001,
+        "width": 64
+      },
+      "4": {
+        "lr": 0.01,
+        "wd": 0.0001,
+        "width": 64
+      },
+      "64": {
+        "lr": 0.001,
+        "wd": 0.0001,
+        "width": 64
+      },
+      "8": {
+        "lr": 0.01,
+        "wd": 0.0001,
+        "width": 64
+      }
+    },
+    "dense_linear_vicreg": {
+      "128": {
+        "lr": 0.003,
+        "wd": 0.01
+      },
+      "16": {
+        "lr": 0.03,
+        "wd": 0.01
+      },
+      "256": {
+        "lr": 0.003,
+        "wd": 0.01
+      },
+      "32": {
+        "lr": 0.003,
+        "wd": 0.01
+      },
+      "4": {
+        "lr": 0.03,
+        "wd": 0.01
+      },
+      "64": {
+        "lr": 0.003,
+        "wd": 0.01
+      },
+      "8": {
+        "lr": 0.01,
+        "wd": 0.01
+      }
+    },
+    "mlp_vicreg": {
+      "128": {
+        "lr": 0.001,
+        "wd": 0.0001,
+        "width": 64
+      },
+      "16": {
+        "lr": 0.01,
+        "wd": 0.0001,
+        "width": 64
+      },
+      "256": {
+        "lr": 0.001,
+        "wd": 0.0001,
+        "width": 64
+      },
+      "32": {
+        "lr": 0.001,
+        "wd": 0.0001,
+        "width": 64
+      },
+      "4": {
+        "lr": 0.001,
+        "wd": 0.0001,
+        "width": 64
+      },
+      "64": {
+        "lr": 0.003,
+        "wd": 0.0001,
+        "width": 64
+      },
+      "8": {
+        "lr": 0.001,
+        "wd": 0.0001,
+        "width": 64
+      }
+    }
+  },
+  "selected_indices": {
+    "coarse_local_vicreg": {
+      "128": 1,
+      "16": 1,
+      "256": 5,
+      "32": 1,
+      "4": 5,
+      "64": 1,
+      "8": 1
+    },
+    "conv_vicreg": {
+      "128": 3,
+      "16": 3,
+      "256": 0,
+      "32": 3,
+      "4": 5,
+      "64": 5,
+      "8": 5
+    },
+    "dae_paired": {
+      "128": 0,
+      "16": 1,
+      "256": 0,
+      "32": 1,
+      "4": 5,
+      "64": 1,
+      "8": 5
+    },
+    "dense_linear_vicreg": {
+      "128": 1,
+      "16": 5,
+      "256": 1,
+      "32": 1,
+      "4": 5,
+      "64": 1,
+      "8": 3
+    },
+    "mlp_vicreg": {
+      "128": 1,
+      "16": 5,
+      "256": 1,
+      "32": 1,
+      "4": 1,
+      "64": 3,
+      "8": 1
+    }
+  }
+}
