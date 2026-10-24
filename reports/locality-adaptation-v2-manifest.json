@@ -1,0 +1,328 @@
+{
+  "arms": {
+    "cv_refit_cca": "4 folds x 8 phases on 3n/4, CV score select, refit selected phase on all n",
+    "fixed_cca_all": "all n, phase 0",
+    "global_cca_all": "all n, global rank k",
+    "holdout_cca": "v1 adaptive_cca: 8 phases on fold-0 complement, fold-0 select, no refit",
+    "holdout_refit_cca": "8 phases on fold-0 complement, fold-0 score select, refit on all n",
+    "oracle_structural_phase_cca_all": "all n at the evaluator smallest population-optimal phase; structural reference, not a learner or ceiling"
+  },
+  "budgets": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    128,
+    256
+  ],
+  "conditions": [
+    "in_distribution",
+    "texture_16",
+    "extra_noise"
+  ],
+  "confirmation_worlds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63
+  ],
+  "contract": "docs/locality-adaptation-v2-contract.md",
+  "conventions": {
+    "estimators": "v1 module unchanged (ridge, ties, orientation, projectors, score tie)",
+    "evaluator": "eight all-n phase fits per (world, regime, budget), diagnostic only",
+    "fold": "one-based index i mod 4",
+    "reuse": "none across folds, arms or budgets"
+  },
+  "correctness_tests": "Ran 34 tests in 3.661s / OK",
+  "decision_rule": {
+    "candidate": "cv_refit_cca",
+    "claims": [
+      [
+        "H1_recover_shifted_signal",
+        "half_shifted",
+        "L",
+        0.02
+      ],
+      [
+        "H2_preserve_aligned_signal",
+        "aligned",
+        "L",
+        -0.02
+      ],
+      [
+        "H3_improve_shifted_usefulness",
+        "half_shifted",
+        "E",
+        0.02
+      ],
+      [
+        "H4_preserve_aligned_usefulness",
+        "aligned",
+        "E",
+        -0.02
+      ]
+    ],
+    "comparator": "fixed_cca_all",
+    "confidence": 0.9875,
+    "test": "one-sided paired Student-t lower bound over 64 worlds; all four required"
+  },
+  "development_report_sha256": "4496fac5b3d95d526ea473d4a9c8b296e6f92caa10387ff2c17fe95d3b47e0fe",
+  "development_worlds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "dimensions": {
+    "b": 8,
+    "d": 32,
+    "folds": 4,
+    "k": 4,
+    "phases": 8
+  },
+  "environment": {
+    "cpu": "AMD Ryzen 5 3600 6-Core Processor",
+    "dtype": "float64",
+    "logical_cpus": 12,
+    "machine": "x86_64",
+    "numpy": "2.5.4",
+    "numpy_build": {
+      "Build Dependencies": {
+        "blas": {
+          "detection method": "pkgconfig",
+          "found": true,
+          "include directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include",
+          "lib directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib",
+          "name": "scipy-openblas",
+          "openblas configuration": "OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64",
+          "pc file directory": "/project/.openblas",
+          "version": "0.3.34.106.0"
+        },
+        "lapack": {
+          "detection method": "pkgconfig",
+          "found": true,
+          "include directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include",
+          "lib directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib",
+          "name": "scipy-openblas",
+          "openblas configuration": "OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64",
+          "pc file directory": "/project/.openblas",
+          "version": "0.3.34.106.0"
+        }
+      },
+      "Compilers": {
+        "c": {
+          "commands": "cc",
+          "linker": "ld.bfd",
+          "name": "gcc",
+          "version": "14.2.1"
+        },
+        "c++": {
+          "commands": "c++",
+          "linker": "ld.bfd",
+          "name": "gcc",
+          "version": "14.2.1"
+        },
+        "cython": {
+          "commands": "cython",
+          "linker": "cython",
+          "name": "cython",
+          "version": "3.3.0"
+        }
+      },
+      "Machine Information": {
+        "build": {
+          "cpu": "x86_64",
+          "endian": "little",
+          "family": "x86_64",
+          "system": "linux"
+        },
+        "host": {
+          "cpu": "x86_64",
+          "endian": "little",
+          "family": "x86_64",
+          "system": "linux"
+        }
+      },
+      "Python Information": {
+        "path": "/tmp/build-env-ptu49_tp/bin/python",
+        "version": "3.12"
+      },
+      "SIMD Extensions": {
+        "baseline": [
+          "X86_V2"
+        ],
+        "found": [
+          "X86_V3"
+        ],
+        "not found": [
+          "X86_V4",
+          "AVX512_ICL",
+          "AVX512_SPR"
+        ]
+      }
+    },
+    "platform": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+    "processes": 1,
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "scipy": "1.18.1",
+    "thread_environment": {
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    }
+  },
+  "fold_counts": {
+    "128": [
+      32,
+      32,
+      32,
+      32
+    ],
+    "16": [
+      4,
+      4,
+      4,
+      4
+    ],
+    "256": [
+      64,
+      64,
+      64,
+      64
+    ],
+    "32": [
+      8,
+      8,
+      8,
+      8
+    ],
+    "4": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "64": [
+      16,
+      16,
+      16,
+      16
+    ],
+    "8": [
+      2,
+      2,
+      2,
+      2
+    ]
+  },
+  "hashes": {
+    "docs/locality-adaptation-v2-contract.md": "00099acca6bdb69dbad67789274913cec664675e6b819a6345fe605fdbd20f9b",
+    "experiments/locality_adaptation_v2.py": "af5f61ba33d7e2ec491efc1cc0888a4c1fa1a49af7f047381b53bee22ec51df0",
+    "requirements.txt": "4c301c485945661f312de32ab996187af9230aa5064d0fe76ad627b8b0a75b0a",
+    "src/locality_adaptation_v2.py": "4c350ec49bbe0a71668a7b6c18429beaad69a5501765c226e6b13856027a2df6",
+    "tests/test_locality_adaptation_v2.py": "cd864f576ab6a95dabd0f0eaacd1009f6a27c15cc9ed7bfe307f7d1ddd6d8c04"
+  },
+  "primary_budgets": [
+    16,
+    32,
+    64,
+    128,
+    256
+  ],
+  "regimes": [
+    "aligned",
+    "half_shifted",
+    "unknown_shift",
+    "dense"
+  ],
+  "revision_at_freeze": "803f4bfade0c023ac041c09aedf525beb730c629",
+  "scope": "locality adaptation v2 confirmation",
+  "seeds": {
+    "entropy": "[root, stage, world, part] (+ [d] for timing)",
+    "loop_order": "world > regime > budget > evaluator all-n fits > arm",
+    "parts": {
+      "0": "template coefficients, per block 3 signal then 5 texture normals",
+      "1": "d x d Gaussian for QR",
+      "2": "unknown shift integers(1, b)",
+      "3": "c (256,k), g1 (256,k), g2 (256,k), e1 (256,d), e2 (256,d)"
+    },
+    "root": 2026102408,
+    "stages": {
+      "confirmation": 1,
+      "development": 0,
+      "timing": 2
+    }
+  },
+  "v1_hashes": {
+    "docs/locality-adaptation-v1-contract.md": "1231719cd110757fac6a2f34ba7d91db1f2de18f894cf60568e9c8875f479c7e",
+    "experiments/locality_adaptation.py": "3a9e5388a848bb6f85077a57f15e849fd46f602cf73bcd25b922ef62eca89722",
+    "src/locality_adaptation.py": "b4e96a1382d892deebfe24b6daa286c08b49ce4c67ed83fd030a4320cb4139ce",
+    "tests/test_locality_adaptation.py": "e5ae05affbc8abbc05abead66d809503f3f1da26e39d3b83e8623b0a8083ca0d"
+  },
+  "v1_manifest_sha256": "24ad9aa4556482a84abe6210b18ae7e61da4137f4ae75474f5a7af0dea10023a"
+}
