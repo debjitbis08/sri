@@ -1,9 +1,10 @@
 # Representation reuse v1 — counted acquisition, frozen reuse and controlled drift
 
-**Status:** draft prospective contract, 2026-10-24. No implementation,
+**Status:** reviewed prospective contract, 2026-10-24. No implementation,
 development run or confirmation draw exists under this contract. Commit the
 reviewed contract before implementation; commit the source/environment manifest
-after correctness gates and before confirmation.
+after correctness gates and before confirmation. Review clarifications are
+listed in section 10; none changes a hypothesis, margin, budget or arm.
 
 Follows [v2 results](locality-adaptation-v2-results.md),
 [phase-selection analysis](phase-selection-analysis.md), and
@@ -60,7 +61,9 @@ w_j = normalize((I - u_j u_jᵀ - v_j v_jᵀ) a_j)
 U_theta[:,j] = cos(theta) U[:,j] + sin(theta) W[:,j].
 ```
 
-All columns have disjoint supports; W is orthonormal and orthogonal to U,V.
+Here u_j, v_j, w_j are the b-site restrictions of column j to unshifted block
+j, and the projection is block-local. All columns have disjoint supports; W is
+orthonormal and orthogonal to U,V.
 Angles theta={0,15,30,60,90} degrees rotate every signal direction equally.
 The source/target signal subspaces have the declared principal angles and
 remain orthogonal to the same nuisance V. A zero/nonfinite residual norm
@@ -103,6 +106,11 @@ For each source budget, acquire a local phase p_hat and source weights with
 Every pair belongs to fold i mod 4 for one-based index i. Select by mean
 out-of-fold h1ᵀPh2, then refit on all s. There is no new selection rule.
 Acquire the global source reference by one all-s global CCA fit.
+Implementation: selection calls v2 `cv_scores` and v1 `select` unchanged; the
+refit and the global fit build the sums below once and solve them with v1
+`cca_top`, so the sums are exposed without extra construction. A gate checks
+bitwise equality with v2 `fit_cv_refit` and v1 `fit_global` on identical
+observations.
 
 For sums of observed pairs define
 
@@ -142,8 +150,11 @@ contrasts use m>=16 and are unaffected by these nulls.
 
 For pooled arms and `phase_reuse_target`, update target sums once per arriving
 pair and solve at the seven nonzero checkpoints. No intermediate solves.
-Each branch starts with zero target sums. Fresh-global can likewise update
-target sums; fresh-local CV reruns from scratch at each checkpoint. This
+Each branch starts with zero target sums. Fresh-global likewise updates
+target sums; fresh-local CV reruns from scratch at each checkpoint on the
+target prefix, so it retains raw target pairs as declared workspace. Fresh
+arms do not depend on s; they execute once per world and angle and are
+compared with every source budget. This
 declared reuse is part of the implementation, with retained bytes and all
 executed work counted. Report both cumulative stream cost through each
 checkpoint and isolated endpoint cost from a source checkpoint. Neither
@@ -167,12 +178,14 @@ L_theta(P) = 1 - tr(P S_theta)/k
 E_theta(P) = [tr((I-P) S_theta) + tr(PN)]/k.
 ```
 
-Report target L, E and projected noise separately. Also report source L_0
+Report target L, E and projected noise separately. Unqualified E, including
+in section 5, uses N; section 4's stress noises are reported separately. Also report source L_0
 and E_0 after every target update. Source forgetting is post-update source
 risk minus the corresponding source-acquired local/global risk, not minus
 an oracle. For phase-reuse this baseline is its released source local model,
 retained only by the evaluator; the learner cannot access it. Fresh arms
 report absolute source risk but have no pre-adaptation forgetting score.
+Source risk and forgetting are reported under each evaluation noise.
 
 Evaluator controls: zero output E=1, raw input E=6, oracle target signal
 projector E=0.25, and the frozen oracle source projector with
@@ -237,7 +250,10 @@ c,g1,g2,e1,e2 with shapes (256,k),(256,k),(256,k),(256,d),(256,d).
 Drift draws use one (k,b) Gaussian array in block order before projection.
 Timing appends d: [root,2,0,part,d]. Freeze shapes and loop order in manifest.
 If wrappers call frozen v1 generator utilities, verify direct seed equivalence
-and scope any root override so no historical module file is changed.
+and scope any root override so no historical module file is changed. v1
+`make_world` is not called to build worlds, because it also draws part 1 and
+draws part 2 with integers(1,b); the part-0 recipe is reimplemented and a gate
+checks it against `make_world`'s U,V under a scoped root override.
 
 Development is correctness-only, with no quality gate or tuning. Do not pool
 development with confirmation. No extra worlds, seed replacement, optional
@@ -367,3 +383,18 @@ Any benefit explained by extra history, supplied stable grouping or direct
 covariance updates is attributed to that mechanism. A pass establishes these
 declared transfer properties under this generator; it does not justify a
 retained-context or reciprocal-dynamics claim.
+
+## 10. Review record (before implementation)
+
+Clarifications made in review, 2026-10-24: block-local construction of W;
+how source acquisition exposes sums while reusing v1/v2 code; mandatory
+incremental target sums for fresh-global; fresh arms executed independently
+of s; in-distribution N for unqualified E; per-noise source forgetting; and
+why v1 `make_world` is not called.
+
+Expectation recorded before any implementation or draw: v2's aligned curves
+(selection error concentrated at n<=16, fitting loss falling from about 0.29
+at n=16 to 0.02 at n=256) make H1, H2 and H4 likely to pass by wide margins.
+H3 is the informative primary comparison. A pass of H1/H2/H4 should be read
+as confirming the expected value of paid source history and a correct source
+phase, not as a surprising transfer result.
