@@ -1,0 +1,204 @@
+{
+  "activation_reuse": [
+    {
+      "old_risk": 0.5,
+      "old_weight": 0.0,
+      "rho": 0.0,
+      "zero_shrinkage_risk": 0.5
+    },
+    {
+      "old_risk": 0.41875,
+      "old_weight": 0.25,
+      "rho": 0.0,
+      "zero_shrinkage_risk": 0.34375
+    },
+    {
+      "old_risk": 1.26875,
+      "old_weight": 0.75,
+      "rho": 0.0,
+      "zero_shrinkage_risk": 0.59375
+    },
+    {
+      "old_risk": 2.2,
+      "old_weight": 1.0,
+      "rho": 0.0,
+      "zero_shrinkage_risk": 1.0
+    },
+    {
+      "old_risk": 0.5,
+      "old_weight": 0.0,
+      "rho": 0.5,
+      "zero_shrinkage_risk": 0.5
+    },
+    {
+      "old_risk": 0.35625,
+      "old_weight": 0.25,
+      "rho": 0.5,
+      "zero_shrinkage_risk": 0.34375
+    },
+    {
+      "old_risk": 0.70625,
+      "old_weight": 0.75,
+      "rho": 0.5,
+      "zero_shrinkage_risk": 0.59375
+    },
+    {
+      "old_risk": 1.2,
+      "old_weight": 1.0,
+      "rho": 0.5,
+      "zero_shrinkage_risk": 1.0
+    },
+    {
+      "old_risk": 0.5,
+      "old_weight": 0.0,
+      "rho": 1.0,
+      "zero_shrinkage_risk": 0.5
+    },
+    {
+      "old_risk": 0.29375,
+      "old_weight": 0.25,
+      "rho": 1.0,
+      "zero_shrinkage_risk": 0.34375
+    },
+    {
+      "old_risk": 0.14375000000000002,
+      "old_weight": 0.75,
+      "rho": 1.0,
+      "zero_shrinkage_risk": 0.59375
+    },
+    {
+      "old_risk": 0.2,
+      "old_weight": 1.0,
+      "rho": 1.0,
+      "zero_shrinkage_risk": 1.0
+    }
+  ],
+  "checks": "all assertions passed",
+  "gaussian_score_variance": 15.946666666666665,
+  "locality": {
+    "aligned": {
+      "best_phase_loss": 5.551115123125783e-16,
+      "phase_losses": [
+        5.551115123125783e-16,
+        0.12500000000000022,
+        0.2500000000000001,
+        0.375,
+        0.5,
+        0.375,
+        0.2500000000000001,
+        0.12500000000000022
+      ]
+    },
+    "dense_witness": {
+      "best_phase_loss": 0.7499999999999999,
+      "phase_losses": [
+        0.7499999999999999,
+        0.75,
+        0.7499999999999999,
+        0.75,
+        0.7499999999999999,
+        0.75,
+        0.7499999999999999,
+        0.75
+      ]
+    },
+    "shifted": {
+      "best_phase_loss": 5.551115123125783e-16,
+      "phase_losses": [
+        0.5,
+        0.375,
+        0.2500000000000001,
+        0.12500000000000022,
+        5.551115123125783e-16,
+        0.12500000000000022,
+        0.2500000000000001,
+        0.375
+      ]
+    }
+  },
+  "low_noise_boundary_degrees": 15.34170855448791,
+  "scope": "constructed analytical witnesses; no training",
+  "status": "complete",
+  "transfer": [
+    {
+      "degrees": 0,
+      "noise_variance": 0.01,
+      "projected_risk": 0.04000000000000001,
+      "raw_risk": 0.32,
+      "signal_loss": 0.0
+    },
+    {
+      "degrees": 10,
+      "noise_variance": 0.01,
+      "projected_risk": 0.16061475842818324,
+      "raw_risk": 0.32,
+      "signal_loss": 0.12061475842818321
+    },
+    {
+      "degrees": 30,
+      "noise_variance": 0.01,
+      "projected_risk": 1.0399999999999996,
+      "raw_risk": 0.32,
+      "signal_loss": 0.9999999999999998
+    },
+    {
+      "degrees": 60,
+      "noise_variance": 0.01,
+      "projected_risk": 3.0399999999999996,
+      "raw_risk": 0.32,
+      "signal_loss": 2.9999999999999996
+    },
+    {
+      "degrees": 90,
+      "noise_variance": 0.01,
+      "projected_risk": 4.039999999999999,
+      "raw_risk": 0.32,
+      "signal_loss": 4.0
+    },
+    {
+      "degrees": 0,
+      "noise_variance": 0.25,
+      "projected_risk": 1.0,
+      "raw_risk": 8.0,
+      "signal_loss": 0.0
+    },
+    {
+      "degrees": 10,
+      "noise_variance": 0.25,
+      "projected_risk": 1.1206147584281834,
+      "raw_risk": 8.0,
+      "signal_loss": 0.12061475842818321
+    },
+    {
+      "degrees": 30,
+      "noise_variance": 0.25,
+      "projected_risk": 1.9999999999999996,
+      "raw_risk": 8.0,
+      "signal_loss": 0.9999999999999998
+    },
+    {
+      "degrees": 60,
+      "noise_variance": 0.25,
+      "projected_risk": 3.999999999999999,
+      "raw_risk": 8.0,
+      "signal_loss": 2.9999999999999996
+    },
+    {
+      "degrees": 90,
+      "noise_variance": 0.25,
+      "projected_risk": 5.000000000000001,
+      "raw_risk": 8.0,
+      "signal_loss": 4.0
+    }
+  ],
+  "work": {
+    "activation_cases": 12,
+    "block_dimension": 8,
+    "block_eigendecompositions": 96,
+    "fitted_models": 0,
+    "gaussian_fourth_moment_terms": 256,
+    "sampled_examples": 0,
+    "transfer_cases": 10,
+    "tuning_trials": 0
+  }
+}
