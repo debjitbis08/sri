@@ -1,0 +1,180 @@
+{
+  "command": ".venv/bin/python -m experiments.phase_selection_analysis",
+  "cpu": "AMD Ryzen 5 3600 6-Core Processor",
+  "cpu_seconds": 3.534017581,
+  "dirty_paths": [
+    "?? docs/phase-selection-analysis.md",
+    "?? experiments/phase_selection_analysis.py",
+    "?? reports/phase-selection-analysis-runtime.json",
+    "?? reports/phase-selection-analysis.json"
+  ],
+  "dtype": "float64",
+  "fitting_stage_wall_seconds": {
+    "covariance": 0.3131465288806794,
+    "factorization": 2.3141060089828898,
+    "validation": 0.14645996700983233
+  },
+  "flops": null,
+  "flops_unavailable_reason": "not measured; theoretical orders in study document",
+  "numpy": "2.5.4",
+  "numpy_build": {
+    "Build Dependencies": {
+      "blas": {
+        "detection method": "pkgconfig",
+        "found": true,
+        "include directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include",
+        "lib directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib",
+        "name": "scipy-openblas",
+        "openblas configuration": "OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64",
+        "pc file directory": "/project/.openblas",
+        "version": "0.3.34.106.0"
+      },
+      "lapack": {
+        "detection method": "pkgconfig",
+        "found": true,
+        "include directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include",
+        "lib directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib",
+        "name": "scipy-openblas",
+        "openblas configuration": "OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64",
+        "pc file directory": "/project/.openblas",
+        "version": "0.3.34.106.0"
+      }
+    },
+    "Compilers": {
+      "c": {
+        "commands": "cc",
+        "linker": "ld.bfd",
+        "name": "gcc",
+        "version": "14.2.1"
+      },
+      "c++": {
+        "commands": "c++",
+        "linker": "ld.bfd",
+        "name": "gcc",
+        "version": "14.2.1"
+      },
+      "cython": {
+        "commands": "cython",
+        "linker": "cython",
+        "name": "cython",
+        "version": "3.3.0"
+      }
+    },
+    "Machine Information": {
+      "build": {
+        "cpu": "x86_64",
+        "endian": "little",
+        "family": "x86_64",
+        "system": "linux"
+      },
+      "host": {
+        "cpu": "x86_64",
+        "endian": "little",
+        "family": "x86_64",
+        "system": "linux"
+      }
+    },
+    "Python Information": {
+      "path": "/tmp/build-env-ptu49_tp/bin/python",
+      "version": "3.12"
+    },
+    "SIMD Extensions": {
+      "baseline": [
+        "X86_V2"
+      ],
+      "found": [
+        "X86_V3"
+      ],
+      "not found": [
+        "X86_V4",
+        "AVX512_ICL",
+        "AVX512_SPR"
+      ]
+    }
+  },
+  "os": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+  "peak_rss_kib": 82320,
+  "peak_temporary_bytes": null,
+  "peak_temporary_unavailable_reason": "RSS only; includes Python/BLAS, no isolated allocation measurement",
+  "phases": {
+    "analytical_checks": {
+      "cpu_seconds": 0.026172147000000034,
+      "wall_seconds": 0.026171780999902694
+    },
+    "load_historical_artifact": {
+      "cpu_seconds": 0.08581112400000002,
+      "wall_seconds": 0.08583726599954389
+    },
+    "replay_diagnostics": {
+      "cpu_seconds": 3.415510218,
+      "wall_seconds": 3.4162400649993288
+    },
+    "scientific_write": {
+      "cpu_seconds": 0.006470632000000087,
+      "wall_seconds": 0.006470477000220853
+    }
+  },
+  "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+  "reproducibility_verification": {
+    "byte_identical": true,
+    "previous_execution_cpu_seconds": 3.4154903969999997,
+    "previous_execution_wall_seconds": 3.4160779320000074,
+    "previous_execution_work": {
+      "all_n_fits_reused": 1024,
+      "candidate_scores": 4096,
+      "cholesky_8": 16384,
+      "distinct_pairs_used": 2048,
+      "eigh_8": 16384,
+      "fit_row_exposures": 73728,
+      "fits": 4096,
+      "gaussian_fourth_moment_terms": 24576,
+      "generated_pairs": 16384,
+      "inference_calls": 0,
+      "new_all_n_fits": 0,
+      "optimizer_steps": 0,
+      "tuning_trials": 0,
+      "validation_row_exposures": 24576,
+      "world_streams_replayed": 64
+    },
+    "scientific_sha256": "9b75f3aafc1c5b741ef7ff05ddeb23941e01a71adf9e2a1510e4e2a0126f5684",
+    "scope": "two final-version executions; main receipt describes the second; initial development execution excluded"
+  },
+  "revision": "005039499581c8ae641b5562874773809f1582db",
+  "rss_scope": "Linux whole-process high-water mark including imports and historical JSON; not per fit",
+  "scipy": "1.18.1",
+  "scope": "one process, excludes imports and runtime receipt construction/write",
+  "seed_policy": "replay v2 root 2026102408 stage 1 worlds 0..63; no new random worlds",
+  "sha256": {
+    "docs/computation-reporting.md": "23bf1c17abc71f849c8c1bedaf8c106f9637a1051a669f391f374a43fa9a3b12",
+    "docs/phase-selection-analysis.md": "52b60eb8beb69a5ad4604a1d056c3fd412cce81b210e7295d53b68c0efbe7067",
+    "experiments/phase_selection_analysis.py": "4efa1c6ae0e54ac2eff8c062addf74faaf057420bf1eb2823733b26df735a61e",
+    "reports/locality-adaptation-v2-manifest.json": "68d7a44c7448a5eb67b30141b97754d23ffc52f1ecc9b6a75056c9b37d474658",
+    "reports/locality-adaptation-v2-results.json": "2d5ef21e1d065c3106a0f721f5546f01d2feace5a8b25fb5666a3d85212b6e33",
+    "src/locality_adaptation.py": "b4e96a1382d892deebfe24b6daa286c08b49ce4c67ed83fd030a4320cb4139ce",
+    "src/locality_adaptation_v2.py": "4c350ec49bbe0a71668a7b6c18429beaad69a5501765c226e6b13856027a2df6"
+  },
+  "threads": {
+    "MKL_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1"
+  },
+  "wall_seconds": 3.5347820899996805,
+  "work": {
+    "all_n_fits_reused": 1024,
+    "candidate_scores": 4096,
+    "cholesky_8": 16384,
+    "distinct_pairs_used": 2048,
+    "eigh_8": 16384,
+    "fit_row_exposures": 73728,
+    "fits": 4096,
+    "gaussian_fourth_moment_terms": 24576,
+    "generated_pairs": 16384,
+    "inference_calls": 0,
+    "new_all_n_fits": 0,
+    "optimizer_steps": 0,
+    "tuning_trials": 0,
+    "validation_row_exposures": 24576,
+    "world_streams_replayed": 64
+  },
+  "workers": 1
+}
