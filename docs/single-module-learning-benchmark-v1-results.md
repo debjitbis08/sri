@@ -33,10 +33,15 @@ post-hoc exploratory check (section 5) used development worlds only.
    candidate is **worse** than dense linear (−0.130) and conv (−0.039) on
    low-data. At 256 pairs it reaches R² 0.527, against 0.725 for dense
    linear and 0.772 for global CCA. Shifted tasks fall in between.
-5. **The established arms' losses are not undertraining on this grid.**
-   Lower learning rates and four times as many steps did not close the gaps
-   (section 5). Conv and DAE degrade with longer training, which suggests
-   overfitting without early stopping.
+5. **H2 combines two effects.** At 32 pairs the candidate starts higher
+   (in-distribution +0.27 to +0.48 over each comparator), and it also loses
+   less under the shifted conditions (mean drop smaller by 0.13 to 0.29).
+   Both are significant, and section 4 separates them.
+6. **Undertraining is less likely but not ruled out.** Lower learning rates
+   and four times as many steps did not close the gaps (section 5). Conv and
+   DAE get worse with longer training. That fits overfitting, but it does not
+   prove it, and it does not explain the loss oscillations. Early stopping and
+   stronger regularization remain untested controls.
 
 ## 2. Learning curves, in-distribution probe R² (32 confirmation worlds)
 
@@ -101,12 +106,40 @@ At 32 pairs, aligned, by condition:
 | local_cca | 0.752 | 0.687 | 0.723 | 0.541 |
 | local_spectral | 0.582 | 0.457 | 0.315 | 0.550 |
 
-The large H2 margins come mostly from **new detail**: variance in directions
-absent from training. An unconstrained code puts weight on those directions,
-because training never penalized them. When they appear, the code
-amplifies them, and R² can go far below zero. A local code has only eight
-nonzero weights per unit, which limits that exposure. The resilience
-advantage is again a property of the supports, not of learning dynamics.
+**What "new detail" is.** Its directions are not absent from training. Every
+training view has isotropic noise of variance 0.25 in all 32 directions. The
+condition adds variance 2 in the directions orthogonal to the signal and
+texture subspaces, so their total variance goes from 0.25 to 2.25. This tests
+resilience to a ninefold increase of nuisance in weakly excited directions,
+not to entirely unseen ones. An unconstrained code can put weight on those
+directions, because the weak training variance penalized them only a little.
+When they are amplified, R² can go far below zero. A local code has only
+eight nonzero weights per unit, so it is less exposed.
+
+**Starting accuracy and degradation.** The resilience score is a level (mean
+R² over the shifted conditions). It therefore contains the in-distribution
+lead as well as resistance to degradation. Exactly, H2 = (start difference)
++ (difference in mean drop from in-distribution). Paired over the 32
+confirmation worlds at 32 pairs, candidate advantage [95% CI], with drop
+columns as comparator drop minus candidate drop:
+
+| Comparator | Start (in-distribution) | Mean drop | Held-out combination drop | Changed nuisance drop | New detail drop |
+| --- | --- | --- | --- | --- | --- |
+| dense linear | +0.312 [0.282, 0.341] | +0.294 [0.264, 0.324] | +0.113 | +0.049 | +0.720 [0.641, 0.799] |
+| MLP | +0.305 [0.278, 0.332] | +0.132 [0.105, 0.158] | +0.166 | +0.272 | −0.042 [−0.101, 0.016] |
+| conv | +0.267 [0.242, 0.293] | +0.173 [0.147, 0.200] | +0.153 | +0.205 | +0.162 [0.094, 0.231] |
+| DAE | +0.477 [0.449, 0.504] | +0.136 [0.104, 0.168] | +0.101 | +0.210 | +0.098 [0.020, 0.176] |
+
+Both parts matter. Against dense linear they are about equal, and the
+smaller drop comes almost entirely from new detail (candidate drop 0.407,
+dense linear 1.127). Against MLP, conv and DAE, the starting lead is the
+larger part. The candidate degrades no less than the MLP under new detail;
+its smaller drops there come from held-out combinations and changed nuisance.
+So "most of the H2 margin comes from new detail" holds only for the dense
+linear comparison. The candidate's smaller drops still come from its
+supports, not from its learning dynamics. These figures are computed from
+the per-member rows of the results file. They are a post-hoc
+decomposition, not a declared test.
 
 Every method loses accuracy on held-out combinations, linear ones
 included. The probe is fitted on correlated in-distribution coefficients,
@@ -129,8 +162,8 @@ retrained each arm on the eight aligned development worlds at learning rates
 | conv_vicreg | 0.479 | 0.472 | 0.656 | 0.515 |
 | dae_paired | 0.201 | 0.196 | 0.336 | 0.270 |
 
-Longer training raises the MLP by at most 0.02. It *lowers* conv and DAE,
-which is overfitting, not undertraining. Smaller learning rates help conv
+Longer training raises the MLP by at most 0.02. It *lowers* conv and DAE.
+That fits overfitting, but these numbers alone do not show it. Smaller learning rates help conv
 at 256 pairs (0.656, against 0.621 for the selected configuration) but leave
 a gap of 0.12. The candidate gains slightly more from longer training than
 the baselines do. The 5% tail flag remains set even when performance has
@@ -138,16 +171,21 @@ plateaued, so it measures VICReg's oscillation near its minimum, not lack
 of progress.
 
 **Conclusion:** within the declared search space and a fourfold-longer
-schedule, the gaps are not explained by undertraining. Two levers are
+schedule, more training does not close the gaps. This narrows the
+optimization concern but does not settle it. The check does not separate
+overfitting from other causes, such as optimizer instability, and it does
+not explain the loss oscillations. Two meaningful controls are still
 untested: early stopping on held-out pairs, and stronger regularization.
-They could narrow the gaps for nonlinear arms.
+They could narrow the gaps for the nonlinear arms.
 
 ## 6. Interpretation and scope
 
 - **Supported:** with a correctly aligned locality prior, the learned coarse
   module learns broad structure from fewer pairs than generic dense, MLP,
-  convolutional and denoising paired-view learners. It also degrades less
-  under fresh detail and stronger texture nuisance.
+  convolutional and denoising paired-view learners. It starts more accurate
+  at 32 pairs and also degrades less on average under the shifted
+  conditions. Its new-detail drop is much smaller than dense linear's, but
+  not smaller than the MLP's.
 - **Not supported:** any advantage from the module's reciprocal or
   shared-surface organization. Those are exactly equivalent to a local
   feed-forward encoder here. Nor is there an advantage over the
