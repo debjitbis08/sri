@@ -1,9 +1,11 @@
 # Single-module plasticity v1 — energy inference and familiarity-routed ring learning
 
-**Status:** draft prospective contract, 2026-10-24. No implementation or run
+**Status:** reviewed prospective contract, 2026-10-24. No implementation or run
 exists under this contract. Commit the reviewed contract before implementation;
 commit tested sources, development artifacts and manifest before confirmation.
 Substantive changes after confirmation starts require a new contract and seeds.
+Review clarifications are listed in section 13; none changes a hypothesis,
+margin, budget, arm, rate or gate formula.
 
 Follows the [current single-module design](single-module-plasticity-design.md),
 [layered analysis](layered-reuse-analysis.md),
@@ -437,3 +439,69 @@ separately. Small parameter changes are not proof of retained function. A
 pass supports this single-module, combined routing/plasticity policy under
 the declared stream. No automatic transition to multiple modules follows;
 any such transition requires a separate reason and contract.
+
+## 13. Review record (before implementation)
+
+Clarifications made in review, 2026-10-24. They fix conventions the draft left
+implicit; none changes a hypothesis, margin, budget, arm, rate or gate.
+
+1. **Ring indexing.** Outer coordinate i is observed coordinate i. Outer
+   sector j is v1 `groups(p_hat)[j]`, in that row order, which is also the row
+   order of D_0,j and of the acquired CCA weight. Inner ring l sector j is the
+   contiguous index range [j n_l/4, (j+1) n_l/4); its local order is the
+   column order of D_(l-1),j and the row order of D_l,j. Lateral neighbours are
+   consecutive indices in each ring with wraparound, so inner sector j's last
+   unit neighbours sector j+1's first.
+2. **Generator.** The reuse v1 recipe (part 0 templates, part 2 phase, part 5
+   block-local drift) is reimplemented under root 2026102410; a gate checks it
+   bitwise against `src/representation_reuse.py` under a scoped root override,
+   without modifying that module. Regional drift sector j* is unshifted signal
+   block j*. A learner's sector j equals that block only if p_hat=p; per-sector
+   diagnostics use evaluator truth and report whether p_hat=p. Stable-branch
+   E_B uses U on the evaluator-B base draws.
+3. **Update.** G is the gradient of J as written (J already averages over its
+   2B directions; there is no second division). Each direction's gradient is
+   taken with its own routes. b_bar is the plain mean of the 2B per-direction
+   multipliers for that block. Clipping acts on the projected block before
+   multiplication by eta, d_l and b_bar. Group l of the depth profile is D_l,j
+   for l=0,1,2 and v_j for l=3, matching the route index of the residual
+   term containing that block. Rank loss means min |diag R| <= 1e-10.
+4. **Routes on evaluation inputs.** Each evaluated input (noisy or clean)
+   receives its own pilot and second solve. The pilot Hessian (all a=1) does
+   not depend on the input, so one pilot factor per parameter state is shared;
+   that reuse is counted. Frozen layered uses matched routes.
+5. **Direct references.** These reuse the frozen `PhaseReuseTarget` and
+   `PooledLocal` learners from reuse v1 on the same acquired source phase and
+   source sums, with no reset at the B/A-return boundary. Their outputs are
+   scored by the same sample-wise evaluator as layered arms.
+6. **Schur reference during confirmation.** Tests check Schur/full agreement on
+   fixtures. During development and confirmation, every layered arm at every
+   checkpoint additionally compares Schur and full reconstructed states for
+   both passes on the first 8 inputs of each evaluator set (A and B, noisy).
+   Disagreement above the section 10 tolerance stops scoring. This is
+   diagnostic work, counted separately.
+7. **Diagnostics.** Per-ring parameter change is the Frobenius distance from
+   the source checkpoint, summed over sectors. Actual update norm is the
+   cumulative Frobenius norm of applied parameter changes per ring group.
+   Gate diagnostics are per-ring, per-sector means of g on the evaluator-B
+   noisy set, and the Pearson correlation over (example, sector) between g_0
+   and that example's per-sector squared output error.
+
+Expectations recorded before any implementation or draw:
+
+- **H1/H2 (matched routing).** Under regional drift the drifted sector should
+  have a larger pilot residual, so lower g. Lower g lowers a, which weakens
+  shrinkage of the new signal direction (favouring C on E_B), but also lowers
+  b, which moves that ring's plasticity budget *away* from the sector that
+  needs to adapt (favouring mean routing). The sign of the net effect is not
+  determined in advance. Per sector, signal energy is about 1 against about 6
+  of nuisance and isotropic noise, so single-observation residuals are noisy
+  and the gate contrast between sectors is expected to be small. A failure of
+  H1/H2 at margin 0.01 would be unsurprising.
+- **H3/H4 (depth profile).** The output's passthrough direction in a sector is
+  the composition D_0 D_1 D_2 v, and only D_0 can bring in a direction outside
+  its current range. Mean-one rescaling gives the candidate 32/15 times the
+  uniform outer rate. Slower inner learning therefore does not by itself
+  shield source function in this architecture; the candidate is expected to
+  adapt and forget at least as fast as uniform. H3 is expected to fail and H4
+  to pass. A pass of H3 would be the surprising, informative outcome.
