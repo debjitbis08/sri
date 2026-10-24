@@ -1,5 +1,5 @@
 {
-  "command": "python -m experiments.locality_adaptation --phase dev",
+  "command": "python -m experiments.locality_adaptation --phase timing",
   "complexity": {
     "bytes": {
       "adaptive_candidate_weights": 2048,
@@ -35,6 +35,131 @@
       "tuning_trials": 0
     },
     "storage_note": "implementation builds one block K/T pair at a time and discards it; raw pairs, validation data and rejected bases are not needed for deployment"
+  },
+  "confirmation": {
+    "fit_stage_timing": {
+      "adaptive_cca": {
+        "counts": {
+          "candidate_scores": 14336,
+          "cholesky_8": 57344,
+          "eigh_8": 57344,
+          "fit_row_exposures": 780288,
+          "fits": 14336,
+          "validation_row_exposures": 260096
+        },
+        "seconds": {
+          "covariance": 1.15264160999,
+          "factorization": 7.880833191,
+          "validation": 0.525126695004
+        }
+      },
+      "adaptive_spectral": {
+        "counts": {
+          "candidate_scores": 14336,
+          "eigh_8": 57344,
+          "fit_row_exposures": 780288,
+          "fits": 14336,
+          "validation_row_exposures": 260096
+        },
+        "seconds": {
+          "covariance": 1.06985454699,
+          "factorization": 2.321398377,
+          "validation": 0.523894404
+        }
+      },
+      "fixed_cca_all": {
+        "counts": {
+          "cholesky_8": 7168,
+          "eigh_8": 7168,
+          "fit_row_exposures": 130048,
+          "fits": 1792
+        },
+        "seconds": {
+          "covariance": 0.154208826985,
+          "factorization": 1.00481856
+        }
+      },
+      "fixed_cca_fit": {
+        "counts": {
+          "cholesky_8": 7168,
+          "eigh_8": 7168,
+          "fit_row_exposures": 97536,
+          "fits": 1792
+        },
+        "seconds": {
+          "covariance": 0.144880383995,
+          "factorization": 0.994663047992
+        }
+      },
+      "fixed_spectral_all": {
+        "counts": {
+          "eigh_8": 7168,
+          "fit_row_exposures": 130048,
+          "fits": 1792
+        },
+        "seconds": {
+          "covariance": 0.143925104987,
+          "factorization": 0.30605061998
+        }
+      },
+      "global_cca_all": {
+        "counts": {
+          "cholesky_32": 1792,
+          "eigh_32": 1792,
+          "fit_row_exposures": 130048,
+          "fits": 1792
+        },
+        "seconds": {
+          "covariance": 0.0575040840056,
+          "factorization": 0.451985237988
+        }
+      },
+      "global_cca_fit": {
+        "counts": {
+          "cholesky_32": 1792,
+          "eigh_32": 1792,
+          "fit_row_exposures": 97536,
+          "fits": 1792
+        },
+        "seconds": {
+          "covariance": 0.0503148359924,
+          "factorization": 0.686714271004
+        }
+      },
+      "global_spectral_all": {
+        "counts": {
+          "eigh_32": 1792,
+          "fit_row_exposures": 130048,
+          "fits": 1792
+        },
+        "seconds": {
+          "covariance": 0.0565675159958,
+          "factorization": 0.234878290001
+        }
+      }
+    },
+    "frozen_revision": "61fe6caee9c33305e7a478489fffca1facc4469a",
+    "generation_fit_metric_seconds": 21.61655464,
+    "independent_pairs": {
+      "per_budget": {
+        "128": 128,
+        "16": 16,
+        "256": 256,
+        "32": 32,
+        "4": 4,
+        "64": 64,
+        "8": 8
+      },
+      "per_world_regime": 256,
+      "regimes": 4,
+      "worlds": 64
+    },
+    "peak_rss_kib": 194696,
+    "process_cpu_seconds": 22.747721819,
+    "rss_scope": "cumulative parent-process high-water RSS (Linux KiB), not per-arm memory",
+    "scope": "single process: generation, oracle diagnostics, fitting, metrics, analysis and JSON write",
+    "solver_failures": 0,
+    "wall_seconds": 22.751120572
   },
   "development": {
     "fit_stage_timing": {
@@ -237,7 +362,7 @@
     }
   },
   "flops": "not measured; not inferred from wall time or parameter counts",
-  "revision": "61fe6caee9c33305e7a478489fffca1facc4469a",
+  "revision": "7e42b6dffce061e108e46c87590334c47612775b",
   "seed_policy": "SeedSequence([2026102407, stage, world, part]); timing appends d",
   "sources": {
     "docs/locality-adaptation-v1-contract.md": "1231719cd110757fac6a2f34ba7d91db1f2de18f894cf60568e9c8875f479c7e",
@@ -245,6 +370,3240 @@
     "requirements.txt": "4c301c485945661f312de32ab996187af9230aa5064d0fe76ad627b8b0a75b0a",
     "src/locality_adaptation.py": "b4e96a1382d892deebfe24b6daa286c08b49ce4c67ed83fd030a4320cb4139ce",
     "tests/test_locality_adaptation.py": "e5ae05affbc8abbc05abead66d809503f3f1da26e39d3b83e8623b0a8083ca0d"
+  },
+  "timing_panel": {
+    "idle_worker_rss_kib": 97720,
+    "inference_calls": 25236,
+    "parent_cpu_seconds": 0.042436822,
+    "peak_rss_kib": 97720,
+    "protocol": {
+      "amortization": "fit median + Q x single-input inference median; estimate, not measured",
+      "calls_per_block": 100,
+      "inference_blocks": 7,
+      "inference_scope": "encode + reconstruct; output allocation included; generation excluded",
+      "inference_warmup_calls": 1,
+      "note": "k = d/8 changes with d: not fixed-rank scaling; stage-2 data never scored",
+      "repeats": 7,
+      "stage": 2,
+      "warmup_fits": 1,
+      "world": 0
+    },
+    "records": [
+      {
+        "amortized_seconds": {
+          "1": 0.00618905045982,
+          "100": 0.00761043899979,
+          "10000": 0.149749292997
+        },
+        "arm": "adaptive_cca",
+        "b": 8,
+        "complexity": {
+          "bytes": {
+            "adaptive_candidate_weights": 2048,
+            "deployed_global_basis": 1024,
+            "deployed_local_metadata": 24,
+            "deployed_local_weights": 256,
+            "eigh_workspace_estimate": {
+              "global_": 18580,
+              "label": "analytical LAPACK dsyevd lwork/liwork estimate, not measured",
+              "local": 1588
+            },
+            "global_statistics": 16384,
+            "local_all_block_statistics_if_concurrent": 4096,
+            "local_live_block_statistics": 1024,
+            "raw_pairs_per_budget": {
+              "128": 65536,
+              "16": 8192,
+              "256": 131072,
+              "32": 16384,
+              "4": 2048,
+              "64": 32768,
+              "8": 4096
+            }
+          },
+          "orders": {
+            "adaptive_bank": "8 x local fit + O(8 n_val d) validation",
+            "global_cca_fit": "O(n d^2 + d^3)",
+            "global_inference": "O(d k)",
+            "local_cca_fit": "O(n_fit d b + d b^2)",
+            "local_inference": "O(d)",
+            "optimizer_state": 0,
+            "solver": "dense direct Cholesky + symmetric eigh (LAPACK syevd)",
+            "tuning_trials": 0
+          },
+          "storage_note": "implementation builds one block K/T pair at a time and discards it; raw pairs, validation data and rejected bases are not needed for deployment"
+        },
+        "d": 32,
+        "fit_iqr_seconds": [
+          0.00616250249993,
+          0.00618932350005
+        ],
+        "fit_median_seconds": 0.00617469299982,
+        "inference": {
+          "batch_256": {
+            "iqr": [
+              4.88618499992e-05,
+              4.91199950011e-05
+            ],
+            "median": 4.89732999995e-05,
+            "per_call_seconds": [
+              4.88899999982e-05,
+              4.88075900012e-05,
+              4.94877100004e-05,
+              4.92135000013e-05,
+              4.89732999995e-05,
+              4.90264900009e-05,
+              4.88337000002e-05
+            ]
+          },
+          "single_input": {
+            "iqr": [
+              1.43070600006e-05,
+              1.44397650001e-05
+            ],
+            "median": 1.43574599997e-05,
+            "per_call_seconds": [
+              1.44614600003e-05,
+              1.44180699999e-05,
+              1.43193600002e-05,
+              1.45662700015e-05,
+              1.42947600011e-05,
+              1.43574599997e-05,
+              1.42645599999e-05
+            ]
+          }
+        },
+        "k": 4,
+        "n": 256,
+        "peak_tracemalloc_bytes": {
+          "batch_256_inference": 275501,
+          "fit": 136703,
+          "scope": "NumPy/Python allocations only; LAPACK workspace excluded"
+        },
+        "persistent_bytes": {
+          "metadata": 24,
+          "weights": 256
+        },
+        "regime": "aligned",
+        "repeats": [
+          {
+            "cpu_seconds": 0.006254832,
+            "stage_seconds": {
+              "covariance": 0.00083171499864,
+              "factorization": 0.0046220929994,
+              "validation": 0.000374546999865
+            },
+            "wall_seconds": 0.0062544540001
+          },
+          {
+            "cpu_seconds": 0.006157232,
+            "stage_seconds": {
+              "covariance": 0.00081937300024,
+              "factorization": 0.00455532400042,
+              "validation": 0.000360417000138
+            },
+            "wall_seconds": 0.0061568619999
+          },
+          {
+            "cpu_seconds": 0.006168512,
+            "stage_seconds": {
+              "covariance": 0.000824942000008,
+              "factorization": 0.00455930900102,
+              "validation": 0.000361797000096
+            },
+            "wall_seconds": 0.00616814299997
+          },
+          {
+            "cpu_seconds": 0.006175111,
+            "stage_seconds": {
+              "covariance": 0.000825975000453,
+              "factorization": 0.00457419300005,
+              "validation": 0.000358396000138
+            },
+            "wall_seconds": 0.00617469299982
+          },
+          {
+            "cpu_seconds": 0.006146752,
+            "stage_seconds": {
+              "covariance": 0.000824162000299,
+              "factorization": 0.00453167899923,
+              "validation": 0.000357717000043
+            },
+            "wall_seconds": 0.006146532
+          },
+          {
+            "cpu_seconds": 0.006191462,
+            "stage_seconds": {
+              "covariance": 0.000824636999823,
+              "factorization": 0.00458088400069,
+              "validation": 0.000368477000166
+            },
+            "wall_seconds": 0.00619110399998
+          },
+          {
+            "cpu_seconds": 0.006187901,
+            "stage_seconds": {
+              "covariance": 0.000828623999723,
+              "factorization": 0.00457612699984,
+              "validation": 0.000363607000054
+            },
+            "wall_seconds": 0.00618754300012
+          }
+        ],
+        "rss_kib": {
+          "after_imports_and_spawn": 97336,
+          "peak": 100584,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        },
+        "selected_phase": 0,
+        "warmup": {
+          "cpu_seconds": 0.006816942,
+          "stage_seconds": {
+            "covariance": 0.000854416000038,
+            "factorization": 0.00508044899993,
+            "validation": 0.000398288000042
+          },
+          "wall_seconds": 0.00681801499991
+        },
+        "work_per_fit": {
+          "candidate_scores": 8,
+          "cholesky_8": 32,
+          "eigh_8": 32,
+          "fit_row_exposures": 1536,
+          "fits": 8,
+          "validation_row_exposures": 512
+        }
+      },
+      {
+        "amortized_seconds": {
+          "1": 0.000753587849892,
+          "100": 0.0021429389999,
+          "10000": 0.141078054
+        },
+        "arm": "fixed_cca_all",
+        "b": 8,
+        "complexity": {
+          "bytes": {
+            "adaptive_candidate_weights": 2048,
+            "deployed_global_basis": 1024,
+            "deployed_local_metadata": 24,
+            "deployed_local_weights": 256,
+            "eigh_workspace_estimate": {
+              "global_": 18580,
+              "label": "analytical LAPACK dsyevd lwork/liwork estimate, not measured",
+              "local": 1588
+            },
+            "global_statistics": 16384,
+            "local_all_block_statistics_if_concurrent": 4096,
+            "local_live_block_statistics": 1024,
+            "raw_pairs_per_budget": {
+              "128": 65536,
+              "16": 8192,
+              "256": 131072,
+              "32": 16384,
+              "4": 2048,
+              "64": 32768,
+              "8": 4096
+            }
+          },
+          "orders": {
+            "adaptive_bank": "8 x local fit + O(8 n_val d) validation",
+            "global_cca_fit": "O(n d^2 + d^3)",
+            "global_inference": "O(d k)",
+            "local_cca_fit": "O(n_fit d b + d b^2)",
+            "local_inference": "O(d)",
+            "optimizer_state": 0,
+            "solver": "dense direct Cholesky + symmetric eigh (LAPACK syevd)",
+            "tuning_trials": 0
+          },
+          "storage_note": "implementation builds one block K/T pair at a time and discards it; raw pairs, validation data and rejected bases are not needed for deployment"
+        },
+        "d": 32,
+        "fit_iqr_seconds": [
+          0.00072992850005,
+          0.000754163500005
+        ],
+        "fit_median_seconds": 0.000739553999892,
+        "inference": {
+          "batch_256": {
+            "iqr": [
+              4.94694099996e-05,
+              4.95609550001e-05
+            ],
+            "median": 4.9529700002e-05,
+            "per_call_seconds": [
+              4.95622099993e-05,
+              4.95597000008e-05,
+              4.94448099994e-05,
+              4.97535099998e-05,
+              4.94940099998e-05,
+              4.9529700002e-05,
+              4.94293099996e-05
+            ]
+          },
+          "single_input": {
+            "iqr": [
+              1.39886550016e-05,
+              1.40536100002e-05
+            ],
+            "median": 1.403385e-05,
+            "per_call_seconds": [
+              1.41976500004e-05,
+              1.403385e-05,
+              1.40499600002e-05,
+              1.39954500014e-05,
+              1.39818600019e-05,
+              1.40572600003e-05,
+              1.39714600004e-05
+            ]
+          }
+        },
+        "k": 4,
+        "n": 256,
+        "peak_tracemalloc_bytes": {
+          "batch_256_inference": 274014,
+          "fit": 41411,
+          "scope": "NumPy/Python allocations only; LAPACK workspace excluded"
+        },
+        "persistent_bytes": {
+          "metadata": 24,
+          "weights": 256
+        },
+        "regime": "aligned",
+        "repeats": [
+          {
+            "cpu_seconds": 0.000766791,
+            "stage_seconds": {
+              "covariance": 0.000129613000126,
+              "factorization": 0.000590841000076
+            },
+            "wall_seconds": 0.000766253999927
+          },
+          {
+            "cpu_seconds": 0.00076071,
+            "stage_seconds": {
+              "covariance": 0.000115441999924,
+              "factorization": 0.000603840000167
+            },
+            "wall_seconds": 0.000760293999974
+          },
+          {
+            "cpu_seconds": 0.00072741,
+            "stage_seconds": {
+              "covariance": 0.000114332000294,
+              "factorization": 0.000572269999793
+            },
+            "wall_seconds": 0.000726964000023
+          },
+          {
+            "cpu_seconds": 0.00074854,
+            "stage_seconds": {
+              "covariance": 0.000113920999866,
+              "factorization": 0.000593032000324
+            },
+            "wall_seconds": 0.000748033000036
+          },
+          {
+            "cpu_seconds": 0.00073334,
+            "stage_seconds": {
+              "covariance": 0.000123691999988,
+              "factorization": 0.000569390999772
+            },
+            "wall_seconds": 0.000732893000077
+          },
+          {
+            "cpu_seconds": 0.000740011,
+            "stage_seconds": {
+              "covariance": 0.000114082000209,
+              "factorization": 0.000585511000054
+            },
+            "wall_seconds": 0.000739553999892
+          },
+          {
+            "cpu_seconds": 0.00071956,
+            "stage_seconds": {
+              "covariance": 0.000113262000013,
+              "factorization": 0.00056686999983
+            },
+            "wall_seconds": 0.000719102999938
+          }
+        ],
+        "rss_kib": {
+          "after_imports_and_spawn": 97592,
+          "peak": 100400,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        },
+        "selected_phase": 0,
+        "warmup": {
+          "cpu_seconds": 0.00120418,
+          "stage_seconds": {
+            "covariance": 0.000152201999754,
+            "factorization": 0.000985547000028
+          },
+          "wall_seconds": 0.00120586200001
+        },
+        "work_per_fit": {
+          "cholesky_8": 4,
+          "eigh_8": 4,
+          "fit_row_exposures": 256,
+          "fits": 1
+        }
+      },
+      {
+        "amortized_seconds": {
+          "1": 0.000417947649817,
+          "100": 0.000691251999797,
+          "10000": 0.0280216869978
+        },
+        "arm": "global_cca_all",
+        "b": 8,
+        "complexity": {
+          "bytes": {
+            "adaptive_candidate_weights": 2048,
+            "deployed_global_basis": 1024,
+            "deployed_local_metadata": 24,
+            "deployed_local_weights": 256,
+            "eigh_workspace_estimate": {
+              "global_": 18580,
+              "label": "analytical LAPACK dsyevd lwork/liwork estimate, not measured",
+              "local": 1588
+            },
+            "global_statistics": 16384,
+            "local_all_block_statistics_if_concurrent": 4096,
+            "local_live_block_statistics": 1024,
+            "raw_pairs_per_budget": {
+              "128": 65536,
+              "16": 8192,
+              "256": 131072,
+              "32": 16384,
+              "4": 2048,
+              "64": 32768,
+              "8": 4096
+            }
+          },
+          "orders": {
+            "adaptive_bank": "8 x local fit + O(8 n_val d) validation",
+            "global_cca_fit": "O(n d^2 + d^3)",
+            "global_inference": "O(d k)",
+            "local_cca_fit": "O(n_fit d b + d b^2)",
+            "local_inference": "O(d)",
+            "optimizer_state": 0,
+            "solver": "dense direct Cholesky + symmetric eigh (LAPACK syevd)",
+            "tuning_trials": 0
+          },
+          "storage_note": "implementation builds one block K/T pair at a time and discards it; raw pairs, validation data and rejected bases are not needed for deployment"
+        },
+        "d": 32,
+        "fit_iqr_seconds": [
+          0.000411353000004,
+          0.000418052499981
+        ],
+        "fit_median_seconds": 0.000415186999817,
+        "inference": {
+          "batch_256": {
+            "iqr": [
+              1.088955e-05,
+              1.09267999994e-05
+            ],
+            "median": 1.09167999994e-05,
+            "per_call_seconds": [
+              1.09778000001e-05,
+              1.09025000006e-05,
+              1.09167999994e-05,
+              1.09361e-05,
+              1.08765999994e-05,
+              1.08635000015e-05,
+              1.09174999989e-05
+            ]
+          },
+          "single_input": {
+            "iqr": [
+              2.75815000123e-06,
+              2.8011500001e-06
+            ],
+            "median": 2.7606499998e-06,
+            "per_call_seconds": [
+              2.89775000056e-06,
+              2.76125000028e-06,
+              2.75835000139e-06,
+              2.7606499998e-06,
+              2.84104999992e-06,
+              2.75775000091e-06,
+              2.75795000107e-06
+            ]
+          }
+        },
+        "k": 4,
+        "n": 256,
+        "peak_tracemalloc_bytes": {
+          "batch_256_inference": 75660,
+          "fit": 88637,
+          "scope": "NumPy/Python allocations only; LAPACK workspace excluded"
+        },
+        "persistent_bytes": {
+          "metadata": 0,
+          "weights": 1024
+        },
+        "regime": "aligned",
+        "repeats": [
+          {
+            "cpu_seconds": 0.00044763,
+            "stage_seconds": {
+              "covariance": 7.14220000191e-05,
+              "factorization": 0.000303984999846
+            },
+            "wall_seconds": 0.000447117999784
+          },
+          {
+            "cpu_seconds": 0.00041628,
+            "stage_seconds": {
+              "covariance": 6.98310000189e-05,
+              "factorization": 0.000279135000028
+            },
+            "wall_seconds": 0.000415836999991
+          },
+          {
+            "cpu_seconds": 0.00042069,
+            "stage_seconds": {
+              "covariance": 6.90519998443e-05,
+              "factorization": 0.000275484999975
+            },
+            "wall_seconds": 0.000420267999971
+          },
+          {
+            "cpu_seconds": 0.00041125,
+            "stage_seconds": {
+              "covariance": 6.97110001511e-05,
+              "factorization": 0.000274705000038
+            },
+            "wall_seconds": 0.000410798000075
+          },
+          {
+            "cpu_seconds": 0.00040691,
+            "stage_seconds": {
+              "covariance": 6.89609998972e-05,
+              "factorization": 0.00027222499989
+            },
+            "wall_seconds": 0.000406427000144
+          },
+          {
+            "cpu_seconds": 0.000412391,
+            "stage_seconds": {
+              "covariance": 6.92319999871e-05,
+              "factorization": 0.000277794999874
+            },
+            "wall_seconds": 0.000411907999933
+          },
+          {
+            "cpu_seconds": 0.00041569,
+            "stage_seconds": {
+              "covariance": 6.88909999553e-05,
+              "factorization": 0.000281704999907
+            },
+            "wall_seconds": 0.000415186999817
+          }
+        ],
+        "rss_kib": {
+          "after_imports_and_spawn": 97592,
+          "peak": 100508,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        },
+        "selected_phase": null,
+        "warmup": {
+          "cpu_seconds": 0.00088861,
+          "stage_seconds": {
+            "covariance": 0.000140312999974,
+            "factorization": 0.000640261000171
+          },
+          "wall_seconds": 0.000890295999852
+        },
+        "work_per_fit": {
+          "cholesky_32": 1,
+          "eigh_32": 1,
+          "fit_row_exposures": 256,
+          "fits": 1
+        }
+      },
+      {
+        "amortized_seconds": {
+          "1": 0.0061714054501,
+          "100": 0.00755566800012,
+          "10000": 0.145981923002
+        },
+        "arm": "adaptive_cca",
+        "b": 8,
+        "complexity": {
+          "bytes": {
+            "adaptive_candidate_weights": 2048,
+            "deployed_global_basis": 1024,
+            "deployed_local_metadata": 24,
+            "deployed_local_weights": 256,
+            "eigh_workspace_estimate": {
+              "global_": 18580,
+              "label": "analytical LAPACK dsyevd lwork/liwork estimate, not measured",
+              "local": 1588
+            },
+            "global_statistics": 16384,
+            "local_all_block_statistics_if_concurrent": 4096,
+            "local_live_block_statistics": 1024,
+            "raw_pairs_per_budget": {
+              "128": 65536,
+              "16": 8192,
+              "256": 131072,
+              "32": 16384,
+              "4": 2048,
+              "64": 32768,
+              "8": 4096
+            }
+          },
+          "orders": {
+            "adaptive_bank": "8 x local fit + O(8 n_val d) validation",
+            "global_cca_fit": "O(n d^2 + d^3)",
+            "global_inference": "O(d k)",
+            "local_cca_fit": "O(n_fit d b + d b^2)",
+            "local_inference": "O(d)",
+            "optimizer_state": 0,
+            "solver": "dense direct Cholesky + symmetric eigh (LAPACK syevd)",
+            "tuning_trials": 0
+          },
+          "storage_note": "implementation builds one block K/T pair at a time and discards it; raw pairs, validation data and rejected bases are not needed for deployment"
+        },
+        "d": 32,
+        "fit_iqr_seconds": [
+          0.00614928750008,
+          0.00617424349991
+        ],
+        "fit_median_seconds": 0.0061574230001,
+        "inference": {
+          "batch_256": {
+            "iqr": [
+              4.95023550002e-05,
+              4.9696609999e-05
+            ],
+            "median": 4.963481e-05,
+            "per_call_seconds": [
+              4.963481e-05,
+              4.95150100005e-05,
+              4.97042099983e-05,
+              4.96890099998e-05,
+              5.24793599993e-05,
+              4.93550099986e-05,
+              4.94896999999e-05
+            ]
+          },
+          "single_input": {
+            "iqr": [
+              1.39597049986e-05,
+              1.40066100005e-05
+            ],
+            "median": 1.39824500002e-05,
+            "per_call_seconds": [
+              1.41546600003e-05,
+              1.39824500002e-05,
+              1.39531599984e-05,
+              1.400676e-05,
+              1.39285499995e-05,
+              1.40064600009e-05,
+              1.39662499987e-05
+            ]
+          }
+        },
+        "k": 4,
+        "n": 256,
+        "peak_tracemalloc_bytes": {
+          "batch_256_inference": 274650,
+          "fit": 135852,
+          "scope": "NumPy/Python allocations only; LAPACK workspace excluded"
+        },
+        "persistent_bytes": {
+          "metadata": 24,
+          "weights": 256
+        },
+        "regime": "dense",
+        "repeats": [
+          {
+            "cpu_seconds": 0.006202412,
+            "stage_seconds": {
+              "covariance": 0.000823713999125,
+              "factorization": 0.00458346499909,
+              "validation": 0.000362687000006
+            },
+            "wall_seconds": 0.00620189300002
+          },
+          {
+            "cpu_seconds": 0.006182992,
+            "stage_seconds": {
+              "covariance": 0.000838476999206,
+              "factorization": 0.00456839300045,
+              "validation": 0.00035817700018
+            },
+            "wall_seconds": 0.00618950399985
+          },
+          {
+            "cpu_seconds": 0.006159321,
+            "stage_seconds": {
+              "covariance": 0.000827356000855,
+              "factorization": 0.00454864199969,
+              "validation": 0.000367675999996
+            },
+            "wall_seconds": 0.00615898299998
+          },
+          {
+            "cpu_seconds": 0.006145112,
+            "stage_seconds": {
+              "covariance": 0.000826224999628,
+              "factorization": 0.00454369300041,
+              "validation": 0.000364077000086
+            },
+            "wall_seconds": 0.00614478200009
+          },
+          {
+            "cpu_seconds": 0.006154202,
+            "stage_seconds": {
+              "covariance": 0.000834561999682,
+              "factorization": 0.00454904299977,
+              "validation": 0.000354937000111
+            },
+            "wall_seconds": 0.00615379300007
+          },
+          {
+            "cpu_seconds": 0.006124041,
+            "stage_seconds": {
+              "covariance": 0.000832707000654,
+              "factorization": 0.004524231,
+              "validation": 0.000356065999995
+            },
+            "wall_seconds": 0.00612364199992
+          },
+          {
+            "cpu_seconds": 0.006157872,
+            "stage_seconds": {
+              "covariance": 0.000839784999698,
+              "factorization": 0.00454735399967,
+              "validation": 0.000356925999995
+            },
+            "wall_seconds": 0.0061574230001
+          }
+        ],
+        "rss_kib": {
+          "after_imports_and_spawn": 97592,
+          "peak": 100848,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        },
+        "selected_phase": 3,
+        "warmup": {
+          "cpu_seconds": 0.006794082,
+          "stage_seconds": {
+            "covariance": 0.000860886999817,
+            "factorization": 0.00506356399956,
+            "validation": 0.000389956999925
+          },
+          "wall_seconds": 0.00679527400007
+        },
+        "work_per_fit": {
+          "candidate_scores": 8,
+          "cholesky_8": 32,
+          "eigh_8": 32,
+          "fit_row_exposures": 1536,
+          "fits": 8,
+          "validation_row_exposures": 512
+        }
+      },
+      {
+        "amortized_seconds": {
+          "1": 0.000756346050014,
+          "100": 0.00214957799994,
+          "10000": 0.141472772993
+        },
+        "arm": "fixed_cca_all",
+        "b": 8,
+        "complexity": {
+          "bytes": {
+            "adaptive_candidate_weights": 2048,
+            "deployed_global_basis": 1024,
+            "deployed_local_metadata": 24,
+            "deployed_local_weights": 256,
+            "eigh_workspace_estimate": {
+              "global_": 18580,
+              "label": "analytical LAPACK dsyevd lwork/liwork estimate, not measured",
+              "local": 1588
+            },
+            "global_statistics": 16384,
+            "local_all_block_statistics_if_concurrent": 4096,
+            "local_live_block_statistics": 1024,
+            "raw_pairs_per_budget": {
+              "128": 65536,
+              "16": 8192,
+              "256": 131072,
+              "32": 16384,
+              "4": 2048,
+              "64": 32768,
+              "8": 4096
+            }
+          },
+          "orders": {
+            "adaptive_bank": "8 x local fit + O(8 n_val d) validation",
+            "global_cca_fit": "O(n d^2 + d^3)",
+            "global_inference": "O(d k)",
+            "local_cca_fit": "O(n_fit d b + d b^2)",
+            "local_inference": "O(d)",
+            "optimizer_state": 0,
+            "solver": "dense direct Cholesky + symmetric eigh (LAPACK syevd)",
+            "tuning_trials": 0
+          },
+          "storage_note": "implementation builds one block K/T pair at a time and discards it; raw pairs, validation data and rejected bases are not needed for deployment"
+        },
+        "d": 32,
+        "fit_iqr_seconds": [
+          0.000738548500067,
+          0.000746628999991
+        ],
+        "fit_median_seconds": 0.000742273000014,
+        "inference": {
+          "batch_256": {
+            "iqr": [
+              4.93636550004e-05,
+              4.94054550006e-05
+            ],
+            "median": 4.93950000009e-05,
+            "per_call_seconds": [
+              4.94105100006e-05,
+              4.92082999995e-05,
+              4.94075000006e-05,
+              4.93533100007e-05,
+              4.93740000002e-05,
+              4.94034100007e-05,
+              4.93950000009e-05
+            ]
+          },
+          "single_input": {
+            "iqr": [
+              1.40387549993e-05,
+              1.41006600006e-05
+            ],
+            "median": 1.40730499993e-05,
+            "per_call_seconds": [
+              1.41844600012e-05,
+              1.41168599998e-05,
+              1.40347499996e-05,
+              1.40844600014e-05,
+              1.4042759999e-05,
+              1.40286600003e-05,
+              1.40730499993e-05
+            ]
+          }
+        },
+        "k": 4,
+        "n": 256,
+        "peak_tracemalloc_bytes": {
+          "batch_256_inference": 274150,
+          "fit": 41364,
+          "scope": "NumPy/Python allocations only; LAPACK workspace excluded"
+        },
+        "persistent_bytes": {
+          "metadata": 24,
+          "weights": 256
+        },
+        "regime": "dense",
+        "repeats": [
+          {
+            "cpu_seconds": 0.00077359,
+            "stage_seconds": {
+              "covariance": 0.000119592000146,
+              "factorization": 0.000608931000215
+            },
+            "wall_seconds": 0.000773204000097
+          },
+          {
+            "cpu_seconds": 0.00074681,
+            "stage_seconds": {
+              "covariance": 0.000114752999934,
+              "factorization": 0.000590241000282
+            },
+            "wall_seconds": 0.000746363999951
+          },
+          {
+            "cpu_seconds": 0.00074733,
+            "stage_seconds": {
+              "covariance": 0.000121642999829,
+              "factorization": 0.000584759000276
+            },
+            "wall_seconds": 0.000746894000031
+          },
+          {
+            "cpu_seconds": 0.0007427,
+            "stage_seconds": {
+              "covariance": 0.000113721000162,
+              "factorization": 0.000588091000054
+            },
+            "wall_seconds": 0.000742273000014
+          },
+          {
+            "cpu_seconds": 0.000735891,
+            "stage_seconds": {
+              "covariance": 0.000113381999881,
+              "factorization": 0.00058199099999
+            },
+            "wall_seconds": 0.000735564000024
+          },
+          {
+            "cpu_seconds": 0.00074201,
+            "stage_seconds": {
+              "covariance": 0.000114923000183,
+              "factorization": 0.000586679999969
+            },
+            "wall_seconds": 0.000741533000109
+          },
+          {
+            "cpu_seconds": 0.00073528,
+            "stage_seconds": {
+              "covariance": 0.00011368100013,
+              "factorization": 0.000581081000291
+            },
+            "wall_seconds": 0.000734802999887
+          }
+        ],
+        "rss_kib": {
+          "after_imports_and_spawn": 97592,
+          "peak": 100632,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        },
+        "selected_phase": 0,
+        "warmup": {
+          "cpu_seconds": 0.001186051,
+          "stage_seconds": {
+            "covariance": 0.000143822000155,
+            "factorization": 0.000978088999773
+          },
+          "wall_seconds": 0.001187652
+        },
+        "work_per_fit": {
+          "cholesky_8": 4,
+          "eigh_8": 4,
+          "fit_row_exposures": 256,
+          "fits": 1
+        }
+      },
+      {
+        "amortized_seconds": {
+          "1": 0.000380242849963,
+          "100": 0.000634262000176,
+          "10000": 0.0260361770215
+        },
+        "arm": "global_cca_all",
+        "b": 8,
+        "complexity": {
+          "bytes": {
+            "adaptive_candidate_weights": 2048,
+            "deployed_global_basis": 1024,
+            "deployed_local_metadata": 24,
+            "deployed_local_weights": 256,
+            "eigh_workspace_estimate": {
+              "global_": 18580,
+              "label": "analytical LAPACK dsyevd lwork/liwork estimate, not measured",
+              "local": 1588
+            },
+            "global_statistics": 16384,
+            "local_all_block_statistics_if_concurrent": 4096,
+            "local_live_block_statistics": 1024,
+            "raw_pairs_per_budget": {
+              "128": 65536,
+              "16": 8192,
+              "256": 131072,
+              "32": 16384,
+              "4": 2048,
+              "64": 32768,
+              "8": 4096
+            }
+          },
+          "orders": {
+            "adaptive_bank": "8 x local fit + O(8 n_val d) validation",
+            "global_cca_fit": "O(n d^2 + d^3)",
+            "global_inference": "O(d k)",
+            "local_cca_fit": "O(n_fit d b + d b^2)",
+            "local_inference": "O(d)",
+            "optimizer_state": 0,
+            "solver": "dense direct Cholesky + symmetric eigh (LAPACK syevd)",
+            "tuning_trials": 0
+          },
+          "storage_note": "implementation builds one block K/T pair at a time and discards it; raw pairs, validation data and rejected bases are not needed for deployment"
+        },
+        "d": 32,
+        "fit_iqr_seconds": [
+          0.000376271999926,
+          0.000389241999983
+        ],
+        "fit_median_seconds": 0.00037767699996,
+        "inference": {
+          "batch_256": {
+            "iqr": [
+              1.00932350006e-05,
+              1.01394849992e-05
+            ],
+            "median": 1.01189799989e-05,
+            "per_call_seconds": [
+              1.01189799989e-05,
+              1.020509e-05,
+              1.009479e-05,
+              1.01464799991e-05,
+              1.00825899995e-05,
+              1.00916800011e-05,
+              1.01324899993e-05
+            ]
+          },
+          "single_input": {
+            "iqr": [
+              2.55830000015e-06,
+              2.60134499968e-06
+            ],
+            "median": 2.56585000216e-06,
+            "per_call_seconds": [
+              2.64474999994e-06,
+              2.56585000216e-06,
+              2.55854999978e-06,
+              2.60873999878e-06,
+              2.59395000057e-06,
+              2.5563500003e-06,
+              2.55805000052e-06
+            ]
+          }
+        },
+        "k": 4,
+        "n": 256,
+        "peak_tracemalloc_bytes": {
+          "batch_256_inference": 75707,
+          "fit": 88637,
+          "scope": "NumPy/Python allocations only; LAPACK workspace excluded"
+        },
+        "persistent_bytes": {
+          "metadata": 0,
+          "weights": 1024
+        },
+        "regime": "dense",
+        "repeats": [
+          {
+            "cpu_seconds": 0.00040381,
+            "stage_seconds": {
+              "covariance": 6.64709998546e-05,
+              "factorization": 0.000270624999985
+            },
+            "wall_seconds": 0.000403336999852
+          },
+          {
+            "cpu_seconds": 0.00039318,
+            "stage_seconds": {
+              "covariance": 6.44409999495e-05,
+              "factorization": 0.000266144999841
+            },
+            "wall_seconds": 0.000392726999962
+          },
+          {
+            "cpu_seconds": 0.00038621,
+            "stage_seconds": {
+              "covariance": 6.40519999706e-05,
+              "factorization": 0.000260674000174
+            },
+            "wall_seconds": 0.000385757000004
+          },
+          {
+            "cpu_seconds": 0.0003781,
+            "stage_seconds": {
+              "covariance": 6.41809999706e-05,
+              "factorization": 0.00025318400003
+            },
+            "wall_seconds": 0.00037767699996
+          },
+          {
+            "cpu_seconds": 0.0003757,
+            "stage_seconds": {
+              "covariance": 6.37010000446e-05,
+              "factorization": 0.000251824000088
+            },
+            "wall_seconds": 0.000375276999875
+          },
+          {
+            "cpu_seconds": 0.00037182,
+            "stage_seconds": {
+              "covariance": 6.37810001081e-05,
+              "factorization": 0.000248693999993
+            },
+            "wall_seconds": 0.000371405999886
+          },
+          {
+            "cpu_seconds": 0.000377751,
+            "stage_seconds": {
+              "covariance": 6.35819999388e-05,
+              "factorization": 0.000254543999972
+            },
+            "wall_seconds": 0.000377266999976
+          }
+        ],
+        "rss_kib": {
+          "after_imports_and_spawn": 97592,
+          "peak": 100648,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        },
+        "selected_phase": null,
+        "warmup": {
+          "cpu_seconds": 0.00086113,
+          "stage_seconds": {
+            "covariance": 0.000122681999983,
+            "factorization": 0.000626312000122
+          },
+          "wall_seconds": 0.000862104999896
+        },
+        "work_per_fit": {
+          "cholesky_32": 1,
+          "eigh_32": 1,
+          "fit_row_exposures": 256,
+          "fits": 1
+        }
+      },
+      {
+        "amortized_seconds": {
+          "1": 0.02160945917,
+          "100": 0.0230779430001,
+          "10000": 0.169926326007
+        },
+        "arm": "adaptive_cca",
+        "b": 8,
+        "complexity": {
+          "bytes": {
+            "adaptive_candidate_weights": 8192,
+            "deployed_global_basis": 16384,
+            "deployed_local_metadata": 24,
+            "deployed_local_weights": 1024,
+            "eigh_workspace_estimate": {
+              "global_": 270868,
+              "label": "analytical LAPACK dsyevd lwork/liwork estimate, not measured",
+              "local": 1588
+            },
+            "global_statistics": 262144,
+            "local_all_block_statistics_if_concurrent": 16384,
+            "local_live_block_statistics": 1024,
+            "raw_pairs_per_budget": {
+              "128": 262144,
+              "16": 32768,
+              "256": 524288,
+              "32": 65536,
+              "4": 8192,
+              "64": 131072,
+              "8": 16384
+            }
+          },
+          "orders": {
+            "adaptive_bank": "8 x local fit + O(8 n_val d) validation",
+            "global_cca_fit": "O(n d^2 + d^3)",
+            "global_inference": "O(d k)",
+            "local_cca_fit": "O(n_fit d b + d b^2)",
+            "local_inference": "O(d)",
+            "optimizer_state": 0,
+            "solver": "dense direct Cholesky + symmetric eigh (LAPACK syevd)",
+            "tuning_trials": 0
+          },
+          "storage_note": "implementation builds one block K/T pair at a time and discards it; raw pairs, validation data and rejected bases are not needed for deployment"
+        },
+        "d": 128,
+        "fit_iqr_seconds": [
+          0.0214202125001,
+          0.0216366715
+        ],
+        "fit_median_seconds": 0.021594626,
+        "inference": {
+          "batch_256": {
+            "iqr": [
+              0.00022860739,
+              0.0002292892
+            ],
+            "median": 0.00022893219,
+            "per_call_seconds": [
+              0.0002294168,
+              0.0002289307,
+              0.000228284079999,
+              0.0002291627,
+              0.000229415700001,
+              0.00022893219,
+              0.00022821368
+            ]
+          },
+          "single_input": {
+            "iqr": [
+              1.48200199999e-05,
+              1.49106750007e-05
+            ],
+            "median": 1.48331700007e-05,
+            "per_call_seconds": [
+              1.49983799997e-05,
+              1.48182699991e-05,
+              1.48217700007e-05,
+              1.48331700007e-05,
+              1.48083700014e-05,
+              1.49563800005e-05,
+              1.48649700009e-05
+            ]
+          }
+        },
+        "k": 16,
+        "n": 256,
+        "peak_tracemalloc_bytes": {
+          "batch_256_inference": 692975,
+          "fit": 438255,
+          "scope": "NumPy/Python allocations only; LAPACK workspace excluded"
+        },
+        "persistent_bytes": {
+          "metadata": 24,
+          "weights": 1024
+        },
+        "regime": "aligned",
+        "repeats": [
+          {
+            "cpu_seconds": 0.021594746,
+            "stage_seconds": {
+              "covariance": 0.00322403900122,
+              "factorization": 0.0168210709999,
+              "validation": 0.000574780000079
+            },
+            "wall_seconds": 0.021594626
+          },
+          {
+            "cpu_seconds": 0.021678356,
+            "stage_seconds": {
+              "covariance": 0.00323605899962,
+              "factorization": 0.0169011840012,
+              "validation": 0.000569381000105
+            },
+            "wall_seconds": 0.021678307
+          },
+          {
+            "cpu_seconds": 0.021744806,
+            "stage_seconds": {
+              "covariance": 0.00324727700081,
+              "factorization": 0.0169642749981,
+              "validation": 0.000562050000099
+            },
+            "wall_seconds": 0.0217446680001
+          },
+          {
+            "cpu_seconds": 0.021595076,
+            "stage_seconds": {
+              "covariance": 0.00325762600119,
+              "factorization": 0.01680526,
+              "validation": 0.000565001000041
+            },
+            "wall_seconds": 0.021595036
+          },
+          {
+            "cpu_seconds": 0.021458556,
+            "stage_seconds": {
+              "covariance": 0.00324981999916,
+              "factorization": 0.0166898909997,
+              "validation": 0.000557111000035
+            },
+            "wall_seconds": 0.0214585630001
+          },
+          {
+            "cpu_seconds": 0.021346516,
+            "stage_seconds": {
+              "covariance": 0.00323624599878,
+              "factorization": 0.0165902840004,
+              "validation": 0.000563800999998
+            },
+            "wall_seconds": 0.021346471
+          },
+          {
+            "cpu_seconds": 0.021367756,
+            "stage_seconds": {
+              "covariance": 0.00322959400137,
+              "factorization": 0.0166271389994,
+              "validation": 0.00056553100012
+            },
+            "wall_seconds": 0.021381862
+          }
+        ],
+        "rss_kib": {
+          "after_imports_and_spawn": 97592,
+          "peak": 102596,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        },
+        "selected_phase": 0,
+        "warmup": {
+          "cpu_seconds": 0.022159426,
+          "stage_seconds": {
+            "covariance": 0.00325581900211,
+            "factorization": 0.0172909890018,
+            "validation": 0.000589941000044
+          },
+          "wall_seconds": 0.0221606160001
+        },
+        "work_per_fit": {
+          "candidate_scores": 8,
+          "cholesky_8": 128,
+          "eigh_8": 128,
+          "fit_row_exposures": 1536,
+          "fits": 8,
+          "validation_row_exposures": 512
+        }
+      },
+      {
+        "amortized_seconds": {
+          "1": 0.00265049896992,
+          "100": 0.00411767599985,
+          "10000": 0.150835378993
+        },
+        "arm": "fixed_cca_all",
+        "b": 8,
+        "complexity": {
+          "bytes": {
+            "adaptive_candidate_weights": 8192,
+            "deployed_global_basis": 16384,
+            "deployed_local_metadata": 24,
+            "deployed_local_weights": 1024,
+            "eigh_workspace_estimate": {
+              "global_": 270868,
+              "label": "analytical LAPACK dsyevd lwork/liwork estimate, not measured",
+              "local": 1588
+            },
+            "global_statistics": 262144,
+            "local_all_block_statistics_if_concurrent": 16384,
+            "local_live_block_statistics": 1024,
+            "raw_pairs_per_budget": {
+              "128": 262144,
+              "16": 32768,
+              "256": 524288,
+              "32": 65536,
+              "4": 8192,
+              "64": 131072,
+              "8": 16384
+            }
+          },
+          "orders": {
+            "adaptive_bank": "8 x local fit + O(8 n_val d) validation",
+            "global_cca_fit": "O(n d^2 + d^3)",
+            "global_inference": "O(d k)",
+            "local_cca_fit": "O(n_fit d b + d b^2)",
+            "local_inference": "O(d)",
+            "optimizer_state": 0,
+            "solver": "dense direct Cholesky + symmetric eigh (LAPACK syevd)",
+            "tuning_trials": 0
+          },
+          "storage_note": "implementation builds one block K/T pair at a time and discards it; raw pairs, validation data and rejected bases are not needed for deployment"
+        },
+        "d": 128,
+        "fit_iqr_seconds": [
+          0.0026245329999,
+          0.00264388300002
+        ],
+        "fit_median_seconds": 0.00263567899992,
+        "inference": {
+          "batch_256": {
+            "iqr": [
+              0.000218182845,
+              0.000218360745
+            ],
+            "median": 0.000218202389999,
+            "per_call_seconds": [
+              0.00021821029,
+              0.0002178624,
+              0.000218202389999,
+              0.000218596310001,
+              0.00021816359,
+              0.0002182021,
+              0.000218511200001
+            ]
+          },
+          "single_input": {
+            "iqr": [
+              1.47974700008e-05,
+              1.48816699993e-05
+            ],
+            "median": 1.48199699993e-05,
+            "per_call_seconds": [
+              1.49948700005e-05,
+              1.48199699993e-05,
+              1.48464699987e-05,
+              1.47981700002e-05,
+              1.47967700013e-05,
+              1.47858700007e-05,
+              1.491687e-05
+            ]
+          }
+        },
+        "k": 16,
+        "n": 256,
+        "peak_tracemalloc_bytes": {
+          "batch_256_inference": 691495,
+          "fit": 42729,
+          "scope": "NumPy/Python allocations only; LAPACK workspace excluded"
+        },
+        "persistent_bytes": {
+          "metadata": 24,
+          "weights": 1024
+        },
+        "regime": "aligned",
+        "repeats": [
+          {
+            "cpu_seconds": 0.00266721,
+            "stage_seconds": {
+              "covariance": 0.000450033000789,
+              "factorization": 0.00210657399953
+            },
+            "wall_seconds": 0.0026667489999
+          },
+          {
+            "cpu_seconds": 0.002639441,
+            "stage_seconds": {
+              "covariance": 0.000447623000355,
+              "factorization": 0.00208368199992
+            },
+            "wall_seconds": 0.00263901800008
+          },
+          {
+            "cpu_seconds": 0.002629331,
+            "stage_seconds": {
+              "covariance": 0.000440576000301,
+              "factorization": 0.00208751199989
+            },
+            "wall_seconds": 0.00262897799985
+          },
+          {
+            "cpu_seconds": 0.002617291,
+            "stage_seconds": {
+              "covariance": 0.000440446000084,
+              "factorization": 0.00207700000033
+            },
+            "wall_seconds": 0.00261689800004
+          },
+          {
+            "cpu_seconds": 0.00262049,
+            "stage_seconds": {
+              "covariance": 0.000440324999317,
+              "factorization": 0.00207451000006
+            },
+            "wall_seconds": 0.00262008799996
+          },
+          {
+            "cpu_seconds": 0.002636071,
+            "stage_seconds": {
+              "covariance": 0.000449959999969,
+              "factorization": 0.00207825699931
+            },
+            "wall_seconds": 0.00263567899992
+          },
+          {
+            "cpu_seconds": 0.002650301,
+            "stage_seconds": {
+              "covariance": 0.00046301600014,
+              "factorization": 0.0020837420002
+            },
+            "wall_seconds": 0.00264874799996
+          }
+        ],
+        "rss_kib": {
+          "after_imports_and_spawn": 97592,
+          "peak": 102920,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        },
+        "selected_phase": 0,
+        "warmup": {
+          "cpu_seconds": 0.003103871,
+          "stage_seconds": {
+            "covariance": 0.000463592999949,
+            "factorization": 0.00251464300004
+          },
+          "wall_seconds": 0.0031047670002
+        },
+        "work_per_fit": {
+          "cholesky_8": 16,
+          "eigh_8": 16,
+          "fit_row_exposures": 256,
+          "fits": 1
+        }
+      },
+      {
+        "amortized_seconds": {
+          "1": 0.00270577825991,
+          "100": 0.00303636500007,
+          "10000": 0.0360950390166
+        },
+        "arm": "global_cca_all",
+        "b": 8,
+        "complexity": {
+          "bytes": {
+            "adaptive_candidate_weights": 8192,
+            "deployed_global_basis": 16384,
+            "deployed_local_metadata": 24,
+            "deployed_local_weights": 1024,
+            "eigh_workspace_estimate": {
+              "global_": 270868,
+              "label": "analytical LAPACK dsyevd lwork/liwork estimate, not measured",
+              "local": 1588
+            },
+            "global_statistics": 262144,
+            "local_all_block_statistics_if_concurrent": 16384,
+            "local_live_block_statistics": 1024,
+            "raw_pairs_per_budget": {
+              "128": 262144,
+              "16": 32768,
+              "256": 524288,
+              "32": 65536,
+              "4": 8192,
+              "64": 131072,
+              "8": 16384
+            }
+          },
+          "orders": {
+            "adaptive_bank": "8 x local fit + O(8 n_val d) validation",
+            "global_cca_fit": "O(n d^2 + d^3)",
+            "global_inference": "O(d k)",
+            "local_cca_fit": "O(n_fit d b + d b^2)",
+            "local_inference": "O(d)",
+            "optimizer_state": 0,
+            "solver": "dense direct Cholesky + symmetric eigh (LAPACK syevd)",
+            "tuning_trials": 0
+          },
+          "storage_note": "implementation builds one block K/T pair at a time and discards it; raw pairs, validation data and rejected bases are not needed for deployment"
+        },
+        "d": 128,
+        "fit_iqr_seconds": [
+          0.00269718450011,
+          0.00270782999996
+        ],
+        "fit_median_seconds": 0.0027024389999,
+        "inference": {
+          "batch_256": {
+            "iqr": [
+              6.11810699991e-05,
+              6.15020299995e-05
+            ],
+            "median": 6.12524200005e-05,
+            "per_call_seconds": [
+              6.17079299991e-05,
+              6.68813199991e-05,
+              6.12961299998e-05,
+              6.12117199989e-05,
+              6.11020199995e-05,
+              6.11504199992e-05,
+              6.12524200005e-05
+            ]
+          },
+          "single_input": {
+            "iqr": [
+              3.32091000018e-06,
+              3.36966500072e-06
+            ],
+            "median": 3.33926000167e-06,
+            "per_call_seconds": [
+              3.33926000167e-06,
+              3.38995999982e-06,
+              3.32286000003e-06,
+              3.31896000034e-06,
+              3.36896000135e-06,
+              3.31485999823e-06,
+              3.37037000008e-06
+            ]
+          }
+        },
+        "k": 16,
+        "n": 256,
+        "peak_tracemalloc_bytes": {
+          "batch_256_inference": 296971,
+          "fit": 1327422,
+          "scope": "NumPy/Python allocations only; LAPACK workspace excluded"
+        },
+        "persistent_bytes": {
+          "metadata": 0,
+          "weights": 16384
+        },
+        "regime": "aligned",
+        "repeats": [
+          {
+            "cpu_seconds": 0.00273511,
+            "stage_seconds": {
+              "covariance": 0.000660601999925,
+              "factorization": 0.00194381599999
+            },
+            "wall_seconds": 0.00273457999992
+          },
+          {
+            "cpu_seconds": 0.002705481,
+            "stage_seconds": {
+              "covariance": 0.000654031999829,
+              "factorization": 0.00191843499988
+            },
+            "wall_seconds": 0.00270509999996
+          },
+          {
+            "cpu_seconds": 0.002695551,
+            "stage_seconds": {
+              "covariance": 0.000651152000046,
+              "factorization": 0.00191951500005
+            },
+            "wall_seconds": 0.00269512900013
+          },
+          {
+            "cpu_seconds": 0.002699661,
+            "stage_seconds": {
+              "covariance": 0.000651891999951,
+              "factorization": 0.00192321500003
+            },
+            "wall_seconds": 0.00269924000008
+          },
+          {
+            "cpu_seconds": 0.00268962,
+            "stage_seconds": {
+              "covariance": 0.000650621999966,
+              "factorization": 0.00191471500011
+            },
+            "wall_seconds": 0.00268915899983
+          },
+          {
+            "cpu_seconds": 0.002711011,
+            "stage_seconds": {
+              "covariance": 0.000652002000152,
+              "factorization": 0.00193419600009
+            },
+            "wall_seconds": 0.00271055999997
+          },
+          {
+            "cpu_seconds": 0.002702901,
+            "stage_seconds": {
+              "covariance": 0.000652671999887,
+              "factorization": 0.00192676500001
+            },
+            "wall_seconds": 0.0027024389999
+          }
+        ],
+        "rss_kib": {
+          "after_imports_and_spawn": 97592,
+          "peak": 104016,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        },
+        "selected_phase": null,
+        "warmup": {
+          "cpu_seconds": 0.003715711,
+          "stage_seconds": {
+            "covariance": 0.00082349499985,
+            "factorization": 0.00272073999986
+          },
+          "wall_seconds": 0.00371727800007
+        },
+        "work_per_fit": {
+          "cholesky_128": 1,
+          "eigh_128": 1,
+          "fit_row_exposures": 256,
+          "fits": 1
+        }
+      },
+      {
+        "amortized_seconds": {
+          "1": 0.02338929139,
+          "100": 0.0249725379999,
+          "10000": 0.183297198992
+        },
+        "arm": "adaptive_cca",
+        "b": 8,
+        "complexity": {
+          "bytes": {
+            "adaptive_candidate_weights": 8192,
+            "deployed_global_basis": 16384,
+            "deployed_local_metadata": 24,
+            "deployed_local_weights": 1024,
+            "eigh_workspace_estimate": {
+              "global_": 270868,
+              "label": "analytical LAPACK dsyevd lwork/liwork estimate, not measured",
+              "local": 1588
+            },
+            "global_statistics": 262144,
+            "local_all_block_statistics_if_concurrent": 16384,
+            "local_live_block_statistics": 1024,
+            "raw_pairs_per_budget": {
+              "128": 262144,
+              "16": 32768,
+              "256": 524288,
+              "32": 65536,
+              "4": 8192,
+              "64": 131072,
+              "8": 16384
+            }
+          },
+          "orders": {
+            "adaptive_bank": "8 x local fit + O(8 n_val d) validation",
+            "global_cca_fit": "O(n d^2 + d^3)",
+            "global_inference": "O(d k)",
+            "local_cca_fit": "O(n_fit d b + d b^2)",
+            "local_inference": "O(d)",
+            "optimizer_state": 0,
+            "solver": "dense direct Cholesky + symmetric eigh (LAPACK syevd)",
+            "tuning_trials": 0
+          },
+          "storage_note": "implementation builds one block K/T pair at a time and discards it; raw pairs, validation data and rejected bases are not needed for deployment"
+        },
+        "d": 128,
+        "fit_iqr_seconds": [
+          0.0232407855001,
+          0.023431374
+        ],
+        "fit_median_seconds": 0.023373299,
+        "inference": {
+          "batch_256": {
+            "iqr": [
+              0.000252321474999,
+              0.000252688924999
+            ],
+            "median": 0.000252533820001,
+            "per_call_seconds": [
+              0.000252863129999,
+              0.000251956520001,
+              0.000252612419999,
+              0.000252765429998,
+              0.00025213252,
+              0.000252510429998,
+              0.000252533820001
+            ]
+          },
+          "single_input": {
+            "iqr": [
+              1.59880900003e-05,
+              1.60497950003e-05
+            ],
+            "median": 1.59923899992e-05,
+            "per_call_seconds": [
+              1.60861900008e-05,
+              1.60549899988e-05,
+              1.60446000018e-05,
+              1.59837899992e-05,
+              1.59907900002e-05,
+              1.59853900004e-05,
+              1.59923899992e-05
+            ]
+          }
+        },
+        "k": 16,
+        "n": 256,
+        "peak_tracemalloc_bytes": {
+          "batch_256_inference": 691220,
+          "fit": 436454,
+          "scope": "NumPy/Python allocations only; LAPACK workspace excluded"
+        },
+        "persistent_bytes": {
+          "metadata": 24,
+          "weights": 1024
+        },
+        "regime": "dense",
+        "repeats": [
+          {
+            "cpu_seconds": 0.023561727,
+            "stage_seconds": {
+              "covariance": 0.00350606400093,
+              "factorization": 0.0183575140006,
+              "validation": 0.000625210999942
+            },
+            "wall_seconds": 0.0235615910001
+          },
+          {
+            "cpu_seconds": 0.023432556,
+            "stage_seconds": {
+              "covariance": 0.00351786900205,
+              "factorization": 0.0182788939994,
+              "validation": 0.000606210999877
+            },
+            "wall_seconds": 0.0234411189999
+          },
+          {
+            "cpu_seconds": 0.023421697,
+            "stage_seconds": {
+              "covariance": 0.00351887600004,
+              "factorization": 0.0182437440003,
+              "validation": 0.000616642000068
+            },
+            "wall_seconds": 0.023421629
+          },
+          {
+            "cpu_seconds": 0.023321376,
+            "stage_seconds": {
+              "covariance": 0.00349828600019,
+              "factorization": 0.0181604339994,
+              "validation": 0.000609920999977
+            },
+            "wall_seconds": 0.0233213270001
+          },
+          {
+            "cpu_seconds": 0.023362567,
+            "stage_seconds": {
+              "covariance": 0.00350757100114,
+              "factorization": 0.0182209340007,
+              "validation": 0.00060183100004
+            },
+            "wall_seconds": 0.023373299
+          },
+          {
+            "cpu_seconds": 0.023150346,
+            "stage_seconds": {
+              "covariance": 0.00349211599996,
+              "factorization": 0.0180137180007,
+              "validation": 0.000612271000136
+            },
+            "wall_seconds": 0.0231503340001
+          },
+          {
+            "cpu_seconds": 0.023160306,
+            "stage_seconds": {
+              "covariance": 0.00349990699829,
+              "factorization": 0.0180214410002,
+              "validation": 0.000610341000083
+            },
+            "wall_seconds": 0.0231602440001
+          }
+        ],
+        "rss_kib": {
+          "after_imports_and_spawn": 97592,
+          "peak": 102844,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        },
+        "selected_phase": 5,
+        "warmup": {
+          "cpu_seconds": 0.024118267,
+          "stage_seconds": {
+            "covariance": 0.00352983500034,
+            "factorization": 0.0188463569971,
+            "validation": 0.000633232000155
+          },
+          "wall_seconds": 0.0241194319999
+        },
+        "work_per_fit": {
+          "candidate_scores": 8,
+          "cholesky_8": 128,
+          "eigh_8": 128,
+          "fit_row_exposures": 1536,
+          "fits": 8,
+          "validation_row_exposures": 512
+        }
+      },
+      {
+        "amortized_seconds": {
+          "1": 0.00267388246995,
+          "100": 0.00414041599993,
+          "10000": 0.150793768998
+        },
+        "arm": "fixed_cca_all",
+        "b": 8,
+        "complexity": {
+          "bytes": {
+            "adaptive_candidate_weights": 8192,
+            "deployed_global_basis": 16384,
+            "deployed_local_metadata": 24,
+            "deployed_local_weights": 1024,
+            "eigh_workspace_estimate": {
+              "global_": 270868,
+              "label": "analytical LAPACK dsyevd lwork/liwork estimate, not measured",
+              "local": 1588
+            },
+            "global_statistics": 262144,
+            "local_all_block_statistics_if_concurrent": 16384,
+            "local_live_block_statistics": 1024,
+            "raw_pairs_per_budget": {
+              "128": 262144,
+              "16": 32768,
+              "256": 524288,
+              "32": 65536,
+              "4": 8192,
+              "64": 131072,
+              "8": 16384
+            }
+          },
+          "orders": {
+            "adaptive_bank": "8 x local fit + O(8 n_val d) validation",
+            "global_cca_fit": "O(n d^2 + d^3)",
+            "global_inference": "O(d k)",
+            "local_cca_fit": "O(n_fit d b + d b^2)",
+            "local_inference": "O(d)",
+            "optimizer_state": 0,
+            "solver": "dense direct Cholesky + symmetric eigh (LAPACK syevd)",
+            "tuning_trials": 0
+          },
+          "storage_note": "implementation builds one block K/T pair at a time and discards it; raw pairs, validation data and rejected bases are not needed for deployment"
+        },
+        "d": 128,
+        "fit_iqr_seconds": [
+          0.00265238349994,
+          0.00266849899992
+        ],
+        "fit_median_seconds": 0.00265906899995,
+        "inference": {
+          "batch_256": {
+            "iqr": [
+              0.000227931525,
+              0.000228580740001
+            ],
+            "median": 0.00022851638,
+            "per_call_seconds": [
+              0.00022891309,
+              0.000228628790001,
+              0.000228532690001,
+              0.00022851638,
+              0.000227337169999,
+              0.000228441280001,
+              0.000227421769998
+            ]
+          },
+          "single_input": {
+            "iqr": [
+              1.47960200002e-05,
+              1.49136250002e-05
+            ],
+            "median": 1.48134699998e-05,
+            "per_call_seconds": [
+              1.49832700004e-05,
+              1.484398e-05,
+              1.47942700005e-05,
+              1.47755700004e-05,
+              1.51071800019e-05,
+              1.48134699998e-05,
+              1.47977699999e-05
+            ]
+          }
+        },
+        "k": 16,
+        "n": 256,
+        "peak_tracemalloc_bytes": {
+          "batch_256_inference": 694427,
+          "fit": 45477,
+          "scope": "NumPy/Python allocations only; LAPACK workspace excluded"
+        },
+        "persistent_bytes": {
+          "metadata": 24,
+          "weights": 1024
+        },
+        "regime": "dense",
+        "repeats": [
+          {
+            "cpu_seconds": 0.002696061,
+            "stage_seconds": {
+              "covariance": 0.000449841999853,
+              "factorization": 0.00213817700023
+            },
+            "wall_seconds": 0.00269557900015
+          },
+          {
+            "cpu_seconds": 0.002673841,
+            "stage_seconds": {
+              "covariance": 0.000452008999446,
+              "factorization": 0.00211673699937
+            },
+            "wall_seconds": 0.002673469
+          },
+          {
+            "cpu_seconds": 0.00265949,
+            "stage_seconds": {
+              "covariance": 0.000449929999832,
+              "factorization": 0.0020980889999
+            },
+            "wall_seconds": 0.00265906899995
+          },
+          {
+            "cpu_seconds": 0.002663871,
+            "stage_seconds": {
+              "covariance": 0.000456214000224,
+              "factorization": 0.00210271200012
+            },
+            "wall_seconds": 0.00266352899985
+          },
+          {
+            "cpu_seconds": 0.002653701,
+            "stage_seconds": {
+              "covariance": 0.00045031199943,
+              "factorization": 0.00210067399939
+            },
+            "wall_seconds": 0.00265332799995
+          },
+          {
+            "cpu_seconds": 0.002648241,
+            "stage_seconds": {
+              "covariance": 0.000452570000334,
+              "factorization": 0.00209252800028
+            },
+            "wall_seconds": 0.00264785900004
+          },
+          {
+            "cpu_seconds": 0.00265181,
+            "stage_seconds": {
+              "covariance": 0.000443175999862,
+              "factorization": 0.00210502200002
+            },
+            "wall_seconds": 0.00265143899992
+          }
+        ],
+        "rss_kib": {
+          "after_imports_and_spawn": 97592,
+          "peak": 102744,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        },
+        "selected_phase": 0,
+        "warmup": {
+          "cpu_seconds": 0.003133931,
+          "stage_seconds": {
+            "covariance": 0.000468260000844,
+            "factorization": 0.00253677599972
+          },
+          "wall_seconds": 0.00313628699996
+        },
+        "work_per_fit": {
+          "cholesky_8": 16,
+          "eigh_8": 16,
+          "fit_row_exposures": 256,
+          "fits": 1
+        }
+      },
+      {
+        "amortized_seconds": {
+          "1": 0.00250504755996,
+          "100": 0.00282299199989,
+          "10000": 0.0346174359927
+        },
+        "arm": "global_cca_all",
+        "b": 8,
+        "complexity": {
+          "bytes": {
+            "adaptive_candidate_weights": 8192,
+            "deployed_global_basis": 16384,
+            "deployed_local_metadata": 24,
+            "deployed_local_weights": 1024,
+            "eigh_workspace_estimate": {
+              "global_": 270868,
+              "label": "analytical LAPACK dsyevd lwork/liwork estimate, not measured",
+              "local": 1588
+            },
+            "global_statistics": 262144,
+            "local_all_block_statistics_if_concurrent": 16384,
+            "local_live_block_statistics": 1024,
+            "raw_pairs_per_budget": {
+              "128": 262144,
+              "16": 32768,
+              "256": 524288,
+              "32": 65536,
+              "4": 8192,
+              "64": 131072,
+              "8": 16384
+            }
+          },
+          "orders": {
+            "adaptive_bank": "8 x local fit + O(8 n_val d) validation",
+            "global_cca_fit": "O(n d^2 + d^3)",
+            "global_inference": "O(d k)",
+            "local_cca_fit": "O(n_fit d b + d b^2)",
+            "local_inference": "O(d)",
+            "optimizer_state": 0,
+            "solver": "dense direct Cholesky + symmetric eigh (LAPACK syevd)",
+            "tuning_trials": 0
+          },
+          "storage_note": "implementation builds one block K/T pair at a time and discards it; raw pairs, validation data and rejected bases are not needed for deployment"
+        },
+        "d": 128,
+        "fit_iqr_seconds": [
+          0.00248165999994,
+          0.00255822650013
+        ],
+        "fit_median_seconds": 0.00250183599996,
+        "inference": {
+          "batch_256": {
+            "iqr": [
+              5.73675500004e-05,
+              5.76389000003e-05
+            ],
+            "median": 5.74524600006e-05,
+            "per_call_seconds": [
+              5.72859499994e-05,
+              5.73111500012e-05,
+              5.74239499997e-05,
+              5.82746700002e-05,
+              5.75879500002e-05,
+              5.74524600006e-05,
+              5.76898500003e-05
+            ]
+          },
+          "single_input": {
+            "iqr": [
+              3.12276000045e-06,
+              3.2380100015e-06
+            ],
+            "median": 3.21155999927e-06,
+            "per_call_seconds": [
+              3.25216000192e-06,
+              3.10656000011e-06,
+              3.09855000069e-06,
+              3.90336999999e-06,
+              3.21155999927e-06,
+              3.1389600008e-06,
+              3.22386000107e-06
+            ]
+          }
+        },
+        "k": 16,
+        "n": 256,
+        "peak_tracemalloc_bytes": {
+          "batch_256_inference": 296971,
+          "fit": 1327422,
+          "scope": "NumPy/Python allocations only; LAPACK workspace excluded"
+        },
+        "persistent_bytes": {
+          "metadata": 0,
+          "weights": 16384
+        },
+        "regime": "dense",
+        "repeats": [
+          {
+            "cpu_seconds": 0.00252959,
+            "stage_seconds": {
+              "covariance": 0.000603361000003,
+              "factorization": 0.001805483
+            },
+            "wall_seconds": 0.0025290860001
+          },
+          {
+            "cpu_seconds": 0.002502211,
+            "stage_seconds": {
+              "covariance": 0.000605962000009,
+              "factorization": 0.00177137200012
+            },
+            "wall_seconds": 0.00250183599996
+          },
+          {
+            "cpu_seconds": 0.002476601,
+            "stage_seconds": {
+              "covariance": 0.000594060999902,
+              "factorization": 0.00176832300008
+            },
+            "wall_seconds": 0.00247613499982
+          },
+          {
+            "cpu_seconds": 0.002487531,
+            "stage_seconds": {
+              "covariance": 0.000601950999908,
+              "factorization": 0.001764482
+            },
+            "wall_seconds": 0.00248718500006
+          },
+          {
+            "cpu_seconds": 0.00246904,
+            "stage_seconds": {
+              "covariance": 0.000586351000038,
+              "factorization": 0.00176893299999
+            },
+            "wall_seconds": 0.00246861599999
+          },
+          {
+            "cpu_seconds": 0.002587911,
+            "stage_seconds": {
+              "covariance": 0.000598340999886,
+              "factorization": 0.00184114300009
+            },
+            "wall_seconds": 0.00258736700016
+          },
+          {
+            "cpu_seconds": 0.002596131,
+            "stage_seconds": {
+              "covariance": 0.000670721999995,
+              "factorization": 0.00181081400001
+            },
+            "wall_seconds": 0.00259572799996
+          }
+        ],
+        "rss_kib": {
+          "after_imports_and_spawn": 97592,
+          "peak": 104140,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        },
+        "selected_phase": null,
+        "warmup": {
+          "cpu_seconds": 0.003497461,
+          "stage_seconds": {
+            "covariance": 0.000768363999896,
+            "factorization": 0.00255226700006
+          },
+          "wall_seconds": 0.00349853400007
+        },
+        "work_per_fit": {
+          "cholesky_128": 1,
+          "eigh_128": 1,
+          "fit_row_exposures": 256,
+          "fits": 1
+        }
+      },
+      {
+        "amortized_seconds": {
+          "1": 0.09970236232,
+          "100": 0.101967118,
+          "10000": 0.328442685993
+        },
+        "arm": "adaptive_cca",
+        "b": 8,
+        "complexity": {
+          "bytes": {
+            "adaptive_candidate_weights": 32768,
+            "deployed_global_basis": 262144,
+            "deployed_local_metadata": 24,
+            "deployed_local_weights": 4096,
+            "eigh_workspace_estimate": {
+              "global_": 4229140,
+              "label": "analytical LAPACK dsyevd lwork/liwork estimate, not measured",
+              "local": 1588
+            },
+            "global_statistics": 4194304,
+            "local_all_block_statistics_if_concurrent": 65536,
+            "local_live_block_statistics": 1024,
+            "raw_pairs_per_budget": {
+              "128": 1048576,
+              "16": 131072,
+              "256": 2097152,
+              "32": 262144,
+              "4": 32768,
+              "64": 524288,
+              "8": 65536
+            }
+          },
+          "orders": {
+            "adaptive_bank": "8 x local fit + O(8 n_val d) validation",
+            "global_cca_fit": "O(n d^2 + d^3)",
+            "global_inference": "O(d k)",
+            "local_cca_fit": "O(n_fit d b + d b^2)",
+            "local_inference": "O(d)",
+            "optimizer_state": 0,
+            "solver": "dense direct Cholesky + symmetric eigh (LAPACK syevd)",
+            "tuning_trials": 0
+          },
+          "storage_note": "implementation builds one block K/T pair at a time and discards it; raw pairs, validation data and rejected bases are not needed for deployment"
+        },
+        "d": 512,
+        "fit_iqr_seconds": [
+          0.0996037845,
+          0.100151044
+        ],
+        "fit_median_seconds": 0.099679486,
+        "inference": {
+          "batch_256": {
+            "iqr": [
+              0.002173195105,
+              0.002180313135
+            ],
+            "median": 0.00217941672,
+            "per_call_seconds": [
+              0.00218118295,
+              0.00218358219,
+              0.00217941672,
+              0.00214376157,
+              0.00216847392,
+              0.00217944332,
+              0.00217791629
+            ]
+          },
+          "single_input": {
+            "iqr": [
+              2.28697700004e-05,
+              2.29021199993e-05
+            ],
+            "median": 2.28763199993e-05,
+            "per_call_seconds": [
+              2.30894200013e-05,
+              2.28719200004e-05,
+              2.28886199989e-05,
+              2.28763199993e-05,
+              2.29156199998e-05,
+              2.28676200004e-05,
+              2.28536200007e-05
+            ]
+          }
+        },
+        "k": 64,
+        "n": 256,
+        "peak_tracemalloc_bytes": {
+          "batch_256_inference": 2362650,
+          "fit": 1644122,
+          "scope": "NumPy/Python allocations only; LAPACK workspace excluded"
+        },
+        "persistent_bytes": {
+          "metadata": 24,
+          "weights": 4096
+        },
+        "regime": "aligned",
+        "repeats": [
+          {
+            "cpu_seconds": 0.101564048,
+            "stage_seconds": {
+              "covariance": 0.0215474569984,
+              "factorization": 0.0735477460025,
+              "validation": 0.00278028999992
+            },
+            "wall_seconds": 0.101603521
+          },
+          {
+            "cpu_seconds": 0.100342438,
+            "stage_seconds": {
+              "covariance": 0.0211565410011,
+              "factorization": 0.0728198579975,
+              "validation": 0.00274515000001
+            },
+            "wall_seconds": 0.100360068
+          },
+          {
+            "cpu_seconds": 0.099152367,
+            "stage_seconds": {
+              "covariance": 0.0210967950038,
+              "factorization": 0.0716139570025,
+              "validation": 0.00277094000012
+            },
+            "wall_seconds": 0.099157097
+          },
+          {
+            "cpu_seconds": 0.099538328,
+            "stage_seconds": {
+              "covariance": 0.0211119090018,
+              "factorization": 0.0721340869979,
+              "validation": 0.0027376999999
+            },
+            "wall_seconds": 0.099538983
+          },
+          {
+            "cpu_seconds": 0.099667947,
+            "stage_seconds": {
+              "covariance": 0.0211940859992,
+              "factorization": 0.0721772839995,
+              "validation": 0.00274889100001
+            },
+            "wall_seconds": 0.099668586
+          },
+          {
+            "cpu_seconds": 0.099674368,
+            "stage_seconds": {
+              "covariance": 0.0211326980004,
+              "factorization": 0.0722831210026,
+              "validation": 0.00273074000006
+            },
+            "wall_seconds": 0.099679486
+          },
+          {
+            "cpu_seconds": 0.099928818,
+            "stage_seconds": {
+              "covariance": 0.0212167680024,
+              "factorization": 0.0724782050029,
+              "validation": 0.00273650000008
+            },
+            "wall_seconds": 0.0999420200001
+          }
+        ],
+        "rss_kib": {
+          "after_imports_and_spawn": 97592,
+          "peak": 116972,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        },
+        "selected_phase": 0,
+        "warmup": {
+          "cpu_seconds": 0.102310709,
+          "stage_seconds": {
+            "covariance": 0.0215635399966,
+            "factorization": 0.0742064229987,
+            "validation": 0.00279749099991
+          },
+          "wall_seconds": 0.102347225
+        },
+        "work_per_fit": {
+          "candidate_scores": 8,
+          "cholesky_8": 512,
+          "eigh_8": 512,
+          "fit_row_exposures": 1536,
+          "fits": 8,
+          "validation_row_exposures": 512
+        }
+      },
+      {
+        "amortized_seconds": {
+          "1": 0.0127454029201,
+          "100": 0.0149936850003,
+          "10000": 0.239821893015
+        },
+        "arm": "fixed_cca_all",
+        "b": 8,
+        "complexity": {
+          "bytes": {
+            "adaptive_candidate_weights": 32768,
+            "deployed_global_basis": 262144,
+            "deployed_local_metadata": 24,
+            "deployed_local_weights": 4096,
+            "eigh_workspace_estimate": {
+              "global_": 4229140,
+              "label": "analytical LAPACK dsyevd lwork/liwork estimate, not measured",
+              "local": 1588
+            },
+            "global_statistics": 4194304,
+            "local_all_block_statistics_if_concurrent": 65536,
+            "local_live_block_statistics": 1024,
+            "raw_pairs_per_budget": {
+              "128": 1048576,
+              "16": 131072,
+              "256": 2097152,
+              "32": 262144,
+              "4": 32768,
+              "64": 524288,
+              "8": 65536
+            }
+          },
+          "orders": {
+            "adaptive_bank": "8 x local fit + O(8 n_val d) validation",
+            "global_cca_fit": "O(n d^2 + d^3)",
+            "global_inference": "O(d k)",
+            "local_cca_fit": "O(n_fit d b + d b^2)",
+            "local_inference": "O(d)",
+            "optimizer_state": 0,
+            "solver": "dense direct Cholesky + symmetric eigh (LAPACK syevd)",
+            "tuning_trials": 0
+          },
+          "storage_note": "implementation builds one block K/T pair at a time and discards it; raw pairs, validation data and rejected bases are not needed for deployment"
+        },
+        "d": 512,
+        "fit_iqr_seconds": [
+          0.012711993,
+          0.0127467880001
+        ],
+        "fit_median_seconds": 0.0127226930001,
+        "inference": {
+          "batch_256": {
+            "iqr": [
+              0.00214899531,
+              0.002174231925
+            ],
+            "median": 0.00217226259,
+            "per_call_seconds": [
+              0.00217254139,
+              0.00217226259,
+              0.00217215128,
+              0.00217618676,
+              0.00217592246,
+              0.00212583934,
+              0.00201026012
+            ]
+          },
+          "single_input": {
+            "iqr": [
+              2.26471650001e-05,
+              2.28539199998e-05
+            ],
+            "median": 2.27099200015e-05,
+            "per_call_seconds": [
+              2.27941200001e-05,
+              2.26505199998e-05,
+              2.26438100003e-05,
+              2.29137199995e-05,
+              2.25695099994e-05,
+              2.33904299989e-05,
+              2.27099200015e-05
+            ]
+          }
+        },
+        "k": 64,
+        "n": 256,
+        "peak_tracemalloc_bytes": {
+          "batch_256_inference": 2363191,
+          "fit": 49401,
+          "scope": "NumPy/Python allocations only; LAPACK workspace excluded"
+        },
+        "persistent_bytes": {
+          "metadata": 24,
+          "weights": 4096
+        },
+        "regime": "aligned",
+        "repeats": [
+          {
+            "cpu_seconds": 0.012777554,
+            "stage_seconds": {
+              "covariance": 0.00322041000118,
+              "factorization": 0.00915163800096
+            },
+            "wall_seconds": 0.0127772439998
+          },
+          {
+            "cpu_seconds": 0.012709193,
+            "stage_seconds": {
+              "covariance": 0.0031615180003,
+              "factorization": 0.00914848699949
+            },
+            "wall_seconds": 0.0127090129999
+          },
+          {
+            "cpu_seconds": 0.012755434,
+            "stage_seconds": {
+              "covariance": 0.00317642899927,
+              "factorization": 0.00917058599998
+            },
+            "wall_seconds": 0.0127552430001
+          },
+          {
+            "cpu_seconds": 0.012722873,
+            "stage_seconds": {
+              "covariance": 0.00321709099944,
+              "factorization": 0.00909751500012
+            },
+            "wall_seconds": 0.0127226930001
+          },
+          {
+            "cpu_seconds": 0.012738524,
+            "stage_seconds": {
+              "covariance": 0.00317837899956,
+              "factorization": 0.00916612899891
+            },
+            "wall_seconds": 0.012738333
+          },
+          {
+            "cpu_seconds": 0.012715203,
+            "stage_seconds": {
+              "covariance": 0.00316758999884,
+              "factorization": 0.00913617799938
+            },
+            "wall_seconds": 0.0127149730001
+          },
+          {
+            "cpu_seconds": 0.012701994,
+            "stage_seconds": {
+              "covariance": 0.00317971800087,
+              "factorization": 0.00912761800009
+            },
+            "wall_seconds": 0.0127018430001
+          }
+        ],
+        "rss_kib": {
+          "after_imports_and_spawn": 97720,
+          "peak": 116944,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        },
+        "selected_phase": 0,
+        "warmup": {
+          "cpu_seconds": 0.013474133,
+          "stage_seconds": {
+            "covariance": 0.00325257899863,
+            "factorization": 0.00977342100168
+          },
+          "wall_seconds": 0.0134758959998
+        },
+        "work_per_fit": {
+          "cholesky_8": 64,
+          "eigh_8": 64,
+          "fit_row_exposures": 256,
+          "fits": 1
+        }
+      },
+      {
+        "amortized_seconds": {
+          "1": 0.08225834269,
+          "100": 0.0832529649999,
+          "10000": 0.182715195994
+        },
+        "arm": "global_cca_all",
+        "b": 8,
+        "complexity": {
+          "bytes": {
+            "adaptive_candidate_weights": 32768,
+            "deployed_global_basis": 262144,
+            "deployed_local_metadata": 24,
+            "deployed_local_weights": 4096,
+            "eigh_workspace_estimate": {
+              "global_": 4229140,
+              "label": "analytical LAPACK dsyevd lwork/liwork estimate, not measured",
+              "local": 1588
+            },
+            "global_statistics": 4194304,
+            "local_all_block_statistics_if_concurrent": 65536,
+            "local_live_block_statistics": 1024,
+            "raw_pairs_per_budget": {
+              "128": 1048576,
+              "16": 131072,
+              "256": 2097152,
+              "32": 262144,
+              "4": 32768,
+              "64": 524288,
+              "8": 65536
+            }
+          },
+          "orders": {
+            "adaptive_bank": "8 x local fit + O(8 n_val d) validation",
+            "global_cca_fit": "O(n d^2 + d^3)",
+            "global_inference": "O(d k)",
+            "local_cca_fit": "O(n_fit d b + d b^2)",
+            "local_inference": "O(d)",
+            "optimizer_state": 0,
+            "solver": "dense direct Cholesky + symmetric eigh (LAPACK syevd)",
+            "tuning_trials": 0
+          },
+          "storage_note": "implementation builds one block K/T pair at a time and discards it; raw pairs, validation data and rejected bases are not needed for deployment"
+        },
+        "d": 512,
+        "fit_iqr_seconds": [
+          0.0822184154999,
+          0.0827998165
+        ],
+        "fit_median_seconds": 0.082248296,
+        "inference": {
+          "batch_256": {
+            "iqr": [
+              0.00077702003,
+              0.000777676245
+            ],
+            "median": 0.00077735504,
+            "per_call_seconds": [
+              0.000777586639999,
+              0.00077735504,
+              0.000777775249999,
+              0.00077706303,
+              0.00077697703,
+              0.00077776585,
+              0.000776768430001
+            ]
+          },
+          "single_input": {
+            "iqr": [
+              1.00004850003e-05,
+              1.00566800006e-05
+            ],
+            "median": 1.00466899994e-05,
+            "per_call_seconds": [
+              1.00986799998e-05,
+              1.00466899994e-05,
+              1.0047180001e-05,
+              9.99368000066e-06,
+              1.000729e-05,
+              1.00661800002e-05,
+              9.98778999929e-06
+            ]
+          }
+        },
+        "k": 64,
+        "n": 256,
+        "peak_tracemalloc_bytes": {
+          "batch_256_inference": 1181707,
+          "fit": 21028158,
+          "scope": "NumPy/Python allocations only; LAPACK workspace excluded"
+        },
+        "persistent_bytes": {
+          "metadata": 0,
+          "weights": 262144
+        },
+        "regime": "aligned",
+        "repeats": [
+          {
+            "cpu_seconds": 0.082659613,
+            "stage_seconds": {
+              "covariance": 0.0132024519999,
+              "factorization": 0.0677632910001
+            },
+            "wall_seconds": 0.0826836050001
+          },
+          {
+            "cpu_seconds": 0.082211883,
+            "stage_seconds": {
+              "covariance": 0.0126586820002,
+              "factorization": 0.067878734
+            },
+            "wall_seconds": 0.082223376
+          },
+          {
+            "cpu_seconds": 0.082854812,
+            "stage_seconds": {
+              "covariance": 0.0127632040001,
+              "factorization": 0.0684381630001
+            },
+            "wall_seconds": 0.082916028
+          },
+          {
+            "cpu_seconds": 0.082199833,
+            "stage_seconds": {
+              "covariance": 0.0125825499999,
+              "factorization": 0.0679245840001
+            },
+            "wall_seconds": 0.0822134549999
+          },
+          {
+            "cpu_seconds": 0.082236493,
+            "stage_seconds": {
+              "covariance": 0.0125890500001,
+              "factorization": 0.067931244
+            },
+            "wall_seconds": 0.082248296
+          },
+          {
+            "cpu_seconds": 0.082067382,
+            "stage_seconds": {
+              "covariance": 0.0125839500001,
+              "factorization": 0.067795852
+            },
+            "wall_seconds": 0.082066854
+          },
+          {
+            "cpu_seconds": 0.083054463,
+            "stage_seconds": {
+              "covariance": 0.0126261810001,
+              "factorization": 0.06874797
+            },
+            "wall_seconds": 0.083064641
+          }
+        ],
+        "rss_kib": {
+          "after_imports_and_spawn": 97720,
+          "peak": 138692,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        },
+        "selected_phase": null,
+        "warmup": {
+          "cpu_seconds": 0.083841333,
+          "stage_seconds": {
+            "covariance": 0.0124204170002,
+            "factorization": 0.0681646979999
+          },
+          "wall_seconds": 0.083842126
+        },
+        "work_per_fit": {
+          "cholesky_512": 1,
+          "eigh_512": 1,
+          "fit_row_exposures": 256,
+          "fits": 1
+        }
+      },
+      {
+        "amortized_seconds": {
+          "1": 0.09309765109,
+          "100": 0.0951594339999,
+          "10000": 0.30133772499
+        },
+        "arm": "adaptive_cca",
+        "b": 8,
+        "complexity": {
+          "bytes": {
+            "adaptive_candidate_weights": 32768,
+            "deployed_global_basis": 262144,
+            "deployed_local_metadata": 24,
+            "deployed_local_weights": 4096,
+            "eigh_workspace_estimate": {
+              "global_": 4229140,
+              "label": "analytical LAPACK dsyevd lwork/liwork estimate, not measured",
+              "local": 1588
+            },
+            "global_statistics": 4194304,
+            "local_all_block_statistics_if_concurrent": 65536,
+            "local_live_block_statistics": 1024,
+            "raw_pairs_per_budget": {
+              "128": 1048576,
+              "16": 131072,
+              "256": 2097152,
+              "32": 262144,
+              "4": 32768,
+              "64": 524288,
+              "8": 65536
+            }
+          },
+          "orders": {
+            "adaptive_bank": "8 x local fit + O(8 n_val d) validation",
+            "global_cca_fit": "O(n d^2 + d^3)",
+            "global_inference": "O(d k)",
+            "local_cca_fit": "O(n_fit d b + d b^2)",
+            "local_inference": "O(d)",
+            "optimizer_state": 0,
+            "solver": "dense direct Cholesky + symmetric eigh (LAPACK syevd)",
+            "tuning_trials": 0
+          },
+          "storage_note": "implementation builds one block K/T pair at a time and discards it; raw pairs, validation data and rejected bases are not needed for deployment"
+        },
+        "d": 512,
+        "fit_iqr_seconds": [
+          0.0930313585,
+          0.0932379879999
+        ],
+        "fit_median_seconds": 0.093076825,
+        "inference": {
+          "batch_256": {
+            "iqr": [
+              0.001970592945,
+              0.00197592654
+            ],
+            "median": 0.00197468107,
+            "per_call_seconds": [
+              0.0019767334,
+              0.00197468107,
+              0.0019705935,
+              0.00197059239,
+              0.00197026279,
+              0.00197511968,
+              0.00198159979
+            ]
+          },
+          "single_input": {
+            "iqr": [
+              2.07902800003e-05,
+              2.08612300014e-05
+            ],
+            "median": 2.0826089999e-05,
+            "per_call_seconds": [
+              2.08740800008e-05,
+              2.08589800013e-05,
+              2.0826089999e-05,
+              2.08130800002e-05,
+              2.07674800004e-05,
+              2.08634800015e-05,
+              2.0758579999e-05
+            ]
+          }
+        },
+        "k": 64,
+        "n": 256,
+        "peak_tracemalloc_bytes": {
+          "batch_256_inference": 2376239,
+          "fit": 1657849,
+          "scope": "NumPy/Python allocations only; LAPACK workspace excluded"
+        },
+        "persistent_bytes": {
+          "metadata": 24,
+          "weights": 4096
+        },
+        "regime": "dense",
+        "repeats": [
+          {
+            "cpu_seconds": 0.093805646,
+            "stage_seconds": {
+              "covariance": 0.0198013070017,
+              "factorization": 0.0680159079959,
+              "validation": 0.00273102000006
+            },
+            "wall_seconds": 0.093849719
+          },
+          {
+            "cpu_seconds": 0.092796855,
+            "stage_seconds": {
+              "covariance": 0.0196454269997,
+              "factorization": 0.0672114499998,
+              "validation": 0.00272906000009
+            },
+            "wall_seconds": 0.0928241699999
+          },
+          {
+            "cpu_seconds": 0.093087316,
+            "stage_seconds": {
+              "covariance": 0.0195716869991,
+              "factorization": 0.0675320959974,
+              "validation": 0.00271318
+            },
+            "wall_seconds": 0.0930882749999
+          },
+          {
+            "cpu_seconds": 0.093371346,
+            "stage_seconds": {
+              "covariance": 0.0196565209999,
+              "factorization": 0.0677432739985,
+              "validation": 0.00271877
+            },
+            "wall_seconds": 0.093387701
+          },
+          {
+            "cpu_seconds": 0.093033476,
+            "stage_seconds": {
+              "covariance": 0.0195744089983,
+              "factorization": 0.067600324998,
+              "validation": 0.00270090000004
+            },
+            "wall_seconds": 0.093076825
+          },
+          {
+            "cpu_seconds": 0.092984056,
+            "stage_seconds": {
+              "covariance": 0.0195534089983,
+              "factorization": 0.067536362996,
+              "validation": 0.00269461900007
+            },
+            "wall_seconds": 0.0929929930001
+          },
+          {
+            "cpu_seconds": 0.093069426,
+            "stage_seconds": {
+              "covariance": 0.0195493460012,
+              "factorization": 0.0672433710004,
+              "validation": 0.00271567999994
+            },
+            "wall_seconds": 0.0930697239999
+          }
+        ],
+        "rss_kib": {
+          "after_imports_and_spawn": 97720,
+          "peak": 116824,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        },
+        "selected_phase": 3,
+        "warmup": {
+          "cpu_seconds": 0.093905446,
+          "stage_seconds": {
+            "covariance": 0.0196099830002,
+            "factorization": 0.0681869880027,
+            "validation": 0.00273584000001
+          },
+          "wall_seconds": 0.0939283510002
+        },
+        "work_per_fit": {
+          "candidate_scores": 8,
+          "cholesky_8": 512,
+          "eigh_8": 512,
+          "fit_row_exposures": 1536,
+          "fits": 8,
+          "validation_row_exposures": 512
+        }
+      },
+      {
+        "amortized_seconds": {
+          "1": 0.0117903645801,
+          "100": 0.013866254,
+          "10000": 0.221455195996
+        },
+        "arm": "fixed_cca_all",
+        "b": 8,
+        "complexity": {
+          "bytes": {
+            "adaptive_candidate_weights": 32768,
+            "deployed_global_basis": 262144,
+            "deployed_local_metadata": 24,
+            "deployed_local_weights": 4096,
+            "eigh_workspace_estimate": {
+              "global_": 4229140,
+              "label": "analytical LAPACK dsyevd lwork/liwork estimate, not measured",
+              "local": 1588
+            },
+            "global_statistics": 4194304,
+            "local_all_block_statistics_if_concurrent": 65536,
+            "local_live_block_statistics": 1024,
+            "raw_pairs_per_budget": {
+              "128": 1048576,
+              "16": 131072,
+              "256": 2097152,
+              "32": 262144,
+              "4": 32768,
+              "64": 524288,
+              "8": 65536
+            }
+          },
+          "orders": {
+            "adaptive_bank": "8 x local fit + O(8 n_val d) validation",
+            "global_cca_fit": "O(n d^2 + d^3)",
+            "global_inference": "O(d k)",
+            "local_cca_fit": "O(n_fit d b + d b^2)",
+            "local_inference": "O(d)",
+            "optimizer_state": 0,
+            "solver": "dense direct Cholesky + symmetric eigh (LAPACK syevd)",
+            "tuning_trials": 0
+          },
+          "storage_note": "implementation builds one block K/T pair at a time and discards it; raw pairs, validation data and rejected bases are not needed for deployment"
+        },
+        "d": 512,
+        "fit_iqr_seconds": [
+          0.0117105794999,
+          0.0118461570002
+        ],
+        "fit_median_seconds": 0.0117693960001,
+        "inference": {
+          "batch_256": {
+            "iqr": [
+              0.00199310421,
+              0.002056533665
+            ],
+            "median": 0.00199648157,
+            "per_call_seconds": [
+              0.00199145297,
+              0.00199151918,
+              0.00199648157,
+              0.00199468924,
+              0.00199652937,
+              0.00211653796,
+              0.00215370165
+            ]
+          },
+          "single_input": {
+            "iqr": [
+              2.09281349998e-05,
+              2.1012935e-05
+            ],
+            "median": 2.09685799996e-05,
+            "per_call_seconds": [
+              2.11202900005e-05,
+              2.09685799996e-05,
+              2.10535899987e-05,
+              2.09389799988e-05,
+              2.09172900009e-05,
+              2.09722800014e-05,
+              2.08476800003e-05
+            ]
+          }
+        },
+        "k": 64,
+        "n": 256,
+        "peak_tracemalloc_bytes": {
+          "batch_256_inference": 2362548,
+          "fit": 48711,
+          "scope": "NumPy/Python allocations only; LAPACK workspace excluded"
+        },
+        "persistent_bytes": {
+          "metadata": 24,
+          "weights": 4096
+        },
+        "regime": "dense",
+        "repeats": [
+          {
+            "cpu_seconds": 0.011946144,
+            "stage_seconds": {
+              "covariance": 0.00297716400064,
+              "factorization": 0.00864145800051
+            },
+            "wall_seconds": 0.0119888889999
+          },
+          {
+            "cpu_seconds": 0.011821493,
+            "stage_seconds": {
+              "covariance": 0.00297283300029,
+              "factorization": 0.00848554399886
+            },
+            "wall_seconds": 0.0118212460002
+          },
+          {
+            "cpu_seconds": 0.011769603,
+            "stage_seconds": {
+              "covariance": 0.0029521660008,
+              "factorization": 0.00844781399974
+            },
+            "wall_seconds": 0.0117693960001
+          },
+          {
+            "cpu_seconds": 0.011707004,
+            "stage_seconds": {
+              "covariance": 0.00295412900073,
+              "factorization": 0.00838559300018
+            },
+            "wall_seconds": 0.0117068039999
+          },
+          {
+            "cpu_seconds": 0.011691993,
+            "stage_seconds": {
+              "covariance": 0.00298245399927,
+              "factorization": 0.00834232999887
+            },
+            "wall_seconds": 0.011691764
+          },
+          {
+            "cpu_seconds": 0.011714583,
+            "stage_seconds": {
+              "covariance": 0.00295900299921,
+              "factorization": 0.00838718100022
+            },
+            "wall_seconds": 0.0117143549999
+          },
+          {
+            "cpu_seconds": 0.011826423,
+            "stage_seconds": {
+              "covariance": 0.00296417200047,
+              "factorization": 0.00853241499954
+            },
+            "wall_seconds": 0.0118710680001
+          }
+        ],
+        "rss_kib": {
+          "after_imports_and_spawn": 97720,
+          "peak": 116944,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        },
+        "selected_phase": 0,
+        "warmup": {
+          "cpu_seconds": 0.012700383,
+          "stage_seconds": {
+            "covariance": 0.00305840800047,
+            "factorization": 0.00923552999984
+          },
+          "wall_seconds": 0.0127020730001
+        },
+        "work_per_fit": {
+          "cholesky_8": 64,
+          "eigh_8": 64,
+          "fit_row_exposures": 256,
+          "fits": 1
+        }
+      },
+      {
+        "amortized_seconds": {
+          "1": 0.07738031828,
+          "100": 0.078304115,
+          "10000": 0.170683787004
+        },
+        "arm": "global_cca_all",
+        "b": 8,
+        "complexity": {
+          "bytes": {
+            "adaptive_candidate_weights": 32768,
+            "deployed_global_basis": 262144,
+            "deployed_local_metadata": 24,
+            "deployed_local_weights": 4096,
+            "eigh_workspace_estimate": {
+              "global_": 4229140,
+              "label": "analytical LAPACK dsyevd lwork/liwork estimate, not measured",
+              "local": 1588
+            },
+            "global_statistics": 4194304,
+            "local_all_block_statistics_if_concurrent": 65536,
+            "local_live_block_statistics": 1024,
+            "raw_pairs_per_budget": {
+              "128": 1048576,
+              "16": 131072,
+              "256": 2097152,
+              "32": 262144,
+              "4": 32768,
+              "64": 524288,
+              "8": 65536
+            }
+          },
+          "orders": {
+            "adaptive_bank": "8 x local fit + O(8 n_val d) validation",
+            "global_cca_fit": "O(n d^2 + d^3)",
+            "global_inference": "O(d k)",
+            "local_cca_fit": "O(n_fit d b + d b^2)",
+            "local_inference": "O(d)",
+            "optimizer_state": 0,
+            "solver": "dense direct Cholesky + symmetric eigh (LAPACK syevd)",
+            "tuning_trials": 0
+          },
+          "storage_note": "implementation builds one block K/T pair at a time and discards it; raw pairs, validation data and rejected bases are not needed for deployment"
+        },
+        "d": 512,
+        "fit_iqr_seconds": [
+          0.0765026710001,
+          0.0786674510001
+        ],
+        "fit_median_seconds": 0.077370987,
+        "inference": {
+          "batch_256": {
+            "iqr": [
+              0.0007999869,
+              0.000800261305
+            ],
+            "median": 0.000800101259999,
+            "per_call_seconds": [
+              0.00082057073,
+              0.00079997845,
+              0.000800396059999,
+              0.00080012655,
+              0.000800101259999,
+              0.000799995350001,
+              0.00079953965
+            ]
+          },
+          "single_input": {
+            "iqr": [
+              9.2816699987e-06,
+              9.98108499857e-06
+            ],
+            "median": 9.33128000042e-06,
+            "per_call_seconds": [
+              9.33128000042e-06,
+              1.03956899989e-05,
+              1.08617899991e-05,
+              9.56647999828e-06,
+              9.18906999914e-06,
+              9.25836999841e-06,
+              9.30496999899e-06
+            ]
+          }
+        },
+        "k": 64,
+        "n": 256,
+        "peak_tracemalloc_bytes": {
+          "batch_256_inference": 1181707,
+          "fit": 21028158,
+          "scope": "NumPy/Python allocations only; LAPACK workspace excluded"
+        },
+        "persistent_bytes": {
+          "metadata": 0,
+          "weights": 262144
+        },
+        "regime": "dense",
+        "repeats": [
+          {
+            "cpu_seconds": 0.079715183,
+            "stage_seconds": {
+              "covariance": 0.0129619180002,
+              "factorization": 0.0651630940001
+            },
+            "wall_seconds": 0.0797325210001
+          },
+          {
+            "cpu_seconds": 0.077581591,
+            "stage_seconds": {
+              "covariance": 0.0119926099999,
+              "factorization": 0.064039953
+            },
+            "wall_seconds": 0.0776023810001
+          },
+          {
+            "cpu_seconds": 0.076462501,
+            "stage_seconds": {
+              "covariance": 0.011791976,
+              "factorization": 0.0631016460002
+            },
+            "wall_seconds": 0.0764623699999
+          },
+          {
+            "cpu_seconds": 0.076288371,
+            "stage_seconds": {
+              "covariance": 0.011736505,
+              "factorization": 0.0629476730001
+            },
+            "wall_seconds": 0.0762878180001
+          },
+          {
+            "cpu_seconds": 0.076523862,
+            "stage_seconds": {
+              "covariance": 0.011819797,
+              "factorization": 0.0631595270002
+            },
+            "wall_seconds": 0.0765429720002
+          },
+          {
+            "cpu_seconds": 0.077365061,
+            "stage_seconds": {
+              "covariance": 0.0123183960002,
+              "factorization": 0.0634719430002
+            },
+            "wall_seconds": 0.077370987
+          },
+          {
+            "cpu_seconds": 0.081667213,
+            "stage_seconds": {
+              "covariance": 0.0120631510001,
+              "factorization": 0.067780522
+            },
+            "wall_seconds": 0.0816910359999
+          }
+        ],
+        "rss_kib": {
+          "after_imports_and_spawn": 97720,
+          "peak": 138184,
+          "scope": "fresh spawned worker high-water RSS, Linux KiB; includes interpreter"
+        },
+        "selected_phase": null,
+        "warmup": {
+          "cpu_seconds": 0.082458552,
+          "stage_seconds": {
+            "covariance": 0.0123368259999,
+            "factorization": 0.0672141810001
+          },
+          "wall_seconds": 0.082471081
+        },
+        "work_per_fit": {
+          "cholesky_512": 1,
+          "eigh_512": 1,
+          "fit_row_exposures": 256,
+          "fits": 1
+        }
+      }
+    ],
+    "rss_scope": "cumulative parent-process high-water RSS (Linux KiB), not per-arm memory",
+    "solver_failures": 0,
+    "wall_seconds": 23.825307836,
+    "worker_cpu_note": "per-fit worker CPU seconds are recorded per repeat; parent CPU excludes workers"
   },
   "worktree_dirty": true
 }
