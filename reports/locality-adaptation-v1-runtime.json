@@ -1,0 +1,250 @@
+{
+  "command": "python -m experiments.locality_adaptation --phase dev",
+  "complexity": {
+    "bytes": {
+      "adaptive_candidate_weights": 2048,
+      "deployed_global_basis": 1024,
+      "deployed_local_metadata": 24,
+      "deployed_local_weights": 256,
+      "eigh_workspace_estimate": {
+        "global_": 18580,
+        "label": "analytical LAPACK dsyevd lwork/liwork estimate, not measured",
+        "local": 1588
+      },
+      "global_statistics": 16384,
+      "local_all_block_statistics_if_concurrent": 4096,
+      "local_live_block_statistics": 1024,
+      "raw_pairs_per_budget": {
+        "128": 65536,
+        "16": 8192,
+        "256": 131072,
+        "32": 16384,
+        "4": 2048,
+        "64": 32768,
+        "8": 4096
+      }
+    },
+    "orders": {
+      "adaptive_bank": "8 x local fit + O(8 n_val d) validation",
+      "global_cca_fit": "O(n d^2 + d^3)",
+      "global_inference": "O(d k)",
+      "local_cca_fit": "O(n_fit d b + d b^2)",
+      "local_inference": "O(d)",
+      "optimizer_state": 0,
+      "solver": "dense direct Cholesky + symmetric eigh (LAPACK syevd)",
+      "tuning_trials": 0
+    },
+    "storage_note": "implementation builds one block K/T pair at a time and discards it; raw pairs, validation data and rejected bases are not needed for deployment"
+  },
+  "development": {
+    "fit_stage_timing": {
+      "adaptive_cca": {
+        "counts": {
+          "candidate_scores": 1792,
+          "cholesky_8": 7168,
+          "eigh_8": 7168,
+          "fit_row_exposures": 97536,
+          "fits": 1792,
+          "validation_row_exposures": 32512
+        },
+        "seconds": {
+          "covariance": 0.142462564003,
+          "factorization": 0.970846224002,
+          "validation": 0.064636462999
+        }
+      },
+      "adaptive_spectral": {
+        "counts": {
+          "candidate_scores": 1792,
+          "eigh_8": 7168,
+          "fit_row_exposures": 97536,
+          "fits": 1792,
+          "validation_row_exposures": 32512
+        },
+        "seconds": {
+          "covariance": 0.131577569007,
+          "factorization": 0.285162538987,
+          "validation": 0.0644272059999
+        }
+      },
+      "fixed_cca_all": {
+        "counts": {
+          "cholesky_8": 896,
+          "eigh_8": 896,
+          "fit_row_exposures": 16256,
+          "fits": 224
+        },
+        "seconds": {
+          "covariance": 0.0186748510012,
+          "factorization": 0.122813551005
+        }
+      },
+      "fixed_cca_fit": {
+        "counts": {
+          "cholesky_8": 896,
+          "eigh_8": 896,
+          "fit_row_exposures": 12192,
+          "fits": 224
+        },
+        "seconds": {
+          "covariance": 0.0178943029991,
+          "factorization": 0.122585527001
+        }
+      },
+      "fixed_spectral_all": {
+        "counts": {
+          "eigh_8": 896,
+          "fit_row_exposures": 16256,
+          "fits": 224
+        },
+        "seconds": {
+          "covariance": 0.0176532679993,
+          "factorization": 0.0373845559961
+        }
+      },
+      "global_cca_all": {
+        "counts": {
+          "cholesky_32": 224,
+          "eigh_32": 224,
+          "fit_row_exposures": 16256,
+          "fits": 224
+        },
+        "seconds": {
+          "covariance": 0.00727872700031,
+          "factorization": 0.0557989559998
+        }
+      },
+      "global_cca_fit": {
+        "counts": {
+          "cholesky_32": 224,
+          "eigh_32": 224,
+          "fit_row_exposures": 12192,
+          "fits": 224
+        },
+        "seconds": {
+          "covariance": 0.00627323599861,
+          "factorization": 0.0848773399991
+        }
+      },
+      "global_spectral_all": {
+        "counts": {
+          "eigh_32": 224,
+          "fit_row_exposures": 16256,
+          "fits": 224
+        },
+        "seconds": {
+          "covariance": 0.00711502299873,
+          "factorization": 0.0287832280007
+        }
+      }
+    },
+    "peak_rss_kib": 127656,
+    "process_cpu_seconds": 5.829386297,
+    "rss_scope": "cumulative parent-process high-water RSS (Linux KiB), not per-arm memory",
+    "scope": "two complete development passes (determinism check) and JSON write; fit timing from pass 1",
+    "solver_failures": 0,
+    "wall_seconds": 5.830765735
+  },
+  "environment": {
+    "cpu": "AMD Ryzen 5 3600 6-Core Processor",
+    "dtype": "float64",
+    "logical_cpus": 12,
+    "machine": "x86_64",
+    "numpy": "2.5.4",
+    "numpy_build": {
+      "Build Dependencies": {
+        "blas": {
+          "detection method": "pkgconfig",
+          "found": true,
+          "include directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include",
+          "lib directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib",
+          "name": "scipy-openblas",
+          "openblas configuration": "OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64",
+          "pc file directory": "/project/.openblas",
+          "version": "0.3.34.106.0"
+        },
+        "lapack": {
+          "detection method": "pkgconfig",
+          "found": true,
+          "include directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include",
+          "lib directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib",
+          "name": "scipy-openblas",
+          "openblas configuration": "OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64",
+          "pc file directory": "/project/.openblas",
+          "version": "0.3.34.106.0"
+        }
+      },
+      "Compilers": {
+        "c": {
+          "commands": "cc",
+          "linker": "ld.bfd",
+          "name": "gcc",
+          "version": "14.2.1"
+        },
+        "c++": {
+          "commands": "c++",
+          "linker": "ld.bfd",
+          "name": "gcc",
+          "version": "14.2.1"
+        },
+        "cython": {
+          "commands": "cython",
+          "linker": "cython",
+          "name": "cython",
+          "version": "3.3.0"
+        }
+      },
+      "Machine Information": {
+        "build": {
+          "cpu": "x86_64",
+          "endian": "little",
+          "family": "x86_64",
+          "system": "linux"
+        },
+        "host": {
+          "cpu": "x86_64",
+          "endian": "little",
+          "family": "x86_64",
+          "system": "linux"
+        }
+      },
+      "Python Information": {
+        "path": "/tmp/build-env-ptu49_tp/bin/python",
+        "version": "3.12"
+      },
+      "SIMD Extensions": {
+        "baseline": [
+          "X86_V2"
+        ],
+        "found": [
+          "X86_V3"
+        ],
+        "not found": [
+          "X86_V4",
+          "AVX512_ICL",
+          "AVX512_SPR"
+        ]
+      }
+    },
+    "platform": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+    "processes": 1,
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "scipy": "1.18.1",
+    "thread_environment": {
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    }
+  },
+  "flops": "not measured; not inferred from wall time or parameter counts",
+  "revision": "61fe6caee9c33305e7a478489fffca1facc4469a",
+  "seed_policy": "SeedSequence([2026102407, stage, world, part]); timing appends d",
+  "sources": {
+    "docs/locality-adaptation-v1-contract.md": "1231719cd110757fac6a2f34ba7d91db1f2de18f894cf60568e9c8875f479c7e",
+    "experiments/locality_adaptation.py": "3a9e5388a848bb6f85077a57f15e849fd46f602cf73bcd25b922ef62eca89722",
+    "requirements.txt": "4c301c485945661f312de32ab996187af9230aa5064d0fe76ad627b8b0a75b0a",
+    "src/locality_adaptation.py": "b4e96a1382d892deebfe24b6daa286c08b49ce4c67ed83fd030a4320cb4139ce",
+    "tests/test_locality_adaptation.py": "e5ae05affbc8abbc05abead66d809503f3f1da26e39d3b83e8623b0a8083ca0d"
+  },
+  "worktree_dirty": true
+}

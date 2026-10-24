@@ -1,0 +1,310 @@
+{
+  "arms": {
+    "adaptive_cca": "fitting split, all 8 phases, validation-score select, no refit",
+    "adaptive_spectral": "fitting split, all 8 phases, same selection rule",
+    "fixed_cca_all": "all n, phase 0",
+    "fixed_cca_fit": "fitting split, phase 0",
+    "fixed_spectral_all": "all n, phase 0",
+    "global_cca_all": "all n, global rank k",
+    "global_cca_fit": "fitting split, global rank k",
+    "global_spectral_all": "all n, global rank k"
+  },
+  "budgets": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    128,
+    256
+  ],
+  "conditions": [
+    "in_distribution",
+    "texture_16",
+    "extra_noise"
+  ],
+  "confirmation_worlds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63
+  ],
+  "contract": "docs/locality-adaptation-v1-contract.md",
+  "conventions": {
+    "covariance_reuse": "none across phases or arms",
+    "eigenspace_tie": "adjacent sorted gap <= 1e-12 max(1, spectral radius); canonical axis projection + Gram-Schmidt, residual floor 1e-10; whitened coordinates for CCA, raw for spectral",
+    "orientation": "first largest-magnitude weight coordinate positive",
+    "rank_floor": "smallest singular value > 1e-10 x largest, else stop scoring",
+    "ridge": "0.1 tr(T_gg)/|g| per block; 0.1 tr(T)/d global",
+    "score_tie": "within 1e-12 max(1,|max|); smallest phase"
+  },
+  "correctness_tests": "OK",
+  "decision_rule": {
+    "candidate": "adaptive_cca",
+    "claims": [
+      [
+        "H1_recover_shifted_signal",
+        "half_shifted",
+        "L",
+        0.02
+      ],
+      [
+        "H2_preserve_aligned_signal",
+        "aligned",
+        "L",
+        -0.02
+      ],
+      [
+        "H3_improve_shifted_usefulness",
+        "half_shifted",
+        "E",
+        0.02
+      ],
+      [
+        "H4_preserve_aligned_usefulness",
+        "aligned",
+        "E",
+        -0.02
+      ]
+    ],
+    "comparator": "fixed_cca_all",
+    "confidence": 0.9875,
+    "test": "one-sided paired Student-t lower bound over 64 worlds; all four required"
+  },
+  "development_report_sha256": "bd4993429c8c312ab0c72da40dba5ea454f3c213574b90ca4c533e6476b4ee5f",
+  "development_worlds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "dimensions": {
+    "b": 8,
+    "d": 32,
+    "k": 4,
+    "phases": 8
+  },
+  "environment": {
+    "cpu": "AMD Ryzen 5 3600 6-Core Processor",
+    "dtype": "float64",
+    "logical_cpus": 12,
+    "machine": "x86_64",
+    "numpy": "2.5.4",
+    "numpy_build": {
+      "Build Dependencies": {
+        "blas": {
+          "detection method": "pkgconfig",
+          "found": true,
+          "include directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include",
+          "lib directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib",
+          "name": "scipy-openblas",
+          "openblas configuration": "OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64",
+          "pc file directory": "/project/.openblas",
+          "version": "0.3.34.106.0"
+        },
+        "lapack": {
+          "detection method": "pkgconfig",
+          "found": true,
+          "include directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include",
+          "lib directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib",
+          "name": "scipy-openblas",
+          "openblas configuration": "OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64",
+          "pc file directory": "/project/.openblas",
+          "version": "0.3.34.106.0"
+        }
+      },
+      "Compilers": {
+        "c": {
+          "commands": "cc",
+          "linker": "ld.bfd",
+          "name": "gcc",
+          "version": "14.2.1"
+        },
+        "c++": {
+          "commands": "c++",
+          "linker": "ld.bfd",
+          "name": "gcc",
+          "version": "14.2.1"
+        },
+        "cython": {
+          "commands": "cython",
+          "linker": "cython",
+          "name": "cython",
+          "version": "3.3.0"
+        }
+      },
+      "Machine Information": {
+        "build": {
+          "cpu": "x86_64",
+          "endian": "little",
+          "family": "x86_64",
+          "system": "linux"
+        },
+        "host": {
+          "cpu": "x86_64",
+          "endian": "little",
+          "family": "x86_64",
+          "system": "linux"
+        }
+      },
+      "Python Information": {
+        "path": "/tmp/build-env-ptu49_tp/bin/python",
+        "version": "3.12"
+      },
+      "SIMD Extensions": {
+        "baseline": [
+          "X86_V2"
+        ],
+        "found": [
+          "X86_V3"
+        ],
+        "not found": [
+          "X86_V4",
+          "AVX512_ICL",
+          "AVX512_SPR"
+        ]
+      }
+    },
+    "platform": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+    "processes": 1,
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "scipy": "1.18.1",
+    "thread_environment": {
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    }
+  },
+  "hashes": {
+    "docs/locality-adaptation-v1-contract.md": "1231719cd110757fac6a2f34ba7d91db1f2de18f894cf60568e9c8875f479c7e",
+    "experiments/locality_adaptation.py": "3a9e5388a848bb6f85077a57f15e849fd46f602cf73bcd25b922ef62eca89722",
+    "requirements.txt": "4c301c485945661f312de32ab996187af9230aa5064d0fe76ad627b8b0a75b0a",
+    "src/locality_adaptation.py": "b4e96a1382d892deebfe24b6daa286c08b49ce4c67ed83fd030a4320cb4139ce",
+    "tests/test_locality_adaptation.py": "e5ae05affbc8abbc05abead66d809503f3f1da26e39d3b83e8623b0a8083ca0d"
+  },
+  "primary_budgets": [
+    16,
+    32,
+    64,
+    128,
+    256
+  ],
+  "regimes": [
+    "aligned",
+    "half_shifted",
+    "unknown_shift",
+    "dense"
+  ],
+  "revision_at_freeze": "61fe6caee9c33305e7a478489fffca1facc4469a",
+  "scope": "locality adaptation v1 confirmation",
+  "seeds": {
+    "entropy": "[root, stage, world, part] (+ [d] for timing)",
+    "loop_order": "world > regime > budget > arm",
+    "parts": {
+      "0": "template coefficients, per block 3 signal then 5 texture normals",
+      "1": "d x d Gaussian for QR",
+      "2": "unknown shift integers(1, b)",
+      "3": "c (256,k), g1 (256,k), g2 (256,k), e1 (256,d), e2 (256,d)"
+    },
+    "root": 2026102407,
+    "stages": {
+      "confirmation": 1,
+      "development": 0,
+      "timing": 2
+    }
+  },
+  "split_counts": {
+    "128": {
+      "n_fit": 96,
+      "n_val": 32
+    },
+    "16": {
+      "n_fit": 12,
+      "n_val": 4
+    },
+    "256": {
+      "n_fit": 192,
+      "n_val": 64
+    },
+    "32": {
+      "n_fit": 24,
+      "n_val": 8
+    },
+    "4": {
+      "n_fit": 3,
+      "n_val": 1
+    },
+    "64": {
+      "n_fit": 48,
+      "n_val": 16
+    },
+    "8": {
+      "n_fit": 6,
+      "n_val": 2
+    }
+  }
+}
