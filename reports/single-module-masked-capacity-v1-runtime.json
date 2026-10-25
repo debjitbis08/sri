@@ -1,4 +1,60 @@
 {
+  "audit": {
+    "audit_sha256": "657d1687586c7fdc4b20fd6b70a7fe9f24e82eea752a91c558e20efd212c2f30",
+    "byte_identical": true,
+    "command": [
+      "/home/debjit/code/sri/.venv/bin/python",
+      "-m",
+      "experiments.masked_capacity",
+      "--phase",
+      "audit"
+    ],
+    "command_wall_seconds": 2.620661475,
+    "dirty_paths_at_start": [
+      "M reports/single-module-masked-capacity-v1-runtime.json",
+      "?? docs/single-module-mechanism-diagnostics-v1-contract.md"
+    ],
+    "manifest_sha256": "4e023bb48852c170af5123289a789d5221d168b05af87c42e5fc2738e33605c4",
+    "parent_cpu_seconds": 2.569301385,
+    "parent_peak_rss_kib": 378852,
+    "repeats": [
+      {
+        "counts": {
+          "comparator_scene_scores": 1584,
+          "constant_mean_fits": 2,
+          "factored_template_candidate_scores": 6912,
+          "lookup_candidate_scores": 6912,
+          "oracle_scene_predictions": 144,
+          "rotation_scale_lookup_candidate_scores": 6912,
+          "scene_renderings": 144,
+          "signed_lookup_candidate_scores": 13824,
+          "svd_affine_fits": 8
+        },
+        "process_cpu_seconds": 0.024685087,
+        "repeat": 0,
+        "wall_seconds": 0.0247012999971
+      },
+      {
+        "counts": {
+          "comparator_scene_scores": 1584,
+          "constant_mean_fits": 2,
+          "factored_template_candidate_scores": 6912,
+          "lookup_candidate_scores": 6912,
+          "oracle_scene_predictions": 144,
+          "rotation_scale_lookup_candidate_scores": 6912,
+          "scene_renderings": 144,
+          "signed_lookup_candidate_scores": 13824,
+          "svd_affine_fits": 8
+        },
+        "process_cpu_seconds": 0.021696726,
+        "repeat": 1,
+        "wall_seconds": 0.0216982040001
+      }
+    ],
+    "revision": "dd95316077ff9a972d317f9e9a7dd01b03240e68",
+    "rss_scope": "Linux KiB cumulative process high-water; candidate values are not isolated peaks",
+    "status": "complete"
+  },
   "contract_sha256": "6e5395068e8f50e86947a00b550ed2af6b50000d41a6550d427fd1924642b486",
   "environment": {
     "cpu": "AMD Ryzen 5 3600 6-Core Processor",
@@ -118,5 +174,1781 @@
     "revision": "a620c59e707cb6a3dfd5bcede6020b575b0014d8",
     "rss_scope": "Linux KiB cumulative process high-water; candidate values are not isolated peaks",
     "status": "complete"
+  },
+  "search": {
+    "backward_primitive_solve_counts": null,
+    "backward_primitive_solve_counts_reason": "autograd internals not instrumented; backward invocations counted",
+    "candidates": [
+      {
+        "checkpoint_costs": [
+          {
+            "counts": {
+              "curvature_assemblies": 1,
+              "forward_batches": 1,
+              "pilot_factorizations": 1,
+              "pilot_vector_solves": 72,
+              "route_evaluations": 72,
+              "second_factorizations": 72,
+              "second_vector_solves": 72
+            },
+            "process_cpu_seconds": 0.014905724,
+            "step": 0,
+            "wall_seconds": 0.0149188579962
+          },
+          {
+            "counts": {
+              "backward_passes": 100,
+              "curvature_assemblies": 102,
+              "fitting_scene_exposures": 7200,
+              "forward_batches": 102,
+              "optimizer_updates": 100,
+              "pilot_factorizations": 102,
+              "pilot_vector_solves": 7344,
+              "qr_retractions": 1200,
+              "route_evaluations": 7344,
+              "second_factorizations": 7344,
+              "second_vector_solves": 7344,
+              "unit_retractions": 400
+            },
+            "process_cpu_seconds": 4.276672807,
+            "step": 100,
+            "wall_seconds": 4.279256169
+          },
+          {
+            "counts": {
+              "backward_passes": 250,
+              "curvature_assemblies": 253,
+              "fitting_scene_exposures": 18000,
+              "forward_batches": 253,
+              "optimizer_updates": 250,
+              "pilot_factorizations": 253,
+              "pilot_vector_solves": 18216,
+              "qr_retractions": 3000,
+              "route_evaluations": 18216,
+              "second_factorizations": 18216,
+              "second_vector_solves": 18216,
+              "unit_retractions": 1000
+            },
+            "process_cpu_seconds": 10.745241332,
+            "step": 250,
+            "wall_seconds": 10.751768382
+          },
+          {
+            "counts": {
+              "backward_passes": 500,
+              "curvature_assemblies": 504,
+              "fitting_scene_exposures": 36000,
+              "forward_batches": 504,
+              "optimizer_updates": 500,
+              "pilot_factorizations": 504,
+              "pilot_vector_solves": 36288,
+              "qr_retractions": 6000,
+              "route_evaluations": 36288,
+              "second_factorizations": 36288,
+              "second_vector_solves": 36288,
+              "unit_retractions": 2000
+            },
+            "process_cpu_seconds": 20.209750648,
+            "step": 500,
+            "wall_seconds": 20.218487965
+          },
+          {
+            "counts": {
+              "backward_passes": 1000,
+              "curvature_assemblies": 1005,
+              "fitting_scene_exposures": 72000,
+              "forward_batches": 1005,
+              "optimizer_updates": 1000,
+              "pilot_factorizations": 1005,
+              "pilot_vector_solves": 72360,
+              "qr_retractions": 12000,
+              "route_evaluations": 72360,
+              "second_factorizations": 72360,
+              "second_vector_solves": 72360,
+              "unit_retractions": 4000
+            },
+            "process_cpu_seconds": 39.465801359,
+            "step": 1000,
+            "wall_seconds": 39.481889374
+          }
+        ],
+        "counts": {
+          "backward_passes": 1000,
+          "checked_equilibrium_passes": 288,
+          "cholesky_80": 288,
+          "cholesky_matrix_solve_80_rhs32": 288,
+          "cholesky_vector_solves_80": 288,
+          "curvature_assemblies": 1007,
+          "eigenspectra_80": 288,
+          "eigenspectra_structural_schur_32": 288,
+          "fitting_scene_exposures": 72000,
+          "forward_batches": 1007,
+          "lu_factor_32": 288,
+          "lu_factor_48": 288,
+          "lu_matrix_solve_32_rhs32": 288,
+          "lu_matrix_solve_48_rhs32": 288,
+          "lu_vector_solve_32": 288,
+          "optimizer_updates": 1000,
+          "pilot_factorizations": 1007,
+          "pilot_vector_solves": 72504,
+          "qr_retractions": 12000,
+          "residual_energy_expansions": 576,
+          "route_evaluations": 72504,
+          "second_factorizations": 72504,
+          "second_vector_solves": 72504,
+          "unit_retractions": 4000
+        },
+        "optimizer_storage": {
+          "entries": [
+            {
+              "bytes": 4,
+              "dtype": "torch.float32",
+              "field": "step",
+              "parameter_tensor": 0
+            },
+            {
+              "bytes": 64,
+              "dtype": "torch.float64",
+              "field": "exp_avg",
+              "parameter_tensor": 0
+            },
+            {
+              "bytes": 64,
+              "dtype": "torch.float64",
+              "field": "exp_avg_sq",
+              "parameter_tensor": 0
+            },
+            {
+              "bytes": 4,
+              "dtype": "torch.float32",
+              "field": "step",
+              "parameter_tensor": 1
+            },
+            {
+              "bytes": 1536,
+              "dtype": "torch.float64",
+              "field": "exp_avg",
+              "parameter_tensor": 1
+            },
+            {
+              "bytes": 1536,
+              "dtype": "torch.float64",
+              "field": "exp_avg_sq",
+              "parameter_tensor": 1
+            },
+            {
+              "bytes": 4,
+              "dtype": "torch.float32",
+              "field": "step",
+              "parameter_tensor": 2
+            },
+            {
+              "bytes": 768,
+              "dtype": "torch.float64",
+              "field": "exp_avg",
+              "parameter_tensor": 2
+            },
+            {
+              "bytes": 768,
+              "dtype": "torch.float64",
+              "field": "exp_avg_sq",
+              "parameter_tensor": 2
+            },
+            {
+              "bytes": 4,
+              "dtype": "torch.float32",
+              "field": "step",
+              "parameter_tensor": 3
+            },
+            {
+              "bytes": 256,
+              "dtype": "torch.float64",
+              "field": "exp_avg",
+              "parameter_tensor": 3
+            },
+            {
+              "bytes": 256,
+              "dtype": "torch.float64",
+              "field": "exp_avg_sq",
+              "parameter_tensor": 3
+            }
+          ],
+          "total_bytes": 5264
+        },
+        "peak_rss_kib": 435180,
+        "phase_cpu_seconds": {
+          "checkpoint_inference": 0.053265604,
+          "independent_verification": 0.341559195,
+          "optimization": 39.397580343
+        },
+        "phase_wall_seconds": {
+          "checkpoint_inference": 0.0532585779947,
+          "independent_verification": 0.341696693999,
+          "optimization": 39.409286474
+        },
+        "process_cpu_seconds": 39.807488344,
+        "start": 0,
+        "step_size": 0.01,
+        "wall_seconds": 39.823717001,
+        "world": 0
+      },
+      {
+        "checkpoint_costs": [
+          {
+            "counts": {
+              "curvature_assemblies": 1,
+              "forward_batches": 1,
+              "pilot_factorizations": 1,
+              "pilot_vector_solves": 72,
+              "route_evaluations": 72,
+              "second_factorizations": 72,
+              "second_vector_solves": 72
+            },
+            "process_cpu_seconds": 0.008622842,
+            "step": 0,
+            "wall_seconds": 0.00862488400162
+          },
+          {
+            "counts": {
+              "backward_passes": 100,
+              "curvature_assemblies": 102,
+              "fitting_scene_exposures": 7200,
+              "forward_batches": 102,
+              "optimizer_updates": 100,
+              "pilot_factorizations": 102,
+              "pilot_vector_solves": 7344,
+              "qr_retractions": 1200,
+              "route_evaluations": 7344,
+              "second_factorizations": 7344,
+              "second_vector_solves": 7344,
+              "unit_retractions": 400
+            },
+            "process_cpu_seconds": 3.71268143,
+            "step": 100,
+            "wall_seconds": 3.713058008
+          },
+          {
+            "counts": {
+              "backward_passes": 250,
+              "curvature_assemblies": 253,
+              "fitting_scene_exposures": 18000,
+              "forward_batches": 253,
+              "optimizer_updates": 250,
+              "pilot_factorizations": 253,
+              "pilot_vector_solves": 18216,
+              "qr_retractions": 3000,
+              "route_evaluations": 18216,
+              "second_factorizations": 18216,
+              "second_vector_solves": 18216,
+              "unit_retractions": 1000
+            },
+            "process_cpu_seconds": 9.430155946,
+            "step": 250,
+            "wall_seconds": 9.431689974
+          },
+          {
+            "counts": {
+              "backward_passes": 500,
+              "curvature_assemblies": 504,
+              "fitting_scene_exposures": 36000,
+              "forward_batches": 504,
+              "optimizer_updates": 500,
+              "pilot_factorizations": 504,
+              "pilot_vector_solves": 36288,
+              "qr_retractions": 6000,
+              "route_evaluations": 36288,
+              "second_factorizations": 36288,
+              "second_vector_solves": 36288,
+              "unit_retractions": 2000
+            },
+            "process_cpu_seconds": 18.890080699,
+            "step": 500,
+            "wall_seconds": 18.893347007
+          },
+          {
+            "counts": {
+              "backward_passes": 1000,
+              "curvature_assemblies": 1005,
+              "fitting_scene_exposures": 72000,
+              "forward_batches": 1005,
+              "optimizer_updates": 1000,
+              "pilot_factorizations": 1005,
+              "pilot_vector_solves": 72360,
+              "qr_retractions": 12000,
+              "route_evaluations": 72360,
+              "second_factorizations": 72360,
+              "second_vector_solves": 72360,
+              "unit_retractions": 4000
+            },
+            "process_cpu_seconds": 38.065231823,
+            "step": 1000,
+            "wall_seconds": 38.07526397
+          }
+        ],
+        "counts": {
+          "backward_passes": 1000,
+          "checked_equilibrium_passes": 288,
+          "cholesky_80": 288,
+          "cholesky_matrix_solve_80_rhs32": 288,
+          "cholesky_vector_solves_80": 288,
+          "curvature_assemblies": 1007,
+          "eigenspectra_80": 288,
+          "eigenspectra_structural_schur_32": 288,
+          "fitting_scene_exposures": 72000,
+          "forward_batches": 1007,
+          "lu_factor_32": 288,
+          "lu_factor_48": 288,
+          "lu_matrix_solve_32_rhs32": 288,
+          "lu_matrix_solve_48_rhs32": 288,
+          "lu_vector_solve_32": 288,
+          "optimizer_updates": 1000,
+          "pilot_factorizations": 1007,
+          "pilot_vector_solves": 72504,
+          "qr_retractions": 12000,
+          "residual_energy_expansions": 576,
+          "route_evaluations": 72504,
+          "second_factorizations": 72504,
+          "second_vector_solves": 72504,
+          "unit_retractions": 4000
+        },
+        "optimizer_storage": {
+          "entries": [
+            {
+              "bytes": 4,
+              "dtype": "torch.float32",
+              "field": "step",
+              "parameter_tensor": 0
+            },
+            {
+              "bytes": 64,
+              "dtype": "torch.float64",
+              "field": "exp_avg",
+              "parameter_tensor": 0
+            },
+            {
+              "bytes": 64,
+              "dtype": "torch.float64",
+              "field": "exp_avg_sq",
+              "parameter_tensor": 0
+            },
+            {
+              "bytes": 4,
+              "dtype": "torch.float32",
+              "field": "step",
+              "parameter_tensor": 1
+            },
+            {
+              "bytes": 1536,
+              "dtype": "torch.float64",
+              "field": "exp_avg",
+              "parameter_tensor": 1
+            },
+            {
+              "bytes": 1536,
+              "dtype": "torch.float64",
+              "field": "exp_avg_sq",
+              "parameter_tensor": 1
+            },
+            {
+              "bytes": 4,
+              "dtype": "torch.float32",
+              "field": "step",
+              "parameter_tensor": 2
+            },
+            {
+              "bytes": 768,
+              "dtype": "torch.float64",
+              "field": "exp_avg",
+              "parameter_tensor": 2
+            },
+            {
+              "bytes": 768,
+              "dtype": "torch.float64",
+              "field": "exp_avg_sq",
+              "parameter_tensor": 2
+            },
+            {
+              "bytes": 4,
+              "dtype": "torch.float32",
+              "field": "step",
+              "parameter_tensor": 3
+            },
+            {
+              "bytes": 256,
+              "dtype": "torch.float64",
+              "field": "exp_avg",
+              "parameter_tensor": 3
+            },
+            {
+              "bytes": 256,
+              "dtype": "torch.float64",
+              "field": "exp_avg_sq",
+              "parameter_tensor": 3
+            }
+          ],
+          "total_bytes": 5264
+        },
+        "peak_rss_kib": 441320,
+        "phase_cpu_seconds": {
+          "checkpoint_inference": 0.045339844,
+          "independent_verification": 0.369077222,
+          "optimization": 38.005326802
+        },
+        "phase_wall_seconds": {
+          "checkpoint_inference": 0.0453233589942,
+          "independent_verification": 0.369107924002,
+          "optimization": 38.0104408252
+        },
+        "process_cpu_seconds": 38.434401235,
+        "start": 0,
+        "step_size": 0.05,
+        "wall_seconds": 38.444470536,
+        "world": 0
+      },
+      {
+        "checkpoint_costs": [
+          {
+            "counts": {
+              "curvature_assemblies": 1,
+              "forward_batches": 1,
+              "pilot_factorizations": 1,
+              "pilot_vector_solves": 72,
+              "route_evaluations": 72,
+              "second_factorizations": 72,
+              "second_vector_solves": 72
+            },
+            "process_cpu_seconds": 0.011287573,
+            "step": 0,
+            "wall_seconds": 0.0112904240013
+          },
+          {
+            "counts": {
+              "backward_passes": 100,
+              "curvature_assemblies": 102,
+              "fitting_scene_exposures": 7200,
+              "forward_batches": 102,
+              "optimizer_updates": 100,
+              "pilot_factorizations": 102,
+              "pilot_vector_solves": 7344,
+              "qr_retractions": 1200,
+              "route_evaluations": 7344,
+              "second_factorizations": 7344,
+              "second_vector_solves": 7344,
+              "unit_retractions": 400
+            },
+            "process_cpu_seconds": 3.916300746,
+            "step": 100,
+            "wall_seconds": 3.917263503
+          },
+          {
+            "counts": {
+              "backward_passes": 250,
+              "curvature_assemblies": 253,
+              "fitting_scene_exposures": 18000,
+              "forward_batches": 253,
+              "optimizer_updates": 250,
+              "pilot_factorizations": 253,
+              "pilot_vector_solves": 18216,
+              "qr_retractions": 3000,
+              "route_evaluations": 18216,
+              "second_factorizations": 18216,
+              "second_vector_solves": 18216,
+              "unit_retractions": 1000
+            },
+            "process_cpu_seconds": 9.672365723,
+            "step": 250,
+            "wall_seconds": 9.676626032
+          },
+          {
+            "counts": {
+              "backward_passes": 500,
+              "curvature_assemblies": 504,
+              "fitting_scene_exposures": 36000,
+              "forward_batches": 504,
+              "optimizer_updates": 500,
+              "pilot_factorizations": 504,
+              "pilot_vector_solves": 36288,
+              "qr_retractions": 6000,
+              "route_evaluations": 36288,
+              "second_factorizations": 36288,
+              "second_vector_solves": 36288,
+              "unit_retractions": 2000
+            },
+            "process_cpu_seconds": 19.045143983,
+            "step": 500,
+            "wall_seconds": 19.050827806
+          },
+          {
+            "counts": {
+              "backward_passes": 1000,
+              "curvature_assemblies": 1005,
+              "fitting_scene_exposures": 72000,
+              "forward_batches": 1005,
+              "optimizer_updates": 1000,
+              "pilot_factorizations": 1005,
+              "pilot_vector_solves": 72360,
+              "qr_retractions": 12000,
+              "route_evaluations": 72360,
+              "second_factorizations": 72360,
+              "second_vector_solves": 72360,
+              "unit_retractions": 4000
+            },
+            "process_cpu_seconds": 37.804909667,
+            "step": 1000,
+            "wall_seconds": 37.814310238
+          }
+        ],
+        "counts": {
+          "backward_passes": 1000,
+          "checked_equilibrium_passes": 288,
+          "cholesky_80": 288,
+          "cholesky_matrix_solve_80_rhs32": 288,
+          "cholesky_vector_solves_80": 288,
+          "curvature_assemblies": 1007,
+          "eigenspectra_80": 288,
+          "eigenspectra_structural_schur_32": 288,
+          "fitting_scene_exposures": 72000,
+          "forward_batches": 1007,
+          "lu_factor_32": 288,
+          "lu_factor_48": 288,
+          "lu_matrix_solve_32_rhs32": 288,
+          "lu_matrix_solve_48_rhs32": 288,
+          "lu_vector_solve_32": 288,
+          "optimizer_updates": 1000,
+          "pilot_factorizations": 1007,
+          "pilot_vector_solves": 72504,
+          "qr_retractions": 12000,
+          "residual_energy_expansions": 576,
+          "route_evaluations": 72504,
+          "second_factorizations": 72504,
+          "second_vector_solves": 72504,
+          "unit_retractions": 4000
+        },
+        "optimizer_storage": {
+          "entries": [
+            {
+              "bytes": 4,
+              "dtype": "torch.float32",
+              "field": "step",
+              "parameter_tensor": 0
+            },
+            {
+              "bytes": 64,
+              "dtype": "torch.float64",
+              "field": "exp_avg",
+              "parameter_tensor": 0
+            },
+            {
+              "bytes": 64,
+              "dtype": "torch.float64",
+              "field": "exp_avg_sq",
+              "parameter_tensor": 0
+            },
+            {
+              "bytes": 4,
+              "dtype": "torch.float32",
+              "field": "step",
+              "parameter_tensor": 1
+            },
+            {
+              "bytes": 1536,
+              "dtype": "torch.float64",
+              "field": "exp_avg",
+              "parameter_tensor": 1
+            },
+            {
+              "bytes": 1536,
+              "dtype": "torch.float64",
+              "field": "exp_avg_sq",
+              "parameter_tensor": 1
+            },
+            {
+              "bytes": 4,
+              "dtype": "torch.float32",
+              "field": "step",
+              "parameter_tensor": 2
+            },
+            {
+              "bytes": 768,
+              "dtype": "torch.float64",
+              "field": "exp_avg",
+              "parameter_tensor": 2
+            },
+            {
+              "bytes": 768,
+              "dtype": "torch.float64",
+              "field": "exp_avg_sq",
+              "parameter_tensor": 2
+            },
+            {
+              "bytes": 4,
+              "dtype": "torch.float32",
+              "field": "step",
+              "parameter_tensor": 3
+            },
+            {
+              "bytes": 256,
+              "dtype": "torch.float64",
+              "field": "exp_avg",
+              "parameter_tensor": 3
+            },
+            {
+              "bytes": 256,
+              "dtype": "torch.float64",
+              "field": "exp_avg_sq",
+              "parameter_tensor": 3
+            }
+          ],
+          "total_bytes": 5264
+        },
+        "peak_rss_kib": 441320,
+        "phase_cpu_seconds": {
+          "checkpoint_inference": 0.046843534,
+          "independent_verification": 0.341646074,
+          "optimization": 37.74334606
+        },
+        "phase_wall_seconds": {
+          "checkpoint_inference": 0.0468384689957,
+          "independent_verification": 0.341654942997,
+          "optimization": 37.747855076
+        },
+        "process_cpu_seconds": 38.146645401,
+        "start": 1,
+        "step_size": 0.01,
+        "wall_seconds": 38.156058043,
+        "world": 0
+      },
+      {
+        "checkpoint_costs": [
+          {
+            "counts": {
+              "curvature_assemblies": 1,
+              "forward_batches": 1,
+              "pilot_factorizations": 1,
+              "pilot_vector_solves": 72,
+              "route_evaluations": 72,
+              "second_factorizations": 72,
+              "second_vector_solves": 72
+            },
+            "process_cpu_seconds": 0.010585303,
+            "step": 0,
+            "wall_seconds": 0.0105877210008
+          },
+          {
+            "counts": {
+              "backward_passes": 100,
+              "curvature_assemblies": 102,
+              "fitting_scene_exposures": 7200,
+              "forward_batches": 102,
+              "optimizer_updates": 100,
+              "pilot_factorizations": 102,
+              "pilot_vector_solves": 7344,
+              "qr_retractions": 1200,
+              "route_evaluations": 7344,
+              "second_factorizations": 7344,
+              "second_vector_solves": 7344,
+              "unit_retractions": 400
+            },
+            "process_cpu_seconds": 3.766092805,
+            "step": 100,
+            "wall_seconds": 3.766789368
+          },
+          {
+            "counts": {
+              "backward_passes": 250,
+              "curvature_assemblies": 253,
+              "fitting_scene_exposures": 18000,
+              "forward_batches": 253,
+              "optimizer_updates": 250,
+              "pilot_factorizations": 253,
+              "pilot_vector_solves": 18216,
+              "qr_retractions": 3000,
+              "route_evaluations": 18216,
+              "second_factorizations": 18216,
+              "second_vector_solves": 18216,
+              "unit_retractions": 1000
+            },
+            "process_cpu_seconds": 9.391620205,
+            "step": 250,
+            "wall_seconds": 9.392963839
+          },
+          {
+            "counts": {
+              "backward_passes": 500,
+              "curvature_assemblies": 504,
+              "fitting_scene_exposures": 36000,
+              "forward_batches": 504,
+              "optimizer_updates": 500,
+              "pilot_factorizations": 504,
+              "pilot_vector_solves": 36288,
+              "qr_retractions": 6000,
+              "route_evaluations": 36288,
+              "second_factorizations": 36288,
+              "second_vector_solves": 36288,
+              "unit_retractions": 2000
+            },
+            "process_cpu_seconds": 18.768621426,
+            "step": 500,
+            "wall_seconds": 18.771063028
+          },
+          {
+            "counts": {
+              "backward_passes": 1000,
+              "curvature_assemblies": 1005,
+              "fitting_scene_exposures": 72000,
+              "forward_batches": 1005,
+              "optimizer_updates": 1000,
+              "pilot_factorizations": 1005,
+              "pilot_vector_solves": 72360,
+              "qr_retractions": 12000,
+              "route_evaluations": 72360,
+              "second_factorizations": 72360,
+              "second_vector_solves": 72360,
+              "unit_retractions": 4000
+            },
+            "process_cpu_seconds": 37.694752846,
+            "step": 1000,
+            "wall_seconds": 37.700689954
+          }
+        ],
+        "counts": {
+          "backward_passes": 1000,
+          "checked_equilibrium_passes": 288,
+          "cholesky_80": 288,
+          "cholesky_matrix_solve_80_rhs32": 288,
+          "cholesky_vector_solves_80": 288,
+          "curvature_assemblies": 1007,
+          "eigenspectra_80": 288,
+          "eigenspectra_structural_schur_32": 288,
+          "fitting_scene_exposures": 72000,
+          "forward_batches": 1007,
+          "lu_factor_32": 288,
+          "lu_factor_48": 288,
+          "lu_matrix_solve_32_rhs32": 288,
+          "lu_matrix_solve_48_rhs32": 288,
+          "lu_vector_solve_32": 288,
+          "optimizer_updates": 1000,
+          "pilot_factorizations": 1007,
+          "pilot_vector_solves": 72504,
+          "qr_retractions": 12000,
+          "residual_energy_expansions": 576,
+          "route_evaluations": 72504,
+          "second_factorizations": 72504,
+          "second_vector_solves": 72504,
+          "unit_retractions": 4000
+        },
+        "optimizer_storage": {
+          "entries": [
+            {
+              "bytes": 4,
+              "dtype": "torch.float32",
+              "field": "step",
+              "parameter_tensor": 0
+            },
+            {
+              "bytes": 64,
+              "dtype": "torch.float64",
+              "field": "exp_avg",
+              "parameter_tensor": 0
+            },
+            {
+              "bytes": 64,
+              "dtype": "torch.float64",
+              "field": "exp_avg_sq",
+              "parameter_tensor": 0
+            },
+            {
+              "bytes": 4,
+              "dtype": "torch.float32",
+              "field": "step",
+              "parameter_tensor": 1
+            },
+            {
+              "bytes": 1536,
+              "dtype": "torch.float64",
+              "field": "exp_avg",
+              "parameter_tensor": 1
+            },
+            {
+              "bytes": 1536,
+              "dtype": "torch.float64",
+              "field": "exp_avg_sq",
+              "parameter_tensor": 1
+            },
+            {
+              "bytes": 4,
+              "dtype": "torch.float32",
+              "field": "step",
+              "parameter_tensor": 2
+            },
+            {
+              "bytes": 768,
+              "dtype": "torch.float64",
+              "field": "exp_avg",
+              "parameter_tensor": 2
+            },
+            {
+              "bytes": 768,
+              "dtype": "torch.float64",
+              "field": "exp_avg_sq",
+              "parameter_tensor": 2
+            },
+            {
+              "bytes": 4,
+              "dtype": "torch.float32",
+              "field": "step",
+              "parameter_tensor": 3
+            },
+            {
+              "bytes": 256,
+              "dtype": "torch.float64",
+              "field": "exp_avg",
+              "parameter_tensor": 3
+            },
+            {
+              "bytes": 256,
+              "dtype": "torch.float64",
+              "field": "exp_avg_sq",
+              "parameter_tensor": 3
+            }
+          ],
+          "total_bytes": 5264
+        },
+        "peak_rss_kib": 441320,
+        "phase_cpu_seconds": {
+          "checkpoint_inference": 0.046008601,
+          "independent_verification": 0.342228915,
+          "optimization": 37.6341607
+        },
+        "phase_wall_seconds": {
+          "checkpoint_inference": 0.0460089730041,
+          "independent_verification": 0.342239755002,
+          "optimization": 37.6355030308
+        },
+        "process_cpu_seconds": 38.037074441,
+        "start": 1,
+        "step_size": 0.05,
+        "wall_seconds": 38.04302542,
+        "world": 0
+      },
+      {
+        "checkpoint_costs": [
+          {
+            "counts": {
+              "curvature_assemblies": 1,
+              "forward_batches": 1,
+              "pilot_factorizations": 1,
+              "pilot_vector_solves": 72,
+              "route_evaluations": 72,
+              "second_factorizations": 72,
+              "second_vector_solves": 72
+            },
+            "process_cpu_seconds": 0.010708823,
+            "step": 0,
+            "wall_seconds": 0.0107113830018
+          },
+          {
+            "counts": {
+              "backward_passes": 100,
+              "curvature_assemblies": 102,
+              "fitting_scene_exposures": 7200,
+              "forward_batches": 102,
+              "optimizer_updates": 100,
+              "pilot_factorizations": 102,
+              "pilot_vector_solves": 7344,
+              "qr_retractions": 1200,
+              "route_evaluations": 7344,
+              "second_factorizations": 7344,
+              "second_vector_solves": 7344,
+              "unit_retractions": 400
+            },
+            "process_cpu_seconds": 3.777313957,
+            "step": 100,
+            "wall_seconds": 3.777810277
+          },
+          {
+            "counts": {
+              "backward_passes": 250,
+              "curvature_assemblies": 253,
+              "fitting_scene_exposures": 18000,
+              "forward_batches": 253,
+              "optimizer_updates": 250,
+              "pilot_factorizations": 253,
+              "pilot_vector_solves": 18216,
+              "qr_retractions": 3000,
+              "route_evaluations": 18216,
+              "second_factorizations": 18216,
+              "second_vector_solves": 18216,
+              "unit_retractions": 1000
+            },
+            "process_cpu_seconds": 9.469400136,
+            "step": 250,
+            "wall_seconds": 9.470625753
+          },
+          {
+            "counts": {
+              "backward_passes": 500,
+              "curvature_assemblies": 504,
+              "fitting_scene_exposures": 36000,
+              "forward_batches": 504,
+              "optimizer_updates": 500,
+              "pilot_factorizations": 504,
+              "pilot_vector_solves": 36288,
+              "qr_retractions": 6000,
+              "route_evaluations": 36288,
+              "second_factorizations": 36288,
+              "second_vector_solves": 36288,
+              "unit_retractions": 2000
+            },
+            "process_cpu_seconds": 18.92996151,
+            "step": 500,
+            "wall_seconds": 18.932276966
+          },
+          {
+            "counts": {
+              "backward_passes": 1000,
+              "curvature_assemblies": 1005,
+              "fitting_scene_exposures": 72000,
+              "forward_batches": 1005,
+              "optimizer_updates": 1000,
+              "pilot_factorizations": 1005,
+              "pilot_vector_solves": 72360,
+              "qr_retractions": 12000,
+              "route_evaluations": 72360,
+              "second_factorizations": 72360,
+              "second_vector_solves": 72360,
+              "unit_retractions": 4000
+            },
+            "process_cpu_seconds": 37.797607464,
+            "step": 1000,
+            "wall_seconds": 37.802420063
+          }
+        ],
+        "counts": {
+          "backward_passes": 1000,
+          "checked_equilibrium_passes": 288,
+          "cholesky_80": 288,
+          "cholesky_matrix_solve_80_rhs32": 288,
+          "cholesky_vector_solves_80": 288,
+          "curvature_assemblies": 1007,
+          "eigenspectra_80": 288,
+          "eigenspectra_structural_schur_32": 288,
+          "fitting_scene_exposures": 72000,
+          "forward_batches": 1007,
+          "lu_factor_32": 288,
+          "lu_factor_48": 288,
+          "lu_matrix_solve_32_rhs32": 288,
+          "lu_matrix_solve_48_rhs32": 288,
+          "lu_vector_solve_32": 288,
+          "optimizer_updates": 1000,
+          "pilot_factorizations": 1007,
+          "pilot_vector_solves": 72504,
+          "qr_retractions": 12000,
+          "residual_energy_expansions": 576,
+          "route_evaluations": 72504,
+          "second_factorizations": 72504,
+          "second_vector_solves": 72504,
+          "unit_retractions": 4000
+        },
+        "optimizer_storage": {
+          "entries": [
+            {
+              "bytes": 4,
+              "dtype": "torch.float32",
+              "field": "step",
+              "parameter_tensor": 0
+            },
+            {
+              "bytes": 64,
+              "dtype": "torch.float64",
+              "field": "exp_avg",
+              "parameter_tensor": 0
+            },
+            {
+              "bytes": 64,
+              "dtype": "torch.float64",
+              "field": "exp_avg_sq",
+              "parameter_tensor": 0
+            },
+            {
+              "bytes": 4,
+              "dtype": "torch.float32",
+              "field": "step",
+              "parameter_tensor": 1
+            },
+            {
+              "bytes": 1536,
+              "dtype": "torch.float64",
+              "field": "exp_avg",
+              "parameter_tensor": 1
+            },
+            {
+              "bytes": 1536,
+              "dtype": "torch.float64",
+              "field": "exp_avg_sq",
+              "parameter_tensor": 1
+            },
+            {
+              "bytes": 4,
+              "dtype": "torch.float32",
+              "field": "step",
+              "parameter_tensor": 2
+            },
+            {
+              "bytes": 768,
+              "dtype": "torch.float64",
+              "field": "exp_avg",
+              "parameter_tensor": 2
+            },
+            {
+              "bytes": 768,
+              "dtype": "torch.float64",
+              "field": "exp_avg_sq",
+              "parameter_tensor": 2
+            },
+            {
+              "bytes": 4,
+              "dtype": "torch.float32",
+              "field": "step",
+              "parameter_tensor": 3
+            },
+            {
+              "bytes": 256,
+              "dtype": "torch.float64",
+              "field": "exp_avg",
+              "parameter_tensor": 3
+            },
+            {
+              "bytes": 256,
+              "dtype": "torch.float64",
+              "field": "exp_avg_sq",
+              "parameter_tensor": 3
+            }
+          ],
+          "total_bytes": 5264
+        },
+        "peak_rss_kib": 441936,
+        "phase_cpu_seconds": {
+          "checkpoint_inference": 0.046355272,
+          "independent_verification": 0.342815995,
+          "optimization": 37.736649727
+        },
+        "phase_wall_seconds": {
+          "checkpoint_inference": 0.0463680209941,
+          "independent_verification": 0.342932047999,
+          "optimization": 37.7364363091
+        },
+        "process_cpu_seconds": 38.140510579,
+        "start": 0,
+        "step_size": 0.01,
+        "wall_seconds": 38.145442312,
+        "world": 1
+      },
+      {
+        "checkpoint_costs": [
+          {
+            "counts": {
+              "curvature_assemblies": 1,
+              "forward_batches": 1,
+              "pilot_factorizations": 1,
+              "pilot_vector_solves": 72,
+              "route_evaluations": 72,
+              "second_factorizations": 72,
+              "second_vector_solves": 72
+            },
+            "process_cpu_seconds": 0.010791083,
+            "step": 0,
+            "wall_seconds": 0.0107933550025
+          },
+          {
+            "counts": {
+              "backward_passes": 100,
+              "curvature_assemblies": 102,
+              "fitting_scene_exposures": 7200,
+              "forward_batches": 102,
+              "optimizer_updates": 100,
+              "pilot_factorizations": 102,
+              "pilot_vector_solves": 7344,
+              "qr_retractions": 1200,
+              "route_evaluations": 7344,
+              "second_factorizations": 7344,
+              "second_vector_solves": 7344,
+              "unit_retractions": 400
+            },
+            "process_cpu_seconds": 3.823719751,
+            "step": 100,
+            "wall_seconds": 3.82541715
+          },
+          {
+            "counts": {
+              "backward_passes": 250,
+              "curvature_assemblies": 253,
+              "fitting_scene_exposures": 18000,
+              "forward_batches": 253,
+              "optimizer_updates": 250,
+              "pilot_factorizations": 253,
+              "pilot_vector_solves": 18216,
+              "qr_retractions": 3000,
+              "route_evaluations": 18216,
+              "second_factorizations": 18216,
+              "second_vector_solves": 18216,
+              "unit_retractions": 1000
+            },
+            "process_cpu_seconds": 9.529939834,
+            "step": 250,
+            "wall_seconds": 9.533341383
+          },
+          {
+            "counts": {
+              "backward_passes": 500,
+              "curvature_assemblies": 504,
+              "fitting_scene_exposures": 36000,
+              "forward_batches": 504,
+              "optimizer_updates": 500,
+              "pilot_factorizations": 504,
+              "pilot_vector_solves": 36288,
+              "qr_retractions": 6000,
+              "route_evaluations": 36288,
+              "second_factorizations": 36288,
+              "second_vector_solves": 36288,
+              "unit_retractions": 2000
+            },
+            "process_cpu_seconds": 19.245742479,
+            "step": 500,
+            "wall_seconds": 19.257200591
+          },
+          {
+            "counts": {
+              "backward_passes": 1000,
+              "curvature_assemblies": 1005,
+              "fitting_scene_exposures": 72000,
+              "forward_batches": 1005,
+              "optimizer_updates": 1000,
+              "pilot_factorizations": 1005,
+              "pilot_vector_solves": 72360,
+              "qr_retractions": 12000,
+              "route_evaluations": 72360,
+              "second_factorizations": 72360,
+              "second_vector_solves": 72360,
+              "unit_retractions": 4000
+            },
+            "process_cpu_seconds": 38.276976687,
+            "step": 1000,
+            "wall_seconds": 38.292630395
+          }
+        ],
+        "counts": {
+          "backward_passes": 1000,
+          "checked_equilibrium_passes": 288,
+          "cholesky_80": 288,
+          "cholesky_matrix_solve_80_rhs32": 288,
+          "cholesky_vector_solves_80": 288,
+          "curvature_assemblies": 1007,
+          "eigenspectra_80": 288,
+          "eigenspectra_structural_schur_32": 288,
+          "fitting_scene_exposures": 72000,
+          "forward_batches": 1007,
+          "lu_factor_32": 288,
+          "lu_factor_48": 288,
+          "lu_matrix_solve_32_rhs32": 288,
+          "lu_matrix_solve_48_rhs32": 288,
+          "lu_vector_solve_32": 288,
+          "optimizer_updates": 1000,
+          "pilot_factorizations": 1007,
+          "pilot_vector_solves": 72504,
+          "qr_retractions": 12000,
+          "residual_energy_expansions": 576,
+          "route_evaluations": 72504,
+          "second_factorizations": 72504,
+          "second_vector_solves": 72504,
+          "unit_retractions": 4000
+        },
+        "optimizer_storage": {
+          "entries": [
+            {
+              "bytes": 4,
+              "dtype": "torch.float32",
+              "field": "step",
+              "parameter_tensor": 0
+            },
+            {
+              "bytes": 64,
+              "dtype": "torch.float64",
+              "field": "exp_avg",
+              "parameter_tensor": 0
+            },
+            {
+              "bytes": 64,
+              "dtype": "torch.float64",
+              "field": "exp_avg_sq",
+              "parameter_tensor": 0
+            },
+            {
+              "bytes": 4,
+              "dtype": "torch.float32",
+              "field": "step",
+              "parameter_tensor": 1
+            },
+            {
+              "bytes": 1536,
+              "dtype": "torch.float64",
+              "field": "exp_avg",
+              "parameter_tensor": 1
+            },
+            {
+              "bytes": 1536,
+              "dtype": "torch.float64",
+              "field": "exp_avg_sq",
+              "parameter_tensor": 1
+            },
+            {
+              "bytes": 4,
+              "dtype": "torch.float32",
+              "field": "step",
+              "parameter_tensor": 2
+            },
+            {
+              "bytes": 768,
+              "dtype": "torch.float64",
+              "field": "exp_avg",
+              "parameter_tensor": 2
+            },
+            {
+              "bytes": 768,
+              "dtype": "torch.float64",
+              "field": "exp_avg_sq",
+              "parameter_tensor": 2
+            },
+            {
+              "bytes": 4,
+              "dtype": "torch.float32",
+              "field": "step",
+              "parameter_tensor": 3
+            },
+            {
+              "bytes": 256,
+              "dtype": "torch.float64",
+              "field": "exp_avg",
+              "parameter_tensor": 3
+            },
+            {
+              "bytes": 256,
+              "dtype": "torch.float64",
+              "field": "exp_avg_sq",
+              "parameter_tensor": 3
+            }
+          ],
+          "total_bytes": 5264
+        },
+        "peak_rss_kib": 441936,
+        "phase_cpu_seconds": {
+          "checkpoint_inference": 0.0460164919999,
+          "independent_verification": 0.343036575,
+          "optimization": 38.216163489
+        },
+        "phase_wall_seconds": {
+          "checkpoint_inference": 0.0459990230011,
+          "independent_verification": 0.343065640001,
+          "optimization": 38.227135646
+        },
+        "process_cpu_seconds": 38.620103912,
+        "start": 0,
+        "step_size": 0.05,
+        "wall_seconds": 38.635790917,
+        "world": 1
+      },
+      {
+        "checkpoint_costs": [
+          {
+            "counts": {
+              "curvature_assemblies": 1,
+              "forward_batches": 1,
+              "pilot_factorizations": 1,
+              "pilot_vector_solves": 72,
+              "route_evaluations": 72,
+              "second_factorizations": 72,
+              "second_vector_solves": 72
+            },
+            "process_cpu_seconds": 0.010842813,
+            "step": 0,
+            "wall_seconds": 0.0108451549968
+          },
+          {
+            "counts": {
+              "backward_passes": 100,
+              "curvature_assemblies": 102,
+              "fitting_scene_exposures": 7200,
+              "forward_batches": 102,
+              "optimizer_updates": 100,
+              "pilot_factorizations": 102,
+              "pilot_vector_solves": 7344,
+              "qr_retractions": 1200,
+              "route_evaluations": 7344,
+              "second_factorizations": 7344,
+              "second_vector_solves": 7344,
+              "unit_retractions": 400
+            },
+            "process_cpu_seconds": 3.884181498,
+            "step": 100,
+            "wall_seconds": 3.88496694
+          },
+          {
+            "counts": {
+              "backward_passes": 250,
+              "curvature_assemblies": 253,
+              "fitting_scene_exposures": 18000,
+              "forward_batches": 253,
+              "optimizer_updates": 250,
+              "pilot_factorizations": 253,
+              "pilot_vector_solves": 18216,
+              "qr_retractions": 3000,
+              "route_evaluations": 18216,
+              "second_factorizations": 18216,
+              "second_vector_solves": 18216,
+              "unit_retractions": 1000
+            },
+            "process_cpu_seconds": 9.527098093,
+            "step": 250,
+            "wall_seconds": 9.528858057
+          },
+          {
+            "counts": {
+              "backward_passes": 500,
+              "curvature_assemblies": 504,
+              "fitting_scene_exposures": 36000,
+              "forward_batches": 504,
+              "optimizer_updates": 500,
+              "pilot_factorizations": 504,
+              "pilot_vector_solves": 36288,
+              "qr_retractions": 6000,
+              "route_evaluations": 36288,
+              "second_factorizations": 36288,
+              "second_vector_solves": 36288,
+              "unit_retractions": 2000
+            },
+            "process_cpu_seconds": 18.957923848,
+            "step": 500,
+            "wall_seconds": 18.961217054
+          },
+          {
+            "counts": {
+              "backward_passes": 1000,
+              "curvature_assemblies": 1005,
+              "fitting_scene_exposures": 72000,
+              "forward_batches": 1005,
+              "optimizer_updates": 1000,
+              "pilot_factorizations": 1005,
+              "pilot_vector_solves": 72360,
+              "qr_retractions": 12000,
+              "route_evaluations": 72360,
+              "second_factorizations": 72360,
+              "second_vector_solves": 72360,
+              "unit_retractions": 4000
+            },
+            "process_cpu_seconds": 37.89099215,
+            "step": 1000,
+            "wall_seconds": 37.897494346
+          }
+        ],
+        "counts": {
+          "backward_passes": 1000,
+          "checked_equilibrium_passes": 288,
+          "cholesky_80": 288,
+          "cholesky_matrix_solve_80_rhs32": 288,
+          "cholesky_vector_solves_80": 288,
+          "curvature_assemblies": 1007,
+          "eigenspectra_80": 288,
+          "eigenspectra_structural_schur_32": 288,
+          "fitting_scene_exposures": 72000,
+          "forward_batches": 1007,
+          "lu_factor_32": 288,
+          "lu_factor_48": 288,
+          "lu_matrix_solve_32_rhs32": 288,
+          "lu_matrix_solve_48_rhs32": 288,
+          "lu_vector_solve_32": 288,
+          "optimizer_updates": 1000,
+          "pilot_factorizations": 1007,
+          "pilot_vector_solves": 72504,
+          "qr_retractions": 12000,
+          "residual_energy_expansions": 576,
+          "route_evaluations": 72504,
+          "second_factorizations": 72504,
+          "second_vector_solves": 72504,
+          "unit_retractions": 4000
+        },
+        "optimizer_storage": {
+          "entries": [
+            {
+              "bytes": 4,
+              "dtype": "torch.float32",
+              "field": "step",
+              "parameter_tensor": 0
+            },
+            {
+              "bytes": 64,
+              "dtype": "torch.float64",
+              "field": "exp_avg",
+              "parameter_tensor": 0
+            },
+            {
+              "bytes": 64,
+              "dtype": "torch.float64",
+              "field": "exp_avg_sq",
+              "parameter_tensor": 0
+            },
+            {
+              "bytes": 4,
+              "dtype": "torch.float32",
+              "field": "step",
+              "parameter_tensor": 1
+            },
+            {
+              "bytes": 1536,
+              "dtype": "torch.float64",
+              "field": "exp_avg",
+              "parameter_tensor": 1
+            },
+            {
+              "bytes": 1536,
+              "dtype": "torch.float64",
+              "field": "exp_avg_sq",
+              "parameter_tensor": 1
+            },
+            {
+              "bytes": 4,
+              "dtype": "torch.float32",
+              "field": "step",
+              "parameter_tensor": 2
+            },
+            {
+              "bytes": 768,
+              "dtype": "torch.float64",
+              "field": "exp_avg",
+              "parameter_tensor": 2
+            },
+            {
+              "bytes": 768,
+              "dtype": "torch.float64",
+              "field": "exp_avg_sq",
+              "parameter_tensor": 2
+            },
+            {
+              "bytes": 4,
+              "dtype": "torch.float32",
+              "field": "step",
+              "parameter_tensor": 3
+            },
+            {
+              "bytes": 256,
+              "dtype": "torch.float64",
+              "field": "exp_avg",
+              "parameter_tensor": 3
+            },
+            {
+              "bytes": 256,
+              "dtype": "torch.float64",
+              "field": "exp_avg_sq",
+              "parameter_tensor": 3
+            }
+          ],
+          "total_bytes": 5264
+        },
+        "peak_rss_kib": 441936,
+        "phase_cpu_seconds": {
+          "checkpoint_inference": 0.048074893,
+          "independent_verification": 0.342242075,
+          "optimization": 37.828255674
+        },
+        "phase_wall_seconds": {
+          "checkpoint_inference": 0.0480590309962,
+          "independent_verification": 0.342686832999,
+          "optimization": 37.8300600099
+        },
+        "process_cpu_seconds": 38.233332185,
+        "start": 1,
+        "step_size": 0.01,
+        "wall_seconds": 38.240282741,
+        "world": 1
+      },
+      {
+        "checkpoint_costs": [
+          {
+            "counts": {
+              "curvature_assemblies": 1,
+              "forward_batches": 1,
+              "pilot_factorizations": 1,
+              "pilot_vector_solves": 72,
+              "route_evaluations": 72,
+              "second_factorizations": 72,
+              "second_vector_solves": 72
+            },
+            "process_cpu_seconds": 0.010842673,
+            "step": 0,
+            "wall_seconds": 0.0108458249961
+          },
+          {
+            "counts": {
+              "backward_passes": 100,
+              "curvature_assemblies": 102,
+              "fitting_scene_exposures": 7200,
+              "forward_batches": 102,
+              "optimizer_updates": 100,
+              "pilot_factorizations": 102,
+              "pilot_vector_solves": 7344,
+              "qr_retractions": 1200,
+              "route_evaluations": 7344,
+              "second_factorizations": 7344,
+              "second_vector_solves": 7344,
+              "unit_retractions": 400
+            },
+            "process_cpu_seconds": 3.82398493,
+            "step": 100,
+            "wall_seconds": 3.825783397
+          },
+          {
+            "counts": {
+              "backward_passes": 250,
+              "curvature_assemblies": 253,
+              "fitting_scene_exposures": 18000,
+              "forward_batches": 253,
+              "optimizer_updates": 250,
+              "pilot_factorizations": 253,
+              "pilot_vector_solves": 18216,
+              "qr_retractions": 3000,
+              "route_evaluations": 18216,
+              "second_factorizations": 18216,
+              "second_vector_solves": 18216,
+              "unit_retractions": 1000
+            },
+            "process_cpu_seconds": 9.581926087,
+            "step": 250,
+            "wall_seconds": 9.58535524
+          },
+          {
+            "counts": {
+              "backward_passes": 500,
+              "curvature_assemblies": 504,
+              "fitting_scene_exposures": 36000,
+              "forward_batches": 504,
+              "optimizer_updates": 500,
+              "pilot_factorizations": 504,
+              "pilot_vector_solves": 36288,
+              "qr_retractions": 6000,
+              "route_evaluations": 36288,
+              "second_factorizations": 36288,
+              "second_vector_solves": 36288,
+              "unit_retractions": 2000
+            },
+            "process_cpu_seconds": 19.186356505,
+            "step": 500,
+            "wall_seconds": 19.192998883
+          },
+          {
+            "counts": {
+              "backward_passes": 1000,
+              "curvature_assemblies": 1005,
+              "fitting_scene_exposures": 72000,
+              "forward_batches": 1005,
+              "optimizer_updates": 1000,
+              "pilot_factorizations": 1005,
+              "pilot_vector_solves": 72360,
+              "qr_retractions": 12000,
+              "route_evaluations": 72360,
+              "second_factorizations": 72360,
+              "second_vector_solves": 72360,
+              "unit_retractions": 4000
+            },
+            "process_cpu_seconds": 38.190245144,
+            "step": 1000,
+            "wall_seconds": 38.201159629
+          }
+        ],
+        "counts": {
+          "backward_passes": 1000,
+          "checked_equilibrium_passes": 288,
+          "cholesky_80": 288,
+          "cholesky_matrix_solve_80_rhs32": 288,
+          "cholesky_vector_solves_80": 288,
+          "curvature_assemblies": 1007,
+          "eigenspectra_80": 288,
+          "eigenspectra_structural_schur_32": 288,
+          "fitting_scene_exposures": 72000,
+          "forward_batches": 1007,
+          "lu_factor_32": 288,
+          "lu_factor_48": 288,
+          "lu_matrix_solve_32_rhs32": 288,
+          "lu_matrix_solve_48_rhs32": 288,
+          "lu_vector_solve_32": 288,
+          "optimizer_updates": 1000,
+          "pilot_factorizations": 1007,
+          "pilot_vector_solves": 72504,
+          "qr_retractions": 12000,
+          "residual_energy_expansions": 576,
+          "route_evaluations": 72504,
+          "second_factorizations": 72504,
+          "second_vector_solves": 72504,
+          "unit_retractions": 4000
+        },
+        "optimizer_storage": {
+          "entries": [
+            {
+              "bytes": 4,
+              "dtype": "torch.float32",
+              "field": "step",
+              "parameter_tensor": 0
+            },
+            {
+              "bytes": 64,
+              "dtype": "torch.float64",
+              "field": "exp_avg",
+              "parameter_tensor": 0
+            },
+            {
+              "bytes": 64,
+              "dtype": "torch.float64",
+              "field": "exp_avg_sq",
+              "parameter_tensor": 0
+            },
+            {
+              "bytes": 4,
+              "dtype": "torch.float32",
+              "field": "step",
+              "parameter_tensor": 1
+            },
+            {
+              "bytes": 1536,
+              "dtype": "torch.float64",
+              "field": "exp_avg",
+              "parameter_tensor": 1
+            },
+            {
+              "bytes": 1536,
+              "dtype": "torch.float64",
+              "field": "exp_avg_sq",
+              "parameter_tensor": 1
+            },
+            {
+              "bytes": 4,
+              "dtype": "torch.float32",
+              "field": "step",
+              "parameter_tensor": 2
+            },
+            {
+              "bytes": 768,
+              "dtype": "torch.float64",
+              "field": "exp_avg",
+              "parameter_tensor": 2
+            },
+            {
+              "bytes": 768,
+              "dtype": "torch.float64",
+              "field": "exp_avg_sq",
+              "parameter_tensor": 2
+            },
+            {
+              "bytes": 4,
+              "dtype": "torch.float32",
+              "field": "step",
+              "parameter_tensor": 3
+            },
+            {
+              "bytes": 256,
+              "dtype": "torch.float64",
+              "field": "exp_avg",
+              "parameter_tensor": 3
+            },
+            {
+              "bytes": 256,
+              "dtype": "torch.float64",
+              "field": "exp_avg_sq",
+              "parameter_tensor": 3
+            }
+          ],
+          "total_bytes": 5264
+        },
+        "peak_rss_kib": 441936,
+        "phase_cpu_seconds": {
+          "checkpoint_inference": 0.047947214,
+          "independent_verification": 0.343972476,
+          "optimization": 38.127827663
+        },
+        "phase_wall_seconds": {
+          "checkpoint_inference": 0.0479504899995,
+          "independent_verification": 0.344020308003,
+          "optimization": 38.1341116389
+        },
+        "process_cpu_seconds": 38.53430785,
+        "start": 1,
+        "step_size": 0.05,
+        "wall_seconds": 38.545274269,
+        "world": 1
+      }
+    ],
+    "command": [
+      "/home/debjit/code/sri/.venv/bin/python",
+      "-m",
+      "experiments.masked_capacity",
+      "--phase",
+      "search"
+    ],
+    "command_wall_seconds": 311.177315085,
+    "dirty_paths_at_start": [
+      "M reports/single-module-masked-capacity-v1-runtime.json",
+      "?? docs/single-module-mechanism-diagnostics-v1-contract.md",
+      "?? reports/single-module-masked-capacity-v1-audit.json"
+    ],
+    "entire_optimizer_trajectory_repeated": false,
+    "flops": null,
+    "flops_reason": "not instrumented; dense forward/backward orders are in contract",
+    "manifest_sha256": "4e023bb48852c170af5123289a789d5221d168b05af87c42e5fc2738e33605c4",
+    "memory": {
+      "batch_hessian_tensor_bytes": 3686400,
+      "curvature_tensor_bytes": 819200,
+      "native_autograd_workspace_peak_bytes": null,
+      "parameter_bytes": 2624,
+      "retained_training_input_target_bytes_per_rendering": 27648,
+      "unavailable_reason": "native Torch/BLAS temporary peaks not separately instrumented; process RSS and retained optimizer tensors recorded"
+    },
+    "parent_cpu_seconds": 311.046161776,
+    "parent_peak_rss_kib": 441936,
+    "repeated_scope": "two task audits; two independent inference verifications of each serialized selected candidate",
+    "results_sha256": "819bb280ec705c18d4b2822ee57570ca2d6ed67f2fd3d1401ecf5e928f2229cb",
+    "revision": "dd95316077ff9a972d317f9e9a7dd01b03240e68",
+    "rss_scope": "Linux KiB cumulative process high-water; candidate values are not isolated peaks",
+    "status": "complete"
+  },
+  "tests": {
+    "command": [
+      "/home/debjit/code/sri/.venv/bin/python",
+      "-m",
+      "experiments.masked_capacity",
+      "--phase",
+      "tests"
+    ],
+    "command_wall_seconds": 4.764869934,
+    "dirty_paths_at_start": [
+      "?? docs/single-module-mechanism-diagnostics-v1-contract.md"
+    ],
+    "manifest_sha256": "4e023bb48852c170af5123289a789d5221d168b05af87c42e5fc2738e33605c4",
+    "operation_counts": null,
+    "operation_counts_reason": "test fixture operations not instrumented; entire test cost timed",
+    "parent_cpu_seconds": 2.318573312,
+    "parent_peak_rss_kib": 368484,
+    "returncode": 0,
+    "revision": "dd95316077ff9a972d317f9e9a7dd01b03240e68",
+    "rss_scope": "Linux KiB cumulative process high-water; candidate values are not isolated peaks",
+    "status": "complete",
+    "subprocess_cpu_seconds": 2.386143,
+    "subprocess_peak_rss_kib": 368484,
+    "subprocess_wall_seconds": 2.393217718,
+    "test_command": [
+      "/home/debjit/code/sri/.venv/bin/python",
+      "-m",
+      "unittest",
+      "tests.test_masked_capacity",
+      "tests.test_abstraction_preflight",
+      "-v"
+    ],
+    "test_output": "test_full_gradient_including_gates (tests.test_masked_capacity.Module.test_full_gradient_including_gates) ... ok\ntest_hessian_energy_expansion (tests.test_masked_capacity.Module.test_hessian_energy_expansion) ... ok\ntest_mask_hidden_input_independence (tests.test_masked_capacity.Module.test_mask_hidden_input_independence) ... ok\ntest_numpy_and_schur_equivalence (tests.test_masked_capacity.Module.test_numpy_and_schur_equivalence) ... ok\ntest_tangents_and_optimizer_retraction (tests.test_masked_capacity.Module.test_tangents_and_optimizer_retraction) ... ok\ntest_common_scale_gap_and_factored_reference (tests.test_masked_capacity.Task.test_common_scale_gap_and_factored_reference) ... ok\ntest_factorial_split_and_closed_orbits (tests.test_masked_capacity.Task.test_factorial_split_and_closed_orbits) ... ok\ntest_template_choices_do_not_read_hidden_targets (tests.test_masked_capacity.Task.test_template_choices_do_not_read_hidden_targets) ... ok\ntest_energy_polarization_hessian (tests.test_abstraction_preflight.Energy.test_energy_polarization_hessian) ... ok\ntest_mask_only_changes_data_term (tests.test_abstraction_preflight.Energy.test_mask_only_changes_data_term) ... ok\ntest_masked_equilibrium_and_hidden_input_ignored (tests.test_abstraction_preflight.Energy.test_masked_equilibrium_and_hidden_input_ignored) ... ok\ntest_odd_symmetry_of_matched_response (tests.test_abstraction_preflight.Energy.test_odd_symmetry_of_matched_response) ... ok\ntest_one_observed_coordinate_is_positive_definite (tests.test_abstraction_preflight.Energy.test_one_observed_coordinate_is_positive_definite) ... ok\ntest_original_equilibrium_matches_frozen_implementation (tests.test_abstraction_preflight.Energy.test_original_equilibrium_matches_frozen_implementation) ... ok\ntest_affine_floor_and_two_rule_control (tests.test_abstraction_preflight.Task.test_affine_floor_and_two_rule_control) ... ok\ntest_hand_scenes_and_split (tests.test_abstraction_preflight.Task.test_hand_scenes_and_split) ... ok\ntest_rendering_and_relation_oracle (tests.test_abstraction_preflight.Task.test_rendering_and_relation_oracle) ... ok\ntest_ties_are_explicit (tests.test_abstraction_preflight.Task.test_ties_are_explicit) ... ok\n\n----------------------------------------------------------------------\nRan 18 tests in 0.097s\n\nOK\n"
   }
 }
