@@ -1,0 +1,171 @@
+{
+  "checkpoints": [
+    0,
+    100,
+    250,
+    500,
+    1000
+  ],
+  "dependencies": {
+    "docs/locality-adaptation-v1-contract.md": "1231719cd110757fac6a2f34ba7d91db1f2de18f894cf60568e9c8875f479c7e",
+    "docs/locality-adaptation-v2-contract.md": "00099acca6bdb69dbad67789274913cec664675e6b819a6345fe605fdbd20f9b",
+    "docs/representation-reuse-v1-contract.md": "fa3a5915ac7d2affa406626fc6f5325007a35519516363b20c4af4bcc0cf5af6",
+    "docs/single-module-abstraction-preflight-v1-contract.md": "48ac22f70b5301e4bdf563fa4ab1bb3dbf7980628bec0ee9f38b617c60207907",
+    "docs/single-module-plasticity-v1-contract.md": "c20746482369e0fe07c6c77242946d1876505fd474198623eb5201d5492b5e31",
+    "experiments/abstraction_preflight.py": "bb01994936e695567620dc5a617c320ab153e045b6927010055652bdf101ab59",
+    "experiments/locality_adaptation.py": "3a9e5388a848bb6f85077a57f15e849fd46f602cf73bcd25b922ef62eca89722",
+    "experiments/locality_adaptation_v2.py": "af5f61ba33d7e2ec491efc1cc0888a4c1fa1a49af7f047381b53bee22ec51df0",
+    "experiments/representation_reuse.py": "43f0a1879a56a73578dff254b2c43bc3fce45ba8aa3494a9e758d86d573579f7",
+    "experiments/single_module_plasticity.py": "4e2c5271090662699cbebfe31021da457cd7ba10b49637bf9c32f97c07efa86c",
+    "reports/single-module-abstraction-preflight-v1-manifest.json": "a250d9436aef0fdb38580e5c5b60b2771b65ffd175914ae296ae8f97030d21e6",
+    "reports/single-module-plasticity-v1-manifest.json": "71fadc9321aa9ae51a79ba4dc4b6876e5fddc762d3eab3f0c1d101f28d783aa6",
+    "requirements.txt": "4c301c485945661f312de32ab996187af9230aa5064d0fe76ad627b8b0a75b0a",
+    "src/abstraction_preflight.py": "162e75c8015113a59e06782795dbef63f1021445acf086dd8626f753e47132fd",
+    "src/locality_adaptation.py": "b4e96a1382d892deebfe24b6daa286c08b49ce4c67ed83fd030a4320cb4139ce",
+    "src/locality_adaptation_v2.py": "4c350ec49bbe0a71668a7b6c18429beaad69a5501765c226e6b13856027a2df6",
+    "src/representation_reuse.py": "1530b8cb78b292849ff49e6cc62e01adc67ed337cec2073f1805daadb27c90da",
+    "src/single_module_plasticity.py": "9c8632fce528f72129446bec009021ef6c1cf4e0f4145182d46e2239c28ddeb3",
+    "tests/test_abstraction_preflight.py": "12a86b9ad3d0468e74db0e148edfabd13db4b622c6056990ef68be18c057e989",
+    "tests/test_locality_adaptation.py": "e5ae05affbc8abbc05abead66d809503f3f1da26e39d3b83e8623b0a8083ca0d",
+    "tests/test_locality_adaptation_v2.py": "cd864f576ab6a95dabd0f0eaacd1009f6a27c15cc9ed7bfe307f7d1ddd6d8c04",
+    "tests/test_representation_reuse.py": "4e82f81004a27e76889c6681e67e40ed04af60f0b5b1c5c771f332ce509f862d",
+    "tests/test_single_module_plasticity.py": "38eb5d8a0b4aed44d4e8dbe75f2e70900c0b1f5e3df437d0bd0343015fe427b0"
+  },
+  "environment": {
+    "cpu": "AMD Ryzen 5 3600 6-Core Processor",
+    "dtype": "float64",
+    "logical_cpus": 12,
+    "machine": "x86_64",
+    "numpy": "2.5.4",
+    "numpy_build": {
+      "Build Dependencies": {
+        "blas": {
+          "detection method": "pkgconfig",
+          "found": true,
+          "include directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include",
+          "lib directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib",
+          "name": "scipy-openblas",
+          "openblas configuration": "OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64",
+          "pc file directory": "/project/.openblas",
+          "version": "0.3.34.106.0"
+        },
+        "lapack": {
+          "detection method": "pkgconfig",
+          "found": true,
+          "include directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include",
+          "lib directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib",
+          "name": "scipy-openblas",
+          "openblas configuration": "OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64",
+          "pc file directory": "/project/.openblas",
+          "version": "0.3.34.106.0"
+        }
+      },
+      "Compilers": {
+        "c": {
+          "commands": "cc",
+          "linker": "ld.bfd",
+          "name": "gcc",
+          "version": "14.2.1"
+        },
+        "c++": {
+          "commands": "c++",
+          "linker": "ld.bfd",
+          "name": "gcc",
+          "version": "14.2.1"
+        },
+        "cython": {
+          "commands": "cython",
+          "linker": "cython",
+          "name": "cython",
+          "version": "3.3.0"
+        }
+      },
+      "Machine Information": {
+        "build": {
+          "cpu": "x86_64",
+          "endian": "little",
+          "family": "x86_64",
+          "system": "linux"
+        },
+        "host": {
+          "cpu": "x86_64",
+          "endian": "little",
+          "family": "x86_64",
+          "system": "linux"
+        }
+      },
+      "Python Information": {
+        "path": "/tmp/build-env-ptu49_tp/bin/python",
+        "version": "3.12"
+      },
+      "SIMD Extensions": {
+        "baseline": [
+          "X86_V2"
+        ],
+        "found": [
+          "X86_V3"
+        ],
+        "not found": [
+          "X86_V4",
+          "AVX512_ICL",
+          "AVX512_SPR"
+        ]
+      }
+    },
+    "platform": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+    "processes": 1,
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "scipy": "1.18.1",
+    "thread_environment": {
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "torch": "2.14.1+cpu",
+    "torch_build": "PyTorch built with:\n  - GCC 13.3\n  - C++ Version: 202002\n  - Intel(R) oneAPI Math Kernel Library Version 2024.2-Product Build 20240605 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.12.0 (Git Hash 80afa71049cd69a3df32adcccb623b12cd7baa22)\n  - OpenMP 201511 (a.k.a. OpenMP 4.5)\n  - LAPACK is enabled (usually provided by MKL)\n  - NNPACK is enabled\n  - CPU capability usage: AVX2\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, COMMIT_SHA=5c4886908584029761b579af026dcfb627c84070, CUDA_FLAGS= -DLIBCUDACXX_ENABLE_SIMPLIFIED_COMPLEX_OPERATIONS -Xfatbin -compress-all  -Wno-deprecated-gpu-targets --expt-extended-lambda -DCUB_WRAPPED_NAMESPACE=at_cuda_detail -DDISABLE_CUSPARSE_DEPRECATED -DCUDA_HAS_FP16=1 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -DC10_NODEPRECATED, CXX_COMPILER=/opt/rh/gcc-toolset-13/root/usr/bin/c++, CXX_FLAGS= -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -DC10_NODEPRECATED -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=range-loop-construct -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=old-style-cast -faligned-new -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-dangling-reference -Wno-error=dangling-reference -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.14.1, USE_CUDA=0, USE_CUDNN=OFF, USE_CUSPARSELT=OFF, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_HIPSPARSELT=OFF, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=OFF, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, USE_XCCL=OFF, USE_XPU=OFF, \n",
+    "torch_deterministic_algorithms": true,
+    "torch_interop_threads": 1,
+    "torch_intraop_threads": 1
+  },
+  "maximum_total_updates": 8000,
+  "maximum_updates_per_candidate": 1000,
+  "repeat_scope": "two task audits and two serialized-candidate verifications; one search trajectory",
+  "revision": "a620c59e707cb6a3dfd5bcede6020b575b0014d8",
+  "root_seed": 2026102503,
+  "setup_runtime_sha256": "c19a516e3511963dd0f575fa227d5f73c2238048a19353b4dc2e0f32e6e13b2d",
+  "sources": {
+    "docs/single-module-masked-capacity-v1-contract.md": "6e5395068e8f50e86947a00b550ed2af6b50000d41a6550d427fd1924642b486",
+    "experiments/masked_capacity.py": "695be8d7b42b0e3bc6bc2d3960178dc4bb3c34ccf70a463f58c2e1107052e52c",
+    "requirements.txt": "4c301c485945661f312de32ab996187af9230aa5064d0fe76ad627b8b0a75b0a",
+    "src/masked_capacity.py": "65e555e12c667b65589cfa38e5cffd9b0ce03d3abab9af4ab2b0cceef6a0ccd1",
+    "tests/test_masked_capacity.py": "9bc7899307723931f59218afecdb1ad770add4a8e483f7f8ab2f461819595ee9"
+  },
+  "starts": [
+    0,
+    1
+  ],
+  "status": "frozen_before_tests_audits_and_fits",
+  "step_sizes": [
+    0.01,
+    0.05
+  ],
+  "task": {
+    "fit_scope": "capacity uses all 72 targets, including nominal holdout",
+    "held_out_scenes": 24,
+    "ratios": [
+      0.333333333333,
+      1.0,
+      3.0
+    ],
+    "scenes": 72,
+    "train_scenes": 48
+  },
+  "tests": [
+    "tests.test_masked_capacity",
+    "tests.test_abstraction_preflight"
+  ],
+  "worlds": [
+    0,
+    1
+  ]
+}

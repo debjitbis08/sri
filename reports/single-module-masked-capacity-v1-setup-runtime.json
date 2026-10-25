@@ -1,0 +1,42 @@
+{
+  "scope": "Environment preparation before any manifest freeze, task audit or capacity fit",
+  "initial_failure": {
+    "command": ".venv/bin/python -m experiments.masked_capacity --phase freeze",
+    "error": "ModuleNotFoundError: No module named 'torch'",
+    "numerical_work_executed": false,
+    "wall_seconds": null,
+    "process_cpu_seconds": null,
+    "unavailable_reason": "Import failed before the study runtime recorder; this startup attempt was not externally timed"
+  },
+  "sandbox_install_attempt": {
+    "error": "DNS lookup for download.pytorch.org blocked; request failed after three retries",
+    "reported_retry_seconds": 7.6,
+    "wall_seconds": null,
+    "process_cpu_seconds": null,
+    "unavailable_reason": "uv reported retry time only; complete command timing was not collected"
+  },
+  "approved_install": {
+    "command": "uv pip install --python .venv/bin/python --cache-dir /tmp/sri-masked-capacity-uv-cache --extra-index-url https://download.pytorch.org/whl/cpu torch==2.14.1+cpu",
+    "measurement": "/usr/bin/time -v",
+    "wall_seconds": 44.24,
+    "user_cpu_seconds": 2.11,
+    "system_cpu_seconds": 1.52,
+    "peak_rss_kib": 59620,
+    "rss_scope": "GNU time Linux maximum resident set for the install command, not summed whole-job memory",
+    "exit_code": 0,
+    "installed": {
+      "filelock": "3.32.3",
+      "fsspec": "2026.7.0",
+      "jinja2": "3.1.6",
+      "markupsafe": "3.0.3",
+      "mpmath": "1.3.0",
+      "networkx": "3.6.1",
+      "setuptools": "78.1.0",
+      "sympy": "1.14.0",
+      "torch": "2.14.1+cpu",
+      "typing-extensions": "4.16.0"
+    }
+  },
+  "method_changes": false,
+  "requirements_file_changed": false
+}
