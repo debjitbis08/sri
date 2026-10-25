@@ -112,5 +112,164 @@
     "revision": "c92089745b3529b6f326efaca37d565c07a53df7",
     "rss_scope": "Linux KiB, cumulative process high-water RSS; tests child reported separately",
     "status": "complete"
+  },
+  "run": {
+    "byte_identical_repetition": true,
+    "command": [
+      "/home/debjit/code/sri/.venv/bin/python",
+      "-m",
+      "experiments.abstraction_preflight",
+      "--phase",
+      "run"
+    ],
+    "command_wall_seconds": 6.28724223,
+    "dirty_paths_at_start": [
+      "M reports/single-module-abstraction-preflight-v1-runtime.json",
+      "?? docs/single-module-mechanism-diagnostics-v1-contract.md"
+    ],
+    "flops": null,
+    "flops_reason": "not instrumented; complexity orders in contract",
+    "manifest_sha256": "a250d9436aef0fdb38580e5c5b60b2771b65ffd175914ae296ae8f97030d21e6",
+    "memory": {
+      "curvature_cache_bytes": 819200,
+      "mask_bytes": 256,
+      "one_dense_hessian_bytes": 51200,
+      "parameter_bytes": 2624,
+      "phase_metadata_bytes": 8,
+      "result_file_bytes": 2114693,
+      "scene_arrays_all_renderings_bytes": 30720,
+      "solver_workspace_peak_bytes": null,
+      "solver_workspace_peak_reason": "NumPy/SciPy native temporary peaks not separately instrumented; process RSS recorded"
+    },
+    "parent_peak_rss_kib": 116268,
+    "parent_process_cpu_seconds": 6.244559294,
+    "repeats": [
+      {
+        "counts": {
+          "checked_equilibrium_passes": 2304,
+          "cholesky_80": 2304,
+          "cholesky_matrix_solve_80_rhs32": 2304,
+          "cholesky_vector_solves_80": 2304,
+          "comparator_scored_scenes": 720,
+          "constant_mean_fits": 5,
+          "curvature_assemblies": 64,
+          "eigenspectra_80": 2304,
+          "eigenspectra_outer_map_32": 1152,
+          "eigenspectra_structural_schur_32": 2304,
+          "lookup_reference_builds": 5,
+          "lu_factor_32": 2304,
+          "lu_factor_48": 2304,
+          "lu_matrix_solve_32_rhs32": 2304,
+          "lu_matrix_solve_48_rhs32": 2304,
+          "lu_vector_solve_32": 2304,
+          "module_scored_scenes": 1536,
+          "nearest_neighbor_distance_evaluations": 1920,
+          "parameter_fixtures": 16,
+          "parameter_qr_blocks": 192,
+          "rendered_scenes": 120,
+          "renderer_qr_8": 16,
+          "residual_energy_expansions": 4608,
+          "route_evaluations": 768,
+          "svd_affine_fits": 15,
+          "transfer_svd_16": 1152,
+          "unique_abstract_scenes": 24,
+          "unit_normalizations": 64
+        },
+        "phase_cpu_seconds": {
+          "comparator_fitting_and_scoring": 0.025437408,
+          "enumeration": 0.00211927,
+          "fixture_generation": 0.010250083,
+          "solver_checks_and_scoring": 2.673454071
+        },
+        "phase_wall_seconds": {
+          "comparator_fitting_and_scoring": 0.025432582006,
+          "enumeration": 0.00211331699393,
+          "fixture_generation": 0.0102349859953,
+          "solver_checks_and_scoring": 2.67360331502
+        },
+        "process_cpu_seconds": 2.877860478,
+        "repeat": 0,
+        "wall_seconds": 2.878107163
+      },
+      {
+        "counts": {
+          "checked_equilibrium_passes": 2304,
+          "cholesky_80": 2304,
+          "cholesky_matrix_solve_80_rhs32": 2304,
+          "cholesky_vector_solves_80": 2304,
+          "comparator_scored_scenes": 720,
+          "constant_mean_fits": 5,
+          "curvature_assemblies": 64,
+          "eigenspectra_80": 2304,
+          "eigenspectra_outer_map_32": 1152,
+          "eigenspectra_structural_schur_32": 2304,
+          "lookup_reference_builds": 5,
+          "lu_factor_32": 2304,
+          "lu_factor_48": 2304,
+          "lu_matrix_solve_32_rhs32": 2304,
+          "lu_matrix_solve_48_rhs32": 2304,
+          "lu_vector_solve_32": 2304,
+          "module_scored_scenes": 1536,
+          "nearest_neighbor_distance_evaluations": 1920,
+          "parameter_fixtures": 16,
+          "parameter_qr_blocks": 192,
+          "rendered_scenes": 120,
+          "renderer_qr_8": 16,
+          "residual_energy_expansions": 4608,
+          "route_evaluations": 768,
+          "svd_affine_fits": 15,
+          "transfer_svd_16": 1152,
+          "unique_abstract_scenes": 24,
+          "unit_normalizations": 64
+        },
+        "phase_cpu_seconds": {
+          "comparator_fitting_and_scoring": 0.022499066,
+          "enumeration": 0.00179417,
+          "fixture_generation": 0.009722982,
+          "solver_checks_and_scoring": 2.578682095
+        },
+        "phase_wall_seconds": {
+          "comparator_fitting_and_scoring": 0.022494650002,
+          "enumeration": 0.00178898299782,
+          "fixture_generation": 0.00970836899069,
+          "solver_checks_and_scoring": 2.57886931703
+        },
+        "process_cpu_seconds": 2.782450831,
+        "repeat": 1,
+        "wall_seconds": 2.782733308
+      }
+    ],
+    "results_sha256": "3a13f711fb5d9715faa9dda361618af5f432ab45feeee81887e8548865d85543",
+    "revision": "e6ec5bb42c7fede537bab341478723082d674174",
+    "rss_scope": "Linux KiB, cumulative process high-water RSS; tests child reported separately",
+    "status": "complete",
+    "timing_scope": "repeat total includes generation, fitting, numerical checks, scoring and serialization; phase timers are disjoint and contained in total",
+    "training_updates": 0,
+    "tuning_executions": 0
+  },
+  "tests": {
+    "child_cpu_seconds": 5.421272,
+    "child_peak_rss_kib": 158260,
+    "command": [
+      "/home/debjit/code/sri/.venv/bin/python",
+      "-m",
+      "experiments.abstraction_preflight",
+      "--phase",
+      "tests"
+    ],
+    "command_wall_seconds": 6.044144182,
+    "count_scope": "unit tests include additional small fixtures; not part of contracted sweep counts",
+    "dirty_paths_at_start": [
+      "?? docs/single-module-mechanism-diagnostics-v1-contract.md"
+    ],
+    "manifest_sha256": "a250d9436aef0fdb38580e5c5b60b2771b65ffd175914ae296ae8f97030d21e6",
+    "output": "test_energy_polarization_hessian (tests.test_abstraction_preflight.Energy.test_energy_polarization_hessian) ... ok\ntest_mask_only_changes_data_term (tests.test_abstraction_preflight.Energy.test_mask_only_changes_data_term) ... ok\ntest_masked_equilibrium_and_hidden_input_ignored (tests.test_abstraction_preflight.Energy.test_masked_equilibrium_and_hidden_input_ignored) ... ok\ntest_odd_symmetry_of_matched_response (tests.test_abstraction_preflight.Energy.test_odd_symmetry_of_matched_response) ... ok\ntest_one_observed_coordinate_is_positive_definite (tests.test_abstraction_preflight.Energy.test_one_observed_coordinate_is_positive_definite) ... ok\ntest_original_equilibrium_matches_frozen_implementation (tests.test_abstraction_preflight.Energy.test_original_equilibrium_matches_frozen_implementation) ... ok\ntest_affine_floor_and_two_rule_control (tests.test_abstraction_preflight.Task.test_affine_floor_and_two_rule_control) ... ok\ntest_hand_scenes_and_split (tests.test_abstraction_preflight.Task.test_hand_scenes_and_split) ... ok\ntest_rendering_and_relation_oracle (tests.test_abstraction_preflight.Task.test_rendering_and_relation_oracle) ... ok\ntest_ties_are_explicit (tests.test_abstraction_preflight.Task.test_ties_are_explicit) ... ok\ntest_actual_work_matches_charged_adaptation (tests.test_single_module_plasticity.Branches.test_actual_work_matches_charged_adaptation) ... ok\ntest_checkpoints_nested_and_continuous (tests.test_single_module_plasticity.Branches.test_checkpoints_nested_and_continuous) ... ok\ntest_direct_references_continue_through_return (tests.test_single_module_plasticity.Branches.test_direct_references_continue_through_return) ... ok\ntest_frozen_never_changes (tests.test_single_module_plasticity.Branches.test_frozen_never_changes) ... ok\ntest_schur_checked_at_every_checkpoint (tests.test_single_module_plasticity.Branches.test_schur_checked_at_every_checkpoint) ... ok\ntest_source_checkpoint_is_not_mutated (tests.test_single_module_plasticity.Branches.test_source_checkpoint_is_not_mutated) ... ok\ntest_frozen_dependencies_match_their_manifests (tests.test_single_module_plasticity.Dependencies.test_frozen_dependencies_match_their_manifests) ... ok\ntest_energy_gradient_and_hessian_by_differences (tests.test_single_module_plasticity.EnergyAndSolves.test_energy_gradient_and_hessian_by_differences) ... ok\ntest_full_and_schur_solves_agree (tests.test_single_module_plasticity.EnergyAndSolves.test_full_and_schur_solves_agree) ... ok\ntest_nonpositive_hessian_stops (tests.test_single_module_plasticity.EnergyAndSolves.test_nonpositive_hessian_stops) ... ok\ntest_residual_expansion_matches_quadratic_form (tests.test_single_module_plasticity.EnergyAndSolves.test_residual_expansion_matches_quadratic_form) ... ok\ntest_controls_on_draws (tests.test_single_module_plasticity.Evaluator.test_controls_on_draws) ... ok\ntest_evaluator_truth_cannot_change_updates (tests.test_single_module_plasticity.Evaluator.test_evaluator_truth_cannot_change_updates) ... ok\ntest_linear_trace_risk_matches_error_map (tests.test_single_module_plasticity.Evaluator.test_linear_trace_risk_matches_error_map) ... ok\ntest_routed_evaluator_matches_samplewise_errors (tests.test_single_module_plasticity.Evaluator.test_routed_evaluator_matches_samplewise_errors) ... ok\ntest_observation_recipe (tests.test_single_module_plasticity.Generator.test_observation_recipe) ... ok\ntest_reimplemented_recipe_matches_reuse_under_scoped_root (tests.test_single_module_plasticity.Generator.test_reimplemented_recipe_matches_reuse_under_scoped_root) ... ok\ntest_signals_and_drift_geometry (tests.test_single_module_plasticity.Generator.test_signals_and_drift_geometry) ... ok\ntest_stream_namespaces_are_isolated (tests.test_single_module_plasticity.Generator.test_stream_namespaces_are_isolated) ... ok\ntest_acquired_phase_matches_v2 (tests.test_single_module_plasticity.Geometry.test_acquired_phase_matches_v2) ... ok\ntest_basis_completion_and_initialization (tests.test_single_module_plasticity.Geometry.test_basis_completion_and_initialization) ... ok\ntest_lateral_and_anchor_hand_case (tests.test_single_module_plasticity.Geometry.test_lateral_and_anchor_hand_case) ... ok\ntest_sector_indices_hand_case (tests.test_single_module_plasticity.Geometry.test_sector_indices_hand_case) ... ok\ntest_fixed_route_gradient_off_manifold_terminal (tests.test_single_module_plasticity.Gradients.test_fixed_route_gradient_off_manifold_terminal) ... ok\ntest_fixed_route_gradient_on_manifold (tests.test_single_module_plasticity.Gradients.test_fixed_route_gradient_on_manifold) ... ok\ntest_gate_bounds_and_mean_one_b (tests.test_single_module_plasticity.Routes.test_gate_bounds_and_mean_one_b) ... ok\ntest_matching_residual_zero_gives_one (tests.test_single_module_plasticity.Routes.test_matching_residual_zero_gives_one) ... ok\ntest_target_cannot_change_routes_or_output (tests.test_single_module_plasticity.Routes.test_target_cannot_change_routes_or_output) ... ok\ntest_clipping (tests.test_single_module_plasticity.Updates.test_clipping) ... ok\ntest_profiles (tests.test_single_module_plasticity.Updates.test_profiles) ... ok\ntest_qf_identity_and_positive_diagonal (tests.test_single_module_plasticity.Updates.test_qf_identity_and_positive_diagonal) ... ok\ntest_retraction_uses_rate_and_bbar (tests.test_single_module_plasticity.Updates.test_retraction_uses_rate_and_bbar) ... ok\ntest_tangent_projection (tests.test_single_module_plasticity.Updates.test_tangent_projection) ... ok\ntest_update_recomputes_routes_and_keeps_constraints (tests.test_single_module_plasticity.Updates.test_update_recomputes_routes_and_keeps_constraints) ... ok\ntest_warm_up_is_fixed_route_and_shares_factor (tests.test_single_module_plasticity.Updates.test_warm_up_is_fixed_route_and_shares_factor) ... ok\n\n----------------------------------------------------------------------\nRan 45 tests in 4.559s\n\nOK\n",
+    "parent_peak_rss_kib": 96852,
+    "parent_process_cpu_seconds": 0.580614692,
+    "returncode": 0,
+    "revision": "e6ec5bb42c7fede537bab341478723082d674174",
+    "rss_scope": "Linux KiB, cumulative process high-water RSS; tests child reported separately",
+    "status": "complete",
+    "wall_seconds": 5.422369323
   }
 }

@@ -1,0 +1,253 @@
+{
+  "antipodal_pairs": [
+    {
+      "held_out_scene": 0,
+      "held_out_t": 0,
+      "relation": 1,
+      "training_scene": 4,
+      "training_t": 4
+    },
+    {
+      "held_out_scene": 3,
+      "held_out_t": 3,
+      "relation": 1,
+      "training_scene": 7,
+      "training_t": 7
+    },
+    {
+      "held_out_scene": 6,
+      "held_out_t": 6,
+      "relation": 1,
+      "training_scene": 2,
+      "training_t": 2
+    },
+    {
+      "held_out_scene": 9,
+      "held_out_t": 1,
+      "relation": 2,
+      "training_scene": 13,
+      "training_t": 5
+    },
+    {
+      "held_out_scene": 12,
+      "held_out_t": 4,
+      "relation": 2,
+      "training_scene": 8,
+      "training_t": 0
+    },
+    {
+      "held_out_scene": 15,
+      "held_out_t": 7,
+      "relation": 2,
+      "training_scene": 11,
+      "training_t": 3
+    },
+    {
+      "held_out_scene": 18,
+      "held_out_t": 2,
+      "relation": 3,
+      "training_scene": 22,
+      "training_t": 6
+    },
+    {
+      "held_out_scene": 21,
+      "held_out_t": 5,
+      "relation": 3,
+      "training_scene": 17,
+      "training_t": 1
+    }
+  ],
+  "finding": "every held-out scene is the negative of a training scene with the same relation",
+  "held_out_scenes": 8,
+  "input_hashes": {
+    "experiments/abstraction_preflight_shortcut.py": "9153d7a0721a1e7bc9a778a9bbbe8fc0a1d0320fff806141ab8e59e33f7df640",
+    "experiments/locality_adaptation.py": "3a9e5388a848bb6f85077a57f15e849fd46f602cf73bcd25b922ef62eca89722",
+    "reports/single-module-abstraction-preflight-v1-results.json": "3a13f711fb5d9715faa9dda361618af5f432ab45feeee81887e8548865d85543"
+  },
+  "interpretation": "the declared split cannot distinguish relational learning from memorization plus odd symmetry",
+  "signed_lookup_receipts": [
+    {
+      "chosen_sign": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "chosen_training_scenes": [
+        4,
+        7,
+        2,
+        13,
+        8,
+        11,
+        22,
+        17
+      ],
+      "max_visible_squared_distance": 2.99951956533e-32,
+      "per_scene_hidden_loss": [
+        7.49879891329e-33,
+        7.49879891329e-33,
+        7.49879891334e-33,
+        0.0,
+        1.49975978266e-32,
+        0.0,
+        7.49879891334e-33,
+        7.49879891329e-33
+      ],
+      "stored_lookup_bytes": 4096,
+      "world": null,
+      "worst_hidden_loss": 1.49975978266e-32
+    },
+    {
+      "chosen_sign": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "chosen_training_scenes": [
+        4,
+        7,
+        2,
+        13,
+        8,
+        11,
+        22,
+        17
+      ],
+      "max_visible_squared_distance": 5.16630707582e-32,
+      "per_scene_hidden_loss": [
+        7.85154994711e-33,
+        1.15074314177e-32,
+        7.24038692423e-33,
+        0.0,
+        1.87478183419e-32,
+        0.0,
+        7.24038692423e-33,
+        1.15074314177e-32
+      ],
+      "stored_lookup_bytes": 4096,
+      "world": 0,
+      "worst_hidden_loss": 1.87478183419e-32
+    },
+    {
+      "chosen_sign": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "chosen_training_scenes": [
+        4,
+        7,
+        2,
+        13,
+        8,
+        11,
+        22,
+        17
+      ],
+      "max_visible_squared_distance": 4.62270206427e-32,
+      "per_scene_hidden_loss": [
+        1.12727087057e-32,
+        1.54920751484e-32,
+        9.25048226413e-33,
+        0.0,
+        2.47425574125e-32,
+        0.0,
+        9.25048226413e-33,
+        1.54920751484e-32
+      ],
+      "stored_lookup_bytes": 4096,
+      "world": 1,
+      "worst_hidden_loss": 2.47425574125e-32
+    },
+    {
+      "chosen_sign": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "chosen_training_scenes": [
+        4,
+        7,
+        2,
+        13,
+        8,
+        11,
+        22,
+        17
+      ],
+      "max_visible_squared_distance": 4.13083761207e-32,
+      "per_scene_hidden_loss": [
+        1.24719010227e-32,
+        8.69075887405e-33,
+        1.11703936774e-32,
+        0.0,
+        1.98611525515e-32,
+        0.0,
+        1.11703936774e-32,
+        8.69075887405e-33
+      ],
+      "stored_lookup_bytes": 4096,
+      "world": 2,
+      "worst_hidden_loss": 1.98611525515e-32
+    },
+    {
+      "chosen_sign": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "chosen_training_scenes": [
+        4,
+        7,
+        2,
+        13,
+        8,
+        11,
+        22,
+        17
+      ],
+      "max_visible_squared_distance": 3.42815530101e-32,
+      "per_scene_hidden_loss": [
+        1.03819661065e-32,
+        8.11297989073e-33,
+        6.93334779979e-33,
+        0.0,
+        1.50463276905e-32,
+        0.0,
+        6.93334779979e-33,
+        8.11297989073e-33
+      ],
+      "stored_lookup_bytes": 4096,
+      "world": 3,
+      "worst_hidden_loss": 1.50463276905e-32
+    }
+  ],
+  "status": "complete",
+  "total_sign_orbits": 12,
+  "training_sign_orbits": 12
+}

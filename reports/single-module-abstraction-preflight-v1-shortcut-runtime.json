@@ -1,0 +1,129 @@
+{
+  "command": [
+    "/home/debjit/code/sri/.venv/bin/python",
+    "-m",
+    "experiments.abstraction_preflight_shortcut"
+  ],
+  "complexity": "O(R N_test (2 N_train) d) time; O(N_train d) lookup plus O(N_test N_train) distance workspace",
+  "counts": {
+    "candidates_per_query": 32,
+    "fitted_models": 0,
+    "held_out_queries": 40,
+    "new_scenes": 0,
+    "renderings": 5,
+    "squared_distances": 1280,
+    "training_updates": 0,
+    "tuning_executions": 0
+  },
+  "environment": {
+    "cpu": "AMD Ryzen 5 3600 6-Core Processor",
+    "dtype": "float64",
+    "logical_cpus": 12,
+    "machine": "x86_64",
+    "numpy": "2.5.4",
+    "numpy_build": {
+      "Build Dependencies": {
+        "blas": {
+          "detection method": "pkgconfig",
+          "found": true,
+          "include directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include",
+          "lib directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib",
+          "name": "scipy-openblas",
+          "openblas configuration": "OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64",
+          "pc file directory": "/project/.openblas",
+          "version": "0.3.34.106.0"
+        },
+        "lapack": {
+          "detection method": "pkgconfig",
+          "found": true,
+          "include directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include",
+          "lib directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib",
+          "name": "scipy-openblas",
+          "openblas configuration": "OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64",
+          "pc file directory": "/project/.openblas",
+          "version": "0.3.34.106.0"
+        }
+      },
+      "Compilers": {
+        "c": {
+          "commands": "cc",
+          "linker": "ld.bfd",
+          "name": "gcc",
+          "version": "14.2.1"
+        },
+        "c++": {
+          "commands": "c++",
+          "linker": "ld.bfd",
+          "name": "gcc",
+          "version": "14.2.1"
+        },
+        "cython": {
+          "commands": "cython",
+          "linker": "cython",
+          "name": "cython",
+          "version": "3.3.0"
+        }
+      },
+      "Machine Information": {
+        "build": {
+          "cpu": "x86_64",
+          "endian": "little",
+          "family": "x86_64",
+          "system": "linux"
+        },
+        "host": {
+          "cpu": "x86_64",
+          "endian": "little",
+          "family": "x86_64",
+          "system": "linux"
+        }
+      },
+      "Python Information": {
+        "path": "/tmp/build-env-ptu49_tp/bin/python",
+        "version": "3.12"
+      },
+      "SIMD Extensions": {
+        "baseline": [
+          "X86_V2"
+        ],
+        "found": [
+          "X86_V3"
+        ],
+        "not found": [
+          "X86_V4",
+          "AVX512_ICL",
+          "AVX512_SPR"
+        ]
+      }
+    },
+    "platform": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+    "processes": 1,
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "scipy": "1.18.1",
+    "thread_environment": {
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    }
+  },
+  "peak_rss_kib": 104308,
+  "process_cpu_seconds": 0.585760582,
+  "provenance": {
+    "dirty_paths": [
+      "M reports/single-module-abstraction-preflight-v1-runtime.json",
+      "?? docs/single-module-mechanism-diagnostics-v1-contract.md",
+      "?? reports/single-module-abstraction-preflight-v1-results.json"
+    ],
+    "hashes_before_execution": {
+      "experiments/abstraction_preflight_shortcut.py": "9153d7a0721a1e7bc9a778a9bbbe8fc0a1d0320fff806141ab8e59e33f7df640",
+      "experiments/locality_adaptation.py": "3a9e5388a848bb6f85077a57f15e849fd46f602cf73bcd25b922ef62eca89722",
+      "reports/single-module-abstraction-preflight-v1-results.json": "3a13f711fb5d9715faa9dda361618af5f432ab45feeee81887e8548865d85543"
+    },
+    "revision": "4cb6e0ba26c84209ad31dabd69bfc9aab94c0744",
+    "scope": "post-run deterministic proof receipt; no new samples, fitted predictor or tuning; main results unchanged"
+  },
+  "receipt_sha256": "05772f4b2fd88d4e90b847b343111307968079608d4a0af73dc1bb1203a158ba",
+  "rss_scope": "Linux KiB, cumulative single-process high-water RSS",
+  "status": "complete",
+  "wall_seconds": 0.591065329994
+}
