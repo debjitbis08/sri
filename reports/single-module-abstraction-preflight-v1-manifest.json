@@ -1,0 +1,138 @@
+{
+  "analytical_full_affine_loss": "(8 - 2 sqrt(2))/21",
+  "contract": "docs/single-module-abstraction-preflight-v1-contract.md",
+  "dependencies": {
+    "docs/locality-adaptation-v1-contract.md": "1231719cd110757fac6a2f34ba7d91db1f2de18f894cf60568e9c8875f479c7e",
+    "docs/locality-adaptation-v2-contract.md": "00099acca6bdb69dbad67789274913cec664675e6b819a6345fe605fdbd20f9b",
+    "docs/representation-reuse-v1-contract.md": "fa3a5915ac7d2affa406626fc6f5325007a35519516363b20c4af4bcc0cf5af6",
+    "docs/single-module-plasticity-v1-contract.md": "c20746482369e0fe07c6c77242946d1876505fd474198623eb5201d5492b5e31",
+    "experiments/locality_adaptation.py": "3a9e5388a848bb6f85077a57f15e849fd46f602cf73bcd25b922ef62eca89722",
+    "experiments/locality_adaptation_v2.py": "af5f61ba33d7e2ec491efc1cc0888a4c1fa1a49af7f047381b53bee22ec51df0",
+    "experiments/representation_reuse.py": "43f0a1879a56a73578dff254b2c43bc3fce45ba8aa3494a9e758d86d573579f7",
+    "experiments/single_module_plasticity.py": "4e2c5271090662699cbebfe31021da457cd7ba10b49637bf9c32f97c07efa86c",
+    "reports/single-module-plasticity-v1-manifest.json": "71fadc9321aa9ae51a79ba4dc4b6876e5fddc762d3eab3f0c1d101f28d783aa6",
+    "requirements.txt": "4c301c485945661f312de32ab996187af9230aa5064d0fe76ad627b8b0a75b0a",
+    "src/locality_adaptation.py": "b4e96a1382d892deebfe24b6daa286c08b49ce4c67ed83fd030a4320cb4139ce",
+    "src/locality_adaptation_v2.py": "4c350ec49bbe0a71668a7b6c18429beaad69a5501765c226e6b13856027a2df6",
+    "src/representation_reuse.py": "1530b8cb78b292849ff49e6cc62e01adc67ed337cec2073f1805daadb27c90da",
+    "src/single_module_plasticity.py": "9c8632fce528f72129446bec009021ef6c1cf4e0f4145182d46e2239c28ddeb3",
+    "tests/test_locality_adaptation.py": "e5ae05affbc8abbc05abead66d809503f3f1da26e39d3b83e8623b0a8083ca0d",
+    "tests/test_locality_adaptation_v2.py": "cd864f576ab6a95dabd0f0eaacd1009f6a27c15cc9ed7bfe307f7d1ddd6d8c04",
+    "tests/test_representation_reuse.py": "4e82f81004a27e76889c6681e67e40ed04af60f0b5b1c5c771f332ce509f862d",
+    "tests/test_single_module_plasticity.py": "38eb5d8a0b4aed44d4e8dbe75f2e70900c0b1f5e3df437d0bd0343015fe427b0"
+  },
+  "environment": {
+    "cpu": "AMD Ryzen 5 3600 6-Core Processor",
+    "dtype": "float64",
+    "logical_cpus": 12,
+    "machine": "x86_64",
+    "numpy": "2.5.4",
+    "numpy_build": {
+      "Build Dependencies": {
+        "blas": {
+          "detection method": "pkgconfig",
+          "found": true,
+          "include directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include",
+          "lib directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib",
+          "name": "scipy-openblas",
+          "openblas configuration": "OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64",
+          "pc file directory": "/project/.openblas",
+          "version": "0.3.34.106.0"
+        },
+        "lapack": {
+          "detection method": "pkgconfig",
+          "found": true,
+          "include directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include",
+          "lib directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib",
+          "name": "scipy-openblas",
+          "openblas configuration": "OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64",
+          "pc file directory": "/project/.openblas",
+          "version": "0.3.34.106.0"
+        }
+      },
+      "Compilers": {
+        "c": {
+          "commands": "cc",
+          "linker": "ld.bfd",
+          "name": "gcc",
+          "version": "14.2.1"
+        },
+        "c++": {
+          "commands": "c++",
+          "linker": "ld.bfd",
+          "name": "gcc",
+          "version": "14.2.1"
+        },
+        "cython": {
+          "commands": "cython",
+          "linker": "cython",
+          "name": "cython",
+          "version": "3.3.0"
+        }
+      },
+      "Machine Information": {
+        "build": {
+          "cpu": "x86_64",
+          "endian": "little",
+          "family": "x86_64",
+          "system": "linux"
+        },
+        "host": {
+          "cpu": "x86_64",
+          "endian": "little",
+          "family": "x86_64",
+          "system": "linux"
+        }
+      },
+      "Python Information": {
+        "path": "/tmp/build-env-ptu49_tp/bin/python",
+        "version": "3.12"
+      },
+      "SIMD Extensions": {
+        "baseline": [
+          "X86_V2"
+        ],
+        "found": [
+          "X86_V3"
+        ],
+        "not found": [
+          "X86_V4",
+          "AVX512_ICL",
+          "AVX512_SPR"
+        ]
+      }
+    },
+    "platform": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+    "processes": 1,
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "scipy": "1.18.1",
+    "thread_environment": {
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    }
+  },
+  "numerical_ties": "absolute 1e-12; lexicographic scenes, smallest orientation",
+  "parameter_fixtures": 16,
+  "renderings": 5,
+  "repetitions": 2,
+  "revision_before_execution": "c92089745b3529b6f326efaca37d565c07a53df7",
+  "rng": "SeedSequence([root, world, part]); worlds 0..3; rendering part 0; parameters parts 1..4",
+  "root_seed": 2026102502,
+  "scenes": 24,
+  "serialization": "12 significant digits, sorted keys; no timing in science",
+  "sources": {
+    "docs/single-module-abstraction-preflight-v1-contract.md": "48ac22f70b5301e4bdf563fa4ab1bb3dbf7980628bec0ee9f38b617c60207907",
+    "experiments/abstraction_preflight.py": "bb01994936e695567620dc5a617c320ab153e045b6927010055652bdf101ab59",
+    "requirements.txt": "4c301c485945661f312de32ab996187af9230aa5064d0fe76ad627b8b0a75b0a",
+    "src/abstraction_preflight.py": "162e75c8015113a59e06782795dbef63f1021445acf086dd8626f753e47132fd",
+    "tests/test_abstraction_preflight.py": "12a86b9ad3d0468e74db0e148edfabd13db4b622c6056990ef68be18c057e989"
+  },
+  "status": "frozen_before_tests_and_finite_execution",
+  "test_modules": [
+    "tests.test_abstraction_preflight",
+    "tests.test_single_module_plasticity"
+  ],
+  "training_updates": 0,
+  "tuning_executions": 0
+}
