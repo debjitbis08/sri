@@ -1,0 +1,71 @@
+{
+  "environment": {
+    "blas": "not used",
+    "computation_threads": 1,
+    "cpu": "AMD Ryzen 5 3600 6-Core Processor",
+    "cpu_affinity_count": 12,
+    "device": "CPU",
+    "dtype": "Exact integers; infinity sentinel",
+    "executable": "/usr/bin/python3",
+    "hardware_limits": null,
+    "hardware_limits_reason": "No quota inventory; no scaling benchmark.",
+    "libraries": "Python standard library",
+    "logical_cpus_visible": 12,
+    "platform": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+    "processes": 1,
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "workers": 0
+  },
+  "manual_development_cost": null,
+  "manual_development_cost_reason": "Not measured; one-off computation receipt only.",
+  "memory": {
+    "accelerator_bytes": null,
+    "accelerator_reason": "No accelerator used.",
+    "configuration_json_utf8_bytes": 222,
+    "configuration_python_object_bytes": 1201,
+    "learned_state_bytes": 0,
+    "optimizer_bytes": 0,
+    "peak_rss": 35540,
+    "replay_bytes": 0,
+    "rss_scope": "Parent cumulative high-water, including exhaustive validation and scientific output.",
+    "rss_unit": "KiB",
+    "scientific_artifact_bytes": 2299101,
+    "temporary_workspace_bytes": null,
+    "temporary_workspace_reason": "No allocator-level workspace instrumentation; see process RSS."
+  },
+  "provenance": {
+    "command": "python3 -m experiments.relational_cycle_analysis",
+    "dirty_status": "?? docs/combination-interpretation-analysis-results.md\n?? docs/combination-interpretation-analysis.md\n?? docs/relational-cycle-analysis.md\n?? docs/relational-mode-tree-analysis-results.md\n?? docs/relational-mode-tree-analysis.md\n?? experiments/combination_interpretation_analysis.py\n?? experiments/relational_cycle_analysis.py\n?? experiments/relational_mode_tree_analysis.py\n?? reports/combination-interpretation-analysis-runtime.json\n?? reports/combination-interpretation-analysis.json\n?? reports/relational-mode-tree-analysis-runtime.json\n?? reports/relational-mode-tree-analysis.json",
+    "revision": "ae1d5279c74fc00661495bbf064d97c1000e9617",
+    "seed_policy": "No randomness: complete prescribed enumeration.",
+    "sha256": {
+      "docs/relational-cycle-analysis.md": "287f9eb735a571d162e451cc0b36181274ddd8abad46f60321099078977c1af2",
+      "experiments/relational_cycle_analysis.py": "24908908c59bbc6ef74c6a24bbaaeb3273e6db7771106d42f35979a42485bf30"
+    }
+  },
+  "scientific_sha256": "5c9c3f7cfadb7307e27df3413afda1e7d500cb236bfade716299bcf07209cafa",
+  "selection_scope": "Includes all pair-construction, reference, and every-cut alternatives. Regimes declared analytically; none selected by scores.",
+  "timing": {
+    "whole_check_and_scientific_serialization": {
+      "process_cpu_seconds": 1.310226164,
+      "wall_seconds": 1.3114307789946906
+    }
+  },
+  "timing_scope": "After imports/provenance through scientific serialization; excludes startup/runtime receipt. One run, not a latency benchmark.",
+  "work_counts": {
+    "conditioned_chain_calls": 17496,
+    "decoded_energy_checks": 17496,
+    "empirical_examples": 0,
+    "exhaustive_candidate_visits": 1036800,
+    "exhaustive_feasible_scores": 208896,
+    "fits": 0,
+    "geometry_assignments": 24,
+    "geometry_binary_checks": 320,
+    "inference_cases": 4536,
+    "optimizer_steps": 0,
+    "pair_construction_candidates": 2112,
+    "solver_failures": 0,
+    "transition_and_closing_candidates": 474336,
+    "tuning_candidates": 0
+  }
+}

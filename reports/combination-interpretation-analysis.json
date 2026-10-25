@@ -1,0 +1,242 @@
+{
+  "all_checks_passed": true,
+  "combination_table": [
+    {
+      "message": 0,
+      "output": 0,
+      "stored": 0
+    },
+    {
+      "message": 0,
+      "output": 1,
+      "stored": 1
+    },
+    {
+      "message": 1,
+      "output": 1,
+      "stored": 0
+    },
+    {
+      "message": 1,
+      "output": 0,
+      "stored": 1
+    }
+  ],
+  "complete_data_inner_truth_table": [
+    0,
+    1,
+    1,
+    0
+  ],
+  "config": {
+    "compatibility_cost": 4,
+    "inner_default": 1,
+    "inner_default_cost": 2,
+    "outer_default": [
+      0,
+      1
+    ],
+    "outer_default_cost": 1
+  },
+  "evidence_results": [
+    {
+      "energy": 0,
+      "evidence": [
+        null,
+        null
+      ],
+      "feasible_count": 8,
+      "state": [
+        0,
+        1,
+        1
+      ],
+      "unique": true
+    },
+    {
+      "energy": 2,
+      "evidence": [
+        null,
+        0
+      ],
+      "feasible_count": 4,
+      "state": [
+        1,
+        0,
+        1
+      ],
+      "unique": true
+    },
+    {
+      "energy": 0,
+      "evidence": [
+        null,
+        1
+      ],
+      "feasible_count": 4,
+      "state": [
+        0,
+        1,
+        1
+      ],
+      "unique": true
+    },
+    {
+      "energy": 0,
+      "evidence": [
+        0,
+        null
+      ],
+      "feasible_count": 4,
+      "state": [
+        0,
+        1,
+        1
+      ],
+      "unique": true
+    },
+    {
+      "energy": 3,
+      "evidence": [
+        0,
+        0
+      ],
+      "feasible_count": 2,
+      "state": [
+        0,
+        0,
+        0
+      ],
+      "unique": true
+    },
+    {
+      "energy": 0,
+      "evidence": [
+        0,
+        1
+      ],
+      "feasible_count": 2,
+      "state": [
+        0,
+        1,
+        1
+      ],
+      "unique": true
+    },
+    {
+      "energy": 2,
+      "evidence": [
+        1,
+        null
+      ],
+      "feasible_count": 4,
+      "state": [
+        1,
+        0,
+        1
+      ],
+      "unique": true
+    },
+    {
+      "energy": 2,
+      "evidence": [
+        1,
+        0
+      ],
+      "feasible_count": 2,
+      "state": [
+        1,
+        0,
+        1
+      ],
+      "unique": true
+    },
+    {
+      "energy": 3,
+      "evidence": [
+        1,
+        1
+      ],
+      "feasible_count": 2,
+      "state": [
+        1,
+        1,
+        0
+      ],
+      "unique": true
+    }
+  ],
+  "local_descent": {
+    "inner_first": [
+      {
+        "energy": 5,
+        "state": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "energy": 3,
+        "state": [
+          1,
+          1,
+          0
+        ]
+      }
+    ],
+    "outer_first": [
+      {
+        "energy": 5,
+        "state": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "energy": 2,
+        "state": [
+          1,
+          0,
+          1
+        ]
+      }
+    ]
+  },
+  "message_roundtrips": [
+    {
+      "descriptor": 0,
+      "message": 0,
+      "recovered": 0,
+      "stored": 0
+    },
+    {
+      "descriptor": 0,
+      "message": 1,
+      "recovered": 0,
+      "stored": 1
+    },
+    {
+      "descriptor": 1,
+      "message": 1,
+      "recovered": 1,
+      "stored": 0
+    },
+    {
+      "descriptor": 1,
+      "message": 0,
+      "recovered": 1,
+      "stored": 1
+    }
+  ],
+  "scope": "Constructed finite proof illustration; not a learned model or capacity witness.",
+  "work_counts": {
+    "accepted_local_updates": 2,
+    "candidate_states_visited": 72,
+    "energy_evaluations": 43,
+    "feasible_states_scored": 32,
+    "local_proposals": 8,
+    "local_sweeps": 4
+  }
+}

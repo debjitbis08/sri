@@ -1,0 +1,791 @@
+{
+  "benchmark_scope": "Completion batch timings include semantic oracle scoring on each query, allocation, gradients and line search. Not readout-only latency.",
+  "benchmarks": {
+    "1": {
+      "amortized_wall_seconds_per_query": 0.0004309634999420571,
+      "batch_size": 48,
+      "correct": 18,
+      "measured_batches": 3,
+      "samples": [
+        {
+          "process_cpu_seconds": 0.018911804999994786,
+          "wall_seconds": 0.018912154991994612
+        },
+        {
+          "process_cpu_seconds": 0.019847566000002814,
+          "wall_seconds": 0.020686247997218743
+        },
+        {
+          "process_cpu_seconds": 0.020905206000001897,
+          "wall_seconds": 0.020934622996719554
+        }
+      ],
+      "summary": {
+        "process_cpu_seconds": {
+          "max": 0.020905206000001897,
+          "median": 0.019847566000002814,
+          "min": 0.018911804999994786
+        },
+        "wall_seconds": {
+          "max": 0.020934622996719554,
+          "median": 0.020686247997218743,
+          "min": 0.018912154991994612
+        }
+      },
+      "warmup_batches": 1
+    },
+    "64": {
+      "amortized_wall_seconds_per_query": 0.011547693729274519,
+      "batch_size": 48,
+      "correct": 30,
+      "measured_batches": 3,
+      "samples": [
+        {
+          "process_cpu_seconds": 0.5541443239999992,
+          "wall_seconds": 0.5542892990051769
+        },
+        {
+          "process_cpu_seconds": 0.563195376000003,
+          "wall_seconds": 0.5633841090020724
+        },
+        {
+          "process_cpu_seconds": 0.5527257240000054,
+          "wall_seconds": 0.5528143010014901
+        }
+      ],
+      "summary": {
+        "process_cpu_seconds": {
+          "max": 0.563195376000003,
+          "median": 0.5541443239999992,
+          "min": 0.5527257240000054
+        },
+        "wall_seconds": {
+          "max": 0.5633841090020724,
+          "median": 0.5542892990051769,
+          "min": 0.5528143010014901
+        }
+      },
+      "warmup_batches": 1
+    },
+    "8": {
+      "amortized_wall_seconds_per_query": 0.001645919000111462,
+      "batch_size": 48,
+      "correct": 18,
+      "measured_batches": 3,
+      "samples": [
+        {
+          "process_cpu_seconds": 0.07898363199999636,
+          "wall_seconds": 0.07900411200535018
+        },
+        {
+          "process_cpu_seconds": 0.07778599200000258,
+          "wall_seconds": 0.07779707900772337
+        },
+        {
+          "process_cpu_seconds": 0.08506111300000185,
+          "wall_seconds": 0.08509482700901572
+        }
+      ],
+      "summary": {
+        "process_cpu_seconds": {
+          "max": 0.08506111300000185,
+          "median": 0.07898363199999636,
+          "min": 0.07778599200000258
+        },
+        "wall_seconds": {
+          "max": 0.08509482700901572,
+          "median": 0.07900411200535018,
+          "min": 0.07779707900772337
+        }
+      },
+      "warmup_batches": 1
+    },
+    "oracle": {
+      "amortized_wall_seconds_per_query": 0.00013899197892897064,
+      "batch_size": 48,
+      "correct": 48,
+      "measured_batches": 3,
+      "samples": [
+        {
+          "process_cpu_seconds": 0.006665652000002353,
+          "wall_seconds": 0.006665794993750751
+        },
+        {
+          "process_cpu_seconds": 0.006672112000003949,
+          "wall_seconds": 0.006671614988590591
+        },
+        {
+          "process_cpu_seconds": 0.006678102000002184,
+          "wall_seconds": 0.006677825003862381
+        }
+      ],
+      "summary": {
+        "process_cpu_seconds": {
+          "max": 0.006678102000002184,
+          "median": 0.006672112000003949,
+          "min": 0.006665652000002353
+        },
+        "wall_seconds": {
+          "max": 0.006677825003862381,
+          "median": 0.006671614988590591,
+          "min": 0.006665794993750751
+        }
+      },
+      "warmup_batches": 1
+    }
+  },
+  "environment": {
+    "cpu": "AMD Ryzen 5 3600 6-Core Processor",
+    "device": "CPU",
+    "dtype": "float64",
+    "hardware_limits": null,
+    "hardware_limits_reason": "No quota inventory; no scaling claim.",
+    "numpy": "2.5.4",
+    "numpy_config": {
+      "Build Dependencies": {
+        "blas": {
+          "detection method": "pkgconfig",
+          "found": true,
+          "include directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include",
+          "lib directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib",
+          "name": "scipy-openblas",
+          "openblas configuration": "OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64",
+          "pc file directory": "/project/.openblas",
+          "version": "0.3.34.106.0"
+        },
+        "lapack": {
+          "detection method": "pkgconfig",
+          "found": true,
+          "include directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include",
+          "lib directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib",
+          "name": "scipy-openblas",
+          "openblas configuration": "OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64",
+          "pc file directory": "/project/.openblas",
+          "version": "0.3.34.106.0"
+        }
+      },
+      "Compilers": {
+        "c": {
+          "commands": "cc",
+          "linker": "ld.bfd",
+          "name": "gcc",
+          "version": "14.2.1"
+        },
+        "c++": {
+          "commands": "c++",
+          "linker": "ld.bfd",
+          "name": "gcc",
+          "version": "14.2.1"
+        },
+        "cython": {
+          "commands": "cython",
+          "linker": "cython",
+          "name": "cython",
+          "version": "3.3.0"
+        }
+      },
+      "Machine Information": {
+        "build": {
+          "cpu": "x86_64",
+          "endian": "little",
+          "family": "x86_64",
+          "system": "linux"
+        },
+        "host": {
+          "cpu": "x86_64",
+          "endian": "little",
+          "family": "x86_64",
+          "system": "linux"
+        }
+      },
+      "Python Information": {
+        "path": "/tmp/build-env-ptu49_tp/bin/python",
+        "version": "3.12"
+      },
+      "SIMD Extensions": {
+        "baseline": [
+          "X86_V2"
+        ],
+        "found": [
+          "X86_V3"
+        ],
+        "not found": [
+          "X86_V4",
+          "AVX512_ICL",
+          "AVX512_SPR"
+        ]
+      }
+    },
+    "platform": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+    "processes": 1,
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "threads": {
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "workers": 0
+  },
+  "manual_development_cost": null,
+  "manual_development_cost_reason": "Not measured.",
+  "memory": {
+    "activity_bytes": 80,
+    "fixed_prototype_bytes": 64,
+    "learned_parameter_bytes_per_model": 32,
+    "optimizer_bytes": 0,
+    "peak_rss": 88272,
+    "replay_bytes": 0,
+    "rss_scope": "Parent high-water including all checkpoints/curves and serialization.",
+    "rss_unit": "KiB",
+    "scientific_artifact_bytes": 9854348,
+    "temporary_workspace_bytes": null,
+    "temporary_workspace_reason": "Allocator workspace not separately measured."
+  },
+  "phase_work_counts": {
+    "benchmark": {
+      "direct_calls": 576,
+      "energy_calls": 28032,
+      "joint_gradient_calls": 14016,
+      "joint_halvings": 0,
+      "joint_steps": 14016,
+      "joint_trials": 14016,
+      "oracle_calls": 768,
+      "oracle_candidate_visits": 12288
+    },
+    "numerical_checks": {
+      "direct_calls": 25,
+      "energy_calls": 33,
+      "joint_gradient_calls": 2,
+      "joint_halvings": 0,
+      "joint_steps": 1,
+      "joint_trials": 1
+    },
+    "replica_0/direct_gradient/block_A_learning": {
+      "direct_calls": 64000,
+      "direct_gradient_calls": 32000,
+      "direct_halvings": 0,
+      "direct_steps": 32000,
+      "direct_trials": 32000,
+      "presentations": 1600,
+      "training_updates": 32000
+    },
+    "replica_0/direct_gradient/block_B_learning": {
+      "direct_calls": 4000,
+      "direct_gradient_calls": 2000,
+      "direct_halvings": 0,
+      "direct_steps": 2000,
+      "direct_trials": 2000,
+      "presentations": 100,
+      "training_updates": 2000
+    },
+    "replica_0/direct_gradient/initial_diagnostics": {
+      "direct_calls": 16
+    },
+    "replica_0/direct_gradient/post_A_diagnostics": {
+      "direct_calls": 16
+    },
+    "replica_0/direct_gradient/post_A_outer": {
+      "completion_queries": 96,
+      "direct_calls": 96,
+      "energy_calls": 13056,
+      "joint_gradient_calls": 6912,
+      "joint_halvings": 0,
+      "joint_steps": 6144,
+      "joint_trials": 6144,
+      "oracle_calls": 96,
+      "oracle_candidate_visits": 1536,
+      "outer_readouts": 768
+    },
+    "replica_0/direct_gradient/post_B_diagnostics": {
+      "direct_calls": 16
+    },
+    "replica_0/direct_gradient/post_B_outer": {
+      "completion_queries": 96,
+      "direct_calls": 96,
+      "energy_calls": 13056,
+      "joint_gradient_calls": 6912,
+      "joint_halvings": 0,
+      "joint_steps": 6144,
+      "joint_trials": 6144,
+      "oracle_calls": 96,
+      "oracle_candidate_visits": 1536,
+      "outer_readouts": 768
+    },
+    "replica_0/joint_continuous/block_A_learning": {
+      "energy_calls": 64000,
+      "joint_gradient_calls": 32000,
+      "joint_halvings": 0,
+      "joint_steps": 32000,
+      "joint_trials": 32000,
+      "presentations": 1600,
+      "training_updates": 32000
+    },
+    "replica_0/joint_continuous/block_B_learning": {
+      "energy_calls": 4000,
+      "joint_gradient_calls": 2000,
+      "joint_halvings": 0,
+      "joint_steps": 2000,
+      "joint_trials": 2000,
+      "presentations": 100,
+      "training_updates": 2000
+    },
+    "replica_0/joint_continuous/initial_diagnostics": {
+      "direct_calls": 16
+    },
+    "replica_0/joint_continuous/post_A_diagnostics": {
+      "direct_calls": 16
+    },
+    "replica_0/joint_continuous/post_A_outer": {
+      "completion_queries": 96,
+      "direct_calls": 96,
+      "energy_calls": 13056,
+      "joint_gradient_calls": 6912,
+      "joint_halvings": 0,
+      "joint_steps": 6144,
+      "joint_trials": 6144,
+      "oracle_calls": 96,
+      "oracle_candidate_visits": 1536,
+      "outer_readouts": 768
+    },
+    "replica_0/joint_continuous/post_B_diagnostics": {
+      "direct_calls": 16
+    },
+    "replica_0/joint_continuous/post_B_outer": {
+      "completion_queries": 96,
+      "direct_calls": 96,
+      "energy_calls": 13056,
+      "joint_gradient_calls": 6912,
+      "joint_halvings": 0,
+      "joint_steps": 6144,
+      "joint_trials": 6144,
+      "oracle_calls": 96,
+      "oracle_candidate_visits": 1536,
+      "outer_readouts": 768
+    },
+    "replica_1/direct_gradient/block_A_learning": {
+      "direct_calls": 64000,
+      "direct_gradient_calls": 32000,
+      "direct_halvings": 0,
+      "direct_steps": 32000,
+      "direct_trials": 32000,
+      "presentations": 1600,
+      "training_updates": 32000
+    },
+    "replica_1/direct_gradient/block_B_learning": {
+      "direct_calls": 4000,
+      "direct_gradient_calls": 2000,
+      "direct_halvings": 0,
+      "direct_steps": 2000,
+      "direct_trials": 2000,
+      "presentations": 100,
+      "training_updates": 2000
+    },
+    "replica_1/direct_gradient/initial_diagnostics": {
+      "direct_calls": 16
+    },
+    "replica_1/direct_gradient/post_A_diagnostics": {
+      "direct_calls": 16
+    },
+    "replica_1/direct_gradient/post_A_outer": {
+      "completion_queries": 96,
+      "direct_calls": 96,
+      "energy_calls": 13056,
+      "joint_gradient_calls": 6912,
+      "joint_halvings": 0,
+      "joint_steps": 6144,
+      "joint_trials": 6144,
+      "oracle_calls": 96,
+      "oracle_candidate_visits": 1536,
+      "outer_readouts": 768
+    },
+    "replica_1/direct_gradient/post_B_diagnostics": {
+      "direct_calls": 16
+    },
+    "replica_1/direct_gradient/post_B_outer": {
+      "completion_queries": 96,
+      "direct_calls": 96,
+      "energy_calls": 13056,
+      "joint_gradient_calls": 6912,
+      "joint_halvings": 0,
+      "joint_steps": 6144,
+      "joint_trials": 6144,
+      "oracle_calls": 96,
+      "oracle_candidate_visits": 1536,
+      "outer_readouts": 768
+    },
+    "replica_1/joint_continuous/block_A_learning": {
+      "energy_calls": 64000,
+      "joint_gradient_calls": 32000,
+      "joint_halvings": 0,
+      "joint_steps": 32000,
+      "joint_trials": 32000,
+      "presentations": 1600,
+      "training_updates": 32000
+    },
+    "replica_1/joint_continuous/block_B_learning": {
+      "energy_calls": 4000,
+      "joint_gradient_calls": 2000,
+      "joint_halvings": 0,
+      "joint_steps": 2000,
+      "joint_trials": 2000,
+      "presentations": 100,
+      "training_updates": 2000
+    },
+    "replica_1/joint_continuous/initial_diagnostics": {
+      "direct_calls": 16
+    },
+    "replica_1/joint_continuous/post_A_diagnostics": {
+      "direct_calls": 16
+    },
+    "replica_1/joint_continuous/post_A_outer": {
+      "completion_queries": 96,
+      "direct_calls": 96,
+      "energy_calls": 13056,
+      "joint_gradient_calls": 6912,
+      "joint_halvings": 0,
+      "joint_steps": 6144,
+      "joint_trials": 6144,
+      "oracle_calls": 96,
+      "oracle_candidate_visits": 1536,
+      "outer_readouts": 768
+    },
+    "replica_1/joint_continuous/post_B_diagnostics": {
+      "direct_calls": 16
+    },
+    "replica_1/joint_continuous/post_B_outer": {
+      "completion_queries": 96,
+      "direct_calls": 96,
+      "energy_calls": 13056,
+      "joint_gradient_calls": 6912,
+      "joint_halvings": 0,
+      "joint_steps": 6144,
+      "joint_trials": 6144,
+      "oracle_calls": 96,
+      "oracle_candidate_visits": 1536,
+      "outer_readouts": 768
+    },
+    "replica_2/direct_gradient/block_A_learning": {
+      "direct_calls": 64000,
+      "direct_gradient_calls": 32000,
+      "direct_halvings": 0,
+      "direct_steps": 32000,
+      "direct_trials": 32000,
+      "presentations": 1600,
+      "training_updates": 32000
+    },
+    "replica_2/direct_gradient/block_B_learning": {
+      "direct_calls": 4000,
+      "direct_gradient_calls": 2000,
+      "direct_halvings": 0,
+      "direct_steps": 2000,
+      "direct_trials": 2000,
+      "presentations": 100,
+      "training_updates": 2000
+    },
+    "replica_2/direct_gradient/initial_diagnostics": {
+      "direct_calls": 16
+    },
+    "replica_2/direct_gradient/post_A_diagnostics": {
+      "direct_calls": 16
+    },
+    "replica_2/direct_gradient/post_A_outer": {
+      "completion_queries": 96,
+      "direct_calls": 96,
+      "energy_calls": 13056,
+      "joint_gradient_calls": 6912,
+      "joint_halvings": 0,
+      "joint_steps": 6144,
+      "joint_trials": 6144,
+      "oracle_calls": 96,
+      "oracle_candidate_visits": 1536,
+      "outer_readouts": 768
+    },
+    "replica_2/direct_gradient/post_B_diagnostics": {
+      "direct_calls": 16
+    },
+    "replica_2/direct_gradient/post_B_outer": {
+      "completion_queries": 96,
+      "direct_calls": 96,
+      "energy_calls": 13056,
+      "joint_gradient_calls": 6912,
+      "joint_halvings": 0,
+      "joint_steps": 6144,
+      "joint_trials": 6144,
+      "oracle_calls": 96,
+      "oracle_candidate_visits": 1536,
+      "outer_readouts": 768
+    },
+    "replica_2/joint_continuous/block_A_learning": {
+      "energy_calls": 64000,
+      "joint_gradient_calls": 32000,
+      "joint_halvings": 0,
+      "joint_steps": 32000,
+      "joint_trials": 32000,
+      "presentations": 1600,
+      "training_updates": 32000
+    },
+    "replica_2/joint_continuous/block_B_learning": {
+      "energy_calls": 4000,
+      "joint_gradient_calls": 2000,
+      "joint_halvings": 0,
+      "joint_steps": 2000,
+      "joint_trials": 2000,
+      "presentations": 100,
+      "training_updates": 2000
+    },
+    "replica_2/joint_continuous/initial_diagnostics": {
+      "direct_calls": 16
+    },
+    "replica_2/joint_continuous/post_A_diagnostics": {
+      "direct_calls": 16
+    },
+    "replica_2/joint_continuous/post_A_outer": {
+      "completion_queries": 96,
+      "direct_calls": 96,
+      "energy_calls": 13056,
+      "joint_gradient_calls": 6912,
+      "joint_halvings": 0,
+      "joint_steps": 6144,
+      "joint_trials": 6144,
+      "oracle_calls": 96,
+      "oracle_candidate_visits": 1536,
+      "outer_readouts": 768
+    },
+    "replica_2/joint_continuous/post_B_diagnostics": {
+      "direct_calls": 16
+    },
+    "replica_2/joint_continuous/post_B_outer": {
+      "completion_queries": 96,
+      "direct_calls": 96,
+      "energy_calls": 13056,
+      "joint_gradient_calls": 6912,
+      "joint_halvings": 0,
+      "joint_steps": 6144,
+      "joint_trials": 6144,
+      "oracle_calls": 96,
+      "oracle_candidate_visits": 1536,
+      "outer_readouts": 768
+    },
+    "supplied_inner_diagnostics": {
+      "direct_calls": 16
+    },
+    "supplied_outer_completion": {
+      "completion_queries": 96,
+      "direct_calls": 96,
+      "energy_calls": 13056,
+      "joint_gradient_calls": 6912,
+      "joint_halvings": 0,
+      "joint_steps": 6144,
+      "joint_trials": 6144,
+      "oracle_calls": 96,
+      "oracle_candidate_visits": 1536,
+      "outer_readouts": 768
+    }
+  },
+  "phases": {
+    "benchmark": {
+      "process_cpu_seconds": 2.643162713999999,
+      "wall_seconds": 2.644620473991381
+    },
+    "numerical_checks": {
+      "process_cpu_seconds": 0.004780080999999992,
+      "wall_seconds": 0.004788260004715994
+    },
+    "replica_0/direct_gradient/block_A_learning": {
+      "process_cpu_seconds": 4.240586686,
+      "wall_seconds": 4.240954123000847
+    },
+    "replica_0/direct_gradient/block_B_learning": {
+      "process_cpu_seconds": 0.27999657799999866,
+      "wall_seconds": 0.2800003130105324
+    },
+    "replica_0/direct_gradient/initial_diagnostics": {
+      "process_cpu_seconds": 0.0014834009999997733,
+      "wall_seconds": 0.0014828870043857023
+    },
+    "replica_0/direct_gradient/post_A_diagnostics": {
+      "process_cpu_seconds": 0.0012796399999999153,
+      "wall_seconds": 0.0012791140034096316
+    },
+    "replica_0/direct_gradient/post_A_outer": {
+      "process_cpu_seconds": 1.2864690870000004,
+      "wall_seconds": 1.2866630879871082
+    },
+    "replica_0/direct_gradient/post_B_diagnostics": {
+      "process_cpu_seconds": 0.0014491899999988789,
+      "wall_seconds": 0.0014484970015473664
+    },
+    "replica_0/direct_gradient/post_B_outer": {
+      "process_cpu_seconds": 1.3259486580000015,
+      "wall_seconds": 1.3261628199979896
+    },
+    "replica_0/joint_continuous/block_A_learning": {
+      "process_cpu_seconds": 5.2630561789999994,
+      "wall_seconds": 5.264369552009157
+    },
+    "replica_0/joint_continuous/block_B_learning": {
+      "process_cpu_seconds": 0.3051217539999991,
+      "wall_seconds": 0.30514994499390014
+    },
+    "replica_0/joint_continuous/initial_diagnostics": {
+      "process_cpu_seconds": 0.0014338499999999588,
+      "wall_seconds": 0.0014348370023071766
+    },
+    "replica_0/joint_continuous/post_A_diagnostics": {
+      "process_cpu_seconds": 0.0013086810000002558,
+      "wall_seconds": 0.0013081249926472083
+    },
+    "replica_0/joint_continuous/post_A_outer": {
+      "process_cpu_seconds": 1.2470361460000001,
+      "wall_seconds": 1.247115115998895
+    },
+    "replica_0/joint_continuous/post_B_diagnostics": {
+      "process_cpu_seconds": 0.001284351000000683,
+      "wall_seconds": 0.0012837240064982325
+    },
+    "replica_0/joint_continuous/post_B_outer": {
+      "process_cpu_seconds": 1.2933041379999999,
+      "wall_seconds": 1.2934346050024033
+    },
+    "replica_1/direct_gradient/block_A_learning": {
+      "process_cpu_seconds": 4.194544164,
+      "wall_seconds": 4.195020300001488
+    },
+    "replica_1/direct_gradient/block_B_learning": {
+      "process_cpu_seconds": 0.25853683200000077,
+      "wall_seconds": 0.2585732309962623
+    },
+    "replica_1/direct_gradient/initial_diagnostics": {
+      "process_cpu_seconds": 0.0014772500000006517,
+      "wall_seconds": 0.0014766580134164542
+    },
+    "replica_1/direct_gradient/post_A_diagnostics": {
+      "process_cpu_seconds": 0.001290939999996965,
+      "wall_seconds": 0.0012904040049761534
+    },
+    "replica_1/direct_gradient/post_A_outer": {
+      "process_cpu_seconds": 1.2439539249999996,
+      "wall_seconds": 1.2440286279888824
+    },
+    "replica_1/direct_gradient/post_B_diagnostics": {
+      "process_cpu_seconds": 0.0012902300000021683,
+      "wall_seconds": 0.0012896150001324713
+    },
+    "replica_1/direct_gradient/post_B_outer": {
+      "process_cpu_seconds": 1.2425168650000025,
+      "wall_seconds": 1.2426487719931174
+    },
+    "replica_1/joint_continuous/block_A_learning": {
+      "process_cpu_seconds": 4.9605051259999975,
+      "wall_seconds": 4.960943979996955
+    },
+    "replica_1/joint_continuous/block_B_learning": {
+      "process_cpu_seconds": 0.3056822549999971,
+      "wall_seconds": 0.3057857759995386
+    },
+    "replica_1/joint_continuous/initial_diagnostics": {
+      "process_cpu_seconds": 0.0014547600000014427,
+      "wall_seconds": 0.0014546270103892311
+    },
+    "replica_1/joint_continuous/post_A_diagnostics": {
+      "process_cpu_seconds": 0.0013969500000001744,
+      "wall_seconds": 0.0013963659876026213
+    },
+    "replica_1/joint_continuous/post_A_outer": {
+      "process_cpu_seconds": 1.2391695439999992,
+      "wall_seconds": 1.239361760992324
+    },
+    "replica_1/joint_continuous/post_B_diagnostics": {
+      "process_cpu_seconds": 0.0013139200000011897,
+      "wall_seconds": 0.0013133239990565926
+    },
+    "replica_1/joint_continuous/post_B_outer": {
+      "process_cpu_seconds": 1.286609587000001,
+      "wall_seconds": 1.2867394700006116
+    },
+    "replica_2/direct_gradient/block_A_learning": {
+      "process_cpu_seconds": 4.192344292999998,
+      "wall_seconds": 4.193570532996091
+    },
+    "replica_2/direct_gradient/block_B_learning": {
+      "process_cpu_seconds": 0.2655383339999986,
+      "wall_seconds": 0.2656119530001888
+    },
+    "replica_2/direct_gradient/initial_diagnostics": {
+      "process_cpu_seconds": 0.0014155710000025579,
+      "wall_seconds": 0.0014150369970593601
+    },
+    "replica_2/direct_gradient/post_A_diagnostics": {
+      "process_cpu_seconds": 0.0013766699999990806,
+      "wall_seconds": 0.0013759760040557012
+    },
+    "replica_2/direct_gradient/post_A_outer": {
+      "process_cpu_seconds": 1.265260730999998,
+      "wall_seconds": 1.2663776870031143
+    },
+    "replica_2/direct_gradient/post_B_diagnostics": {
+      "process_cpu_seconds": 0.0012885499999981676,
+      "wall_seconds": 0.0012879839923698455
+    },
+    "replica_2/direct_gradient/post_B_outer": {
+      "process_cpu_seconds": 1.2682439619999997,
+      "wall_seconds": 1.2685882490040967
+    },
+    "replica_2/joint_continuous/block_A_learning": {
+      "process_cpu_seconds": 4.899063909000002,
+      "wall_seconds": 4.89968041999964
+    },
+    "replica_2/joint_continuous/block_B_learning": {
+      "process_cpu_seconds": 0.33964829399999985,
+      "wall_seconds": 0.33969349300605245
+    },
+    "replica_2/joint_continuous/initial_diagnostics": {
+      "process_cpu_seconds": 0.0013307899999972506,
+      "wall_seconds": 0.0013308759953361005
+    },
+    "replica_2/joint_continuous/post_A_diagnostics": {
+      "process_cpu_seconds": 0.0013169200000007208,
+      "wall_seconds": 0.0013163749972591177
+    },
+    "replica_2/joint_continuous/post_A_outer": {
+      "process_cpu_seconds": 1.2463432460000021,
+      "wall_seconds": 1.2464677140087588
+    },
+    "replica_2/joint_continuous/post_B_diagnostics": {
+      "process_cpu_seconds": 0.0014350509999943029,
+      "wall_seconds": 0.0014344270020956174
+    },
+    "replica_2/joint_continuous/post_B_outer": {
+      "process_cpu_seconds": 1.347060373000005,
+      "wall_seconds": 1.3473200959997484
+    },
+    "serialization": {
+      "process_cpu_seconds": 0.2927836510000006,
+      "wall_seconds": 0.292899115011096
+    },
+    "supplied_inner_diagnostics": {
+      "process_cpu_seconds": 0.001375380999999995,
+      "wall_seconds": 0.0013746360054938123
+    },
+    "supplied_outer_completion": {
+      "process_cpu_seconds": 1.320549516,
+      "wall_seconds": 1.320758517991635
+    }
+  },
+  "provenance": {
+    "command": ".venv/bin/python -m experiments.outer_anytime",
+    "dirty_status": "?? docs/combination-interpretation-analysis-results.md\n?? docs/combination-interpretation-analysis.md\n?? docs/continuous-local-learning-v1-contract.md\n?? docs/continuous-local-learning-v1-diagnosis.md\n?? docs/continuous-local-learning-v1-results.md\n?? docs/inner-relation-quotient-analysis-results.md\n?? docs/inner-relation-quotient-analysis.md\n?? docs/local-relation-circuit-v1-contract.md\n?? docs/local-relation-circuit-v1-results.md\n?? docs/outer-anytime-v2-contract.md\n?? docs/relational-cycle-analysis-results.md\n?? docs/relational-cycle-analysis.md\n?? docs/relational-mode-tree-analysis-results.md\n?? docs/relational-mode-tree-analysis.md\n?? experiments/combination_interpretation_analysis.py\n?? experiments/continuous_local_learning.py\n?? experiments/continuous_local_learning_diagnosis.py\n?? experiments/inner_relation_quotient_analysis.py\n?? experiments/local_relation_circuit.py\n?? experiments/outer_anytime.py\n?? experiments/relational_cycle_analysis.py\n?? experiments/relational_mode_tree_analysis.py\n?? reports/combination-interpretation-analysis-runtime.json\n?? reports/combination-interpretation-analysis.json\n?? reports/continuous-local-learning-v1-diagnosis-runtime.json\n?? reports/continuous-local-learning-v1-diagnosis.json\n?? reports/continuous-local-learning-v1-results.json\n?? reports/continuous-local-learning-v1-runtime.json\n?? reports/inner-relation-quotient-analysis-runtime.json\n?? reports/inner-relation-quotient-analysis.json\n?? reports/local-relation-circuit-v1-results.json\n?? reports/local-relation-circuit-v1-runtime.json\n?? reports/relational-cycle-analysis-runtime.json\n?? reports/relational-cycle-analysis.json\n?? reports/relational-mode-tree-analysis-runtime.json\n?? reports/relational-mode-tree-analysis.json",
+    "revision": "ae1d5279c74fc00661495bbf064d97c1000e9617",
+    "root_seed": 2026102512,
+    "sha256": {
+      "docs/outer-anytime-v2-contract.md": "733317abd11ea30478c998b705fa3cce0b3a813b7020293c4eb4bc76fb073143",
+      "experiments/outer_anytime.py": "10b89b6e1883d727fa61bae060e70c1d5a83acefa87871ccbb36c7801d9fadb4"
+    }
+  },
+  "scientific_sha256": "103d7e8b94013a2b6bd2933e7486c3bba4987d06fbfccd1d497025bb2061ffd3",
+  "selection_scope": "All six declared trajectories, supplied control, all curves and benchmark budgets; no retuning or best-seed selection.",
+  "whole_run": {
+    "process_cpu_seconds": 49.095114378000005,
+    "wall_seconds": 49.104692783002974
+  }
+}

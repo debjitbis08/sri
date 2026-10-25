@@ -1,0 +1,69 @@
+{
+  "environment": {
+    "blas": "not used",
+    "computation_threads": 1,
+    "cpu": "AMD Ryzen 5 3600 6-Core Processor",
+    "cpu_affinity_count": 12,
+    "device": "CPU",
+    "dtype": "Exact integers/Fraction; infinity sentinel",
+    "executable": "/usr/bin/python3",
+    "hardware_limits": null,
+    "hardware_limits_reason": "No quota inventory; no scaling benchmark.",
+    "libraries": "Python standard library",
+    "logical_cpus_visible": 12,
+    "platform": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+    "processes": 1,
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "workers": 0
+  },
+  "manual_development_cost": null,
+  "manual_development_cost_reason": "Not instrumented; computational receipt only.",
+  "memory": {
+    "accelerator_bytes": null,
+    "accelerator_reason": "Not used.",
+    "configuration_json_utf8_bytes": 241,
+    "configuration_python_object_bytes": 1069,
+    "learned_state_bytes": 0,
+    "optimizer_bytes": 0,
+    "peak_rss": 37164,
+    "replay_bytes": 0,
+    "rss_scope": "Single parent high-water, including matrix checks, reference and output.",
+    "rss_unit": "KiB",
+    "scientific_artifact_bytes": 2667283,
+    "temporary_workspace_bytes": null,
+    "temporary_workspace_reason": "Allocator workspace not separately measured; see RSS."
+  },
+  "provenance": {
+    "command": "python3 -m experiments.inner_relation_quotient_analysis",
+    "dirty_status": "?? docs/combination-interpretation-analysis-results.md\n?? docs/combination-interpretation-analysis.md\n?? docs/inner-relation-quotient-analysis.md\n?? docs/relational-cycle-analysis-results.md\n?? docs/relational-cycle-analysis.md\n?? docs/relational-mode-tree-analysis-results.md\n?? docs/relational-mode-tree-analysis.md\n?? experiments/combination_interpretation_analysis.py\n?? experiments/inner_relation_quotient_analysis.py\n?? experiments/relational_cycle_analysis.py\n?? experiments/relational_mode_tree_analysis.py\n?? reports/combination-interpretation-analysis-runtime.json\n?? reports/combination-interpretation-analysis.json\n?? reports/relational-cycle-analysis-runtime.json\n?? reports/relational-cycle-analysis.json\n?? reports/relational-mode-tree-analysis-runtime.json\n?? reports/relational-mode-tree-analysis.json",
+    "revision": "ae1d5279c74fc00661495bbf064d97c1000e9617",
+    "seed_policy": "None: complete integer/rational verification.",
+    "sha256": {
+      "docs/inner-relation-quotient-analysis.md": "9a5122ea5c4909e2215ecac91a463975a573959148fcb0b3945a8ffdfcc9ddc3",
+      "experiments/inner_relation_quotient_analysis.py": "2fe5fb9f0eb86b710592e94e69d262c9932a3e6d176e497617fe4121150eea67"
+    }
+  },
+  "scientific_sha256": "4bf69f216695c6e96581837a490f822c80582425bf0d3239864e436b9c16f386",
+  "selection_scope": "All declared preferences/evidence and rejected reference/profile alternatives included; no parameter tuning.",
+  "timing": {
+    "whole_check_and_scientific_serialization": {
+      "process_cpu_seconds": 0.483480424,
+      "wall_seconds": 0.4836403259978397
+    }
+  },
+  "timing_scope": "After imports/provenance through scientific serialization; excludes startup/runtime receipt. One run, not inference benchmark.",
+  "work_counts": {
+    "empirical_examples": 0,
+    "fiber_outer_feasible_scores": 16384,
+    "fiber_outer_visits": 82944,
+    "fits": 0,
+    "group_actions_checked": 128,
+    "inference_cases": 5184,
+    "inner_profile_candidates": 20736,
+    "joint_reference_feasible_scores": 65536,
+    "joint_reference_visits": 331776,
+    "optimizer_steps": 0,
+    "solver_failures": 0,
+    "tuning_candidates": 0
+  }
+}

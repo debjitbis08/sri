@@ -1,0 +1,129 @@
+{
+  "environment": {
+    "cpu": "AMD Ryzen 5 3600 6-Core Processor",
+    "device": "CPU",
+    "dtype": "float64",
+    "numpy": "2.5.4",
+    "numpy_config": {
+      "Build Dependencies": {
+        "blas": {
+          "detection method": "pkgconfig",
+          "found": true,
+          "include directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include",
+          "lib directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib",
+          "name": "scipy-openblas",
+          "openblas configuration": "OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64",
+          "pc file directory": "/project/.openblas",
+          "version": "0.3.34.106.0"
+        },
+        "lapack": {
+          "detection method": "pkgconfig",
+          "found": true,
+          "include directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include",
+          "lib directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib",
+          "name": "scipy-openblas",
+          "openblas configuration": "OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64",
+          "pc file directory": "/project/.openblas",
+          "version": "0.3.34.106.0"
+        }
+      },
+      "Compilers": {
+        "c": {
+          "commands": "cc",
+          "linker": "ld.bfd",
+          "name": "gcc",
+          "version": "14.2.1"
+        },
+        "c++": {
+          "commands": "c++",
+          "linker": "ld.bfd",
+          "name": "gcc",
+          "version": "14.2.1"
+        },
+        "cython": {
+          "commands": "cython",
+          "linker": "cython",
+          "name": "cython",
+          "version": "3.3.0"
+        }
+      },
+      "Machine Information": {
+        "build": {
+          "cpu": "x86_64",
+          "endian": "little",
+          "family": "x86_64",
+          "system": "linux"
+        },
+        "host": {
+          "cpu": "x86_64",
+          "endian": "little",
+          "family": "x86_64",
+          "system": "linux"
+        }
+      },
+      "Python Information": {
+        "path": "/tmp/build-env-ptu49_tp/bin/python",
+        "version": "3.12"
+      },
+      "SIMD Extensions": {
+        "baseline": [
+          "X86_V2"
+        ],
+        "found": [
+          "X86_V3"
+        ],
+        "not found": [
+          "X86_V4",
+          "AVX512_ICL",
+          "AVX512_SPR"
+        ]
+      }
+    },
+    "platform": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+    "processes": 1,
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "threads": {
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "workers": 0
+  },
+  "memory": {
+    "peak_rss": 41320,
+    "rss_scope": "Parent high-water including parsed original artifacts and diagnostic arrays.",
+    "rss_unit": "KiB",
+    "scientific_artifact_bytes": 300651,
+    "temporary_workspace_bytes": null,
+    "temporary_workspace_reason": "Allocator-level workspace not separately instrumented."
+  },
+  "provenance": {
+    "command": ".venv/bin/python -m experiments.continuous_local_learning_diagnosis",
+    "dirty_status": "?? docs/combination-interpretation-analysis-results.md\n?? docs/combination-interpretation-analysis.md\n?? docs/continuous-local-learning-v1-contract.md\n?? docs/continuous-local-learning-v1-diagnosis.md\n?? docs/inner-relation-quotient-analysis-results.md\n?? docs/inner-relation-quotient-analysis.md\n?? docs/local-relation-circuit-v1-contract.md\n?? docs/local-relation-circuit-v1-results.md\n?? docs/relational-cycle-analysis-results.md\n?? docs/relational-cycle-analysis.md\n?? docs/relational-mode-tree-analysis-results.md\n?? docs/relational-mode-tree-analysis.md\n?? experiments/combination_interpretation_analysis.py\n?? experiments/continuous_local_learning.py\n?? experiments/continuous_local_learning_diagnosis.py\n?? experiments/inner_relation_quotient_analysis.py\n?? experiments/local_relation_circuit.py\n?? experiments/relational_cycle_analysis.py\n?? experiments/relational_mode_tree_analysis.py\n?? reports/combination-interpretation-analysis-runtime.json\n?? reports/combination-interpretation-analysis.json\n?? reports/continuous-local-learning-v1-results.json\n?? reports/continuous-local-learning-v1-runtime.json\n?? reports/inner-relation-quotient-analysis-runtime.json\n?? reports/inner-relation-quotient-analysis.json\n?? reports/local-relation-circuit-v1-results.json\n?? reports/local-relation-circuit-v1-runtime.json\n?? reports/relational-cycle-analysis-runtime.json\n?? reports/relational-cycle-analysis.json\n?? reports/relational-mode-tree-analysis-runtime.json\n?? reports/relational-mode-tree-analysis.json",
+    "revision": "ae1d5279c74fc00661495bbf064d97c1000e9617",
+    "sha256": {
+      "docs/continuous-local-learning-v1-contract.md": "b4f200e0c59a46b9acac2368e1bff0971299fd1bbef1573930c8c9d80f028316",
+      "docs/continuous-local-learning-v1-diagnosis.md": "4e4f4280af2ea3a8fd394169930844db78030f292a7e65823986cb0d33c2a57a",
+      "experiments/continuous_local_learning.py": "e6f079f64723d8ec63520ed137ff7d459f4555ad5822183cbed2c399d4f1d100",
+      "experiments/continuous_local_learning_diagnosis.py": "71137d715337a8b6064af602e3cbb20fb818511228e21252ec8373bba9e971b9",
+      "reports/continuous-local-learning-v1-results.json": "0daf0cdfca10be51c38c1cbcbb35ef67f1cdd0332a950a880d3e148dfc911337",
+      "reports/continuous-local-learning-v1-runtime.json": "f64328aa72c6c01d061b2b8449b975208207c7e5f9cb5ed7c44b2dd5b86c62d0"
+    }
+  },
+  "scientific_sha256": "ffb7e991f034fd3ccf1ed0111b742c655f3ed1f24b550f0adebe33bd9cc000ba",
+  "scope": "After source verification/provenance through diagnostic serialization; excludes imports/runtime receipt.",
+  "timing": {
+    "process_cpu_seconds": 0.227869413,
+    "wall_seconds": 0.2279916049883468
+  },
+  "work_counts": {
+    "direct_forward_calls": 1152,
+    "direct_gradient_calls": 288,
+    "fits": 0,
+    "full_svd_calls_16_by_4": 18,
+    "joint_energy_calls": 576,
+    "joint_gradient_calls": 576,
+    "parameter_updates": 0,
+    "tuning_candidates": 0
+  }
+}

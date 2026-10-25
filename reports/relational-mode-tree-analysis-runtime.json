@@ -1,0 +1,72 @@
+{
+  "environment": {
+    "blas": "not used",
+    "computation_threads": 1,
+    "cpu": "AMD Ryzen 5 3600 6-Core Processor",
+    "cpu_affinity_count": 12,
+    "device": "CPU",
+    "dtype": "Exact Python integers/Fraction; infinity sentinel",
+    "executable": "/usr/bin/python3",
+    "hardware_limits": null,
+    "hardware_limits_reason": "Quota inventory not collected; no scaling benchmark.",
+    "libraries": "Python standard library only",
+    "logical_cpus_visible": 12,
+    "platform": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+    "processes": 1,
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "workers": 0
+  },
+  "manual_development_cost": null,
+  "manual_development_cost_reason": "Not instrumented; this is computation cost for a one-off analytical check.",
+  "memory": {
+    "accelerator_bytes": null,
+    "accelerator_reason": "Not used.",
+    "config_json_utf8_bytes": 168,
+    "config_python_object_bytes": 1605,
+    "learned_state_bytes": 0,
+    "optimizer_bytes": 0,
+    "peak_rss": 17276,
+    "replay_bytes": 0,
+    "rss_scope": "Single parent cumulative high-water; includes exhaustive reference and interpreter.",
+    "rss_unit": "KiB",
+    "scientific_artifact_bytes": 29232,
+    "temporary_workspace_bytes": null,
+    "temporary_workspace_reason": "No separate allocator instrumentation; see RSS."
+  },
+  "provenance": {
+    "command": "python3 -m experiments.relational_mode_tree_analysis",
+    "dirty_status": "?? docs/combination-interpretation-analysis-results.md\n?? docs/combination-interpretation-analysis.md\n?? docs/relational-mode-tree-analysis.md\n?? experiments/combination_interpretation_analysis.py\n?? experiments/relational_mode_tree_analysis.py\n?? reports/combination-interpretation-analysis-runtime.json\n?? reports/combination-interpretation-analysis.json",
+    "revision": "ae1d5279c74fc00661495bbf064d97c1000e9617",
+    "seed_policy": "None: exhaustive integer/rational verification.",
+    "sha256": {
+      "docs/relational-mode-tree-analysis.md": "012495340bd08a8c9a4518878b0f0079196efef72ab98f28a4bdd003afffa013",
+      "experiments/relational_mode_tree_analysis.py": "b320a12ec86f7677f2a3c1334bc6f9e2ab0f99a7d7f0d8531f2cb4c47db8a790"
+    }
+  },
+  "scientific_sha256": "86ebcd6afc9725e17ab044bff595cc2e2a87fdc2df97e7d9cc7ad9777e76c601",
+  "selection_scope": "All DP alternatives and exhaustive candidates included; two prescribed structures, no tuning.",
+  "timing": {
+    "whole_verification_and_scientific_serialization": {
+      "process_cpu_seconds": 0.012770704,
+      "wall_seconds": 0.012781976998667233
+    }
+  },
+  "timing_scope": "After provenance through scientific serialization; excludes startup and runtime receipt; one run, not latency benchmark.",
+  "work_counts": {
+    "compatibility_identities": 8,
+    "decoded_energy_checks": 90,
+    "dp_factor_candidates": 2016,
+    "dp_profile_entries": 1188,
+    "empirical_examples": 0,
+    "exhaustive_candidate_visits": 10440,
+    "exhaustive_feasible_scores": 2080,
+    "fits": 0,
+    "inference_cases": 90,
+    "optimizer_steps": 0,
+    "solver_failures": 0,
+    "spectral_cases": 6,
+    "traceback_nodes": 594,
+    "triangle_checks": 2,
+    "tuning_candidates": 0
+  }
+}

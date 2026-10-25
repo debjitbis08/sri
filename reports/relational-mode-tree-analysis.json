@@ -1,0 +1,1776 @@
+{
+  "all_checks_passed": true,
+  "configs": [
+    {
+      "children": {
+        "2": [
+          0,
+          1
+        ]
+      },
+      "defaults": [
+        0,
+        1,
+        1
+      ],
+      "leaves": 2
+    },
+    {
+      "children": {
+        "4": [
+          0,
+          1
+        ],
+        "5": [
+          2,
+          3
+        ],
+        "6": [
+          4,
+          5
+        ]
+      },
+      "defaults": [
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "leaves": 4
+    }
+  ],
+  "cost_coefficients": {
+    "compatibility": 4,
+    "inner_prior": 2,
+    "leaf_prior": 1
+  },
+  "scope": "Supplied relation geometry and exact tree inference, not learned capacity.",
+  "spectral_cases": [
+    {
+      "high_mode_gain": "1",
+      "relation_sign": -1,
+      "tau": 0
+    },
+    {
+      "high_mode_gain": "1/3",
+      "relation_sign": -1,
+      "tau": 1
+    },
+    {
+      "high_mode_gain": "1/5",
+      "relation_sign": -1,
+      "tau": 2
+    },
+    {
+      "high_mode_gain": "1",
+      "relation_sign": 1,
+      "tau": 0
+    },
+    {
+      "high_mode_gain": "1/3",
+      "relation_sign": 1,
+      "tau": 1
+    },
+    {
+      "high_mode_gain": "1/5",
+      "relation_sign": 1,
+      "tau": 2
+    }
+  ],
+  "trees": [
+    {
+      "ambiguous_optima_cases": 0,
+      "cases": [
+        {
+          "decoded": [
+            0,
+            1,
+            1
+          ],
+          "energy": 0,
+          "evidence": [
+            null,
+            null
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            1,
+            0,
+            1
+          ],
+          "energy": 2,
+          "evidence": [
+            null,
+            0
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            1
+          ],
+          "energy": 0,
+          "evidence": [
+            null,
+            1
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            1
+          ],
+          "energy": 0,
+          "evidence": [
+            0,
+            null
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            0,
+            0
+          ],
+          "energy": 3,
+          "evidence": [
+            0,
+            0
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            1
+          ],
+          "energy": 0,
+          "evidence": [
+            0,
+            1
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            1,
+            0,
+            1
+          ],
+          "energy": 2,
+          "evidence": [
+            1,
+            null
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            1,
+            0,
+            1
+          ],
+          "energy": 2,
+          "evidence": [
+            1,
+            0
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            1,
+            1,
+            0
+          ],
+          "energy": 3,
+          "evidence": [
+            1,
+            1
+          ],
+          "optimum_count": 1
+        }
+      ],
+      "leaves": 2,
+      "nodes": 3
+    },
+    {
+      "ambiguous_optima_cases": 20,
+      "cases": [
+        {
+          "decoded": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 0,
+          "evidence": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 0,
+          "evidence": [
+            null,
+            null,
+            null,
+            0
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "energy": 2,
+          "evidence": [
+            null,
+            null,
+            null,
+            1
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "energy": 2,
+          "evidence": [
+            null,
+            null,
+            0,
+            null
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 5,
+          "evidence": [
+            null,
+            null,
+            0,
+            0
+          ],
+          "optimum_count": 2
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "energy": 2,
+          "evidence": [
+            null,
+            null,
+            0,
+            1
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 0,
+          "evidence": [
+            null,
+            null,
+            1,
+            null
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 0,
+          "evidence": [
+            null,
+            null,
+            1,
+            0
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "energy": 5,
+          "evidence": [
+            null,
+            null,
+            1,
+            1
+          ],
+          "optimum_count": 2
+        },
+        {
+          "decoded": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 2,
+          "evidence": [
+            null,
+            0,
+            null,
+            null
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 2,
+          "evidence": [
+            null,
+            0,
+            null,
+            0
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "energy": 4,
+          "evidence": [
+            null,
+            0,
+            null,
+            1
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "energy": 4,
+          "evidence": [
+            null,
+            0,
+            0,
+            null
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "energy": 6,
+          "evidence": [
+            null,
+            0,
+            0,
+            0
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "energy": 4,
+          "evidence": [
+            null,
+            0,
+            0,
+            1
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 2,
+          "evidence": [
+            null,
+            0,
+            1,
+            null
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 2,
+          "evidence": [
+            null,
+            0,
+            1,
+            0
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "energy": 6,
+          "evidence": [
+            null,
+            0,
+            1,
+            1
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 0,
+          "evidence": [
+            null,
+            1,
+            null,
+            null
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 0,
+          "evidence": [
+            null,
+            1,
+            null,
+            0
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "energy": 2,
+          "evidence": [
+            null,
+            1,
+            null,
+            1
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "energy": 2,
+          "evidence": [
+            null,
+            1,
+            0,
+            null
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 5,
+          "evidence": [
+            null,
+            1,
+            0,
+            0
+          ],
+          "optimum_count": 2
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "energy": 2,
+          "evidence": [
+            null,
+            1,
+            0,
+            1
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 0,
+          "evidence": [
+            null,
+            1,
+            1,
+            null
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 0,
+          "evidence": [
+            null,
+            1,
+            1,
+            0
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "energy": 5,
+          "evidence": [
+            null,
+            1,
+            1,
+            1
+          ],
+          "optimum_count": 2
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 0,
+          "evidence": [
+            0,
+            null,
+            null,
+            null
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 0,
+          "evidence": [
+            0,
+            null,
+            null,
+            0
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "energy": 2,
+          "evidence": [
+            0,
+            null,
+            null,
+            1
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "energy": 2,
+          "evidence": [
+            0,
+            null,
+            0,
+            null
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 5,
+          "evidence": [
+            0,
+            null,
+            0,
+            0
+          ],
+          "optimum_count": 2
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "energy": 2,
+          "evidence": [
+            0,
+            null,
+            0,
+            1
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 0,
+          "evidence": [
+            0,
+            null,
+            1,
+            null
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 0,
+          "evidence": [
+            0,
+            null,
+            1,
+            0
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "energy": 5,
+          "evidence": [
+            0,
+            null,
+            1,
+            1
+          ],
+          "optimum_count": 2
+        },
+        {
+          "decoded": [
+            0,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 5,
+          "evidence": [
+            0,
+            0,
+            null,
+            null
+          ],
+          "optimum_count": 2
+        },
+        {
+          "decoded": [
+            0,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 5,
+          "evidence": [
+            0,
+            0,
+            null,
+            0
+          ],
+          "optimum_count": 2
+        },
+        {
+          "decoded": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "energy": 6,
+          "evidence": [
+            0,
+            0,
+            null,
+            1
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "energy": 6,
+          "evidence": [
+            0,
+            0,
+            0,
+            null
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "energy": 6,
+          "evidence": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "energy": 7,
+          "evidence": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "optimum_count": 2
+        },
+        {
+          "decoded": [
+            0,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 5,
+          "evidence": [
+            0,
+            0,
+            1,
+            null
+          ],
+          "optimum_count": 2
+        },
+        {
+          "decoded": [
+            0,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 5,
+          "evidence": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "optimum_count": 2
+        },
+        {
+          "decoded": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "energy": 6,
+          "evidence": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 0,
+          "evidence": [
+            0,
+            1,
+            null,
+            null
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 0,
+          "evidence": [
+            0,
+            1,
+            null,
+            0
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "energy": 2,
+          "evidence": [
+            0,
+            1,
+            null,
+            1
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "energy": 2,
+          "evidence": [
+            0,
+            1,
+            0,
+            null
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 5,
+          "evidence": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "optimum_count": 2
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "energy": 2,
+          "evidence": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 0,
+          "evidence": [
+            0,
+            1,
+            1,
+            null
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 0,
+          "evidence": [
+            0,
+            1,
+            1,
+            0
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "energy": 5,
+          "evidence": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "optimum_count": 2
+        },
+        {
+          "decoded": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 2,
+          "evidence": [
+            1,
+            null,
+            null,
+            null
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 2,
+          "evidence": [
+            1,
+            null,
+            null,
+            0
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "energy": 4,
+          "evidence": [
+            1,
+            null,
+            null,
+            1
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "energy": 4,
+          "evidence": [
+            1,
+            null,
+            0,
+            null
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "energy": 6,
+          "evidence": [
+            1,
+            null,
+            0,
+            0
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "energy": 4,
+          "evidence": [
+            1,
+            null,
+            0,
+            1
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 2,
+          "evidence": [
+            1,
+            null,
+            1,
+            null
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 2,
+          "evidence": [
+            1,
+            null,
+            1,
+            0
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "energy": 6,
+          "evidence": [
+            1,
+            null,
+            1,
+            1
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 2,
+          "evidence": [
+            1,
+            0,
+            null,
+            null
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 2,
+          "evidence": [
+            1,
+            0,
+            null,
+            0
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "energy": 4,
+          "evidence": [
+            1,
+            0,
+            null,
+            1
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "energy": 4,
+          "evidence": [
+            1,
+            0,
+            0,
+            null
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 7,
+          "evidence": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "optimum_count": 2
+        },
+        {
+          "decoded": [
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "energy": 4,
+          "evidence": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 2,
+          "evidence": [
+            1,
+            0,
+            1,
+            null
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 2,
+          "evidence": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "energy": 7,
+          "evidence": [
+            1,
+            0,
+            1,
+            1
+          ],
+          "optimum_count": 2
+        },
+        {
+          "decoded": [
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 5,
+          "evidence": [
+            1,
+            1,
+            null,
+            null
+          ],
+          "optimum_count": 2
+        },
+        {
+          "decoded": [
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 5,
+          "evidence": [
+            1,
+            1,
+            null,
+            0
+          ],
+          "optimum_count": 2
+        },
+        {
+          "decoded": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "energy": 6,
+          "evidence": [
+            1,
+            1,
+            null,
+            1
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "energy": 6,
+          "evidence": [
+            1,
+            1,
+            0,
+            null
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "energy": 6,
+          "evidence": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "optimum_count": 1
+        },
+        {
+          "decoded": [
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "energy": 7,
+          "evidence": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "optimum_count": 2
+        },
+        {
+          "decoded": [
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 5,
+          "evidence": [
+            1,
+            1,
+            1,
+            null
+          ],
+          "optimum_count": 2
+        },
+        {
+          "decoded": [
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "energy": 5,
+          "evidence": [
+            1,
+            1,
+            1,
+            0
+          ],
+          "optimum_count": 2
+        },
+        {
+          "decoded": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "energy": 6,
+          "evidence": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "optimum_count": 1
+        }
+      ],
+      "leaves": 4,
+      "nodes": 7
+    }
+  ],
+  "triangle_eigenvalues": {
+    "frustrated": [
+      1,
+      1,
+      4
+    ],
+    "positive": [
+      0,
+      3,
+      3
+    ]
+  },
+  "work_counts": {
+    "decoded_energy_checks": 90,
+    "dp_factor_candidates": 2016,
+    "dp_profile_entries": 1188,
+    "exhaustive_candidate_visits": 10440,
+    "exhaustive_feasible_scores": 2080,
+    "inference_cases": 90,
+    "traceback_nodes": 594
+  }
+}

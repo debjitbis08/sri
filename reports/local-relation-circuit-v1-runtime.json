@@ -1,0 +1,299 @@
+{
+  "environment": {
+    "blas": "not used",
+    "computation_threads": 1,
+    "cpu": "AMD Ryzen 5 3600 6-Core Processor",
+    "cpu_affinity_count": 12,
+    "device": "CPU",
+    "dtype": "Exact integer costs/gates; floating timers only",
+    "executable": "/usr/bin/python3",
+    "hardware_limits": null,
+    "hardware_limits_reason": "No quota inventory; no scaling benchmark.",
+    "libraries": "Python standard library",
+    "logical_cpus_visible": 12,
+    "platform": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+    "processes": 1,
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "workers": 0
+  },
+  "inference_benchmarks": {
+    "direct_enumeration": {
+      "amortized_wall_seconds_per_query": 1.5146456720640906e-05,
+      "batch_size": 81,
+      "batch_summary": {
+        "process_cpu_seconds": {
+          "max": 0.0012409899999999974,
+          "median": 0.0012269700000000494,
+          "min": 0.001223120000000022
+        },
+        "wall_seconds": {
+          "max": 0.0012405540037434548,
+          "median": 0.0012268629943719134,
+          "min": 0.0012230230058776215
+        }
+      },
+      "measured_batches": 7,
+      "samples": [
+        {
+          "process_cpu_seconds": 0.0012409899999999974,
+          "wall_seconds": 0.0012405540037434548
+        },
+        {
+          "process_cpu_seconds": 0.0012280909999999867,
+          "wall_seconds": 0.0012279430084163323
+        },
+        {
+          "process_cpu_seconds": 0.0012312799999999458,
+          "wall_seconds": 0.0012311640020925552
+        },
+        {
+          "process_cpu_seconds": 0.0012266800000000355,
+          "wall_seconds": 0.001226642998517491
+        },
+        {
+          "process_cpu_seconds": 0.0012236210000000636,
+          "wall_seconds": 0.0012235829926794395
+        },
+        {
+          "process_cpu_seconds": 0.001223120000000022,
+          "wall_seconds": 0.0012230230058776215
+        },
+        {
+          "process_cpu_seconds": 0.0012269700000000494,
+          "wall_seconds": 0.0012268629943719134
+        }
+      ],
+      "warmup_batches": 1
+    },
+    "learned_local": {
+      "amortized_wall_seconds_per_query": 2.6447530857425322e-05,
+      "batch_size": 81,
+      "batch_summary": {
+        "process_cpu_seconds": {
+          "max": 0.002170301000000041,
+          "median": 0.0021421000000000356,
+          "min": 0.0021263610000000766
+        },
+        "wall_seconds": {
+          "max": 0.0021699419885408133,
+          "median": 0.002142249999451451,
+          "min": 0.0021261700021568686
+        }
+      },
+      "measured_batches": 7,
+      "samples": [
+        {
+          "process_cpu_seconds": 0.0021421000000000356,
+          "wall_seconds": 0.002142249999451451
+        },
+        {
+          "process_cpu_seconds": 0.002170301000000041,
+          "wall_seconds": 0.0021699419885408133
+        },
+        {
+          "process_cpu_seconds": 0.0021624009999999805,
+          "wall_seconds": 0.002162040997063741
+        },
+        {
+          "process_cpu_seconds": 0.0021508599999999767,
+          "wall_seconds": 0.002150551008526236
+        },
+        {
+          "process_cpu_seconds": 0.0021357909999999425,
+          "wall_seconds": 0.0021356010111048818
+        },
+        {
+          "process_cpu_seconds": 0.0021306800000000514,
+          "wall_seconds": 0.002130510998540558
+        },
+        {
+          "process_cpu_seconds": 0.0021263610000000766,
+          "wall_seconds": 0.0021261700021568686
+        }
+      ],
+      "warmup_batches": 1
+    },
+    "supplied_local": {
+      "amortized_wall_seconds_per_query": 2.6742358049550267e-05,
+      "batch_size": 81,
+      "batch_summary": {
+        "process_cpu_seconds": {
+          "max": 0.0022459710000000133,
+          "median": 0.002166331000000077,
+          "min": 0.0021525699999999093
+        },
+        "wall_seconds": {
+          "max": 0.002245402996777557,
+          "median": 0.0021661310020135716,
+          "min": 0.0021523809991776943
+        }
+      },
+      "measured_batches": 7,
+      "samples": [
+        {
+          "process_cpu_seconds": 0.0021567710000000018,
+          "wall_seconds": 0.0021568209922406822
+        },
+        {
+          "process_cpu_seconds": 0.0021602299999999852,
+          "wall_seconds": 0.002159971001674421
+        },
+        {
+          "process_cpu_seconds": 0.002179390999999975,
+          "wall_seconds": 0.00217903200245928
+        },
+        {
+          "process_cpu_seconds": 0.002167329999999912,
+          "wall_seconds": 0.0021670510031981394
+        },
+        {
+          "process_cpu_seconds": 0.0022459710000000133,
+          "wall_seconds": 0.002245402996777557
+        },
+        {
+          "process_cpu_seconds": 0.002166331000000077,
+          "wall_seconds": 0.0021661310020135716
+        },
+        {
+          "process_cpu_seconds": 0.0021525699999999093,
+          "wall_seconds": 0.0021523809991776943
+        }
+      ],
+      "warmup_batches": 1
+    }
+  },
+  "learning_scope": {
+    "candidates_scored": 272,
+    "heldout_patterns": 8,
+    "independent_labeled_patterns": 8,
+    "optimizer_steps": 0,
+    "selection": "First training-consistent tuple; no test-based selection",
+    "training_exposures": 2176
+  },
+  "manual_development_cost": null,
+  "manual_development_cost_reason": "Not measured.",
+  "memory": {
+    "accelerator_bytes": null,
+    "accelerator_reason": "Not used.",
+    "inference_replay_bytes": 0,
+    "inference_retained_raw_training_examples": 0,
+    "optimizer_bytes": 0,
+    "peak_rss": 60688,
+    "rss_scope": "Parent cumulative high-water, including all candidate audits/reference results and output serialization.",
+    "rss_unit": "KiB",
+    "scientific_artifact_bytes": 6018618,
+    "selected_model_absence_reason": null,
+    "selected_model_json_utf8_bytes": 280,
+    "selected_model_python_object_bytes": 1162,
+    "temporary_workspace_bytes": null,
+    "temporary_workspace_reason": "Entry counts reported; no separate allocator-level workspace measurement."
+  },
+  "phase_work_counts": {
+    "learned_circuit_return_validation": {
+      "feature_calls": 16384,
+      "local_gate_evaluations": 238592,
+      "local_inference_calls": 5184,
+      "peak_frontier_entries": 11,
+      "peak_trace_entries": 14,
+      "prefix_candidates": 56832,
+      "profile_entries": 44288,
+      "reference_candidate_visits": 165888,
+      "reference_feasible_scores": 32768,
+      "reference_inference_calls": 10368,
+      "root_candidates": 10368,
+      "terminal_candidates": 15872,
+      "traceback_nodes": 33832
+    },
+    "matched_inference_benchmarks": {
+      "local_gate_evaluations": 26880,
+      "local_inference_calls": 1296,
+      "peak_frontier_entries": 11,
+      "peak_trace_entries": 14,
+      "prefix_candidates": 14208,
+      "profile_entries": 11072,
+      "reference_candidate_visits": 10368,
+      "reference_feasible_scores": 2048,
+      "reference_inference_calls": 648,
+      "root_candidates": 2592,
+      "terminal_candidates": 3968,
+      "traceback_nodes": 8896
+    },
+    "one_detector_training": {
+      "feature_calls": 128,
+      "learning_candidates": 16,
+      "local_gate_evaluations": 512,
+      "training_exposures": 128
+    },
+    "post_selection_full_version_space_evaluation": {
+      "feature_calls": 2176,
+      "local_gate_evaluations": 17408
+    },
+    "supplied_circuit_and_return_validation": {
+      "feature_calls": 16,
+      "local_gate_evaluations": 107648,
+      "local_inference_calls": 5184,
+      "peak_frontier_entries": 11,
+      "peak_trace_entries": 14,
+      "prefix_candidates": 56832,
+      "profile_entries": 44288,
+      "reference_candidate_visits": 82944,
+      "reference_feasible_scores": 16384,
+      "reference_inference_calls": 5184,
+      "root_candidates": 10368,
+      "terminal_candidates": 15872,
+      "traceback_nodes": 33976
+    },
+    "two_detector_training": {
+      "feature_calls": 2048,
+      "learning_candidates": 256,
+      "local_gate_evaluations": 16384,
+      "training_exposures": 2048
+    }
+  },
+  "phases": {
+    "learned_circuit_return_validation": {
+      "process_cpu_seconds": 0.39920489100000006,
+      "wall_seconds": 0.3992351630004123
+    },
+    "matched_inference_benchmarks": {
+      "process_cpu_seconds": 0.04446775199999997,
+      "wall_seconds": 0.04446868799277581
+    },
+    "one_detector_training": {
+      "process_cpu_seconds": 0.0005274499999999849,
+      "wall_seconds": 0.0005272499984130263
+    },
+    "post_selection_full_version_space_evaluation": {
+      "process_cpu_seconds": 0.014753393999999975,
+      "wall_seconds": 0.014762462000362575
+    },
+    "scientific_serialization": {
+      "process_cpu_seconds": 0.226519083,
+      "wall_seconds": 0.2270106389914872
+    },
+    "supplied_circuit_and_return_validation": {
+      "process_cpu_seconds": 0.25318688,
+      "wall_seconds": 0.2532353789865738
+    },
+    "two_detector_training": {
+      "process_cpu_seconds": 0.009084903000000033,
+      "wall_seconds": 0.009084773002541624
+    }
+  },
+  "provenance": {
+    "command": "python3 -m experiments.local_relation_circuit",
+    "dirty_status": "?? docs/combination-interpretation-analysis-results.md\n?? docs/combination-interpretation-analysis.md\n?? docs/inner-relation-quotient-analysis-results.md\n?? docs/inner-relation-quotient-analysis.md\n?? docs/local-relation-circuit-v1-contract.md\n?? docs/relational-cycle-analysis-results.md\n?? docs/relational-cycle-analysis.md\n?? docs/relational-mode-tree-analysis-results.md\n?? docs/relational-mode-tree-analysis.md\n?? experiments/combination_interpretation_analysis.py\n?? experiments/inner_relation_quotient_analysis.py\n?? experiments/local_relation_circuit.py\n?? experiments/relational_cycle_analysis.py\n?? experiments/relational_mode_tree_analysis.py\n?? reports/combination-interpretation-analysis-runtime.json\n?? reports/combination-interpretation-analysis.json\n?? reports/inner-relation-quotient-analysis-runtime.json\n?? reports/inner-relation-quotient-analysis.json\n?? reports/relational-cycle-analysis-runtime.json\n?? reports/relational-cycle-analysis.json\n?? reports/relational-mode-tree-analysis-runtime.json\n?? reports/relational-mode-tree-analysis.json",
+    "revision": "ae1d5279c74fc00661495bbf064d97c1000e9617",
+    "seed_policy": "No randomness; declared finite candidate order and split.",
+    "sha256": {
+      "docs/local-relation-circuit-v1-contract.md": "8fd2e1d3d14d0a52f66127430118a13311c238d1ecf55be9a44be4fbdfe25deb",
+      "experiments/local_relation_circuit.py": "bcb342aa5753b9238e24d01e032e47803983730daef5930941b8cdedefccac72"
+    }
+  },
+  "scientific_sha256": "5531cb2bd7d64bb30060d0b308560268e33b2e34aadd5493786ef389adbc219e",
+  "timing_scope": "After imports/provenance through scientific serialization; excludes runtime receipt writing. Benchmarks include counters, allocation and traceback.",
+  "whole_run": {
+    "process_cpu_seconds": 0.948386613,
+    "wall_seconds": 0.9489779569994425
+  }
+}
