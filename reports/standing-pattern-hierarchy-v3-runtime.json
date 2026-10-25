@@ -1,0 +1,170 @@
+{
+  "accelerator": null,
+  "benchmarks": {
+    "direct": {
+      "batch_size": 8,
+      "cpu_seconds": [
+        0.0005566100000002905,
+        0.0005459100000013706,
+        0.0005632609999999261
+      ],
+      "max_batch_seconds": 0.0005626799975289032,
+      "measured_batches": 3,
+      "median_seconds_per_query": 6.950012357265223e-05,
+      "min_batch_seconds": 0.0005453100020531565,
+      "wall_seconds": [
+        0.0005560009885812178,
+        0.0005453100020531565,
+        0.0005626799975289032
+      ],
+      "warmup_batches": 1
+    },
+    "quadratic_2048": {
+      "batch_size": 8,
+      "cpu_seconds": [
+        2.427720853999997,
+        2.5227271989999984,
+        2.4132784700000016
+      ],
+      "max_batch_seconds": 2.523199918010505,
+      "measured_batches": 3,
+      "median_seconds_per_query": 0.3034994565005036,
+      "min_batch_seconds": 2.4136315819923766,
+      "wall_seconds": [
+        2.4279956520040287,
+        2.523199918010505,
+        2.4136315819923766
+      ],
+      "warmup_batches": 1
+    },
+    "quadratic_64": {
+      "batch_size": 8,
+      "cpu_seconds": [
+        0.07447430100000041,
+        0.07343598000000107,
+        0.07518317100000083
+      ],
+      "max_batch_seconds": 0.07522591199085582,
+      "measured_batches": 3,
+      "median_seconds_per_query": 0.009311212250395329,
+      "min_batch_seconds": 0.07344591899891384,
+      "wall_seconds": [
+        0.07448969800316263,
+        0.07344591899891384,
+        0.07522591199085582
+      ],
+      "warmup_batches": 1
+    }
+  },
+  "blas": "{\n  \"Compilers\": {\n    \"c\": {\n      \"name\": \"gcc\",\n      \"linker\": \"ld.bfd\",\n      \"version\": \"14.2.1\",\n      \"commands\": \"cc\"\n    },\n    \"cython\": {\n      \"name\": \"cython\",\n      \"linker\": \"cython\",\n      \"version\": \"3.3.0\",\n      \"commands\": \"cython\"\n    },\n    \"c++\": {\n      \"name\": \"gcc\",\n      \"linker\": \"ld.bfd\",\n      \"version\": \"14.2.1\",\n      \"commands\": \"c++\"\n    }\n  },\n  \"Machine Information\": {\n    \"host\": {\n      \"cpu\": \"x86_64\",\n      \"family\": \"x86_64\",\n      \"endian\": \"little\",\n      \"system\": \"linux\"\n    },\n    \"build\": {\n      \"cpu\": \"x86_64\",\n      \"family\": \"x86_64\",\n      \"endian\": \"little\",\n      \"system\": \"linux\"\n    }\n  },\n  \"Build Dependencies\": {\n    \"blas\": {\n      \"name\": \"scipy-openblas\",\n      \"found\": true,\n      \"version\": \"0.3.34.106.0\",\n      \"detection method\": \"pkgconfig\",\n      \"include directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include\",\n      \"lib directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib\",\n      \"openblas configuration\": \"OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64\",\n      \"pc file directory\": \"/project/.openblas\"\n    },\n    \"lapack\": {\n      \"name\": \"scipy-openblas\",\n      \"found\": true,\n      \"version\": \"0.3.34.106.0\",\n      \"detection method\": \"pkgconfig\",\n      \"include directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include\",\n      \"lib directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib\",\n      \"openblas configuration\": \"OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64\",\n      \"pc file directory\": \"/project/.openblas\"\n    }\n  },\n  \"Python Information\": {\n    \"path\": \"/tmp/build-env-ptu49_tp/bin/python\",\n    \"version\": \"3.12\"\n  },\n  \"SIMD Extensions\": {\n    \"baseline\": [\n      \"X86_V2\"\n    ],\n    \"found\": [\n      \"X86_V3\"\n    ],\n    \"not found\": [\n      \"X86_V4\",\n      \"AVX512_ICL\",\n      \"AVX512_SPR\"\n    ]\n  }\n}\n",
+  "command": ".venv/bin/python -m experiments.standing_pattern_hierarchy_chain",
+  "contract_sha256": "2f17984ebe4530e406abc1ac2e52f2f0d8c2f1a5e108b8392e6a5c4b4dd596d8",
+  "counts": {
+    "backtrack_halvings": 0,
+    "direct_calls": 56,
+    "energy_calls": 336477,
+    "factor_training_rows": 252,
+    "gradient_calls": 168325,
+    "inference_calls": 112,
+    "least_squares_fits": 28,
+    "line_search_trials": 167936,
+    "outer_readouts": 384,
+    "updates": 167936
+  },
+  "cpu": "x86_64",
+  "cpu_seconds_before_runtime_serialization": 25.418057339,
+  "deployment_bytes": {
+    "activities": 360,
+    "fixed_coupling_bytes": 120,
+    "fixed_index_arrays": 168,
+    "optimizer": 0,
+    "parameters": 504,
+    "peak_allocator_bytes": null,
+    "replay": 0,
+    "sufficient_statistics": 0,
+    "temporary_array_order": "O(Np); candidate weights and state, gradients, features",
+    "total_persistent_model_and_activity": 864
+  },
+  "dtype": "float64",
+  "git_status": "?? docs/standing-pattern-hierarchy-v1-contract.md\n?? docs/standing-pattern-hierarchy-v1-results.md\n?? docs/standing-pattern-hierarchy-v2-contract.md\n?? docs/standing-pattern-hierarchy-v2-results.md\n?? docs/standing-pattern-hierarchy-v3-contract.md\n?? experiments/standing_pattern_hierarchy.py\n?? experiments/standing_pattern_hierarchy_chain.py\n?? experiments/standing_pattern_hierarchy_graded.py\n?? reports/standing-pattern-hierarchy-v1-results.json\n?? reports/standing-pattern-hierarchy-v1-runtime.json\n?? reports/standing-pattern-hierarchy-v2-results.json\n?? reports/standing-pattern-hierarchy-v2-runtime.json\n?? reports/standing-pattern-hierarchy-v3-results.json",
+  "limitations": {
+    "hardware_limits": null,
+    "manual_development_seconds": null,
+    "reason": "Manual time, allocator peak and scheduler limits not instrumented"
+  },
+  "numpy": "2.5.4",
+  "peak_process_rss_kib": 35804,
+  "phases": {
+    "affine_frozen": {
+      "cpu_seconds": 2.3821648510000006,
+      "wall_seconds": 2.3824194260087097
+    },
+    "construction_and_training": {
+      "cpu_seconds": 0.002481319999999995,
+      "wall_seconds": 0.002480476992786862
+    },
+    "correctness_checks": {
+      "cpu_seconds": 0.013131284000000007,
+      "wall_seconds": 0.01313081600528676
+    },
+    "direct_comparators": {
+      "cpu_seconds": 0.0017358410000003488,
+      "wall_seconds": 0.0017353229923173785
+    },
+    "innermost_only": {
+      "cpu_seconds": 2.4976284820000014,
+      "wall_seconds": 2.498001405998366
+    },
+    "no_evidence_joint_default": {
+      "cpu_seconds": 0.307023065,
+      "wall_seconds": 0.3070257420040434
+    },
+    "quadratic_frozen": {
+      "cpu_seconds": 2.572018554,
+      "wall_seconds": 2.5724810130050173
+    },
+    "quadratic_plastic": {
+      "cpu_seconds": 2.533297412,
+      "wall_seconds": 2.533632034988841
+    },
+    "scientific_serialization": {
+      "cpu_seconds": 0.008256102000000709,
+      "wall_seconds": 0.008256114990217611
+    },
+    "timing_benchmarks": {
+      "cpu_seconds": 10.20767839,
+      "wall_seconds": 10.211125814996194
+    },
+    "uncoupled": {
+      "cpu_seconds": 2.48643311,
+      "wall_seconds": 2.4868898870045086
+    },
+    "zero_detail": {
+      "cpu_seconds": 2.404166557,
+      "wall_seconds": 2.40457986301044
+    }
+  },
+  "platform": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+  "processes": 1,
+  "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+  "result_sha256": "f61761b2effda6573047d5216bafa8dec7b72cd95f4fb9b676be0181152bffd3",
+  "revision": "6f010d3e472bc30e72f73aa56844c0002096759d",
+  "rss_convention": "Linux KiB; single process",
+  "seed_policy": "Deterministic grids; no random sampling",
+  "selection": {
+    "fits": 28,
+    "reason": "Predeclared arms; no tuning or model selection",
+    "rejected_candidates": 0,
+    "searched_candidates": 0,
+    "tuning_seconds": 0
+  },
+  "source_sha256": "35b145cebfe827547bcb39f61e4dfd288e4ee66d5b9881b66ed32105d84e8dc2",
+  "threads": {
+    "MKL_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1"
+  },
+  "timing_scope": "Includes construction, checks, fits, scientific and benchmark queries, scoring and scientific serialization; excludes runtime JSON serialization.",
+  "wall_seconds_before_runtime_serialization": 25.561193264991743,
+  "workers": 0
+}

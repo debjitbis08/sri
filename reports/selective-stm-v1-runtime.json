@@ -1,0 +1,94 @@
+{
+  "accelerator": null,
+  "base_counts": {
+    "backtrack_halvings": 0,
+    "energy_calls": 154253,
+    "gradient_calls": 61971,
+    "line_search_trials": 1,
+    "updates": 1
+  },
+  "blas": "{\n  \"Compilers\": {\n    \"c\": {\n      \"name\": \"gcc\",\n      \"linker\": \"ld.bfd\",\n      \"version\": \"14.2.1\",\n      \"commands\": \"cc\"\n    },\n    \"cython\": {\n      \"name\": \"cython\",\n      \"linker\": \"cython\",\n      \"version\": \"3.3.0\",\n      \"commands\": \"cython\"\n    },\n    \"c++\": {\n      \"name\": \"gcc\",\n      \"linker\": \"ld.bfd\",\n      \"version\": \"14.2.1\",\n      \"commands\": \"c++\"\n    }\n  },\n  \"Machine Information\": {\n    \"host\": {\n      \"cpu\": \"x86_64\",\n      \"family\": \"x86_64\",\n      \"endian\": \"little\",\n      \"system\": \"linux\"\n    },\n    \"build\": {\n      \"cpu\": \"x86_64\",\n      \"family\": \"x86_64\",\n      \"endian\": \"little\",\n      \"system\": \"linux\"\n    }\n  },\n  \"Build Dependencies\": {\n    \"blas\": {\n      \"name\": \"scipy-openblas\",\n      \"found\": true,\n      \"version\": \"0.3.34.106.0\",\n      \"detection method\": \"pkgconfig\",\n      \"include directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include\",\n      \"lib directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib\",\n      \"openblas configuration\": \"OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64\",\n      \"pc file directory\": \"/project/.openblas\"\n    },\n    \"lapack\": {\n      \"name\": \"scipy-openblas\",\n      \"found\": true,\n      \"version\": \"0.3.34.106.0\",\n      \"detection method\": \"pkgconfig\",\n      \"include directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include\",\n      \"lib directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib\",\n      \"openblas configuration\": \"OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64\",\n      \"pc file directory\": \"/project/.openblas\"\n    }\n  },\n  \"Python Information\": {\n    \"path\": \"/tmp/build-env-ptu49_tp/bin/python\",\n    \"version\": \"3.12\"\n  },\n  \"SIMD Extensions\": {\n    \"baseline\": [\n      \"X86_V2\"\n    ],\n    \"found\": [\n      \"X86_V3\"\n    ],\n    \"not found\": [\n      \"X86_V4\",\n      \"AVX512_ICL\",\n      \"AVX512_SPR\"\n    ]\n  }\n}\n",
+  "command": ".venv/bin/python -m experiments.selective_stm",
+  "counts": {
+    "activity_updates": 61441,
+    "direct_readouts": 528,
+    "episodes": 24,
+    "halvings": 0,
+    "outer_readouts": 528,
+    "scalar_trace_writes": 30720,
+    "trace_writes": 30720,
+    "trials": 61441
+  },
+  "cpu": "x86_64",
+  "cpu_seconds_before_runtime_serialization": 11.368203232,
+  "cue_presentations": 48,
+  "deployment_array_bytes": 1272,
+  "direct_scalar_stm_bytes": 8,
+  "dirty_status": "?? docs/selective-stm-v1-contract.md\n?? docs/standing-pattern-hierarchy-v1-contract.md\n?? docs/standing-pattern-hierarchy-v1-results.md\n?? docs/standing-pattern-hierarchy-v2-contract.md\n?? docs/standing-pattern-hierarchy-v2-results.md\n?? docs/standing-pattern-hierarchy-v3-contract.md\n?? docs/standing-pattern-hierarchy-v3-results.md\n?? experiments/selective_stm.py\n?? experiments/standing_pattern_hierarchy.py\n?? experiments/standing_pattern_hierarchy_chain.py\n?? experiments/standing_pattern_hierarchy_graded.py\n?? reports/selective-stm-v1-results.json\n?? reports/standing-pattern-hierarchy-v1-results.json\n?? reports/standing-pattern-hierarchy-v1-runtime.json\n?? reports/standing-pattern-hierarchy-v2-results.json\n?? reports/standing-pattern-hierarchy-v2-runtime.json\n?? reports/standing-pattern-hierarchy-v3-results.json\n?? reports/standing-pattern-hierarchy-v3-runtime.json\n",
+  "dtype": "float64",
+  "episodes": 24,
+  "hashes": {
+    "docs/selective-stm-v1-contract.md": "1c849cf7ae050a26cfe65f5040f733a8627803e0e759c58c6c050b6518f7fbb0",
+    "experiments/selective_stm.py": "ec56069c3804949ee1068bec06081aeef33e37e52a3978bb91163d6ee96b6224",
+    "experiments/standing_pattern_hierarchy_chain.py": "35b145cebfe827547bcb39f61e4dfd288e4ee66d5b9881b66ed32105d84e8dc2",
+    "reports/selective-stm-v1-results.json": "e2ebd4824297ad8501d39927cc32b596e30e01520fe48327400836f4b263b834",
+    "reports/standing-pattern-hierarchy-v3-results.json": "f61761b2effda6573047d5216bafa8dec7b72cd95f4fb9b676be0181152bffd3"
+  },
+  "historical_training": "Nine pairs; 28 fits in v3; cost in standing-pattern-hierarchy-v3-runtime.json",
+  "independent_heldout_pairs": 8,
+  "limitations": {
+    "allocator_peak": null,
+    "hardware_limits": null,
+    "manual_development_time": null,
+    "reason": "Not instrumented; whole-run measurement is not a latency benchmark"
+  },
+  "new_fits": 0,
+  "new_fitted_statistics_bytes": 0,
+  "numpy": "2.5.4",
+  "optimizer_bytes": 0,
+  "peak_process_rss_kib": 35792,
+  "phases": {
+    "checks": {
+      "cpu_seconds": 0.006417321000000004,
+      "wall_seconds": 0.00641672000347171
+    },
+    "load": {
+      "cpu_seconds": 0.0026727109999999943,
+      "wall_seconds": 0.0026718499866547063
+    },
+    "scientific_serialization": {
+      "cpu_seconds": 0.014456644000000907,
+      "wall_seconds": 0.014456351011176594
+    },
+    "stm_0.0": {
+      "cpu_seconds": 3.9266561900000005,
+      "wall_seconds": 3.9272546919964952
+    },
+    "stm_0.1": {
+      "cpu_seconds": 3.6919462439999995,
+      "wall_seconds": 3.6922491010045633
+    },
+    "stm_1.0": {
+      "cpu_seconds": 3.7237200720000008,
+      "wall_seconds": 3.726034894993063
+    }
+  },
+  "platform": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+  "processes": 1,
+  "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+  "replay_bytes": 0,
+  "revision": "6f010d3e472bc30e72f73aa56844c0002096759d",
+  "rss_convention": "Linux KiB; one process",
+  "seed_policy": "Deterministic frozen fixtures",
+  "selection_tuning_candidates": 0,
+  "selection_tuning_seconds": 0,
+  "stm_bytes": 120,
+  "threads": {
+    "MKL_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1"
+  },
+  "timing_scope": "Includes checks, episode inference, memory writes, comparator and scoring, serialization; excludes runtime JSON serialization",
+  "wall_seconds_before_runtime_serialization": 11.518157147991587,
+  "workers": 0
+}
