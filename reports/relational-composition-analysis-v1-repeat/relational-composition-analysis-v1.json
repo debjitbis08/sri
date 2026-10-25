@@ -1,0 +1,150 @@
+{
+  "fitted_candidates": 0,
+  "geometry": {
+    "changed_frame_transport_residual_squared": 2.6632195455,
+    "original_transport_residual_squared": 2.6632195455,
+    "scalar_cycle_rotation_commutator_norm": 2.50534520386,
+    "vector_cycle_rotation_commutator_norm": 0.0
+  },
+  "module": [
+    {
+      "coupled_condition_number": 1742.25483865,
+      "coupled_min_eigenvalue": 0.00205334639299,
+      "masked_min_eigenvalue": 0.00205722063814,
+      "output_transfer_rank": 8,
+      "port_cross_rank": 8,
+      "radial_nullity": 4,
+      "relative_solve_residual": 2.39232396949e-15,
+      "retained": 1,
+      "schur_discrepancy": 9.99200722163e-16,
+      "seed": 2026102504
+    },
+    {
+      "coupled_condition_number": 2677.96479237,
+      "coupled_min_eigenvalue": 0.00128343699507,
+      "masked_min_eigenvalue": 0.00128417659097,
+      "output_transfer_rank": 8,
+      "port_cross_rank": 8,
+      "radial_nullity": 8,
+      "relative_solve_residual": 3.05936526261e-15,
+      "retained": 2,
+      "schur_discrepancy": 1.22124532709e-15,
+      "seed": 2026102504
+    },
+    {
+      "coupled_condition_number": 2148.19476586,
+      "coupled_min_eigenvalue": 0.00166552838502,
+      "masked_min_eigenvalue": 0.00166557862619,
+      "output_transfer_rank": 8,
+      "port_cross_rank": 8,
+      "radial_nullity": 4,
+      "relative_solve_residual": 1.91218482619e-15,
+      "retained": 1,
+      "schur_discrepancy": 5.55111512313e-16,
+      "seed": 2026102505
+    },
+    {
+      "coupled_condition_number": 2444.73644751,
+      "coupled_min_eigenvalue": 0.00140599427439,
+      "masked_min_eigenvalue": 0.00140767650125,
+      "output_transfer_rank": 8,
+      "port_cross_rank": 8,
+      "radial_nullity": 8,
+      "relative_solve_residual": 3.0436791661e-15,
+      "retained": 2,
+      "schur_discrepancy": 1.33226762955e-15,
+      "seed": 2026102505
+    }
+  ],
+  "operation_counts": {
+    "dense_solve_160_rhs_columns_16": 4,
+    "dense_solve_2_rhs_columns_1": 1,
+    "dense_solve_2_rhs_columns_3": 2,
+    "dense_solve_80_rhs_columns_16": 4,
+    "dense_solve_80_rhs_columns_80": 4,
+    "eigvalsh_160": 4,
+    "eigvalsh_3": 1,
+    "eigvalsh_80": 8,
+    "svd_6_by_8": 3,
+    "svd_80_by_16": 8,
+    "svd_80_by_80": 4,
+    "svd_8_by_6": 1,
+    "svd_8_by_8": 7
+  },
+  "optimizer_steps": 0,
+  "passive": {
+    "delta_eigenvalues": [
+      1.9612413935e-18,
+      0.261563752228,
+      0.963436247772
+    ],
+    "minimized_energy": 0.9625,
+    "schur_energy": 0.9625,
+    "unconstrained_follower_max_stiffness": 4.4408920985e-16
+  },
+  "relations": {
+    "combined_span_dimension": 6,
+    "cycles": [
+      {
+        "corrected_cycle_nullity": 2,
+        "cycle_product": [
+          [
+            -1.0,
+            -3.79053850793e-16
+          ],
+          [
+            3.79053850793e-16,
+            -1.0
+          ]
+        ],
+        "open_chain_nullity": 2,
+        "relation": 1,
+        "uniform_closing_energy_for_unit_first_part": 2.0,
+        "uniform_cycle_nullity": 0
+      },
+      {
+        "corrected_cycle_nullity": 2,
+        "cycle_product": [
+          [
+            1.0,
+            2.44929359829e-16
+          ],
+          [
+            -2.44929359829e-16,
+            1.0
+          ]
+        ],
+        "open_chain_nullity": 2,
+        "relation": 2,
+        "uniform_closing_energy_for_unit_first_part": 2.99951956532e-32,
+        "uniform_cycle_nullity": 2
+      },
+      {
+        "corrected_cycle_nullity": 2,
+        "cycle_product": [
+          [
+            -1.0,
+            -3.79053850793e-16
+          ],
+          [
+            3.79053850793e-16,
+            -1.0
+          ]
+        ],
+        "open_chain_nullity": 2,
+        "relation": 3,
+        "uniform_closing_energy_for_unit_first_part": 2.0,
+        "uniform_cycle_nullity": 0
+      }
+    ],
+    "mixture_part_norms": [
+      1.0,
+      0.923879532511,
+      0.707106781187,
+      0.382683432365
+    ],
+    "positive_penalty_intersection_nullity": 0
+  },
+  "scope": "finite algebra fixtures, no fitting",
+  "status": "all_checks_passed"
+}

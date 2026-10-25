@@ -1,0 +1,139 @@
+{
+  "command": [
+    "/home/debjit/code/sri/.venv/bin/python",
+    "-m",
+    "experiments.masked_capacity_obstruction"
+  ],
+  "complexity": "O(states * 72 * M^3) time for full/Schur and spectral checks; O(M^2) solver workspace plus report arrays",
+  "counts": {
+    "checked_equilibrium_passes": 1728,
+    "cholesky_80": 1728,
+    "cholesky_matrix_solve_80_rhs32": 1728,
+    "cholesky_vector_solves_80": 1728,
+    "eigenspectra_80": 1728,
+    "eigenspectra_structural_schur_32": 1728,
+    "lu_factor_32": 1728,
+    "lu_factor_48": 1728,
+    "lu_matrix_solve_32_rhs32": 1728,
+    "lu_matrix_solve_48_rhs32": 1728,
+    "lu_vector_solve_32": 1728,
+    "radial_eigendecompositions_20": 1728,
+    "residual_energy_expansions": 3456,
+    "response_svd_8_by_20": 1728
+  },
+  "dirty_paths": [
+    "?? docs/single-module-mechanism-diagnostics-v1-contract.md",
+    "?? reports/single-module-masked-capacity-v1-obstruction.json"
+  ],
+  "environment": {
+    "cpu": "AMD Ryzen 5 3600 6-Core Processor",
+    "dtype": "float64",
+    "logical_cpus": 12,
+    "machine": "x86_64",
+    "numpy": "2.5.4",
+    "numpy_build": {
+      "Build Dependencies": {
+        "blas": {
+          "detection method": "pkgconfig",
+          "found": true,
+          "include directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include",
+          "lib directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib",
+          "name": "scipy-openblas",
+          "openblas configuration": "OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64",
+          "pc file directory": "/project/.openblas",
+          "version": "0.3.34.106.0"
+        },
+        "lapack": {
+          "detection method": "pkgconfig",
+          "found": true,
+          "include directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include",
+          "lib directory": "/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib",
+          "name": "scipy-openblas",
+          "openblas configuration": "OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64",
+          "pc file directory": "/project/.openblas",
+          "version": "0.3.34.106.0"
+        }
+      },
+      "Compilers": {
+        "c": {
+          "commands": "cc",
+          "linker": "ld.bfd",
+          "name": "gcc",
+          "version": "14.2.1"
+        },
+        "c++": {
+          "commands": "c++",
+          "linker": "ld.bfd",
+          "name": "gcc",
+          "version": "14.2.1"
+        },
+        "cython": {
+          "commands": "cython",
+          "linker": "cython",
+          "name": "cython",
+          "version": "3.3.0"
+        }
+      },
+      "Machine Information": {
+        "build": {
+          "cpu": "x86_64",
+          "endian": "little",
+          "family": "x86_64",
+          "system": "linux"
+        },
+        "host": {
+          "cpu": "x86_64",
+          "endian": "little",
+          "family": "x86_64",
+          "system": "linux"
+        }
+      },
+      "Python Information": {
+        "path": "/tmp/build-env-ptu49_tp/bin/python",
+        "version": "3.12"
+      },
+      "SIMD Extensions": {
+        "baseline": [
+          "X86_V2"
+        ],
+        "found": [
+          "X86_V3"
+        ],
+        "not found": [
+          "X86_V4",
+          "AVX512_ICL",
+          "AVX512_SPR"
+        ]
+      }
+    },
+    "platform": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+    "processes": 1,
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "scipy": "1.18.1",
+    "thread_environment": {
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    }
+  },
+  "input_hashes": {
+    "docs/single-module-masked-capacity-obstruction.md": "1e1649e999a9e8f57417f31c445b2a74c659434b2d1a4b9c1e488c20359d882b",
+    "experiments/locality_adaptation.py": "3a9e5388a848bb6f85077a57f15e849fd46f602cf73bcd25b922ef62eca89722",
+    "experiments/masked_capacity_obstruction.py": "1279dd3311b45e0ebd2f8ed3719687c63aade4688b4792e49d850173acbf8636",
+    "reports/single-module-masked-capacity-v1-audit.json": "657d1687586c7fdc4b20fd6b70a7fe9f24e82eea752a91c558e20efd212c2f30",
+    "reports/single-module-masked-capacity-v1-results.json": "819bb280ec705c18d4b2822ee57570ca2d6ed67f2fd3d1401ecf5e928f2229cb",
+    "src/abstraction_preflight.py": "162e75c8015113a59e06782795dbef63f1021445acf086dd8626f753e47132fd",
+    "src/single_module_plasticity.py": "9c8632fce528f72129446bec009021ef6c1cf4e0f4145182d46e2239c28ddeb3"
+  },
+  "native_workspace_peak_bytes": null,
+  "new_training_updates": 0,
+  "peak_rss_kib": 109164,
+  "process_cpu_seconds": 2.99418924,
+  "receipt_sha256": "a768084d29c37837ac40de2865479b67750a273e5f21a653a7f479fc43c0a7d6",
+  "revision": "41c26ae24c2e58252adafc0b37e8195c68e84226",
+  "rss_scope": "Linux KiB cumulative process high-water",
+  "status": "complete",
+  "unavailable_reason": "native LAPACK workspace not independently instrumented",
+  "unique_parameter_states": 12,
+  "wall_seconds": 3.001623908
+}
