@@ -117,9 +117,8 @@ Points to note:
   rollouts that grow without bound. This is the
   composition-of-one-step-optima effect the review predicted.
 - **Learning rates:** the multi-horizon search selected η = 0.001 in most
-  worlds and 0.003 in the rest; both lie inside the grid except at its
-  lower edge (0.001). The one-step diagnostic's selections span the whole
-  grid.
+  worlds and 0.003 in the rest. 0.001 is the grid's lower edge; the grid was
+  not extended. The one-step diagnostic's selections span the whole grid.
 
 ## C2 binding invariance (P2)
 
@@ -154,7 +153,8 @@ every fit.
   - 194-572 for family A at ±2 clips;
   - 390-898 at ±6 clips.
 
-This supports the weak-prior study's concern about training settles. At
+This supports the [prior-strength study](prior-strength-training-v1-results.md)'s
+concern about training settles. At
 prior 0.001, iterative inference on this window needs hundreds of steps.
 Whether that is explained by the smallest free-Hessian eigenvalue is the
 hypothesis in the [GDL notes](geometric-deep-learning-notes.md); it is not
