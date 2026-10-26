@@ -1,0 +1,31 @@
+{
+ "command": "/home/debjit/code/sri/experiments/local_contrastive_floor_analysis.py",
+ "complexity": "per parameter set: 3 masks x one O(S^3) factorization plus 32 O(n S^2) steps, S <= 42, n = 24",
+ "counts": {
+  "implicit_factorizations": 330,
+  "parameter_sets_scored": 120,
+  "settles": 330
+ },
+ "cpu_seconds": 0.189320573,
+ "dirty_status": "?? reports/local-contrastive-consolidation-v1-floor-analysis-results.json\n",
+ "dtype": "float64",
+ "hashes": {
+  "experiments/local_consolidation.py": "87488f7b1932a7957be94ecf44ffddba101ab1a9f6b144c277f11207abd95a1a",
+  "experiments/local_contrastive_consolidation.py": "3fc18127f27dd5c3dc6c05df8c443a89abe095b70fdafa482dcfa08d7b23afef",
+  "experiments/local_contrastive_floor_analysis.py": "d1672f7a7f3b5048140424436a3769a75ebc1c1aa41bae437a1896b5752160c5",
+  "reports/local-contrastive-consolidation-v1-floor-analysis-results.json": "a6df4a6cbbeebb4571f4345c98fcf5924c56a7065f35d64e2fd633de4bcc1718",
+  "reports/local-contrastive-consolidation-v1-results.json": "924aadce62e52e687c56138a781b6db6f57f29f0ace63e2ec1f37851e883bbc0"
+ },
+ "numpy": "2.5.4",
+ "os": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "peak_rss_kib": 65820,
+ "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+ "revision": "60290de6236df7c5828a490e89d5c5123a5abad9",
+ "thread_environment": {
+  "MKL_NUM_THREADS": "1",
+  "OMP_NUM_THREADS": "1",
+  "OPENBLAS_NUM_THREADS": "1"
+ },
+ "timing_scope": "whole run including JSON parsing; not a latency benchmark",
+ "wall_seconds": 0.19481691499822773
+}

@@ -1,0 +1,1282 @@
+{
+ "definitions": {
+  "avoidable_mse": "mean squared error against the noiseless conditional mean (evaluator only)",
+  "cross_term": "observed - floor - avoidable = -2 mean((pred - mean)(target - mean))",
+  "floor_mse": "mean squared nuisance of the hidden module on this test sample",
+  "noise_subtracted_mse": "observed minus floor; can be negative on a finite sample"
+ },
+ "near_zero_avoidable_mse": 1e-05,
+ "seeds": {
+  "10": {
+   "10_ridge": {
+    "avoidable_mse": 0.002609574333995413,
+    "cross_term": 2.095270462401102e-05,
+    "floor_mse": 0.007747635064439466,
+    "noise_subtracted_mse": 0.0026305270386194216,
+    "observed_mse": 0.010378162103058888,
+    "observed_rmse": 0.10187326490821273
+   },
+   "1_frozen": {
+    "avoidable_mse": 0.13366198796157558,
+    "cross_term": 0.0008319165786496139,
+    "floor_mse": 0.007747635064439466,
+    "noise_subtracted_mse": 0.13449390454022522,
+    "observed_mse": 0.14224153960466468,
+    "observed_rmse": 0.3771492272359373
+   },
+   "2a_clamped_energy_C": {
+    "avoidable_mse": 0.001200516520552403,
+    "cross_term": 1.1487890163077361e-05,
+    "floor_mse": 0.007747635064439466,
+    "noise_subtracted_mse": 0.001212004410715479,
+    "observed_mse": 0.008959639475154945,
+    "observed_rmse": 0.0946553721410198
+   },
+   "2b_clamped_energy_9C": {
+    "avoidable_mse": 0.0012234563162302739,
+    "cross_term": -1.758695536479946e-05,
+    "floor_mse": 0.007747635064439466,
+    "noise_subtracted_mse": 0.0012058693608654738,
+    "observed_mse": 0.00895350442530494,
+    "observed_rmse": 0.09462295929268404
+   },
+   "3_two_phase_uniform": {
+    "avoidable_mse": 0.0024257488967033736,
+    "cross_term": 0.00016517726674019582,
+    "floor_mse": 0.007747635064439466,
+    "noise_subtracted_mse": 0.002590926163443569,
+    "observed_mse": 0.010338561227883035,
+    "observed_rmse": 0.10167871570728573
+   },
+   "4_two_phase_inner": {
+    "avoidable_mse": 0.009327398773937975,
+    "cross_term": -5.079438144839793e-05,
+    "floor_mse": 0.007747635064439466,
+    "noise_subtracted_mse": 0.009276604392489573,
+    "observed_mse": 0.01702423945692904,
+    "observed_rmse": 0.1304769690670696
+   },
+   "5_two_phase_no_outer": {
+    "avoidable_mse": 0.0038370936072417896,
+    "cross_term": -6.537601217481169e-05,
+    "floor_mse": 0.007747635064439466,
+    "noise_subtracted_mse": 0.0037717175950669765,
+    "observed_mse": 0.011519352659506443,
+    "observed_rmse": 0.10732824725814935
+   },
+   "5b_two_phase_outer_only": {
+    "avoidable_mse": 0.00840514761017949,
+    "cross_term": 0.0014428338283268487,
+    "floor_mse": 0.007747635064439466,
+    "noise_subtracted_mse": 0.009847981438506338,
+    "observed_mse": 0.017595616502945804,
+    "observed_rmse": 0.13264846965926824
+   },
+   "6_exact_reference": {
+    "avoidable_mse": 0.002434822321750922,
+    "cross_term": 0.0001660167091879111,
+    "floor_mse": 0.007747635064439466,
+    "noise_subtracted_mse": 0.002600839030938833,
+    "observed_mse": 0.010348474095378299,
+    "observed_rmse": 0.10172745005837067
+   },
+   "7_two_phase_B_only": {
+    "avoidable_mse": 0.017908550568663542,
+    "cross_term": 0.00041842955082283705,
+    "floor_mse": 0.007747635064439466,
+    "noise_subtracted_mse": 0.018326980119486375,
+    "observed_mse": 0.026074615183925842,
+    "observed_rmse": 0.1614763610685039
+   },
+   "8_two_phase_B_only_inertia": {
+    "avoidable_mse": 0.01113809087728513,
+    "cross_term": 0.00020134597246449542,
+    "floor_mse": 0.007747635064439466,
+    "noise_subtracted_mse": 0.011339436849749623,
+    "observed_mse": 0.01908707191418909,
+    "observed_rmse": 0.1381559695206439
+   },
+   "9_two_phase_B_only_uniform_slowing": {
+    "avoidable_mse": 0.005165404244788845,
+    "cross_term": 3.6304087016833094e-05,
+    "floor_mse": 0.007747635064439466,
+    "noise_subtracted_mse": 0.005201708331805677,
+    "observed_mse": 0.012949343396245143,
+    "observed_rmse": 0.11379518177956896
+   }
+  },
+  "11": {
+   "10_ridge": {
+    "avoidable_mse": 0.0021416182731049554,
+    "cross_term": -0.00021425298904490778,
+    "floor_mse": 0.0075749549984767146,
+    "noise_subtracted_mse": 0.0019273652840600466,
+    "observed_mse": 0.009502320282536761,
+    "observed_rmse": 0.09747984551965992
+   },
+   "1_frozen": {
+    "avoidable_mse": 0.10015414000706122,
+    "cross_term": -9.108957502307617e-05,
+    "floor_mse": 0.0075749549984767146,
+    "noise_subtracted_mse": 0.10006305043203813,
+    "observed_mse": 0.10763800543051484,
+    "observed_rmse": 0.3280823150224877
+   },
+   "2a_clamped_energy_C": {
+    "avoidable_mse": 0.0010314075071001297,
+    "cross_term": -0.00015420343575365004,
+    "floor_mse": 0.0075749549984767146,
+    "noise_subtracted_mse": 0.0008772040713464803,
+    "observed_mse": 0.008452159069823195,
+    "observed_rmse": 0.09193562459581811
+   },
+   "2b_clamped_energy_9C": {
+    "avoidable_mse": 0.0010634412753987453,
+    "cross_term": -0.00015369073308093087,
+    "floor_mse": 0.0075749549984767146,
+    "noise_subtracted_mse": 0.0009097505423178148,
+    "observed_mse": 0.00848470554079453,
+    "observed_rmse": 0.09211246137626836
+   },
+   "3_two_phase_uniform": {
+    "avoidable_mse": 0.0023361942573883123,
+    "cross_term": -0.00016378258521220293,
+    "floor_mse": 0.0075749549984767146,
+    "noise_subtracted_mse": 0.002172411672176109,
+    "observed_mse": 0.009747366670652824,
+    "observed_rmse": 0.09872875300869967
+   },
+   "4_two_phase_inner": {
+    "avoidable_mse": 0.008188791828890873,
+    "cross_term": -0.00010733467456223619,
+    "floor_mse": 0.0075749549984767146,
+    "noise_subtracted_mse": 0.008081457154328635,
+    "observed_mse": 0.01565641215280535,
+    "observed_rmse": 0.1251255855243257
+   },
+   "5_two_phase_no_outer": {
+    "avoidable_mse": 0.0033091768435318204,
+    "cross_term": -0.00012914211922407877,
+    "floor_mse": 0.0075749549984767146,
+    "noise_subtracted_mse": 0.0031800347243077422,
+    "observed_mse": 0.010754989722784457,
+    "observed_rmse": 0.10370626655503734
+   },
+   "5b_two_phase_outer_only": {
+    "avoidable_mse": 0.0068046734714792,
+    "cross_term": -0.00026374301946177685,
+    "floor_mse": 0.0075749549984767146,
+    "noise_subtracted_mse": 0.006540930452017422,
+    "observed_mse": 0.014115885450494137,
+    "observed_rmse": 0.11881029185425872
+   },
+   "6_exact_reference": {
+    "avoidable_mse": 0.0023468886374132403,
+    "cross_term": -0.00016192994974826723,
+    "floor_mse": 0.0075749549984767146,
+    "noise_subtracted_mse": 0.0021849586876649726,
+    "observed_mse": 0.009759913686141687,
+    "observed_rmse": 0.0987922754376155
+   },
+   "7_two_phase_B_only": {
+    "avoidable_mse": 0.023884478667861087,
+    "cross_term": -0.0005522018564846991,
+    "floor_mse": 0.0075749549984767146,
+    "noise_subtracted_mse": 0.02333227681137639,
+    "observed_mse": 0.0309072318098531,
+    "observed_rmse": 0.17580452727348378
+   },
+   "8_two_phase_B_only_inertia": {
+    "avoidable_mse": 0.010217400304784107,
+    "cross_term": -0.0009409433613559037,
+    "floor_mse": 0.0075749549984767146,
+    "noise_subtracted_mse": 0.0092764569434282,
+    "observed_mse": 0.016851411941904915,
+    "observed_rmse": 0.1298129883405544
+   },
+   "9_two_phase_B_only_uniform_slowing": {
+    "avoidable_mse": 0.006011541537193769,
+    "cross_term": -0.000514661259870773,
+    "floor_mse": 0.0075749549984767146,
+    "noise_subtracted_mse": 0.005496880277322995,
+    "observed_mse": 0.01307183527579971,
+    "observed_rmse": 0.11433212705009782
+   }
+  },
+  "12": {
+   "10_ridge": {
+    "avoidable_mse": 0.0025909220180732463,
+    "cross_term": -0.0004324825152966303,
+    "floor_mse": 0.0078971613974627,
+    "noise_subtracted_mse": 0.002158439502776617,
+    "observed_mse": 0.010055600900239317,
+    "observed_rmse": 0.10027761913926415
+   },
+   "1_frozen": {
+    "avoidable_mse": 0.11854406367815296,
+    "cross_term": -0.000382065108871412,
+    "floor_mse": 0.0078971613974627,
+    "noise_subtracted_mse": 0.11816199856928154,
+    "observed_mse": 0.12605915996674424,
+    "observed_rmse": 0.355048109369342
+   },
+   "2a_clamped_energy_C": {
+    "avoidable_mse": 0.0012142290343588678,
+    "cross_term": 1.8525978005295774e-05,
+    "floor_mse": 0.0078971613974627,
+    "noise_subtracted_mse": 0.0012327550123641638,
+    "observed_mse": 0.009129916409826863,
+    "observed_rmse": 0.09555059607258796
+   },
+   "2b_clamped_energy_9C": {
+    "avoidable_mse": 0.0011934316830429861,
+    "cross_term": 4.30827701083308e-06,
+    "floor_mse": 0.0078971613974627,
+    "noise_subtracted_mse": 0.001197739960053821,
+    "observed_mse": 0.00909490135751652,
+    "observed_rmse": 0.09536719224930826
+   },
+   "3_two_phase_uniform": {
+    "avoidable_mse": 0.002482385101624714,
+    "cross_term": -9.174403648947696e-05,
+    "floor_mse": 0.0078971613974627,
+    "noise_subtracted_mse": 0.002390641065135238,
+    "observed_mse": 0.010287802462597938,
+    "observed_rmse": 0.10142880489583783
+   },
+   "4_two_phase_inner": {
+    "avoidable_mse": 0.009150777404412752,
+    "cross_term": -4.829046450955584e-05,
+    "floor_mse": 0.0078971613974627,
+    "noise_subtracted_mse": 0.009102486939903199,
+    "observed_mse": 0.016999648337365898,
+    "observed_rmse": 0.13038269953243758
+   },
+   "5_two_phase_no_outer": {
+    "avoidable_mse": 0.003753429996379762,
+    "cross_term": -4.9901102348889044e-05,
+    "floor_mse": 0.0078971613974627,
+    "noise_subtracted_mse": 0.003703528894030873,
+    "observed_mse": 0.011600690291493573,
+    "observed_rmse": 0.10770650069282528
+   },
+   "5b_two_phase_outer_only": {
+    "avoidable_mse": 0.006723657995020853,
+    "cross_term": -0.00020886023276251657,
+    "floor_mse": 0.0078971613974627,
+    "noise_subtracted_mse": 0.006514797762258337,
+    "observed_mse": 0.014411959159721037,
+    "observed_rmse": 0.12004981949058081
+   },
+   "6_exact_reference": {
+    "avoidable_mse": 0.002491049415170117,
+    "cross_term": -9.22170999377646e-05,
+    "floor_mse": 0.0078971613974627,
+    "noise_subtracted_mse": 0.0023988323152323524,
+    "observed_mse": 0.010295993712695052,
+    "observed_rmse": 0.10146917617037723
+   },
+   "7_two_phase_B_only": {
+    "avoidable_mse": 0.03822840818536811,
+    "cross_term": 0.0006982560976093135,
+    "floor_mse": 0.0078971613974627,
+    "noise_subtracted_mse": 0.03892666428297741,
+    "observed_mse": 0.04682382568044011,
+    "observed_rmse": 0.2163881366444106
+   },
+   "8_two_phase_B_only_inertia": {
+    "avoidable_mse": 0.010737602222230296,
+    "cross_term": 0.00011140780928947516,
+    "floor_mse": 0.0078971613974627,
+    "noise_subtracted_mse": 0.010849010031519774,
+    "observed_mse": 0.018746171428982474,
+    "observed_rmse": 0.13691665869784608
+   },
+   "9_two_phase_B_only_uniform_slowing": {
+    "avoidable_mse": 0.009736451218905774,
+    "cross_term": 0.00022351250309195493,
+    "floor_mse": 0.0078971613974627,
+    "noise_subtracted_mse": 0.00995996372199773,
+    "observed_mse": 0.01785712511946043,
+    "observed_rmse": 0.13363055458786524
+   }
+  },
+  "3": {
+   "10_ridge": {
+    "avoidable_mse": 0.0024071625077392166,
+    "cross_term": 0.000523618112208592,
+    "floor_mse": 0.007728332543798736,
+    "noise_subtracted_mse": 0.0029307806199478093,
+    "observed_mse": 0.010659113163746545,
+    "observed_rmse": 0.10324298118393592
+   },
+   "1_frozen": {
+    "avoidable_mse": 0.13081488190215806,
+    "cross_term": 0.0002909918107053392,
+    "floor_mse": 0.007728332543798736,
+    "noise_subtracted_mse": 0.1311058737128634,
+    "observed_mse": 0.13883420625666212,
+    "observed_rmse": 0.37260462457766425
+   },
+   "2a_clamped_energy_C": {
+    "avoidable_mse": 0.001012386936350456,
+    "cross_term": -0.00014662015907703082,
+    "floor_mse": 0.007728332543798736,
+    "noise_subtracted_mse": 0.0008657667772734249,
+    "observed_mse": 0.008594099321072161,
+    "observed_rmse": 0.0927043651673003
+   },
+   "2b_clamped_energy_9C": {
+    "avoidable_mse": 0.0010177737459898272,
+    "cross_term": -0.00010582184535035093,
+    "floor_mse": 0.007728332543798736,
+    "noise_subtracted_mse": 0.0009119519006394773,
+    "observed_mse": 0.008640284444438213,
+    "observed_rmse": 0.09295313036384635
+   },
+   "3_two_phase_uniform": {
+    "avoidable_mse": 0.0023547056659650053,
+    "cross_term": -3.604251613911407e-05,
+    "floor_mse": 0.007728332543798736,
+    "noise_subtracted_mse": 0.0023186631498258916,
+    "observed_mse": 0.010046995693624628,
+    "observed_rmse": 0.10023470304053696
+   },
+   "4_two_phase_inner": {
+    "avoidable_mse": 0.008909449585554403,
+    "cross_term": -1.3368512478298907e-05,
+    "floor_mse": 0.007728332543798736,
+    "noise_subtracted_mse": 0.008896081073076104,
+    "observed_mse": 0.01662441361687484,
+    "observed_rmse": 0.12893569566599794
+   },
+   "5_two_phase_no_outer": {
+    "avoidable_mse": 0.0035328771256008936,
+    "cross_term": -3.189895821854588e-05,
+    "floor_mse": 0.007728332543798736,
+    "noise_subtracted_mse": 0.0035009781673823494,
+    "observed_mse": 0.011229310711181086,
+    "observed_rmse": 0.10596844205319376
+   },
+   "5b_two_phase_outer_only": {
+    "avoidable_mse": 0.00724730532534231,
+    "cross_term": -0.0001317082154063029,
+    "floor_mse": 0.007728332543798736,
+    "noise_subtracted_mse": 0.007115597109936006,
+    "observed_mse": 0.014843929653734742,
+    "observed_rmse": 0.1218356665912521
+   },
+   "6_exact_reference": {
+    "avoidable_mse": 0.002361820869315882,
+    "cross_term": -3.666574122303948e-05,
+    "floor_mse": 0.007728332543798736,
+    "noise_subtracted_mse": 0.0023251551280928425,
+    "observed_mse": 0.010053487671891579,
+    "observed_rmse": 0.10026708169629542
+   },
+   "7_two_phase_B_only": {
+    "avoidable_mse": 0.022111089906266538,
+    "cross_term": -5.934549879245205e-05,
+    "floor_mse": 0.007728332543798736,
+    "noise_subtracted_mse": 0.02205174440747409,
+    "observed_mse": 0.029780076951272827,
+    "observed_rmse": 0.1725690498069478
+   },
+   "8_two_phase_B_only_inertia": {
+    "avoidable_mse": 0.008430799505602035,
+    "cross_term": -0.00014436403359962947,
+    "floor_mse": 0.007728332543798736,
+    "noise_subtracted_mse": 0.008286435472002404,
+    "observed_mse": 0.01601476801580114,
+    "observed_rmse": 0.12654946865080524
+   },
+   "9_two_phase_B_only_uniform_slowing": {
+    "avoidable_mse": 0.006043812193339903,
+    "cross_term": 0.00011545472853872967,
+    "floor_mse": 0.007728332543798736,
+    "noise_subtracted_mse": 0.0061592669218786325,
+    "observed_mse": 0.013887599465677369,
+    "observed_rmse": 0.11784565951140233
+   }
+  },
+  "4": {
+   "10_ridge": {
+    "avoidable_mse": 0.00266879675454603,
+    "cross_term": -7.327078758214754e-05,
+    "floor_mse": 0.006961105221714626,
+    "noise_subtracted_mse": 0.002595525966963882,
+    "observed_mse": 0.009556631188678508,
+    "observed_rmse": 0.09775802365370583
+   },
+   "1_frozen": {
+    "avoidable_mse": 0.13714260527400035,
+    "cross_term": 5.562382438062045e-05,
+    "floor_mse": 0.006961105221714626,
+    "noise_subtracted_mse": 0.137198229098381,
+    "observed_mse": 0.14415933432009562,
+    "observed_rmse": 0.37968320257827526
+   },
+   "2a_clamped_energy_C": {
+    "avoidable_mse": 0.0011146435503646972,
+    "cross_term": 6.729078402723506e-05,
+    "floor_mse": 0.006961105221714626,
+    "noise_subtracted_mse": 0.0011819343343919333,
+    "observed_mse": 0.00814303955610656,
+    "observed_rmse": 0.09023879185863783
+   },
+   "2b_clamped_energy_9C": {
+    "avoidable_mse": 0.0011417494510281845,
+    "cross_term": 6.562940188332015e-05,
+    "floor_mse": 0.006961105221714626,
+    "noise_subtracted_mse": 0.0012073788529115038,
+    "observed_mse": 0.00816848407462613,
+    "observed_rmse": 0.09037966626750804
+   },
+   "3_two_phase_uniform": {
+    "avoidable_mse": 0.002547677026186235,
+    "cross_term": 0.00020319155050780392,
+    "floor_mse": 0.006961105221714626,
+    "noise_subtracted_mse": 0.00275086857669404,
+    "observed_mse": 0.009711973798408666,
+    "observed_rmse": 0.09854934702172646
+   },
+   "4_two_phase_inner": {
+    "avoidable_mse": 0.009033503256073624,
+    "cross_term": 1.795778698073283e-05,
+    "floor_mse": 0.006961105221714626,
+    "noise_subtracted_mse": 0.009051461043054357,
+    "observed_mse": 0.016012566264768983,
+    "observed_rmse": 0.12654076918040677
+   },
+   "5_two_phase_no_outer": {
+    "avoidable_mse": 0.0036338040920029704,
+    "cross_term": 1.9752335405578626e-05,
+    "floor_mse": 0.006961105221714626,
+    "noise_subtracted_mse": 0.00365355642740855,
+    "observed_mse": 0.010614661649123176,
+    "observed_rmse": 0.10302748006781091
+   },
+   "5b_two_phase_outer_only": {
+    "avoidable_mse": 0.008089473003421272,
+    "cross_term": 3.385650142291077e-05,
+    "floor_mse": 0.006961105221714626,
+    "noise_subtracted_mse": 0.008123329504844182,
+    "observed_mse": 0.015084434726558809,
+    "observed_rmse": 0.12281870674518117
+   },
+   "6_exact_reference": {
+    "avoidable_mse": 0.002535667105694186,
+    "cross_term": 0.0002136513523234727,
+    "floor_mse": 0.006961105221714626,
+    "noise_subtracted_mse": 0.002749318458017659,
+    "observed_mse": 0.009710423679732285,
+    "observed_rmse": 0.09854148202524805
+   },
+   "7_two_phase_B_only": {
+    "avoidable_mse": 0.04076948893444962,
+    "cross_term": -0.00010761677424806279,
+    "floor_mse": 0.006961105221714626,
+    "noise_subtracted_mse": 0.04066187216020156,
+    "observed_mse": 0.04762297738191619,
+    "observed_rmse": 0.21822689426813596
+   },
+   "8_two_phase_B_only_inertia": {
+    "avoidable_mse": 0.014586686636651695,
+    "cross_term": 0.0004304145732658827,
+    "floor_mse": 0.006961105221714626,
+    "noise_subtracted_mse": 0.015017101209917576,
+    "observed_mse": 0.021978206431632202,
+    "observed_rmse": 0.148250485434727
+   },
+   "9_two_phase_B_only_uniform_slowing": {
+    "avoidable_mse": 0.014286903801505928,
+    "cross_term": -0.00022512779712418734,
+    "floor_mse": 0.006961105221714626,
+    "noise_subtracted_mse": 0.014061776004381745,
+    "observed_mse": 0.02102288122609637,
+    "observed_rmse": 0.14499269369901496
+   }
+  },
+  "5": {
+   "10_ridge": {
+    "avoidable_mse": 0.0019147417541052697,
+    "cross_term": -0.0005133149789680604,
+    "floor_mse": 0.00687564116543297,
+    "noise_subtracted_mse": 0.0014014267751372095,
+    "observed_mse": 0.00827706794057018,
+    "observed_rmse": 0.0909783927126116
+   },
+   "1_frozen": {
+    "avoidable_mse": 0.13394016446078919,
+    "cross_term": 0.00020790151415882744,
+    "floor_mse": 0.00687564116543297,
+    "noise_subtracted_mse": 0.13414806597494802,
+    "observed_mse": 0.14102370714038098,
+    "observed_rmse": 0.37553123324216453
+   },
+   "2a_clamped_energy_C": {
+    "avoidable_mse": 0.001150394872437368,
+    "cross_term": -0.0002882186351275364,
+    "floor_mse": 0.00687564116543297,
+    "noise_subtracted_mse": 0.0008621762373098316,
+    "observed_mse": 0.007737817402742802,
+    "observed_rmse": 0.08796486459230642
+   },
+   "2b_clamped_energy_9C": {
+    "avoidable_mse": 0.0011648122609804444,
+    "cross_term": -0.00027967831144982296,
+    "floor_mse": 0.00687564116543297,
+    "noise_subtracted_mse": 0.0008851339495306214,
+    "observed_mse": 0.007760775114963592,
+    "observed_rmse": 0.08809526159200387
+   },
+   "3_two_phase_uniform": {
+    "avoidable_mse": 0.0023876361893692293,
+    "cross_term": -0.00030646514736769114,
+    "floor_mse": 0.00687564116543297,
+    "noise_subtracted_mse": 0.0020811710420015382,
+    "observed_mse": 0.008956812207434509,
+    "observed_rmse": 0.0946404364288041
+   },
+   "4_two_phase_inner": {
+    "avoidable_mse": 0.008758137430795771,
+    "cross_term": -0.00017252628527990798,
+    "floor_mse": 0.00687564116543297,
+    "noise_subtracted_mse": 0.008585611145515863,
+    "observed_mse": 0.015461252310948834,
+    "observed_rmse": 0.12434328414091705
+   },
+   "5_two_phase_no_outer": {
+    "avoidable_mse": 0.003660284656662373,
+    "cross_term": -0.00019751970077661735,
+    "floor_mse": 0.00687564116543297,
+    "noise_subtracted_mse": 0.003462764955885757,
+    "observed_mse": 0.010338406121318727,
+    "observed_rmse": 0.10167795297565116
+   },
+   "5b_two_phase_outer_only": {
+    "avoidable_mse": 0.006883489367054449,
+    "cross_term": -0.0003040984212150569,
+    "floor_mse": 0.00687564116543297,
+    "noise_subtracted_mse": 0.006579390945839393,
+    "observed_mse": 0.013455032111272363,
+    "observed_rmse": 0.11599582799080475
+   },
+   "6_exact_reference": {
+    "avoidable_mse": 0.0023817566305721783,
+    "cross_term": -0.0002910435605048209,
+    "floor_mse": 0.00687564116543297,
+    "noise_subtracted_mse": 0.0020907130700673566,
+    "observed_mse": 0.008966354235500327,
+    "observed_rmse": 0.09469083501321723
+   },
+   "7_two_phase_B_only": {
+    "avoidable_mse": 0.016630963685219623,
+    "cross_term": 0.00011411382555413998,
+    "floor_mse": 0.00687564116543297,
+    "noise_subtracted_mse": 0.016745077510773764,
+    "observed_mse": 0.023620718676206735,
+    "observed_rmse": 0.15369033371102664
+   },
+   "8_two_phase_B_only_inertia": {
+    "avoidable_mse": 0.012797471192518898,
+    "cross_term": 0.00038637166507749616,
+    "floor_mse": 0.00687564116543297,
+    "noise_subtracted_mse": 0.013183842857596394,
+    "observed_mse": 0.020059484023029366,
+    "observed_rmse": 0.14163150787529363
+   },
+   "9_two_phase_B_only_uniform_slowing": {
+    "avoidable_mse": 0.005345901714480646,
+    "cross_term": -0.00013483050151295265,
+    "floor_mse": 0.00687564116543297,
+    "noise_subtracted_mse": 0.005211071212967694,
+    "observed_mse": 0.012086712378400664,
+    "observed_rmse": 0.1099395851292912
+   }
+  },
+  "6": {
+   "10_ridge": {
+    "avoidable_mse": 0.0020953310414593635,
+    "cross_term": -0.0004152875630209063,
+    "floor_mse": 0.007572254765335835,
+    "noise_subtracted_mse": 0.0016800434784384564,
+    "observed_mse": 0.009252298243774291,
+    "observed_rmse": 0.09618886756675271
+   },
+   "1_frozen": {
+    "avoidable_mse": 0.12190513072723512,
+    "cross_term": 0.0002586174709951255,
+    "floor_mse": 0.007572254765335835,
+    "noise_subtracted_mse": 0.12216374819823024,
+    "observed_mse": 0.12973600296356608,
+    "observed_rmse": 0.3601888434745947
+   },
+   "2a_clamped_energy_C": {
+    "avoidable_mse": 0.001049490128219283,
+    "cross_term": -6.800499753859831e-05,
+    "floor_mse": 0.007572254765335835,
+    "noise_subtracted_mse": 0.0009814851306806857,
+    "observed_mse": 0.00855373989601652,
+    "observed_rmse": 0.09248643087511012
+   },
+   "2b_clamped_energy_9C": {
+    "avoidable_mse": 0.0010437729828274701,
+    "cross_term": -6.30683257135433e-05,
+    "floor_mse": 0.007572254765335835,
+    "noise_subtracted_mse": 0.0009807046571139264,
+    "observed_mse": 0.008552959422449762,
+    "observed_rmse": 0.09248221138386431
+   },
+   "3_two_phase_uniform": {
+    "avoidable_mse": 0.0023432289255786204,
+    "cross_term": -0.0001831206029658724,
+    "floor_mse": 0.007572254765335835,
+    "noise_subtracted_mse": 0.002160108322612748,
+    "observed_mse": 0.009732363087948583,
+    "observed_rmse": 0.0986527398907328
+   },
+   "4_two_phase_inner": {
+    "avoidable_mse": 0.00857924358909418,
+    "cross_term": 4.277880587711383e-05,
+    "floor_mse": 0.007572254765335835,
+    "noise_subtracted_mse": 0.008622022394971294,
+    "observed_mse": 0.01619427716030713,
+    "observed_rmse": 0.12725673719024516
+   },
+   "5_two_phase_no_outer": {
+    "avoidable_mse": 0.003394032667010886,
+    "cross_term": 4.6901442268523904e-05,
+    "floor_mse": 0.007572254765335835,
+    "noise_subtracted_mse": 0.00344093410927941,
+    "observed_mse": 0.011013188874615245,
+    "observed_rmse": 0.10494374147425488
+   },
+   "5b_two_phase_outer_only": {
+    "avoidable_mse": 0.007879757659836957,
+    "cross_term": -0.0011872653726209016,
+    "floor_mse": 0.007572254765335835,
+    "noise_subtracted_mse": 0.006692492287216054,
+    "observed_mse": 0.01426474705255189,
+    "observed_rmse": 0.11943511649658106
+   },
+   "6_exact_reference": {
+    "avoidable_mse": 0.0023486978693908716,
+    "cross_term": -0.0001823408011925975,
+    "floor_mse": 0.007572254765335835,
+    "noise_subtracted_mse": 0.0021663570681982724,
+    "observed_mse": 0.009738611833534108,
+    "observed_rmse": 0.09868440521953865
+   },
+   "7_two_phase_B_only": {
+    "avoidable_mse": 0.015543882981616693,
+    "cross_term": -0.00018365419810185794,
+    "floor_mse": 0.007572254765335835,
+    "noise_subtracted_mse": 0.015360228783514831,
+    "observed_mse": 0.022932483548850666,
+    "observed_rmse": 0.1514347501363233
+   },
+   "8_two_phase_B_only_inertia": {
+    "avoidable_mse": 0.01132463580131361,
+    "cross_term": 3.867651904555337e-05,
+    "floor_mse": 0.007572254765335835,
+    "noise_subtracted_mse": 0.011363312320359165,
+    "observed_mse": 0.018935567085695,
+    "observed_rmse": 0.13760656628844062
+   },
+   "9_two_phase_B_only_uniform_slowing": {
+    "avoidable_mse": 0.005114671228346297,
+    "cross_term": -0.00022309279004823412,
+    "floor_mse": 0.007572254765335835,
+    "noise_subtracted_mse": 0.004891578438298063,
+    "observed_mse": 0.012463833203633898,
+    "observed_rmse": 0.11164153888062409
+   }
+  },
+  "7": {
+   "10_ridge": {
+    "avoidable_mse": 0.0022996256662332556,
+    "cross_term": -0.000515850702479881,
+    "floor_mse": 0.007651894159944029,
+    "noise_subtracted_mse": 0.0017837749637533732,
+    "observed_mse": 0.009435669123697402,
+    "observed_rmse": 0.09713737243562542
+   },
+   "1_frozen": {
+    "avoidable_mse": 0.13574243961641042,
+    "cross_term": -0.00023785960928251362,
+    "floor_mse": 0.007651894159944029,
+    "noise_subtracted_mse": 0.13550458000712795,
+    "observed_mse": 0.14315647416707197,
+    "observed_rmse": 0.3783602439039704
+   },
+   "2a_clamped_energy_C": {
+    "avoidable_mse": 0.0010990330682070157,
+    "cross_term": -0.00029871980533400003,
+    "floor_mse": 0.007651894159944029,
+    "noise_subtracted_mse": 0.0008003132628730128,
+    "observed_mse": 0.008452207422817042,
+    "observed_rmse": 0.09193588756746215
+   },
+   "2b_clamped_energy_9C": {
+    "avoidable_mse": 0.0011229318796816149,
+    "cross_term": -0.00022989799517824652,
+    "floor_mse": 0.007651894159944029,
+    "noise_subtracted_mse": 0.0008930338845033652,
+    "observed_mse": 0.008544928044447394,
+    "observed_rmse": 0.09243877998138765
+   },
+   "3_two_phase_uniform": {
+    "avoidable_mse": 0.0023581518633353895,
+    "cross_term": 3.532259383834381e-05,
+    "floor_mse": 0.007651894159944029,
+    "noise_subtracted_mse": 0.0023934744571737316,
+    "observed_mse": 0.01004536861711776,
+    "observed_rmse": 0.10022658637865385
+   },
+   "4_two_phase_inner": {
+    "avoidable_mse": 0.009248768962839006,
+    "cross_term": -0.00015848760402956724,
+    "floor_mse": 0.007651894159944029,
+    "noise_subtracted_mse": 0.00909028135880944,
+    "observed_mse": 0.01674217551875347,
+    "observed_rmse": 0.12939155891615756
+   },
+   "5_two_phase_no_outer": {
+    "avoidable_mse": 0.0037835704418523654,
+    "cross_term": -0.0001793450801368978,
+    "floor_mse": 0.007651894159944029,
+    "noise_subtracted_mse": 0.0036042253617154666,
+    "observed_mse": 0.011256119521659495,
+    "observed_rmse": 0.10609486095782159
+   },
+   "5b_two_phase_outer_only": {
+    "avoidable_mse": 0.007411073395656905,
+    "cross_term": 0.0004479118840591981,
+    "floor_mse": 0.007651894159944029,
+    "noise_subtracted_mse": 0.007858985279716103,
+    "observed_mse": 0.015510879439660131,
+    "observed_rmse": 0.12454268119668908
+   },
+   "6_exact_reference": {
+    "avoidable_mse": 0.002367636354059069,
+    "cross_term": 3.499560378975602e-05,
+    "floor_mse": 0.007651894159944029,
+    "noise_subtracted_mse": 0.0024026319578488243,
+    "observed_mse": 0.010054526117792853,
+    "observed_rmse": 0.100272259961531
+   },
+   "7_two_phase_B_only": {
+    "avoidable_mse": 0.024512036988682817,
+    "cross_term": -0.0010286708917500833,
+    "floor_mse": 0.007651894159944029,
+    "noise_subtracted_mse": 0.023483366096932735,
+    "observed_mse": 0.031135260256876764,
+    "observed_rmse": 0.17645186385209075
+   },
+   "8_two_phase_B_only_inertia": {
+    "avoidable_mse": 0.008074071955440932,
+    "cross_term": -0.00015203618217441477,
+    "floor_mse": 0.007651894159944029,
+    "noise_subtracted_mse": 0.007922035773266514,
+    "observed_mse": 0.015573929933210544,
+    "observed_rmse": 0.12479555253778295
+   },
+   "9_two_phase_B_only_uniform_slowing": {
+    "avoidable_mse": 0.005074518032201807,
+    "cross_term": -0.0002990462488723837,
+    "floor_mse": 0.007651894159944029,
+    "noise_subtracted_mse": 0.004775471783329423,
+    "observed_mse": 0.012427365943273452,
+    "observed_rmse": 0.11147809624887506
+   }
+  },
+  "8": {
+   "10_ridge": {
+    "avoidable_mse": 0.0023060015773394126,
+    "cross_term": 6.095495517590644e-05,
+    "floor_mse": 0.00701545122741129,
+    "noise_subtracted_mse": 0.00236695653251532,
+    "observed_mse": 0.00938240775992661,
+    "observed_rmse": 0.09686282960933265
+   },
+   "1_frozen": {
+    "avoidable_mse": 0.1302133352898631,
+    "cross_term": -4.68711389903455e-05,
+    "floor_mse": 0.00701545122741129,
+    "noise_subtracted_mse": 0.13016646415087274,
+    "observed_mse": 0.13718191537828403,
+    "observed_rmse": 0.37038077079984055
+   },
+   "2a_clamped_energy_C": {
+    "avoidable_mse": 0.001217416648710371,
+    "cross_term": -5.2555147061139105e-05,
+    "floor_mse": 0.00701545122741129,
+    "noise_subtracted_mse": 0.0011648615016492322,
+    "observed_mse": 0.008180312729060522,
+    "observed_rmse": 0.09044508128726804
+   },
+   "2b_clamped_energy_9C": {
+    "avoidable_mse": 0.0012485227608726353,
+    "cross_term": -3.210438458349277e-05,
+    "floor_mse": 0.00701545122741129,
+    "noise_subtracted_mse": 0.0012164183762891426,
+    "observed_mse": 0.008231869603700433,
+    "observed_rmse": 0.09072965118251272
+   },
+   "3_two_phase_uniform": {
+    "avoidable_mse": 0.0024707479124598817,
+    "cross_term": -0.00011187831802499012,
+    "floor_mse": 0.00701545122741129,
+    "noise_subtracted_mse": 0.0023588695944348915,
+    "observed_mse": 0.009374320821846182,
+    "observed_rmse": 0.09682107633075653
+   },
+   "4_two_phase_inner": {
+    "avoidable_mse": 0.009390962219556463,
+    "cross_term": 1.9779815859770686e-06,
+    "floor_mse": 0.00701545122741129,
+    "noise_subtracted_mse": 0.009392940201142438,
+    "observed_mse": 0.01640839142855373,
+    "observed_rmse": 0.12809524358286584
+   },
+   "5_two_phase_no_outer": {
+    "avoidable_mse": 0.0038215285012661443,
+    "cross_term": 2.9283168405493475e-06,
+    "floor_mse": 0.00701545122741129,
+    "noise_subtracted_mse": 0.003824456818106694,
+    "observed_mse": 0.010839908045517984,
+    "observed_rmse": 0.10411487907843904
+   },
+   "5b_two_phase_outer_only": {
+    "avoidable_mse": 0.007656048867239025,
+    "cross_term": 4.616366443673192e-05,
+    "floor_mse": 0.00701545122741129,
+    "noise_subtracted_mse": 0.007702212531675757,
+    "observed_mse": 0.014717663759087047,
+    "observed_rmse": 0.12131637877503205
+   },
+   "6_exact_reference": {
+    "avoidable_mse": 0.002488494397121231,
+    "cross_term": -0.00011182288187647854,
+    "floor_mse": 0.00701545122741129,
+    "noise_subtracted_mse": 0.0023766715152447535,
+    "observed_mse": 0.009392122742656044,
+    "observed_rmse": 0.09691296478106551
+   },
+   "7_two_phase_B_only": {
+    "avoidable_mse": 0.023819117072583315,
+    "cross_term": 0.00014242157584660724,
+    "floor_mse": 0.00701545122741129,
+    "noise_subtracted_mse": 0.023961538648429922,
+    "observed_mse": 0.030976989875841212,
+    "observed_rmse": 0.17600281212481014
+   },
+   "8_two_phase_B_only_inertia": {
+    "avoidable_mse": 0.02058534079503988,
+    "cross_term": 0.00033647440094274175,
+    "floor_mse": 0.00701545122741129,
+    "noise_subtracted_mse": 0.020921815195982626,
+    "observed_mse": 0.027937266423393916,
+    "observed_rmse": 0.16714444777914078
+   },
+   "9_two_phase_B_only_uniform_slowing": {
+    "avoidable_mse": 0.010041579686604121,
+    "cross_term": -0.00011065805057183032,
+    "floor_mse": 0.00701545122741129,
+    "noise_subtracted_mse": 0.009930921636032292,
+    "observed_mse": 0.016946372863443582,
+    "observed_rmse": 0.1301782349835931
+   }
+  },
+  "9": {
+   "10_ridge": {
+    "avoidable_mse": 0.002059075994133369,
+    "cross_term": 0.00016634286715976456,
+    "floor_mse": 0.007216824148851001,
+    "noise_subtracted_mse": 0.002225418861293132,
+    "observed_mse": 0.009442243010144133,
+    "observed_rmse": 0.09717120463462482
+   },
+   "1_frozen": {
+    "avoidable_mse": 0.12522707162911273,
+    "cross_term": 0.0005455183636559804,
+    "floor_mse": 0.007216824148851001,
+    "noise_subtracted_mse": 0.12577258999276872,
+    "observed_mse": 0.13298941414161972,
+    "observed_rmse": 0.36467713685069386
+   },
+   "2a_clamped_energy_C": {
+    "avoidable_mse": 0.001157275629632518,
+    "cross_term": -0.00011332449769372762,
+    "floor_mse": 0.007216824148851001,
+    "noise_subtracted_mse": 0.0010439511319387876,
+    "observed_mse": 0.008260775280789789,
+    "observed_rmse": 0.09088880723603864
+   },
+   "2b_clamped_energy_9C": {
+    "avoidable_mse": 0.0011698518907369588,
+    "cross_term": -2.8876118679379335e-05,
+    "floor_mse": 0.007216824148851001,
+    "noise_subtracted_mse": 0.0011409757720575783,
+    "observed_mse": 0.00835779992090858,
+    "observed_rmse": 0.09142100371855791
+   },
+   "3_two_phase_uniform": {
+    "avoidable_mse": 0.0023714449192504578,
+    "cross_term": 9.722213549190487e-05,
+    "floor_mse": 0.007216824148851001,
+    "noise_subtracted_mse": 0.0024686670547423607,
+    "observed_mse": 0.009685491203593362,
+    "observed_rmse": 0.09841489320013187
+   },
+   "4_two_phase_inner": {
+    "avoidable_mse": 0.008603587047805668,
+    "cross_term": -1.9330417976997505e-05,
+    "floor_mse": 0.007216824148851001,
+    "noise_subtracted_mse": 0.00858425662982867,
+    "observed_mse": 0.01580108077867967,
+    "observed_rmse": 0.1257023499330051
+   },
+   "5_two_phase_no_outer": {
+    "avoidable_mse": 0.003568997100023736,
+    "cross_term": -9.66679000509941e-06,
+    "floor_mse": 0.007216824148851001,
+    "noise_subtracted_mse": 0.003559330310018635,
+    "observed_mse": 0.010776154458869636,
+    "observed_rmse": 0.10380825814389545
+   },
+   "5b_two_phase_outer_only": {
+    "avoidable_mse": 0.0063188940449780935,
+    "cross_term": -0.0001463875324518544,
+    "floor_mse": 0.007216824148851001,
+    "noise_subtracted_mse": 0.006172506512526238,
+    "observed_mse": 0.013389330661377239,
+    "observed_rmse": 0.11571227532711142
+   },
+   "6_exact_reference": {
+    "avoidable_mse": 0.002376482044013405,
+    "cross_term": 9.457512773166001e-05,
+    "floor_mse": 0.007216824148851001,
+    "noise_subtracted_mse": 0.002471057171745065,
+    "observed_mse": 0.009687881320596066,
+    "observed_rmse": 0.09842703551665094
+   },
+   "7_two_phase_B_only": {
+    "avoidable_mse": 0.02879013943874488,
+    "cross_term": -0.0004196489198073378,
+    "floor_mse": 0.007216824148851001,
+    "noise_subtracted_mse": 0.02837049051893754,
+    "observed_mse": 0.03558731466778854,
+    "observed_rmse": 0.1886460035828709
+   },
+   "8_two_phase_B_only_inertia": {
+    "avoidable_mse": 0.01790765879116708,
+    "cross_term": -0.0002651912627708353,
+    "floor_mse": 0.007216824148851001,
+    "noise_subtracted_mse": 0.017642467528396245,
+    "observed_mse": 0.024859291677247247,
+    "observed_rmse": 0.1576682963605786
+   },
+   "9_two_phase_B_only_uniform_slowing": {
+    "avoidable_mse": 0.015171480248049615,
+    "cross_term": -0.00017395506493779667,
+    "floor_mse": 0.007216824148851001,
+    "noise_subtracted_mse": 0.014997525183111819,
+    "observed_mse": 0.02221434933196282,
+    "observed_rmse": 0.1490447896840504
+   }
+  }
+ },
+ "source": "reports/local-contrastive-consolidation-v1-results.json",
+ "summary": {
+  "10_ridge": {
+   "avoidable_mse": {
+    "max": 0.00266879675454603,
+    "mean": 0.0023092849920729537,
+    "min": 0.0019147417541052697
+   },
+   "avoidable_ratio_to_2a_clamped_energy_C": 2.053282929731647,
+   "cross_term": {
+    "max": 0.000523618112208592,
+    "mean": -0.00013925908972242592,
+    "min": -0.000515850702479881
+   },
+   "noise_subtracted_mse": {
+    "max": 0.0029307806199478093,
+    "mean": 0.0021700259023505267,
+    "min": 0.0014014267751372095
+   },
+   "observed_rmse": {
+    "max": 0.10324298118393592,
+    "mean": 0.09789704013637258,
+    "min": 0.0909783927126116
+   },
+   "seeds_below_noise_subtracted_zero": 0
+  },
+  "1_frozen": {
+   "avoidable_mse": {
+    "max": 0.13714260527400035,
+    "mean": 0.12673458205463586,
+    "min": 0.10015414000706122
+   },
+   "avoidable_ratio_to_2a_clamped_energy_C": 112.68507561116031,
+   "cross_term": {
+    "max": 0.0008319165786496139,
+    "mean": 0.00014326841303781597,
+    "min": -0.000382065108871412
+   },
+   "noise_subtracted_mse": {
+    "max": 0.137198229098381,
+    "mean": 0.1268778504676737,
+    "min": 0.10006305043203813
+   },
+   "observed_rmse": {
+    "max": 0.37968320257827526,
+    "mean": 0.3661705707054971,
+    "min": 0.3280823150224877
+   },
+   "seeds_below_noise_subtracted_zero": 0
+  },
+  "2a_clamped_energy_C": {
+   "avoidable_mse": {
+    "max": 0.001217416648710371,
+    "mean": 0.001124679389593311,
+    "min": 0.001012386936350456
+   },
+   "avoidable_ratio_to_2a_clamped_energy_C": 1.0,
+   "cross_term": {
+    "max": 6.729078402723506e-05,
+    "mean": -0.0001024342025390074,
+    "min": -0.00029871980533400003
+   },
+   "noise_subtracted_mse": {
+    "max": 0.0012327550123641638,
+    "mean": 0.001022245187054303,
+    "min": 0.0008003132628730128
+   },
+   "observed_rmse": {
+    "max": 0.09555059607258796,
+    "mean": 0.09188058213935493,
+    "min": 0.08796486459230642
+   },
+   "seeds_below_noise_subtracted_zero": 0
+  },
+  "2b_clamped_energy_9C": {
+   "avoidable_mse": {
+    "max": 0.0012485227608726353,
+    "mean": 0.001138974424678914,
+    "min": 0.0010177737459898272
+   },
+   "avoidable_ratio_to_2a_clamped_energy_C": 1.0127103201302305,
+   "cross_term": {
+    "max": 6.562940188332015e-05,
+    "mean": -8.40786990506413e-05,
+    "min": -0.00027967831144982296
+   },
+   "noise_subtracted_mse": {
+    "max": 0.0012164183762891426,
+    "mean": 0.0010548957256282725,
+    "min": 0.0008851339495306214
+   },
+   "observed_rmse": {
+    "max": 0.09536719224930826,
+    "mean": 0.09206023174079415,
+    "min": 0.08809526159200387
+   },
+   "seeds_below_noise_subtracted_zero": 0
+  },
+  "3_two_phase_uniform": {
+   "avoidable_mse": {
+    "max": 0.002547677026186235,
+    "mean": 0.002407792075786122,
+    "min": 0.0023361942573883123
+   },
+   "avoidable_ratio_to_2a_clamped_energy_C": 2.1408697430267574,
+   "cross_term": {
+    "max": 0.00020319155050780392,
+    "mean": -3.921196596210992e-05,
+    "min": -0.00030646514736769114
+   },
+   "noise_subtracted_mse": {
+    "max": 0.00275086857669404,
+    "mean": 0.0023685801098240118,
+    "min": 0.0020811710420015382
+   },
+   "observed_rmse": {
+    "max": 0.10167871570728573,
+    "mean": 0.09893760559031659,
+    "min": 0.0946404364288041
+   },
+   "seeds_below_noise_subtracted_zero": 0
+  },
+  "4_two_phase_inner": {
+   "avoidable_mse": {
+    "max": 0.009390962219556463,
+    "mean": 0.008919062009896072,
+    "min": 0.008188791828890873
+   },
+   "avoidable_ratio_to_2a_clamped_energy_C": 7.930315156856609,
+   "cross_term": {
+    "max": 4.277880587711383e-05,
+    "mean": -5.074177658411378e-05,
+    "min": -0.00017252628527990798
+   },
+   "noise_subtracted_mse": {
+    "max": 0.009392940201142438,
+    "mean": 0.008868320233311957,
+    "min": 0.008081457154328635
+   },
+   "observed_rmse": {
+    "max": 0.1304769690670696,
+    "mean": 0.12762508927334282,
+    "min": 0.12434328414091705
+   },
+   "seeds_below_noise_subtracted_zero": 0
+  },
+  "5_two_phase_no_outer": {
+   "avoidable_mse": {
+    "max": 0.0038370936072417896,
+    "mean": 0.0036294795031572733,
+    "min": 0.0033091768435318204
+   },
+   "avoidable_ratio_to_2a_clamped_energy_C": 3.2271236911967502,
+   "cross_term": {
+    "max": 4.6901442268523904e-05,
+    "mean": -5.93267668370288e-05,
+    "min": -0.00019751970077661735
+   },
+   "noise_subtracted_mse": {
+    "max": 0.003824456818106694,
+    "mean": 0.0035701527363202457,
+    "min": 0.0031800347243077422
+   },
+   "observed_rmse": {
+    "max": 0.10770650069282528,
+    "mean": 0.10483766292570787,
+    "min": 0.10167795297565116
+   },
+   "seeds_below_noise_subtracted_zero": 0
+  },
+  "5b_two_phase_outer_only": {
+   "avoidable_mse": {
+    "max": 0.00840514761017949,
+    "mean": 0.007341952074020855,
+    "min": 0.0063188940449780935
+   },
+   "avoidable_ratio_to_2a_clamped_energy_C": 6.528040028079236,
+   "cross_term": {
+    "max": 0.0014428338283268487,
+    "mean": -2.7129691567271986e-05,
+    "min": -0.0011872653726209016
+   },
+   "noise_subtracted_mse": {
+    "max": 0.009847981438506338,
+    "mean": 0.007314822382453584,
+    "min": 0.006172506512526238
+   },
+   "observed_rmse": {
+    "max": 0.13264846965926824,
+    "mean": 0.12131652341267593,
+    "min": 0.11571227532711142
+   },
+   "seeds_below_noise_subtracted_zero": 0
+  },
+  "6_exact_reference": {
+   "avoidable_mse": {
+    "max": 0.002535667105694186,
+    "mean": 0.0024133315644501102,
+    "min": 0.0023468886374132403
+   },
+   "avoidable_ratio_to_2a_clamped_energy_C": 2.1457951366235863,
+   "cross_term": {
+    "max": 0.0002136513523234727,
+    "mean": -3.667812414501684e-05,
+    "min": -0.0002910435605048209
+   },
+   "noise_subtracted_mse": {
+    "max": 0.002749318458017659,
+    "mean": 0.002376653440305093,
+    "min": 0.0020907130700673566
+   },
+   "observed_rmse": {
+    "max": 0.10172745005837067,
+    "mean": 0.09897849658799102,
+    "min": 0.09469083501321723
+   },
+   "seeds_below_noise_subtracted_zero": 0
+  },
+  "7_two_phase_B_only": {
+   "avoidable_mse": {
+    "max": 0.04076948893444962,
+    "mean": 0.02521981564294562,
+    "min": 0.015543882981616693
+   },
+   "avoidable_ratio_to_2a_clamped_energy_C": 22.424004455229873,
+   "cross_term": {
+    "max": 0.0006982560976093135,
+    "mean": -9.779170893515952e-05,
+    "min": -0.0010286708917500833
+   },
+   "noise_subtracted_mse": {
+    "max": 0.04066187216020156,
+    "mean": 0.025122023934010463,
+    "min": 0.015360228783514831
+   },
+   "observed_rmse": {
+    "max": 0.21822689426813596,
+    "mean": 0.17906907324686036,
+    "min": 0.1514347501363233
+   },
+   "seeds_below_noise_subtracted_zero": 0
+  },
+  "8_two_phase_B_only_inertia": {
+   "avoidable_mse": {
+    "max": 0.02058534079503988,
+    "mean": 0.012579975808203364,
+    "min": 0.008074071955440932
+   },
+   "avoidable_ratio_to_2a_clamped_energy_C": 11.185388409004577,
+   "cross_term": {
+    "max": 0.0004304145732658827,
+    "mean": 2.1561001848612727e-07,
+    "min": -0.0009409433613559037
+   },
+   "noise_subtracted_mse": {
+    "max": 0.020921815195982626,
+    "mean": 0.01258019141822185,
+    "min": 0.007922035773266514
+   },
+   "observed_rmse": {
+    "max": 0.16714444777914078,
+    "mean": 0.14085319414858133,
+    "min": 0.12479555253778295
+   },
+   "seeds_below_noise_subtracted_zero": 0
+  },
+  "9_two_phase_B_only_uniform_slowing": {
+   "avoidable_mse": {
+    "max": 0.015171480248049615,
+    "mean": 0.00819922639054167,
+    "min": 0.005074518032201807
+   },
+   "avoidable_ratio_to_2a_clamped_energy_C": 7.290278870946988,
+   "cross_term": {
+    "max": 0.00022351250309195493,
+    "mean": -0.000130610039429064,
+    "min": -0.000514661259870773
+   },
+   "noise_subtracted_mse": {
+    "max": 0.014997525183111819,
+    "mean": 0.008068616351112607,
+    "min": 0.004775471783329423
+   },
+   "observed_rmse": {
+    "max": 0.1490447896840504,
+    "mean": 0.12368784615543833,
+    "min": 0.1099395851292912
+   },
+   "seeds_below_noise_subtracted_zero": 0
+  }
+ }
+}

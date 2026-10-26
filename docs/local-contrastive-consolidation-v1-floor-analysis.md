@@ -91,3 +91,8 @@ factorization (S ≤ 42) plus 32 O(nS²) steps on n = 24 test examples. The run
 performed 330 settles and scored 120 parameter sets including ridge fits:
 0.19 s wall, 0.19 s CPU, peak RSS 64 MB on one thread. Exact counts, hashes of
 inputs and outputs, and versions are in the runtime JSON.
+
+The outputs were regenerated from the clean committed tree at 60290de. The
+science JSON is byte-identical to the earlier uncommitted run. The runtime
+JSON's `dirty_status` lists only the results file, which is written before
+the provenance step.
