@@ -188,3 +188,18 @@ not established. All observations and rejected proposals are costed. Learned
 coupling, more informative support tests, trace recombination and autonomous
 consolidation remain open. See the results rather than treating this proposal as
 a validated specification.
+
+## Second implemented test (2026-10-26)
+
+The [local contrastive consolidation v1 experiment](local-contrastive-consolidation-v1-results.md)
+learns inter-module translations at graded layers with a two-phase local rule.
+Both structures are now acquired and retained under replay, and the two-phase
+rule's final error is nearly identical to that of exact masked-loss gradient
+training. However, a clamped-energy control learns better and more cheaply. Both
+rules learn; the two-phase rule adds no demonstrated advantage, and clamped-energy
+learning with learnable translations is the working baseline. Without replay of
+the first structure, it is forgotten. Support-style importance inertia reduces
+that forgetting but does less than uniform slowing, in a comparison that was not
+movement-matched. Learned coupling is no longer
+unimplemented; which of the changed factors (translations, coupling budget,
+update budget) was decisive remains open.
