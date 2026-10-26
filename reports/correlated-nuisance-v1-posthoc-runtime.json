@@ -1,0 +1,20 @@
+{
+ "command": "/home/debjit/code/sri/experiments/correlated_nuisance_posthoc.py",
+ "complexity": "per seed and regime: two ridge fits and one 8-column SVD; per condition one completion map (three O(S^3) solves) and 8x16x4 products",
+ "cpu_seconds": 0.414583135,
+ "dirty_status": "?? reports/correlated-nuisance-v1-posthoc-results.json\n",
+ "dtype": "float64",
+ "hashes": {
+  "experiments/correlated_nuisance.py": "658c87b2a2adb8309c1f2f7d968ebe9525684730921291fe965f62d38f96618f",
+  "experiments/correlated_nuisance_posthoc.py": "a18e086b73b542c44b4840e66be2d02c21c5a070cbdbce68fad34b097e3edba7",
+  "reports/correlated-nuisance-v1-posthoc-results.json": "5f78e74ea754ed82f259e159598d08d0df4d225482390efc7dfb1e1d16ea6e3f",
+  "reports/correlated-nuisance-v1-results.json.gz": "71a5650c01dee826b600b2f534d20ebaecba354cb60aaeed03bb44d906e407a6"
+ },
+ "numpy": "2.5.4",
+ "os": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "peak_rss_kib": 88396,
+ "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+ "revision": "e3555048adfdc2553437937b0a7b35b086534240",
+ "timing_scope": "whole run including JSON parsing; not a latency benchmark",
+ "wall_seconds": 0.4201095880125649
+}
