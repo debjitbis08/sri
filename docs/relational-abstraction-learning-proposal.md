@@ -439,7 +439,8 @@ establish novelty. Exact preservation is a mathematical property; discovery
 from incomplete experience and useful transfer are the empirical obligations.
 
 The next deliverable is a generator/identifiability and SRI-capacity preflight,
-starting with the weak-prior linear module. Freeze its action interface and
+starting with the weak-prior linear module; its frozen contract is
+[relational linear preflight v1](relational-linear-preflight-v1-contract.md). Freeze its action interface and
 cost accounting before execution, followed by a learning/transfer contract with
 sample counts, thresholds, seeds and tuning budget. Keep capacity, learning,
 transfer, and sleep-specific outcomes distinct. This proposal makes no claim

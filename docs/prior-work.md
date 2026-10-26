@@ -460,6 +460,18 @@ numerical scripts during this review and are not stored.
     [derived, numerically checked]. Transfer of exact source operators should
     therefore help most at small budgets and long horizons; choose budgets
     and horizons where the direct references predict a measurable gap.
+  - Composing the population-optimal one-step map R F_a K, with
+    Kx = E[z | x], inserts KR between transitions, while the oracle applies
+    K once; on a draft world it keeps 0.73 of the oracle's gain at
+    L = 128. One-step fitting is therefore not a long-horizon capacity test
+    [derived, numerically checked].
+  - For the three-module SRI window at prior 0.001 and κ = 1, each two-step
+    window keeps about 0.983 of gain (about 0.34 after 128 steps), which a
+    scalar rescaling of the translations removes. A constructed encoder
+    rejects nuisance only with nuisance weights beyond the ±2 clip (relative
+    leakage 0.14 at the clip) [derived, numerically checked; see the
+    [relational linear preflight](relational-linear-preflight-v1-contract.md)
+    and its draft-check script].
 
 ## Implications for contracts
 
