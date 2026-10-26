@@ -15,6 +15,11 @@ alignment and stitching, and critiques of importance-based continual learning.
 No search found a published model combining all this project's ingredients,
 which is not evidence of novelty.
 
+A second round on 2026-10-26, for [correlated nuisance v1](correlated-nuisance-v1-contract.md),
+covered early versus late fusion in multimodal learning, reduced-rank
+regression under distribution shift, and spurious correlations in linear
+regression, and re-checked Kamai et al. 2026 at its arXiv page.
+
 Each claim below carries a tag:
 
 - **[read]**: the cited section was read in the source;
@@ -157,12 +162,44 @@ untested).
 - **Cross-prediction versus alignment.**
   - Shown: in a linear spiked model, cross-modal alignment fails under strongly
     correlated cross-modal nuisance, and cross-prediction depends on
-    source-modality quality ([Kamai et al. 2026](https://arxiv.org/abs/2606.11190))
+    source-modality quality. The paper gives a phase diagram of regimes where
+    alignment, prediction, both or neither recover the signal, and reports
+    support in nonlinear experiments ([Kamai et al. 2026](https://arxiv.org/abs/2606.11190))
     [abstract].
   - Differs: objectives for learned encoders, not local energy learning.
   - Hypothesis: the current fixture's nuisance is independent across modules,
     so a correlated-nuisance fixture is a cheap, theory-guided way to make
     objectives differ.
+- **Early, intermediate and late fusion.**
+  - Shown: multimodal surveys classify fusion as early (feature level), late
+    (decision level) or hybrid and intermediate, and report trade-offs
+    rather than a general ranking. Early fusion captures low-level
+    interactions; late fusion tolerates missing modalities
+    ([Baltrušaitis et al. 2017](https://arxiv.org/pdf/1705.09406);
+    [Zhang et al. 2019](https://arxiv.org/pdf/1911.03977);
+    [biomedical intermediate-fusion review, 2024](https://arxiv.org/abs/2408.02686))
+    [abstract].
+  - Differs: designated modalities trained end to end, and fusion is a
+    combination step, not symmetric coupling at several layers.
+  - Hypothesis: uniform versus inner coupling resembles early versus late
+    fusion [analogy]. The surveys do not predict which wins here.
+- **Rank constraints and spurious correlation.**
+  - Shown: reduced-rank regression constrains a multivariate predictor's rank
+    (Izenman 1975) [familiar]. Anchor regularization has been added to it for
+    out-of-distribution robustness ([Durand et al., AISTATS 2025](https://proceedings.mlr.press/v258/durand25a.html))
+    [abstract]. Invariant risk minimization (Arjovsky et al. 2019) and anchor
+    regression (Rothenhäusler et al. 2021) target correlations that do not
+    persist across environments [familiar]. In high-dimensional ridge
+    regression, learned spurious correlation and in-distribution loss trade
+    off, and the loss-minimizing regularization lies where learned spurious
+    correlation is increasing ([Bombari & Mondelli 2025](https://arxiv.org/abs/2502.01347))
+    [abstract].
+  - Differs: estimators with explicit targets and, for invariance methods,
+    environment labels. Here, local energy learning without environment
+    labels.
+  - Hypothesis: inner-only coupling acts like a rank-2 channel per module.
+    It should filter nuisance only while signal dominates predictable
+    variance [derived]; tested in correlated nuisance v1.
 - **Thousand Brains / Monty.**
   - Shown: learning modules vote laterally on object identity and pose to
     reach consensus without a strict hierarchy ([Thousand-Brains systems, 2025](https://arxiv.org/pdf/2507.04494);
