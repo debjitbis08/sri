@@ -85,8 +85,12 @@ exact oracles (avoidable error).
 ## Bearing on what comes next
 
 The [relational proposal](relational-abstraction-learning-proposal.md)
-starts from a small explicit tabular mechanism, not from these modules. What
-transfers from this line is mainly method, not mechanism.
+takes the weak-prior inner learner (prior 0.001, weight decay) as its primary
+candidate, on a linear action-conditioned fixture. It first audits whether
+the module can represent the task at all: the line above established
+filtering, not composition of dynamics, and multiple actions need a declared
+action interface. A tabular quotient learner remains a reference for a later
+finite fixture. The methods above transfer unchanged.
 
 The [inner-coupling hypothesis](inner-coupling-hypothesis.md) remains open
 for nonlinear modules and non-quadratic energies, planned separately. There,
