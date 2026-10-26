@@ -1,0 +1,22 @@
+{
+ "command": "/home/debjit/code/sri/experiments/energy_scaling_analysis.py",
+ "complexity": "per arm and seed: three masked exact solves on 24 examples, 18 scalar-chain solves of at most 9 dimensions, one masked loss; checks: 20 + 50 random cases",
+ "cpu_seconds": 0.649796421,
+ "dirty_status": "?? reports/energy-scaling-analysis-results.json\n",
+ "dtype": "float64",
+ "hashes": {
+  "experiments/correlated_nuisance.py": "658c87b2a2adb8309c1f2f7d968ebe9525684730921291fe965f62d38f96618f",
+  "experiments/energy_scaling_analysis.py": "ad2e187958efd60b5dfb42b9f9fa4472a24f0565b93cdf27f34859554025b649",
+  "experiments/inner_channel_diagnostic.py": "844704717fd2edfb95f6cda7c27f6a543b1d9f9060a24eb798c53ed2b6c712cf",
+  "experiments/local_contrastive_consolidation.py": "3fc18127f27dd5c3dc6c05df8c443a89abe095b70fdafa482dcfa08d7b23afef",
+  "reports/energy-scaling-analysis-results.json": "daefab127f9dbb41f67a7dfb9006898bd24ac1fde42d35741014bf48e17aa079",
+  "reports/inner-channel-diagnostic-v1-results.json.gz": "d53eeba6c0679a0d0dd1c45c28a2c1513b4a1f0c6ed4208ce9ffcb2fe4468596"
+ },
+ "numpy": "2.5.4",
+ "os": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "peak_rss_kib": 84940,
+ "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+ "revision": "a9557cc312de81325038e2af9c2e63ff4ed278fc",
+ "timing_scope": "whole run including JSON parsing; not a latency benchmark",
+ "wall_seconds": 0.6550067410280462
+}

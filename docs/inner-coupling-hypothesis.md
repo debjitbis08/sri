@@ -62,6 +62,9 @@ Order:
    successful solutions found used large weights outside the learner's
    bounds, found without clips or decay. Within the learner's constraints
    no improvement was found, which does not show none exists.
+   [Energy scaling analysis](energy-scaling-analysis.md): the constrained
+   arms' signal loss is a scalar gain loss caused by the fixed activity
+   priors, which the clamped-energy learner does not compensate for.
 2. Scaling sweep (fixture 3): cheap, and gives a trend relevant to scale.
 3. Nonlinear modules (fixture 1): the real test, but the learning rule,
    settling and Gaussian-based floor analysis all change.
