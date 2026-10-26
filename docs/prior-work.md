@@ -210,6 +210,19 @@ untested).
   which places it in the generative-replay family. That family is not yet
   reviewed here.
 
+## Results that bear on this survey
+
+- [Clamped-energy ablation v1](clamped-energy-ablation-v1-results.md):
+  - The [derived] gauge prediction held. Inner-family fixed and rotation-only
+    translations were indistinguishable, with no W/V clipping in that family.
+  - The project hypothesis drawn from coupled dictionary learning and GLOM,
+    that fixed identity coupling fails where codes are private, was
+    consistent with the result: uniform coupling with fixed outer identity
+    failed at every budget.
+  - Rotation-only alignment came within 1.31× of free translations, in line
+    with the stitching literature's finding that isometries do much of the
+    work [analogy].
+
 ## Implications for contracts
 
 - Use standard names where the mechanism is the same: EP for the two-phase
