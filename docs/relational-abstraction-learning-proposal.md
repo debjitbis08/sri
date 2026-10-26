@@ -80,11 +80,12 @@ remaining symmetries. Do not resolve ties with hidden state IDs. Zero-calibratio
 transfer is a diagnostic, not a required success. Both state and action
 correspondence must be learned or explicitly disclosed as supplied.
 
-In the linear fixture below, phi_i is the learned map from observations to
-inner activities, T_bar(·, a) is the learned relation for action a, and h_bar
-reads out the declared probes. These need agree with the generator only up to
-an invertible change of latent basis. With action identity supplied, psi_i is
-the identity and is disclosed as such.
+In the linear fixture below these objects are defined operationally, by the
+exact equilibrium solve, not by individual learned matrices; see
+[the operational definition](#operational-state-transition-and-rollout). They
+need agree with the generator only up to one invertible change of latent basis
+shared by all actions. With action identity supplied, psi_i is the identity and
+is disclosed as such.
 
 ## First fixture: shared linear relationships across domains
 
@@ -106,8 +107,16 @@ Use independent renderings in source and target domains, multiple operator
 families, varied initial states, and nuisance shifts. Train on short trajectories;
 test unseen initial states, action sequences, and longer compositions. Include
 noncommuting operators, broken-structure targets, and nuisance that becomes
-correlated across observations. Normalize or bound trajectories prospectively
-so a long-horizon test does not reduce to numerical explosion or decay to zero.
+correlated across observations. Keep the transition law exactly linear: do not
+normalize states during or after a trajectory. Per-step normalization makes the
+dynamics nonlinear, and whole-trajectory scaling makes the initial-state scale
+depend on the later action sequence. Bound trajectories by construction
+instead, for example norm-preserving operators with a fixed maximum horizon.
+In two dimensions rotations commute, so a noncommuting bounded pair needs, for
+example, a rotation and a reflection. Audit the declared horizon for overflow,
+collapse and conditioning before fitting. A fixture whose transition law
+includes normalization is a separate, nonlinear fixture; failure on it is not
+evidence about the linear learner.
 
 Initially supply action identity consistently across domains and disclose that
 choice. Learn target observation bindings from a measured calibration budget.
@@ -122,6 +131,38 @@ changes of latent basis are equivalent. Evaluate behavioral preservation and
 transfer, not agreement with arbitrary coordinate labels. Linear reduced-rank
 system identification and predictive transfer are particularly strong controls
 here; a learned shared subspace alone is not the full success criterion.
+
+## Operational state, transition and rollout
+
+Equilibrium activities can depend on the selected action, the observation
+mask, and whatever else is clamped, and a learned translation is not by itself
+the transition the full solve implements. Fix the following before freezing.
+
+- **State encoder.** phi_i(x) is the exact-equilibrium inner activity with only
+  the current observation clamped, under one declared mask that has no action,
+  next-state or outcome input. It must be computable from the current
+  observation alone.
+- **Common coordinates.** All actions act on that same inner activity space.
+  An action interface whose operators live in different coordinates must
+  either declare the maps between them or fail this requirement.
+- **Effective transition.** G_{a,i} is the linear map from phi_i(x) to the
+  inner activity of the predicted next state, extracted from the exact solve
+  with action a selected. Because exact inference is linear for fixed
+  parameters and masks, G_{a,i} can be computed as a matrix and compared
+  directly; do not substitute the learned translation for it.
+- **Rollout.** An L-step prediction is h_bar(G_{a_L,i} ··· G_{a_1,i} phi_i(x_0)),
+  or the declared equivalent that decodes and re-encodes, given only x_0 and
+  the action sequence. No intermediate ground-truth observation may be clamped
+  in a mixed-action rollout.
+
+Freezing shared translations while fitting target bindings does not by itself
+guarantee frozen effective dynamics, since the bindings enter the solve. The
+capacity preflight must therefore verify that, after the target binding fit,
+the target's effective operators equal the source's up to a single basis
+change shared by all actions, at a declared tolerance. Report any drift
+separately from prediction error. If bindings can change G, transfer of
+"frozen" structure has not been isolated, and the action interface must be
+redesigned before learning is tested.
 
 ## Later fixture: finite relational quotients
 
@@ -180,7 +221,8 @@ reuses the module internals but adds externally selected relation structure;
 it is an extension, not evidence of autonomous relation selection. Do not
 attribute a supplied action selector's capability to the unchanged module.
 
-Use exact equilibrium for the capacity reference and primary evaluation.
+Use exact equilibrium for the capacity reference and primary evaluation, and
+the operational encoder, effective transitions and rollout defined above.
 Compare iterative inference to it at a declared tolerance; the
 [prior-strength study](prior-strength-training-v1-results.md) found large
 training-settle discrepancies despite similar final task errors.
@@ -188,7 +230,8 @@ A fixed iteration count alone is not evidence of convergence on the new task.
 
 After establishing representability, test the existing learning rule on
 independent source experience. Freeze shared source relationships for transfer
-and fit only declared target observation bindings from calibration; report a
+and fit only declared target observation bindings from calibration, checking
+that the effective operators stay fixed as defined above; report a
 fine-tuning variant separately. Initially measure whether ordinary SRI learning
 already preserves composition and transfers. Success need not require inventing
 a new sleep rule.
@@ -227,7 +270,7 @@ select its size using evaluation labels. Start with exact tiny-table alignment
 as a transparent reference; count every rejected correspondence candidate.
 
 Freeze the source abstract table at transfer. Fit only target state/action
-bindings from calibration; compare against target-only learning and transfer of
+bindings from calibration; compare against the target-only arms and transfer of
 the uncompressed source model. Separately report a fine-tuning variant if needed.
 This reference retains counts and, if validation episodes are stored, history;
 the recombination and no-history limits above apply to it too.
@@ -238,8 +281,10 @@ the recombination and no-history limits above apply to it too.
    composition against a generator oracle. Fit the actual SRI candidate with
    privileged targets on development worlds to test representability; check
    held-out states and compositions, exact versus iterative inference, and a
-   direct linear equivalent for each fixed action/mask. Keep these privileged
-   fits out of all learning initializations and confirmation. Failure to fit
+   direct linear equivalent for each fixed action/mask. Verify that target
+   binding fits leave the effective operators unchanged up to a shared basis
+   change, and that mixed-action rollouts use only x_0 and the actions. Keep
+   these privileged fits out of all learning initializations and confirmation. Failure to fit
    is unresolved unless an analytical capacity bound rules the task out.
    For the finite fixture, also exhaustively check tiny supplied quotients,
    invalid merges, and ambiguity. Ordinary learners must never access hidden IDs,
@@ -256,10 +301,20 @@ the recombination and no-history limits above apply to it too.
    difference in normalized quality-versus-budget area on held-out compositions:
    use declared normalized prediction error for continuous outcomes and accuracy
    for finite outcomes, with the normalization fixed before confirmation.
-4. **Mechanism and boundary.** Scramble the learned abstract transitions while
-   retaining code size: for SRI, permute the action bank or replace each learned
-   relation with a random one of matched singular values; for the finite
-   reference, permute abstract table entries. Remove composition constraints; test broken structure;
+   Report it separately against the target-only arms and against the
+   strongest matched transfer comparator.
+4. **Mechanism and boundary.** As a supporting diagnostic, scramble the
+   learned transitions while retaining code size: for SRI, permute the action
+   bank or replace each effective operator with a random one of matched
+   eigenvalues; for the finite reference, permute abstract table entries.
+   Apply comparable interventions to the predictive controls, and declare
+   whether target bindings are refitted afterward. Before scoring, audit
+   whether each intervention changes observable behavior modulo the allowed
+   symmetries: permuting two operators is undone by a basis change when one
+   exists that conjugates each into the other while preserving the probes.
+   Scrambling shows reliance on learned dynamics, which any predictive model
+   has; it does not by itself show relational abstraction. Remove composition
+   constraints; test broken structure;
    and compare batched sleep against interleaved execution of the same rule at
    equal exposures and work. Retention/adaptation and dream proposals are later
    extensions, not prerequisites for this first transfer test.
@@ -272,7 +327,9 @@ weight description length), without the
 multi-step selection criterion; it separates the effect of compression from
 that of structural selection. Ordinary SRI replay is the starting baseline, not
 a presumed failure. Also include direct linear prediction, reduced-rank predictive transfer,
-and multi-step predictive training. Include the tabular state-minimization/model-
+and multi-step predictive training. On every fixture, include target-only SRI
+and a target-only direct linear or reduced-rank predictor, trained on exactly
+the same target calibration evidence and with no source experience. Include the tabular state-minimization/model-
 matching reference on the finite fixture. These distinguish architectural benefit
 from the benefit of shared structure or a different training objective.
 
@@ -293,9 +350,18 @@ worlds as replication units, pair arms on worlds, and report paired confidence
 intervals; paths within a world are not independent replicates. Reserve distinct
 development and confirmation seeds and budget equal tuning opportunities.
 
-Evidence for the mechanism requires accurate noncollapsed abstractions, a
-transfer advantage over the strongest matched comparator, and loss of that
-advantage when the learned relationships are scrambled. On broken structure,
+Keep two comparisons separate. First, whether source experience helps:
+transfer arms against the target-only arms on the same calibration evidence,
+which tests the operational hypothesis directly. Second, whether structural
+consolidation helps: the proposed rule against ordinary replay, compression-only
+consolidation and multi-step predictive training at matched evidence and
+budget. Only the second can support a consolidation-specific benefit.
+
+Evidence for the mechanism requires accurate noncollapsed abstractions, an
+advantage over target-only learning, and a transfer advantage over the
+strongest matched comparator. Loss of the advantage under scrambling is
+supporting evidence only, and only for interventions shown to change behavior
+modulo allowed symmetries. On broken structure,
 report negative transfer and uncertainty rather than forcing shared agreement.
 If the oracle fails, repair the benchmark. If SRI capacity is ruled out, state
 the obstruction and propose a separately tested extension. If a capacity witness
@@ -318,7 +384,11 @@ separately. Total fitting includes all J configurations and U updates, not just
 the selected run. An action bank stores its separate translations; full model
 copies could multiply parameter and optimizer storage by H and must be reported.
 
-An L-step rollout repeats the selected inference procedure L times. Include
+Extracting each effective operator G_{a,i} costs one factorization plus one
+solve per inner dimension for each action and mask; repeat it after every
+binding fit that the invariance check covers. An L-step latent rollout with
+extracted operators costs O(L k²) for inner width k; a rollout through repeated
+solves repeats the selected inference procedure L times. Include
 target adapter fitting, capacity searches, failed proposals, repeated solves,
 multi-step validation, and action-alignment search in the total. Report learned
 parameters, optimizer state, traces, adapters, and peak workspace separately.
