@@ -65,6 +65,13 @@ Order:
    [Energy scaling analysis](energy-scaling-analysis.md): the constrained
    arms' signal loss is a scalar gain loss caused by the fixed activity
    priors, which the clamped-energy learner does not compensate for.
+   [Prior-strength training v1](prior-strength-training-v1-results.md):
+   trained with weaker activity priors, the inner learner keeps its
+   filtering, recovers the signal and beats uniform coupling under
+   decorrelation (1.9-5.3×). In linear modules, the mechanism the
+   hypothesis relies on now gives a measured advantage on this fixture.
+   Earlier topology comparisons were all made at prior 0.05 and need
+   re-reading.
 2. Scaling sweep (fixture 3): cheap, and gives a trend relevant to scale.
 3. Nonlinear modules (fixture 1): the real test, but the learning rule,
    settling and Gaussian-based floor analysis all change.

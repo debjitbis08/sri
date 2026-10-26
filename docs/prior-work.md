@@ -286,11 +286,20 @@ untested).
   what costs inner coupling its signal. As in local contrastive v1, the
   exact masked-completion objective did not beat clamped energy.
 
+- [Prior-strength training v1](prior-strength-training-v1-results.md):
+  the activity priors play the role of the latent prior in factor analysis
+  and probabilistic PCA, and their shrinkage behaved as ridge-like
+  posterior shrinkage would predict. Weakening them restored completion
+  gain without the weights drifting in scale, with weight decay as the
+  remaining scale anchor.
+
 ## Implications for contracts
 
 - Use standard names where the mechanism is the same: EP for the two-phase
   rule; "SI-inspired update scaling" rather than SI for arm 8. Describe the
   clamped-energy rule as having predictive-coding form, not as factor analysis.
+- Declare activity-prior strength as a design choice. Topology rankings in
+  this project changed when it changed.
 - On the current linear fixture, avoidable error can be measured exactly
   against the noiseless mean
   ([floor analysis](local-contrastive-consolidation-v1-floor-analysis.md)).
