@@ -51,6 +51,11 @@ Order:
 
 1. Correlated nuisance (fixture 2): no architecture change. Contract:
    [correlated nuisance v1](correlated-nuisance-v1-contract.md).
+   [Results](correlated-nuisance-v1-results.md): inner coupling filters the
+   correlation but loses too much signal to win overall. Adding inner
+   coupling to surface coupling does not gate what the surface passes.
+   Learned or gated per-layer coupling is the natural next step before
+   nonlinear modules.
 2. Scaling sweep (fixture 3): cheap, and gives a trend relevant to scale.
 3. Nonlinear modules (fixture 1): the real test, but the learning rule,
    settling and Gaussian-based floor analysis all change.

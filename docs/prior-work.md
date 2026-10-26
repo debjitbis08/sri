@@ -264,6 +264,20 @@ untested).
     maps of semi-coupled dictionary learning more than a pure rotation
     [analogy; post-hoc].
 
+- [Correlated nuisance v1](correlated-nuisance-v1-results.md):
+  - The variance-ranking hypothesis drawn from reduced-rank regression held
+    in direction: inner-only coupling filtered weak correlated nuisance and
+    transmitted strong nuisance. But the inner channel did not behave like
+    rank-2 regression, which transmitted in the weak regime. A derived
+    post-hoc explanation is that regression ranks centered variance and the
+    bias-free energy does not centre.
+  - Consistent with the fusion surveys' "trade-offs, not a ranking": the
+    late-fusion-like inner channel was robust to the correlation shift but
+    lost signal; the early-fusion-like surface channel was accurate in
+    distribution and transmitted the shifted correlation [analogy].
+  - As in the spurious-correlation literature, the learners that fit best
+    in distribution absorbed the most non-persistent correlation.
+
 ## Implications for contracts
 
 - Use standard names where the mechanism is the same: EP for the two-phase
