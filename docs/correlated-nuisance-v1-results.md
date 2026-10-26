@@ -5,7 +5,9 @@ Results for the frozen [contract](correlated-nuisance-v1-contract.md), run
 [inner-coupling research direction](inner-coupling-hypothesis.md).
 
 [Runner](../experiments/correlated_nuisance.py) ·
-[results](../reports/correlated-nuisance-v1-results.json) ·
+results (`reports/correlated-nuisance-v1-results.json.gz`, gzip -n -9, 12.6 MB
+uncompressed, SHA-256 a3f68a65…af24; the contract names the uncompressed
+file) ·
 [runtime](../reports/correlated-nuisance-v1-runtime.json) ·
 movement (`reports/correlated-nuisance-v1-movement.json.gz`, gzip -n -9,
 uncompressed SHA-256 fa5ee60d…8b1a, recorded in the results).

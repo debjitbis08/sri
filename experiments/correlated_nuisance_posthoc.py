@@ -16,6 +16,7 @@ frozen artifacts are not modified.
 import os
 for variable in ('OPENBLAS_NUM_THREADS', 'OMP_NUM_THREADS', 'MKL_NUM_THREADS'):
     os.environ[variable] = '1'
+import gzip
 import hashlib
 import json
 from pathlib import Path
@@ -29,7 +30,7 @@ from scipy.linalg import block_diag
 from experiments import correlated_nuisance as cn
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / 'reports/correlated-nuisance-v1-results.json'
+SOURCE = ROOT / 'reports/correlated-nuisance-v1-results.json.gz'  # gzip -n -9
 PREFIX = ROOT / 'reports/correlated-nuisance-v1-posthoc'
 
 
@@ -62,7 +63,7 @@ def main():
     if result.exists() or runtime.exists():
         raise RuntimeError('Refusing overwrite')
     wall, cpu = time.perf_counter(), time.process_time()
-    source = json.loads(SOURCE.read_text())
+    source = json.loads(gzip.decompress(SOURCE.read_bytes()))
     seeds = sorted(source['seeds'], key=int)
     rrr, gains = {}, {}
     for seed in seeds:
