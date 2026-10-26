@@ -1,0 +1,1818 @@
+{
+  "forward_only": {
+    "cases": [
+      {
+        "fixture_index": 0,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          -0.16377808705810373,
+          -0.06783910487898737,
+          -0.2647933415133247,
+          0.639267676307561,
+          -0.3030457633656638,
+          0.40406101782088494,
+          -0.07142857142857231,
+          0.5000000000000009
+        ],
+        "last_output_rmse_to_selected_stationary": 1.6990805287143646e-12,
+        "selected_stationary_target_rmse": 0.30304576336566286
+      },
+      {
+        "fixture_index": 1,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          -0.20688904352905194,
+          -0.08569624773613019,
+          -0.2573966707566622,
+          0.621410533450418,
+          -0.328299576979469,
+          0.3788072042070796,
+          -0.03571428571428647,
+          0.5000000000000007
+        ],
+        "last_output_rmse_to_selected_stationary": 1.6988735514197003e-12,
+        "selected_stationary_target_rmse": 0.1515228816828313
+      },
+      {
+        "fixture_index": 2,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          -0.29311095647094837,
+          -0.12141053345041583,
+          -0.24260332924333744,
+          0.5856962477361322,
+          -0.37880720420707936,
+          0.328299576979469,
+          0.03571428571428485,
+          0.5000000000000008
+        ],
+        "last_output_rmse_to_selected_stationary": 1.6988852893501112e-12,
+        "selected_stationary_target_rmse": 0.15152288168283187
+      },
+      {
+        "fixture_index": 3,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          -0.33622191294189585,
+          -0.13926767630755862,
+          -0.2352066584866751,
+          0.5678391048789894,
+          -0.40406101782088427,
+          0.30304576336566375,
+          0.07142857142857034,
+          0.5000000000000007
+        ],
+        "last_output_rmse_to_selected_stationary": 1.6988463918598387e-12,
+        "selected_stationary_target_rmse": 0.3030457633656637
+      },
+      {
+        "fixture_index": 4,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          -0.03877808705810385,
+          -0.016062409582350924,
+          -0.1397933415133248,
+          0.33749098101092334,
+          -0.1262690680690268,
+          0.22728432252424777,
+          -0.07142857142857184,
+          0.25000000000000033
+        ],
+        "last_output_rmse_to_selected_stationary": 8.495301769061199e-13,
+        "selected_stationary_target_rmse": 0.303045763365663
+      },
+      {
+        "fixture_index": 5,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          -0.08188904352905187,
+          -0.03391955243949368,
+          -0.13239667075666234,
+          0.3196338381537805,
+          -0.1515228816828319,
+          0.20203050891044247,
+          -0.035714285714286156,
+          0.25000000000000044
+        ],
+        "last_output_rmse_to_selected_stationary": 8.495402643571823e-13,
+        "selected_stationary_target_rmse": 0.15152288168283143
+      },
+      {
+        "fixture_index": 6,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          -0.16811095647094793,
+          -0.06963383815377931,
+          -0.11760332924333755,
+          0.2839195524394947,
+          -0.20203050891044214,
+          0.15152288168283187,
+          0.03571428571428517,
+          0.25000000000000033
+        ],
+        "last_output_rmse_to_selected_stationary": 8.494231959299193e-13,
+        "selected_stationary_target_rmse": 0.15152288168283184
+      },
+      {
+        "fixture_index": 7,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          -0.21122191294189624,
+          -0.08749098101092213,
+          -0.11020665848667527,
+          0.26606240958235217,
+          -0.22728432252424755,
+          0.1262690680690267,
+          0.07142857142857087,
+          0.25000000000000056
+        ],
+        "last_output_rmse_to_selected_stationary": 8.495875310428009e-13,
+        "selected_stationary_target_rmse": 0.30304576336566347
+      },
+      {
+        "fixture_index": 8,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          0.21122191294189624,
+          0.08749098101092213,
+          0.11020665848667527,
+          -0.26606240958235217,
+          0.22728432252424755,
+          -0.1262690680690267,
+          -0.07142857142857087,
+          -0.25000000000000056
+        ],
+        "last_output_rmse_to_selected_stationary": 8.495875310428009e-13,
+        "selected_stationary_target_rmse": 0.30304576336566347
+      },
+      {
+        "fixture_index": 9,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          0.16811095647094793,
+          0.06963383815377931,
+          0.11760332924333755,
+          -0.2839195524394947,
+          0.20203050891044214,
+          -0.15152288168283187,
+          -0.03571428571428517,
+          -0.25000000000000033
+        ],
+        "last_output_rmse_to_selected_stationary": 8.494231959299193e-13,
+        "selected_stationary_target_rmse": 0.15152288168283184
+      },
+      {
+        "fixture_index": 10,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          0.08188904352905187,
+          0.03391955243949368,
+          0.13239667075666234,
+          -0.3196338381537805,
+          0.1515228816828319,
+          -0.20203050891044247,
+          0.035714285714286156,
+          -0.25000000000000044
+        ],
+        "last_output_rmse_to_selected_stationary": 8.495402643571823e-13,
+        "selected_stationary_target_rmse": 0.15152288168283143
+      },
+      {
+        "fixture_index": 11,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          0.03877808705810385,
+          0.016062409582350924,
+          0.1397933415133248,
+          -0.33749098101092334,
+          0.1262690680690268,
+          -0.22728432252424777,
+          0.07142857142857184,
+          -0.25000000000000033
+        ],
+        "last_output_rmse_to_selected_stationary": 8.495301769061199e-13,
+        "selected_stationary_target_rmse": 0.303045763365663
+      },
+      {
+        "fixture_index": 12,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          0.33622191294189585,
+          0.13926767630755862,
+          0.2352066584866751,
+          -0.5678391048789894,
+          0.40406101782088427,
+          -0.30304576336566375,
+          -0.07142857142857034,
+          -0.5000000000000007
+        ],
+        "last_output_rmse_to_selected_stationary": 1.6988463918598387e-12,
+        "selected_stationary_target_rmse": 0.3030457633656637
+      },
+      {
+        "fixture_index": 13,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          0.29311095647094837,
+          0.12141053345041583,
+          0.24260332924333744,
+          -0.5856962477361322,
+          0.37880720420707936,
+          -0.328299576979469,
+          -0.03571428571428485,
+          -0.5000000000000008
+        ],
+        "last_output_rmse_to_selected_stationary": 1.6988852893501112e-12,
+        "selected_stationary_target_rmse": 0.15152288168283187
+      },
+      {
+        "fixture_index": 14,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          0.20688904352905194,
+          0.08569624773613019,
+          0.2573966707566622,
+          -0.621410533450418,
+          0.328299576979469,
+          -0.3788072042070796,
+          0.03571428571428647,
+          -0.5000000000000007
+        ],
+        "last_output_rmse_to_selected_stationary": 1.6988735514197003e-12,
+        "selected_stationary_target_rmse": 0.1515228816828313
+      },
+      {
+        "fixture_index": 15,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          0.16377808705810373,
+          0.06783910487898737,
+          0.2647933415133247,
+          -0.639267676307561,
+          0.3030457633656638,
+          -0.40406101782088494,
+          0.07142857142857231,
+          -0.5000000000000009
+        ],
+        "last_output_rmse_to_selected_stationary": 1.6990805287143646e-12,
+        "selected_stationary_target_rmse": 0.30304576336566286
+      },
+      {
+        "fixture_index": 16,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          -0.2500000000000006,
+          -0.10355339059327355,
+          -0.24999999999999997,
+          0.6035533905932743,
+          -0.353553390593274,
+          0.3535533905932737,
+          2.320237190302656e-16,
+          0.5000000000000004
+        ],
+        "last_output_rmse_to_selected_stationary": 1.6986964820504439e-12,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 17,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          -0.1250000000000003,
+          -0.051776695296636775,
+          -0.12499999999999999,
+          0.30177669529663714,
+          -0.176776695296637,
+          0.17677669529663684,
+          1.160118595151328e-16,
+          0.2500000000000002
+        ],
+        "last_output_rmse_to_selected_stationary": 8.493482410252219e-13,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 18,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          0.1250000000000003,
+          0.051776695296636775,
+          0.12499999999999999,
+          -0.30177669529663714,
+          0.176776695296637,
+          -0.17677669529663684,
+          -1.160118595151328e-16,
+          -0.2500000000000002
+        ],
+        "last_output_rmse_to_selected_stationary": 8.493482410252219e-13,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 19,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          0.2500000000000006,
+          0.10355339059327355,
+          0.24999999999999997,
+          -0.6035533905932743,
+          0.353553390593274,
+          -0.3535533905932737,
+          -2.320237190302656e-16,
+          -0.5000000000000004
+        ],
+        "last_output_rmse_to_selected_stationary": 1.6986964820504439e-12,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 20,
+        "free_nullity": 2,
+        "invariant_selected_stationary_output": [
+          0.08622191294189614,
+          0.03571428571428553,
+          -0.014793341513324853,
+          0.03571428571428564,
+          0.05050762722761048,
+          0.05050762722761051,
+          -0.07142857142857119,
+          -9.14422262935505e-17
+        ],
+        "last_output_rmse_to_selected_stationary": 3.0953321042833987e-16,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 21,
+        "free_nullity": 2,
+        "invariant_selected_stationary_output": [
+          0.04311095647094807,
+          0.017857142857142766,
+          -0.0073966707566624264,
+          0.01785714285714282,
+          0.02525381361380524,
+          0.025253813613805257,
+          -0.035714285714285594,
+          -4.572111314677525e-17
+        ],
+        "last_output_rmse_to_selected_stationary": 1.5476660521416994e-16,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 22,
+        "free_nullity": 2,
+        "invariant_selected_stationary_output": [
+          -0.04311095647094807,
+          -0.017857142857142766,
+          0.0073966707566624264,
+          -0.01785714285714282,
+          -0.02525381361380524,
+          -0.025253813613805257,
+          0.035714285714285594,
+          4.572111314677525e-17
+        ],
+        "last_output_rmse_to_selected_stationary": 1.5476660521416994e-16,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 23,
+        "free_nullity": 2,
+        "invariant_selected_stationary_output": [
+          -0.08622191294189614,
+          -0.03571428571428553,
+          0.014793341513324853,
+          -0.03571428571428564,
+          -0.05050762722761048,
+          -0.05050762722761051,
+          0.07142857142857119,
+          9.14422262935505e-17
+        ],
+        "last_output_rmse_to_selected_stationary": 3.0953321042833987e-16,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 24,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          0.18110956470947923,
+          0.07501803797815393,
+          -0.3239667075666226,
+          0.7821248191647002,
+          -0.10101525445522218,
+          0.6060915267313238,
+          -0.3571428571428552,
+          0.4999999999999989
+        ],
+        "last_output_rmse_to_selected_stationary": 2.1514606206950724e-12,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 25,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          -0.6811095647094805,
+          -0.2821248191647019,
+          -0.17603329243337437,
+          0.4249819620218381,
+          -0.6060915267313236,
+          0.10101525445521685,
+          0.35714285714285954,
+          0.49999999999999567
+        ],
+        "last_output_rmse_to_selected_stationary": 2.1512447757870074e-12,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 26,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          0.6811095647094805,
+          0.2821248191647019,
+          0.17603329243337437,
+          -0.4249819620218381,
+          0.6060915267313236,
+          -0.10101525445521685,
+          -0.35714285714285954,
+          -0.49999999999999567
+        ],
+        "last_output_rmse_to_selected_stationary": 2.1512447757870074e-12,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 27,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          -0.18110956470947923,
+          -0.07501803797815393,
+          0.3239667075666226,
+          -0.7821248191647002,
+          0.10101525445522218,
+          -0.6060915267313238,
+          0.3571428571428552,
+          -0.4999999999999989
+        ],
+        "last_output_rmse_to_selected_stationary": 2.1514606206950724e-12,
+        "selected_stationary_target_rmse": null
+      }
+    ],
+    "complete_final_to_selected_stationary_rmse": 1.3431341703828627e-12,
+    "complete_stationary_target_rmse": 0.23957871187497748
+  },
+  "no_middle_to_input": {
+    "cases": [
+      {
+        "fixture_index": 0,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          -0.16377808705810348,
+          -0.06783910487898824,
+          -0.2647933415133243,
+          0.639267676307559,
+          -0.30304576336566313,
+          0.40406101782088355,
+          -0.07142857142857129,
+          0.49999999999999933
+        ],
+        "last_output_rmse_to_selected_stationary": 2.667435970166101e-12,
+        "selected_stationary_target_rmse": 0.30304576336566336
+      },
+      {
+        "fixture_index": 1,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          -0.2068890435290512,
+          -0.08569624773613098,
+          -0.25739667075666167,
+          0.6214105334504159,
+          -0.3282995769794682,
+          0.3788072042070783,
+          -0.0357142857142858,
+          0.499999999999999
+        ],
+        "last_output_rmse_to_selected_stationary": 2.667197466285443e-12,
+        "selected_stationary_target_rmse": 0.1515228816828316
+      },
+      {
+        "fixture_index": 2,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          -0.29311095647094665,
+          -0.12141053345041648,
+          -0.24260332924333694,
+          0.5856962477361302,
+          -0.3788072042070784,
+          0.32829957697946793,
+          0.0357142857142853,
+          0.4999999999999989
+        ],
+        "last_output_rmse_to_selected_stationary": 2.66710594546085e-12,
+        "selected_stationary_target_rmse": 0.1515228816828319
+      },
+      {
+        "fixture_index": 3,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          -0.3362219129418941,
+          -0.13926767630755912,
+          -0.23520665848667396,
+          0.5678391048789863,
+          -0.404061017820883,
+          0.30304576336566214,
+          0.07142857142857055,
+          0.499999999999998
+        ],
+        "last_output_rmse_to_selected_stationary": 2.6664022662552357e-12,
+        "selected_stationary_target_rmse": 0.3030457633656637
+      },
+      {
+        "fixture_index": 4,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          -0.03877808705810386,
+          -0.016062409582351382,
+          -0.13979334151332456,
+          0.3374909810109224,
+          -0.1262690680690265,
+          0.227284322524247,
+          -0.07142857142857113,
+          0.24999999999999978
+        ],
+        "last_output_rmse_to_selected_stationary": 1.3337980818091108e-12,
+        "selected_stationary_target_rmse": 0.30304576336566336
+      },
+      {
+        "fixture_index": 5,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          -0.08188904352905174,
+          -0.03391955243949412,
+          -0.13239667075666214,
+          0.3196338381537795,
+          -0.15152288168283157,
+          0.20203050891044178,
+          -0.03571428571428564,
+          0.24999999999999967
+        ],
+        "last_output_rmse_to_selected_stationary": 1.3337179850830505e-12,
+        "selected_stationary_target_rmse": 0.15152288168283168
+      },
+      {
+        "fixture_index": 6,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          -0.16811095647094704,
+          -0.06963383815377956,
+          -0.11760332924333698,
+          0.28391955243949313,
+          -0.2020305089104415,
+          0.15152288168283107,
+          0.035714285714285275,
+          0.249999999999999
+        ],
+        "last_output_rmse_to_selected_stationary": 1.3332011331276179e-12,
+        "selected_stationary_target_rmse": 0.15152288168283184
+      },
+      {
+        "fixture_index": 7,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          -0.21122191294189516,
+          -0.08749098101092237,
+          -0.11020665848667469,
+          0.26606240958235067,
+          -0.22728432252424666,
+          0.12626906806902605,
+          0.07142857142857105,
+          0.24999999999999917
+        ],
+        "last_output_rmse_to_selected_stationary": 1.3333563818587585e-12,
+        "selected_stationary_target_rmse": 0.30304576336566347
+      },
+      {
+        "fixture_index": 8,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          0.21122191294189516,
+          0.08749098101092237,
+          0.11020665848667469,
+          -0.26606240958235067,
+          0.22728432252424666,
+          -0.12626906806902605,
+          -0.07142857142857105,
+          -0.24999999999999917
+        ],
+        "last_output_rmse_to_selected_stationary": 1.3333563818587585e-12,
+        "selected_stationary_target_rmse": 0.30304576336566347
+      },
+      {
+        "fixture_index": 9,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          0.16811095647094704,
+          0.06963383815377956,
+          0.11760332924333698,
+          -0.28391955243949313,
+          0.2020305089104415,
+          -0.15152288168283107,
+          -0.035714285714285275,
+          -0.249999999999999
+        ],
+        "last_output_rmse_to_selected_stationary": 1.3332011331276179e-12,
+        "selected_stationary_target_rmse": 0.15152288168283184
+      },
+      {
+        "fixture_index": 10,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          0.08188904352905174,
+          0.03391955243949412,
+          0.13239667075666214,
+          -0.3196338381537795,
+          0.15152288168283157,
+          -0.20203050891044178,
+          0.03571428571428564,
+          -0.24999999999999967
+        ],
+        "last_output_rmse_to_selected_stationary": 1.3337179850830505e-12,
+        "selected_stationary_target_rmse": 0.15152288168283168
+      },
+      {
+        "fixture_index": 11,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          0.03877808705810386,
+          0.016062409582351382,
+          0.13979334151332456,
+          -0.3374909810109224,
+          0.1262690680690265,
+          -0.227284322524247,
+          0.07142857142857113,
+          -0.24999999999999978
+        ],
+        "last_output_rmse_to_selected_stationary": 1.3337980818091108e-12,
+        "selected_stationary_target_rmse": 0.30304576336566336
+      },
+      {
+        "fixture_index": 12,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          0.3362219129418941,
+          0.13926767630755912,
+          0.23520665848667396,
+          -0.5678391048789863,
+          0.404061017820883,
+          -0.30304576336566214,
+          -0.07142857142857055,
+          -0.499999999999998
+        ],
+        "last_output_rmse_to_selected_stationary": 2.6664022662552357e-12,
+        "selected_stationary_target_rmse": 0.3030457633656637
+      },
+      {
+        "fixture_index": 13,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          0.29311095647094665,
+          0.12141053345041648,
+          0.24260332924333694,
+          -0.5856962477361302,
+          0.3788072042070784,
+          -0.32829957697946793,
+          -0.0357142857142853,
+          -0.4999999999999989
+        ],
+        "last_output_rmse_to_selected_stationary": 2.66710594546085e-12,
+        "selected_stationary_target_rmse": 0.1515228816828319
+      },
+      {
+        "fixture_index": 14,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          0.2068890435290512,
+          0.08569624773613098,
+          0.25739667075666167,
+          -0.6214105334504159,
+          0.3282995769794682,
+          -0.3788072042070783,
+          0.0357142857142858,
+          -0.499999999999999
+        ],
+        "last_output_rmse_to_selected_stationary": 2.667197466285443e-12,
+        "selected_stationary_target_rmse": 0.1515228816828316
+      },
+      {
+        "fixture_index": 15,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          0.16377808705810348,
+          0.06783910487898824,
+          0.2647933415133243,
+          -0.639267676307559,
+          0.30304576336566313,
+          -0.40406101782088355,
+          0.07142857142857129,
+          -0.49999999999999933
+        ],
+        "last_output_rmse_to_selected_stationary": 2.667435970166101e-12,
+        "selected_stationary_target_rmse": 0.30304576336566336
+      },
+      {
+        "fixture_index": 16,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          -0.24999999999999914,
+          -0.10355339059327309,
+          -0.2499999999999992,
+          0.603553390593272,
+          -0.3535533905932722,
+          0.3535533905932724,
+          -4.3607839663784935e-16,
+          0.49999999999999845
+        ],
+        "last_output_rmse_to_selected_stationary": 2.666562098680133e-12,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 17,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          -0.12499999999999957,
+          -0.051776695296636546,
+          -0.1249999999999996,
+          0.301776695296636,
+          -0.1767766952966361,
+          0.1767766952966362,
+          -2.1803919831892468e-16,
+          0.24999999999999922
+        ],
+        "last_output_rmse_to_selected_stationary": 1.3332810493400665e-12,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 18,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          0.12499999999999957,
+          0.051776695296636546,
+          0.1249999999999996,
+          -0.301776695296636,
+          0.1767766952966361,
+          -0.1767766952966362,
+          2.1803919831892468e-16,
+          -0.24999999999999922
+        ],
+        "last_output_rmse_to_selected_stationary": 1.3332810493400665e-12,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 19,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          0.24999999999999914,
+          0.10355339059327309,
+          0.2499999999999992,
+          -0.603553390593272,
+          0.3535533905932722,
+          -0.3535533905932724,
+          4.3607839663784935e-16,
+          -0.49999999999999845
+        ],
+        "last_output_rmse_to_selected_stationary": 2.666562098680133e-12,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 20,
+        "free_nullity": 2,
+        "invariant_selected_stationary_output": [
+          0.08622191294189636,
+          0.03571428571428579,
+          -0.01479334151332485,
+          0.035714285714285726,
+          0.05050762722761045,
+          0.05050762722761052,
+          -0.07142857142857145,
+          1.1130563416442328e-17
+        ],
+        "last_output_rmse_to_selected_stationary": 5.685509795797796e-16,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 21,
+        "free_nullity": 2,
+        "invariant_selected_stationary_output": [
+          0.04311095647094818,
+          0.017857142857142894,
+          -0.007396670756662425,
+          0.017857142857142863,
+          0.025253813613805225,
+          0.02525381361380526,
+          -0.035714285714285726,
+          5.565281708221164e-18
+        ],
+        "last_output_rmse_to_selected_stationary": 2.842754897898898e-16,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 22,
+        "free_nullity": 2,
+        "invariant_selected_stationary_output": [
+          -0.04311095647094818,
+          -0.017857142857142894,
+          0.007396670756662425,
+          -0.017857142857142863,
+          -0.025253813613805225,
+          -0.02525381361380526,
+          0.035714285714285726,
+          -5.565281708221164e-18
+        ],
+        "last_output_rmse_to_selected_stationary": 2.842754897898898e-16,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 23,
+        "free_nullity": 2,
+        "invariant_selected_stationary_output": [
+          -0.08622191294189636,
+          -0.03571428571428579,
+          0.01479334151332485,
+          -0.035714285714285726,
+          -0.05050762722761045,
+          -0.05050762722761052,
+          0.07142857142857145,
+          -1.1130563416442328e-17
+        ],
+        "last_output_rmse_to_selected_stationary": 5.685509795797796e-16,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 24,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          0.18110956470948147,
+          0.0750180379781549,
+          -0.3239667075666216,
+          0.7821248191646967,
+          -0.10101525445521933,
+          0.6060915267313225,
+          -0.35714285714285593,
+          0.4999999999999955
+        ],
+        "last_output_rmse_to_selected_stationary": 3.2413146907530666e-12,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 25,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          -0.6811095647094751,
+          -0.28212481916469984,
+          -0.1760332924333727,
+          0.42498196202183747,
+          -0.6060915267313196,
+          0.10101525445521749,
+          0.35714285714285504,
+          0.499999999999993
+        ],
+        "last_output_rmse_to_selected_stationary": 3.2394394226228867e-12,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 26,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          0.6811095647094751,
+          0.28212481916469984,
+          0.1760332924333727,
+          -0.42498196202183747,
+          0.6060915267313196,
+          -0.10101525445521749,
+          -0.35714285714285504,
+          -0.499999999999993
+        ],
+        "last_output_rmse_to_selected_stationary": 3.2394394226228867e-12,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 27,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          -0.18110956470948147,
+          -0.0750180379781549,
+          0.3239667075666216,
+          -0.7821248191646967,
+          0.10101525445521933,
+          -0.6060915267313225,
+          0.35714285714285593,
+          -0.4999999999999955
+        ],
+        "last_output_rmse_to_selected_stationary": 3.2413146907530666e-12,
+        "selected_stationary_target_rmse": null
+      }
+    ],
+    "complete_final_to_selected_stationary_rmse": 2.108476868443398e-12,
+    "complete_stationary_target_rmse": 0.23957871187497765
+  },
+  "no_output_to_middle": {
+    "cases": [
+      {
+        "fixture_index": 0,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          0.35355339059327173,
+          0.1464466094067246,
+          -0.3535533905932732,
+          0.8535533905932736,
+          -2.014803829332341e-15,
+          0.7071067811865471,
+          -0.49999999999999833,
+          0.5000000000000001
+        ],
+        "last_output_rmse_to_selected_stationary": 5.2730463522337825e-06,
+        "selected_stationary_target_rmse": 1.3033838929626517e-15
+      },
+      {
+        "fixture_index": 1,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          0.051776695296633424,
+          0.021446609406723938,
+          -0.30177669529663614,
+          0.7285533905932741,
+          -0.17677669529663984,
+          0.5303300858899098,
+          -0.24999999999999795,
+          0.5000000000000004
+        ],
+        "last_output_rmse_to_selected_stationary": 4.283755807384161e-06,
+        "selected_stationary_target_rmse": 1.988789160969072e-15
+      },
+      {
+        "fixture_index": 2,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          -0.5517766952966432,
+          -0.22855339059327717,
+          -0.1982233047033621,
+          0.4785533905932734,
+          -0.5303300858899156,
+          0.17677669529663506,
+          0.2500000000000042,
+          0.5000000000000007
+        ],
+        "last_output_rmse_to_selected_stationary": 4.283755809833282e-06,
+        "selected_stationary_target_rmse": 3.556858334497639e-15
+      },
+      {
+        "fixture_index": 3,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          -0.853553390593282,
+          -0.3535533905932774,
+          -0.14644660940672544,
+          0.3535533905932737,
+          -0.707106781186553,
+          -2.211602645559669e-15,
+          0.5000000000000047,
+          0.5000000000000013
+        ],
+        "last_output_rmse_to_selected_stationary": 5.273046356472129e-06,
+        "selected_stationary_target_rmse": 4.213561524141021e-15
+      },
+      {
+        "fixture_index": 4,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          0.47855339059327373,
+          0.19822330470336286,
+          -0.22855339059327334,
+          0.5517766952966368,
+          0.17677669529663684,
+          0.5303300858899106,
+          -0.5000000000000003,
+          0.24999999999999953
+        ],
+        "last_output_rmse_to_selected_stationary": 4.050396089320786e-06,
+        "selected_stationary_target_rmse": 2.6981503274991466e-16
+      },
+      {
+        "fixture_index": 5,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          0.17677669529663587,
+          0.0732233047033623,
+          -0.1767766952966366,
+          0.4267766952966368,
+          -1.0074019146661704e-15,
+          0.35355339059327356,
+          -0.24999999999999917,
+          0.25000000000000006
+        ],
+        "last_output_rmse_to_selected_stationary": 2.6365231761168913e-06,
+        "selected_stationary_target_rmse": 6.516919464813259e-16
+      },
+      {
+        "fixture_index": 6,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          -0.426776695296641,
+          -0.1767766952966387,
+          -0.07322330470336272,
+          0.17677669529663684,
+          -0.3535533905932765,
+          -1.1058013227798345e-15,
+          0.25000000000000233,
+          0.25000000000000067
+        ],
+        "last_output_rmse_to_selected_stationary": 2.6365231782360644e-06,
+        "selected_stationary_target_rmse": 2.1067807620705104e-15
+      },
+      {
+        "fixture_index": 7,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          -0.7285533905932791,
+          -0.30177669529663936,
+          -0.021446609406725728,
+          0.051776695296636616,
+          -0.5303300858899144,
+          -0.17677669529663834,
+          0.5000000000000032,
+          0.25000000000000083
+        ],
+        "last_output_rmse_to_selected_stationary": 4.050396092114428e-06,
+        "selected_stationary_target_rmse": 2.8115153111574613e-15
+      },
+      {
+        "fixture_index": 8,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          0.7285533905932791,
+          0.30177669529663936,
+          0.021446609406725728,
+          -0.051776695296636616,
+          0.5303300858899144,
+          0.17677669529663834,
+          -0.5000000000000032,
+          -0.25000000000000083
+        ],
+        "last_output_rmse_to_selected_stationary": 4.050396092114428e-06,
+        "selected_stationary_target_rmse": 2.8115153111574613e-15
+      },
+      {
+        "fixture_index": 9,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          0.426776695296641,
+          0.1767766952966387,
+          0.07322330470336272,
+          -0.17677669529663684,
+          0.3535533905932765,
+          1.1058013227798345e-15,
+          -0.25000000000000233,
+          -0.25000000000000067
+        ],
+        "last_output_rmse_to_selected_stationary": 2.6365231782360644e-06,
+        "selected_stationary_target_rmse": 2.1067807620705104e-15
+      },
+      {
+        "fixture_index": 10,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          -0.17677669529663587,
+          -0.0732233047033623,
+          0.1767766952966366,
+          -0.4267766952966368,
+          1.0074019146661704e-15,
+          -0.35355339059327356,
+          0.24999999999999917,
+          -0.25000000000000006
+        ],
+        "last_output_rmse_to_selected_stationary": 2.6365231761168913e-06,
+        "selected_stationary_target_rmse": 6.516919464813259e-16
+      },
+      {
+        "fixture_index": 11,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          -0.47855339059327373,
+          -0.19822330470336286,
+          0.22855339059327334,
+          -0.5517766952966368,
+          -0.17677669529663684,
+          -0.5303300858899106,
+          0.5000000000000003,
+          -0.24999999999999953
+        ],
+        "last_output_rmse_to_selected_stationary": 4.050396089320786e-06,
+        "selected_stationary_target_rmse": 2.6981503274991466e-16
+      },
+      {
+        "fixture_index": 12,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          0.853553390593282,
+          0.3535533905932774,
+          0.14644660940672544,
+          -0.3535533905932737,
+          0.707106781186553,
+          2.211602645559669e-15,
+          -0.5000000000000047,
+          -0.5000000000000013
+        ],
+        "last_output_rmse_to_selected_stationary": 5.273046356472129e-06,
+        "selected_stationary_target_rmse": 4.213561524141021e-15
+      },
+      {
+        "fixture_index": 13,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          0.5517766952966432,
+          0.22855339059327717,
+          0.1982233047033621,
+          -0.4785533905932734,
+          0.5303300858899156,
+          -0.17677669529663506,
+          -0.2500000000000042,
+          -0.5000000000000007
+        ],
+        "last_output_rmse_to_selected_stationary": 4.283755809833282e-06,
+        "selected_stationary_target_rmse": 3.556858334497639e-15
+      },
+      {
+        "fixture_index": 14,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          -0.051776695296633424,
+          -0.021446609406723938,
+          0.30177669529663614,
+          -0.7285533905932741,
+          0.17677669529663984,
+          -0.5303300858899098,
+          0.24999999999999795,
+          -0.5000000000000004
+        ],
+        "last_output_rmse_to_selected_stationary": 4.283755807384161e-06,
+        "selected_stationary_target_rmse": 1.988789160969072e-15
+      },
+      {
+        "fixture_index": 15,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          -0.35355339059327173,
+          -0.1464466094067246,
+          0.3535533905932732,
+          -0.8535533905932736,
+          2.014803829332341e-15,
+          -0.7071067811865471,
+          0.49999999999999833,
+          -0.5000000000000001
+        ],
+        "last_output_rmse_to_selected_stationary": 5.2730463522337825e-06,
+        "selected_stationary_target_rmse": 1.3033838929626517e-15
+      },
+      {
+        "fixture_index": 16,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          -0.2500000000000027,
+          -0.10355339059327492,
+          -0.2499999999999994,
+          0.6035533905932716,
+          -0.3535533905932747,
+          0.3535533905932716,
+          2.267164795151459e-15,
+          0.49999999999999933
+        ],
+        "last_output_rmse_to_selected_stationary": 3.898599638313819e-06,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 17,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          -0.12500000000000136,
+          -0.05177669529663746,
+          -0.1249999999999997,
+          0.3017766952966358,
+          -0.17677669529663734,
+          0.1767766952966358,
+          1.1335823975757296e-15,
+          0.24999999999999967
+        ],
+        "last_output_rmse_to_selected_stationary": 1.9492998191569095e-06,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 18,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          0.12500000000000136,
+          0.05177669529663746,
+          0.1249999999999997,
+          -0.3017766952966358,
+          0.17677669529663734,
+          -0.1767766952966358,
+          -1.1335823975757296e-15,
+          -0.24999999999999967
+        ],
+        "last_output_rmse_to_selected_stationary": 1.9492998191569095e-06,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 19,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          0.2500000000000027,
+          0.10355339059327492,
+          0.2499999999999994,
+          -0.6035533905932716,
+          0.3535533905932747,
+          -0.3535533905932716,
+          -2.267164795151459e-15,
+          -0.49999999999999933
+        ],
+        "last_output_rmse_to_selected_stationary": 3.898599638313819e-06,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 20,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          0.6035533905932741,
+          0.2500000000000003,
+          -0.10355339059327445,
+          0.25000000000000244,
+          0.3535533905932736,
+          0.3535533905932756,
+          -0.5000000000000011,
+          1.402191619340058e-15
+        ],
+        "last_output_rmse_to_selected_stationary": 3.550484290794924e-06,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 21,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          0.30177669529663703,
+          0.12500000000000014,
+          -0.051776695296637226,
+          0.12500000000000122,
+          0.1767766952966368,
+          0.1767766952966378,
+          -0.25000000000000056,
+          7.01095809670029e-16
+        ],
+        "last_output_rmse_to_selected_stationary": 1.775242145397462e-06,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 22,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          -0.30177669529663703,
+          -0.12500000000000014,
+          0.051776695296637226,
+          -0.12500000000000122,
+          -0.1767766952966368,
+          -0.1767766952966378,
+          0.25000000000000056,
+          -7.01095809670029e-16
+        ],
+        "last_output_rmse_to_selected_stationary": 1.775242145397462e-06,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 23,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          -0.6035533905932741,
+          -0.2500000000000003,
+          0.10355339059327445,
+          -0.25000000000000244,
+          -0.3535533905932736,
+          -0.3535533905932756,
+          0.5000000000000011,
+          -1.402191619340058e-15
+        ],
+        "last_output_rmse_to_selected_stationary": 3.550484290794924e-06,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 24,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          -0.29642718389178985,
+          -0.12278415982404287,
+          -0.242034354569745,
+          0.5843226213624965,
+          -0.380749805254292,
+          0.32635697593224766,
+          0.03846153846154033,
+          0.4999999999999946
+        ],
+        "last_output_rmse_to_selected_stationary": 3.898599634731769e-06,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 25,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          -0.20357281610820838,
+          -0.08432262136250405,
+          -0.257965645430248,
+          0.622784159824033,
+          -0.3263569759322489,
+          0.3807498052542887,
+          -0.03846153846153668,
+          0.49999999999999284
+        ],
+        "last_output_rmse_to_selected_stationary": 3.898599633694394e-06,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 26,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          0.20357281610820838,
+          0.08432262136250405,
+          0.257965645430248,
+          -0.622784159824033,
+          0.3263569759322489,
+          -0.3807498052542887,
+          0.03846153846153668,
+          -0.49999999999999284
+        ],
+        "last_output_rmse_to_selected_stationary": 3.898599633694394e-06,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 27,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          0.29642718389178985,
+          0.12278415982404287,
+          0.242034354569745,
+          -0.5843226213624965,
+          0.380749805254292,
+          -0.32635697593224766,
+          -0.03846153846154033,
+          -0.4999999999999946
+        ],
+        "last_output_rmse_to_selected_stationary": 3.898599634731769e-06,
+        "selected_stationary_target_rmse": null
+      }
+    ],
+    "complete_final_to_selected_stationary_rmse": 4.16870917186703e-06,
+    "complete_stationary_target_rmse": 2.4723490828041242e-15
+  },
+  "reciprocal": {
+    "cases": [
+      {
+        "fixture_index": 0,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          0.35355339059327473,
+          0.14644660940672685,
+          -0.35355339059327323,
+          0.8535533905932743,
+          5.687370384582085e-16,
+          0.7071067811865468,
+          -0.5000000000000014,
+          0.49999999999999994
+        ],
+        "last_output_rmse_to_selected_stationary": 0.00035562519747786293,
+        "selected_stationary_target_rmse": 7.99683210131316e-16
+      },
+      {
+        "fixture_index": 1,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          0.051776695296637365,
+          0.02144660940672665,
+          -0.3017766952966367,
+          0.7285533905932753,
+          -0.17677669529663695,
+          0.5303300858899108,
+          -0.25000000000000133,
+          0.5000000000000009
+        ],
+        "last_output_rmse_to_selected_stationary": 0.00031797216151821457,
+        "selected_stationary_target_rmse": 8.542205372213842e-16
+      },
+      {
+        "fixture_index": 2,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          -0.551776695296638,
+          -0.22855339059327417,
+          -0.19822330470336322,
+          0.4785533905932752,
+          -0.5303300858899118,
+          0.1767766952966369,
+          0.2500000000000001,
+          0.5000000000000012
+        ],
+        "last_output_rmse_to_selected_stationary": 0.000317972161518435,
+        "selected_stationary_target_rmse": 9.401112973894648e-16
+      },
+      {
+        "fixture_index": 3,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          -0.8535533905932754,
+          -0.35355339059327434,
+          -0.14644660940672677,
+          0.3535533905932762,
+          -0.7071067811865495,
+          8.240634280524212e-16,
+          0.5000000000000002,
+          0.5000000000000021
+        ],
+        "last_output_rmse_to_selected_stationary": 0.0003556251974791565,
+        "selected_stationary_target_rmse": 1.5382918054786641e-15
+      },
+      {
+        "fixture_index": 4,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          0.4785533905932752,
+          0.19822330470336386,
+          -0.22855339059327334,
+          0.551776695296637,
+          0.1767766952966378,
+          0.5303300858899103,
+          -0.5000000000000016,
+          0.2499999999999995
+        ],
+        "last_output_rmse_to_selected_stationary": 0.000238705479307243,
+        "selected_stationary_target_rmse": 9.304329691074272e-16
+      },
+      {
+        "fixture_index": 5,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          0.17677669529663737,
+          0.07322330470336343,
+          -0.17677669529663662,
+          0.42677669529663714,
+          2.8436851922910426e-16,
+          0.3535533905932734,
+          -0.2500000000000007,
+          0.24999999999999997
+        ],
+        "last_output_rmse_to_selected_stationary": 0.00017781259873893147,
+        "selected_stationary_target_rmse": 3.99841605065658e-16
+      },
+      {
+        "fixture_index": 6,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          -0.4267766952966377,
+          -0.17677669529663717,
+          -0.07322330470336338,
+          0.1767766952966381,
+          -0.35355339059327473,
+          4.120317140262106e-16,
+          0.2500000000000001,
+          0.25000000000000105
+        ],
+        "last_output_rmse_to_selected_stationary": 0.00017781259873957825,
+        "selected_stationary_target_rmse": 7.6914590273933205e-16
+      },
+      {
+        "fixture_index": 7,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          -0.7285533905932756,
+          -0.30177669529663775,
+          -0.021446609406726862,
+          0.0517766952966388,
+          -0.5303300858899126,
+          -0.17677669529663614,
+          0.5000000000000009,
+          0.25000000000000194
+        ],
+        "last_output_rmse_to_selected_stationary": 0.00023870547930823153,
+        "selected_stationary_target_rmse": 1.493787800791347e-15
+      },
+      {
+        "fixture_index": 8,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          0.7285533905932756,
+          0.30177669529663775,
+          0.021446609406726862,
+          -0.0517766952966388,
+          0.5303300858899126,
+          0.17677669529663614,
+          -0.5000000000000009,
+          -0.25000000000000194
+        ],
+        "last_output_rmse_to_selected_stationary": 0.00023870547930823153,
+        "selected_stationary_target_rmse": 1.493787800791347e-15
+      },
+      {
+        "fixture_index": 9,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          0.4267766952966377,
+          0.17677669529663717,
+          0.07322330470336338,
+          -0.1767766952966381,
+          0.35355339059327473,
+          -4.120317140262106e-16,
+          -0.2500000000000001,
+          -0.25000000000000105
+        ],
+        "last_output_rmse_to_selected_stationary": 0.00017781259873957825,
+        "selected_stationary_target_rmse": 7.6914590273933205e-16
+      },
+      {
+        "fixture_index": 10,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          -0.17677669529663737,
+          -0.07322330470336343,
+          0.17677669529663662,
+          -0.42677669529663714,
+          -2.8436851922910426e-16,
+          -0.3535533905932734,
+          0.2500000000000007,
+          -0.24999999999999997
+        ],
+        "last_output_rmse_to_selected_stationary": 0.00017781259873893147,
+        "selected_stationary_target_rmse": 3.99841605065658e-16
+      },
+      {
+        "fixture_index": 11,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          -0.4785533905932752,
+          -0.19822330470336386,
+          0.22855339059327334,
+          -0.551776695296637,
+          -0.1767766952966378,
+          -0.5303300858899103,
+          0.5000000000000016,
+          -0.2499999999999995
+        ],
+        "last_output_rmse_to_selected_stationary": 0.000238705479307243,
+        "selected_stationary_target_rmse": 9.304329691074272e-16
+      },
+      {
+        "fixture_index": 12,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          0.8535533905932754,
+          0.35355339059327434,
+          0.14644660940672677,
+          -0.3535533905932762,
+          0.7071067811865495,
+          -8.240634280524212e-16,
+          -0.5000000000000002,
+          -0.5000000000000021
+        ],
+        "last_output_rmse_to_selected_stationary": 0.0003556251974791565,
+        "selected_stationary_target_rmse": 1.5382918054786641e-15
+      },
+      {
+        "fixture_index": 13,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          0.551776695296638,
+          0.22855339059327417,
+          0.19822330470336322,
+          -0.4785533905932752,
+          0.5303300858899118,
+          -0.1767766952966369,
+          -0.2500000000000001,
+          -0.5000000000000012
+        ],
+        "last_output_rmse_to_selected_stationary": 0.000317972161518435,
+        "selected_stationary_target_rmse": 9.401112973894648e-16
+      },
+      {
+        "fixture_index": 14,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          -0.051776695296637365,
+          -0.02144660940672665,
+          0.3017766952966367,
+          -0.7285533905932753,
+          0.17677669529663695,
+          -0.5303300858899108,
+          0.25000000000000133,
+          -0.5000000000000009
+        ],
+        "last_output_rmse_to_selected_stationary": 0.00031797216151821457,
+        "selected_stationary_target_rmse": 8.542205372213842e-16
+      },
+      {
+        "fixture_index": 15,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          -0.35355339059327473,
+          -0.14644660940672685,
+          0.35355339059327323,
+          -0.8535533905932743,
+          -5.687370384582085e-16,
+          -0.7071067811865468,
+          0.5000000000000014,
+          -0.49999999999999994
+        ],
+        "last_output_rmse_to_selected_stationary": 0.00035562519747786293,
+        "selected_stationary_target_rmse": 7.99683210131316e-16
+      },
+      {
+        "fixture_index": 16,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          -0.24999999999999922,
+          -0.10355339059327358,
+          -0.2500000000000003,
+          0.6035533905932741,
+          -0.3535533905932732,
+          0.35355339059327445,
+          -5.943906984186565e-16,
+          0.4999999999999998
+        ],
+        "last_output_rmse_to_selected_stationary": 0.00030438785615268774,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 17,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          -0.12499999999999961,
+          -0.05177669529663679,
+          -0.12500000000000014,
+          0.30177669529663703,
+          -0.1767766952966366,
+          0.17677669529663723,
+          -2.9719534920932824e-16,
+          0.2499999999999999
+        ],
+        "last_output_rmse_to_selected_stationary": 0.00015219392807634387,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 18,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          0.12499999999999961,
+          0.05177669529663679,
+          0.12500000000000014,
+          -0.30177669529663703,
+          0.1767766952966366,
+          -0.17677669529663723,
+          2.9719534920932824e-16,
+          -0.2499999999999999
+        ],
+        "last_output_rmse_to_selected_stationary": 0.00015219392807634387,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 19,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          0.24999999999999922,
+          0.10355339059327358,
+          0.2500000000000003,
+          -0.6035533905932741,
+          0.3535533905932732,
+          -0.35355339059327445,
+          5.943906984186565e-16,
+          -0.4999999999999998
+        ],
+        "last_output_rmse_to_selected_stationary": 0.00030438785615268774,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 20,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          0.6035533905932757,
+          0.25000000000000155,
+          -0.10355339059327427,
+          0.25000000000000155,
+          0.35355339059327495,
+          0.3535533905932751,
+          -0.5000000000000022,
+          8.506428764815731e-16
+        ],
+        "last_output_rmse_to_selected_stationary": 0.0001838948452468722,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 21,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          0.30177669529663786,
+          0.12500000000000078,
+          -0.051776695296637136,
+          0.12500000000000078,
+          0.17677669529663748,
+          0.17677669529663756,
+          -0.2500000000000011,
+          4.2532143824078655e-16
+        ],
+        "last_output_rmse_to_selected_stationary": 9.19474226234361e-05,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 22,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          -0.30177669529663786,
+          -0.12500000000000078,
+          0.051776695296637136,
+          -0.12500000000000078,
+          -0.17677669529663748,
+          -0.17677669529663756,
+          0.2500000000000011,
+          -4.2532143824078655e-16
+        ],
+        "last_output_rmse_to_selected_stationary": 9.19474226234361e-05,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 23,
+        "free_nullity": 1,
+        "invariant_selected_stationary_output": [
+          -0.6035533905932757,
+          -0.25000000000000155,
+          0.10355339059327427,
+          -0.25000000000000155,
+          -0.35355339059327495,
+          -0.3535533905932751,
+          0.5000000000000022,
+          -8.506428764815731e-16
+        ],
+        "last_output_rmse_to_selected_stationary": 0.0001838948452468722,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 24,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          -0.29642718389179207,
+          -0.12278415982404384,
+          -0.24203435456974573,
+          0.5843226213624997,
+          -0.38074980525429497,
+          0.32635697593224894,
+          0.038461538461541066,
+          0.49999999999999645
+        ],
+        "last_output_rmse_to_selected_stationary": 0.00030438785615887506,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 25,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          -0.2035728161082101,
+          -0.0843226213625049,
+          -0.25796564543025036,
+          0.6227841598240403,
+          -0.32635697593225277,
+          0.38074980525429314,
+          -0.03846153846153756,
+          0.4999999999999978
+        ],
+        "last_output_rmse_to_selected_stationary": 0.000304387856159755,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 26,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          0.2035728161082101,
+          0.0843226213625049,
+          0.25796564543025036,
+          -0.6227841598240403,
+          0.32635697593225277,
+          -0.38074980525429314,
+          0.03846153846153756,
+          -0.4999999999999978
+        ],
+        "last_output_rmse_to_selected_stationary": 0.000304387856159755,
+        "selected_stationary_target_rmse": null
+      },
+      {
+        "fixture_index": 27,
+        "free_nullity": 0,
+        "invariant_selected_stationary_output": [
+          0.29642718389179207,
+          0.12278415982404384,
+          0.24203435456974573,
+          -0.5843226213624997,
+          0.38074980525429497,
+          -0.32635697593224894,
+          -0.038461538461541066,
+          -0.49999999999999645
+        ],
+        "last_output_rmse_to_selected_stationary": 0.00030438785615887506,
+        "selected_stationary_target_rmse": null
+      }
+    ],
+    "complete_final_to_selected_stationary_rmse": 0.0002811464043448753,
+    "complete_stationary_target_rmse": 1.0288284068356662e-15
+  }
+}

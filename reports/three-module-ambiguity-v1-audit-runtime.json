@@ -1,0 +1,39 @@
+{
+  "candidates_scored": 0,
+  "command": "/home/debjit/code/sri/experiments/three_module_ambiguity_audit.py",
+  "complexity": "112 cases, dense SVD and augmented least squares O(S^3) time, O(S^2) workspace each, S<=42",
+  "cpu_seconds_before_runtime_serialization": 1.7334103960000002,
+  "dtype": "float64",
+  "environment_from_main_run": {
+    "blas": "{\n  \"Compilers\": {\n    \"c\": {\n      \"name\": \"gcc\",\n      \"linker\": \"ld.bfd\",\n      \"version\": \"14.2.1\",\n      \"commands\": \"cc\"\n    },\n    \"cython\": {\n      \"name\": \"cython\",\n      \"linker\": \"cython\",\n      \"version\": \"3.3.0\",\n      \"commands\": \"cython\"\n    },\n    \"c++\": {\n      \"name\": \"gcc\",\n      \"linker\": \"ld.bfd\",\n      \"version\": \"14.2.1\",\n      \"commands\": \"c++\"\n    }\n  },\n  \"Machine Information\": {\n    \"host\": {\n      \"cpu\": \"x86_64\",\n      \"family\": \"x86_64\",\n      \"endian\": \"little\",\n      \"system\": \"linux\"\n    },\n    \"build\": {\n      \"cpu\": \"x86_64\",\n      \"family\": \"x86_64\",\n      \"endian\": \"little\",\n      \"system\": \"linux\"\n    }\n  },\n  \"Build Dependencies\": {\n    \"blas\": {\n      \"name\": \"scipy-openblas\",\n      \"found\": true,\n      \"version\": \"0.3.34.106.0\",\n      \"detection method\": \"pkgconfig\",\n      \"include directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include\",\n      \"lib directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib\",\n      \"openblas configuration\": \"OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64\",\n      \"pc file directory\": \"/project/.openblas\"\n    },\n    \"lapack\": {\n      \"name\": \"scipy-openblas\",\n      \"found\": true,\n      \"version\": \"0.3.34.106.0\",\n      \"detection method\": \"pkgconfig\",\n      \"include directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include\",\n      \"lib directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib\",\n      \"openblas configuration\": \"OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64\",\n      \"pc file directory\": \"/project/.openblas\"\n    }\n  },\n  \"Python Information\": {\n    \"path\": \"/tmp/build-env-ptu49_tp/bin/python\",\n    \"version\": \"3.12\"\n  },\n  \"SIMD Extensions\": {\n    \"baseline\": [\n      \"X86_V2\"\n    ],\n    \"found\": [\n      \"X86_V3\"\n    ],\n    \"not found\": [\n      \"X86_V4\",\n      \"AVX512_ICL\",\n      \"AVX512_SPR\"\n    ]\n  }\n}\n",
+    "cpu": "x86_64",
+    "cpu_limit": null,
+    "memory_limit": null,
+    "numpy": "2.5.4",
+    "os": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+    "thread_environment": {
+      "MKL_NUM_THREADS": null,
+      "OMP_NUM_THREADS": null,
+      "OPENBLAS_NUM_THREADS": null
+    },
+    "threadpools": null,
+    "workers": 1
+  },
+  "environment_note": "same interpreter and machine as main run; no intervening configuration changes",
+  "fits": 0,
+  "hashes": {
+    "docs/three-module-ambiguity-v1-contract.md": "826913a88673c6c5810b62e02a9f0cdd952e3b6fbb1d7ddc2877eb7662c02ddb",
+    "experiments/three_module_ambiguity.py": "3081119198a6772f57ebbde4dc0efd9f251c359e20ec5ef4af9ee1976b9f5a2b",
+    "experiments/three_module_ambiguity_audit.py": "9614763d714cf96288e644b5a26cba2e3fae6f9af264384467f091f17be46c40",
+    "reports/three-module-ambiguity-v1-results.json": "998a30a80321b489b0e99ee5eba51083878d3bf1dfe3976d7b428ac41b2e38d3"
+  },
+  "lstsq_solves": 112,
+  "peak_rss_kib": 37072,
+  "purpose": "post-run diagnosis of minimum-norm versus dynamically selected stationary solutions; no tuning or new trajectories",
+  "rss_scope": "Linux single process lifetime peak",
+  "seed_policy": "no randomness",
+  "svds": 112,
+  "updates": 0,
+  "wall_seconds_before_runtime_serialization": 0.15169410700036678
+}

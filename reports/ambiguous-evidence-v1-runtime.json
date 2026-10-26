@@ -1,0 +1,475 @@
+{
+  "accelerator_memory": null,
+  "accelerator_reason": "CPU only",
+  "affinity_cpu_count": 12,
+  "benchmarks": {
+    "a_to_b": {
+      "1": {
+        "batch_size": 16,
+        "cpu_seconds_per_query": {
+          "max": 1.2988749999998106e-05,
+          "median": 1.2599375000005297e-05,
+          "min": 1.2551249999992464e-05
+        },
+        "repeat_count": 5,
+        "wall_seconds_per_query": {
+          "max": 1.2970250281796325e-05,
+          "median": 1.25783126350143e-05,
+          "min": 1.2520250493253116e-05
+        },
+        "warmup_batches": 1
+      },
+      "1024": {
+        "batch_size": 16,
+        "cpu_seconds_per_query": {
+          "max": 0.011122093062500005,
+          "median": 0.011108617437499968,
+          "min": 0.01107718993750001
+        },
+        "repeat_count": 5,
+        "wall_seconds_per_query": {
+          "max": 0.011122297624751809,
+          "median": 0.011109351125014655,
+          "min": 0.011077639313043619
+        },
+        "warmup_batches": 1
+      },
+      "16": {
+        "batch_size": 16,
+        "cpu_seconds_per_query": {
+          "max": 0.00017741943750002043,
+          "median": 0.0001755844374999871,
+          "min": 0.00017486499999999627
+        },
+        "repeat_count": 5,
+        "wall_seconds_per_query": {
+          "max": 0.00017740899966156576,
+          "median": 0.00017555643717059866,
+          "min": 0.0001748320619299193
+        },
+        "warmup_batches": 1
+      },
+      "256": {
+        "batch_size": 16,
+        "cpu_seconds_per_query": {
+          "max": 0.002799422624999992,
+          "median": 0.0027949101874999993,
+          "min": 0.0027891795000000164
+        },
+        "repeat_count": 5,
+        "wall_seconds_per_query": {
+          "max": 0.002799441187562479,
+          "median": 0.0027952179370913655,
+          "min": 0.0027891760000784416
+        },
+        "warmup_batches": 1
+      },
+      "4": {
+        "batch_size": 16,
+        "cpu_seconds_per_query": {
+          "max": 4.568312500000116e-05,
+          "median": 4.564937500001198e-05,
+          "min": 4.5282562499998624e-05
+        },
+        "repeat_count": 5,
+        "wall_seconds_per_query": {
+          "max": 4.565962535707513e-05,
+          "median": 4.564643768389942e-05,
+          "min": 4.5252750169311184e-05
+        },
+        "warmup_batches": 1
+      },
+      "64": {
+        "batch_size": 16,
+        "cpu_seconds_per_query": {
+          "max": 0.0006993908125000059,
+          "median": 0.0006986233124999797,
+          "min": 0.0006966020624999958
+        },
+        "repeat_count": 5,
+        "wall_seconds_per_query": {
+          "max": 0.0006993669994699303,
+          "median": 0.0006986282505749841,
+          "min": 0.0006965744369153981
+        },
+        "warmup_batches": 1
+      }
+    },
+    "b_to_a": {
+      "1": {
+        "batch_size": 16,
+        "cpu_seconds_per_query": {
+          "max": 1.3029999999969455e-05,
+          "median": 1.2679374999990944e-05,
+          "min": 1.2655062500033232e-05
+        },
+        "repeat_count": 5,
+        "wall_seconds_per_query": {
+          "max": 1.300962503592018e-05,
+          "median": 1.2682749911618885e-05,
+          "min": 1.2634000086109154e-05
+        },
+        "warmup_batches": 1
+      },
+      "1024": {
+        "batch_size": 16,
+        "cpu_seconds_per_query": {
+          "max": 0.011205935562499991,
+          "median": 0.011177659937499973,
+          "min": 0.01112343312499997
+        },
+        "repeat_count": 5,
+        "wall_seconds_per_query": {
+          "max": 0.011206130499886058,
+          "median": 0.01117856937526085,
+          "min": 0.011124120812382898
+        },
+        "warmup_batches": 1
+      },
+      "16": {
+        "batch_size": 16,
+        "cpu_seconds_per_query": {
+          "max": 0.00017876631250002273,
+          "median": 0.00017867500000001701,
+          "min": 0.00017835381249997617
+        },
+        "repeat_count": 5,
+        "wall_seconds_per_query": {
+          "max": 0.00017874337481771363,
+          "median": 0.00017864781239040894,
+          "min": 0.0001783577499736566
+        },
+        "warmup_batches": 1
+      },
+      "256": {
+        "batch_size": 16,
+        "cpu_seconds_per_query": {
+          "max": 0.0028064808124999563,
+          "median": 0.0027946039375000287,
+          "min": 0.0027907701250000083
+        },
+        "repeat_count": 5,
+        "wall_seconds_per_query": {
+          "max": 0.002806536999742093,
+          "median": 0.0027951585625487496,
+          "min": 0.0027907798130399897
+        },
+        "warmup_batches": 1
+      },
+      "4": {
+        "batch_size": 16,
+        "cpu_seconds_per_query": {
+          "max": 4.63294374999923e-05,
+          "median": 4.605250000000449e-05,
+          "min": 4.5616249999991254e-05
+        },
+        "repeat_count": 5,
+        "wall_seconds_per_query": {
+          "max": 4.6307124648592435e-05,
+          "median": 4.602900025929557e-05,
+          "min": 4.559212538879365e-05
+        },
+        "warmup_batches": 1
+      },
+      "64": {
+        "batch_size": 16,
+        "cpu_seconds_per_query": {
+          "max": 0.0007086620625000317,
+          "median": 0.0007072326875000035,
+          "min": 0.0007043639375000077
+        },
+        "repeat_count": 5,
+        "wall_seconds_per_query": {
+          "max": 0.0007104966243787203,
+          "median": 0.0007072108746797312,
+          "min": 0.0007043440000416012
+        },
+        "warmup_batches": 1
+      }
+    },
+    "direct": {
+      "batch_size": 16,
+      "cpu_seconds_per_query": {
+        "max": 3.195000000011383e-06,
+        "median": 2.87187500000452e-06,
+        "min": 2.8143749999931522e-06
+      },
+      "repeat_count": 5,
+      "wall_seconds_per_query": {
+        "max": 3.179437044309452e-06,
+        "median": 2.8550002753036097e-06,
+        "min": 2.8063122954335995e-06
+      },
+      "warmup_batches": 1
+    },
+    "isolated": {
+      "1": {
+        "batch_size": 16,
+        "cpu_seconds_per_query": {
+          "max": 1.392812500000673e-05,
+          "median": 1.299187500000687e-05,
+          "min": 1.2878125000004292e-05
+        },
+        "repeat_count": 5,
+        "wall_seconds_per_query": {
+          "max": 1.3892749848309904e-05,
+          "median": 1.306650028709555e-05,
+          "min": 1.284775044041453e-05
+        },
+        "warmup_batches": 1
+      },
+      "1024": {
+        "batch_size": 16,
+        "cpu_seconds_per_query": {
+          "max": 0.010267544062499995,
+          "median": 0.010202399124999983,
+          "min": 0.010173258437499999
+        },
+        "repeat_count": 5,
+        "wall_seconds_per_query": {
+          "max": 0.010267675812428934,
+          "median": 0.010203130812442396,
+          "min": 0.01017584843793884
+        },
+        "warmup_batches": 1
+      },
+      "16": {
+        "batch_size": 16,
+        "cpu_seconds_per_query": {
+          "max": 0.00017782568749999395,
+          "median": 0.00017723818750001175,
+          "min": 0.0001764993749999999
+        },
+        "repeat_count": 5,
+        "wall_seconds_per_query": {
+          "max": 0.0001778296254997258,
+          "median": 0.00017721024960337672,
+          "min": 0.00017646956257522106
+        },
+        "warmup_batches": 1
+      },
+      "256": {
+        "batch_size": 16,
+        "cpu_seconds_per_query": {
+          "max": 0.002800481999999993,
+          "median": 0.0027961370624999815,
+          "min": 0.0027871876249999927
+        },
+        "repeat_count": 5,
+        "wall_seconds_per_query": {
+          "max": 0.0028009161869704258,
+          "median": 0.0027966961251877365,
+          "min": 0.002787199125123152
+        },
+        "warmup_batches": 1
+      },
+      "4": {
+        "batch_size": 16,
+        "cpu_seconds_per_query": {
+          "max": 4.620631249999119e-05,
+          "median": 4.598812500000715e-05,
+          "min": 4.5610624999997684e-05
+        },
+        "repeat_count": 5,
+        "wall_seconds_per_query": {
+          "max": 4.621024982043309e-05,
+          "median": 4.595275004248833e-05,
+          "min": 4.558649925456848e-05
+        },
+        "warmup_batches": 1
+      },
+      "64": {
+        "batch_size": 16,
+        "cpu_seconds_per_query": {
+          "max": 0.0006995745624999994,
+          "median": 0.0006980551875000185,
+          "min": 0.0006975701874999962
+        },
+        "repeat_count": 5,
+        "wall_seconds_per_query": {
+          "max": 0.0006995482499405625,
+          "median": 0.0006980282496442669,
+          "min": 0.0006975838132348144
+        },
+        "warmup_batches": 1
+      }
+    },
+    "reciprocal": {
+      "1": {
+        "batch_size": 16,
+        "cpu_seconds_per_query": {
+          "max": 1.390562499997694e-05,
+          "median": 1.3459999999965166e-05,
+          "min": 1.3396250000019538e-05
+        },
+        "repeat_count": 5,
+        "wall_seconds_per_query": {
+          "max": 1.3911499991081655e-05,
+          "median": 1.3438375390251167e-05,
+          "min": 1.3372125067689922e-05
+        },
+        "warmup_batches": 1
+      },
+      "1024": {
+        "batch_size": 16,
+        "cpu_seconds_per_query": {
+          "max": 0.011992447687499963,
+          "median": 0.0119586095625,
+          "min": 0.011926880812499985
+        },
+        "repeat_count": 5,
+        "wall_seconds_per_query": {
+          "max": 0.011993096624792088,
+          "median": 0.01195879287479329,
+          "min": 0.011927683563044411
+        },
+        "warmup_batches": 1
+      },
+      "16": {
+        "batch_size": 16,
+        "cpu_seconds_per_query": {
+          "max": 0.0001924638125000433,
+          "median": 0.00018926131250002198,
+          "min": 0.0001884074999999874
+        },
+        "repeat_count": 5,
+        "wall_seconds_per_query": {
+          "max": 0.00019243299993831897,
+          "median": 0.00018926231314253528,
+          "min": 0.0001883598743006587
+        },
+        "warmup_batches": 1
+      },
+      "256": {
+        "batch_size": 16,
+        "cpu_seconds_per_query": {
+          "max": 0.0029957889375000213,
+          "median": 0.002984409562500012,
+          "min": 0.0029817189374999886
+        },
+        "repeat_count": 5,
+        "wall_seconds_per_query": {
+          "max": 0.002996321125465329,
+          "median": 0.002984434062454966,
+          "min": 0.002981734062814212
+        },
+        "warmup_batches": 1
+      },
+      "4": {
+        "batch_size": 16,
+        "cpu_seconds_per_query": {
+          "max": 4.9220625000012674e-05,
+          "median": 4.887312500001517e-05,
+          "min": 4.85068750000206e-05
+        },
+        "repeat_count": 5,
+        "wall_seconds_per_query": {
+          "max": 4.919906314171385e-05,
+          "median": 4.8842188334674574e-05,
+          "min": 4.848468688578578e-05
+        },
+        "warmup_batches": 1
+      },
+      "64": {
+        "batch_size": 16,
+        "cpu_seconds_per_query": {
+          "max": 0.0007505777500000366,
+          "median": 0.0007483889375000108,
+          "min": 0.0007479901874999917
+        },
+        "repeat_count": 5,
+        "wall_seconds_per_query": {
+          "max": 0.0007507448754040524,
+          "median": 0.0007483710633096052,
+          "min": 0.0007480009999198955
+        },
+        "warmup_batches": 1
+      }
+    }
+  },
+  "blas": "{\n  \"Compilers\": {\n    \"c\": {\n      \"name\": \"gcc\",\n      \"linker\": \"ld.bfd\",\n      \"version\": \"14.2.1\",\n      \"commands\": \"cc\"\n    },\n    \"cython\": {\n      \"name\": \"cython\",\n      \"linker\": \"cython\",\n      \"version\": \"3.3.0\",\n      \"commands\": \"cython\"\n    },\n    \"c++\": {\n      \"name\": \"gcc\",\n      \"linker\": \"ld.bfd\",\n      \"version\": \"14.2.1\",\n      \"commands\": \"c++\"\n    }\n  },\n  \"Machine Information\": {\n    \"host\": {\n      \"cpu\": \"x86_64\",\n      \"family\": \"x86_64\",\n      \"endian\": \"little\",\n      \"system\": \"linux\"\n    },\n    \"build\": {\n      \"cpu\": \"x86_64\",\n      \"family\": \"x86_64\",\n      \"endian\": \"little\",\n      \"system\": \"linux\"\n    }\n  },\n  \"Build Dependencies\": {\n    \"blas\": {\n      \"name\": \"scipy-openblas\",\n      \"found\": true,\n      \"version\": \"0.3.34.106.0\",\n      \"detection method\": \"pkgconfig\",\n      \"include directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include\",\n      \"lib directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib\",\n      \"openblas configuration\": \"OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64\",\n      \"pc file directory\": \"/project/.openblas\"\n    },\n    \"lapack\": {\n      \"name\": \"scipy-openblas\",\n      \"found\": true,\n      \"version\": \"0.3.34.106.0\",\n      \"detection method\": \"pkgconfig\",\n      \"include directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include\",\n      \"lib directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib\",\n      \"openblas configuration\": \"OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64\",\n      \"pc file directory\": \"/project/.openblas\"\n    }\n  },\n  \"Python Information\": {\n    \"path\": \"/tmp/build-env-ptu49_tp/bin/python\",\n    \"version\": \"3.12\"\n  },\n  \"SIMD Extensions\": {\n    \"baseline\": [\n      \"X86_V2\"\n    ],\n    \"found\": [\n      \"X86_V3\"\n    ],\n    \"not found\": [\n      \"X86_V4\",\n      \"AVX512_ICL\",\n      \"AVX512_SPR\"\n    ]\n  }\n}\n",
+  "candidates_scored": 0,
+  "command": "/home/debjit/code/sri/experiments/ambiguous_evidence.py",
+  "counts_before_benchmark": {
+    "gradient_calls": 66049,
+    "inference_calls": 100,
+    "updates": 65600
+  },
+  "counts_total": {
+    "gradient_calls": 590209,
+    "inference_calls": 2500,
+    "updates": 589760
+  },
+  "cpu": "x86_64",
+  "cpu_count": 12,
+  "dirty_status": "?? docs/ambiguous-evidence-v1-contract.md\n?? experiments/ambiguous_evidence.py\n?? reports/ambiguous-evidence-v1-results.json\n",
+  "dtype": "float64",
+  "fits": 0,
+  "hardware_limits": {
+    "cgroup_cpu_max": null,
+    "cgroup_memory_max": null
+  },
+  "hashes": {
+    "docs/ambiguous-evidence-v1-contract.md": "65abe89008b3d151e60f836246039f6fa254f3b29b7a03f1c516e268daa038e7",
+    "experiments/ambiguous_evidence.py": "59fff03df42b8f95e65c103333fa5e67294cdbf029b42ad1842c3607ceb56484"
+  },
+  "independent_fixture_pairs": 16,
+  "manual_design_cost": null,
+  "manual_design_cost_reason": "not measured",
+  "numpy": "2.5.4",
+  "optimizer_steps": 0,
+  "peak_rss_kib": 35880,
+  "phases": {
+    "benchmarks": {
+      "cpu_seconds": 5.744541583,
+      "wall_seconds": 5.744980046001729
+    },
+    "construction": {
+      "cpu_seconds": 1.3090000000048896e-05,
+      "wall_seconds": 1.2881006114184856e-05
+    },
+    "provenance": {
+      "cpu_seconds": 0.0011186700000003214,
+      "wall_seconds": 0.005338931005098857
+    },
+    "scientific_inference_and_scoring": {
+      "cpu_seconds": 1.487615122,
+      "wall_seconds": 1.2793087949976325
+    },
+    "scientific_serialization": {
+      "cpu_seconds": 0.010418722999999908,
+      "wall_seconds": 0.01042240799870342
+    },
+    "verification": {
+      "cpu_seconds": 0.02368312100000003,
+      "wall_seconds": 0.0021283800015226007
+    }
+  },
+  "platform": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+  "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+  "revision": "11d80332f4684ea74b3cf00a2fc26cd0b8ecec68",
+  "rss_scope": "single process lifetime maximum; Linux KiB",
+  "seed_policy": "deterministic exhaustive fixture; no RNG",
+  "selection_tuning_seconds": 0,
+  "storage_bytes": {
+    "activities_per_case": 96,
+    "fixtures": 256,
+    "learned_statistics": 0,
+    "maps": 128,
+    "model_and_activity_total": 224,
+    "optimizer": 0,
+    "replay": 0
+  },
+  "storage_note": "array payload only; Python overhead and retained reporting arrays excluded; peak RSS includes them",
+  "thread_note": "environment settings; actual backend thread count not measured",
+  "threads": {
+    "MKL_NUM_THREADS": null,
+    "OMP_NUM_THREADS": null,
+    "OPENBLAS_NUM_THREADS": null
+  },
+  "timing_scope": "allocations and updates included; scoring excluded from benchmark; no compilation or device transfer",
+  "total_cpu_seconds_before_runtime_serialization": 7.267925309,
+  "total_wall_seconds_before_runtime_serialization": 7.043498845989234,
+  "validation_pairs": 0,
+  "workers": 1
+}

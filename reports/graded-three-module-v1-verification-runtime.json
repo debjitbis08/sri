@@ -1,0 +1,19 @@
+{
+  "command": "/home/debjit/code/sri/experiments/graded_three_module_verify.py",
+  "complexity": "O(R) traversal and storage for parsed records, R=7392 new trajectory rows",
+  "cpu_seconds_before_runtime_serialization": 0.184189371,
+  "environment_note": "same machine and interpreter; no intervening configuration change",
+  "environment_reference": "graded-three-module-v1-runtime.json",
+  "hashes": {
+    "experiments/graded_three_module_verify.py": "389a8c59db66e28a0f8c68769f638c4923c5c98eb4e267b6b59b6e93512ce5e3",
+    "reports/graded-three-module-v1-results.json": "e03c76ebe80bf048d66e3097774e2e33cbec31b03d0517f2bf595a4d8792361e",
+    "reports/graded-three-module-v1-runtime.json": "3d8575d8d2c68cf998628540838ed792f9bf6aaa822db38e9fa6c3cb7f0c5028",
+    "reports/three-module-ambiguity-v1-results.json": "998a30a80321b489b0e99ee5eba51083878d3bf1dfe3976d7b428ac41b2e38d3"
+  },
+  "new_fits": 0,
+  "new_inference_calls": 0,
+  "peak_rss_kib": 51000,
+  "rss_scope": "Linux single-process lifetime maximum, including JSON parsing",
+  "seed_policy": "no randomness",
+  "wall_seconds_before_runtime_serialization": 0.11926754700834863
+}
