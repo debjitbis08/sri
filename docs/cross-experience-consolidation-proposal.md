@@ -173,3 +173,18 @@ dependent dynamics that no longer descend a common energy, and verify update
 stability after proposed changes. Exact bounds, update rules and support criteria
 remain obligations of the prospective learning contract; no coupling has been
 learned in these frozen studies.
+
+## First implemented test (2026-10-26)
+
+The [local consolidation v1 experiment](local-consolidation-v1-results.md) implements
+one bounded module-local proposal/check/support rule, the reviewer's stability
+gate, sequential two-structure exposure, retention and unseen reconstruction
+checks, and matched slow-inner/no-gate/no-inertia/repeated-trace controls. It does
+not validate the proposed learning mechanism: second-structure cross-module
+reconstruction fails to improve, the stability gate supplies no additional benefit,
+and initial random codes already discriminate the easy structures. Local predictive
+support and accumulated inertia are implemented, but their global usefulness is
+not established. All observations and rejected proposals are costed. Learned
+coupling, more informative support tests, trace recombination and autonomous
+consolidation remain open. See the results rather than treating this proposal as
+a validated specification.

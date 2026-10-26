@@ -1,0 +1,26 @@
+{
+  "command": "/home/debjit/code/sri/experiments/local_consolidation_audit.py",
+  "complexity": "162 fixed-parameter 32-step inference calls plus 27 O(S^3) stationary solves, S=42",
+  "counts": {
+    "activity_updates": 124416,
+    "hessian_constructions": 171,
+    "implicit_solves": 162,
+    "inference_calls": 162,
+    "inference_examples": 3888
+  },
+  "cpu_seconds_before_runtime_serialization": 0.076980852,
+  "environment_note": "same interpreter and machine, single-thread environment set before importing NumPy",
+  "environment_reference": "local-consolidation-v1-runtime.json",
+  "exact_stationary_solves": 27,
+  "hashes": {
+    "docs/local-consolidation-v1-contract.md": "fc0de11311131057e10a1a24ca3c3e74cc64b231299efef50698278aa326198a",
+    "experiments/local_consolidation.py": "87488f7b1932a7957be94ecf44ffddba101ab1a9f6b144c277f11207abd95a1a",
+    "experiments/local_consolidation_audit.py": "cd6aaf8f9300b025cd6595685872c0a008bdb9ded72fa85938721225b7be3fa6",
+    "reports/local-consolidation-v1-results.json": "cb20714123e1e6ef1920c0392d142e9e4c2f91ff9c0713dd3f6eec4ed64bad2d"
+  },
+  "new_learning_proposals": 0,
+  "peak_rss_kib": 38368,
+  "purpose": "post-result diagnosis; no new parameter updates, candidate selection or extra trajectory horizons",
+  "rss_scope": "Linux single process lifetime peak",
+  "wall_seconds_before_runtime_serialization": 0.07717578299343586
+}

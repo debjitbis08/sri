@@ -1,0 +1,786 @@
+{
+  "accelerator_memory": null,
+  "accelerator_reason": "CPU only",
+  "affinity_cpu_count": 12,
+  "arms": 8,
+  "backend_threads": null,
+  "backend_threads_reason": "environment fixed before NumPy import; active backend count not measured",
+  "blas": "{\n  \"Compilers\": {\n    \"c\": {\n      \"name\": \"gcc\",\n      \"linker\": \"ld.bfd\",\n      \"version\": \"14.2.1\",\n      \"commands\": \"cc\"\n    },\n    \"cython\": {\n      \"name\": \"cython\",\n      \"linker\": \"cython\",\n      \"version\": \"3.3.0\",\n      \"commands\": \"cython\"\n    },\n    \"c++\": {\n      \"name\": \"gcc\",\n      \"linker\": \"ld.bfd\",\n      \"version\": \"14.2.1\",\n      \"commands\": \"c++\"\n    }\n  },\n  \"Machine Information\": {\n    \"host\": {\n      \"cpu\": \"x86_64\",\n      \"family\": \"x86_64\",\n      \"endian\": \"little\",\n      \"system\": \"linux\"\n    },\n    \"build\": {\n      \"cpu\": \"x86_64\",\n      \"family\": \"x86_64\",\n      \"endian\": \"little\",\n      \"system\": \"linux\"\n    }\n  },\n  \"Build Dependencies\": {\n    \"blas\": {\n      \"name\": \"scipy-openblas\",\n      \"found\": true,\n      \"version\": \"0.3.34.106.0\",\n      \"detection method\": \"pkgconfig\",\n      \"include directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include\",\n      \"lib directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib\",\n      \"openblas configuration\": \"OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64\",\n      \"pc file directory\": \"/project/.openblas\"\n    },\n    \"lapack\": {\n      \"name\": \"scipy-openblas\",\n      \"found\": true,\n      \"version\": \"0.3.34.106.0\",\n      \"detection method\": \"pkgconfig\",\n      \"include directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include\",\n      \"lib directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib\",\n      \"openblas configuration\": \"OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64\",\n      \"pc file directory\": \"/project/.openblas\"\n    }\n  },\n  \"Python Information\": {\n    \"path\": \"/tmp/build-env-ptu49_tp/bin/python\",\n    \"version\": \"3.12\"\n  },\n  \"SIMD Extensions\": {\n    \"baseline\": [\n      \"X86_V2\"\n    ],\n    \"found\": [\n      \"X86_V3\"\n    ],\n    \"not found\": [\n      \"X86_V4\",\n      \"AVX512_ICL\",\n      \"AVX512_SPR\"\n    ]\n  }\n}\n",
+  "command": "/home/debjit/code/sri/experiments/local_consolidation.py",
+  "counts": {
+    "accepted_proposals": 598,
+    "activity_updates": 946432,
+    "candidate_local_checks": 432,
+    "candidate_proposals": 757,
+    "direct_fit_examples": 432,
+    "direct_fits": 18,
+    "direct_inference_examples": 432,
+    "evaluation_probe_examples": 2880,
+    "evaluation_reconstruction_examples": 5184,
+    "hessian_constructions": 2221,
+    "implicit_solves": 2140,
+    "inference_calls": 2140,
+    "inference_examples": 29576,
+    "proposal_trace_exposures": 10368,
+    "rejected_proposals": 158,
+    "validation_trace_exposures": 10368,
+    "waking_episode_exposures": 768
+  },
+  "cpu": "x86_64",
+  "cpu_limit": null,
+  "cpu_seconds_before_runtime_serialization": 0.8067812129999999,
+  "dirty_status": "?? docs/local-consolidation-v1-contract.md\n?? experiments/local_consolidation.py\n?? reports/local-consolidation-v1-results.json\n",
+  "dtype": "float64",
+  "evaluator_reference_examples": 48,
+  "hashes": {
+    "docs/local-consolidation-v1-contract.md": "fc0de11311131057e10a1a24ca3c3e74cc64b231299efef50698278aa326198a",
+    "experiments/local_consolidation.py": "87488f7b1932a7957be94ecf44ffddba101ab1a9f6b144c277f11207abd95a1a"
+  },
+  "hyperparameter_candidates": 1,
+  "independent_test_examples": 72,
+  "independent_waking_examples": 96,
+  "manual_design_reason": "not measured",
+  "manual_design_seconds": null,
+  "memory_limit": null,
+  "numpy": "2.5.4",
+  "os": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+  "peak_rss_kib": 41380,
+  "phases": {
+    "fixture_construction": {
+      "cpu_seconds": 0.0010905599999999904,
+      "wall_seconds": 0.0010898089967668056
+    },
+    "provenance": {
+      "cpu_seconds": 0.0012543400000000204,
+      "wall_seconds": 0.005724813003325835
+    },
+    "seed0_direct_comparator": {
+      "cpu_seconds": 0.0004564999999999708,
+      "wall_seconds": 0.0004560590023174882
+    },
+    "seed0_energy_initial_evaluation": {
+      "cpu_seconds": 0.0018717609999999996,
+      "wall_seconds": 0.0018713329918682575
+    },
+    "seed0_energy_stage0_consolidation": {
+      "cpu_seconds": 0.006564972000000016,
+      "wall_seconds": 0.006562978000147268
+    },
+    "seed0_energy_stage0_evaluation": {
+      "cpu_seconds": 0.002246319999999996,
+      "wall_seconds": 0.002266780997160822
+    },
+    "seed0_energy_stage0_waking": {
+      "cpu_seconds": 0.00038296999999999637,
+      "wall_seconds": 0.0003822569997282699
+    },
+    "seed0_energy_stage1_consolidation": {
+      "cpu_seconds": 0.0063748219999999745,
+      "wall_seconds": 0.006373434007400647
+    },
+    "seed0_energy_stage1_evaluation": {
+      "cpu_seconds": 0.001860541000000021,
+      "wall_seconds": 0.0018598640017444268
+    },
+    "seed0_energy_stage1_waking": {
+      "cpu_seconds": 0.00033276000000001527,
+      "wall_seconds": 0.00033215600706171244
+    },
+    "seed0_frozen_initial_evaluation": {
+      "cpu_seconds": 0.0019817909999999966,
+      "wall_seconds": 0.0019813359976978973
+    },
+    "seed0_frozen_stage0_consolidation": {
+      "cpu_seconds": 0.005359212000000002,
+      "wall_seconds": 0.005358645998057909
+    },
+    "seed0_frozen_stage0_evaluation": {
+      "cpu_seconds": 0.0018700999999999995,
+      "wall_seconds": 0.0018694830068852752
+    },
+    "seed0_frozen_stage0_waking": {
+      "cpu_seconds": 0.0003290399999999888,
+      "wall_seconds": 0.00032842600194271654
+    },
+    "seed0_frozen_stage1_consolidation": {
+      "cpu_seconds": 0.005468241999999998,
+      "wall_seconds": 0.0054675779974786565
+    },
+    "seed0_frozen_stage1_evaluation": {
+      "cpu_seconds": 0.0018505699999999958,
+      "wall_seconds": 0.0018498829886084422
+    },
+    "seed0_frozen_stage1_waking": {
+      "cpu_seconds": 0.0003253700000000054,
+      "wall_seconds": 0.00032476500200573355
+    },
+    "seed0_repeated_support_initial_evaluation": {
+      "cpu_seconds": 0.001845411000000019,
+      "wall_seconds": 0.001845042992499657
+    },
+    "seed0_repeated_support_stage0_consolidation": {
+      "cpu_seconds": 0.017364164999999987,
+      "wall_seconds": 0.017363741004373878
+    },
+    "seed0_repeated_support_stage0_evaluation": {
+      "cpu_seconds": 0.001849859999999981,
+      "wall_seconds": 0.0018492240051273257
+    },
+    "seed0_repeated_support_stage0_waking": {
+      "cpu_seconds": 0.0003202999999999956,
+      "wall_seconds": 0.00031972600845620036
+    },
+    "seed0_repeated_support_stage1_consolidation": {
+      "cpu_seconds": 0.01800486499999998,
+      "wall_seconds": 0.018013772991253063
+    },
+    "seed0_repeated_support_stage1_evaluation": {
+      "cpu_seconds": 0.001851070999999982,
+      "wall_seconds": 0.0018505129992263392
+    },
+    "seed0_repeated_support_stage1_waking": {
+      "cpu_seconds": 0.00032919000000003473,
+      "wall_seconds": 0.0003286559949629009
+    },
+    "seed0_slow_stability_initial_evaluation": {
+      "cpu_seconds": 0.002002510000000013,
+      "wall_seconds": 0.0020144659938523546
+    },
+    "seed0_slow_stability_stage0_consolidation": {
+      "cpu_seconds": 0.006583751999999998,
+      "wall_seconds": 0.006583198992302641
+    },
+    "seed0_slow_stability_stage0_evaluation": {
+      "cpu_seconds": 0.0019688910000000004,
+      "wall_seconds": 0.0019683349964907393
+    },
+    "seed0_slow_stability_stage0_waking": {
+      "cpu_seconds": 0.0003463999999999967,
+      "wall_seconds": 0.00034575599420350045
+    },
+    "seed0_slow_stability_stage1_consolidation": {
+      "cpu_seconds": 0.0066357520000000225,
+      "wall_seconds": 0.006635229001403786
+    },
+    "seed0_slow_stability_stage1_evaluation": {
+      "cpu_seconds": 0.0019647399999999926,
+      "wall_seconds": 0.0019642459956230596
+    },
+    "seed0_slow_stability_stage1_waking": {
+      "cpu_seconds": 0.00034515999999998326,
+      "wall_seconds": 0.00034452600812073797
+    },
+    "seed0_stability_initial_evaluation": {
+      "cpu_seconds": 0.0019678999999999947,
+      "wall_seconds": 0.001967335003428161
+    },
+    "seed0_stability_stage0_consolidation": {
+      "cpu_seconds": 0.006013072000000008,
+      "wall_seconds": 0.00601256699883379
+    },
+    "seed0_stability_stage0_evaluation": {
+      "cpu_seconds": 0.001839590000000002,
+      "wall_seconds": 0.0018389530014246702
+    },
+    "seed0_stability_stage0_waking": {
+      "cpu_seconds": 0.00031892999999999505,
+      "wall_seconds": 0.0003182560030836612
+    },
+    "seed0_stability_stage1_consolidation": {
+      "cpu_seconds": 0.0062112709999999904,
+      "wall_seconds": 0.006210720996023156
+    },
+    "seed0_stability_stage1_evaluation": {
+      "cpu_seconds": 0.0018481109999999856,
+      "wall_seconds": 0.0018475630058674142
+    },
+    "seed0_stability_stage1_waking": {
+      "cpu_seconds": 0.00033107099999998835,
+      "wall_seconds": 0.00033056600659620017
+    },
+    "seed0_support_initial_evaluation": {
+      "cpu_seconds": 0.0018288110000000135,
+      "wall_seconds": 0.0018283529934706166
+    },
+    "seed0_support_stability_initial_evaluation": {
+      "cpu_seconds": 0.0018395109999999881,
+      "wall_seconds": 0.0018390229961369187
+    },
+    "seed0_support_stability_no_inertia_initial_evaluation": {
+      "cpu_seconds": 0.001826009999999989,
+      "wall_seconds": 0.0018255829927511513
+    },
+    "seed0_support_stability_no_inertia_stage0_consolidation": {
+      "cpu_seconds": 0.018110226000000007,
+      "wall_seconds": 0.018122815003152937
+    },
+    "seed0_support_stability_no_inertia_stage0_evaluation": {
+      "cpu_seconds": 0.0018377200000000427,
+      "wall_seconds": 0.0018370729958405718
+    },
+    "seed0_support_stability_no_inertia_stage0_waking": {
+      "cpu_seconds": 0.00032933000000001655,
+      "wall_seconds": 0.00032868600101210177
+    },
+    "seed0_support_stability_no_inertia_stage1_consolidation": {
+      "cpu_seconds": 0.02100020600000002,
+      "wall_seconds": 0.02099984600499738
+    },
+    "seed0_support_stability_no_inertia_stage1_evaluation": {
+      "cpu_seconds": 0.0018470299999999717,
+      "wall_seconds": 0.001846402999944985
+    },
+    "seed0_support_stability_no_inertia_stage1_waking": {
+      "cpu_seconds": 0.0003189100000000056,
+      "wall_seconds": 0.0003182359942002222
+    },
+    "seed0_support_stability_stage0_consolidation": {
+      "cpu_seconds": 0.018280275000000012,
+      "wall_seconds": 0.01827987800061237
+    },
+    "seed0_support_stability_stage0_evaluation": {
+      "cpu_seconds": 0.0018420299999999945,
+      "wall_seconds": 0.0018413729994790629
+    },
+    "seed0_support_stability_stage0_waking": {
+      "cpu_seconds": 0.00031815000000001703,
+      "wall_seconds": 0.00031750599737279117
+    },
+    "seed0_support_stability_stage1_consolidation": {
+      "cpu_seconds": 0.02118299600000001,
+      "wall_seconds": 0.021182769996812567
+    },
+    "seed0_support_stability_stage1_evaluation": {
+      "cpu_seconds": 0.0018786310000000195,
+      "wall_seconds": 0.0018782340048346668
+    },
+    "seed0_support_stability_stage1_waking": {
+      "cpu_seconds": 0.00031912000000000607,
+      "wall_seconds": 0.00031846600177232176
+    },
+    "seed0_support_stage0_consolidation": {
+      "cpu_seconds": 0.01819109499999999,
+      "wall_seconds": 0.018190736009273678
+    },
+    "seed0_support_stage0_evaluation": {
+      "cpu_seconds": 0.0018470810000000004,
+      "wall_seconds": 0.0018464729946572334
+    },
+    "seed0_support_stage0_waking": {
+      "cpu_seconds": 0.0003238999999999881,
+      "wall_seconds": 0.00032331600959878415
+    },
+    "seed0_support_stage1_consolidation": {
+      "cpu_seconds": 0.02189819599999998,
+      "wall_seconds": 0.02189770300174132
+    },
+    "seed0_support_stage1_evaluation": {
+      "cpu_seconds": 0.0018397099999999944,
+      "wall_seconds": 0.0018391330086160451
+    },
+    "seed0_support_stage1_waking": {
+      "cpu_seconds": 0.00031744000000000216,
+      "wall_seconds": 0.0003167759859934449
+    },
+    "seed1_direct_comparator": {
+      "cpu_seconds": 0.0004370500000000499,
+      "wall_seconds": 0.00043653699685819447
+    },
+    "seed1_energy_initial_evaluation": {
+      "cpu_seconds": 0.0018295100000000342,
+      "wall_seconds": 0.001829052998800762
+    },
+    "seed1_energy_stage0_consolidation": {
+      "cpu_seconds": 0.005947082000000048,
+      "wall_seconds": 0.005946506003965624
+    },
+    "seed1_energy_stage0_evaluation": {
+      "cpu_seconds": 0.0018268509999999627,
+      "wall_seconds": 0.0018261929944856092
+    },
+    "seed1_energy_stage0_waking": {
+      "cpu_seconds": 0.00031823999999996966,
+      "wall_seconds": 0.00031763598963152617
+    },
+    "seed1_energy_stage1_consolidation": {
+      "cpu_seconds": 0.006134001,
+      "wall_seconds": 0.006133440008852631
+    },
+    "seed1_energy_stage1_evaluation": {
+      "cpu_seconds": 0.0018210810000000022,
+      "wall_seconds": 0.0018204329971922562
+    },
+    "seed1_energy_stage1_waking": {
+      "cpu_seconds": 0.00031690000000000884,
+      "wall_seconds": 0.00031624599068891257
+    },
+    "seed1_frozen_initial_evaluation": {
+      "cpu_seconds": 0.001852441000000038,
+      "wall_seconds": 0.0018521029996918514
+    },
+    "seed1_frozen_stage0_consolidation": {
+      "cpu_seconds": 0.005274871000000014,
+      "wall_seconds": 0.005274364986689761
+    },
+    "seed1_frozen_stage0_evaluation": {
+      "cpu_seconds": 0.0018250810000000062,
+      "wall_seconds": 0.0018244530074298382
+    },
+    "seed1_frozen_stage0_waking": {
+      "cpu_seconds": 0.00032056000000002527,
+      "wall_seconds": 0.0003199760103598237
+    },
+    "seed1_frozen_stage1_consolidation": {
+      "cpu_seconds": 0.005468890999999976,
+      "wall_seconds": 0.005468267991091125
+    },
+    "seed1_frozen_stage1_evaluation": {
+      "cpu_seconds": 0.0018225310000000161,
+      "wall_seconds": 0.001821842000936158
+    },
+    "seed1_frozen_stage1_waking": {
+      "cpu_seconds": 0.00032765000000001265,
+      "wall_seconds": 0.00032707500213291496
+    },
+    "seed1_repeated_support_initial_evaluation": {
+      "cpu_seconds": 0.0019066110000000025,
+      "wall_seconds": 0.001906224002595991
+    },
+    "seed1_repeated_support_stage0_consolidation": {
+      "cpu_seconds": 0.017469493999999974,
+      "wall_seconds": 0.017472813007771038
+    },
+    "seed1_repeated_support_stage0_evaluation": {
+      "cpu_seconds": 0.0018431610000000376,
+      "wall_seconds": 0.0018424919981043786
+    },
+    "seed1_repeated_support_stage0_waking": {
+      "cpu_seconds": 0.00032261000000000095,
+      "wall_seconds": 0.0003219560021534562
+    },
+    "seed1_repeated_support_stage1_consolidation": {
+      "cpu_seconds": 0.01814339499999995,
+      "wall_seconds": 0.018150535004679114
+    },
+    "seed1_repeated_support_stage1_evaluation": {
+      "cpu_seconds": 0.0018361709999999976,
+      "wall_seconds": 0.0018355430074734613
+    },
+    "seed1_repeated_support_stage1_waking": {
+      "cpu_seconds": 0.000328969999999984,
+      "wall_seconds": 0.00032835500314831734
+    },
+    "seed1_slow_stability_initial_evaluation": {
+      "cpu_seconds": 0.0019843809999999795,
+      "wall_seconds": 0.0019839259912259877
+    },
+    "seed1_slow_stability_stage0_consolidation": {
+      "cpu_seconds": 0.006487091,
+      "wall_seconds": 0.006486586993560195
+    },
+    "seed1_slow_stability_stage0_evaluation": {
+      "cpu_seconds": 0.001972070999999964,
+      "wall_seconds": 0.0019715349917532876
+    },
+    "seed1_slow_stability_stage0_waking": {
+      "cpu_seconds": 0.0003457399999999833,
+      "wall_seconds": 0.00034512599813751876
+    },
+    "seed1_slow_stability_stage1_consolidation": {
+      "cpu_seconds": 0.006705342000000003,
+      "wall_seconds": 0.00670481999986805
+    },
+    "seed1_slow_stability_stage1_evaluation": {
+      "cpu_seconds": 0.001974370999999975,
+      "wall_seconds": 0.001973855003598146
+    },
+    "seed1_slow_stability_stage1_waking": {
+      "cpu_seconds": 0.0003445699999999885,
+      "wall_seconds": 0.00034393600071780384
+    },
+    "seed1_stability_initial_evaluation": {
+      "cpu_seconds": 0.0018338900000000047,
+      "wall_seconds": 0.0018334430060349405
+    },
+    "seed1_stability_stage0_consolidation": {
+      "cpu_seconds": 0.005957540999999955,
+      "wall_seconds": 0.005956937005976215
+    },
+    "seed1_stability_stage0_evaluation": {
+      "cpu_seconds": 0.0018241510000000516,
+      "wall_seconds": 0.0018234830058645457
+    },
+    "seed1_stability_stage0_waking": {
+      "cpu_seconds": 0.0003215010000000018,
+      "wall_seconds": 0.0003208759881090373
+    },
+    "seed1_stability_stage1_consolidation": {
+      "cpu_seconds": 0.006196212000000034,
+      "wall_seconds": 0.006195650988956913
+    },
+    "seed1_stability_stage1_evaluation": {
+      "cpu_seconds": 0.0018431600000000103,
+      "wall_seconds": 0.0018425830057822168
+    },
+    "seed1_stability_stage1_waking": {
+      "cpu_seconds": 0.0003712399999999949,
+      "wall_seconds": 0.00037050699756946415
+    },
+    "seed1_support_initial_evaluation": {
+      "cpu_seconds": 0.0018337300000000334,
+      "wall_seconds": 0.0018332329927943647
+    },
+    "seed1_support_stability_initial_evaluation": {
+      "cpu_seconds": 0.0018539199999999534,
+      "wall_seconds": 0.001876162990811281
+    },
+    "seed1_support_stability_no_inertia_initial_evaluation": {
+      "cpu_seconds": 0.0018376700000000135,
+      "wall_seconds": 0.0018372229969827458
+    },
+    "seed1_support_stability_no_inertia_stage0_consolidation": {
+      "cpu_seconds": 0.01869073600000004,
+      "wall_seconds": 0.018690245007746853
+    },
+    "seed1_support_stability_no_inertia_stage0_evaluation": {
+      "cpu_seconds": 0.001848889999999992,
+      "wall_seconds": 0.0018481939914636314
+    },
+    "seed1_support_stability_no_inertia_stage0_waking": {
+      "cpu_seconds": 0.00032791999999992605,
+      "wall_seconds": 0.0003273860056651756
+    },
+    "seed1_support_stability_no_inertia_stage1_consolidation": {
+      "cpu_seconds": 0.02239947600000003,
+      "wall_seconds": 0.022399241002858616
+    },
+    "seed1_support_stability_no_inertia_stage1_evaluation": {
+      "cpu_seconds": 0.0018527109999999514,
+      "wall_seconds": 0.0018520730081945658
+    },
+    "seed1_support_stability_no_inertia_stage1_waking": {
+      "cpu_seconds": 0.0003202500000000219,
+      "wall_seconds": 0.000319605998811312
+    },
+    "seed1_support_stability_stage0_consolidation": {
+      "cpu_seconds": 0.018975185999999977,
+      "wall_seconds": 0.018991250995895825
+    },
+    "seed1_support_stability_stage0_evaluation": {
+      "cpu_seconds": 0.0018434900000000032,
+      "wall_seconds": 0.0018428930052323267
+    },
+    "seed1_support_stability_stage0_waking": {
+      "cpu_seconds": 0.00032103999999999466,
+      "wall_seconds": 0.0003204360109521076
+    },
+    "seed1_support_stability_stage1_consolidation": {
+      "cpu_seconds": 0.022416695999999958,
+      "wall_seconds": 0.022416481995605864
+    },
+    "seed1_support_stability_stage1_evaluation": {
+      "cpu_seconds": 0.0018320010000000275,
+      "wall_seconds": 0.001831293004215695
+    },
+    "seed1_support_stability_stage1_waking": {
+      "cpu_seconds": 0.0003203099999999903,
+      "wall_seconds": 0.0003197160112904385
+    },
+    "seed1_support_stage0_consolidation": {
+      "cpu_seconds": 0.018574164999999976,
+      "wall_seconds": 0.01857380299770739
+    },
+    "seed1_support_stage0_evaluation": {
+      "cpu_seconds": 0.0018318410000000007,
+      "wall_seconds": 0.0018311930034542456
+    },
+    "seed1_support_stage0_waking": {
+      "cpu_seconds": 0.0003282799999999586,
+      "wall_seconds": 0.0003276959905633703
+    },
+    "seed1_support_stage1_consolidation": {
+      "cpu_seconds": 0.02234556600000004,
+      "wall_seconds": 0.02234526000393089
+    },
+    "seed1_support_stage1_evaluation": {
+      "cpu_seconds": 0.0018293010000000054,
+      "wall_seconds": 0.0018286529957549646
+    },
+    "seed1_support_stage1_waking": {
+      "cpu_seconds": 0.0003278299999999734,
+      "wall_seconds": 0.0003272559988545254
+    },
+    "seed2_direct_comparator": {
+      "cpu_seconds": 0.00045136099999998347,
+      "wall_seconds": 0.0004508779966272414
+    },
+    "seed2_energy_initial_evaluation": {
+      "cpu_seconds": 0.0018533609999999978,
+      "wall_seconds": 0.0018529429944464937
+    },
+    "seed2_energy_stage0_consolidation": {
+      "cpu_seconds": 0.006031952000000063,
+      "wall_seconds": 0.006031337994500063
+    },
+    "seed2_energy_stage0_evaluation": {
+      "cpu_seconds": 0.0018374700000000077,
+      "wall_seconds": 0.001836801995523274
+    },
+    "seed2_energy_stage0_waking": {
+      "cpu_seconds": 0.0003202199999999822,
+      "wall_seconds": 0.000319605998811312
+    },
+    "seed2_energy_stage1_consolidation": {
+      "cpu_seconds": 0.0061951519999999816,
+      "wall_seconds": 0.006194601010065526
+    },
+    "seed2_energy_stage1_evaluation": {
+      "cpu_seconds": 0.0018649209999999083,
+      "wall_seconds": 0.001864322999608703
+    },
+    "seed2_energy_stage1_waking": {
+      "cpu_seconds": 0.000328549999999983,
+      "wall_seconds": 0.00032794599246699363
+    },
+    "seed2_frozen_initial_evaluation": {
+      "cpu_seconds": 0.0018452999999999387,
+      "wall_seconds": 0.0018449329945724458
+    },
+    "seed2_frozen_stage0_consolidation": {
+      "cpu_seconds": 0.005313871999999997,
+      "wall_seconds": 0.005313305999152362
+    },
+    "seed2_frozen_stage0_evaluation": {
+      "cpu_seconds": 0.0018415099999999907,
+      "wall_seconds": 0.0018410030024824664
+    },
+    "seed2_frozen_stage0_waking": {
+      "cpu_seconds": 0.0003185100000000496,
+      "wall_seconds": 0.0003178449987899512
+    },
+    "seed2_frozen_stage1_consolidation": {
+      "cpu_seconds": 0.005455822000000055,
+      "wall_seconds": 0.0054552679939661175
+    },
+    "seed2_frozen_stage1_evaluation": {
+      "cpu_seconds": 0.0018325000000000147,
+      "wall_seconds": 0.001831872999900952
+    },
+    "seed2_frozen_stage1_waking": {
+      "cpu_seconds": 0.00032524999999994364,
+      "wall_seconds": 0.00032465599360875785
+    },
+    "seed2_repeated_support_initial_evaluation": {
+      "cpu_seconds": 0.001852680000000051,
+      "wall_seconds": 0.0018522540049161762
+    },
+    "seed2_repeated_support_stage0_consolidation": {
+      "cpu_seconds": 0.017455704999999933,
+      "wall_seconds": 0.017455302993766963
+    },
+    "seed2_repeated_support_stage0_evaluation": {
+      "cpu_seconds": 0.0018498410000000742,
+      "wall_seconds": 0.001849213003879413
+    },
+    "seed2_repeated_support_stage0_waking": {
+      "cpu_seconds": 0.00032960000000004097,
+      "wall_seconds": 0.0003290659951744601
+    },
+    "seed2_repeated_support_stage1_consolidation": {
+      "cpu_seconds": 0.018098165000000055,
+      "wall_seconds": 0.018097743988619186
+    },
+    "seed2_repeated_support_stage1_evaluation": {
+      "cpu_seconds": 0.0018425699999999878,
+      "wall_seconds": 0.0018419620027998462
+    },
+    "seed2_repeated_support_stage1_waking": {
+      "cpu_seconds": 0.0003209100000000076,
+      "wall_seconds": 0.0003202859952580184
+    },
+    "seed2_slow_stability_initial_evaluation": {
+      "cpu_seconds": 0.001979120000000001,
+      "wall_seconds": 0.0019786850025411695
+    },
+    "seed2_slow_stability_stage0_consolidation": {
+      "cpu_seconds": 0.006561751999999976,
+      "wall_seconds": 0.0065611479949438944
+    },
+    "seed2_slow_stability_stage0_evaluation": {
+      "cpu_seconds": 0.0019784110000000688,
+      "wall_seconds": 0.0019777859997702762
+    },
+    "seed2_slow_stability_stage0_waking": {
+      "cpu_seconds": 0.00036384000000000416,
+      "wall_seconds": 0.0003739060048246756
+    },
+    "seed2_slow_stability_stage1_consolidation": {
+      "cpu_seconds": 0.006702671999999965,
+      "wall_seconds": 0.0067020899878116325
+    },
+    "seed2_slow_stability_stage1_evaluation": {
+      "cpu_seconds": 0.0019895899999999855,
+      "wall_seconds": 0.001988956006243825
+    },
+    "seed2_slow_stability_stage1_waking": {
+      "cpu_seconds": 0.00034557000000001725,
+      "wall_seconds": 0.00034497599699534476
+    },
+    "seed2_stability_initial_evaluation": {
+      "cpu_seconds": 0.0018383000000000704,
+      "wall_seconds": 0.0018380130059085786
+    },
+    "seed2_stability_stage0_consolidation": {
+      "cpu_seconds": 0.006088471999999956,
+      "wall_seconds": 0.0060878789954585955
+    },
+    "seed2_stability_stage0_evaluation": {
+      "cpu_seconds": 0.001843249999999963,
+      "wall_seconds": 0.0018426629976602271
+    },
+    "seed2_stability_stage0_waking": {
+      "cpu_seconds": 0.00032092999999999705,
+      "wall_seconds": 0.0003202949883416295
+    },
+    "seed2_stability_stage1_consolidation": {
+      "cpu_seconds": 0.006220462000000038,
+      "wall_seconds": 0.006219860995770432
+    },
+    "seed2_stability_stage1_evaluation": {
+      "cpu_seconds": 0.001842040999999961,
+      "wall_seconds": 0.001841402001446113
+    },
+    "seed2_stability_stage1_waking": {
+      "cpu_seconds": 0.0003200899999999951,
+      "wall_seconds": 0.0003194259916199371
+    },
+    "seed2_support_initial_evaluation": {
+      "cpu_seconds": 0.001852820999999949,
+      "wall_seconds": 0.0018523629987612367
+    },
+    "seed2_support_stability_initial_evaluation": {
+      "cpu_seconds": 0.0018346609999999597,
+      "wall_seconds": 0.0018341230024816468
+    },
+    "seed2_support_stability_no_inertia_initial_evaluation": {
+      "cpu_seconds": 0.0018372599999999517,
+      "wall_seconds": 0.0018368229939369485
+    },
+    "seed2_support_stability_no_inertia_stage0_consolidation": {
+      "cpu_seconds": 0.01856147600000002,
+      "wall_seconds": 0.018561113000032492
+    },
+    "seed2_support_stability_no_inertia_stage0_evaluation": {
+      "cpu_seconds": 0.0018560199999999583,
+      "wall_seconds": 0.0018553929985500872
+    },
+    "seed2_support_stability_no_inertia_stage0_waking": {
+      "cpu_seconds": 0.0003294000000000352,
+      "wall_seconds": 0.0003287760046077892
+    },
+    "seed2_support_stability_no_inertia_stage1_consolidation": {
+      "cpu_seconds": 0.02200292600000009,
+      "wall_seconds": 0.022002714991685934
+    },
+    "seed2_support_stability_no_inertia_stage1_evaluation": {
+      "cpu_seconds": 0.0018401209999999724,
+      "wall_seconds": 0.001839453005231917
+    },
+    "seed2_support_stability_no_inertia_stage1_waking": {
+      "cpu_seconds": 0.00032933000000001655,
+      "wall_seconds": 0.00032885599648579955
+    },
+    "seed2_support_stability_stage0_consolidation": {
+      "cpu_seconds": 0.018359484999999953,
+      "wall_seconds": 0.018359109002631158
+    },
+    "seed2_support_stability_stage0_evaluation": {
+      "cpu_seconds": 0.0018360600000000282,
+      "wall_seconds": 0.0018354530038777739
+    },
+    "seed2_support_stability_stage0_waking": {
+      "cpu_seconds": 0.00032544000000001017,
+      "wall_seconds": 0.00032484601251780987
+    },
+    "seed2_support_stability_stage1_consolidation": {
+      "cpu_seconds": 0.021554995999999993,
+      "wall_seconds": 0.02155469600984361
+    },
+    "seed2_support_stability_stage1_evaluation": {
+      "cpu_seconds": 0.001849451000000002,
+      "wall_seconds": 0.0018489140056772158
+    },
+    "seed2_support_stability_stage1_waking": {
+      "cpu_seconds": 0.00031983000000002093,
+      "wall_seconds": 0.0003191860014339909
+    },
+    "seed2_support_stage0_consolidation": {
+      "cpu_seconds": 0.018432815000000047,
+      "wall_seconds": 0.018432420009048656
+    },
+    "seed2_support_stage0_evaluation": {
+      "cpu_seconds": 0.0018595310000000254,
+      "wall_seconds": 0.0018588940001791343
+    },
+    "seed2_support_stage0_waking": {
+      "cpu_seconds": 0.00032743000000001743,
+      "wall_seconds": 0.00032678598654456437
+    },
+    "seed2_support_stage1_consolidation": {
+      "cpu_seconds": 0.021519665999999993,
+      "wall_seconds": 0.021519494999665767
+    },
+    "seed2_support_stage1_evaluation": {
+      "cpu_seconds": 0.0018361399999999861,
+      "wall_seconds": 0.0018354629864916205
+    },
+    "seed2_support_stage1_waking": {
+      "cpu_seconds": 0.00031888000000002137,
+      "wall_seconds": 0.00031826499616727233
+    },
+    "serialization": {
+      "cpu_seconds": 0.016057984000000025,
+      "wall_seconds": 0.016056737993494608
+    },
+    "summary": {
+      "cpu_seconds": 0.00039716999999994673,
+      "wall_seconds": 0.00039676700544077903
+    },
+    "verification": {
+      "cpu_seconds": 0.019001964999999996,
+      "wall_seconds": 0.019009320007171482
+    }
+  },
+  "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+  "revision": "6e373acc197e0aa8b8815aabadc4419304936596",
+  "rss_scope": "Linux single-process lifetime peak; all reporting arrays included",
+  "seed_policy": "SeedSequence [seed,1001] initialization; [seed,2002] fixtures",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "selection_note": "fixed arms, no selected candidate; all rejected local proposals counted as learning costs",
+  "storage_bytes_per_learner": {
+    "batch_state_max": 10752,
+    "candidate_weights": 960,
+    "dense_hessian": 14112,
+    "episode_ids": 256,
+    "implicit_matrix_upper_bound": 14112,
+    "optimizer_history": 0,
+    "replay": 6144,
+    "support_ids_max": 384,
+    "total_persistent_numeric_max": 7744,
+    "weights": 960
+  },
+  "storage_note": "numeric payload excludes Python containers, interpreter and temporary solve workspace; process peak includes them; labeled evaluation data not learner memory",
+  "thread_environment": {
+    "MKL_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1"
+  },
+  "timing_scope": "whole-run/phase mechanism timings, not warmed latency benchmark; includes allocations and all probes/validation",
+  "tuning_seconds": 0,
+  "wall_seconds_before_runtime_serialization": 0.8121989700011909,
+  "workers": 1
+}
