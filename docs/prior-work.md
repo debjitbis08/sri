@@ -350,6 +350,117 @@ targeted starting review, not a novelty survey.
     reduction and transfer. Novelty, sleep-specific benefit, and an advantage
     over ordinary predictive model transfer remain unestablished.
 
+## Linear action-conditioned dynamics and transfer
+
+Search record, 2026-10-26, for the linear fixture of the revised
+[relational proposal](relational-abstraction-learning-proposal.md): searched
+joint learning of multiple linear systems, switched linear system
+identification, Ho-Kalman/subspace identification finite-sample analysis, DMD
+with control, Embed to Control, multi-step prediction training, provable
+multi-task linear representation learning, and transfer across observation
+spaces with shared latent dynamics. Targeted starting review, not a novelty
+survey. Derived checks for the rotation-and-reflection pair were run as short
+numerical scripts during this review and are not stored.
+
+- **Linear system identification up to similarity.**
+  - Shown: Ho-Kalman and subspace methods recover a state-space realization
+    only up to an invertible state transformation [familiar]. Recent
+    finite-sample analyses state their realization bounds up to similarity,
+    and [He et al. 2025](https://arxiv.org/abs/2501.16639) bound open-loop
+    MOESP/CVA-type estimates [abstract]. [Finite Sample Analysis of System Poles for Ho-Kalman Algorithm](https://arxiv.org/abs/2503.16331)
+    reports that accurate pole estimation from Ho-Kalman can need sample sizes
+    growing super-polynomially in the state-to-output dimension ratio
+    [abstract].
+  - Differs: single systems with known inputs, not several renderings of
+    shared dynamics.
+  - Hypothesis: evaluate learned dynamics only modulo one basis change shared
+    by all actions, as the proposal already requires [familiar]. A target-only
+    subspace method is a cheap direct baseline [familiar].
+- **Joint learning of systems with shared structure.**
+  - Shown: [Modi et al. 2024](https://arxiv.org/abs/2112.10955) model fully
+    observed VAR(1) transition matrices as system-specific combinations of
+    shared unknown basis matrices and prove that pooling improves estimation
+    when the basis count is small relative to both d² and the number of
+    systems. Misspecification erodes the gain, sharply so for unit-eigenvalue
+    systems, and in their simulations the joint estimator does worse than
+    individual ones when every system is misspecified [read, Sections 2-5].
+  - Differs: the shared object there is the transition operator in fixed,
+    observed coordinates. Here each domain has its own rendering and nuisance,
+    so the target must also learn an encoder.
+  - Hypothesis: broken-structure targets are the misspecified case; expect
+    negative transfer there, worst with norm-preserving operators [analogy].
+- **Provable representation transfer.**
+  - Shown: with a shared k-dimensional linear representation,
+    [Du et al. 2021](https://arxiv.org/abs/2002.09434) bound target risk by
+    O(dk/(n₁T) + k/n₂), against O(d/n₂) without source tasks [abstract].
+    [Tripuraneni et al. 2021](https://arxiv.org/abs/2002.11684) give
+    estimators, lower bounds and a bias-variance analysis of transferring an
+    imperfect representation [abstract].
+  - Differs: there the representation is shared and the task head is new.
+    Here the dynamics are shared and the encoder is new, so the roles are
+    reversed.
+  - Hypothesis: source benefit scales with the target parameters that
+    transfer removes, and shrinks as the calibration budget grows [analogy;
+    see the derived count below].
+- **Action-conditioned linear latent models.**
+  - Shown: [DMD with control](https://arxiv.org/abs/1409.6358) fits
+    x' = Ax + Bu, separating unforced dynamics from additive actuation
+    [abstract]. [Embed to Control](https://arxiv.org/abs/1506.07365) learns an
+    encoder into a latent space with locally linear, action-conditioned
+    dynamics and reports long-horizon prediction from images [abstract].
+    Switched-linear identification alternates between per-mode models and
+    mode assignment, for example [Lopes et al. 2023](https://repositorio.unb.br/handle/10482/47430),
+    which keeps submodels in a common state basis [abstract].
+  - Differs: modes are inferred there; here action identity is supplied.
+    E2C is nonlinear and variational.
+  - Hypothesis: additive control cannot make the transition matrix depend on
+    the action. That matches the proposal's statement that an action
+    indicator appended to a fixed linear map is insufficient, and it supports
+    a bank of per-action operators in one shared coordinate system [derived].
+- **Transfer across observation spaces.**
+  - Shown: [Sun et al. 2022](https://arxiv.org/abs/2201.00248) transfer a
+    latent dynamics model learned in a source task to a target task with a
+    different observation space, as a regularizer on target representation
+    learning, without an inter-task mapping [abstract].
+  - Differs: reinforcement learning with a nonlinear encoder and reward.
+  - Hypothesis: the closest published analogue of the proposal's frozen
+    shared dynamics plus learned target binding; a strong conceptual
+    comparator rather than one to implement [analogy].
+- **Multi-step objectives.**
+  - Shown: [Venkatraman et al. 2015](https://ojs.aaai.org/index.php/AAAI/article/view/9590)
+    note that one-step training lets errors compound in rollout and shift the
+    input distribution. Their DaD reuses training trajectories to correct
+    multi-step errors, with a bound relating training to multi-step error
+    [abstract]. Equation-error versus simulation-error fitting is the
+    corresponding distinction in system identification [familiar].
+  - Differs: their models are fitted predictors, not equilibrium modules.
+  - Hypothesis: the proposal's multi-step predictive training control
+    corresponds to simulation-error or DaD-style training. A structural
+    consolidation rule that selects on multi-step error must beat it to claim
+    anything beyond the objective [analogy].
+- **What follows without running, for the direct linear references.**
+  - With a rotation R (angle not 0 or π) and a reflection Q fixed, the target
+    binding constraint E x' = F_a E x determines the encoder on the excited
+    observation span up to a single scalar; with one rotation alone, a
+    rotation-and-scale ambiguity remains (commutant dimension 1 against 2)
+    [derived, numerically checked]. The outcome probe fixes the scalar.
+  - R and Q have determinants +1 and −1, so no basis change maps one onto the
+    other: swapping them is a behaviorally detectable scramble. Two rotations
+    commute, so cannot test order [derived].
+  - Effective target parameter counts, for 2-D latent state, 8-D observations
+    and two actions: a target-only shared-encoder latent model has about 16 +
+    8 − 4 = 20 (encoder, operators, minus the GL(2) gauge); frozen-dynamics
+    transfer has about 16 − 1 = 15. Per-action reduced-rank and full linear
+    maps have about 56 and 128. The source benefit over the best target-only
+    latent model should therefore be modest at large budgets [derived,
+    counting heuristic].
+  - Norm-preserving operators do not damp errors. A perturbation ε in an
+    estimated operator gives rollout error growing roughly linearly in
+    horizon (about 1.1×10⁻³ at L = 1 and 8.6×10⁻² at L = 128 for ε = 10⁻³)
+    [derived, numerically checked]. Transfer of exact source operators should
+    therefore help most at small budgets and long horizons; choose budgets
+    and horizons where the direct references predict a measurable gap.
+
 ## Implications for contracts
 
 - Use standard names where the mechanism is the same: EP for the two-phase
@@ -365,6 +476,11 @@ targeted starting review, not a novelty survey.
   modules (GLOM agreement); importance estimation without gradient signal (SI
   and EWC on saturated tasks); finite-β EP (use symmetric or holomorphic
   nudging).
+- For the linear relational fixture: evaluate dynamics modulo one shared
+  basis change; use noncommuting operators of different determinant so action
+  order and scrambles are detectable; compare against a target-only
+  shared-encoder latent model, not only per-action regressions; and include
+  simulation-error (DaD-style) multi-step training as the objective control.
 - Established alternatives to consider before inventing new mechanisms:
   - bidirectional predictive coding for the objective question;
   - correlated-nuisance fixtures to separate prediction from alignment;

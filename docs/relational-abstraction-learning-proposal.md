@@ -422,11 +422,20 @@ Historical runs lacking comparable cost fields must be labeled as such.
 See the relational-abstraction entry in [prior work](prior-work.md). Relevant
 established ideas are transition-system quotients, MDP homomorphisms,
 bisimulation, predictive state abstraction, MDL/state merging, and structural
-generalization in TEM, plus linear system identification and reduced-rank
-predictive transfer. That entry does not yet cover the linear additions,
-action-conditioned linear models, or multi-step objectives; review them, and
-the specific consolidation objective, under literature-review.md before
-freezing. This draft does not establish their novelty. Exact preservation is a mathematical property; discovery
+generalization in TEM. The [linear-dynamics entry](prior-work.md#linear-action-conditioned-dynamics-and-transfer)
+covers system identification up to similarity, joint learning of shared
+dynamics, linear representation transfer, action-conditioned linear models,
+transfer across observation spaces, and multi-step objectives. It predicts,
+without running SRI, that a rotation-and-reflection pair makes target binding
+identifiable up to scale and makes operator swaps detectable; that the source
+benefit over a target-only shared-encoder latent model should be modest at
+large budgets; and that it should concentrate at small budgets and long
+horizons, where norm-preserving operators accumulate estimation error. The
+preflight should fix budgets and horizons from these direct-reference
+predictions, and add the target-only shared-encoder latent model and
+simulation-error multi-step training as references. The specific structural
+consolidation objective has not yet been reviewed. This draft does not
+establish novelty. Exact preservation is a mathematical property; discovery
 from incomplete experience and useful transfer are the empirical obligations.
 
 The next deliverable is a generator/identifiability and SRI-capacity preflight,
