@@ -72,6 +72,11 @@ Order:
    hypothesis relies on now gives a measured advantage on this fixture.
    Earlier topology comparisons were all made at prior 0.05 and need
    re-reading.
+   [Weak-prior topology v1](weak-prior-topology-v1-results.md) re-read
+   them: transmission and filtering are topology properties, while the
+   inner family's rankings depend on the prior. At prior 0.001 it beats
+   every surface family under decorrelation. Summary:
+   [linear-line checkpoint](linear-line-checkpoint.md).
 2. Scaling sweep (fixture 3): cheap, and gives a trend relevant to scale.
 3. Nonlinear modules (fixture 1): the real test, but the learning rule,
    settling and Gaussian-based floor analysis all change.
