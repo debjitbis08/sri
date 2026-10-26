@@ -58,9 +58,10 @@ Order:
    nonlinear modules.
    [Inner-channel diagnostic v1](inner-channel-diagnostic-v1-results.md):
    a rank-2 channel can keep the filtering and the signal (uncentered
-   rank-2 regression does), and so can this energy architecture with large
-   weights outside the learner's clips and decay. Within the learner's
-   constraints no improvement was found.
+   rank-2 regression does). So can this energy architecture: the
+   successful solutions found used large weights outside the learner's
+   bounds, found without clips or decay. Within the learner's constraints
+   no improvement was found, which does not show none exists.
 2. Scaling sweep (fixture 3): cheap, and gives a trend relevant to scale.
 3. Nonlinear modules (fixture 1): the real test, but the learning rule,
    settling and Gaussian-based floor analysis all change.

@@ -27,7 +27,8 @@ output except the movement file name recorded in the results.
   decorrelated error (0.00097) is 3.8× lower than uniform coupling's. It
   gets there with large weights (|W| up to 26), outside the learner's clip
   bounds, so there is no feasible witness. Post hoc, the constrained fit
-  never touched its clips, which points to weight decay, not clipping.
+  never touched its clips. That makes weight decay a candidate cause, not
+  an isolated one.
 - **Within the learner's constraints, no improvement was found.** The
   constrained capacity fit S did not beat the clamped-energy learner E
   (D1a), and did not beat uniform coupling (D1b). Masked completion did not
@@ -35,10 +36,11 @@ output except the movement file name recorded in the results.
 - **The shrinkage hypothesis is not supported as a learner-specific cause**
   (D6). E's hidden codes do shrink at b = 2 (ρ 0.85), but so do the capacity
   fit's (0.88).
-- **Training settles are not exact during stage A** (D7). The gradient
-  discrepancy reaches 0.065 early in training. The final-parameter check
-  that motivated "not expected to matter" missed this. By stage B the
-  discrepancy is about 1e-5.
+- **Training settles are not exact** (D7). The gradient discrepancy is
+  largest during stage A, reaching 0.065. The final-parameter check that
+  motivated "not expected to matter" missed this. In stage B it is about
+  1e-5, still above the declared tolerance of 1e-6. Its effect on the
+  results is not measured.
 
 ## Results
 
@@ -118,8 +120,8 @@ b = 10, 10/10 seeds). The centered comparator transmits (γ 0.67) with X_dec
 
 **D7 training settles.** **Not exact for practical purposes.** Across all
 confirmatory E and U runs, the largest 32-step settle distance is 0.18 and
-the largest gradient discrepancy r is 0.065. The discrepancy is confined to
-stage A:
+the largest gradient discrepancy r is 0.065. The discrepancy is largest
+during stage A:
 
 - r exceeds 1e-6 in about 280-300 of each run's 600 updates (from the
   movement file, not kept; per-run maxima and where they occur are in the
@@ -127,22 +129,27 @@ stage A:
   below 1e-6 within a few updates of stage B starting in most runs (in some
   runs much earlier, around update 20-35);
 - the largest stage-B value is 4.3e-5 (independent E 10), and about 1e-5
-  in the weak regime.
+  in the weak regime. Both exceed the 1e-6 tolerance.
 
-What this did to the trajectories is not measured; E and S end up
-comparable, so it does not obviously limit E here.
+What this did to the trajectories is not measured. E ending up comparable
+to S does not show the settling errors are harmless, since both could fall
+short. Only a matched comparison of 32-step and exact training would
+measure the effect.
 
 ## Post-hoc readings
 
 Outside the contract; they change no criterion.
 
-- **The constrained fit was limited by weight decay, not clipping or step
-  size, as far as these data show.** S had zero clip activations in every
-  start and seed, with |W| and |V| at most 1.44. Its pilot objective was
-  flat across the learning-rate grid (b = 2: 0.0229-0.0236). S′, without
-  decay, improved steadily with η up to the grid's top edge (b = 10: 0.0099
-  at 0.001 to 0.0017 at 0.1). It may not have converged, and its advantage
-  may be larger.
+- **Weight decay is a candidate cause of the constrained fit's shortfall,
+  not an isolated one.** S had zero clip activations in every start and
+  seed, with |W| and |V| at most 1.44, so clipping did not alter those
+  trajectories. That does not show clipping would stay irrelevant once
+  decay is removed: S′ ends well outside the bounds. S's pilot objective
+  was flat across the learning-rate grid (b = 2: 0.0229-0.0236), but that
+  does not rule out optimization effects. S′, without decay, improved
+  steadily with η up to the grid's top edge (b = 10: 0.0099 at 0.001 to
+  0.0017 at 0.1); it may not have converged, and its advantage may be
+  larger. Separating decay-only and clipping-only interventions is needed.
 - **The learner does hit its clips.** E had about 2,600 clip activations per
   regime and budget across seeds, mostly on W. So for E, both clipping and
   decay may bind.
@@ -167,19 +174,28 @@ the signal.
 - **For a rank-2 channel in general, yes** (D5): uncentered rank-2
   regression does both, and does best of everything here on the
   decorrelated test.
-- **For this energy architecture, yes, but only outside the learner's
-  constraints**, and only with an evaluator-assisted fit (D2, post hoc). The
-  improvement comes with large weights.
+- **For this energy architecture, yes, with an evaluator-assisted fit**
+  (D2, post hoc). The successful solutions found were outside the learner's
+  bounds and used large weights. The unsuccessful constrained fits do not
+  show that comparable solutions within the bounds are impossible.
 - **Within the constraints, nothing found did better than the learner.**
-  Changing the objective to masked completion did not help.
+  Changing the objective to masked completion did not help. The learner,
+  masked completion and the constrained fit stayed close despite different
+  targets and protocols, while removing decay and clips changed the outcome
+  substantially. That makes regularization and parameter scaling a strong
+  next target, without ruling out the learning rule.
 
-The most direct next question is therefore about the architecture's
-constants, not the learning rule: does the clamped-energy learner reach
-S′-like solutions when weight decay is removed or reduced, clips are
-relaxed, or the activity priors are rescaled? That can be partly derived
-for this quadratic model before running anything. Settling during early
-training should be made exact (or measured for effect) in that study, given
-D7.
+The next question is therefore whether the clamped-energy learner reaches
+S′-like solutions when its regularization and constraints change. Before
+running a sweep, an analytical scaling check should establish how W, V and
+the translations jointly change the effective activity penalties and
+coupling: larger weights need not pose the same inference problem. A small
+follow-up would then:
+
+- compare 32-step and exact training with everything else fixed (D7);
+- separate removing decay, removing clips, and removing both;
+- keep signal error and nuisance gain separate, since better reconstruction
+  is useful only if filtering survives.
 
 ## Limitations
 
@@ -188,8 +204,8 @@ D7.
   conditions.
 - S and S′ are evaluator-assisted fits from two starts of 3,000 cycles.
   "No improvement found" is not a capacity limit.
-- D2 mixes clipping, decay and optimization. The post-hoc evidence points to
-  decay, but the contract did not separate them.
+- D2 mixes clipping, decay and optimization. Post-hoc evidence makes decay
+  a candidate, but the contract did not separate them.
 - One fixture, two regimes, two budgets, one chain topology.
 
 ## Computation
@@ -207,7 +223,8 @@ Measured on one CPU thread (float64):
   evaluations: S 35.1 s, S′ 35.0 s, M 3.8 s, U 3.4 s, E 2.6 s.
 - Training CPU per run (one regime and budget), excluding evaluation:
   S and S′ 8.5 s each (both starts together), M 0.84 s, U 0.50 s,
-  E 0.36 s. The settle check is included in E's and U's training time.
+  E 0.36 s. These exclude the settle check: the training timers stop
+  before it. Whole-phase wall times include it.
 - The capacity fits and their pilot are about 90% of the run. The pilot is
   43% of wall time.
 - Counts: 1,020,602 Adam steps; 2,826,325 exact solves; 2,700,015 adjoint
