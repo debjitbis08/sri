@@ -293,6 +293,63 @@ untested).
   gain without the weights drifting in scale, with weight decay as the
   remaining scale anchor.
 
+## Relational abstraction and cross-domain transfer
+
+Search record, 2026-10-26: searched MDP homomorphisms (Ravindran/Barto),
+learning abstract models for transfer, Tolman-Eichenbaum structural
+generalization, and bisimulation representations. Sources below inform the
+[learning proposal](relational-abstraction-learning-proposal.md); this is a
+targeted starting review, not a novelty survey.
+
+- **MDP homomorphisms and learned abstraction.**
+  - Shown: the [originator's research overview](https://www.cse.iitm.ac.in/~ravi/research-themes/mdp-homomorphisms/)
+    describes homomorphisms as a framework for abstraction and transfer
+    [read, overview]. [Online Abstraction with MDP Homomorphisms](https://arxiv.org/abs/1811.12929)
+    reports a learned abstraction approach [abstract].
+  - Differs: our initial fixture is a deterministic transition system with
+    observable outcomes, without policy optimization or a claim of full MDP
+    homomorphism learning.
+  - Hypothesis: state/action mappings that preserve outcomes and transitions
+    provide an operational target for SRI abstraction [analogy].
+- **Tolman-Eichenbaum Machine (TEM).**
+  - Shown: [Whittington et al. 2020](https://pmc.ncbi.nlm.nih.gov/articles/PMC7707106/)
+    learns shared graph structure across sensory remappings and uses it for
+    prediction of unseen relationships [read, Results: Spatial and Relational
+    Inferences; high-level algorithmic description].
+  - Differs: TEM has architectural factorization of structural and sensory
+    variables; it is not this project's local quotient learner. Its relation
+    types have consistent meanings, whereas the proposal also tests learning
+    action correspondence.
+  - Hypothesis: separate structure from sensory bindings as a strong comparator
+    [analogy]. This source also shows why prediction versus understanding is
+    too strong a dichotomy: predictive training can support structural transfer
+    [read, same sections].
+- **Bisimulation and its limits.**
+  - Shown: [Zhang et al. 2021](https://arxiv.org/abs/2006.10742) reports control
+    representations invariant to distractors without pixel reconstruction
+    [abstract]. [Zang et al. 2023](https://proceedings.neurips.cc/paper_files/paper/2023/hash/5a1667459d0cdeb2fe6b2f0dffc5cb9d-Abstract-Conference.html)
+    identifies missing transitions as harmful for offline bisimulation
+    estimation [abstract].
+  - Differs: reward-based continuous control versus small observable transition
+    systems with a declared outcome-query family.
+  - Hypothesis: preserve distinguishing outcomes and audit coverage rather than
+    treating unobserved transitions as agreement [analogy]. A constant map
+    satisfies composition alone; observable consequences must rule it out
+    [derived].
+- **Cheaper alternatives and predictable results.**
+  - Finite-state partition refinement and MDL/state merging are established
+    reference families [familiar; implementation-specific primary-source review
+    remains required before freezing]. Complete exact tables can be checked
+    directly; doing so is a feasibility control, not evidence of learned
+    abstraction [derived].
+  - Arbitrary renaming can leave several equally valid alignments. Without
+    calibration evidence distinguishing them, unique named-output transfer is
+    unidentifiable [derived]. Evaluate modulo those symmetries or supply measured
+    calibration equally to every arm.
+  - The proposed contribution is an internal test of discovered behavioral
+    reduction and transfer. Novelty, sleep-specific benefit, and an advantage
+    over ordinary predictive model transfer remain unestablished.
+
 ## Implications for contracts
 
 - Use standard names where the mechanism is the same: EP for the two-phase
