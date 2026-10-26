@@ -2,6 +2,10 @@
 
 2026-10-26. Discussion proposal, not a frozen contract, implementation, or result.
 
+Source: the user's [original research-direction note](relational-abstraction-original-note.md),
+preserved verbatim separately. This document develops an experimental proposal
+and assessment of that direction.
+
 ## Assessment and claim
 
 The useful next question is whether a learned reduction of distinctions preserves
@@ -11,9 +15,14 @@ codes, compression, or a sleep schedule do not establish abstraction. Prediction
 can train structural representations; success would distinguish reusable
 behavioral structure from memorized reconstruction, not refute optimization.
 
-The driving-to-painting example motivates the question but supplies neither a
+In the original note's driving-to-painting example, a person drives 1,000 km,
+experiencing movement, anticipation, fatigue, uncertainty, and eventual release.
+They later express similar feelings in an abstract painting without depicting
+the journey. The proposed shared pattern is **Tension → Persistence →
+Transformation → Release**: relational organization transferred across different
+sensory experiences. This motivates the question but supplies neither a
 ground-truth equivalence nor an objective test of shared meaning. Do not encode
-the four named emotional stages in the first generator.
+these four named emotional stages in the first generator.
 
 Operational hypothesis: after source experience, a learned abstract transition
 model reduces target evidence needed to predict previously unseen compositions,
