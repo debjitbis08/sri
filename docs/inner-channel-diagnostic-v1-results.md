@@ -7,10 +7,11 @@ run 2026-10-26 at revision 4fc5a45. Follows
 [Runner](../experiments/inner_channel_diagnostic.py) ·
 results (`reports/inner-channel-diagnostic-v1-results.json.gz`, gzip -n -9,
 10.9 MB uncompressed, SHA-256 e44f537b…8ff9) ·
-[runtime](../reports/inner-channel-diagnostic-v1-runtime.json) · movement
-and per-update settle checks
-(`reports/inner-channel-diagnostic-v1-movement.json.gz`, 50.5 MB
-uncompressed, SHA-256 66d01fdb…49be, also recorded in the results).
+[runtime](../reports/inner-channel-diagnostic-v1-runtime.json). The runner
+also writes a movement file with per-cycle parameter movement and the
+per-update settle checks (50.5 MB uncompressed, SHA-256 66d01fdb…49be,
+recorded in the results). It is not kept in the repository; rerun to
+regenerate it.
 Reproduce with `.venv/bin/python -m experiments.inner_channel_diagnostic`
 (about 24 minutes). A concurrent repeat run was byte-identical in every
 output except the movement file name recorded in the results.
@@ -120,7 +121,9 @@ confirmatory E and U runs, the largest 32-step settle distance is 0.18 and
 the largest gradient discrepancy r is 0.065. The discrepancy is confined to
 stage A:
 
-- r exceeds 1e-6 in about 280-300 of each run's 600 updates, and falls
+- r exceeds 1e-6 in about 280-300 of each run's 600 updates (from the
+  movement file, not kept; per-run maxima and where they occur are in the
+  results JSON), and falls
   below 1e-6 within a few updates of stage B starting in most runs (in some
   runs much earlier, around update 20-35);
 - the largest stage-B value is 4.3e-5 (independent E 10), and about 1e-5
@@ -188,8 +191,6 @@ D7.
 - D2 mixes clipping, decay and optimization. The post-hoc evidence points to
   decay, but the contract did not separate them.
 - One fixture, two regimes, two budgets, one chain topology.
-- The movement file is 21 MB compressed, mostly per-update settle checks,
-  which adds to the unresolved artifact-storage question.
 
 ## Computation
 
