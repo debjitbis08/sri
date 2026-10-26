@@ -1,0 +1,22 @@
+{
+ "command": "/home/debjit/code/sri/experiments/prior_intervention_analysis.py",
+ "complexity": "per arm, seed and prior setting: one Q build, six masked exact solves on 24 examples, three 16-column map solves, one 42x42 eigendecomposition and three 26x26 condition numbers",
+ "cpu_seconds": 6.979774596,
+ "dirty_status": " M docs/energy-scaling-analysis.md\n?? reports/prior-intervention-analysis-results.json\n",
+ "dtype": "float64",
+ "hashes": {
+  "experiments/correlated_nuisance.py": "658c87b2a2adb8309c1f2f7d968ebe9525684730921291fe965f62d38f96618f",
+  "experiments/inner_channel_diagnostic.py": "844704717fd2edfb95f6cda7c27f6a543b1d9f9060a24eb798c53ed2b6c712cf",
+  "experiments/local_contrastive_consolidation.py": "3fc18127f27dd5c3dc6c05df8c443a89abe095b70fdafa482dcfa08d7b23afef",
+  "experiments/prior_intervention_analysis.py": "5514d3bc4972bf6ee137ee102a0fd402c5cf62b8da5edc6c38af9eb09d207966",
+  "reports/inner-channel-diagnostic-v1-results.json.gz": "d53eeba6c0679a0d0dd1c45c28a2c1513b4a1f0c6ed4208ce9ffcb2fe4468596",
+  "reports/prior-intervention-analysis-results.json": "2ff9d4fe87547bd18dd3afebb492f2394a1bbc68bbb6849e486ac3c55214d0ed"
+ },
+ "numpy": "2.5.4",
+ "os": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "peak_rss_kib": 86148,
+ "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+ "revision": "e03f39c4c40168c12c76777b44fd694e62b4bca5",
+ "timing_scope": "whole run including JSON parsing; not a latency benchmark",
+ "wall_seconds": 6.986158195999451
+}
