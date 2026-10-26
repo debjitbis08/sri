@@ -56,6 +56,11 @@ Order:
    coupling to surface coupling does not gate what the surface passes.
    Learned or gated per-layer coupling is the natural next step before
    nonlinear modules.
+   [Inner-channel diagnostic v1](inner-channel-diagnostic-v1-results.md):
+   a rank-2 channel can keep the filtering and the signal (uncentered
+   rank-2 regression does), and so can this energy architecture with large
+   weights outside the learner's clips and decay. Within the learner's
+   constraints no improvement was found.
 2. Scaling sweep (fixture 3): cheap, and gives a trend relevant to scale.
 3. Nonlinear modules (fixture 1): the real test, but the learning rule,
    settling and Gaussian-based floor analysis all change.

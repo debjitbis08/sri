@@ -279,6 +279,13 @@ untested).
   - As in the spurious-correlation literature, the learners that fit best
     in distribution absorbed the most non-persistent correlation.
 
+- [Inner-channel diagnostic v1](inner-channel-diagnostic-v1-results.md):
+  uncentered reduced-rank regression filtered weak correlated nuisance and
+  kept the signal, as derived from second-moment ranking, while the
+  centered version transmitted. The rank constraint itself is therefore not
+  what costs inner coupling its signal. As in local contrastive v1, the
+  exact masked-completion objective did not beat clamped energy.
+
 ## Implications for contracts
 
 - Use standard names where the mechanism is the same: EP for the two-phase
