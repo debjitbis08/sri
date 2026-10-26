@@ -265,12 +265,13 @@ untested).
     [analogy; post-hoc].
 
 - [Correlated nuisance v1](correlated-nuisance-v1-results.md):
-  - The variance-ranking hypothesis drawn from reduced-rank regression held
-    in direction: inner-only coupling filtered weak correlated nuisance and
-    transmitted strong nuisance. But the inner channel did not behave like
-    rank-2 regression, which transmitted in the weak regime. A derived
-    post-hoc explanation is that regression ranks centered variance and the
-    bias-free energy does not centre.
+  - Inner-only coupling filtered weak correlated nuisance. In the strong
+    regime its nuisance gain rose, the direction the variance-ranking
+    hypothesis expects, but those conditions did not learn, so this is
+    descriptive only. The inner channel did not behave like rank-2
+    regression, which transmitted in the weak regime. A derived post-hoc
+    explanation accounts for the comparator (it ranks centered variance);
+    it does not establish how the energy objective selects directions.
   - Consistent with the fusion surveys' "trade-offs, not a ranking": the
     late-fusion-like inner channel was robust to the correlation shift but
     lost signal; the early-fusion-like surface channel was accurate in

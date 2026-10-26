@@ -35,9 +35,10 @@ with `.venv/bin/python -m experiments.correlated_nuisance_posthoc` (under 1 s).
   decorrelated test in 10/10 seeds (1.35× against uniform, 1.58× against
   outer), but it fails the retention part of the learning criterion, so no
   conclusion is drawn. Its in-distribution error is 18-21× worse.
-- **Filtering depends on the regime**, as the variance-ranking hypothesis
-  expects: in the strong regime inner coupling transmits too (γ ≈ 0.8). The
-  strong-regime inner conditions do not learn, which qualifies this.
+- **N5, regime dependence, is descriptive only.** In the strong regime
+  inner coupling's γ rises to about 0.8, the direction the variance-ranking
+  hypothesis expects. But the strong-regime inner conditions fail N1, so
+  under the contract this supports no conclusion.
 - **Adding deeper coupling to surface coupling changes nothing measurable.**
   At fixed surface strength, uniform and outer-only coupling have the same γ
   (ratio 1.02) and comparable errors. In the independent regime, outer-only
@@ -45,9 +46,10 @@ with `.venv/bin/python -m experiments.correlated_nuisance_posthoc` (under 1 s).
   architecture, the surface channel decides what is shared.
 - **The inner channel does not behave like reduced-rank regression.** Rank-2
   regression transmits in the weak regime (γ 0.68) where inner coupling
-  filters. A derived post-hoc explanation: regression ranks centered
-  variance, under which one nuisance direction outranks the signal's
-  amplitude direction; the bias-free energy does not centre.
+  filters. A derived post-hoc explanation accounts for the comparator:
+  regression ranks centered variance, under which one nuisance direction
+  outranks the signal's amplitude direction. It does not show how the
+  energy learner selects directions.
 
 ## Fixture references
 
@@ -111,14 +113,14 @@ seeds 13-22). Seed 3's exact reproduction of v1 arm 2a is in verification.
 
 ## Criteria
 
-**N1 learning.** 19 of 24 conditions learn. The failures:
+**N1 learning.** 20 of 24 conditions learn. The failures:
 
 - weak inner 10 and weak uniform 2 fail A retention (after-B/after-A ratio
   ≤ 1.5 in 2/10 and 8/10 seeds). Both reach low final error; stage B
   raises structure A's error by up to 1.9× while lowering B's.
 - strong inner 2 and 10 fail the frozen-ratio test (0.44 and 0.42).
 
-The runner's N4 and N6 aggregates do not apply the contract's rule that
+The runner's N4, N5 and N6 verdicts do not apply the contract's rule that
 comparisons involving a non-learning condition support no conclusion. The
 readings below apply it; the runner's raw values are in the results JSON.
 
@@ -154,11 +156,14 @@ category; none is unresolved.
   conclusion.
 - In-distribution cost: inner is 5.5-21× worse on X_in in every pair.
 
-**N5 regime dependence.** At both budgets inner filters in the weak regime
-and transmits in the strong regime: **filtering depends on the regime**.
-Strong-regime inner coupling does not learn (it removes only about 58% of
-its frozen error), so this shows what a failing inner channel carries, not
-what a trained one would.
+**N5 regime dependence: no conclusion.** Strong-regime inner coupling fails
+N1 at both budgets (it removes only about 58% of its frozen error), so the
+same gate as N4 and N6 applies. Descriptively, inner γ is 0.05 in the weak
+regime (filters, learning at b = 2) and about 0.8 in the strong regime
+(transmits, not learning). The direction matches the variance-ranking
+hypothesis, but this shows what a failing inner channel carries, not what a
+trained one would. The runner's raw verdict, "filtering depends on regime",
+does not apply the gate.
 
 **N6 adding deeper coupling (weak regime).**
 
@@ -199,15 +204,24 @@ variance, and an amplitude direction whose variance is Var(a)/2 ≈ 0.0067.
 That is below the shared nuisance's 0.027 per direction, so rank 2 keeps the
 contrast and one nuisance direction. Keeping one of two nuisance directions
 predicts γ ≈ 1/√2 ≈ 0.71, close to the observed 0.68 and its symmetric gain
-of 0.68. The energy has no bias terms. Its relevant moment is the uncentered
-one, 0.51 per pattern coordinate, which outranks the nuisance. This is the
-centered-versus-uncentered distinction the contract review raised.
+of 0.68. This explains the comparator's behaviour directly. For the energy
+learner it suggests only a reason the two differ: the energy has no bias
+terms, and the signal's uncentered second moment (0.51 per pattern
+coordinate) outranks the nuisance. That is the centered-versus-uncentered
+distinction the contract review raised. It does not establish that the
+energy objective selects directions by second-moment ranking; inner
+filtering in the weak regime is consistent with that, but was not derived
+for this objective.
 
 **Over-transmission by surface coupling.** In distribution, both observed
-modules carry the same shared latent, so the data identify only the sum of
-the two blocks of G_h, not their difference. The difference (antisymmetric)
-part shows up only after decorrelation. Relative to the oracle's symmetric
-gain, at exact equilibrium:
+modules carry the same shared latent. The sum of their shared-direction
+projections carries 2s z, while their difference carries only independent
+noise, c(U_o₁ᵀe_o₁ − U_o₂ᵀe_o₂), with variance 2 × 0.01c² = 0.002 per direction
+in the weak regime. So the sum of the two blocks of G_h is well identified
+by training data, and their difference (antisymmetric part) only weakly.
+Decorrelation raises the difference's variance to 2s² + 0.002 ≈ 0.056, about
+28×. An antisymmetric part that costs little in distribution then costs much
+more. Relative to the oracle's symmetric gain, at exact equilibrium:
 
 | Weak regime | Symmetric | Antisymmetric |
 | --- | ---: | ---: |
@@ -228,8 +242,8 @@ observed modules unequally, while the oracle weights them equally.
 
 The mechanism the hypothesis relies on exists in this architecture: a
 module coupled only at its inner layer passes on almost none of a surface
-correlation that does not persist, while surface coupling passes on all of
-it or more. But here the narrow channel also loses signal. Inner coupling's
+correlation that does not persist (γ ≈ 0.05), while surface coupling passes
+on substantial nuisance (γ 0.58-0.75 at b = 2, 1.02-1.13 at b = 10). But here the narrow channel also loses signal. Inner coupling's
 signal error alone (0.0027-0.0062) is comparable to the nuisance error
 surface coupling incurs on the decorrelated test (about 0.0015-0.0047). Inner coupling was better on the decorrelated test only
 at b = 10, by 1.35-1.58×, in a condition that fails retention, and it paid
