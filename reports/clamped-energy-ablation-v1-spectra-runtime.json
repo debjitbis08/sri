@@ -1,0 +1,20 @@
+{
+ "command": "/home/debjit/code/sri/experiments/clamped_energy_ablation_spectra.py",
+ "complexity": "one SVD of at most 8x8 per translation, seed and condition, plus two 8x2/8x6 products",
+ "cpu_seconds": 0.10596122899999999,
+ "dirty_status": "?? reports/clamped-energy-ablation-v1-spectra-results.json\n",
+ "dtype": "float64",
+ "hashes": {
+  "experiments/clamped_energy_ablation_spectra.py": "e1afea536bedc5adda174641e8e7fe5b377dd6ca240c9da028d4dbfbf4ad7ecc",
+  "experiments/local_contrastive_consolidation.py": "3fc18127f27dd5c3dc6c05df8c443a89abe095b70fdafa482dcfa08d7b23afef",
+  "reports/clamped-energy-ablation-v1-results.json": "d4a8a129eaa8f9a6e565024308e58fefa73e73728730750a55b20ebb19420aff",
+  "reports/clamped-energy-ablation-v1-spectra-results.json": "1a5d961189e036c6e01312fd37c01fe0117bfeeea566778bee890dcd53118a31"
+ },
+ "numpy": "2.5.4",
+ "os": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "peak_rss_kib": 73656,
+ "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+ "revision": "fd42970ce3fdb93164bcf8fefbd83ca80776f139",
+ "timing_scope": "whole run including JSON parsing; not a latency benchmark",
+ "wall_seconds": 0.11079157600761391
+}

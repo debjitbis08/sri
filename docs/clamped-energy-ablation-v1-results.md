@@ -1,4 +1,4 @@
-# Clamped-energy ablation v1: learned outer translations are decisive; weak coupling fails
+# Clamped-energy ablation v1: learned translations are decisive under uniform coupling; weak coupling fails
 
 Completed 2026-10-26 at revision 80ca54e, run once as contracted, with no
 extensions. [Contract](clamped-energy-ablation-v1-contract.md) ·
@@ -14,13 +14,22 @@ The question was which change rescued module-local learning between
 [local contrastive v1](local-contrastive-consolidation-v1-results.md). With the
 clamped-energy rule, Adam, update count and replay held fixed:
 
-- **Learning the outer translation is the decisive ingredient.** With fixed
-  identity translations, uniform coupling fails at every budget: avoidable
-  error stays at 81-86% of frozen, at both 32-step and exact-equilibrium
-  inference. Learned translations at the same coupling reduce it to about 1%
-  of frozen. Inner-only coupling, which has no outer translation, learns only
-  at the strongest budget, and even then has 5× the error of learned uniform
-  coupling.
+- **Learning the translations is decisive under uniform coupling.** With
+  fixed identity translations, uniform coupling fails at every budget:
+  avoidable error stays at 81-86% of frozen, at both 32-step and
+  exact-equilibrium inference. Learned translations at the same coupling
+  reduce it to about 1% of frozen. Inner-only coupling, with no outer or
+  middle connections, learns only at the strongest budget, and even then has
+  5× the error of learned uniform coupling.
+
+  The design switches translation learning on or off at **all** coupled
+  layers together, so it does not isolate the outer layer. The gauge argument
+  suggests the outer translation carries the rotation-only effect, because
+  middle and inner rotations are reparameterizations when W and V are
+  unclipped. That argument is derived, not tested here. W and V do clip in the
+  uniform family, and the non-isometric parts of middle translations are not
+  redundant; free middle translations contract two of their four directions
+  (see below).
 - **Rotation-only alignment gets most of the way.** Uniform coupling with
   orthogonal translations learns and beats ridge. Its avoidable error is 1.31×
   that of free translations, which falls in the unresolved band between
@@ -41,7 +50,7 @@ on fresh seeds, again gives the lowest error: avoidable MSE 0.00111, against
 | Criterion | Result |
 | --- | --- |
 | A1 learning | 6/18 conditions learn: uniform O and L at b = 2 and 10; inner F, O and L at b = 10 |
-| A2 learned translations, uniform | **decisive**: F/L ratio 97, L better 10/10 |
+| A2 learned translations, uniform | **decisive**: F/L ratio 97, L better 10/10; translations vary at all coupled layers together |
 | A2 learned translations, inner | decisive on the declared 32-step metric (1.61, 10/10); see the qualification below |
 | A3 isometric vs free, uniform | unresolved: O/L 1.31, L better 10/10 |
 | A3 isometric vs free, inner | "non-isometric helps" on the declared metric (1.60); same qualification. O vs F comparable (0.997) |
@@ -53,11 +62,12 @@ on fresh seeds, again gives the lowest error: avoidable MSE 0.00111, against
 **Qualification for the inner family at b = 2.** The declared criteria use
 32-step inference. In the inner family at b = 2, 32 steps leave the state far
 from equilibrium: mean distance to exact is 0.19 for F and O, against 0.086 for
-L. Free translations learn slightly larger inner singular values (mean 1.13),
-which raises effective coupling and speeds settling. At exact equilibrium, F
-and L are comparable, with F slightly better (ratio 0.86). So the inner-family
-A2 and A3 results reflect faster settling under learned strength, not a better
-equilibrium model. The uniform-family results hold under both inference modes.
+L. Free inner translations become anisotropic, with mean singular values
+1.13 and 0.91, which changes effective coupling in both directions. At exact
+equilibrium, F and L are comparable, with F slightly better (ratio 0.86). So
+the inner-family A2 and A3 results reflect a 32-step settling difference under
+learned translations, not a better equilibrium model. Which direction of the
+change speeds settling is not identified. The uniform-family results hold under both inference modes.
 
 ## Main comparison
 
@@ -96,21 +106,47 @@ their own frozen error.
 
 ## Reading
 
-**Outer translations.** Fixed identity coupling at the outer layer is not
-merely uninformative. It ties each module's hidden surface to a neighbour's
-unrelated coordinates, and learning W and V cannot undo it, because x is
-observed. That was the contract's stated hypothesis, and the uniform-F result
-is consistent with it, at every budget and at exact equilibrium. Removing outer
-coupling altogether (the inner family) avoids the harm but loses the most
-useful channel: even at b = 10, inner-only coupling has 4.4× the exact-inference
-error of uniform L/2 (10/10 seeds).
+**Fixed versus learned translations.** The contract's hypothesis was that
+fixed identity coupling at the outer layer is harmful, not just
+uninformative. It ties each module's hidden surface to a neighbour's unrelated
+coordinates, and learning W and V cannot undo it, because x is observed. The
+uniform-F result is consistent with that, at every budget and at exact
+equilibrium. But uniform F also fixes the middle and inner translations, so
+the result does not show that the outer layer alone is responsible.
 
-**Alignment versus non-isometric scaling.** In the uniform family, rotation-only
-translations learn and come within 1.31× (exact: 1.34×) of free translations.
-Free translations change outer singular values only slightly (mean largest
-1.06 at b = 2), so the remaining gap is a small non-isometric effect. A3 does
-not identify whether that effect is strength, anisotropy or nuisance
-suppression.
+The inner family removes outer and middle coupling together. Even at b = 10
+it has 4.4× the exact-inference error of uniform L/2 (10/10 seeds). That shows
+that learned coupling at the outer and middle layers together is valuable,
+not which of the two carries the value. A direct test would learn the outer
+translation alone, with the other layers fixed or uncoupled.
+
+**Alignment versus non-isometric translations.** In the uniform family,
+rotation-only translations learn and come within 1.31× (exact: 1.34×) of free
+translations. The free translations are strongly non-isometric, although the
+largest singular value stays near one. Post-hoc spectra
+([script](../experiments/clamped_energy_ablation_spectra.py),
+[results](../reports/clamped-energy-ablation-v1-spectra-results.json)) for
+uniform L at b = 2 give these mean sorted singular values, pooled over edges
+and seeds:
+
+| Layer | Mean singular values |
+| --- | --- |
+| outer (8) | 1.06, 1.00, 0.87, 0.62, 0.42, 0.27, 0.16, 0.05 |
+| middle (4) | 1.02, 1.00, 0.31, 0.10 |
+| inner (2) | 1.00, 0.99 |
+
+Decomposed against the evaluator-only private maps, the outer translation
+keeps unit gain on the source module's 2-dimensional pattern span (1.00,
+1.00). It contracts the 6-dimensional nuisance complement, with gains 0.92,
+0.63, 0.42, 0.27, 0.16 and 0.05. Nuisance is independent across modules, so
+contraction there removes a channel that only transmits noise. The rotation-only
+translations keep every gain at 1 by construction. b = 0.4 and b = 10 show the
+same pattern.
+
+The data are therefore consistent with the O/L gap coming from selective
+contraction of nuisance directions rather than from overall strength. A3 was
+not designed to separate these, and this decomposition is post hoc and
+descriptive, so it is a hypothesis, not a result.
 
 **Coupling strength.** Weak coupling hurts twice over:
 
@@ -120,9 +156,9 @@ suppression.
 
 Stronger coupling helps the inner family (b = 10 better than b = 2, both
 inference modes). In the uniform family it costs rotation-only translations
-(1.80×, exact 1.98×) and is unresolved for free ones (1.31×). That is
-consistent with free translations compensating for strength, but this study
-does not test that.
+(1.80×, exact 1.98×) and is unresolved for free ones (1.31×). One possible
+reading is that free translations contract nuisance directions, limiting the
+noise that stronger coupling transmits, but this study does not test it.
 
 **Bridge to v1 (A5).** The declared rule leaves A5 unresolved, because none of
 its three named conditions learns. Outside the declared rule, inner / F / 10
@@ -145,6 +181,10 @@ measurable difference here.
 - **Learning curves.** Test avoidable error is flat or rises slightly over the
   last 100 cycles in most conditions, for example inner F 0.4 from 0.0500 to
   0.0520. More cycles at the selected η would not obviously help.
+- **Spectra reproducibility.** The spectra analysis reads the committed
+  results JSON and runs in 0.11 s; its runtime JSON records input hashes. Its
+  `dirty_status` lists only its own results file, written before the
+  provenance step.
 - **Clipping.** W and V clip only in the uniform family (up to 381 activations
   per run on average), never in the inner family.
 
@@ -254,9 +294,14 @@ These are not results:
   learned structure.
 - **Learning-rate edges.** The inner family wants smaller η than the grid
   allowed.
+- **Isolating layers.** Learn the outer translation alone, with middle and
+  inner translations fixed or uncoupled, and the reverse. This tests whether
+  the outer layer carries the effect.
 - **The non-isometric gap.** Uniform O vs L (1.31×) is small but consistent
-  across seeds. Constraining T to rotation × scalar would separate overall
-  strength from anisotropy.
+  across seeds, and the spectra point to nuisance contraction. A follow-up
+  could compare free T against rotation × scalar and against a learned
+  projection onto a subspace, which separates overall strength from selective
+  contraction.
 - **Harder fixtures.** In this linear fixture the best rule already sits within
   about 1% of frozen avoidable error. A correlated-nuisance or nonlinear
   fixture, as noted in [prior work](prior-work.md), is needed before further
