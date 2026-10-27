@@ -28,28 +28,38 @@ match the committed revision.
 | --- | --- |
 | A1 generator | **passes** in 10/10 worlds |
 | C1 representability | **witness found** for both families, both κ and both clip settings (10/10 worlds each) |
-| C2 binding invariance | **invariant** in every condition (10/10 worlds, J_G ≤ 2.7e-4) |
+| C2 binding invariance | **invariant** at the frozen threshold in every condition (10/10 worlds, J_G ≤ 2.7e-4); the residual drift is not negligible at L = 128 (see C2) |
 | C3 inference | **does not agree** in any condition (0/10 worlds); not a gate |
 | C4 design audit | **qualifying gap** for both families, concentrated at small budgets; see the caveats |
 | Outcome | **proceed** to the learning/transfer contract, by the project decision rule |
 
 - **The existing three-module chain, with per-action banks, can represent
   long-horizon action-conditioned prediction on this fixture.** It does so
-  at the learner's ±2 clips. The privileged multi-horizon search reaches a
-  median avoidable error of about 1e-6 at L = 128, with no clips active.
-- **Freezing the banks freezes the effective dynamics.** Refitting the
-  bindings for a new source domain or the target leaves the eight effective
-  operators unchanged up to one shared basis change (J_G ≤ 2.7e-4, with a
-  well-conditioned alignment).
+  at the learner's ±2 clips. At L = 128 the privileged multi-horizon search
+  reaches a median avoidable error of 1.3e-6 to 3.2e-5 across the ±2-clip
+  conditions, with no clips active. The ±2 values are 3.1e-5 (κ = 1) and
+  1.3e-6 (κ = 5) for family A, and 3.2e-5 and 5.3e-6 for family B.
+- **Freezing the banks approximately freezes the effective dynamics.**
+  Refitting the bindings for a new source domain or the target leaves the
+  eight effective operators close to the source's up to one shared basis
+  change (J_G ≤ 2.7e-4, with a well-conditioned alignment). The remaining
+  drift is not negligible at long horizons. A post-hoc check found that
+  the worst eigenvalue-modulus gap is 0.011-0.019 (median by condition, up to
+  0.044). Compounded to L = 128, that is an amplitude factor of e^1 to e^2 at
+  the median (see C2).
 - **Fitting on observed one-step and window errors does not give
   long-horizon accuracy.** This holds for both the one-step diagnostic and
   the P2 binding fits, though both use the same architecture. Median
-  avoidable error at L = 128 is 0.07-0.18, against about 1e-6 for the
+  avoidable error at L = 128 is 0.07-0.18, against 1e-6 to 3e-5 for the
   multi-horizon search. The learning contract has to address this objective
-  mismatch.
-- **32-step settling is useless at prior 0.001.** The settled 32-step
-  rollout has avoidable error about 1. Reaching relative error 1e-3 takes
-  194-898 settling steps.
+  mismatch. In the P2 fits, encoder/decoder error and the residual operator
+  drift above have not been separated.
+- **32-step settling falls far short at prior 0.001.** Prediction-time
+  settling with the P1 capacity parameters was tested. After 32 steps the
+  relative activity error is 0.41-0.55 (median by condition). The settled
+  32-step rollout has avoidable error 0.97-1.0. Reaching relative error 1e-3
+  takes 175-898 steps across all conditions. Training-time clamped settles
+  were not measured.
 
 ## A1 generator audit (P0)
 
@@ -88,8 +98,9 @@ Median over worlds of X_L (avoidable error), for family A, κ = 1, ±2 clips:
 The other conditions are similar:
 
 - **κ = 5:** the multi-horizon median at L = 128 is 1.3e-6.
-- **±6 clips:** the constructive witness improves (leakage 0.017), and the
-  multi-horizon search is unchanged.
+- **±6 clips:** the constructive witness improves (leakage 0.017). The
+  multi-horizon search reaches 1.7e-6 to 7.3e-6 across the four ±6
+  conditions; 3.6e-6 for family A at κ = 1.
 - **Family B:** the constructive median at L = 128 is 4.1e-3, and the
   multi-horizon median 3.2e-5.
 
@@ -132,12 +143,35 @@ every fit.
 | Target t | 2.2e-4 | 9.4e-5 | 1.7 | 1.2e-3 | 0.15 |
 | Broken target | 0.13 | 0.046 | 5.7 | 2.1e-3 | 0.85 |
 
-- **Every condition is invariant** in 10/10 worlds, with no drift in any.
-- **Long-horizon error comes from the fit's objective, not from drift.**
-  The binding fits use observed window and probe errors only, so their
-  rollouts carry the same objective mismatch as the one-step diagnostic.
-  J_G shows that the dynamics did not drift, so this error comes from
-  encoder and decoder errors compounding over the rollout.
+- **Every condition is invariant** in 10/10 worlds at the frozen
+  threshold. J_G is a squared-residual bound, and passing it does not mean
+  the drift is negligible at L = 128.
+- **The source of the long-horizon error is not established.** The binding
+  fits use observed window and probe errors only, so their rollouts carry
+  the same objective mismatch as the one-step diagnostic. Within the J_G
+  tolerance, however, the effective operators' spectra still move.
+  - Example: in world 0, the target fit has J_G = 1.3e-4, yet one two-step
+    operator has eigenvalue modulus 0.986, about 0.40 after 64 repetitions.
+  - A post-hoc check (not in the contract) compared each fit's eight
+    operators with the frozen source's
+    ([script](../experiments/relational_linear_preflight_posthoc.py), which
+    reads only the stored results). Results are in the table below.
+  - Both encoder/decoder error and operator drift can therefore contribute.
+    Separating them needs an ablation: roll out each fit's encoder and
+    decoder with the source operators transported by the J_G alignment, and
+    compare. That ablation needs the P2 fitted parameters, which were not
+    saved, so it is not done here.
+
+| Post-hoc, by target (all 8 conditions) | Worst modulus gap, median by condition | Worst log-amplitude gap at L = 128, median by condition | X₁₂₈ median by condition |
+| --- | --- | --- | --- |
+| Source s2 | 0.012-0.019 | 1.1-2.0 | 0.071-0.16 |
+| Target t | 0.011-0.018 | 1.3-1.6 | 0.12-0.16 |
+
+The gap is the largest over operators and eigenvalues of
+|log(|λ_fit| / |λ_source|)| × (128 for G¹, 64 for G²). It is an upper
+envelope for one eigen-direction, not a rollout decomposition. Family B
+fits, whose X₁₂₈ is larger for s2, also have larger gaps (about 2 against
+1.1-1.4 for family A).
 - **Frozen banks cannot absorb broken structure.** Against the
   broken-structure target the refit leaves J_G at about 0.05 and the error
   reaches 0.85 at L = 128. For family B, P2's broken target is family A's
@@ -147,15 +181,20 @@ every fit.
 ## C3 inference (P3)
 
 - **32 steps is far too few.** After 32 implicit-Euler steps the relative
-  activity error has median 0.41-0.53, and the settled 32-step rollout has
-  avoidable error about 1, so it predicts essentially nothing.
+  activity error has median 0.41-0.55 by condition, and the settled 32-step rollout has
+  avoidable error 0.97-1.0, so it predicts essentially nothing.
 - **Steps needed to reach relative error 1e-3:**
-  - 194-572 for family A at ±2 clips;
-  - 390-898 at ±6 clips.
+  - family A: 194-572 at ±2 clips, 287-898 at ±6;
+  - family B: 175-611 at ±2 clips, 329-851 at ±6.
 
-This supports the [prior-strength study](prior-strength-training-v1-results.md)'s
-concern about training settles. At
-prior 0.001, iterative inference on this window needs hundreds of steps.
+P3 tests prediction-time settling with module 0 clamped and the remaining
+activities free, using the P1 capacity parameters. It does not measure the
+convergence of training's clamped states, which have more units clamped.
+The result is consistent with the
+[prior-strength study](prior-strength-training-v1-results.md)'s concern about
+training settles: at prior 0.001, prediction-time inference on this window
+needs hundreds of steps. It does not show that a learner using 32-step
+training settles has badly unconverged states.
 Whether that is explained by the smallest free-Hessian eigenvalue is the
 hypothesis in the [GDL notes](geometric-deep-learning-notes.md); it is not
 tested here.
@@ -200,7 +239,7 @@ Two caveats limit how far C4 can be used:
 
 So the gap is real at small budgets. At large budgets and long horizons it
 says more about this reference's bias than about what transfer can achieve.
-The SRI witness (X₁₂₈ ≈ 1e-6 with exact source dynamics) shows how much
+The SRI witness (median X₁₂₈ of 1.3e-6 to 3.2e-5 with exact source dynamics) shows how much
 better frozen dynamics can do.
 
 ## Computation
@@ -239,20 +278,26 @@ better frozen dynamics can do.
 
 ## Implications for the learning/transfer contract
 
-1. **Representability is not the bottleneck; the objective is.** Every
-   observed-data fit (the one-step diagnostic and the P2 binding fits)
-   reaches X₁₂₈ ≈ 0.1. The clamped-energy learner sees only windows, so it
-   should be expected to do no better. The contract needs:
+1. **Representability is not the bottleneck; the objective, and possibly
+   residual operator drift, is.** Every observed-data fit (the one-step
+   diagnostic and the P2 binding fits) reaches X₁₂₈ ≈ 0.1. The
+   clamped-energy learner sees only windows, so it should be expected to do
+   no better. The contract needs:
    - a multi-step or simulation-error control, as the proposal already
      plans;
    - consideration of a declared gain or orthogonality arm (see the
      [GDL notes](geometric-deep-learning-notes.md) on forward vanishing);
    - the multi-horizon search's error as the capacity ceiling to report
-     against.
+     against;
+   - fitted binding parameters saved, and the operator-substitution
+     ablation from C2, to separate encoder/decoder error from drift;
+   - a spectral or multi-horizon check of dynamics transfer alongside J_G,
+     because a passing J_G still allows consequential drift.
 2. **Use exact inference as primary, and cost iterative inference
-   separately.** At prior 0.001 settling needs hundreds of steps. Any
-   learner that relies on 32-step settles will train on badly unconverged
-   states.
+   separately.** At prior 0.001 prediction-time settling needs hundreds of
+   steps. Training-time clamped settles were not measured. Any learner that
+   uses iterative settles should report their convergence directly, rather
+   than assume 32 steps suffice.
 3. **Budgets and horizons.** Use n ∈ {4, 8, 16, 32} transitions with
    horizons up to 128, where the direct references show a gap. Report
    target-only medians as well as ratios, because target-only fits can
