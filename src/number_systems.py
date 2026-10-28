@@ -121,6 +121,35 @@ def render_dots(n, rng, mode=None):
     return _finish(_place([], discs, 0., rng, margin=0.), rng)
 
 
+def render_dots_incremental(rng, max_n=9):
+    """One collection grown one disc at a time: images for counts 1..max_n with persistent disc positions, a fixed
+    radius and one brightness, so adding one object adds exactly one disc (removing one removes the last)."""
+    r = rng.uniform(1.4, 2.2)
+    for _ in range(1_000):
+        c = []
+        for _ in range(max_n):
+            for _ in range(200):
+                p = rng.uniform(3 + r, 25 - r, 2)
+                if all(np.hypot(*(p - q)) >= 2 * r + 1.2 for q in c):
+                    c.append(p)
+                    break
+            else:
+                break
+        if len(c) == max_n:
+            break
+    else:
+        raise AssertionError('dot placement exhausted')
+    g = (np.arange(SIZE)[:, None] + nc.SUBPIXEL[None]).reshape(-1) + .5
+    py, px = np.meshgrid(g, g, indexing='ij')
+    inside = np.zeros(px.shape, bool)
+    bright, out = rng.uniform(*BRIGHTNESS), []
+    for cx, cy in c:
+        inside |= (px - cx) ** 2 + (py - cy) ** 2 <= r ** 2
+        cover = inside.reshape(SIZE, SS, SIZE, SS).mean((1, 3))
+        out.append(np.clip(bright * cover + rng.normal(0, NOISE, (SIZE, SIZE)), 0, 1).astype(np.float32))
+    return out
+
+
 # ---------------------------------------------------------------- grouping systems
 
 def render_egyptian(n, rng):

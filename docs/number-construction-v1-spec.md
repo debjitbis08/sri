@@ -474,3 +474,108 @@ so only combining them can succeed.
   share of items where the lower-energy hypothesis is the true side, read as the count
   m ± 1, before 9-way matching of the revised state. It separates hypothesis selection
   from final matching. Selection of μ is unchanged.
+
+## Part A protocol (pilot, fixed before running, 2026-10-29)
+
+Decisions taken autonomously while the researchers were away, as authorized. Each is
+recorded here with its reason. This is a pilot; nothing is frozen.
+
+**Languages and media (image only in v1):**
+- L1 = english (words), taught first, with every count directly paired with collections.
+- L2 = chinese and L3 = devanagari_digits, taught next, each with **two withheld counts**
+  under the withholding policy.
+- **Transfer language:** thai_digits, used only in the learning-cost test after training.
+- *Reasons:* symbolic systems avoid the stroke-count shortcut of tally, Roman and
+  Egyptian. Leaving out the sequence medium (Morse, Hand) keeps v1 to one satellite. The
+  language is implicit in the form (no language token), so the "identify the context"
+  test does not apply in v1.
+
+**Withheld counts:**
+- Drawn per seed from 2–8: two nonadjacent counts for L2 and two for L3, all four
+  distinct (balanced across languages).
+- Recorded in the results.
+
+**Collections:**
+- Pre-rendered incremental dot episodes: positions persist as counts grow from 1 to 9,
+  so "add one" literally adds a dot and "remove one" removes the last.
+- The radius is fixed within an episode and varies across episodes.
+- Evaluation candidates are fresh fixed-area dots, as in B1.
+
+**Episodes:**
+- Start 1–8, length 3–9 within 1–9; 30% descending ("remove one").
+- Each step shows the count's collection and its form, from the language's training
+  pool. At withheld steps the collection is hidden: no matching or pairing loss for that
+  form.
+- Training is blocked by language: L1, then L2, then L3, with an equal number of updates
+  per block. Collections appear in every lesson.
+
+**Losses** (one image satellite, shared core; the output module is present but has no
+loss, because no language is a label space):
+1. **Matching:** cross-entropy over 9 candidate collections, using the judge's *same*
+   score between the form's core-inner code and each candidate.
+   - Candidates are one collection per count, shared within a batch, with the step's own
+     collection at its count.
+   - Only at steps whose collection is visible.
+2. **Succession:** binary *next* judgments on consecutive steps, for forms (including
+   withheld forms) and for visible collections. Descending steps are reversed pairs.
+   Negatives are batch pairs whose counts do not differ by +1.
+
+**Arms** (same evidence: the same episodes and the same pairs):
+
+| Arm | Batches | State between steps | Extra |
+| --- | --- | --- | --- |
+| A-episode | whole episodes | persistent: each form solved with ½μ‖c − S(c_prev)‖² (remove one: ½μ‖S(c) − c_prev‖²), c_prev = previous form state, detached; μ = 1 | losses on episode states |
+| A-order | whole episodes | none | — |
+| A-shuffled | the same steps and pairs, mixed across episodes | none | — |
+| A-episode+teach | as A-episode | persistent | **core as teacher:** each form's isolated core-inner state is pulled toward its episode state (detached), weight 1 |
+| A-episode-interleaved | as A-episode, languages interleaved | persistent | the language-scheduling test |
+
+- *Why μ = 1:* in B1, μ ≥ 1 made the context dominate. For A-episode that is the
+  intended "carry the count forward" behaviour.
+- *Why the teach arm:* B1 showed relational inference works but leaves no trace. This
+  arm tests whether learning from it gives withheld forms their meaning in isolation.
+  That is the fast-mapping step, and the most direct test of the core as teacher.
+
+**Budget:**
+- 3 blocks × 1,000 updates; batch 16 episodes; Adam 1e-3; seed 100.
+- Sizes 64/32/16, as before.
+
+**Evaluation** (evaluation pools, after training; also after each block for retention):
+1. **Isolated collection matching** for every form of L1–L3 against 9 fresh fixed-area
+   dots candidates, split into paired and withheld forms, per language. The acquisition
+   test.
+2. **Relational context for withheld forms:**
+   - two-sided grounded context (B1 revision; answer and swapped-item control);
+   - one-sided context with side unknown (B1-ambiguous: restricted recognition, energy
+     side choice).
+3. **Succession on held-out images:** *next* accuracy for collections and forms,
+   consecutive against non-consecutive.
+4. **Reverse direction:** for a collection, choose the form among the language's nine.
+5. **Retention:** L1 matching after the L2 and L3 blocks.
+6. **Confidence hooks.** Per-item signals are logged: margin, best score, energy/‖f‖²,
+   ‖f‖ and agreement between isolated matching and relational inference. Reported:
+   - AUROC for predicting isolated errors;
+   - AUROC for separating withheld from paired forms;
+   - the accuracy of items where agreement holds.
+7. **Learning cost (transfer):** thai_digits taught by counting episodes with every
+   count paired, 4 examples per count, Adam 1e-3 on the whole model. Recorded:
+   - isolated matching at 0, 25, 50, 100 and 200 updates;
+   - retention of L1–L3.
+
+**Expected readings:**
+- **Acquisition:** high isolated matching on withheld forms in any arm means relational
+  grounding through succession works (as in the cross-relation pilot).
+- **Curriculum:** differences between A-episode, A-order and A-shuffled show whether
+  coherent order matters beyond the same evidence.
+- **Learning from inference:** A-episode+teach above A-episode on withheld forms, in
+  isolation.
+- **Scheduling:** blocked against interleaved, in forgetting.
+
+**Not in this pilot:**
+- per-language adapters (problem 1);
+- the sequence medium;
+- boundary extrapolation;
+- a language-identification test;
+- gating (needs the confidence analysis first);
+- Part C;
+- multiple seeds. A three-seed rerun follows if the pilot runs cleanly.

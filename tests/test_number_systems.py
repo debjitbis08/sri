@@ -33,6 +33,14 @@ class NumberSystemsTests(unittest.TestCase):
                 x = ns.render('dots', n, nc.stream('test_dots', n, i))
                 self.assertEqual(ndimage.label(x > .35)[1], n)
 
+    def test_incremental_dots_add_one_disc_per_step(self):
+        for i in range(10):
+            xs = ns.render_dots_incremental(nc.stream('test_dots_incremental', i))
+            masks = [x > .35 for x in xs]
+            self.assertEqual([ndimage.label(m)[1] for m in masks], list(ns.NUMBERS))
+            # positions persist: the previous discs stay (noise flips a few edge pixels at the threshold)
+            self.assertTrue(all((masks[k] & masks[k + 1]).sum() >= .85 * masks[k].sum() for k in range(8)))
+
     def test_structural_definitions(self):
         self.assertEqual([sum(ns.EGYPTIAN_ROWS[n]) for n in ns.NUMBERS], list(ns.NUMBERS))
         self.assertTrue(all(max(r) <= 4 for r in ns.EGYPTIAN_ROWS.values()))
