@@ -90,6 +90,20 @@ with collection matching as the answer.
 Commands, each under a minute:
 - `NSY_WORKERS=6 .venv/bin/python -m experiments.number_construction_b1 pilot`;
 - `NSY_WORKERS=6 .venv/bin/python -m experiments.number_construction_b1_ambiguous pilot`.
+
+[Part A results](number-construction-v1-part-a-results.md), pilots 1–4, three seeds for
+pilots 3–4: counting episodes over persistent dot collections, languages in blocks.
+- Forms never directly paired with collections acquire quantity meaning through counting
+  transitions alone (0.31–0.46 against 0.40–0.54 for paired forms, chance 0.11).
+- Episode order gives no advantage over shuffled evidence.
+- Persistent state between steps never trained stably.
+- Pseudo-label fast mapping from the core's inferences adds nothing.
+- Agreement between instinct and relational inference predicts correctness (0.56–0.62
+  against 0.06–0.10).
+- Blocked teaching forgets earlier languages.
+
+Command: `NCA_SEED=<seed> NSY_WORKERS=5 .venv/bin/python -m experiments.number_construction_part_a pilot|pilot2|pilot3|pilot4`
+(6–35 minutes).
 New experiments are added here, not to the README. Entries carried over from the
 README's original layout list keep their wording. Earlier studies that list never
 covered (for example the layered-module, locality-adaptation and relational

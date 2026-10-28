@@ -605,3 +605,61 @@ Changes:
    - The end-of-training evaluation measures retention.
 
 Mode `pilot2`, so pilot 1's artifacts are kept.
+
+### Part A pilot 3 amendment (2026-10-29, after pilot 2, before running)
+
+**Diagnosis of the persistent-state failure.** A replay of A-episode (seed 100) showed a
+runaway in state magnitude:
+- late in the English block, front-end features grew from about 2 to over 100, and core
+  states from about 1 to about 2,000;
+- the successor map (spectral norm about 1.2–1.5) and the judge scales stayed modest.
+
+The coupling strength μ is absolute. By rescaling its own states, the network can make
+the coupling negligible, escaping the relational pull, and the losses on the huge states
+then explode.
+
+**Change:**
+- the coupling strength is made scale-relative: μ_eff = μ × (mean diagonal of the
+  core-inner block of the solve's Hessian), with μ = 1 still;
+- in a replay, states stayed bounded through the English block, and the Chinese block
+  learned instead of diverging;
+- everything else is as in pilot 2, so the non-persistent arms are unchanged and seed
+  100 should reproduce them exactly;
+- relational evaluation still uses the absolute μ = 1, as in B1, for comparability.
+
+**Seeds:** 100, 101 and 102 (`NCA_SEED`), run in parallel. With seeds, the stable-arm
+findings (grounding through succession, no order advantage) can be checked across runs.
+
+### Part A pilot 4: core as teacher by pseudo-label fast mapping (2026-10-29, before running)
+
+**Pilot 3 outcome for the persistent arms.**
+- Scale-relative coupling kept states bounded in a replay, but not in the full runs.
+  A-episode+teach diverged to about 75,000 in block 2 of seed 100, and A-episode and
+  A-episode-interleaved did not learn to match.
+- The persistent-state formulation is recorded as **unresolved**. Possible remedies,
+  not pursued here: normalizing features or states, or warm-starting persistence from a
+  trained non-persistent model.
+
+**A stable test of core-as-teacher without persistent states.** New arm
+**A-order+pseudo**, the same as A-order plus one loss.
+- At every withheld step whose previous and next steps both show their collections, the
+  form's state is revised with two-sided grounded context (½μ‖c − S(c_{n−1})‖² +
+  ½μ‖c_{n+1} − S(c)‖², μ = 1, as in B1), **without gradient**.
+- Reading the revised state against the batch's 9 shared candidates gives an inferred
+  count.
+- The form's *isolated* state is then trained by cross-entropy to match the candidate of
+  that inferred count.
+- The training signal is therefore the system's own relational inference. The true
+  count of a withheld form is never used. Steps at episode boundaries, with only one
+  visible neighbour, are skipped.
+
+Losses on isolated states only: no coupled states enter, so the rescaling escape does not
+apply.
+
+Seeds 100–102, mode `pilot4`, only this arm. A-order from pilot 3 is the comparison: the
+same code path and seeds, so it is identical apart from the new loss.
+
+**Reading:** if withheld isolated matching at the end of each block rises above A-order
+(Chinese 0.41, Devanagari 0.40, means over seeds), learning from relational inference
+gives withheld forms their meaning beyond what succession training alone does. That is
+the fast-mapping step.

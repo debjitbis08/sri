@@ -142,6 +142,159 @@ the Devanagari ones are untrained, which dilutes them.
   suggested. That predictor would learn, from pre-revision features, when instinct is
   likely to agree with the core.
 
+## Pilot 3 (2026-10-29): three seeds
+
+Amendment: [spec, "Part A pilot 3 amendment"](number-construction-v1-spec.md#part-a-pilot-3-amendment-2026-10-29-after-pilot-2-before-running):
+- scale-relative persistent coupling, after diagnosing a runaway in state magnitude;
+- seeds 100–102.
+
+Command: `NCA_SEED=<seed> NSY_WORKERS=5 .venv/bin/python -m experiments.number_construction_part_a pilot3`.
+Artifacts: `reports/number-construction-v1-part-a-pilot3{,-seed101,-seed102}-results.json.gz`
+and `-runtime.json`.
+
+Withheld counts:
+
+| Seed | Chinese | Devanagari |
+| --- | --- | --- |
+| 100 | 4, 8 | 2, 5 |
+| 101 | 2, 5 | 3, 7 |
+| 102 | 4, 7 | 3, 5 |
+
+Seed 100 reproduces pilot 2's non-persistent arms exactly.
+
+### Persistent-state arms: still failing, recorded as unresolved
+
+- In full runs the scale-relative coupling did not hold. A-episode+teach reached a
+  matching loss of about 75,000 in block 2 (seed 100).
+- All three persistent arms stay at chance on every measure, in every seed.
+- An earlier replay that looked stable used a different training stream.
+
+### Stable arms across three seeds
+
+At the end of each language's own block (chance 0.11); values for seeds 100 / 101 /
+102, then the mean:
+
+| Measure | A-order | A-shuffled |
+| --- | --- | --- |
+| English (all paired) | 0.20 / 0.21 / 0.20 (0.21) | 0.32 / 0.23 / 0.21 (0.25) |
+| Chinese paired | 0.45 / 0.58 / 0.50 (0.51) | 0.50 / 0.54 / 0.58 (0.54) |
+| **Chinese withheld** | 0.38 / 0.55 / 0.30 (**0.41**) | 0.38 / 0.53 / 0.47 (**0.46**) |
+| Devanagari paired | 0.23 / 0.41 / 0.56 (0.40) | 0.60 / 0.60 / 0.37 (0.52) |
+| **Devanagari withheld** | 0.27 / 0.45 / 0.48 (**0.40**) | 0.30 / 0.25 / 0.37 (**0.31**) |
+| Held-out succession, Chinese / collections | 0.98 / 0.88 | 0.99 / 0.90 |
+| Reverse direction (collection → Chinese form) | 0.48 | 0.51 |
+| Chinese after the Devanagari block (retention) | 0.20 | 0.16 |
+| English after the last block | 0.09 | 0.09 |
+| Thai after 200 transfer updates | 0.12 | 0.11 |
+
+- **Grounding through succession holds in all six stable runs.** Forms never directly
+  paired with a collection are matched at 0.25–0.55 (chance 0.11). Means are 0.31–0.46,
+  against 0.40–0.54 for paired forms of the same language.
+- **Episode order gives no consistent advantage** over shuffled presentation of the
+  same evidence. A-order is better on Devanagari withheld forms (0.40 against 0.31) and
+  worse on Chinese ones (0.41 against 0.46). Seed variation (up to 0.25) is larger than
+  the arm differences.
+- **Forgetting and transfer** are unchanged.
+
+### Relational context and confidence across seeds
+
+At the end of the Chinese block, pooled withheld forms (Devanagari untrained):
+- two-sided context: revised 0.59 / 0.55 against isolated 0.29 / 0.31 (A-order /
+  A-shuffled), with the swapped item following the context (0.55 / 0.52);
+- one-sided context: energy side choice 0.74 / 0.71 against restricted recognition 0.71 /
+  0.69.
+
+That is the same pattern as B1 and B1-ambiguous: relations propagate grounded meaning,
+and add little beyond filtering when the item must decide.
+
+**Agreement as a confidence signal, all six stable runs:**
+- accuracy when instinct agrees with the relational answer: 0.56–0.62;
+- when they disagree: 0.06–0.10;
+- agreement rate: 0.26–0.30.
+
+The margin is weakly predictive (AUROC 0.54–0.64). The SRI energy is consistently
+*inverted* (0.36–0.44): higher energy goes with fewer errors here. So it is not usable
+as a confidence signal without understanding why.
+
+## Pilot 4 (2026-10-29): core as teacher by pseudo-label fast mapping
+
+Design: [spec, "Part A pilot 4"](number-construction-v1-spec.md#part-a-pilot-4-core-as-teacher-by-pseudo-label-fast-mapping-2026-10-29-before-running).
+Arm A-order+pseudo:
+- at withheld steps with both neighbouring collections visible, the core infers the
+  count by two-sided revision, without gradient;
+- the withheld form's isolated state is trained to match a collection of the inferred
+  count;
+- the true count of a withheld form is never used.
+
+Command: `NCA_SEED=<seed> NSY_WORKERS=3 .venv/bin/python -m experiments.number_construction_part_a pilot4`.
+Artifacts: `reports/number-construction-v1-part-a-pilot4{,-seed101,-seed102}-results.json.gz`
+and `-runtime.json`. The comparison is A-order from pilot 3 (same code path and seeds).
+
+Values for seeds 100 / 101 / 102, then the mean:
+
+| End of own block | A-order | A-order+pseudo |
+| --- | --- | --- |
+| Chinese paired | 0.45 / 0.58 / 0.50 (0.51) | 0.53 / 0.47 / 0.52 (0.51) |
+| **Chinese withheld** | 0.38 / 0.55 / 0.30 (**0.41**) | 0.42 / 0.42 / 0.37 (**0.40**) |
+| Devanagari paired | 0.23 / 0.41 / 0.56 (0.40) | 0.34 / 0.38 / 0.45 (0.39) |
+| **Devanagari withheld** | 0.27 / 0.45 / 0.48 (**0.40**) | 0.37 / 0.37 / 0.55 (**0.43**) |
+| Two-sided revision, withheld, end of Chinese block | 0.59 | 0.46 |
+| Agreement: accuracy when agreeing / disagreeing | 0.60 / 0.08 | 0.55 / 0.10 |
+
+- **Inferred counts used as teaching targets were right 55–76% of the time** (diagnostic
+  only, by block and seed).
+- **Learning from relational inference did not raise the withheld forms' isolated
+  matching** (0.40 against 0.41 for Chinese, 0.43 against 0.40 for Devanagari, within
+  seed variation).
+- **It reduced the later benefit of two-sided revision** (0.46 against 0.59), plausibly
+  because the noisy targets pull withheld forms toward wrong counts.
+
+**Reading:**
+- In this setup, the fast-mapping signal adds nothing beyond what succession training
+  already supplies. Both carry the same relational information, and the pseudo-labels
+  are noisy.
+- A sharper test of learning from inference needs two things:
+  1. targets filtered by confidence, for example only where instinct and the relational
+     answer agree, the signal that predicted correctness here;
+  2. a setting where the relational inference is the *only* route to the withheld
+     form's meaning, with no succession loss on that form. Fast mapping would then be
+     tested on its own.
+
+## Status after pilots 1–4
+
+- **Established in the stable arms (three seeds):**
+  - forms never directly paired with collections acquire quantity meaning through
+    counting transitions alone, at 80–100% of paired accuracy, recognized in isolation;
+  - the learned successor carries grounded meaning one step;
+  - agreement between instinct and relational inference predicts correctness strongly.
+- **Not supported:**
+  - an advantage of coherent episode order over shuffled evidence;
+  - a gain from pseudo-label fast mapping.
+- **Unresolved:**
+  - persistent state between steps: every formulation tried diverged or failed to learn;
+  - forgetting under blocked teaching with one shared satellite: problem 1, untouched;
+  - transfer to a new language: near chance;
+  - slow learning of English words.
+- **Confidence (the researchers' question):** a usable signal exists. It is agreement
+  with the core, available after revision. The next step is a predictor trained to
+  anticipate it from pre-revision features, which then gates revision and the curiosity
+  questions of Part C.
+
+## Cost (pilot 4)
+
+- Three seeds in parallel, 346–350 s wall each (one arm per seed).
+- Worker CPU 281–283 s per seed; largest worker peak RSS 1.2 GB.
+- Selection cost: one smoke run (about 10 s).
+
+## Cost (pilot 3)
+
+- Three seeds in parallel, about 2,100 s wall each.
+- Worker CPU 7,681–7,761 s per seed. Slower than pilot 2 because 15 workers shared 12
+  CPUs.
+- Largest worker peak RSS 1.4 GB.
+- Selection cost: two replay diagnostics, one of 2,000 updates and one of 2,300 updates
+  (about 5 and 8 minutes).
+
 ## Cost (pilot 2)
 
 - Wall 741 s on 5 workers (arms 711 s in parallel).

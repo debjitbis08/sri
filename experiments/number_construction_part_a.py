@@ -37,7 +37,11 @@ LANGS, TRANSFER = ('english', 'chinese', 'devanagari_digits'), 'thai_digits'
 ARMS = {'A-episode': ('episodes', True, False, 'blocked'), 'A-order': ('episodes', False, False, 'blocked'),
         'A-shuffled': ('shuffled', False, False, 'blocked'), 'A-episode+teach': ('episodes', True, True, 'blocked'),
         'A-episode-interleaved': ('episodes', True, False, 'interleaved')}  # (presentation, persistent, teach, schedule)
-STEPS = 20 if X.SMOKE else int(os.environ.get('NCA_STEPS', '2000' if X.MODE == 'pilot2' else '1000'))  # updates per block
+if X.MODE == 'pilot4':  # core as teacher by pseudo-label fast mapping (spec, "Part A pilot 4")
+    ARMS = {'A-order+pseudo': ('episodes', False, False, 'blocked')}
+PSEUDO_ARMS = {'A-order+pseudo'}
+PILOT2 = X.MODE in ('pilot2', 'pilot3', 'pilot4')  # pilot 2 changes, kept in later pilots
+STEPS = 20 if X.SMOKE else int(os.environ.get('NCA_STEPS', '2000' if PILOT2 else '1000'))  # updates per block
 BATCH_EP, MU, LR, DESC = 16, 1.0, 1e-3, .3
 N_DOT_EPISODES = 200 if X.SMOKE else 3000
 EVAL_PER = 4 if X.SMOKE else 30  # evaluation forms per count per language
@@ -51,7 +55,7 @@ DOTS, EVAL = {}, {}
 
 def dot_episode(j):
     # pilot 2: half the episodes keep total area fixed, so ink does not give the count in training either
-    mode = 'area' if X.MODE == 'pilot2' and j % 2 else 'radius'
+    mode = 'area' if PILOT2 and j % 2 else 'radius'
     return np.stack(ns.render_dots_incremental(nc.stream('partA_dots', 'train', j), mode=mode))
 
 
@@ -155,18 +159,21 @@ class Coupled:
         self.sel = torch.zeros(self.Qyy.shape[0], SIZES[2]); self.sel[INNER] = torch.eye(SIZES[2])
         self.A, self.t, self.L = sri.A, sri.t, {}
 
+        # pilot 3: coupling strength relative to the core-inner curvature, so rescaling the states cannot escape it
+        self.mu = MU * self.Qyy[INNER, INNER].diagonal().mean() if X.MODE == 'pilot3' else MU
+
     def factor(self, kind):
         if kind not in self.L:
-            K = self.Qyy if kind == 'none' else self.Qyy + MU * self.sel @ (torch.eye(SIZES[2]) if kind == 'asc' else self.A.T @ self.A) @ self.sel.T
+            K = self.Qyy if kind == 'none' else self.Qyy + self.mu * self.sel @ (torch.eye(SIZES[2]) if kind == 'asc' else self.A.T @ self.A) @ self.sel.T
             self.L[kind] = torch.linalg.cholesky(K)
         return self.L[kind]
 
     def solve(self, f, kind='none', prev=None):
         rhs = -(f @ self.Qyx.T)
         if kind == 'asc':
-            rhs = rhs + MU * (prev @ self.A.T + self.t) @ self.sel.T
+            rhs = rhs + self.mu * (prev @ self.A.T + self.t) @ self.sel.T
         elif kind == 'desc':
-            rhs = rhs + MU * ((prev - self.t) @ self.A) @ self.sel.T
+            rhs = rhs + self.mu * ((prev - self.t) @ self.A) @ self.sel.T
         return torch.cholesky_solve(rhs.T, self.factor(kind)).T
 
 
@@ -174,7 +181,7 @@ def same_logits(sri, a, b):
     return sri.relation_logits(a, b, 1)
 
 
-def train_update(enc, sri, opt, eps_or_material, persistent, teach, rng):
+def train_update(enc, sri, opt, eps_or_material, persistent, teach, rng, pseudo=False, stats=None):
     if isinstance(eps_or_material, tuple):
         items, pairs, match, eps = (*eps_or_material, None)
     else:
@@ -202,7 +209,7 @@ def train_update(enc, sri, opt, eps_or_material, persistent, teach, rng):
                     form_rows.append((fidx, kind, prev_state))
                     c_ep_f = solver.solve(f[fidx:fidx + 1], kind, prev_state)[:, INNER]
                     c_ep = torch.cat([c_ep[:fidx], c_ep_f, c_ep[fidx + 1:]])
-                grounded = X.MODE == 'pilot2' and e >= 0
+                grounded = PILOT2 and e >= 0
                 prev_state = (c[fidx + 1:fidx + 2] if grounded else c_ep[fidx:fidx + 1]).detach()
         c_used = c_ep
         if teach:
@@ -237,12 +244,40 @@ def train_update(enc, sri, opt, eps_or_material, persistent, teach, rng):
         a2 = torch.cat([a, torch.tensor(na, dtype=torch.long)]); b2 = torch.cat([b, torch.tensor(nb, dtype=torch.long)])
         target = torch.cat([torch.ones(len(a)), torch.zeros(len(na))])
         loss_next = F.binary_cross_entropy_with_logits(sri.relation_logits(c_used[a2], c_used[b2], 0), target)
-    loss = loss_match + loss_next + loss_teach
+    loss_pseudo = torch.zeros(())
+    if pseudo and eps is not None:
+        # withheld steps with both neighbouring collections visible: revise with two-sided grounded context (no gradient),
+        # read the inferred count against the shared candidates, and train the isolated form state to match it
+        rows, lower, upper, truth = [], [], [], []
+        pos = 0
+        for ep in eps:
+            idx = []
+            for n, e, fi in ep['steps']:
+                idx.append((pos, pos + 1 if e >= 0 else None, n)); pos += 1 + (e >= 0)
+            for k in range(1, len(idx) - 1):
+                fidx, cidx, n = idx[k]
+                if cidx is None and idx[k - 1][1] is not None and idx[k + 1][1] is not None:
+                    lo, hi = (idx[k - 1][1], idx[k + 1][1]) if not ep['desc'] else (idx[k + 1][1], idx[k - 1][1])
+                    rows.append(fidx); lower.append(lo); upper.append(hi); truth.append(n)
+        if rows:
+            with torch.no_grad():
+                A, t = sri.A, sri.t
+                K = solver.Qyy + MU * solver.sel @ (torch.eye(SIZES[2]) + A.T @ A) @ solver.sel.T
+                rhs = -(f[rows] @ solver.Qyx.T) + MU * ((c[lower] @ A.T + t) + (c[upper] - t) @ A) @ solver.sel.T
+                c_rev = torch.cholesky_solve(rhs.T, torch.linalg.cholesky(K)).T[:, INNER]
+                cd = cand.detach()
+                lg = same_logits(sri, c_rev[:, None].expand(-1, 9, -1).reshape(-1, SIZES[2]), cd[None].expand(len(rows), -1, -1).reshape(-1, SIZES[2])).reshape(len(rows), 9)
+                inferred = lg.argmax(1)
+            logits = same_logits(sri, c[rows][:, None].expand(-1, 9, -1).reshape(-1, SIZES[2]), cand[None].expand(len(rows), -1, -1).reshape(-1, SIZES[2])).reshape(len(rows), 9)
+            loss_pseudo = F.cross_entropy(logits, inferred)
+            if stats is not None:  # diagnostic only: how often the inferred count is right (never used for training)
+                stats['pseudo_n'] += len(rows); stats['pseudo_correct'] += int((inferred + 1 == torch.tensor(truth)).sum())
+    loss = loss_match + loss_next + loss_teach + loss_pseudo
     if not torch.isfinite(loss):
         raise nc.NumericalFailure('part A update')
     opt.zero_grad()
     loss.backward()
-    if X.MODE == 'pilot2':
+    if PILOT2:
         torch.nn.utils.clip_grad_norm_([p for g in opt.param_groups for p in g['params']], 5.0)
     opt.step()
     return [round(float(v), 4) for v in (loss_match, loss_next, loss_teach)]
@@ -380,6 +415,7 @@ def run(arm):
         blocks = [[flat[(b * STEPS + s) * BATCH_EP:(b * STEPS + s + 1) * BATCH_EP] for s in range(STEPS)] for b in range(3)]
     rng = nc.stream('partA_train', SEED, arm)
     losses, block_eval, cpu = [], [], {'train': 0., 'eval': 0.}
+    pstats, pseudo_log = {'pseudo_n': 0, 'pseudo_correct': 0}, []
     for b, blk in enumerate(blocks):
         batches = blk
         if presentation == 'shuffled':
@@ -402,12 +438,13 @@ def run(arm):
                 batches.append((items, pairs, match))
         e0 = time.process_time()
         for step, batch in enumerate(batches):
-            ls = train_update(enc, sri, opt, batch, persistent and presentation == 'episodes', teach, rng)
+            ls = train_update(enc, sri, opt, batch, persistent and presentation == 'episodes', teach, rng, arm in PSEUDO_ARMS, pstats)
             if step % 100 == 99:
                 losses.append([b, step + 1, *ls])
         cpu['train'] += time.process_time() - e0
+        pseudo_log.append(dict(pstats)); pstats = {'pseudo_n': 0, 'pseudo_correct': 0}
         e0 = time.process_time()
-        block_eval.append(evaluate(enc, sri, withheld, full=X.MODE == 'pilot2'))
+        block_eval.append(evaluate(enc, sri, withheld, full=PILOT2))
         cpu['eval'] += time.process_time() - e0
     e0 = time.process_time()
     final = evaluate(enc, sri, withheld, full=True)
@@ -433,6 +470,7 @@ def run(arm):
     transfer['retention_after'] = evaluate(enc, sri, withheld)['isolated']
     cpu['transfer'] = time.process_time() - e0
     return arm, {'withheld': {k: list(v) for k, v in withheld.items()}, 'loss_every_100': losses, 'after_block': block_eval,
+                 'pseudo_labels_per_block': pseudo_log,
                  'final': final, 'transfer': transfer, 'checkpoint': {'file': str(path.relative_to(ROOT)), 'sha256': nc.sha256(path)}}, {
         'wall_seconds': time.perf_counter() - t0, 'cpu_seconds': time.process_time() - c0, **{f'{k}_cpu_seconds': v for k, v in cpu.items()},
         'updates': 3 * STEPS + TRANSFER_STEPS, 'peak_rss_kb': resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
