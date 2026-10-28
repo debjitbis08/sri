@@ -473,6 +473,102 @@ numerical scripts during this review and are not stored.
     [relational linear preflight](relational-linear-preflight-v1-contract.md)
     and its draft-check script].
 
+## Number concept network
+
+Search date: 2026-10-28. Starting point: the user-supplied *Number concept
+network: design doc* (2026-10-28). Queries: “Trabelsi Deep Complex Networks
+2018 arxiv”, “Wang Isola Understanding Contrastive Representation Learning
+Alignment Uniformity 2020”, and “Locatello unsupervised disentanglement
+impossible inductive biases 2019”; also opened Khosla et al. directly.
+The [implementation specification](number-concept-network-v1-spec.md) records
+the architecture, loss changes, data boundaries, controls and computation plan.
+No experiment has been implemented or run for this entry.
+
+- **Complex network components.** [Trabelsi et al., 2018,
+  §§3.4, 3.6 and reported activation comparisons](https://arxiv.org/html/1705.09792v4)
+  [read, selected sections]. Shown: complex network building blocks and
+  initialization constructions; modReLU was not consistently competitive in
+  their feed-forward experiments. Differs: no digit-to-dice one-anchor transfer
+  experiment. Hypothesis: these components may implement a useful phase-coded
+  succession representation here; feasibility must be measured. The spec uses
+  the Rayleigh/uniform-phase construction described in §3.6, not the
+  semi-unitary initialization used in that paper's experiments.
+- **Supervised contrastive learning.** [Khosla et al., 2020](https://arxiv.org/abs/2004.11362)
+  [abstract]. Shown: class labels support multiple positives and class-based
+  contrastive training. Differs: here a query is transformed by a learned
+  successor operator and positives belong to its assigned *target* class.
+  Hypothesis: a successor-conditioned multi-positive variant avoids the
+  original PDF's same-number false negatives [analogy; not a reproduction of
+  the published method]. The PDF's prose says negatives are other numbers,
+  but its single-positive batch formula does not enforce that [derived].
+- **Alignment and uniformity.** [Wang & Isola, 2020](https://proceedings.mlr.press/v119/wang20k.html)
+  [abstract]. Shown: an asymptotic analysis connects contrastive objectives
+  with positive alignment and distributional uniformity. Differs: no theorem
+  identifying a common coordinate system for independently trained modalities
+  sharing a frozen successor. Hypothesis: contrastive separation can help
+  prevent a useful solution from collapsing, but it does not prove semantic
+  alignment or guarantee optimization avoids collapse [derived limitation].
+- **Identifiability context.** [Locatello et al., 2019](https://proceedings.mlr.press/v97/locatello19a.html)
+  [abstract]. Shown: unsupervised disentanglement requires assumptions about
+  models/data; their empirical study also questions unsupervised model selection.
+  Differs: this proposal has within-modality relation supervision and an anchor.
+  Do not apply their impossibility result directly. The relevant warning about
+  unacknowledged inductive biases is an analogy, not a proof for this model.
+
+Project-specific deductions [derived, no experimental evidence]:
+
+1. A diagonal unitary successor preserves each coordinate magnitude, so an
+   exact orbit can encode distinct numbers entirely in phase. A magnitude-only
+   probe is an inappropriate primary feasibility requirement.
+2. Every diagonal unitary Q commutes with the successor R. Transforming dice
+   codes by Q and precomposing their decoder with Q inverse preserves cosine
+   succession scores and reconstruction. This symmetry is available within
+   the proposed architecture by changing its final encoder affine map and first
+   decoder affine map. It permits ambiguities beyond an integer count offset.
+   Equal frequencies allow additional complex-unitary mixing. For the real
+   orthogonal commutant relevant to cosine, opposite frequencies also allow
+   swaps with conjugation, and frequencies 0 or pi allow reflections within
+   their real 2×2 blocks. Those conjugate-linear maps are not generally
+   absorbable into the architecture's complex-linear boundary layers, so
+   relation-score symmetry need not be full-objective symmetry. Independently,
+   every orbit start defines an exact recurrence, including different
+   coordinate magnitudes; this does not imply equal contrastive/reconstruction
+   losses but rules out a recurrence-only preference for integer offsets.
+3. One exact anchor plus exact shared recurrence identifies a finite orbit,
+   but neither a contrastive ordering loss nor one anchored image guarantees
+   those equalities at class level. Approximate alignment is the experiment.
+4. A ten-centroid readout has a 10% uniform-guess baseline even when scoring
+   only true counts 2–6. A 20% baseline requires a different, restricted
+   candidate set. Empirical controls are more informative than either nominal
+   chance rate because predictions may be strongly nonuniform.
+5. New random layouts and new counts change two factors simultaneously.
+   Random layouts of already trained counts are required to interpret an
+   unseen-count failure. Even a success leaves possible area-based shortcuts.
+6. Contradictory-pair and no-pair controls do not isolate compatibility of the
+   frozen operator with the recipient digit representation. The revised spec
+   therefore includes a fixed cyclic donor-seed operator swap, holding the
+   recipient anchor and readout fixed. This probes operator/representation
+   compatibility; it is not proof of a unique semantic operator. Donor fit and
+   within-dice recurrence diagnostics are needed to interpret a negative result,
+   and cyclic reuse makes the five seed differences statistically dependent.
+7. Rejecting a whole dice configuration, including its newly drawn radius,
+   changes the accepted radius density to a distribution proportional to
+   `p(radius) * P(valid placement | radius, count)`. Thus count-independent
+   proposal radii do not imply count-independent rendered radii. The corrected
+   sampler preassigns immutable radii and resamples positions only, for both
+   standard and random layouts. Exhaustion aborts pool construction rather than
+   replacing the sample. Per-ID metadata invariants and rejection-rate audits
+   are required. This removes radius-selection bias, not geometry/radius
+   dependence or total-area counting shortcuts [derived; no simulation run].
+
+Cheaper alternatives: an exact known-code orbit is an algebraic sanity check,
+not an image-learning baseline; reconstruction plus the same single anchor is
+the included learned baseline. Explicit pip counting, real-valued encoders and
+decoder-free learning are sensible follow-ups, but this v1 claims neither
+general counting nor architectural/computational superiority. Its contribution
+would be controlled practical evidence for or against one-anchor relation
+transfer, not a novelty claim.
+
 ## Implications for contracts
 
 - Use standard names where the mechanism is the same: EP for the two-phase
