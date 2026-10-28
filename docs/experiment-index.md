@@ -3,6 +3,14 @@
 Running list of experiments, with contracts, results and reproduction commands.
 Shared prior-work survey: `prior-work.md`; contract review practice: `literature-review.md`.
 Research directions: `inner-coupling-hypothesis.md` (whether inner coupling matters on complex data).
+Planned image study: [number concept network v1](number-concept-network-v1-spec.md),
+an implementation-ready draft for digit/dice succession and one-anchor transfer.
+Implementation: `src/number_concept.py`, `experiments/number_concept_network.py`
+(`pilot` | `confirmation`; confirmation refuses to run before the frozen contract
+exists), tests in `tests/test_number_concept.py`. MNIST goes in gitignored
+`data/mnist/` (checksums in code); checkpoints in gitignored `runs/`.
+[Pilot results](number-concept-network-v1-pilot-results.md): pipeline and stability
+checks pass; not headline evidence. No confirmation results yet.
 New experiments are added here, not to the README. Entries carried over from the
 README's original layout list keep their wording. Earlier studies that list never
 covered (for example the layered-module, locality-adaptation and relational
