@@ -35,11 +35,14 @@ class NumberSystemsTests(unittest.TestCase):
 
     def test_incremental_dots_add_one_disc_per_step(self):
         for i in range(10):
-            xs = ns.render_dots_incremental(nc.stream('test_dots_incremental', i))
+            xs = ns.render_dots_incremental(nc.stream('test_dots_incremental', i), mode='radius' if i % 2 else 'area')
             masks = [x > .35 for x in xs]
             self.assertEqual([ndimage.label(m)[1] for m in masks], list(ns.NUMBERS))
-            # positions persist: the previous discs stay (noise flips a few edge pixels at the threshold)
-            self.assertTrue(all((masks[k] & masks[k + 1]).sum() >= .85 * masks[k].sum() for k in range(8)))
+            if i % 2:  # fixed radius: the previous discs stay (noise flips a few edge pixels at the threshold)
+                self.assertTrue(all((masks[k] & masks[k + 1]).sum() >= .85 * masks[k].sum() for k in range(8)))
+            else:  # fixed area: discs shrink but keep their centres, so every earlier centre stays inside a disc
+                centres = ndimage.center_of_mass(masks[0], ndimage.label(masks[0])[0], 1)
+                self.assertTrue(all(masks[k][int(round(centres[0])), int(round(centres[1]))] for k in range(9)))
 
     def test_structural_definitions(self):
         self.assertEqual([sum(ns.EGYPTIAN_ROWS[n]) for n in ns.NUMBERS], list(ns.NUMBERS))

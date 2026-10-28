@@ -579,3 +579,29 @@ loss, because no language is a label space):
 - gating (needs the confidence analysis first);
 - Part C;
 - multiple seeds. A three-seed rerun follows if the pilot runs cleanly.
+
+### Part A pilot 2 amendments (2026-10-29, after pilot 1, before running)
+
+Pilot 1 is reported in [Part A results](number-construction-v1-part-a-results.md).
+Changes:
+
+1. **Persistent state is coupled to the grounded previous step.**
+   - Each form is coupled to the successor of the previous step's **collection** state
+     when that collection is visible. Only at a step after a hidden collection is it
+     coupled to the previous form's episode state.
+   - Withheld counts are nonadjacent, so chains are at most two links long. In pilot 1,
+     coupling to the previous coupled form compounded along whole episodes and diverged.
+   - It is also the intended reading: "the count continues from what you saw".
+2. **Gradient-norm clipping at 5** in every arm, a uniform safety change.
+3. **Training collections:** half of the incremental episodes keep the total area fixed.
+   The radius shrinks as dots are added (R/√k, at least 0.9), with positions kept and
+   spacing set at insertion. So ink amount does not give the count in training either,
+   matching the fixed-area test candidates.
+4. **2,000 updates per block** (pilot 1: 1,000 was too short for English and Devanagari).
+5. **The full evaluation runs at the end of every block,** not only at the end.
+   - **Primary acquisition measure:** isolated matching of each language's withheld
+     against paired forms **at the end of its own block**, before later blocks can cause
+     forgetting.
+   - The end-of-training evaluation measures retention.
+
+Mode `pilot2`, so pilot 1's artifacts are kept.

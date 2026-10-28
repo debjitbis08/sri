@@ -37,7 +37,7 @@ LANGS, TRANSFER = ('english', 'chinese', 'devanagari_digits'), 'thai_digits'
 ARMS = {'A-episode': ('episodes', True, False, 'blocked'), 'A-order': ('episodes', False, False, 'blocked'),
         'A-shuffled': ('shuffled', False, False, 'blocked'), 'A-episode+teach': ('episodes', True, True, 'blocked'),
         'A-episode-interleaved': ('episodes', True, False, 'interleaved')}  # (presentation, persistent, teach, schedule)
-STEPS = 20 if X.SMOKE else int(os.environ.get('NCA_STEPS', '1000'))  # updates per block
+STEPS = 20 if X.SMOKE else int(os.environ.get('NCA_STEPS', '2000' if X.MODE == 'pilot2' else '1000'))  # updates per block
 BATCH_EP, MU, LR, DESC = 16, 1.0, 1e-3, .3
 N_DOT_EPISODES = 200 if X.SMOKE else 3000
 EVAL_PER = 4 if X.SMOKE else 30  # evaluation forms per count per language
@@ -50,7 +50,9 @@ DOTS, EVAL = {}, {}
 # ---------------------------------------------------------------- data
 
 def dot_episode(j):
-    return np.stack(ns.render_dots_incremental(nc.stream('partA_dots', 'train', j)))
+    # pilot 2: half the episodes keep total area fixed, so ink does not give the count in training either
+    mode = 'area' if X.MODE == 'pilot2' and j % 2 else 'radius'
+    return np.stack(ns.render_dots_incremental(nc.stream('partA_dots', 'train', j), mode=mode))
 
 
 def withheld_counts():
@@ -185,7 +187,9 @@ def train_update(enc, sri, opt, eps_or_material, persistent, teach, rng):
     c_used = c
     loss_teach = torch.zeros(())
     if persistent:
-        # forms solved in episode order with coupling to the previous form's episode state (detached)
+        # forms solved in episode order with coupling to the previous step's state (detached). Pilot 1: the previous
+        # form's episode state (compounds along the episode). Pilot 2: the previous step's collection when visible,
+        # otherwise the previous form's episode state (chains of at most two links).
         c_ep = c.clone()
         pos = 0
         form_rows = []
@@ -198,7 +202,8 @@ def train_update(enc, sri, opt, eps_or_material, persistent, teach, rng):
                     form_rows.append((fidx, kind, prev_state))
                     c_ep_f = solver.solve(f[fidx:fidx + 1], kind, prev_state)[:, INNER]
                     c_ep = torch.cat([c_ep[:fidx], c_ep_f, c_ep[fidx + 1:]])
-                prev_state = c_ep[fidx:fidx + 1].detach()
+                grounded = X.MODE == 'pilot2' and e >= 0
+                prev_state = (c[fidx + 1:fidx + 2] if grounded else c_ep[fidx:fidx + 1]).detach()
         c_used = c_ep
         if teach:
             idx = [r[0] for r in form_rows]
@@ -237,6 +242,8 @@ def train_update(enc, sri, opt, eps_or_material, persistent, teach, rng):
         raise nc.NumericalFailure('part A update')
     opt.zero_grad()
     loss.backward()
+    if X.MODE == 'pilot2':
+        torch.nn.utils.clip_grad_norm_([p for g in opt.param_groups for p in g['params']], 5.0)
     opt.step()
     return [round(float(v), 4) for v in (loss_match, loss_next, loss_teach)]
 
@@ -400,7 +407,7 @@ def run(arm):
                 losses.append([b, step + 1, *ls])
         cpu['train'] += time.process_time() - e0
         e0 = time.process_time()
-        block_eval.append(evaluate(enc, sri, withheld))
+        block_eval.append(evaluate(enc, sri, withheld, full=X.MODE == 'pilot2'))
         cpu['eval'] += time.process_time() - e0
     e0 = time.process_time()
     final = evaluate(enc, sri, withheld, full=True)
