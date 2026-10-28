@@ -21,6 +21,13 @@ dice generator. Reproduce with the confirmation command (about 98 minutes on 11 
 correlated latent shape in untied frames. For rotation the offset is the predicted
 eight-angle phase symmetry, which the single-image anchor fails to fix
 (class-level phase correction 0.83). `.venv/bin/python experiments/number_concept_alignment_analysis.py`.
+[Cross-relation pilot](number-cross-relation-pilot.md) (exploratory, no contract):
+shared encoder, joint training, true/false *same* and *next* judgments, with
+cross-modal equivalents for a few counts only. With pairs {1, 3, 5}, a judge that
+reads both relations off one code space with a shared successor aligns unpaired
+dice 2, 4 and 6 exactly in 3/3 seeds. Without succession, or with a free judge,
+the same pairs give 0.00 and about 0.3 respectively. Pairs {1, 2, 3} extrapolate to
+4–6 at 0.78. `.venv/bin/python experiments/number_cross_relation_pilot.py` (about 33 minutes on 11 workers).
 New experiments are added here, not to the README. Entries carried over from the
 README's original layout list keep their wording. Earlier studies that list never
 covered (for example the layered-module, locality-adaptation and relational
