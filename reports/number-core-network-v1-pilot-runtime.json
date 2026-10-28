@@ -1,0 +1,150 @@
+{
+ "blas": "single-threaded (OPENBLAS/OMP/MKL_NUM_THREADS=1, torch.set_num_threads(1))",
+ "command": "/home/debjit/code/sri/.venv/bin/python experiments/number_core_network.py pilot",
+ "contract_sha256": null,
+ "counts_total": {
+  "factorizations": 16016,
+  "optimizer_steps": 8000,
+  "training_encodings": 7168000
+ },
+ "cpu": "x86_64",
+ "cpu_count": 12,
+ "data_bytes": {
+  "dice_float32": 43276800,
+  "mnist_train_float32": 169344000,
+  "morse_float32": 11776000
+ },
+ "deployment_timing": null,
+ "deployment_timing_reason": "not measured in the pilot; planned for confirmation",
+ "dirty": true,
+ "dtype": "float32",
+ "environment_overrides": {},
+ "module_sha256": {
+  "number_concept": "d8af3f35a76ece96a09f34da5d451cdbbb57a2ddc06592b41b96b89fd02c5479",
+  "number_core": "e3e8f377aa27372ccdb5ebef1b6081e7311ba60d8a4b1e1473bef28dabf9ab22"
+ },
+ "numpy": "2.5.4",
+ "parent_cpu_seconds": 5.682978487,
+ "peak_rss_children_max_kb": 808212,
+ "peak_rss_parent_kb": 808212,
+ "peak_workspace_bytes": null,
+ "peak_workspace_reason": "torch CPU allocator peak is not exposed; see peak RSS",
+ "phases": {
+  "data_preparation": {
+   "cpu_seconds": 5.59980771,
+   "wall_seconds": 5.600688709993847
+  },
+  "fits_wall_seconds": 358.2097666269983
+ },
+ "platform": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+ "revision": "413b78c1d4c6ce9d9084db6e0bd40712914e1940",
+ "rss_convention": "Linux ru_maxrss in KiB; children value is the largest single worker process",
+ "runner_sha256": "f87d6e1074870034b5570cc97104946426c2145f33005e3b60de3166fed70403",
+ "scope": "nondeterministic timing and environment; scientific results are in -results.json",
+ "seed_policy": "named SeedSequence streams under ROOT_SEED 2026102801 (morse, morse_scramble, label_codes, core_few, core_train, core_eval); torch.manual_seed(seed) for front-end and SRI initialization",
+ "spec_sha256": "309b933cc7b77d441fb0207e45dd96b3649cd0fbf58fb83ae0425551f951acd7",
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "wall_seconds": 363.8216031379998,
+ "worker_cpu_seconds_total": 2069.175091194,
+ "worker_tasks": {
+  "100/N-M": {
+   "counts": {
+    "factorizations": 2002,
+    "optimizer_steps": 1000,
+    "training_encodings": 576000
+   },
+   "eval_cpu_seconds": 1.9279606819999913,
+   "eval_wall_seconds": 1.9284922709921375,
+   "peak_rss_kb": 741768,
+   "train_cpu_seconds": 157.593007213,
+   "train_wall_seconds": 157.61899318397627
+  },
+  "100/N-X": {
+   "counts": {
+    "factorizations": 2002,
+    "optimizer_steps": 1000,
+    "training_encodings": 576000
+   },
+   "eval_cpu_seconds": 1.865956906000008,
+   "eval_wall_seconds": 1.8667756379873026,
+   "peak_rss_kb": 742124,
+   "train_cpu_seconds": 207.9753343,
+   "train_wall_seconds": 208.0476790899993
+  },
+  "100/N-X-E": {
+   "counts": {
+    "factorizations": 2002,
+    "optimizer_steps": 1000,
+    "training_encodings": 1088000
+   },
+   "eval_cpu_seconds": 1.308031217000007,
+   "eval_wall_seconds": 1.3083181530237198,
+   "peak_rss_kb": 744120,
+   "train_cpu_seconds": 297.554545151,
+   "train_wall_seconds": 297.6015165330027
+  },
+  "100/N-X-I": {
+   "counts": {
+    "factorizations": 2002,
+    "optimizer_steps": 1000,
+    "training_encodings": 576000
+   },
+   "eval_cpu_seconds": 1.7644655,
+   "eval_wall_seconds": 1.7675339120032731,
+   "peak_rss_kb": 743056,
+   "train_cpu_seconds": 218.585336448,
+   "train_wall_seconds": 218.69543450602214
+  },
+  "100/S-M": {
+   "counts": {
+    "factorizations": 2002,
+    "optimizer_steps": 1000,
+    "training_encodings": 960000
+   },
+   "eval_cpu_seconds": 1.4691976170000203,
+   "eval_wall_seconds": 1.4700342470023315,
+   "peak_rss_kb": 739348,
+   "train_cpu_seconds": 261.781450855,
+   "train_wall_seconds": 261.85808302101213
+  },
+  "100/S-X": {
+   "counts": {
+    "factorizations": 2002,
+    "optimizer_steps": 1000,
+    "training_encodings": 960000
+   },
+   "eval_cpu_seconds": 1.2334497659999784,
+   "eval_wall_seconds": 1.2335409310180694,
+   "peak_rss_kb": 738468,
+   "train_cpu_seconds": 298.42577259300003,
+   "train_wall_seconds": 298.46979235700564
+  },
+  "100/S-X-E": {
+   "counts": {
+    "factorizations": 2002,
+    "optimizer_steps": 1000,
+    "training_encodings": 1472000
+   },
+   "eval_cpu_seconds": 1.103868963000025,
+   "eval_wall_seconds": 1.1041715379978996,
+   "peak_rss_kb": 743648,
+   "train_cpu_seconds": 356.74121073199996,
+   "train_wall_seconds": 356.99423723999644
+  },
+  "100/S-X-I": {
+   "counts": {
+    "factorizations": 2002,
+    "optimizer_steps": 1000,
+    "training_encodings": 960000
+   },
+   "eval_cpu_seconds": 1.6266909139999939,
+   "eval_wall_seconds": 1.6271923010062892,
+   "peak_rss_kb": 740080,
+   "train_cpu_seconds": 258.21881233700003,
+   "train_wall_seconds": 258.2763153630076
+  }
+ },
+ "workers": 8
+}

@@ -28,6 +28,14 @@ reads both relations off one code space with a shared successor aligns unpaired
 dice 2, 4 and 6 exactly in 3/3 seeds. Without succession, or with a free judge,
 the same pairs give 0.00 and about 0.3 respectively. Pairs {1, 2, 3} extrapolate to
 4–6 at 0.78. `.venv/bin/python experiments/number_cross_relation_pilot.py` (about 33 minutes on 11 workers).
+[Number core network v1](number-core-network-v1-spec.md) (draft, three pilots;
+[results](number-core-network-v1-pilot-results.md)): image (MNIST, dice) and Morse
+modules coupled to a shared SRI core and a fixed-code label module, with exact
+equilibria. Labels on unlabelled counts stay at 0.00 under sparse labels; only the
+equivalence-loss arm at wide size aligns them in the core. The input kind is decodable
+from the core at 0.999. A tally test labelled at 1, 2 and 5 puts every other count in
+those bins. `src/number_core.py`, tests in `tests/test_number_core.py`;
+`.venv/bin/python experiments/number_core_network.py pilot|pilot2|tally` (6–8 minutes each).
 New experiments are added here, not to the README. Entries carried over from the
 README's original layout list keep their wording. Earlier studies that list never
 covered (for example the layered-module, locality-adaptation and relational

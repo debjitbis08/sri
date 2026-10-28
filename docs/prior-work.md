@@ -569,6 +569,129 @@ general counting nor architectural/computational superiority. Its contribution
 would be controlled practical evidence for or against one-anchor relation
 transfer, not a novelty claim.
 
+## Number core network
+
+Search date: 2026-10-28, for the [number core network v1 specification](number-core-network-v1-spec.md).
+Queries: “Deep Supervised Cross-modal Retrieval Zhen CVPR 2019”, “Mind the Gap
+modality gap Liang 2022”, “Papyan Han Donoho neural collapse”, “Srivastava
+Salakhutdinov multimodal deep Boltzmann machines”, “Piantadosi Tenenbaum Goodman
+bootstrapping language of thought”, “Sarnecka Carey 2008 how counting represents
+number”, “Stoianov Zorzi visual number sense”, “Nasr Viswanathan Nieder number
+detectors”. Builds on the two preceding number entries and on
+[modules, coupling and translations](#modules-coupling-and-translations).
+This is a targeted contract review, not a novelty search.
+
+- **Shared label space versus explicit invariance across modalities.**
+  [Zhen et al., CVPR 2019, DSCMR](https://openaccess.thecvf.com/content_CVPR_2019/html/Zhen_Deep_Supervised_Cross-Modal_Retrieval_CVPR_2019_paper.html)
+  [read: §3 losses, §4.4.3 ablation, Tables 6–7]. Shown: image and text
+  sub-networks with a shared second layer and one shared linear classifier.
+  Label loss alone (their DSCMR4) gives cross-modal retrieval mAP 0.685 against
+  0.716 for the full model on Pascal Sentence, and 0.524 against 0.613 on
+  NUS-WIDE-10K. Removing only the explicit invariance loss `‖U − V‖` gives 0.694
+  and 0.538. Differs: dense labels for every class in both modalities, retrieval
+  rather than coincidence of codes, pretrained features, no relation structure.
+  Implication: shared labels through a shared classifier align modalities
+  substantially but not fully, and explicit invariance adds alignment even with
+  dense labels [analogy]. This supports the spec's framing of label-only alignment
+  as a hypothesis, and its equivalence-loss control arms.
+- **Modality gap.** [Liang et al., NeurIPS 2022](https://proceedings.neurips.cc/paper_files/paper/2022/hash/702f4db7543a7432431df588d57bc7c9-Abstract.html)
+  [abstract]. Shown: in CLIP-style models, image and text embeddings occupy
+  separate regions, arising from initialization cones and kept by contrastive
+  training, and the gap affects downstream results. Differs: contrastive
+  image–text pretraining, not classification into shared labels or energy
+  coupling. Implication: even objectives that explicitly match pairs can leave
+  modalities in offset regions, so coincidence must be measured directly, not
+  inferred from readout accuracy [analogy].
+- **Neural collapse.** [Papyan, Han and Donoho, PNAS 2020](https://arxiv.org/abs/2008.08186)
+  [abstract]. Shown: late in classification training, last-layer features
+  collapse to class means that align with the classifier, and classification
+  becomes nearest class mean. Differs: one modality, a learned classifier,
+  training to zero error. Implication: shared fixed label codes push labelled
+  classes of both input kinds toward the same *output* activity [analogy]. Whether
+  that reaches the core is a separate question (deduction 1 below).
+- **Multimodal models with a shared latent layer.**
+  [Srivastava and Salakhutdinov, NIPS 2012; JMLR 2014](https://jmlr.org/papers/v15/srivastava14b.html)
+  [abstract]. Shown: a multimodal deep Boltzmann machine with a joint top layer
+  over modality-specific pathways learns a fused representation that helps
+  classification and retrieval, including when only one modality is present at
+  test. Differs: generative, sampled training on paired image–text data; no
+  sparse labels or relation structure. Implication: the image ↔ core ↔ Morse
+  layout is a standard shared-latent multimodal design, here as a quadratic
+  energy with learned translations [analogy]. MuPNet (above) is the
+  predictive-coding version.
+- **Relations as translations and relation transfer.** Covered in the
+  [cross-relation originality assessment](#number-cross-relation-pilot-originality-assessment):
+  TransE (relation vectors), seed-based entity alignment (Zhu et al. 2017) and
+  structured relation decoders for MNIST successor relations (Strömfelt et al.
+  2020, 2022). The affine core successor `S(c) = A c + t` generalizes TransE's
+  fixed translation; with A = I it is TransE's form [derived].
+- **Numerosity in networks.** [Stoianov and Zorzi, Nature Neuroscience 2012](https://doi.org/10.1038/nn.2996)
+  [abstract]: numerosity detectors emerge in a deep generative model of dot
+  images. [Nasr, Viswanathan and Nieder, Science Advances 2019](https://pmc.ncbi.nlm.nih.gov/articles/PMC6506249)
+  [abstract]: number-tuned units emerge in a CNN trained only for object
+  recognition. Differs: approximate numerosity of dot arrays, not exact counts
+  or symbol grounding. Implication: dice cardinality may be partly available to
+  a generic image encoder; the spec's dice still use fixed face layouts, so face
+  recognition can stand in for counting. Set-function encoders (Deep Sets,
+  Zaheer et al. 2017) [familiar] remain the structural alternative for a later
+  random-layout study.
+- **Children's number-word learning.** [Sarnecka and Carey, Cognition 2008](https://doi.org/10.1016/j.cognition.2008.05.007)
+  [abstract and secondary citations]: cardinal-principle knowers judge that
+  adding one item moves one step in the count list better than subset knowers,
+  though modestly (about 67% for sets of 4 and 5 against 50% chance), and later
+  work disputes the direction of dependence. [Piantadosi, Tenenbaum and
+  Goodman, Cognition 2012](https://dspace.mit.edu/handle/1721.1/98844)
+  [abstract]: a Bayesian program-learning model reproduces the subset-knower to
+  cardinal-principle transition from Carey's bootstrapping account, arguing that
+  co-occurrence learners cannot. Carey (2009) and Gelman and Gallistel (1978)
+  [familiar]. Differs: these describe children and symbolic program induction,
+  not learned image encoders. Implication: "exact meanings for a few small
+  numbers plus a successor rule" is a documented developmental pattern, which
+  the sparse-label design resembles [analogy]. It is motivation, not a
+  prediction for this architecture.
+- **Training through exact equilibria.** Backpropagation through the exact
+  equilibrium of a quadratic energy is implicit differentiation of a linear
+  solve, as in differentiable optimization layers (OptNet, Amos and Kolter 2017)
+  and deep equilibrium models (Bai et al. 2019) [familiar]. With clamped
+  inputs, the equilibrium is the conditional mean of the corresponding
+  linear-Gaussian model [derived]. It is not a test of the program's local
+  learning rule, which the spec defers to a later stage.
+
+Project-specific deductions [derived, no experimental evidence]:
+
+1. **Labels constrain the core only through what the output sees.** The label
+   depends on the core's equilibrium state through the linear core → output path.
+   Two core states that differ only in directions that path does not pass to the
+   output give the same label. With a 28-unit core and a 16-unit output layer,
+   those directions always exist. So label supervision cannot by itself force
+   same-number core codes to coincide. Coincidence must come from the
+   within-modality relations, the coupling geometry or the training dynamics,
+   and must be measured. This sharpens the reviewer's point.
+2. **Succession transfers labels only through the core inner layer.** The
+   successor and judge act on the core inner layer. If labelled codes coincide
+   there (dice 1 with digit 1, and so on), then `S` carries the coincidence to
+   unlabelled counts, as in the pilot. If they coincide only in the part the
+   output sees, nothing ties unlabelled counts across input kinds. The S-X
+   versus S-X-E contrast measures which happens.
+3. **Chance.** A ten-way readout has a 1/10 uniform baseline on any subset of
+   true classes (as in the number concept entry, deduction 4).
+4. **Standard Morse partly encodes number on its surface.** Codes 1–5 are n
+   dots then dashes, and 6–9 are n − 5 dashes then dots. An encoder could
+   interpolate unlabelled Morse counts from the surface alone. Scrambled codes
+   remove that; the comparison of N-M with N-X measures it.
+
+Cheaper alternatives: a shared encoder with a structured judge (the cross-relation
+pilot) already answers whether succession extends sparse equivalents, for two image
+kinds. A DSCMR-style late-fusion model (two encoders, shared classifier, optional
+invariance loss) is the standard baseline for the label-versus-invariance question
+and could be added at small cost. The spec includes its two ingredients (label
+loss, equivalence loss) inside the SRI architecture, not the DSCMR model itself.
+
+Contribution: no new general principle. Sparse-correspondence extension through
+relational structure and shared-label multimodal alignment are both established.
+The study tests whether the program's coupled-module architecture supports them,
+whether shared labels suffice as the bridge, and how coupling topology affects it.
+
 ## Implications for contracts
 
 - Use standard names where the mechanism is the same: EP for the two-phase

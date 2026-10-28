@@ -1,0 +1,3602 @@
+{
+ "config": {
+  "arms": {
+   "N-M": [
+    false,
+    false,
+    false,
+    "uniform"
+   ],
+   "N-X": [
+    false,
+    true,
+    false,
+    "uniform"
+   ],
+   "N-X-E": [
+    false,
+    true,
+    true,
+    "uniform"
+   ],
+   "N-X-I": [
+    false,
+    true,
+    false,
+    "inner"
+   ],
+   "S-M": [
+    true,
+    false,
+    false,
+    "uniform"
+   ],
+   "S-X": [
+    true,
+    true,
+    false,
+    "uniform"
+   ],
+   "S-X-E": [
+    true,
+    true,
+    true,
+    "uniform"
+   ],
+   "S-X-I": [
+    true,
+    true,
+    false,
+    "inner"
+   ]
+  },
+  "batch": 64,
+  "equivalents": 10,
+  "eval_split": "validation",
+  "label_loss": "softmax for MNIST; positive-only cosine pull for dice and Morse",
+  "labelled": [
+   1,
+   3,
+   5
+  ],
+  "lambda": 0.001,
+  "lr": 0.001,
+  "pairs": 64,
+  "per_unit_coupling": {
+   "inner": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "uniform": [
+    0.14285714285714285,
+    0.14285714285714285,
+    0.14285714285714285
+   ]
+  },
+  "reference_per_class": 20,
+  "seeds": [
+   100
+  ],
+  "steps": 1000,
+  "widths": {
+   "narrow": [
+    16,
+    8,
+    4
+   ],
+   "wide": [
+    64,
+    32,
+    16
+   ]
+  }
+ },
+ "data": {
+  "data_bytes": {
+   "dice_float32": 43276800,
+   "mnist_train_float32": 169344000,
+   "morse_float32": 11776000
+  },
+  "eval_split": "validation",
+  "mnist_sha256": {
+   "t10k-images-idx3-ubyte.gz": "8d422c7b0a1c1c79245a5bcf07fe86e33eeafee792b84584aec276f5a2dbc4e6",
+   "t10k-labels-idx1-ubyte.gz": "f7ae60f92e00ec6debd23a6088c31dbd2371eca3ffa0defaefb259924204aec6",
+   "train-images-idx3-ubyte.gz": "440fcabf73cc546fa21475e81ea370265605f56be210a4024d2ca8f203523609",
+   "train-labels-idx1-ubyte.gz": "3552534a0a558bbed6aed32b30c495cca23d567ec52cac8be1a0730e8010255c"
+  },
+  "mnist_test_loaded": false,
+  "morse_max_end_sample": 105,
+  "morse_sha256": {
+   "train": "334437401cd3e867f3322e5c73a018bc9e3225944ab0a89a958f4354dadcc652",
+   "validation": "5917060e06117e06a22d51584ec55480b6e41a75ea51e75291bc38601ace6a70"
+  },
+  "scramble_perm_number_to_code": [
+   5,
+   6,
+   0,
+   7,
+   3,
+   8,
+   9,
+   2,
+   1,
+   4
+  ],
+  "sizes": {
+   "dice_eval": 1800,
+   "dice_train": 12000,
+   "mnist_eval": 6000,
+   "mnist_train": 54000,
+   "morse_eval": 3000,
+   "morse_train": 20000
+  }
+ },
+ "mode": "pilot2",
+ "runs": {
+  "100/N-M/wide": {
+   "checkpoint": {
+    "file": "runs/number-core-network-v1-pilot2/100-N-M-wide.pt",
+    "sha256": "0eb9eef639296ab4600a199240845932872996aabd0f0ea81e7cb7a92a9f5edc"
+   },
+   "core_inner_norm": {
+    "dice": 3.4347927570343018,
+    "mnist": 2.092135429382324,
+    "morse": 4.458311080932617
+   },
+   "coupling": {
+    "core": {
+     "dice-mnist": {
+      "coordinate_correlation": 0.5120365619659424,
+      "paired_cka": 0.5036163330078125,
+      "shuffled_cka": 0.0006696830969303846
+     },
+     "mnist-mnist": {
+      "coordinate_correlation": 0.8809278607368469,
+      "paired_cka": 0.8135846257209778,
+      "shuffled_cka": 0.0010201787808910012
+     },
+     "morse-dice": {
+      "coordinate_correlation": 0.5503706932067871,
+      "paired_cka": 0.4999169707298279,
+      "shuffled_cka": 0.00089786178432405
+     },
+     "morse-mnist": {
+      "coordinate_correlation": 0.15759684145450592,
+      "paired_cka": 0.14128246903419495,
+      "shuffled_cka": 0.0013002946507185698
+     }
+    },
+    "core_inner": {
+     "dice-mnist": {
+      "coordinate_correlation": 0.5648800134658813,
+      "paired_cka": 0.5042984485626221,
+      "shuffled_cka": 0.002408337313681841
+     },
+     "mnist-mnist": {
+      "coordinate_correlation": 0.899720311164856,
+      "paired_cka": 0.8250992894172668,
+      "shuffled_cka": 0.0009830978233367205
+     },
+     "morse-dice": {
+      "coordinate_correlation": 0.6180721521377563,
+      "paired_cka": 0.513259768486023,
+      "shuffled_cka": 0.00022574745526071638
+     },
+     "morse-mnist": {
+      "coordinate_correlation": 0.17846229672431946,
+      "paired_cka": 0.21018217504024506,
+      "shuffled_cka": 0.0007996083586476743
+     }
+    },
+    "input_inner": {
+     "dice-mnist": {
+      "coordinate_correlation": 0.5362929105758667,
+      "paired_cka": 0.4718036949634552,
+      "shuffled_cka": 0.0010856508743017912
+     },
+     "mnist-mnist": {
+      "coordinate_correlation": 0.8766257166862488,
+      "paired_cka": 0.8236615061759949,
+      "shuffled_cka": 0.0005795368342660367
+     },
+     "morse-dice": {
+      "coordinate_correlation": 0.4736049771308899,
+      "paired_cka": 0.5592932105064392,
+      "shuffled_cka": 0.001034830347634852
+     },
+     "morse-mnist": {
+      "coordinate_correlation": 0.19446727633476257,
+      "paired_cka": 0.1829265058040619,
+      "shuffled_cka": 0.0013313941890373826
+     }
+    }
+   },
+   "cross_relations": {
+    "same/dice->mnist": {
+     "groups": {
+      "extrapolation": 0.0,
+      "interpolation": 0.5,
+      "labelled": 1.0
+     },
+     "per_class": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 1.0,
+      "4": 0.0,
+      "5": 1.0,
+      "6": 0.0
+     }
+    },
+    "same/morse->mnist": {
+     "groups": {
+      "extrapolation_down": 0.0,
+      "extrapolation_up": 0.0008333333333333334,
+      "interpolation": 0.13166666666666665,
+      "labelled": 1.0
+     },
+     "per_class": {
+      "0": 0.0,
+      "1": 1.0,
+      "2": 0.2633333333333333,
+      "3": 1.0,
+      "4": 0.0,
+      "5": 1.0,
+      "6": 0.0,
+      "7": 0.0,
+      "8": 0.0033333333333333335,
+      "9": 0.0
+     }
+    }
+   },
+   "input_inner_norm": {
+    "dice": 2.997567892074585,
+    "mnist": 1.9408988952636719,
+    "morse": 4.07218599319458
+   },
+   "label_accuracy": {
+    "dice": {
+     "groups": {
+      "extrapolation": 0.0,
+      "interpolation": 0.0016666666666666668,
+      "labelled": 1.0
+     },
+     "mean": 0.5005555555555555,
+     "per_class": {
+      "1": 1.0,
+      "2": 0.0033333333333333335,
+      "3": 1.0,
+      "4": 0.0,
+      "5": 1.0,
+      "6": 0.0
+     }
+    },
+    "mnist": {
+     "mean": 0.9731666666666667,
+     "per_class": {
+      "0": 0.9966666666666667,
+      "1": 0.9833333333333333,
+      "2": 0.9683333333333334,
+      "3": 0.96,
+      "4": 0.9866666666666667,
+      "5": 0.9533333333333334,
+      "6": 0.9816666666666667,
+      "7": 0.99,
+      "8": 0.9633333333333334,
+      "9": 0.9483333333333334
+     }
+    },
+    "morse": {
+     "groups": {
+      "extrapolation_down": 0.0,
+      "extrapolation_up": 0.0,
+      "interpolation": 0.0,
+      "labelled": 1.0
+     },
+     "mean": 0.3,
+     "per_class": {
+      "0": 0.0,
+      "1": 1.0,
+      "2": 0.0,
+      "3": 1.0,
+      "4": 0.0,
+      "5": 1.0,
+      "6": 0.0,
+      "7": 0.0,
+      "8": 0.0,
+      "9": 0.0
+     }
+    }
+   },
+   "loss_every_50": [
+    3.22009,
+    1.90466,
+    1.5378,
+    1.25436,
+    1.12931,
+    1.01235,
+    0.80946,
+    0.77296,
+    0.86704,
+    0.63692,
+    0.69859,
+    0.83148,
+    0.8591,
+    0.62847,
+    0.52716,
+    0.63077,
+    0.55208,
+    0.53966,
+    0.45583,
+    0.47581
+   ],
+   "matched_centroid_distance_ratio": {
+    "dice": {
+     "1": 0.7874295115470886,
+     "2": 0.8873269557952881,
+     "3": 0.4597923755645752,
+     "4": 1.6731113195419312,
+     "5": 0.5236852169036865,
+     "6": 1.0682249069213867
+    },
+    "morse": {
+     "0": 1.7718796730041504,
+     "1": 0.755340039730072,
+     "2": 0.9947068095207214,
+     "3": 0.6590673327445984,
+     "4": 1.2716346979141235,
+     "5": 0.7287669777870178,
+     "6": 1.77516770362854,
+     "7": 1.8894858360290527,
+     "8": 1.4219982624053955,
+     "9": 1.5513876676559448
+    }
+   },
+   "max_abs_weight": {
+    "A": 1.0,
+    "T.core-output-0": 1.0525071620941162,
+    "T.core-output-1": 1.0382239818572998,
+    "T.core-output-2": 1.0414971113204956,
+    "T.image-core-0": 1.1346118450164795,
+    "T.image-core-1": 1.0788308382034302,
+    "T.image-core-2": 1.1241682767868042,
+    "T.morse-core-0": 1.0976008176803589,
+    "T.morse-core-1": 1.089207649230957,
+    "T.morse-core-2": 1.0973280668258667,
+    "V.core": 0.8331820964813232,
+    "V.image": 0.9086999297142029,
+    "V.morse": 0.8822431564331055,
+    "V.output": 0.8900287747383118,
+    "W.core": 0.8769850730895996,
+    "W.image": 0.8290194869041443,
+    "W.morse": 1.2111726999282837,
+    "W.output": 0.8994916081428528,
+    "judge_bias": 1.779233455657959,
+    "judge_scale": 0.10563654452562332,
+    "label_scale": 5.169265270233154,
+    "t": 0.0
+   },
+   "nearest_mnist_centroid": {
+    "core": {
+     "dice": {
+      "groups": {
+       "extrapolation": 0.0,
+       "interpolation": 0.5,
+       "labelled": 1.0
+      },
+      "per_class": {
+       "1": 1.0,
+       "2": 1.0,
+       "3": 1.0,
+       "4": 0.0,
+       "5": 1.0,
+       "6": 0.0
+      }
+     },
+     "morse": {
+      "groups": {
+       "extrapolation_down": 0.0,
+       "extrapolation_up": 0.0,
+       "interpolation": 0.0,
+       "labelled": 1.0
+      },
+      "per_class": {
+       "0": 0.0,
+       "1": 1.0,
+       "2": 0.0,
+       "3": 1.0,
+       "4": 0.0,
+       "5": 1.0,
+       "6": 0.0,
+       "7": 0.0,
+       "8": 0.0,
+       "9": 0.0
+      }
+     }
+    },
+    "core_inner": {
+     "dice": {
+      "groups": {
+       "extrapolation": 0.0,
+       "interpolation": 0.5,
+       "labelled": 1.0
+      },
+      "per_class": {
+       "1": 1.0,
+       "2": 1.0,
+       "3": 1.0,
+       "4": 0.0,
+       "5": 1.0,
+       "6": 0.0
+      }
+     },
+     "morse": {
+      "groups": {
+       "extrapolation_down": 0.0,
+       "extrapolation_up": 0.0033333333333333335,
+       "interpolation": 0.0,
+       "labelled": 1.0
+      },
+      "per_class": {
+       "0": 0.0,
+       "1": 1.0,
+       "2": 0.0,
+       "3": 1.0,
+       "4": 0.0,
+       "5": 1.0,
+       "6": 0.0,
+       "7": 0.0,
+       "8": 0.013333333333333334,
+       "9": 0.0
+      }
+     }
+    }
+   },
+   "solve_relative_residual": {
+    "dice": 1.8506225885062122e-08,
+    "mnist": 1.835348939493997e-08,
+    "morse": 2.327933934509474e-08
+   }
+  },
+  "100/N-X-E/wide": {
+   "checkpoint": {
+    "file": "runs/number-core-network-v1-pilot2/100-N-X-E-wide.pt",
+    "sha256": "23b2fa66f273fe96eebed65b3ca84a28096c25e898f2f63ee46dc1cca96efa63"
+   },
+   "core_inner_norm": {
+    "dice": 3.8278067111968994,
+    "mnist": 2.0252633094787598,
+    "morse": 4.545658111572266
+   },
+   "coupling": {
+    "core": {
+     "dice-mnist": {
+      "coordinate_correlation": 0.4668808579444885,
+      "paired_cka": 0.4913018047809601,
+      "shuffled_cka": 0.0004981986712664366
+     },
+     "mnist-mnist": {
+      "coordinate_correlation": 0.8776243329048157,
+      "paired_cka": 0.8159219622612,
+      "shuffled_cka": 0.0011532442877069116
+     },
+     "morse-dice": {
+      "coordinate_correlation": 0.4195413887500763,
+      "paired_cka": 0.7827637791633606,
+      "shuffled_cka": 0.00030645981314592063
+     },
+     "morse-mnist": {
+      "coordinate_correlation": 0.11727418005466461,
+      "paired_cka": 0.1858735978603363,
+      "shuffled_cka": 0.00040838116547092795
+     }
+    },
+    "core_inner": {
+     "dice-mnist": {
+      "coordinate_correlation": 0.5126394629478455,
+      "paired_cka": 0.4316461384296417,
+      "shuffled_cka": 0.002387743443250656
+     },
+     "mnist-mnist": {
+      "coordinate_correlation": 0.9010010361671448,
+      "paired_cka": 0.8360855579376221,
+      "shuffled_cka": 0.0003682614478748292
+     },
+     "morse-dice": {
+      "coordinate_correlation": 0.46965572237968445,
+      "paired_cka": 0.7096754908561707,
+      "shuffled_cka": 0.0003075867425650358
+     },
+     "morse-mnist": {
+      "coordinate_correlation": 0.14748947322368622,
+      "paired_cka": 0.07952078431844711,
+      "shuffled_cka": 0.0014445603592321277
+     }
+    },
+    "input_inner": {
+     "dice-mnist": {
+      "coordinate_correlation": 0.4988463521003723,
+      "paired_cka": 0.4230896234512329,
+      "shuffled_cka": 0.0010927210096269846
+     },
+     "mnist-mnist": {
+      "coordinate_correlation": 0.889324426651001,
+      "paired_cka": 0.8405053019523621,
+      "shuffled_cka": 0.0008640446467325091
+     },
+     "morse-dice": {
+      "coordinate_correlation": 0.40211915969848633,
+      "paired_cka": 0.6185603737831116,
+      "shuffled_cka": 0.0007207414600998163
+     },
+     "morse-mnist": {
+      "coordinate_correlation": 0.05718281865119934,
+      "paired_cka": 0.07150792330503464,
+      "shuffled_cka": 0.001003099256195128
+     }
+    }
+   },
+   "cross_relations": {
+    "same/dice->mnist": {
+     "groups": {
+      "extrapolation": 0.0,
+      "interpolation": 0.0,
+      "labelled": 1.0
+     },
+     "per_class": {
+      "1": 1.0,
+      "2": 0.0,
+      "3": 1.0,
+      "4": 0.0,
+      "5": 1.0,
+      "6": 0.0
+     }
+    },
+    "same/morse->mnist": {
+     "groups": {
+      "extrapolation_down": 0.0,
+      "extrapolation_up": 0.0,
+      "interpolation": 0.20333333333333334,
+      "labelled": 0.9933333333333333
+     },
+     "per_class": {
+      "0": 0.0,
+      "1": 0.9966666666666667,
+      "2": 0.0,
+      "3": 0.9966666666666667,
+      "4": 0.4066666666666667,
+      "5": 0.9866666666666667,
+      "6": 0.0,
+      "7": 0.0,
+      "8": 0.0,
+      "9": 0.0
+     }
+    }
+   },
+   "input_inner_norm": {
+    "dice": 3.0339179039001465,
+    "mnist": 1.6034955978393555,
+    "morse": 3.382575511932373
+   },
+   "label_accuracy": {
+    "dice": {
+     "groups": {
+      "extrapolation": 0.0,
+      "interpolation": 0.02,
+      "labelled": 1.0
+     },
+     "mean": 0.5066666666666667,
+     "per_class": {
+      "1": 1.0,
+      "2": 0.04,
+      "3": 1.0,
+      "4": 0.0,
+      "5": 1.0,
+      "6": 0.0
+     }
+    },
+    "mnist": {
+     "mean": 0.9746666666666666,
+     "per_class": {
+      "0": 0.985,
+      "1": 0.98,
+      "2": 0.9733333333333334,
+      "3": 0.9483333333333334,
+      "4": 0.9916666666666667,
+      "5": 0.9833333333333333,
+      "6": 0.9816666666666667,
+      "7": 0.9866666666666667,
+      "8": 0.9666666666666667,
+      "9": 0.95
+     }
+    },
+    "morse": {
+     "groups": {
+      "extrapolation_down": 0.0,
+      "extrapolation_up": 0.0,
+      "interpolation": 0.0,
+      "labelled": 0.9966666666666666
+     },
+     "mean": 0.299,
+     "per_class": {
+      "0": 0.0,
+      "1": 0.9966666666666667,
+      "2": 0.0,
+      "3": 1.0,
+      "4": 0.0,
+      "5": 0.9933333333333333,
+      "6": 0.0,
+      "7": 0.0,
+      "8": 0.0,
+      "9": 0.0
+     }
+    }
+   },
+   "loss_every_50": [
+    5.16888,
+    3.06611,
+    2.64049,
+    2.34988,
+    2.34878,
+    1.94029,
+    1.75126,
+    1.67824,
+    1.45417,
+    1.38413,
+    1.07277,
+    1.45626,
+    1.05398,
+    1.05129,
+    1.08163,
+    0.97087,
+    0.82145,
+    0.91012,
+    0.98276,
+    0.83609
+   ],
+   "matched_centroid_distance_ratio": {
+    "dice": {
+     "1": 0.23607201874256134,
+     "2": 1.211729884147644,
+     "3": 0.19715651869773865,
+     "4": 2.1551873683929443,
+     "5": 0.2625594437122345,
+     "6": 1.3240951299667358
+    },
+    "morse": {
+     "0": 1.33012855052948,
+     "1": 0.16242681443691254,
+     "2": 1.9438519477844238,
+     "3": 0.22326669096946716,
+     "4": 1.4006075859069824,
+     "5": 0.19631817936897278,
+     "6": 1.2156376838684082,
+     "7": 2.241084575653076,
+     "8": 2.1600663661956787,
+     "9": 1.3742200136184692
+    }
+   },
+   "max_abs_weight": {
+    "A": 1.0,
+    "T.core-output-0": 1.0941590070724487,
+    "T.core-output-1": 1.0466428995132446,
+    "T.core-output-2": 1.0235803127288818,
+    "T.image-core-0": 1.133107304573059,
+    "T.image-core-1": 1.0728703737258911,
+    "T.image-core-2": 1.0879409313201904,
+    "T.morse-core-0": 1.1692625284194946,
+    "T.morse-core-1": 1.1134077310562134,
+    "T.morse-core-2": 1.0822248458862305,
+    "V.core": 0.8237742185592651,
+    "V.image": 0.9291969537734985,
+    "V.morse": 0.8614586591720581,
+    "V.output": 0.9001402854919434,
+    "W.core": 0.9052830934524536,
+    "W.image": 0.828974187374115,
+    "W.morse": 1.1818710565567017,
+    "W.output": 0.875813901424408,
+    "judge_bias": 1.7984813451766968,
+    "judge_scale": 0.07306031882762909,
+    "label_scale": 5.2451887130737305,
+    "t": 0.0
+   },
+   "nearest_mnist_centroid": {
+    "core": {
+     "dice": {
+      "groups": {
+       "extrapolation": 0.0,
+       "interpolation": 0.0,
+       "labelled": 1.0
+      },
+      "per_class": {
+       "1": 1.0,
+       "2": 0.0,
+       "3": 1.0,
+       "4": 0.0,
+       "5": 1.0,
+       "6": 0.0
+      }
+     },
+     "morse": {
+      "groups": {
+       "extrapolation_down": 0.0,
+       "extrapolation_up": 0.0,
+       "interpolation": 0.485,
+       "labelled": 0.9966666666666666
+      },
+      "per_class": {
+       "0": 0.0,
+       "1": 0.9966666666666667,
+       "2": 0.0,
+       "3": 1.0,
+       "4": 0.97,
+       "5": 0.9933333333333333,
+       "6": 0.0,
+       "7": 0.0,
+       "8": 0.0,
+       "9": 0.0
+      }
+     }
+    },
+    "core_inner": {
+     "dice": {
+      "groups": {
+       "extrapolation": 0.0,
+       "interpolation": 0.0,
+       "labelled": 1.0
+      },
+      "per_class": {
+       "1": 1.0,
+       "2": 0.0,
+       "3": 1.0,
+       "4": 0.0,
+       "5": 1.0,
+       "6": 0.0
+      }
+     },
+     "morse": {
+      "groups": {
+       "extrapolation_down": 0.0,
+       "extrapolation_up": 0.0,
+       "interpolation": 0.03333333333333333,
+       "labelled": 0.9922222222222222
+      },
+      "per_class": {
+       "0": 0.0,
+       "1": 0.9966666666666667,
+       "2": 0.0,
+       "3": 0.9866666666666667,
+       "4": 0.06666666666666667,
+       "5": 0.9933333333333333,
+       "6": 0.0,
+       "7": 0.0,
+       "8": 0.0,
+       "9": 0.0
+      }
+     }
+    }
+   },
+   "solve_relative_residual": {
+    "dice": 2.14304503032281e-08,
+    "mnist": 1.860551002152988e-08,
+    "morse": 3.69100483510465e-08
+   }
+  },
+  "100/N-X-I/wide": {
+   "checkpoint": {
+    "file": "runs/number-core-network-v1-pilot2/100-N-X-I-wide.pt",
+    "sha256": "ded18a86368d59b55ee41cbda84f1d3fbd211dde05d930fd70821ae0d9d66360"
+   },
+   "core_inner_norm": {
+    "dice": 3.2041618824005127,
+    "mnist": 1.965700387954712,
+    "morse": 5.028356552124023
+   },
+   "coupling": {
+    "core": {
+     "dice-mnist": {
+      "coordinate_correlation": 0.32954952120780945,
+      "paired_cka": 0.5434359312057495,
+      "shuffled_cka": 0.00046511637629009783
+     },
+     "mnist-mnist": {
+      "coordinate_correlation": 0.89556884765625,
+      "paired_cka": 0.8289015889167786,
+      "shuffled_cka": 0.0008022580877877772
+     },
+     "morse-dice": {
+      "coordinate_correlation": 0.2767179608345032,
+      "paired_cka": 0.6830184459686279,
+      "shuffled_cka": 0.0003523703198879957
+     },
+     "morse-mnist": {
+      "coordinate_correlation": 0.1974291354417801,
+      "paired_cka": 0.2735328674316406,
+      "shuffled_cka": 0.0002973887894768268
+     }
+    },
+    "core_inner": {
+     "dice-mnist": {
+      "coordinate_correlation": 0.5281360745429993,
+      "paired_cka": 0.4823553264141083,
+      "shuffled_cka": 0.0025264443829655647
+     },
+     "mnist-mnist": {
+      "coordinate_correlation": 0.9073868989944458,
+      "paired_cka": 0.848792552947998,
+      "shuffled_cka": 0.0008601268636994064
+     },
+     "morse-dice": {
+      "coordinate_correlation": 0.3244173228740692,
+      "paired_cka": 0.637519121170044,
+      "shuffled_cka": 0.00024392920022364706
+     },
+     "morse-mnist": {
+      "coordinate_correlation": 0.1520344465970993,
+      "paired_cka": 0.1756625473499298,
+      "shuffled_cka": 0.0014542604330927134
+     }
+    },
+    "input_inner": {
+     "dice-mnist": {
+      "coordinate_correlation": 0.5283135175704956,
+      "paired_cka": 0.4932801127433777,
+      "shuffled_cka": 0.0012372417841106653
+     },
+     "mnist-mnist": {
+      "coordinate_correlation": 0.9057658910751343,
+      "paired_cka": 0.8467237949371338,
+      "shuffled_cka": 0.0008315050508826971
+     },
+     "morse-dice": {
+      "coordinate_correlation": 0.3144150972366333,
+      "paired_cka": 0.6206284165382385,
+      "shuffled_cka": 0.0017745887162163854
+     },
+     "morse-mnist": {
+      "coordinate_correlation": 0.1343468278646469,
+      "paired_cka": 0.18121466040611267,
+      "shuffled_cka": 0.0010317839914932847
+     }
+    }
+   },
+   "cross_relations": {
+    "same/dice->mnist": {
+     "groups": {
+      "extrapolation": 0.0,
+      "interpolation": 0.0,
+      "labelled": 1.0
+     },
+     "per_class": {
+      "1": 1.0,
+      "2": 0.0,
+      "3": 1.0,
+      "4": 0.0,
+      "5": 1.0,
+      "6": 0.0
+     }
+    },
+    "same/morse->mnist": {
+     "groups": {
+      "extrapolation_down": 0.0,
+      "extrapolation_up": 0.0,
+      "interpolation": 0.0,
+      "labelled": 0.9944444444444445
+     },
+     "per_class": {
+      "0": 0.0,
+      "1": 1.0,
+      "2": 0.0,
+      "3": 1.0,
+      "4": 0.0,
+      "5": 0.9833333333333333,
+      "6": 0.0,
+      "7": 0.0,
+      "8": 0.0,
+      "9": 0.0
+     }
+    }
+   },
+   "input_inner_norm": {
+    "dice": 2.7623214721679688,
+    "mnist": 1.7217522859573364,
+    "morse": 3.6393871307373047
+   },
+   "label_accuracy": {
+    "dice": {
+     "groups": {
+      "extrapolation": 0.0,
+      "interpolation": 0.0,
+      "labelled": 1.0
+     },
+     "mean": 0.5,
+     "per_class": {
+      "1": 1.0,
+      "2": 0.0,
+      "3": 1.0,
+      "4": 0.0,
+      "5": 1.0,
+      "6": 0.0
+     }
+    },
+    "mnist": {
+     "mean": 0.9776666666666667,
+     "per_class": {
+      "0": 0.995,
+      "1": 0.9783333333333334,
+      "2": 0.985,
+      "3": 0.965,
+      "4": 0.975,
+      "5": 0.9716666666666667,
+      "6": 0.9916666666666667,
+      "7": 0.97,
+      "8": 0.98,
+      "9": 0.965
+     }
+    },
+    "morse": {
+     "groups": {
+      "extrapolation_down": 0.0,
+      "extrapolation_up": 0.0,
+      "interpolation": 0.0,
+      "labelled": 1.0
+     },
+     "mean": 0.3,
+     "per_class": {
+      "0": 0.0,
+      "1": 1.0,
+      "2": 0.0,
+      "3": 1.0,
+      "4": 0.0,
+      "5": 1.0,
+      "6": 0.0,
+      "7": 0.0,
+      "8": 0.0,
+      "9": 0.0
+     }
+    }
+   },
+   "loss_every_50": [
+    2.71595,
+    2.11076,
+    1.61681,
+    1.43623,
+    1.18167,
+    1.00018,
+    0.78619,
+    0.80426,
+    0.74359,
+    0.60573,
+    0.69749,
+    0.5644,
+    0.49378,
+    0.50657,
+    0.49007,
+    0.46688,
+    0.5502,
+    0.49056,
+    0.51066,
+    0.45713
+   ],
+   "matched_centroid_distance_ratio": {
+    "dice": {
+     "1": 0.7398996949195862,
+     "2": 1.235320806503296,
+     "3": 0.47290465235710144,
+     "4": 1.827199101448059,
+     "5": 0.51103675365448,
+     "6": 1.1591861248016357
+    },
+    "morse": {
+     "0": 1.413977026939392,
+     "1": 0.586416482925415,
+     "2": 2.1707355976104736,
+     "3": 0.49272555112838745,
+     "4": 1.640589714050293,
+     "5": 0.5861281156539917,
+     "6": 1.6548875570297241,
+     "7": 1.8789438009262085,
+     "8": 2.156574249267578,
+     "9": 1.2198572158813477
+    }
+   },
+   "max_abs_weight": {
+    "A": 1.0,
+    "T.core-output-2": 1.0535567998886108,
+    "T.image-core-2": 1.0894625186920166,
+    "T.morse-core-2": 1.1160386800765991,
+    "V.core": 0.7637726664543152,
+    "V.image": 0.8641987442970276,
+    "V.morse": 0.8333287239074707,
+    "V.output": 0.906112790107727,
+    "W.core": 0.8524126410484314,
+    "W.image": 0.7964070439338684,
+    "W.morse": 1.2208201885223389,
+    "W.output": 0.9723458290100098,
+    "judge_bias": 1.8442968130111694,
+    "judge_scale": 0.17433620989322662,
+    "label_scale": 5.015998840332031,
+    "t": 0.0
+   },
+   "nearest_mnist_centroid": {
+    "core": {
+     "dice": {
+      "groups": {
+       "extrapolation": 0.0,
+       "interpolation": 0.0,
+       "labelled": 0.9944444444444445
+      },
+      "per_class": {
+       "1": 1.0,
+       "2": 0.0,
+       "3": 1.0,
+       "4": 0.0,
+       "5": 0.9833333333333333,
+       "6": 0.0
+      }
+     },
+     "morse": {
+      "groups": {
+       "extrapolation_down": 0.0,
+       "extrapolation_up": 0.24166666666666667,
+       "interpolation": 0.0,
+       "labelled": 0.9744444444444444
+      },
+      "per_class": {
+       "0": 0.0,
+       "1": 1.0,
+       "2": 0.0,
+       "3": 1.0,
+       "4": 0.0,
+       "5": 0.9233333333333333,
+       "6": 0.0,
+       "7": 0.0,
+       "8": 0.0,
+       "9": 0.9666666666666667
+      }
+     }
+    },
+    "core_inner": {
+     "dice": {
+      "groups": {
+       "extrapolation": 0.0,
+       "interpolation": 0.0,
+       "labelled": 1.0
+      },
+      "per_class": {
+       "1": 1.0,
+       "2": 0.0,
+       "3": 1.0,
+       "4": 0.0,
+       "5": 1.0,
+       "6": 0.0
+      }
+     },
+     "morse": {
+      "groups": {
+       "extrapolation_down": 0.0,
+       "extrapolation_up": 0.0,
+       "interpolation": 0.0,
+       "labelled": 0.9955555555555556
+      },
+      "per_class": {
+       "0": 0.0,
+       "1": 1.0,
+       "2": 0.0,
+       "3": 1.0,
+       "4": 0.0,
+       "5": 0.9866666666666667,
+       "6": 0.0,
+       "7": 0.0,
+       "8": 0.0,
+       "9": 0.0
+      }
+     }
+    }
+   },
+   "solve_relative_residual": {
+    "dice": 3.671441461960967e-08,
+    "mnist": 3.5462754510717787e-08,
+    "morse": 6.928932094751872e-08
+   }
+  },
+  "100/N-X/wide": {
+   "checkpoint": {
+    "file": "runs/number-core-network-v1-pilot2/100-N-X-wide.pt",
+    "sha256": "bb0eec9d4f7227d05f557250f999ff1ace924b53d8f98afea39e1f110258bf75"
+   },
+   "core_inner_norm": {
+    "dice": 3.572047472000122,
+    "mnist": 1.9433432817459106,
+    "morse": 4.830813407897949
+   },
+   "coupling": {
+    "core": {
+     "dice-mnist": {
+      "coordinate_correlation": 0.43497583270072937,
+      "paired_cka": 0.4530792236328125,
+      "shuffled_cka": 0.000596273283008486
+     },
+     "mnist-mnist": {
+      "coordinate_correlation": 0.8773214221000671,
+      "paired_cka": 0.8158472180366516,
+      "shuffled_cka": 0.0009428020566701889
+     },
+     "morse-dice": {
+      "coordinate_correlation": 0.4086771011352539,
+      "paired_cka": 0.5276528000831604,
+      "shuffled_cka": 0.000396588584408164
+     },
+     "morse-mnist": {
+      "coordinate_correlation": 0.11217885464429855,
+      "paired_cka": 0.14272837340831757,
+      "shuffled_cka": 0.0003782869316637516
+     }
+    },
+    "core_inner": {
+     "dice-mnist": {
+      "coordinate_correlation": 0.5227245092391968,
+      "paired_cka": 0.4408867657184601,
+      "shuffled_cka": 0.002444277051836252
+     },
+     "mnist-mnist": {
+      "coordinate_correlation": 0.90415358543396,
+      "paired_cka": 0.8315860033035278,
+      "shuffled_cka": 0.0007524352404288948
+     },
+     "morse-dice": {
+      "coordinate_correlation": 0.4873749017715454,
+      "paired_cka": 0.5122986435890198,
+      "shuffled_cka": 0.00016075429448392242
+     },
+     "morse-mnist": {
+      "coordinate_correlation": 0.13949169218540192,
+      "paired_cka": 0.13587059080600739,
+      "shuffled_cka": 0.0014819403877481818
+     }
+    },
+    "input_inner": {
+     "dice-mnist": {
+      "coordinate_correlation": 0.3905501663684845,
+      "paired_cka": 0.3650464117527008,
+      "shuffled_cka": 0.0013352619716897607
+     },
+     "mnist-mnist": {
+      "coordinate_correlation": 0.8778177499771118,
+      "paired_cka": 0.823003351688385,
+      "shuffled_cka": 0.0005614351248368621
+     },
+     "morse-dice": {
+      "coordinate_correlation": 0.3372423052787781,
+      "paired_cka": 0.5116903781890869,
+      "shuffled_cka": 0.0012952059041708708
+     },
+     "morse-mnist": {
+      "coordinate_correlation": -0.0021769232116639614,
+      "paired_cka": 0.18496248126029968,
+      "shuffled_cka": 0.0008336767787113786
+     }
+    }
+   },
+   "cross_relations": {
+    "same/dice->mnist": {
+     "groups": {
+      "extrapolation": 0.0,
+      "interpolation": 0.5,
+      "labelled": 0.9977777777777778
+     },
+     "per_class": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 0.9933333333333333,
+      "4": 0.0,
+      "5": 1.0,
+      "6": 0.0
+     }
+    },
+    "same/morse->mnist": {
+     "groups": {
+      "extrapolation_down": 0.0,
+      "extrapolation_up": 0.0,
+      "interpolation": 0.0,
+      "labelled": 0.9866666666666667
+     },
+     "per_class": {
+      "0": 0.0,
+      "1": 0.9966666666666667,
+      "2": 0.0,
+      "3": 1.0,
+      "4": 0.0,
+      "5": 0.9633333333333334,
+      "6": 0.0,
+      "7": 0.0,
+      "8": 0.0,
+      "9": 0.0
+     }
+    }
+   },
+   "input_inner_norm": {
+    "dice": 2.9043540954589844,
+    "mnist": 1.7372400760650635,
+    "morse": 4.259145736694336
+   },
+   "label_accuracy": {
+    "dice": {
+     "groups": {
+      "extrapolation": 0.0,
+      "interpolation": 0.011666666666666667,
+      "labelled": 1.0
+     },
+     "mean": 0.5038888888888889,
+     "per_class": {
+      "1": 1.0,
+      "2": 0.023333333333333334,
+      "3": 1.0,
+      "4": 0.0,
+      "5": 1.0,
+      "6": 0.0
+     }
+    },
+    "mnist": {
+     "mean": 0.9736666666666668,
+     "per_class": {
+      "0": 0.99,
+      "1": 0.96,
+      "2": 0.9866666666666667,
+      "3": 0.95,
+      "4": 0.99,
+      "5": 0.9733333333333334,
+      "6": 0.9716666666666667,
+      "7": 0.9816666666666667,
+      "8": 0.975,
+      "9": 0.9583333333333334
+     }
+    },
+    "morse": {
+     "groups": {
+      "extrapolation_down": 0.0,
+      "extrapolation_up": 0.0,
+      "interpolation": 0.0,
+      "labelled": 0.9944444444444445
+     },
+     "mean": 0.29833333333333334,
+     "per_class": {
+      "0": 0.0,
+      "1": 0.99,
+      "2": 0.0,
+      "3": 1.0,
+      "4": 0.0,
+      "5": 0.9933333333333333,
+      "6": 0.0,
+      "7": 0.0,
+      "8": 0.0,
+      "9": 0.0
+     }
+    }
+   },
+   "loss_every_50": [
+    3.04393,
+    2.38369,
+    1.85158,
+    1.57085,
+    1.42023,
+    0.9781,
+    0.83158,
+    0.86833,
+    0.67293,
+    0.90675,
+    0.68063,
+    0.68902,
+    0.6408,
+    0.55342,
+    0.44242,
+    0.68257,
+    0.48585,
+    0.44101,
+    0.51606,
+    0.65926
+   ],
+   "matched_centroid_distance_ratio": {
+    "dice": {
+     "1": 0.7093368768692017,
+     "2": 0.8699720501899719,
+     "3": 0.5501163601875305,
+     "4": 2.001863718032837,
+     "5": 0.5836465954780579,
+     "6": 1.173940658569336
+    },
+    "morse": {
+     "0": 0.9731155633926392,
+     "1": 0.534344494342804,
+     "2": 2.098951816558838,
+     "3": 0.6762220859527588,
+     "4": 1.1906912326812744,
+     "5": 0.5694200396537781,
+     "6": 1.4916634559631348,
+     "7": 1.6741864681243896,
+     "8": 1.9365993738174438,
+     "9": 0.8743925094604492
+    }
+   },
+   "max_abs_weight": {
+    "A": 1.0,
+    "T.core-output-0": 1.055641770362854,
+    "T.core-output-1": 1.0700504779815674,
+    "T.core-output-2": 1.036329984664917,
+    "T.image-core-0": 1.1295274496078491,
+    "T.image-core-1": 1.0585336685180664,
+    "T.image-core-2": 1.0845706462860107,
+    "T.morse-core-0": 1.1242707967758179,
+    "T.morse-core-1": 1.0813257694244385,
+    "T.morse-core-2": 1.0864720344543457,
+    "V.core": 0.8671965599060059,
+    "V.image": 0.9121903777122498,
+    "V.morse": 0.8602160215377808,
+    "V.output": 0.8941106796264648,
+    "W.core": 0.874738335609436,
+    "W.image": 0.8162922859191895,
+    "W.morse": 1.191273808479309,
+    "W.output": 0.900606095790863,
+    "judge_bias": 1.787484049797058,
+    "judge_scale": 0.09296083450317383,
+    "label_scale": 5.187747478485107,
+    "t": 0.0
+   },
+   "nearest_mnist_centroid": {
+    "core": {
+     "dice": {
+      "groups": {
+       "extrapolation": 0.0,
+       "interpolation": 0.008333333333333333,
+       "labelled": 1.0
+      },
+      "per_class": {
+       "1": 1.0,
+       "2": 0.016666666666666666,
+       "3": 1.0,
+       "4": 0.0,
+       "5": 1.0,
+       "6": 0.0
+      }
+     },
+     "morse": {
+      "groups": {
+       "extrapolation_down": 0.0,
+       "extrapolation_up": 0.0,
+       "interpolation": 0.0,
+       "labelled": 0.9944444444444445
+      },
+      "per_class": {
+       "0": 0.0,
+       "1": 0.99,
+       "2": 0.0,
+       "3": 1.0,
+       "4": 0.0,
+       "5": 0.9933333333333333,
+       "6": 0.0,
+       "7": 0.0,
+       "8": 0.0,
+       "9": 0.0
+      }
+     }
+    },
+    "core_inner": {
+     "dice": {
+      "groups": {
+       "extrapolation": 0.0,
+       "interpolation": 0.5,
+       "labelled": 0.9988888888888888
+      },
+      "per_class": {
+       "1": 1.0,
+       "2": 1.0,
+       "3": 0.9966666666666667,
+       "4": 0.0,
+       "5": 1.0,
+       "6": 0.0
+      }
+     },
+     "morse": {
+      "groups": {
+       "extrapolation_down": 0.0,
+       "extrapolation_up": 0.0,
+       "interpolation": 0.0,
+       "labelled": 0.9866666666666667
+      },
+      "per_class": {
+       "0": 0.0,
+       "1": 0.9966666666666667,
+       "2": 0.0,
+       "3": 1.0,
+       "4": 0.0,
+       "5": 0.9633333333333334,
+       "6": 0.0,
+       "7": 0.0,
+       "8": 0.0,
+       "9": 0.0
+      }
+     }
+    }
+   },
+   "solve_relative_residual": {
+    "dice": 1.77955694624643e-08,
+    "mnist": 1.7104921923305483e-08,
+    "morse": 2.7417810244401153e-08
+   }
+  },
+  "100/S-M/narrow": {
+   "checkpoint": {
+    "file": "runs/number-core-network-v1-pilot2/100-S-M-narrow.pt",
+    "sha256": "650df0eac9df66a8f7d54e06c517126f50bba068b6f7708a06664c03cbd2c2a0"
+   },
+   "core_inner_norm": {
+    "dice": 4.797632694244385,
+    "mnist": 2.0130462646484375,
+    "morse": 4.362298965454102
+   },
+   "coupling": {
+    "core": {
+     "dice-mnist": {
+      "coordinate_correlation": 0.5346022248268127,
+      "paired_cka": 0.6455463767051697,
+      "shuffled_cka": 0.000987530336715281
+     },
+     "mnist-mnist": {
+      "coordinate_correlation": 0.8442039489746094,
+      "paired_cka": 0.7594485878944397,
+      "shuffled_cka": 0.0009586475207470357
+     },
+     "morse-dice": {
+      "coordinate_correlation": 0.6090537309646606,
+      "paired_cka": 0.969508945941925,
+      "shuffled_cka": 0.0014669697266072035
+     },
+     "morse-mnist": {
+      "coordinate_correlation": 0.22343480587005615,
+      "paired_cka": 0.3681286871433258,
+      "shuffled_cka": 0.0008133712690323591
+     }
+    },
+    "core_inner": {
+     "dice-mnist": {
+      "coordinate_correlation": 0.7643712759017944,
+      "paired_cka": 0.8233293890953064,
+      "shuffled_cka": 0.001029557315632701
+     },
+     "mnist-mnist": {
+      "coordinate_correlation": 0.8785033822059631,
+      "paired_cka": 0.8233301043510437,
+      "shuffled_cka": 0.000711820786818862
+     },
+     "morse-dice": {
+      "coordinate_correlation": 0.9367873668670654,
+      "paired_cka": 0.9891800880432129,
+      "shuffled_cka": 0.00013141163799446076
+     },
+     "morse-mnist": {
+      "coordinate_correlation": 0.45353755354881287,
+      "paired_cka": 0.5375822186470032,
+      "shuffled_cka": 0.0004792488762177527
+     }
+    },
+    "input_inner": {
+     "dice-mnist": {
+      "coordinate_correlation": 0.5365370512008667,
+      "paired_cka": 0.4384259879589081,
+      "shuffled_cka": 0.001086950651369989
+     },
+     "mnist-mnist": {
+      "coordinate_correlation": 0.8368154764175415,
+      "paired_cka": 0.7321866154670715,
+      "shuffled_cka": 0.0007779928855597973
+     },
+     "morse-dice": {
+      "coordinate_correlation": 0.48277783393859863,
+      "paired_cka": 0.925340473651886,
+      "shuffled_cka": 0.00031560444040223956
+     },
+     "morse-mnist": {
+      "coordinate_correlation": 0.27464035153388977,
+      "paired_cka": 0.3389459550380707,
+      "shuffled_cka": 0.0006869086646474898
+     }
+    }
+   },
+   "cross_relations": {
+    "next/dice->mnist": {
+     "groups": {
+      "extrapolation": 0.0,
+      "interpolation": 1.0,
+      "labelled": 0.7077777777777778
+     },
+     "per_class": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 1.0,
+      "4": 1.0,
+      "5": 0.12333333333333334,
+      "6": 0.0
+     }
+    },
+    "next/morse->mnist": {
+     "groups": {
+      "extrapolation_down": 0.0033333333333333335,
+      "extrapolation_up": 0.0,
+      "interpolation": 0.9833333333333334,
+      "labelled": 0.4811111111111111
+     },
+     "per_class": {
+      "0": 0.0033333333333333335,
+      "1": 0.03666666666666667,
+      "2": 0.9666666666666667,
+      "3": 0.41,
+      "4": 1.0,
+      "5": 0.9966666666666667,
+      "6": 0.0,
+      "7": 0.0,
+      "8": 0.0
+     }
+    },
+    "same/dice->mnist": {
+     "groups": {
+      "extrapolation": 0.15,
+      "interpolation": 0.9099999999999999,
+      "labelled": 1.0
+     },
+     "per_class": {
+      "1": 1.0,
+      "2": 0.82,
+      "3": 1.0,
+      "4": 1.0,
+      "5": 1.0,
+      "6": 0.15
+     }
+    },
+    "same/morse->mnist": {
+     "groups": {
+      "extrapolation_down": 0.0,
+      "extrapolation_up": 0.24583333333333332,
+      "interpolation": 0.46166666666666667,
+      "labelled": 0.6633333333333333
+     },
+     "per_class": {
+      "0": 0.0,
+      "1": 0.02,
+      "2": 0.17666666666666667,
+      "3": 0.97,
+      "4": 0.7466666666666667,
+      "5": 1.0,
+      "6": 0.9833333333333333,
+      "7": 0.0,
+      "8": 0.0,
+      "9": 0.0
+     }
+    }
+   },
+   "input_inner_norm": {
+    "dice": 7.203341007232666,
+    "mnist": 4.2844109535217285,
+    "morse": 10.211783409118652
+   },
+   "label_accuracy": {
+    "dice": {
+     "groups": {
+      "extrapolation": 0.0,
+      "interpolation": 0.0,
+      "labelled": 1.0
+     },
+     "mean": 0.5,
+     "per_class": {
+      "1": 1.0,
+      "2": 0.0,
+      "3": 1.0,
+      "4": 0.0,
+      "5": 1.0,
+      "6": 0.0
+     }
+    },
+    "mnist": {
+     "mean": 0.9528333333333332,
+     "per_class": {
+      "0": 0.9866666666666667,
+      "1": 0.97,
+      "2": 0.9016666666666666,
+      "3": 0.9716666666666667,
+      "4": 0.965,
+      "5": 0.9266666666666666,
+      "6": 0.9683333333333334,
+      "7": 0.9316666666666666,
+      "8": 0.9416666666666667,
+      "9": 0.965
+     }
+    },
+    "morse": {
+     "groups": {
+      "extrapolation_down": 0.0,
+      "extrapolation_up": 0.0,
+      "interpolation": 0.0,
+      "labelled": 1.0
+     },
+     "mean": 0.3,
+     "per_class": {
+      "0": 0.0,
+      "1": 1.0,
+      "2": 0.0,
+      "3": 1.0,
+      "4": 0.0,
+      "5": 1.0,
+      "6": 0.0,
+      "7": 0.0,
+      "8": 0.0,
+      "9": 0.0
+     }
+    }
+   },
+   "loss_every_50": [
+    6.50808,
+    5.44654,
+    3.95163,
+    3.38736,
+    2.85107,
+    2.73354,
+    2.435,
+    2.26997,
+    2.12808,
+    1.92448,
+    1.8286,
+    1.6332,
+    1.55887,
+    1.61427,
+    1.33977,
+    1.27519,
+    1.26774,
+    1.25312,
+    1.19805,
+    1.15333
+   ],
+   "matched_centroid_distance_ratio": {
+    "dice": {
+     "1": 1.0494089126586914,
+     "2": 1.0786247253417969,
+     "3": 0.5402944087982178,
+     "4": 1.0694410800933838,
+     "5": 0.6112438440322876,
+     "6": 1.0619001388549805
+    },
+    "morse": {
+     "0": 1.655916690826416,
+     "1": 0.884438693523407,
+     "2": 0.9411068558692932,
+     "3": 0.4874991178512573,
+     "4": 0.9637353420257568,
+     "5": 0.724337100982666,
+     "6": 1.6107510328292847,
+     "7": 1.6322755813598633,
+     "8": 1.2720351219177246,
+     "9": 1.351296305656433
+    }
+   },
+   "max_abs_weight": {
+    "A": 1.0074033737182617,
+    "T.core-output-0": 1.4427309036254883,
+    "T.core-output-1": 1.150395393371582,
+    "T.core-output-2": 1.2574939727783203,
+    "T.image-core-0": 1.3894909620285034,
+    "T.image-core-1": 1.1968214511871338,
+    "T.image-core-2": 1.0139507055282593,
+    "T.morse-core-0": 1.3741271495819092,
+    "T.morse-core-1": 1.0230754613876343,
+    "T.morse-core-2": 1.0912338495254517,
+    "V.core": 0.586986780166626,
+    "V.image": 0.6439015865325928,
+    "V.morse": 0.43036356568336487,
+    "V.output": 0.653784990310669,
+    "W.core": 0.766062319278717,
+    "W.image": 0.8243845105171204,
+    "W.morse": 0.7207843065261841,
+    "W.output": 0.852032482624054,
+    "judge_bias": 1.7840476036071777,
+    "judge_scale": 0.14155219495296478,
+    "label_scale": 5.608099460601807,
+    "t": 0.21308833360671997
+   },
+   "mnist_composition": {
+    "1": 0.7894444444444444,
+    "2": 0.5775,
+    "3": 0.3430952380952381
+   },
+   "nearest_mnist_centroid": {
+    "core": {
+     "dice": {
+      "groups": {
+       "extrapolation": 0.0033333333333333335,
+       "interpolation": 0.0,
+       "labelled": 1.0
+      },
+      "per_class": {
+       "1": 1.0,
+       "2": 0.0,
+       "3": 1.0,
+       "4": 0.0,
+       "5": 1.0,
+       "6": 0.0033333333333333335
+      }
+     },
+     "morse": {
+      "groups": {
+       "extrapolation_down": 0.0,
+       "extrapolation_up": 0.0,
+       "interpolation": 0.0,
+       "labelled": 1.0
+      },
+      "per_class": {
+       "0": 0.0,
+       "1": 1.0,
+       "2": 0.0,
+       "3": 1.0,
+       "4": 0.0,
+       "5": 1.0,
+       "6": 0.0,
+       "7": 0.0,
+       "8": 0.0,
+       "9": 0.0
+      }
+     }
+    },
+    "core_inner": {
+     "dice": {
+      "groups": {
+       "extrapolation": 0.9666666666666667,
+       "interpolation": 0.9916666666666667,
+       "labelled": 0.6766666666666667
+      },
+      "per_class": {
+       "1": 0.03,
+       "2": 0.9833333333333333,
+       "3": 1.0,
+       "4": 1.0,
+       "5": 1.0,
+       "6": 0.9666666666666667
+      }
+     },
+     "morse": {
+      "groups": {
+       "extrapolation_down": 0.0,
+       "extrapolation_up": 0.25,
+       "interpolation": 0.4366666666666667,
+       "labelled": 0.6144444444444445
+      },
+      "per_class": {
+       "0": 0.0,
+       "1": 0.0,
+       "2": 0.21333333333333335,
+       "3": 0.8433333333333334,
+       "4": 0.66,
+       "5": 1.0,
+       "6": 1.0,
+       "7": 0.0,
+       "8": 0.0,
+       "9": 0.0
+      }
+     }
+    }
+   },
+   "solve_relative_residual": {
+    "dice": 1.0544843220827715e-08,
+    "mnist": 8.896426706428429e-09,
+    "morse": 1.0768798297533522e-08
+   }
+  },
+  "100/S-M/wide": {
+   "checkpoint": {
+    "file": "runs/number-core-network-v1-pilot2/100-S-M-wide.pt",
+    "sha256": "f8982e98db11605b6c00ea921f96b4fef726eef7689f4a8172933d9fe36f2047"
+   },
+   "core_inner_norm": {
+    "dice": 7.135134220123291,
+    "mnist": 2.1267805099487305,
+    "morse": 4.479624271392822
+   },
+   "coupling": {
+    "core": {
+     "dice-mnist": {
+      "coordinate_correlation": 0.5366919636726379,
+      "paired_cka": 0.6714651584625244,
+      "shuffled_cka": 0.0007171579054556787
+     },
+     "mnist-mnist": {
+      "coordinate_correlation": 0.8823743462562561,
+      "paired_cka": 0.8258869647979736,
+      "shuffled_cka": 0.001357630011625588
+     },
+     "morse-dice": {
+      "coordinate_correlation": 0.7571190595626831,
+      "paired_cka": 0.9418115019798279,
+      "shuffled_cka": 0.0008496807422488928
+     },
+     "morse-mnist": {
+      "coordinate_correlation": 0.324480265378952,
+      "paired_cka": 0.3085079491138458,
+      "shuffled_cka": 0.0010723659070208669
+     }
+    },
+    "core_inner": {
+     "dice-mnist": {
+      "coordinate_correlation": 0.6555423140525818,
+      "paired_cka": 0.7347431778907776,
+      "shuffled_cka": 0.001201310777105391
+     },
+     "mnist-mnist": {
+      "coordinate_correlation": 0.9081637859344482,
+      "paired_cka": 0.8377166390419006,
+      "shuffled_cka": 0.00043964406359009445
+     },
+     "morse-dice": {
+      "coordinate_correlation": 0.7512450218200684,
+      "paired_cka": 0.9637147188186646,
+      "shuffled_cka": 0.00011391665611881763
+     },
+     "morse-mnist": {
+      "coordinate_correlation": 0.4833070933818817,
+      "paired_cka": 0.43295198678970337,
+      "shuffled_cka": 0.0007116528577171266
+     }
+    },
+    "input_inner": {
+     "dice-mnist": {
+      "coordinate_correlation": 0.6202731728553772,
+      "paired_cka": 0.6366434097290039,
+      "shuffled_cka": 0.0011648848885670304
+     },
+     "mnist-mnist": {
+      "coordinate_correlation": 0.8933332562446594,
+      "paired_cka": 0.8261832594871521,
+      "shuffled_cka": 0.000724926998373121
+     },
+     "morse-dice": {
+      "coordinate_correlation": 0.688438355922699,
+      "paired_cka": 0.963037371635437,
+      "shuffled_cka": 0.00019744587189052254
+     },
+     "morse-mnist": {
+      "coordinate_correlation": 0.354301393032074,
+      "paired_cka": 0.3713237941265106,
+      "shuffled_cka": 0.0016541983932256699
+     }
+    }
+   },
+   "cross_relations": {
+    "next/dice->mnist": {
+     "groups": {
+      "extrapolation": 0.0,
+      "interpolation": 0.5,
+      "labelled": 0.3288888888888889
+     },
+     "per_class": {
+      "1": 0.9866666666666667,
+      "2": 1.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5": 0.0,
+      "6": 0.0
+     }
+    },
+    "next/morse->mnist": {
+     "groups": {
+      "extrapolation_down": 0.0,
+      "extrapolation_up": 0.0,
+      "interpolation": 0.5016666666666666,
+      "labelled": 0.3344444444444445
+     },
+     "per_class": {
+      "0": 0.0,
+      "1": 0.0,
+      "2": 0.01,
+      "3": 0.0033333333333333335,
+      "4": 0.9933333333333333,
+      "5": 1.0,
+      "6": 0.0,
+      "7": 0.0,
+      "8": 0.0
+     }
+    },
+    "same/dice->mnist": {
+     "groups": {
+      "extrapolation": 0.0,
+      "interpolation": 0.17833333333333334,
+      "labelled": 0.3333333333333333
+     },
+     "per_class": {
+      "1": 0.0,
+      "2": 0.3566666666666667,
+      "3": 1.0,
+      "4": 0.0,
+      "5": 0.0,
+      "6": 0.0
+     }
+    },
+    "same/morse->mnist": {
+     "groups": {
+      "extrapolation_down": 0.0,
+      "extrapolation_up": 0.25,
+      "interpolation": 0.01,
+      "labelled": 0.33222222222222225
+     },
+     "per_class": {
+      "0": 0.0,
+      "1": 0.0,
+      "2": 0.0033333333333333335,
+      "3": 0.0,
+      "4": 0.016666666666666666,
+      "5": 0.9966666666666667,
+      "6": 1.0,
+      "7": 0.0,
+      "8": 0.0,
+      "9": 0.0
+     }
+    }
+   },
+   "input_inner_norm": {
+    "dice": 5.943674087524414,
+    "mnist": 1.8030812740325928,
+    "morse": 3.7052245140075684
+   },
+   "label_accuracy": {
+    "dice": {
+     "groups": {
+      "extrapolation": 0.0,
+      "interpolation": 0.0,
+      "labelled": 1.0
+     },
+     "mean": 0.5,
+     "per_class": {
+      "1": 1.0,
+      "2": 0.0,
+      "3": 1.0,
+      "4": 0.0,
+      "5": 1.0,
+      "6": 0.0
+     }
+    },
+    "mnist": {
+     "mean": 0.9738333333333333,
+     "per_class": {
+      "0": 0.9883333333333333,
+      "1": 0.9733333333333334,
+      "2": 0.9766666666666667,
+      "3": 0.98,
+      "4": 0.9916666666666667,
+      "5": 0.9416666666666667,
+      "6": 0.9833333333333333,
+      "7": 0.9766666666666667,
+      "8": 0.9583333333333334,
+      "9": 0.9683333333333334
+     }
+    },
+    "morse": {
+     "groups": {
+      "extrapolation_down": 0.0,
+      "extrapolation_up": 0.0,
+      "interpolation": 0.0,
+      "labelled": 1.0
+     },
+     "mean": 0.3,
+     "per_class": {
+      "0": 0.0,
+      "1": 1.0,
+      "2": 0.0,
+      "3": 1.0,
+      "4": 0.0,
+      "5": 1.0,
+      "6": 0.0,
+      "7": 0.0,
+      "8": 0.0,
+      "9": 0.0
+     }
+    }
+   },
+   "loss_every_50": [
+    5.34591,
+    3.81942,
+    2.86367,
+    2.45593,
+    1.81446,
+    1.87467,
+    1.66266,
+    1.67199,
+    1.50683,
+    1.39348,
+    1.28706,
+    1.12732,
+    1.19927,
+    1.14674,
+    1.00039,
+    1.021,
+    1.04609,
+    0.96996,
+    0.92079,
+    0.83932
+   ],
+   "matched_centroid_distance_ratio": {
+    "dice": {
+     "1": 2.4107096195220947,
+     "2": 1.9232581853866577,
+     "3": 1.2766540050506592,
+     "4": 1.027517318725586,
+     "5": 0.724646806716919,
+     "6": 0.8369368314743042
+    },
+    "morse": {
+     "0": 1.6873886585235596,
+     "1": 1.037603497505188,
+     "2": 0.9828202128410339,
+     "3": 0.7814842462539673,
+     "4": 0.886276364326477,
+     "5": 0.7722746729850769,
+     "6": 1.0497676134109497,
+     "7": 1.4333378076553345,
+     "8": 1.574505090713501,
+     "9": 1.836647391319275
+    }
+   },
+   "max_abs_weight": {
+    "A": 0.9895586371421814,
+    "T.core-output-0": 1.1194337606430054,
+    "T.core-output-1": 1.079672932624817,
+    "T.core-output-2": 0.9935871362686157,
+    "T.image-core-0": 1.162753701210022,
+    "T.image-core-1": 1.080250859260559,
+    "T.image-core-2": 1.092872142791748,
+    "T.morse-core-0": 1.1004306077957153,
+    "T.morse-core-1": 1.0925201177597046,
+    "T.morse-core-2": 1.0926507711410522,
+    "V.core": 0.864128828048706,
+    "V.image": 0.9038849472999573,
+    "V.morse": 0.8594545125961304,
+    "V.output": 0.935173749923706,
+    "W.core": 0.9036656618118286,
+    "W.image": 0.7753798961639404,
+    "W.morse": 1.2292945384979248,
+    "W.output": 0.9000242948532104,
+    "judge_bias": 1.7897531986236572,
+    "judge_scale": 0.1071353405714035,
+    "label_scale": 5.308553695678711,
+    "t": 0.18832220137119293
+   },
+   "mnist_composition": {
+    "1": 0.937037037037037,
+    "2": 0.8533333333333334,
+    "3": 0.6869047619047619
+   },
+   "nearest_mnist_centroid": {
+    "core": {
+     "dice": {
+      "groups": {
+       "extrapolation": 0.0,
+       "interpolation": 0.03333333333333333,
+       "labelled": 0.8555555555555556
+      },
+      "per_class": {
+       "1": 0.7166666666666667,
+       "2": 0.0,
+       "3": 1.0,
+       "4": 0.06666666666666667,
+       "5": 0.85,
+       "6": 0.0
+      }
+     },
+     "morse": {
+      "groups": {
+       "extrapolation_down": 0.0,
+       "extrapolation_up": 0.2125,
+       "interpolation": 0.0033333333333333335,
+       "labelled": 0.991111111111111
+      },
+      "per_class": {
+       "0": 0.0,
+       "1": 0.9833333333333333,
+       "2": 0.0,
+       "3": 0.99,
+       "4": 0.006666666666666667,
+       "5": 1.0,
+       "6": 0.85,
+       "7": 0.0,
+       "8": 0.0,
+       "9": 0.0
+      }
+     }
+    },
+    "core_inner": {
+     "dice": {
+      "groups": {
+       "extrapolation": 0.0,
+       "interpolation": 0.0,
+       "labelled": 0.3333333333333333
+      },
+      "per_class": {
+       "1": 0.0,
+       "2": 0.0,
+       "3": 1.0,
+       "4": 0.0,
+       "5": 0.0,
+       "6": 0.0
+      }
+     },
+     "morse": {
+      "groups": {
+       "extrapolation_down": 0.0,
+       "extrapolation_up": 0.25,
+       "interpolation": 0.0,
+       "labelled": 0.33222222222222225
+      },
+      "per_class": {
+       "0": 0.0,
+       "1": 0.0,
+       "2": 0.0,
+       "3": 0.0,
+       "4": 0.0,
+       "5": 0.9966666666666667,
+       "6": 1.0,
+       "7": 0.0,
+       "8": 0.0,
+       "9": 0.0
+      }
+     }
+    }
+   },
+   "solve_relative_residual": {
+    "dice": 1.6803971547574292e-08,
+    "mnist": 1.706266772316667e-08,
+    "morse": 2.3467570997581788e-08
+   }
+  },
+  "100/S-X-E/narrow": {
+   "checkpoint": {
+    "file": "runs/number-core-network-v1-pilot2/100-S-X-E-narrow.pt",
+    "sha256": "a647a6bd85a88ac43b641adb9587c6782e492d4c9516a798e26c324eeed63548"
+   },
+   "core_inner_norm": {
+    "dice": 3.3655362129211426,
+    "mnist": 2.2083685398101807,
+    "morse": 2.438943386077881
+   },
+   "coupling": {
+    "core": {
+     "dice-mnist": {
+      "coordinate_correlation": 0.6371464133262634,
+      "paired_cka": 0.7354037761688232,
+      "shuffled_cka": 0.0010393571574240923
+     },
+     "mnist-mnist": {
+      "coordinate_correlation": 0.8696290254592896,
+      "paired_cka": 0.8047329783439636,
+      "shuffled_cka": 0.0010154476622119546
+     },
+     "morse-dice": {
+      "coordinate_correlation": 0.6901361346244812,
+      "paired_cka": 0.813211977481842,
+      "shuffled_cka": 0.003987700678408146
+     },
+     "morse-mnist": {
+      "coordinate_correlation": 0.41039857268333435,
+      "paired_cka": 0.3849421441555023,
+      "shuffled_cka": 0.0010190726025030017
+     }
+    },
+    "core_inner": {
+     "dice-mnist": {
+      "coordinate_correlation": 0.9162424206733704,
+      "paired_cka": 0.872553288936615,
+      "shuffled_cka": 0.0013733541127294302
+     },
+     "mnist-mnist": {
+      "coordinate_correlation": 0.9062637090682983,
+      "paired_cka": 0.8461449146270752,
+      "shuffled_cka": 0.000626652967184782
+     },
+     "morse-dice": {
+      "coordinate_correlation": 0.835469663143158,
+      "paired_cka": 0.8655625581741333,
+      "shuffled_cka": 0.00026487879222258925
+     },
+     "morse-mnist": {
+      "coordinate_correlation": 0.6181370615959167,
+      "paired_cka": 0.42473548650741577,
+      "shuffled_cka": 0.0009136308799497783
+     }
+    },
+    "input_inner": {
+     "dice-mnist": {
+      "coordinate_correlation": 0.7737498879432678,
+      "paired_cka": 0.777576208114624,
+      "shuffled_cka": 0.0007962328381836414
+     },
+     "mnist-mnist": {
+      "coordinate_correlation": 0.8656494617462158,
+      "paired_cka": 0.8085646629333496,
+      "shuffled_cka": 0.0004904083325527608
+     },
+     "morse-dice": {
+      "coordinate_correlation": 0.8590023517608643,
+      "paired_cka": 0.8573898077011108,
+      "shuffled_cka": 0.0007475892198272049
+     },
+     "morse-mnist": {
+      "coordinate_correlation": 0.5034817457199097,
+      "paired_cka": 0.42045971751213074,
+      "shuffled_cka": 0.0006785383448004723
+     }
+    }
+   },
+   "cross_relations": {
+    "next/dice->mnist": {
+     "groups": {
+      "extrapolation": 0.0,
+      "interpolation": 1.0,
+      "labelled": 0.8444444444444444
+     },
+     "per_class": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 1.0,
+      "4": 1.0,
+      "5": 0.5333333333333333,
+      "6": 0.0
+     }
+    },
+    "next/morse->mnist": {
+     "groups": {
+      "extrapolation_down": 0.88,
+      "extrapolation_up": 0.0,
+      "interpolation": 0.77,
+      "labelled": 0.7033333333333333
+     },
+     "per_class": {
+      "0": 0.88,
+      "1": 0.89,
+      "2": 0.7233333333333334,
+      "3": 0.9566666666666667,
+      "4": 0.8166666666666667,
+      "5": 0.2633333333333333,
+      "6": 0.0,
+      "7": 0.0,
+      "8": 0.0
+     }
+    },
+    "same/dice->mnist": {
+     "groups": {
+      "extrapolation": 0.82,
+      "interpolation": 1.0,
+      "labelled": 1.0
+     },
+     "per_class": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 1.0,
+      "4": 1.0,
+      "5": 1.0,
+      "6": 0.82
+     }
+    },
+    "same/morse->mnist": {
+     "groups": {
+      "extrapolation_down": 0.98,
+      "extrapolation_up": 0.0,
+      "interpolation": 0.765,
+      "labelled": 0.7966666666666665
+     },
+     "per_class": {
+      "0": 0.98,
+      "1": 0.7033333333333334,
+      "2": 0.7133333333333334,
+      "3": 0.9466666666666667,
+      "4": 0.8166666666666667,
+      "5": 0.74,
+      "6": 0.0,
+      "7": 0.0,
+      "8": 0.0,
+      "9": 0.0
+     }
+    }
+   },
+   "input_inner_norm": {
+    "dice": 4.2702813148498535,
+    "mnist": 3.5255441665649414,
+    "morse": 3.115917921066284
+   },
+   "label_accuracy": {
+    "dice": {
+     "groups": {
+      "extrapolation": 0.0,
+      "interpolation": 0.0,
+      "labelled": 1.0
+     },
+     "mean": 0.5,
+     "per_class": {
+      "1": 1.0,
+      "2": 0.0,
+      "3": 1.0,
+      "4": 0.0,
+      "5": 1.0,
+      "6": 0.0
+     }
+    },
+    "mnist": {
+     "mean": 0.96,
+     "per_class": {
+      "0": 0.9833333333333333,
+      "1": 0.9816666666666667,
+      "2": 0.975,
+      "3": 0.9083333333333333,
+      "4": 0.9683333333333334,
+      "5": 0.9683333333333334,
+      "6": 0.955,
+      "7": 0.96,
+      "8": 0.945,
+      "9": 0.955
+     }
+    },
+    "morse": {
+     "groups": {
+      "extrapolation_down": 0.0,
+      "extrapolation_up": 0.0,
+      "interpolation": 0.0,
+      "labelled": 0.9877777777777778
+     },
+     "mean": 0.29633333333333334,
+     "per_class": {
+      "0": 0.0,
+      "1": 0.9933333333333333,
+      "2": 0.0,
+      "3": 0.9966666666666667,
+      "4": 0.0,
+      "5": 0.9733333333333334,
+      "6": 0.0,
+      "7": 0.0,
+      "8": 0.0,
+      "9": 0.0
+     }
+    }
+   },
+   "loss_every_50": [
+    9.01345,
+    7.0134,
+    5.70595,
+    5.01924,
+    4.79163,
+    4.24268,
+    3.82564,
+    3.52504,
+    3.03051,
+    3.11304,
+    2.78867,
+    2.61695,
+    2.55821,
+    2.46842,
+    2.3102,
+    2.13846,
+    2.14008,
+    2.16885,
+    1.84247,
+    1.9417
+   ],
+   "matched_centroid_distance_ratio": {
+    "dice": {
+     "1": 0.44217169284820557,
+     "2": 1.1144338846206665,
+     "3": 0.44765016436576843,
+     "4": 1.0589067935943604,
+     "5": 0.40556493401527405,
+     "6": 0.724891722202301
+    },
+    "morse": {
+     "0": 0.8688219785690308,
+     "1": 0.4049992859363556,
+     "2": 0.8399070501327515,
+     "3": 0.386441171169281,
+     "4": 0.7462452054023743,
+     "5": 0.2761947512626648,
+     "6": 0.9647017121315002,
+     "7": 0.9942944049835205,
+     "8": 0.9765031337738037,
+     "9": 1.087667465209961
+    }
+   },
+   "max_abs_weight": {
+    "A": 0.948377788066864,
+    "T.core-output-0": 1.422849178314209,
+    "T.core-output-1": 1.168062448501587,
+    "T.core-output-2": 1.2846461534500122,
+    "T.image-core-0": 1.4010796546936035,
+    "T.image-core-1": 1.2391977310180664,
+    "T.image-core-2": 0.9917299151420593,
+    "T.morse-core-0": 1.3154730796813965,
+    "T.morse-core-1": 1.0406612157821655,
+    "T.morse-core-2": 1.1368696689605713,
+    "V.core": 0.6222983598709106,
+    "V.image": 0.6090101599693298,
+    "V.morse": 0.4908565282821655,
+    "V.output": 0.8192978501319885,
+    "W.core": 0.8150632977485657,
+    "W.image": 0.8230066895484924,
+    "W.morse": 0.7350996136665344,
+    "W.output": 0.8728383183479309,
+    "judge_bias": 1.8102034330368042,
+    "judge_scale": 0.18916568160057068,
+    "label_scale": 5.660451889038086,
+    "t": 0.26036232709884644
+   },
+   "mnist_composition": {
+    "1": 0.8868518518518519,
+    "2": 0.6335416666666667,
+    "3": 0.5304761904761904
+   },
+   "nearest_mnist_centroid": {
+    "core": {
+     "dice": {
+      "groups": {
+       "extrapolation": 0.29,
+       "interpolation": 0.0,
+       "labelled": 1.0
+      },
+      "per_class": {
+       "1": 1.0,
+       "2": 0.0,
+       "3": 1.0,
+       "4": 0.0,
+       "5": 1.0,
+       "6": 0.29
+      }
+     },
+     "morse": {
+      "groups": {
+       "extrapolation_down": 0.0,
+       "extrapolation_up": 0.0,
+       "interpolation": 0.0,
+       "labelled": 0.9888888888888889
+      },
+      "per_class": {
+       "0": 0.0,
+       "1": 0.9933333333333333,
+       "2": 0.0,
+       "3": 1.0,
+       "4": 0.0,
+       "5": 0.9733333333333334,
+       "6": 0.0,
+       "7": 0.0,
+       "8": 0.0,
+       "9": 0.0
+      }
+     }
+    },
+    "core_inner": {
+     "dice": {
+      "groups": {
+       "extrapolation": 0.9233333333333333,
+       "interpolation": 1.0,
+       "labelled": 1.0
+      },
+      "per_class": {
+       "1": 1.0,
+       "2": 1.0,
+       "3": 1.0,
+       "4": 1.0,
+       "5": 1.0,
+       "6": 0.9233333333333333
+      }
+     },
+     "morse": {
+      "groups": {
+       "extrapolation_down": 0.9866666666666667,
+       "extrapolation_up": 0.0,
+       "interpolation": 0.6383333333333334,
+       "labelled": 0.8577777777777778
+      },
+      "per_class": {
+       "0": 0.9866666666666667,
+       "1": 0.7333333333333333,
+       "2": 0.8533333333333334,
+       "3": 0.9533333333333334,
+       "4": 0.42333333333333334,
+       "5": 0.8866666666666667,
+       "6": 0.0,
+       "7": 0.0,
+       "8": 0.0,
+       "9": 0.0
+      }
+     }
+    }
+   },
+   "solve_relative_residual": {
+    "dice": 1.5082788351605814e-08,
+    "mnist": 1.3154664024739304e-08,
+    "morse": 1.4704113482366665e-08
+   }
+  },
+  "100/S-X-E/wide": {
+   "checkpoint": {
+    "file": "runs/number-core-network-v1-pilot2/100-S-X-E-wide.pt",
+    "sha256": "dd15570e432c1fe2b0de86bcdf8b97308af30e98e7b789b9d2bf4138172581ff"
+   },
+   "core_inner_norm": {
+    "dice": 3.3798558712005615,
+    "mnist": 2.1761062145233154,
+    "morse": 2.7076120376586914
+   },
+   "coupling": {
+    "core": {
+     "dice-mnist": {
+      "coordinate_correlation": 0.749970018863678,
+      "paired_cka": 0.9175307750701904,
+      "shuffled_cka": 0.0010756818810477853
+     },
+     "mnist-mnist": {
+      "coordinate_correlation": 0.8849606513977051,
+      "paired_cka": 0.8391203284263611,
+      "shuffled_cka": 0.0009258575737476349
+     },
+     "morse-dice": {
+      "coordinate_correlation": 0.8959380388259888,
+      "paired_cka": 0.9198457598686218,
+      "shuffled_cka": 0.0029313177801668644
+     },
+     "morse-mnist": {
+      "coordinate_correlation": 0.4614127576351166,
+      "paired_cka": 0.4694567322731018,
+      "shuffled_cka": 0.0010646978626027703
+     }
+    },
+    "core_inner": {
+     "dice-mnist": {
+      "coordinate_correlation": 0.880803108215332,
+      "paired_cka": 0.9312677383422852,
+      "shuffled_cka": 0.0015021510189399123
+     },
+     "mnist-mnist": {
+      "coordinate_correlation": 0.9164912700653076,
+      "paired_cka": 0.8626458644866943,
+      "shuffled_cka": 0.0004549201112240553
+     },
+     "morse-dice": {
+      "coordinate_correlation": 0.9577932357788086,
+      "paired_cka": 0.930410623550415,
+      "shuffled_cka": 0.00047153024934232235
+     },
+     "morse-mnist": {
+      "coordinate_correlation": 0.6264472603797913,
+      "paired_cka": 0.5516504645347595,
+      "shuffled_cka": 0.0007336650160141289
+     }
+    },
+    "input_inner": {
+     "dice-mnist": {
+      "coordinate_correlation": 0.8152760863304138,
+      "paired_cka": 0.9402098655700684,
+      "shuffled_cka": 0.0010970664443448186
+     },
+     "mnist-mnist": {
+      "coordinate_correlation": 0.8960694074630737,
+      "paired_cka": 0.8577823042869568,
+      "shuffled_cka": 0.0005769284325651824
+     },
+     "morse-dice": {
+      "coordinate_correlation": 0.7465825080871582,
+      "paired_cka": 0.9253779649734497,
+      "shuffled_cka": 0.0009532881667837501
+     },
+     "morse-mnist": {
+      "coordinate_correlation": 0.5212869048118591,
+      "paired_cka": 0.5134028792381287,
+      "shuffled_cka": 0.0005191202508285642
+     }
+    }
+   },
+   "cross_relations": {
+    "next/dice->mnist": {
+     "groups": {
+      "extrapolation": 0.0,
+      "interpolation": 1.0,
+      "labelled": 1.0
+     },
+     "per_class": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 1.0,
+      "4": 1.0,
+      "5": 1.0,
+      "6": 0.0
+     }
+    },
+    "next/morse->mnist": {
+     "groups": {
+      "extrapolation_down": 0.9866666666666667,
+      "extrapolation_up": 0.0,
+      "interpolation": 0.9716666666666667,
+      "labelled": 0.82
+     },
+     "per_class": {
+      "0": 0.9866666666666667,
+      "1": 0.9766666666666667,
+      "2": 0.96,
+      "3": 0.9733333333333334,
+      "4": 0.9833333333333333,
+      "5": 0.51,
+      "6": 0.0,
+      "7": 0.0,
+      "8": 0.0
+     }
+    },
+    "same/dice->mnist": {
+     "groups": {
+      "extrapolation": 1.0,
+      "interpolation": 1.0,
+      "labelled": 1.0
+     },
+     "per_class": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 1.0,
+      "4": 1.0,
+      "5": 1.0,
+      "6": 1.0
+     }
+    },
+    "same/morse->mnist": {
+     "groups": {
+      "extrapolation_down": 0.0,
+      "extrapolation_up": 0.0275,
+      "interpolation": 0.98,
+      "labelled": 0.9288888888888889
+     },
+     "per_class": {
+      "0": 0.0,
+      "1": 0.9866666666666667,
+      "2": 0.9633333333333334,
+      "3": 0.99,
+      "4": 0.9966666666666667,
+      "5": 0.81,
+      "6": 0.11,
+      "7": 0.0,
+      "8": 0.0,
+      "9": 0.0
+     }
+    }
+   },
+   "input_inner_norm": {
+    "dice": 2.412205219268799,
+    "mnist": 1.6551259756088257,
+    "morse": 2.0546391010284424
+   },
+   "label_accuracy": {
+    "dice": {
+     "groups": {
+      "extrapolation": 0.0,
+      "interpolation": 0.0,
+      "labelled": 1.0
+     },
+     "mean": 0.5,
+     "per_class": {
+      "1": 1.0,
+      "2": 0.0,
+      "3": 1.0,
+      "4": 0.0,
+      "5": 1.0,
+      "6": 0.0
+     }
+    },
+    "mnist": {
+     "mean": 0.9735000000000001,
+     "per_class": {
+      "0": 0.9933333333333333,
+      "1": 0.985,
+      "2": 0.9616666666666667,
+      "3": 0.9666666666666667,
+      "4": 0.9733333333333334,
+      "5": 0.9716666666666667,
+      "6": 0.975,
+      "7": 0.9583333333333334,
+      "8": 0.9683333333333334,
+      "9": 0.9816666666666667
+     }
+    },
+    "morse": {
+     "groups": {
+      "extrapolation_down": 0.0,
+      "extrapolation_up": 0.0,
+      "interpolation": 0.0,
+      "labelled": 0.9977777777777778
+     },
+     "mean": 0.29933333333333334,
+     "per_class": {
+      "0": 0.0,
+      "1": 1.0,
+      "2": 0.0,
+      "3": 1.0,
+      "4": 0.0,
+      "5": 0.9933333333333333,
+      "6": 0.0,
+      "7": 0.0,
+      "8": 0.0,
+      "9": 0.0
+     }
+    }
+   },
+   "loss_every_50": [
+    7.34829,
+    5.23662,
+    4.52215,
+    4.07966,
+    3.63796,
+    3.28151,
+    2.98698,
+    2.6243,
+    2.39524,
+    2.34039,
+    2.1425,
+    1.94278,
+    1.88479,
+    1.95748,
+    1.70943,
+    1.62208,
+    1.75233,
+    1.67973,
+    1.33112,
+    1.48274
+   ],
+   "matched_centroid_distance_ratio": {
+    "dice": {
+     "1": 0.2795269191265106,
+     "2": 0.5462775230407715,
+     "3": 0.2654195725917816,
+     "4": 0.5871019959449768,
+     "5": 0.41108816862106323,
+     "6": 0.6351344585418701
+    },
+    "morse": {
+     "0": 1.0000492334365845,
+     "1": 0.19264186918735504,
+     "2": 0.4111635386943817,
+     "3": 0.14760608971118927,
+     "4": 0.40903812646865845,
+     "5": 0.2342069149017334,
+     "6": 0.6670296788215637,
+     "7": 0.8805078268051147,
+     "8": 0.9011484980583191,
+     "9": 1.1512905359268188
+    }
+   },
+   "max_abs_weight": {
+    "A": 0.9705227017402649,
+    "T.core-output-0": 1.167144536972046,
+    "T.core-output-1": 1.0862705707550049,
+    "T.core-output-2": 1.0443627834320068,
+    "T.image-core-0": 1.1689202785491943,
+    "T.image-core-1": 1.1472738981246948,
+    "T.image-core-2": 1.0810747146606445,
+    "T.morse-core-0": 1.1071516275405884,
+    "T.morse-core-1": 1.105955958366394,
+    "T.morse-core-2": 1.1088794469833374,
+    "V.core": 0.8561868071556091,
+    "V.image": 0.9148473739624023,
+    "V.morse": 0.8331842422485352,
+    "V.output": 0.94168621301651,
+    "W.core": 0.9066091775894165,
+    "W.image": 0.801062285900116,
+    "W.morse": 1.1958153247833252,
+    "W.output": 0.8904736638069153,
+    "judge_bias": 1.8148795366287231,
+    "judge_scale": 0.10736867785453796,
+    "label_scale": 5.320806503295898,
+    "t": 0.1414513736963272
+   },
+   "mnist_composition": {
+    "1": 0.9335185185185185,
+    "2": 0.7852083333333333,
+    "3": 0.6307142857142857
+   },
+   "nearest_mnist_centroid": {
+    "core": {
+     "dice": {
+      "groups": {
+       "extrapolation": 0.79,
+       "interpolation": 0.7949999999999999,
+       "labelled": 1.0
+      },
+      "per_class": {
+       "1": 1.0,
+       "2": 1.0,
+       "3": 1.0,
+       "4": 0.59,
+       "5": 1.0,
+       "6": 0.79
+      }
+     },
+     "morse": {
+      "groups": {
+       "extrapolation_down": 0.0,
+       "extrapolation_up": 0.0,
+       "interpolation": 0.81,
+       "labelled": 0.9966666666666667
+      },
+      "per_class": {
+       "0": 0.0,
+       "1": 1.0,
+       "2": 0.8533333333333334,
+       "3": 1.0,
+       "4": 0.7666666666666667,
+       "5": 0.99,
+       "6": 0.0,
+       "7": 0.0,
+       "8": 0.0,
+       "9": 0.0
+      }
+     }
+    },
+    "core_inner": {
+     "dice": {
+      "groups": {
+       "extrapolation": 1.0,
+       "interpolation": 1.0,
+       "labelled": 1.0
+      },
+      "per_class": {
+       "1": 1.0,
+       "2": 1.0,
+       "3": 1.0,
+       "4": 1.0,
+       "5": 1.0,
+       "6": 1.0
+      }
+     },
+     "morse": {
+      "groups": {
+       "extrapolation_down": 0.0,
+       "extrapolation_up": 0.018333333333333333,
+       "interpolation": 0.9916666666666667,
+       "labelled": 0.9444444444444443
+      },
+      "per_class": {
+       "0": 0.0,
+       "1": 0.9866666666666667,
+       "2": 0.99,
+       "3": 0.99,
+       "4": 0.9933333333333333,
+       "5": 0.8566666666666667,
+       "6": 0.07333333333333333,
+       "7": 0.0,
+       "8": 0.0,
+       "9": 0.0
+      }
+     }
+    }
+   },
+   "solve_relative_residual": {
+    "dice": 1.8997996065195366e-08,
+    "mnist": 1.8783582689252398e-08,
+    "morse": 3.422866257096757e-08
+   }
+  },
+  "100/S-X-I/wide": {
+   "checkpoint": {
+    "file": "runs/number-core-network-v1-pilot2/100-S-X-I-wide.pt",
+    "sha256": "deae0eb3b8abfa941618e5cba2cfeef67b892ae7e9697223ab901cf94db6584d"
+   },
+   "core_inner_norm": {
+    "dice": 5.154726028442383,
+    "mnist": 2.1793086528778076,
+    "morse": 3.245805025100708
+   },
+   "coupling": {
+    "core": {
+     "dice-mnist": {
+      "coordinate_correlation": 0.6018267869949341,
+      "paired_cka": 0.6777089238166809,
+      "shuffled_cka": 0.000585952599067241
+     },
+     "mnist-mnist": {
+      "coordinate_correlation": 0.9033467173576355,
+      "paired_cka": 0.8499364256858826,
+      "shuffled_cka": 0.0006902206805534661
+     },
+     "morse-dice": {
+      "coordinate_correlation": 0.7955612540245056,
+      "paired_cka": 0.9538421630859375,
+      "shuffled_cka": 0.003472914220765233
+     },
+     "morse-mnist": {
+      "coordinate_correlation": 0.3261881172657013,
+      "paired_cka": 0.39037683606147766,
+      "shuffled_cka": 0.0012009579222649336
+     }
+    },
+    "core_inner": {
+     "dice-mnist": {
+      "coordinate_correlation": 0.6479732990264893,
+      "paired_cka": 0.8033647537231445,
+      "shuffled_cka": 0.0014775230083614588
+     },
+     "mnist-mnist": {
+      "coordinate_correlation": 0.915483295917511,
+      "paired_cka": 0.8671360611915588,
+      "shuffled_cka": 0.0004924109089188278
+     },
+     "morse-dice": {
+      "coordinate_correlation": 0.937919020652771,
+      "paired_cka": 0.9615344405174255,
+      "shuffled_cka": 0.00016516936011612415
+     },
+     "morse-mnist": {
+      "coordinate_correlation": 0.4692550301551819,
+      "paired_cka": 0.41941145062446594,
+      "shuffled_cka": 0.0006660288199782372
+     }
+    },
+    "input_inner": {
+     "dice-mnist": {
+      "coordinate_correlation": 0.642326295375824,
+      "paired_cka": 0.7920030951499939,
+      "shuffled_cka": 0.001192292314954102
+     },
+     "mnist-mnist": {
+      "coordinate_correlation": 0.9139837026596069,
+      "paired_cka": 0.8646112084388733,
+      "shuffled_cka": 0.0007807265501469374
+     },
+     "morse-dice": {
+      "coordinate_correlation": 0.759789228439331,
+      "paired_cka": 0.9578395485877991,
+      "shuffled_cka": 0.000417646107962355
+     },
+     "morse-mnist": {
+      "coordinate_correlation": 0.4201154410839081,
+      "paired_cka": 0.4140428900718689,
+      "shuffled_cka": 0.0010700772982090712
+     }
+    }
+   },
+   "cross_relations": {
+    "next/dice->mnist": {
+     "groups": {
+      "extrapolation": 0.0,
+      "interpolation": 1.0,
+      "labelled": 0.6433333333333334
+     },
+     "per_class": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 0.0,
+      "4": 1.0,
+      "5": 0.93,
+      "6": 0.0
+     }
+    },
+    "next/morse->mnist": {
+     "groups": {
+      "extrapolation_down": 0.0,
+      "extrapolation_up": 0.0,
+      "interpolation": 0.945,
+      "labelled": 0.8099999999999999
+     },
+     "per_class": {
+      "0": 0.0,
+      "1": 0.9833333333333333,
+      "2": 0.9933333333333333,
+      "3": 0.95,
+      "4": 0.8966666666666666,
+      "5": 0.49666666666666665,
+      "6": 0.0,
+      "7": 0.0,
+      "8": 0.0
+     }
+    },
+    "same/dice->mnist": {
+     "groups": {
+      "extrapolation": 0.8866666666666667,
+      "interpolation": 0.5,
+      "labelled": 0.6655555555555556
+     },
+     "per_class": {
+      "1": 0.0,
+      "2": 1.0,
+      "3": 1.0,
+      "4": 0.0,
+      "5": 0.9966666666666667,
+      "6": 0.8866666666666667
+     }
+    },
+    "same/morse->mnist": {
+     "groups": {
+      "extrapolation_down": 0.0,
+      "extrapolation_up": 0.021666666666666667,
+      "interpolation": 0.9716666666666667,
+      "labelled": 0.49666666666666665
+     },
+     "per_class": {
+      "0": 0.0,
+      "1": 0.006666666666666667,
+      "2": 0.99,
+      "3": 1.0,
+      "4": 0.9533333333333334,
+      "5": 0.48333333333333334,
+      "6": 0.08666666666666667,
+      "7": 0.0,
+      "8": 0.0,
+      "9": 0.0
+     }
+    }
+   },
+   "input_inner_norm": {
+    "dice": 4.093716144561768,
+    "mnist": 1.8306986093521118,
+    "morse": 2.2360856533050537
+   },
+   "label_accuracy": {
+    "dice": {
+     "groups": {
+      "extrapolation": 0.0,
+      "interpolation": 0.0,
+      "labelled": 1.0
+     },
+     "mean": 0.5,
+     "per_class": {
+      "1": 1.0,
+      "2": 0.0,
+      "3": 1.0,
+      "4": 0.0,
+      "5": 1.0,
+      "6": 0.0
+     }
+    },
+    "mnist": {
+     "mean": 0.9766666666666666,
+     "per_class": {
+      "0": 0.99,
+      "1": 0.9883333333333333,
+      "2": 0.9683333333333334,
+      "3": 0.975,
+      "4": 0.9933333333333333,
+      "5": 0.9666666666666667,
+      "6": 0.9816666666666667,
+      "7": 0.9933333333333333,
+      "8": 0.95,
+      "9": 0.96
+     }
+    },
+    "morse": {
+     "groups": {
+      "extrapolation_down": 0.0,
+      "extrapolation_up": 0.0,
+      "interpolation": 0.0,
+      "labelled": 0.9977777777777778
+     },
+     "mean": 0.29933333333333334,
+     "per_class": {
+      "0": 0.0,
+      "1": 1.0,
+      "2": 0.0,
+      "3": 1.0,
+      "4": 0.0,
+      "5": 0.9933333333333333,
+      "6": 0.0,
+      "7": 0.0,
+      "8": 0.0,
+      "9": 0.0
+     }
+    }
+   },
+   "loss_every_50": [
+    5.11051,
+    3.58792,
+    3.08899,
+    2.84937,
+    2.39995,
+    2.22002,
+    1.88297,
+    1.63175,
+    1.66681,
+    1.56426,
+    1.53718,
+    1.42099,
+    1.25723,
+    1.20857,
+    1.18479,
+    1.03071,
+    1.13214,
+    0.99827,
+    1.03536,
+    0.96985
+   ],
+   "matched_centroid_distance_ratio": {
+    "dice": {
+     "1": 1.6498435735702515,
+     "2": 1.490979790687561,
+     "3": 0.8577439188957214,
+     "4": 0.7917616367340088,
+     "5": 0.6999627947807312,
+     "6": 0.8257632851600647
+    },
+    "morse": {
+     "0": 1.3661481142044067,
+     "1": 0.9529356956481934,
+     "2": 0.8188202381134033,
+     "3": 0.2731640934944153,
+     "4": 0.39847055077552795,
+     "5": 0.4997413158416748,
+     "6": 0.9558064341545105,
+     "7": 0.9184021949768066,
+     "8": 1.0808653831481934,
+     "9": 1.0977967977523804
+    }
+   },
+   "max_abs_weight": {
+    "A": 0.9408107399940491,
+    "T.core-output-2": 1.151698350906372,
+    "T.image-core-2": 1.0895535945892334,
+    "T.morse-core-2": 1.1328396797180176,
+    "V.core": 0.7873478531837463,
+    "V.image": 0.9035940766334534,
+    "V.morse": 0.8390058875083923,
+    "V.output": 0.9267297983169556,
+    "W.core": 0.8663254380226135,
+    "W.image": 0.8027209043502808,
+    "W.morse": 1.2078206539154053,
+    "W.output": 0.9291771054267883,
+    "judge_bias": 1.84322190284729,
+    "judge_scale": 0.17081215977668762,
+    "label_scale": 5.202048301696777,
+    "t": 0.1881086677312851
+   },
+   "mnist_composition": {
+    "1": 0.9585185185185185,
+    "2": 0.9429166666666666,
+    "3": 0.8985714285714286
+   },
+   "nearest_mnist_centroid": {
+    "core": {
+     "dice": {
+      "groups": {
+       "extrapolation": 0.03,
+       "interpolation": 0.0,
+       "labelled": 0.6666666666666666
+      },
+      "per_class": {
+       "1": 0.0,
+       "2": 0.0,
+       "3": 1.0,
+       "4": 0.0,
+       "5": 1.0,
+       "6": 0.03
+      }
+     },
+     "morse": {
+      "groups": {
+       "extrapolation_down": 0.0,
+       "extrapolation_up": 0.0008333333333333334,
+       "interpolation": 0.12666666666666668,
+       "labelled": 0.5277777777777778
+      },
+      "per_class": {
+       "0": 0.0,
+       "1": 0.06666666666666667,
+       "2": 0.01,
+       "3": 1.0,
+       "4": 0.24333333333333335,
+       "5": 0.5166666666666667,
+       "6": 0.0,
+       "7": 0.0033333333333333335,
+       "8": 0.0,
+       "9": 0.0
+      }
+     }
+    },
+    "core_inner": {
+     "dice": {
+      "groups": {
+       "extrapolation": 0.82,
+       "interpolation": 0.5,
+       "labelled": 0.6655555555555556
+      },
+      "per_class": {
+       "1": 0.0,
+       "2": 1.0,
+       "3": 1.0,
+       "4": 0.0,
+       "5": 0.9966666666666667,
+       "6": 0.82
+      }
+     },
+     "morse": {
+      "groups": {
+       "extrapolation_down": 0.0,
+       "extrapolation_up": 0.023333333333333334,
+       "interpolation": 0.8516666666666667,
+       "labelled": 0.5911111111111111
+      },
+      "per_class": {
+       "0": 0.0,
+       "1": 0.006666666666666667,
+       "2": 0.9866666666666667,
+       "3": 1.0,
+       "4": 0.7166666666666667,
+       "5": 0.7666666666666667,
+       "6": 0.09333333333333334,
+       "7": 0.0,
+       "8": 0.0,
+       "9": 0.0
+      }
+     }
+    }
+   },
+   "solve_relative_residual": {
+    "dice": 4.081427462665488e-08,
+    "mnist": 3.986677299394614e-08,
+    "morse": 7.121839473711589e-08
+   }
+  },
+  "100/S-X/wide": {
+   "checkpoint": {
+    "file": "runs/number-core-network-v1-pilot2/100-S-X-wide.pt",
+    "sha256": "f92865a567bdac01816943b98f57c62b6e47d6f171b86d611bf7a7450da32207"
+   },
+   "core_inner_norm": {
+    "dice": 5.6910271644592285,
+    "mnist": 2.005075454711914,
+    "morse": 2.6599340438842773
+   },
+   "coupling": {
+    "core": {
+     "dice-mnist": {
+      "coordinate_correlation": 0.5938029885292053,
+      "paired_cka": 0.7335336208343506,
+      "shuffled_cka": 0.001179593033157289
+     },
+     "mnist-mnist": {
+      "coordinate_correlation": 0.8840323686599731,
+      "paired_cka": 0.8248594999313354,
+      "shuffled_cka": 0.0011845917906612158
+     },
+     "morse-dice": {
+      "coordinate_correlation": 0.5080527067184448,
+      "paired_cka": 0.7188601493835449,
+      "shuffled_cka": 0.004077570047229528
+     },
+     "morse-mnist": {
+      "coordinate_correlation": 0.09586851298809052,
+      "paired_cka": 0.3029833436012268,
+      "shuffled_cka": 0.0012583768693730235
+     }
+    },
+    "core_inner": {
+     "dice-mnist": {
+      "coordinate_correlation": 0.7922794222831726,
+      "paired_cka": 0.7985523343086243,
+      "shuffled_cka": 0.001167556270956993
+     },
+     "mnist-mnist": {
+      "coordinate_correlation": 0.908993124961853,
+      "paired_cka": 0.8445066809654236,
+      "shuffled_cka": 0.00047057869960553944
+     },
+     "morse-dice": {
+      "coordinate_correlation": 0.5602329969406128,
+      "paired_cka": 0.593539834022522,
+      "shuffled_cka": 0.0004778097500093281
+     },
+     "morse-mnist": {
+      "coordinate_correlation": 0.13722021877765656,
+      "paired_cka": 0.2668970823287964,
+      "shuffled_cka": 0.0005505663575604558
+     }
+    },
+    "input_inner": {
+     "dice-mnist": {
+      "coordinate_correlation": 0.7666109204292297,
+      "paired_cka": 0.7915077209472656,
+      "shuffled_cka": 0.0016764180036261678
+     },
+     "mnist-mnist": {
+      "coordinate_correlation": 0.8872689604759216,
+      "paired_cka": 0.8192203640937805,
+      "shuffled_cka": 0.00050674460362643
+     },
+     "morse-dice": {
+      "coordinate_correlation": 0.32361873984336853,
+      "paired_cka": 0.4800926744937897,
+      "shuffled_cka": 0.0006029735086485744
+     },
+     "morse-mnist": {
+      "coordinate_correlation": 0.08928436785936356,
+      "paired_cka": 0.270135760307312,
+      "shuffled_cka": 0.0006475393893197179
+     }
+    }
+   },
+   "cross_relations": {
+    "next/dice->mnist": {
+     "groups": {
+      "extrapolation": 0.0,
+      "interpolation": 0.0,
+      "labelled": 0.3333333333333333
+     },
+     "per_class": {
+      "1": 1.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5": 0.0,
+      "6": 0.0
+     }
+    },
+    "next/morse->mnist": {
+     "groups": {
+      "extrapolation_down": 0.0,
+      "extrapolation_up": 0.0,
+      "interpolation": 0.041666666666666664,
+      "labelled": 0.012222222222222223
+     },
+     "per_class": {
+      "0": 0.0,
+      "1": 0.023333333333333334,
+      "2": 0.08333333333333333,
+      "3": 0.01,
+      "4": 0.0,
+      "5": 0.0033333333333333335,
+      "6": 0.0,
+      "7": 0.0,
+      "8": 0.0
+     }
+    },
+    "same/dice->mnist": {
+     "groups": {
+      "extrapolation": 0.0,
+      "interpolation": 0.5,
+      "labelled": 0.0
+     },
+     "per_class": {
+      "1": 0.0,
+      "2": 1.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5": 0.0,
+      "6": 0.0
+     }
+    },
+    "same/morse->mnist": {
+     "groups": {
+      "extrapolation_down": 0.0,
+      "extrapolation_up": 0.0,
+      "interpolation": 0.0033333333333333335,
+      "labelled": 0.0911111111111111
+     },
+     "per_class": {
+      "0": 0.0,
+      "1": 0.01,
+      "2": 0.0033333333333333335,
+      "3": 0.2633333333333333,
+      "4": 0.0033333333333333335,
+      "5": 0.0,
+      "6": 0.0,
+      "7": 0.0,
+      "8": 0.0,
+      "9": 0.0
+     }
+    }
+   },
+   "input_inner_norm": {
+    "dice": 4.794411659240723,
+    "mnist": 1.5607370138168335,
+    "morse": 1.9700443744659424
+   },
+   "label_accuracy": {
+    "dice": {
+     "groups": {
+      "extrapolation": 0.0,
+      "interpolation": 0.0,
+      "labelled": 1.0
+     },
+     "mean": 0.5,
+     "per_class": {
+      "1": 1.0,
+      "2": 0.0,
+      "3": 1.0,
+      "4": 0.0,
+      "5": 1.0,
+      "6": 0.0
+     }
+    },
+    "mnist": {
+     "mean": 0.9741666666666667,
+     "per_class": {
+      "0": 0.98,
+      "1": 0.9833333333333333,
+      "2": 0.9733333333333334,
+      "3": 0.9333333333333333,
+      "4": 0.98,
+      "5": 0.9583333333333334,
+      "6": 0.995,
+      "7": 0.9816666666666667,
+      "8": 0.9816666666666667,
+      "9": 0.975
+     }
+    },
+    "morse": {
+     "groups": {
+      "extrapolation_down": 0.0,
+      "extrapolation_up": 0.0,
+      "interpolation": 0.0,
+      "labelled": 0.9977777777777778
+     },
+     "mean": 0.29933333333333334,
+     "per_class": {
+      "0": 0.0,
+      "1": 1.0,
+      "2": 0.0,
+      "3": 1.0,
+      "4": 0.0,
+      "5": 0.9933333333333333,
+      "6": 0.0,
+      "7": 0.0,
+      "8": 0.0,
+      "9": 0.0
+     }
+    }
+   },
+   "loss_every_50": [
+    5.71473,
+    4.40628,
+    3.41519,
+    3.10823,
+    2.53193,
+    2.32684,
+    1.99429,
+    1.96607,
+    1.85227,
+    1.83727,
+    1.45286,
+    1.70939,
+    1.59275,
+    1.36642,
+    1.29874,
+    1.18465,
+    1.11079,
+    1.18155,
+    1.00173,
+    0.89747
+   ],
+   "matched_centroid_distance_ratio": {
+    "dice": {
+     "1": 2.0798275470733643,
+     "2": 1.7858080863952637,
+     "3": 1.2393598556518555,
+     "4": 1.094511866569519,
+     "5": 0.760448694229126,
+     "6": 0.7456067204475403
+    },
+    "morse": {
+     "0": 1.173858880996704,
+     "1": 0.8115112781524658,
+     "2": 0.8221132755279541,
+     "3": 0.670588493347168,
+     "4": 0.7489474415779114,
+     "5": 0.8220104575157166,
+     "6": 1.3043605089187622,
+     "7": 1.3903347253799438,
+     "8": 1.2967990636825562,
+     "9": 1.3964158296585083
+    }
+   },
+   "max_abs_weight": {
+    "A": 0.9941168427467346,
+    "T.core-output-0": 1.1268649101257324,
+    "T.core-output-1": 1.106874704360962,
+    "T.core-output-2": 0.9822328090667725,
+    "T.image-core-0": 1.1434880495071411,
+    "T.image-core-1": 1.1236202716827393,
+    "T.image-core-2": 1.1103389263153076,
+    "T.morse-core-0": 1.1618309020996094,
+    "T.morse-core-1": 1.1074512004852295,
+    "T.morse-core-2": 1.1656004190444946,
+    "V.core": 0.9057381749153137,
+    "V.image": 0.9481753706932068,
+    "V.morse": 0.8194254636764526,
+    "V.output": 0.9378219842910767,
+    "W.core": 0.8830652236938477,
+    "W.image": 0.7839776277542114,
+    "W.morse": 1.1837270259857178,
+    "W.output": 0.927031397819519,
+    "judge_bias": 1.7925045490264893,
+    "judge_scale": 0.1928306668996811,
+    "label_scale": 5.31553316116333,
+    "t": 0.12939119338989258
+   },
+   "mnist_composition": {
+    "1": 0.93,
+    "2": 0.8970833333333333,
+    "3": 0.7273809523809524
+   },
+   "nearest_mnist_centroid": {
+    "core": {
+     "dice": {
+      "groups": {
+       "extrapolation": 0.0,
+       "interpolation": 0.5,
+       "labelled": 0.5311111111111111
+      },
+      "per_class": {
+       "1": 0.0,
+       "2": 1.0,
+       "3": 1.0,
+       "4": 0.0,
+       "5": 0.5933333333333334,
+       "6": 0.0
+      }
+     },
+     "morse": {
+      "groups": {
+       "extrapolation_down": 0.0,
+       "extrapolation_up": 0.0,
+       "interpolation": 0.0,
+       "labelled": 0.5577777777777778
+      },
+      "per_class": {
+       "0": 0.0,
+       "1": 0.6833333333333333,
+       "2": 0.0,
+       "3": 0.99,
+       "4": 0.0,
+       "5": 0.0,
+       "6": 0.0,
+       "7": 0.0,
+       "8": 0.0,
+       "9": 0.0
+      }
+     }
+    },
+    "core_inner": {
+     "dice": {
+      "groups": {
+       "extrapolation": 0.0,
+       "interpolation": 0.5,
+       "labelled": 0.30444444444444446
+      },
+      "per_class": {
+       "1": 0.0,
+       "2": 1.0,
+       "3": 0.9133333333333333,
+       "4": 0.0,
+       "5": 0.0,
+       "6": 0.0
+      }
+     },
+     "morse": {
+      "groups": {
+       "extrapolation_down": 0.0,
+       "extrapolation_up": 0.0,
+       "interpolation": 0.0,
+       "labelled": 0.15
+      },
+      "per_class": {
+       "0": 0.0,
+       "1": 0.01,
+       "2": 0.0,
+       "3": 0.44,
+       "4": 0.0,
+       "5": 0.0,
+       "6": 0.0,
+       "7": 0.0,
+       "8": 0.0,
+       "9": 0.0
+      }
+     }
+    }
+   },
+   "solve_relative_residual": {
+    "dice": 1.6077271070003007e-08,
+    "mnist": 1.662253801271163e-08,
+    "morse": 2.4047661639770013e-08
+   }
+  }
+ },
+ "spec": "docs/number-core-network-v1-spec.md",
+ "status": "pilot: pipeline check, not headline evidence"
+}
