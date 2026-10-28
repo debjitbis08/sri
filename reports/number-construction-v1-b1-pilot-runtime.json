@@ -1,0 +1,147 @@
+{
+ "command": "/home/debjit/code/sri/.venv/bin/python /home/debjit/code/sri/experiments/number_construction_b1.py pilot",
+ "cpu_count": 12,
+ "data_bytes": 586809600,
+ "dirty": true,
+ "environment_overrides": {
+  "NSY_WORKERS": "6"
+ },
+ "experiment_sha256": "15302464b7e4415db2dd80976d6916adf6eb32aceabe31fcd6c9273bcb45b62c",
+ "module_sha256": {
+  "src.number_concept": "d8af3f35a76ece96a09f34da5d451cdbbb57a2ddc06592b41b96b89fd02c5479",
+  "src.number_core": "354f1cc0bb9851a8e7d4e64563d177e38e49cf5fabf2d57883dda9829e940ddd",
+  "src.number_systems": "b81bd0ebc38be2d94b5691a5980f9574be804e8372a8198dad9cef27546a6c3b",
+  "src.number_systems_net": "b2fb111ecd0afe5f2e8e252fa3806b23e3b19175220fc8b29231189870abe833"
+ },
+ "numpy": "2.5.4",
+ "parent_cpu_seconds": 6.733086221000001,
+ "peak_rss_children_max_kb": 1141812,
+ "peak_rss_parent_kb": 1135004,
+ "phases": {
+  "b1_wall_seconds": 11.744900972989853,
+  "data_wall_seconds": 27.94605860300362,
+  "render_wall_seconds": 4.2344050020037685
+ },
+ "platform": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+ "revision": "12a725d1669a4debab58b2d792800c9609722585",
+ "rss_convention": "Linux ru_maxrss in KiB; children value is the largest single worker process",
+ "runner_sha256": "acb7286e76c078190eae1736fb1595d8ca2dd3f7f4ec6c7834f21ec6be92c2e1",
+ "scope": "nondeterministic timing and environment; scientific results are in -results.json.gz",
+ "spec_sha256": "4c4c332f92a42a57a3133db67fdc31ec7a9f83218166b73b203629eeb2de9238",
+ "tasks": {
+  "meta/meta": {
+   "analysis_cpu_seconds": 1.7212126569999988,
+   "counts": {
+    "candidate_solves": 34560,
+    "context_solves_collections": 7680,
+    "factorizations": {
+     "image": 43,
+     "sequence": 43
+    },
+    "item_solves": 3840,
+    "revision_solves_per_config": 3840
+   },
+   "cpu_seconds": 9.755397557,
+   "encode_cpu_seconds": 4.189616376,
+   "peak_rss_kb": 1120976,
+   "revision_cpu_seconds": 3.800021300000001,
+   "wall_seconds": 9.763372807996348
+  },
+  "meta/meta-I": {
+   "analysis_cpu_seconds": 1.713577612,
+   "counts": {
+    "candidate_solves": 34560,
+    "context_solves_collections": 7680,
+    "factorizations": {
+     "image": 43,
+     "sequence": 43
+    },
+    "item_solves": 3840,
+    "revision_solves_per_config": 3840
+   },
+   "cpu_seconds": 9.771842049,
+   "encode_cpu_seconds": 4.193890071,
+   "peak_rss_kb": 1120480,
+   "revision_cpu_seconds": 3.8200044219999993,
+   "wall_seconds": 9.772718346008332
+  },
+  "meta/ordinary": {
+   "analysis_cpu_seconds": 1.7094492300000006,
+   "counts": {
+    "candidate_solves": 34560,
+    "context_solves_collections": 7680,
+    "factorizations": {
+     "image": 43,
+     "sequence": 43
+    },
+    "item_solves": 3840,
+    "revision_solves_per_config": 3840
+   },
+   "cpu_seconds": 9.610194439999999,
+   "encode_cpu_seconds": 4.096951797,
+   "peak_rss_kb": 1119480,
+   "revision_cpu_seconds": 3.7549776360000005,
+   "wall_seconds": 9.611803432984743
+  },
+  "meta/ordinary+dev": {
+   "analysis_cpu_seconds": 1.7020632659999997,
+   "counts": {
+    "candidate_solves": 34560,
+    "context_solves_collections": 7680,
+    "factorizations": {
+     "image": 43,
+     "sequence": 43
+    },
+    "item_solves": 3840,
+    "revision_solves_per_config": 3840
+   },
+   "cpu_seconds": 9.619615265,
+   "encode_cpu_seconds": 4.136973530000001,
+   "peak_rss_kb": 1121476,
+   "revision_cpu_seconds": 3.7335670840000006,
+   "wall_seconds": 9.621216282976093
+  },
+  "v1/C14": {
+   "analysis_cpu_seconds": 1.9366516960000002,
+   "counts": {
+    "candidate_solves": 44280,
+    "context_solves_collections": 9840,
+    "factorizations": {
+     "image": 43,
+     "sequence": 43
+    },
+    "item_solves": 4920,
+    "revision_solves_per_config": 4920
+   },
+   "cpu_seconds": 11.326354084,
+   "encode_cpu_seconds": 4.715469131000001,
+   "peak_rss_kb": 1139580,
+   "revision_cpu_seconds": 4.627712351,
+   "wall_seconds": 11.329009569017217
+  },
+  "v1/I14": {
+   "analysis_cpu_seconds": 1.9283581220000006,
+   "counts": {
+    "candidate_solves": 44280,
+    "context_solves_collections": 9840,
+    "factorizations": {
+     "image": 43,
+     "sequence": 43
+    },
+    "item_solves": 4920,
+    "revision_solves_per_config": 4920
+   },
+   "cpu_seconds": 11.387948249,
+   "encode_cpu_seconds": 4.75117807,
+   "peak_rss_kb": 1141812,
+   "revision_cpu_seconds": 4.661925881,
+   "wall_seconds": 11.38945081399288
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "wall_seconds": 44.00147891099914,
+ "worker_cpu_seconds_total": 61.471351644,
+ "workers": 6
+}

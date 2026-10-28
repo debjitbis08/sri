@@ -74,6 +74,17 @@ Commands, each `NSY_WORKERS=6 .venv/bin/python -m experiments.<name> pilot`:
 - `number_systems_meta_gradient` (15 minutes);
 - `number_systems_meta_episode` (7 minutes);
 - `number_systems_meta_audit` (27 minutes).
+[Number construction v1](number-construction-v1-spec.md) (draft): counting episodes
+grounded in collections (Part A) and confidence-controlled relational revision (Part B),
+with collection matching as the answer.
+- [B1 results](number-construction-v1-b1-results.md), on frozen pilot checkpoints: with a
+  compatible order, revision through the learned successor lifts collection matching from
+  0.21–0.32 to 0.62–0.72. Private orders and a perturbed successor remove the gain.
+- A swapped-item control shows the revision ignores the item and reads the answer from
+  grounded context. Gating has nothing to select.
+
+`NSY_WORKERS=6 .venv/bin/python -m experiments.number_construction_b1 pilot` (under a
+minute).
 New experiments are added here, not to the README. Entries carried over from the
 README's original layout list keep their wording. Earlier studies that list never
 covered (for example the layered-module, locality-adaptation and relational

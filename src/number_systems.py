@@ -95,10 +95,12 @@ def _polyline(points):
 
 # ---------------------------------------------------------------- collections
 
-def render_dots(n, rng):
+def render_dots(n, rng, mode=None):
     """n non-overlapping discs at random positions. Half the images keep the radius fixed, half keep total area
-    fixed (radius proportional to 1/sqrt(n)), so ink amount alone does not give the number."""
-    r = rng.uniform(1.4, 2.2) if rng.random() < .5 else rng.uniform(2.6, 3.4) / np.sqrt(n)
+    fixed (radius proportional to 1/sqrt(n)), so ink amount alone does not give the number. mode 'radius' or
+    'area' forces one of the two (the default draw order is unchanged)."""
+    fixed_radius = rng.random() < .5 if mode is None else mode == 'radius'
+    r = rng.uniform(1.4, 2.2) if fixed_radius else rng.uniform(2.6, 3.4) / np.sqrt(n)
     r = max(r, .9)
     for _ in range(1_000):  # sequential placement with restarts
         c = []
