@@ -53,6 +53,15 @@ Commands: `.venv/bin/python experiments/number_systems.py pilot` (25 minutes),
 `-m experiments.number_systems_pilot_analysis pilot` (12 minutes), and
 `-m experiments.number_systems_reuse_cost pilot` (67 minutes on 11 workers). Results
 gzip-compressed where large.
+[Number systems meta v1](number-systems-meta-v1-spec.md) (draft, pilot;
+[results](number-systems-meta-v1-pilot-results.md)): first-order MAML episodes with a
+preservation term inside source training, against ordinary training at an equal
+encoding budget, with three development representations.
+- Meta adapts somewhat faster than both ordinary arms, including the data-matched one.
+- It does not protect the sources.
+- Its gain does not depend on the shared order.
+
+`NSY_WORKERS=6 .venv/bin/python -m experiments.number_systems_meta pilot` (26 minutes).
 New experiments are added here, not to the README. Entries carried over from the
 README's original layout list keep their wording. Earlier studies that list never
 covered (for example the layered-module, locality-adaptation and relational

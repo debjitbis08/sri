@@ -692,6 +692,85 @@ relational structure and shared-label multimodal alignment are both established.
 The study tests whether the program's coupled-module architecture supports them,
 whether shared labels suffice as the bridge, and how coupling topology affects it.
 
+## Training for learning efficiency (number systems meta)
+
+Search date: 2026-10-28, for the [number systems meta v1 specification](number-systems-meta-v1-spec.md).
+
+Sources:
+- abstract pages fetched for MAML (arXiv 1703.03400), first-order meta-learning and
+  Reptile (1803.02999), OML (1905.12588), ANML (2002.09571), ANIL (1909.09157) and
+  Chollet (1911.01547);
+- the others are stated from memory.
+
+This is a targeted contract review, not a novelty search.
+
+- **Value of an abstraction as learning cost.**
+  [Chollet 2019, *On the Measure of Intelligence*](https://arxiv.org/abs/1911.01547)
+  [abstract].
+  - *Shown (an argument, not an experiment):* skill alone can be bought with priors or
+    experience. Intelligence is skill-acquisition efficiency over a scope, accounting
+    for priors, experience and generalization difficulty.
+  - *Differs:* a definition and benchmark proposal (ARC), not a training method.
+  - *Implication:* Stage A's accounting (source cost reported beside reuse benefit) and
+    the external review's "reuse benefit" are this definition applied to one study
+    [analogy].
+- **Optimizing for performance after bounded adaptation.**
+  [Finn, Abbeel and Levine, ICML 2017, MAML](https://arxiv.org/abs/1703.03400)
+  [abstract]. First-order MAML and Reptile:
+  [Nichol, Achiam and Schulman 2018](https://arxiv.org/abs/1803.02999) [abstract].
+  - *Shown:* initial parameters trained so that a few gradient steps on a new task work
+    well. First-order variants that drop second derivatives perform well on few-shot
+    benchmarks.
+  - *Differs:* tasks there are new classes for one input space. Here the new task is a
+    new *input representation* of known numbers. Here the adapted part is the input
+    satellite, and the outer gradient reaches a core and output that the inner loop never
+    changes [derived].
+  - *Implication:* the episode in the spec is first-order MAML with a preservation term.
+    Known difficulties: sensitivity to the inner learning rate and step count, and
+    instability of the outer loop [familiar].
+- **Meta-learning against forgetting.**
+  [Javed and White, NeurIPS 2019, OML](https://arxiv.org/abs/1905.12588) [abstract].
+  [Beaulieu et al. 2020, ANML](https://arxiv.org/abs/2002.09571) [abstract].
+  Related: MER (Riemer et al., ICLR 2019) and La-MAML (Gupta et al., NeurIPS 2020)
+  [familiar].
+  - *Shown:* representations meta-trained for fast online learning *and* low
+    interference. OML reports naturally sparse representations, with plain online
+    updating competitive with rehearsal methods. ANML meta-learns a gating network that
+    controls where learning happens, and learns 600 classes sequentially.
+  - *Differs:* OML adapts a head on a fixed meta-learned representation. Here the input
+    interface adapts in front of a meta-trained core, the reverse placement [derived].
+  - *Implication:* the preservation term λ L_preservation is the same idea as OML's
+    interference objective. ANML is the established form of "a learned signal decides
+    which connections learn", the reviewer's credit-assignment remark [analogy].
+- **Rapid learning or feature reuse.**
+  [Raghu et al., ICLR 2020, ANIL](https://arxiv.org/abs/1909.09157) [abstract].
+  - *Shown:* MAML's gains come mainly from reusing features. Adapting only the head
+    (ANIL) matches MAML.
+  - *Related:* strong multi-task or supervised pretraining often matches meta-learning on
+    few-shot benchmarks (Tian et al., ECCV 2020) [familiar].
+  - *Implication, a prediction for this study:* meta may help mainly by improving generic
+    features. That would show up as meta ≈ ordinary + dev, the data-matched control,
+    which the spec includes for this reason.
+
+**Failure modes to watch [derived].**
+- **Meta-overfitting:** only three development representations drive the outer loop.
+  The final representations are reserved to detect this.
+- **Bias of the first-order gradient:** gradients taken at adapted satellite values are
+  applied to the pre-adaptation values.
+- **Unequal budgets:** episode encodings are counted, and CPU time is measured
+  separately.
+- **Hand:** the sequence medium has no episodes, so Hand tests transfer to an
+  untrained medium.
+
+**Cheaper alternatives.**
+- ANIL-style episodes that adapt only part of the satellite.
+- Reptile, which needs no outer loss.
+- The ordinary + dev multi-task control, already an arm.
+
+Contribution: no new method. The study tests whether the established
+learning-efficiency objective, applied to the SRI number network, turns structure that
+is visible to probes into lower learning cost.
+
 ## Implications for contracts
 
 - Use standard names where the mechanism is the same: EP for the two-phase
