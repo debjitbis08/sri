@@ -116,3 +116,62 @@ The same evaluation runs from random initialization (no source).
   each with 12 scoring passes.
 - Measured costs go into `-runtime.json`, following [computation
   reporting](computation-reporting.md).
+
+## Episode audit (development only, added 2026-10-28 after the gradient diagnostic)
+
+Before judging the learning-efficiency gradient, the inner adaptation must work. Fixed
+before running:
+
+- **Checkpoints:** ordinary and meta from the pilot.
+  - Ordinary never saw the development representations, so it is the clean test.
+  - Meta's outer loss used development queries, so they are not new to it.
+- **Episodes:** 3 development representations × 2 episodes; support of 8 examples per
+  number, all labelled, with relations. Architecture unchanged (real-valued, ReLU).
+- **Inner procedures:**
+  - Adam at {1e-4, 3e-4, 1e-3, 1e-2}, or plain SGD at {1e-3, 1e-2, 3e-2, 1e-1};
+  - adapted parameters: the whole image satellite, its SRI part only (W, V, T), or its
+    front end only;
+  - up to 50 updates, scored at 0, 5, 10, 25 and 50.
+- **Measures, before and after each budget:**
+  - support accuracy (the 72 support images);
+  - query accuracy (50 test images per number);
+  - image-source retention (accuracy on each source's labelled numbers, 20 test images
+    per number, mean over the 10 image sources);
+  - divergence.
+  
+  Interpretation follows the review:
+  - no support gain: ineffective adaptation;
+  - support gain without query gain: fitting without generalizing;
+  - both: useful adaptation.
+- **"Functioning" rule:** mean query gain ≥ 0.15 over the episodes, with image-source
+  retention ≥ 0.9 × before. Among functioning procedures, prefer the largest query gain,
+  then the fewest updates. Only a functioning procedure goes on to the gradient audit and
+  to an equal-compute first-order versus exact comparison.
+
+### Decision after the episode audit (2026-10-28)
+
+No procedure met the functioning rule above: every procedure that learned also forgot.
+The researchers chose **option 1**:
+- "functioning" means stable improvement in both support and query;
+- retention becomes the quantity the outer loop must improve, not a precondition;
+- the architecture stays fixed.
+
+**Selected inner procedure.** On the ordinary checkpoint (the one that never saw the
+development representations), among non-diverging procedures with mean query gain
+≥ 0.15, take the fewest updates, then the highest retention:
+- Adam at 1e-3, whole image satellite, **25 updates**;
+- audit values: support +0.54, query +0.16, retention 0.73.
+
+**Gradient audit through that procedure** (development only):
+- Adam unrolled differentiably, using sqrt(v̂ + 1e-16) so the backward pass stays finite
+  where v̂ = 0;
+- float64; ordinary and meta checkpoints; 2 episodes per development representation;
+- exact versus first-order gradient: cosines, and finite differences at several step
+  sizes;
+- unit-norm outer steps η ∈ {0.003, 0.01, 0.03} along each, scored on 6 fresh episodes:
+  - support and query accuracy before and after adaptation;
+  - image-source forgetting, measured as accuracy before adaptation minus after;
+  - the outer step's own effect on source accuracy before adaptation, kept separate.
+- The measured CPU ratio of exact to first-order gradients sets the episode counts for
+  the equal-compute training comparison. That comparison is fixed in this spec only
+  after the audit.

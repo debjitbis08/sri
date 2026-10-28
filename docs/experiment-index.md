@@ -58,10 +58,22 @@ gzip-compressed where large.
 preservation term inside source training, against ordinary training at an equal
 encoding budget, with three development representations.
 - Meta adapts somewhat faster than both ordinary arms, including the data-matched one.
-- It does not protect the sources.
+- It does not protect the sources (Morse loses two thirds of its accuracy when Hand
+  adapts).
 - Its gain does not depend on the shared order.
 
-`NSY_WORKERS=6 .venv/bin/python -m experiments.number_systems_meta pilot` (26 minutes).
+Development-only diagnostics:
+- **Gradient diagnostic:** the first-order gradient points almost unrelated to the
+  gradient through adaptation.
+- **Episode audit:** every inner procedure that learns also forgets.
+- **Gradient audit** through a working inner procedure (Adam 1e-3, 25 updates): neither
+  direction makes new learning cheaper in single steps.
+
+Commands, each `NSY_WORKERS=6 .venv/bin/python -m experiments.<name> pilot`:
+- `number_systems_meta` (26 minutes);
+- `number_systems_meta_gradient` (15 minutes);
+- `number_systems_meta_episode` (7 minutes);
+- `number_systems_meta_audit` (27 minutes).
 New experiments are added here, not to the README. Entries carried over from the
 README's original layout list keep their wording. Earlier studies that list never
 covered (for example the layered-module, locality-adaptation and relational

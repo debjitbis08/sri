@@ -1,0 +1,128 @@
+{
+ "command": "/home/debjit/code/sri/.venv/bin/python /home/debjit/code/sri/experiments/number_systems_meta_audit.py pilot",
+ "cpu_count": 12,
+ "data_bytes": 586809600,
+ "dirty": true,
+ "environment_overrides": {
+  "NSY_WORKERS": "6"
+ },
+ "experiment_sha256": "15302464b7e4415db2dd80976d6916adf6eb32aceabe31fcd6c9273bcb45b62c",
+ "gradient_cpu_seconds": {
+  "first_order_total": 113.06401349600006,
+  "full_total": 339.0602122979998
+ },
+ "gradient_sha256": "30db0720e9a59f1d0e09d5f96282ac1cf93ba139a245a36e0e71b3439f416ee7",
+ "meta_sha256": "a0ef009c72a12f62ae3468b26cb5a8af56af41cb6ef2889328c9925a53e67db7",
+ "module_sha256": {
+  "src.number_concept": "d8af3f35a76ece96a09f34da5d451cdbbb57a2ddc06592b41b96b89fd02c5479",
+  "src.number_core": "354f1cc0bb9851a8e7d4e64563d177e38e49cf5fabf2d57883dda9829e940ddd",
+  "src.number_systems": "dc6a7a655774fabc9e790f94f8193a92a37d54e372f8e3273f7d5a2dc39067eb",
+  "src.number_systems_net": "b2fb111ecd0afe5f2e8e252fa3806b23e3b19175220fc8b29231189870abe833"
+ },
+ "numpy": "2.5.4",
+ "parent_cpu_seconds": 5.785024299,
+ "peak_rss_children_max_kb": 2444944,
+ "peak_rss_parent_kb": 992980,
+ "phases": {
+  "audit_wall_seconds": 1578.6773466819723,
+  "data_wall_seconds": 27.892510110978037
+ },
+ "platform": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+ "revision": "12a725d1669a4debab58b2d792800c9609722585",
+ "rss_convention": "Linux ru_maxrss in KiB; children value is the largest single worker process",
+ "runner_sha256": "bcc084e4ea08669d4304877929cc6c47bbd247cf28179cbaa17fce9bc2637f82",
+ "scope": "nondeterministic timing and environment; scientific results are in -results.json.gz",
+ "spec_sha256": "e917c1448b421f8a1ba8a4572646d1bea2b96426a4526e2724bd48338046518d",
+ "tasks": {
+  "meta/banana/0": {
+   "cpu_seconds": 786.33976032,
+   "first_order_cpu_seconds": 9.300555809000002,
+   "full_cpu_seconds": 28.53257006399997,
+   "peak_rss_kb": 2436544,
+   "wall_seconds": 786.5809163810045
+  },
+  "meta/banana/1": {
+   "cpu_seconds": 787.0901741629999,
+   "first_order_cpu_seconds": 9.299646476999897,
+   "full_cpu_seconds": 28.425307592999957,
+   "peak_rss_kb": 2432972,
+   "wall_seconds": 787.2671794130001
+  },
+  "meta/devanagari_digits/0": {
+   "cpu_seconds": 786.2223590299999,
+   "first_order_cpu_seconds": 9.402684073000046,
+   "full_cpu_seconds": 28.186140812999952,
+   "peak_rss_kb": 2436540,
+   "wall_seconds": 786.4656971390068
+  },
+  "meta/devanagari_digits/1": {
+   "cpu_seconds": 785.2468077749999,
+   "first_order_cpu_seconds": 9.418785033000063,
+   "full_cpu_seconds": 28.231422333999944,
+   "peak_rss_kb": 2444944,
+   "wall_seconds": 785.5157881639898
+  },
+  "meta/french/0": {
+   "cpu_seconds": 786.767828192,
+   "first_order_cpu_seconds": 9.487725391000026,
+   "full_cpu_seconds": 28.30491792700002,
+   "peak_rss_kb": 2436256,
+   "wall_seconds": 786.9697552529979
+  },
+  "meta/french/1": {
+   "cpu_seconds": 786.4284797050001,
+   "first_order_cpu_seconds": 9.48377326000002,
+   "full_cpu_seconds": 27.946818115999918,
+   "peak_rss_kb": 2435944,
+   "wall_seconds": 786.6747733730008
+  },
+  "ordinary/banana/0": {
+   "cpu_seconds": 786.9909914660001,
+   "first_order_cpu_seconds": 9.566355046999998,
+   "full_cpu_seconds": 28.452301559000002,
+   "peak_rss_kb": 2423964,
+   "wall_seconds": 787.2489505659905
+  },
+  "ordinary/banana/1": {
+   "cpu_seconds": 791.6677335669999,
+   "first_order_cpu_seconds": 9.388078478000004,
+   "full_cpu_seconds": 28.426222397,
+   "peak_rss_kb": 2440672,
+   "wall_seconds": 791.8844918670075
+  },
+  "ordinary/devanagari_digits/0": {
+   "cpu_seconds": 787.9243651920001,
+   "first_order_cpu_seconds": 9.614771653000002,
+   "full_cpu_seconds": 28.190653621000003,
+   "peak_rss_kb": 2431216,
+   "wall_seconds": 788.0523528670019
+  },
+  "ordinary/devanagari_digits/1": {
+   "cpu_seconds": 790.9038968670001,
+   "first_order_cpu_seconds": 9.343658632999997,
+   "full_cpu_seconds": 28.039786909999997,
+   "peak_rss_kb": 2431320,
+   "wall_seconds": 791.0213048839942
+  },
+  "ordinary/french/0": {
+   "cpu_seconds": 791.3333351460001,
+   "first_order_cpu_seconds": 9.404068543999998,
+   "full_cpu_seconds": 27.910861267,
+   "peak_rss_kb": 2429592,
+   "wall_seconds": 791.5299372620066
+  },
+  "ordinary/french/1": {
+   "cpu_seconds": 791.438101965,
+   "first_order_cpu_seconds": 9.353911097999998,
+   "full_cpu_seconds": 28.413209697,
+   "peak_rss_kb": 2436540,
+   "wall_seconds": 791.7114851560036
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "wall_seconds": 1606.5857387580036,
+ "worker_cpu_seconds_total": 9458.353833388,
+ "workers": 6
+}
