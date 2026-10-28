@@ -233,6 +233,69 @@ errors is measured (AUROC) against the margin, with controls:
 - medium and representation: reported per medium, and with the representation as a
   covariate.
 
+## Part C: curiosity, asking questions to learn (idea, 2026-10-29)
+
+*Researchers' idea after B1.* B1 showed that the core can know a quantity exists
+("between 3 and 5 there is a count, 4") without knowing how it is read or written in a
+given language. A system that knows *what* it does not know can ask a targeted question.
+
+**Two kinds of structured gap:**
+
+| Gap | What the system knows | What it lacks | Question |
+| --- | --- | --- | --- |
+| writing (missing form) | the quantity's place among grounded counts | the form in this language | "How do you write the one after three?" |
+| reading (missing meaning) | a symbol, and a relational hypothesis for it ("it should be four") | confirmation | "Is this four?" (yes/no) |
+
+**Why the core matters here.**
+- Without relations, a learner can only say "I don't know". With them, it can name the
+  gap and propose a hypothesis, so one answer resolves it.
+- The core's job becomes turning ignorance into a specific question.
+
+**Confidence's role.** Ask when recognition is unsure *and* relational inference is
+sure. That is sharper than "low confidence → think harder". A confident relational
+hypothesis that recognition cannot confirm is a precise trigger.
+
+**Learning from answers (fast mapping).** The answer is retained: the form joins the
+system's knowledge, so next time it is recognized immediately. This is the "deliberate
+answers become instinct" loop. It requires learning from the inference, which B1 (frozen
+models) did not test.
+
+**Core as teacher.** A related step, without an external answer: the core's own confident
+inferences become training targets for the symbols, as in B2. It is checked by isolated
+recognition afterwards. Part C adds the option of asking when the core alone is not
+enough.
+
+**Measure: answers needed to learn a new language,** with retention, then isolated
+recognition. This is the learning-cost criterion from the [meta study](number-systems-meta-v1-spec.md).
+
+| Learner | Questions |
+| --- | --- |
+| random | answers at random items |
+| uncertainty-based (classic active learning) | asks where recognition is least certain, without relations |
+| relation-guided (the proposal) | asks about detected gaps, with hypotheses |
+
+If the relation-guided learner needs fewer answers at equal retention, the core pays for
+itself in learning cost.
+
+**Sketch.** Built on Part A's grounded counting:
+1. Teach one language by counting episodes.
+2. Introduce a new language with some forms missing or unreadable.
+3. Let the system detect gaps, ask, and learn.
+4. Count answers; measure retention and isolated recognition.
+
+**Prior work to check** (from memory, not verified):
+- active learning and query selection;
+- Loewenstein's information-gap theory of curiosity (1994);
+- intrinsic motivation and curiosity-driven learning (Oudeyer & Kaplan; Schmidhuber);
+- children's question asking (Chouinard 2007);
+- fast mapping (Carey & Bartlett 1978).
+
+Active learning is established. Using a learned relational core to *generate* targeted
+questions and hypotheses may not be, but that needs checking.
+
+**Status:** idea only. Depends on Part A, and on a confidence signal that predicts when
+recognition is wrong.
+
 ## Computation
 
 Notation: n = unclamped state size for one example (with sizes 64/32/16, n = 3 × 112 − 64
@@ -294,6 +357,13 @@ Named from memory unless marked:
    levels, and the perturbed-successor control. It is cheap and says whether the
    relations already carry correcting information.
 3. Then Part A and B2.
+4. **Updated 2026-10-29 after B1 and B1-ambiguous.** B1 ran:
+   - inference from relations works;
+   - combining the item with the context adds little beyond filtering;
+   - nothing is learned from the inference.
+
+   Next comes **Part A**, designed so that confidence and learning from relational
+   inference (core as teacher, then Part C) can be tested on its outputs.
 
 ## B1 protocol (fixed before running, 2026-10-28)
 
@@ -361,3 +431,46 @@ Named from memory unless marked:
     its position.
   - In the smoke run (4 items per number), revised answers followed the context about
     as often with swapped items as with true ones.
+
+## B1-ambiguous protocol (fixed before running, 2026-10-28)
+
+B1 showed that with both neighbours grounded, the context alone determines the answer,
+and revision ignored the item. Here the context is ambiguous and the item informative,
+so only combining them can succeed.
+
+- **Task: one adjacent grounded neighbour, side unknown.** Each item (form of count n)
+  comes with one fixed-area dots image of count m, where m = n − 1 or n + 1 (recorded
+  stream).
+  - The system is told only that m is adjacent.
+  - Only m ∈ 2–8 is used, so both hypotheses n = m ± 1 are valid counts.
+  - The context alone gives at most 0.5.
+- **Same checkpoints, item sampling, halves (A for selection, B reported) and candidates**
+  as B1, with fresh streams. Dots excluded from the main summary.
+- **Answers compared on half B:**
+  1. **immediate:** 9-way collection matching from the item alone;
+  2. **context only:** 0.5 by construction (both hypotheses equally valid);
+  3. **restricted recognition:** the item's matching scores, restricted to the two
+     context-consistent candidates (m − 1, m + 1). This is filtering with no relational
+     inference, and the baseline revision must beat to show the successor adds anything;
+  4. **energy hypothesis selection:**
+     - revise under both hypotheses, h = +1 adding ½μ‖c − S(c_m)‖² and h = −1 adding
+       ½μ‖c_m − S(c)‖²;
+     - pick the hypothesis with the lower total energy at its revised state (item energy
+       plus relation term);
+     - answer by 9-way matching of the chosen revised state;
+  5. **oracle side:** revise with the true side (B1's propagation), as a reference.
+- **Controls:**
+  - private-order checkpoints and the perturbed successor (as in B1);
+  - **swapped item:** the item replaced by another number n′ of the same representation,
+    keeping m. Reported: the share of answers on the true side, the other side, and n′.
+    If the item is ignored, the true and other sides split about 50/50.
+- **μ** ∈ {0.1, 0.3, 1, 3, 10, 30, 100}, selected on half A by energy-selection accuracy.
+- **Groups:** all, withheld, labelled, image, sequence.
+- **Integration** = energy-selection accuracy minus max(restricted recognition, 0.5). It
+  is positive only if the relations add information beyond filtering by the context.
+- **Not here:** gating (B1 showed nothing to select until revision is selectively
+  useful), distance-two and noisy context (later variants).
+- **Added before the full run, after the smoke run:** energy side choice. This is the
+  share of items where the lower-energy hypothesis is the true side, read as the count
+  m ± 1, before 9-way matching of the revised state. It separates hypothesis selection
+  from final matching. Selection of μ is unchanged.

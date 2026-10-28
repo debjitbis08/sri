@@ -1,0 +1,94 @@
+{
+ "b1_sha256": "acb7286e76c078190eae1736fb1595d8ca2dd3f7f4ec6c7834f21ec6be92c2e1",
+ "command": "/home/debjit/code/sri/.venv/bin/python /home/debjit/code/sri/experiments/number_construction_b1_ambiguous.py pilot",
+ "cpu_count": 12,
+ "data_bytes": 586809600,
+ "dirty": true,
+ "environment_overrides": {
+  "NSY_WORKERS": "6"
+ },
+ "experiment_sha256": "15302464b7e4415db2dd80976d6916adf6eb32aceabe31fcd6c9273bcb45b62c",
+ "module_sha256": {
+  "src.number_concept": "d8af3f35a76ece96a09f34da5d451cdbbb57a2ddc06592b41b96b89fd02c5479",
+  "src.number_core": "354f1cc0bb9851a8e7d4e64563d177e38e49cf5fabf2d57883dda9829e940ddd",
+  "src.number_systems": "b81bd0ebc38be2d94b5691a5980f9574be804e8372a8198dad9cef27546a6c3b",
+  "src.number_systems_net": "b2fb111ecd0afe5f2e8e252fa3806b23e3b19175220fc8b29231189870abe833"
+ },
+ "numpy": "2.5.4",
+ "parent_cpu_seconds": 6.536356682,
+ "peak_rss_children_max_kb": 1110572,
+ "peak_rss_parent_kb": 1110572,
+ "phases": {
+  "b1a_wall_seconds": 15.432712100999197,
+  "data_wall_seconds": 28.006495834008092,
+  "render_wall_seconds": 3.769704811013071
+ },
+ "platform": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+ "revision": "ff796b77c216e7c978a8c952b59165ef4bdb9e76",
+ "rss_convention": "Linux ru_maxrss in KiB; children value is the largest single worker process",
+ "runner_sha256": "9505e0a6c6342c7dd98dc360457c9fad338a5a28be611d88cd4ac845d1b8f85a",
+ "scope": "nondeterministic timing and environment; scientific results are in -results.json.gz",
+ "spec_sha256": "456e819001efb7b5f49a9cdf62aab71c2ae41a45f22d0e26f4554ae6cfb1c577",
+ "tasks": {
+  "meta/meta": {
+   "cpu_seconds": 11.979106146000001,
+   "factorizations": {
+    "image": 29,
+    "sequence": 29
+   },
+   "peak_rss_kb": 1070736,
+   "wall_seconds": 11.979596166987903
+  },
+  "meta/meta-I": {
+   "cpu_seconds": 12.049146525,
+   "factorizations": {
+    "image": 29,
+    "sequence": 29
+   },
+   "peak_rss_kb": 1069876,
+   "wall_seconds": 12.050878720008768
+  },
+  "meta/ordinary": {
+   "cpu_seconds": 12.018623089,
+   "factorizations": {
+    "image": 29,
+    "sequence": 29
+   },
+   "peak_rss_kb": 1069544,
+   "wall_seconds": 12.027124446001835
+  },
+  "meta/ordinary+dev": {
+   "cpu_seconds": 12.037351048,
+   "factorizations": {
+    "image": 29,
+    "sequence": 29
+   },
+   "peak_rss_kb": 1070344,
+   "wall_seconds": 12.039334673987469
+  },
+  "v1/C14": {
+   "cpu_seconds": 15.166224996,
+   "factorizations": {
+    "image": 29,
+    "sequence": 29
+   },
+   "peak_rss_kb": 1067408,
+   "wall_seconds": 15.168567852990236
+  },
+  "v1/I14": {
+   "cpu_seconds": 15.13571761,
+   "factorizations": {
+    "image": 29,
+    "sequence": 29
+   },
+   "peak_rss_kb": 1067732,
+   "wall_seconds": 15.13832762799575
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "wall_seconds": 47.22530819202075,
+ "worker_cpu_seconds_total": 78.386169414,
+ "workers": 6
+}

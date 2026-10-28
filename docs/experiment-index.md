@@ -80,11 +80,16 @@ with collection matching as the answer.
 - [B1 results](number-construction-v1-b1-results.md), on frozen pilot checkpoints: with a
   compatible order, revision through the learned successor lifts collection matching from
   0.21–0.32 to 0.62–0.72. Private orders and a perturbed successor remove the gain.
-- A swapped-item control shows the revision ignores the item and reads the answer from
-  grounded context. Gating has nothing to select.
+- A swapped-item control shows the answer comes from the grounded context through the
+  successor. That is genuine relational inference, but the item's own evidence is not
+  combined with it, and nothing is learned from it. Gating has nothing to select.
+- B1-ambiguous: with one grounded neighbour and its side unknown, the item decides, but
+  relational hypothesis selection (side right 0.62–0.67) does no better than restricted
+  recognition (0.59–0.67).
 
-`NSY_WORKERS=6 .venv/bin/python -m experiments.number_construction_b1 pilot` (under a
-minute).
+Commands, each under a minute:
+- `NSY_WORKERS=6 .venv/bin/python -m experiments.number_construction_b1 pilot`;
+- `NSY_WORKERS=6 .venv/bin/python -m experiments.number_construction_b1_ambiguous pilot`.
 New experiments are added here, not to the README. Entries carried over from the
 README's original layout list keep their wording. Earlier studies that list never
 covered (for example the layered-module, locality-adaptation and relational
