@@ -192,8 +192,17 @@ Means over the three image held-out representations, source step 3,000:
   - the network's own label readout still falls (0.40 → 0.27), so whole-system
     adaptation damages the path from core to labels more than the core's number
     information.
-- Hand, whose satellite is shared only with Morse, interferes little in every mode
-  (fixed probe 0.46–0.51 at step 3,000).
+- **Hand interferes severely with Morse.** *Correction (external review):* an earlier
+  version said Hand interferes little, citing the pooled fixed probe (0.46–0.51). That
+  pool averages 14 sources, and Hand's satellite affects only Morse. On Morse alone, at
+  step 3,000:
+  - the fixed probe falls from 0.99 to 0.10–0.23 after interface or whole-system
+    adaptation;
+  - the refitted probe reads 0.69–0.84;
+  - with a copy of the satellite, the fixed probe keeps 0.58–0.84 and the refitted one
+    0.99.
+  
+  Retention is now judged per source and over the affected medium, not only pooled.
 - Interface-only adaptation of a copy is not run: it trains the held-out representation
   exactly as interface mode does and leaves the sources untouched by construction.
 

@@ -155,7 +155,7 @@ def adapt(job):
             acc, per = R.held_accuracy(X.encode(enc, sri, {held: held_idx}, 'eval')[held], y_held, codes)
             point = {'step': n, 'held_accuracy': acc, 'held_by_number': per}
             if sources:
-                point['retention_shared'], _ = R.source_retention(enc, sri, sources, labelled, src_groups, codes, med, False)
+                point['retention_shared'], point['retention_per_source'] = R.source_retention(enc, sri, sources, labelled, src_groups, codes, med, False)
         eval_cpu += time.process_time() - e0
         point['train_cpu_seconds'] = time.process_time() - c0 - eval_cpu
         curve.append(point)
@@ -181,10 +181,16 @@ def costs(results):
         c, before = r['curve'], r['curve'][0]
         hit = lambda ok: next((p['step'] for p in c if ok(p)), None)
         reach = {'accuracy_only': hit(lambda p: p['held_accuracy'] >= crit[held])}
+        run = {'best_accuracy': max(p['held_accuracy'] for p in c)}
         if 'retention_shared' in before:
-            reach['with_retention'] = hit(lambda p: p['held_accuracy'] >= crit[held] and p['retention_shared'] >= RETAIN * before['retention_shared'])
-        out['runs'][key] = {'steps_to_criterion': reach, 'best_accuracy': max(p['held_accuracy'] for p in c),
-                            'final_retention_ratio': c[-1]['retention_shared'] / before['retention_shared'] if 'retention_shared' in before else None}
+            # Retention over the sources sharing the adapted satellite (the affected medium) and per source.
+            hit_med = [s for s in before['retention_per_source'] if X.MEDIUM[s] == X.MEDIUM[held]]
+            affected = lambda p: float(np.mean([p['retention_per_source'][s] for s in hit_med]))
+            reach['with_retention'] = hit(lambda p: p['held_accuracy'] >= crit[held] and affected(p) >= RETAIN * affected(before))
+            run['final_retention_ratio'] = c[-1]['retention_shared'] / before['retention_shared']
+            run['final_retention_ratio_affected_medium'] = affected(c[-1]) / affected(before)
+            run['final_retention_per_source'] = {s: (c[-1]['retention_per_source'][s], v) for s, v in before['retention_per_source'].items()}
+        out['runs'][key] = {'steps_to_criterion': reach, **run}
     return out
 
 

@@ -107,8 +107,8 @@ def run(job):
                 acc, per = held_accuracy(X.encode(enc, sri, {held: held_idx}, 'eval')[held], y_held, codes)
                 point = {'step': n, 'held_accuracy': acc, 'held_by_number': per}
                 if sources:
-                    point['retention_shared'], _ = source_retention(enc, sri, sources, labelled, src_groups, codes, med, True)
-                    point['retention_separate'], _ = source_retention(enc, sri, sources, labelled, src_groups, codes, med, False)
+                    point['retention_shared'], point['retention_shared_per_source'] = source_retention(enc, sri, sources, labelled, src_groups, codes, med, True)
+                    point['retention_separate'], point['retention_separate_per_source'] = source_retention(enc, sri, sources, labelled, src_groups, codes, med, False)
         finally:
             X.MEDIUM.clear(); X.MEDIUM.update(saved)
         for e in enc.values():
