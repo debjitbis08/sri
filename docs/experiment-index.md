@@ -11,7 +11,12 @@ Implementation: `src/number_concept.py`, `experiments/number_concept_network.py`
 exists), tests in `tests/test_number_concept.py`. MNIST goes in gitignored
 `data/mnist/` (checksums in code); checkpoints in gitignored `runs/`.
 [Pilot results](number-concept-network-v1-pilot-results.md): pipeline and stability
-checks pass; not headline evidence. No confirmation results yet.
+checks pass; not headline evidence.
+[Confirmation results](number-concept-network-v1-results.md): digit gates pass for
+both variants; one-anchor transfer fails for both (A mean 0.39 rotation, 0.40 MLP,
+seed-bimodal). Dice succession is learned internally, but the anchor does not
+propagate along an approximately recurrent orbit. Results hold for the v1 jittered
+dice generator. Reproduce with the confirmation command (about 98 minutes on 11 workers).
 New experiments are added here, not to the README. Entries carried over from the
 README's original layout list keep their wording. Earlier studies that list never
 covered (for example the layered-module, locality-adaptation and relational

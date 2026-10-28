@@ -1,0 +1,1511 @@
+{
+ "blas": "single-threaded (OPENBLAS/OMP/MKL_NUM_THREADS=1, torch.set_num_threads(1))",
+ "checkpoint_bytes": {
+  "0/mlp": 1647853,
+  "0/mlp/A": 1640929,
+  "0/mlp/AO": 1641015,
+  "0/mlp/SH": 1641015,
+  "0/mlp/SW": 1641015,
+  "0/mlp/U": 1640929,
+  "0/rotation": 1642333,
+  "0/rotation/A": 1641103,
+  "0/rotation/AO": 1641125,
+  "0/rotation/SH": 1641125,
+  "0/rotation/SW": 1641125,
+  "0/rotation/U": 1641103,
+  "1/mlp": 1647853,
+  "1/mlp/A": 1640929,
+  "1/mlp/AO": 1641015,
+  "1/mlp/SH": 1641015,
+  "1/mlp/SW": 1641015,
+  "1/mlp/U": 1640929,
+  "1/rotation": 1642333,
+  "1/rotation/A": 1641103,
+  "1/rotation/AO": 1641125,
+  "1/rotation/SH": 1641125,
+  "1/rotation/SW": 1641125,
+  "1/rotation/U": 1641103,
+  "2/mlp": 1647853,
+  "2/mlp/A": 1640929,
+  "2/mlp/AO": 1641015,
+  "2/mlp/SH": 1641015,
+  "2/mlp/SW": 1641015,
+  "2/mlp/U": 1640929,
+  "2/rotation": 1642333,
+  "2/rotation/A": 1641103,
+  "2/rotation/AO": 1641125,
+  "2/rotation/SH": 1641125,
+  "2/rotation/SW": 1641125,
+  "2/rotation/U": 1641103,
+  "3/mlp": 1647853,
+  "3/mlp/A": 1640929,
+  "3/mlp/AO": 1641015,
+  "3/mlp/SH": 1641015,
+  "3/mlp/SW": 1641015,
+  "3/mlp/U": 1640929,
+  "3/rotation": 1642333,
+  "3/rotation/A": 1641103,
+  "3/rotation/AO": 1641125,
+  "3/rotation/SH": 1641125,
+  "3/rotation/SW": 1641125,
+  "3/rotation/U": 1641103,
+  "4/mlp": 1647853,
+  "4/mlp/A": 1640929,
+  "4/mlp/AO": 1641015,
+  "4/mlp/SH": 1641015,
+  "4/mlp/SW": 1641015,
+  "4/mlp/U": 1640929,
+  "4/rotation": 1642333,
+  "4/rotation/A": 1641103,
+  "4/rotation/AO": 1641125,
+  "4/rotation/SH": 1641125,
+  "4/rotation/SW": 1641125,
+  "4/rotation/U": 1641103
+ },
+ "command": "/home/debjit/code/sri/.venv/bin/python experiments/number_concept_network.py confirmation",
+ "complex_adam": "torch 2.14.1+cpu Adam treats complex parameters as real/imaginary views (checked in acceptance_checks.complex_adam_equals_real_view)",
+ "contract_sha256": "675ff22a40b9b20a33e0c468515e3ed807eedfd92e7e37f10279cf5e3d4950ed",
+ "counts_total": {
+  "anchor_exposures": 37600,
+  "clips": 9394,
+  "decoded_images": 22835200,
+  "distinct_reconstruction_examples": 1140000,
+  "distinct_source_examples": 886510,
+  "distinct_target_examples": 886770,
+  "encoded_images": 63730400,
+  "encoded_images_eval": 2440000,
+  "optimizer_steps": 89200,
+  "probe_fits": 40,
+  "reconstruction_exposures": 22835200,
+  "source_exposures": 20428800,
+  "successor_applications": 20428800,
+  "target_exposures": 20428800
+ },
+ "cpu": "x86_64",
+ "cpu_count": 12,
+ "data_bytes": {
+  "dice_pools_float32": 75264000,
+  "mnist_train_float32": 169344000
+ },
+ "deployment_timing": {
+  "mlp": {
+   "cross_decode_batch1": {
+    "iqr_seconds": 8.247472578659654e-06,
+    "median_seconds": 0.00030720549693796784,
+    "repetitions": 100,
+    "warmup": 10
+   },
+   "cross_decode_batch256": {
+    "iqr_seconds": 0.0003301559918327257,
+    "median_seconds": 0.011352480010828003,
+    "repetitions": 100,
+    "warmup": 10
+   },
+   "encode_readout_batch1": {
+    "iqr_seconds": 5.17749140271917e-06,
+    "median_seconds": 0.0002298494946444407,
+    "repetitions": 100,
+    "warmup": 10
+   },
+   "encode_readout_batch256": {
+    "iqr_seconds": 3.046023630304262e-05,
+    "median_seconds": 0.006048352021025494,
+    "repetitions": 100,
+    "warmup": 10
+   }
+  },
+  "rotation": {
+   "cross_decode_batch1": {
+    "iqr_seconds": 7.404254574794322e-06,
+    "median_seconds": 0.0003073250118177384,
+    "repetitions": 100,
+    "warmup": 10
+   },
+   "cross_decode_batch256": {
+    "iqr_seconds": 0.0002737274844548665,
+    "median_seconds": 0.011682530996040441,
+    "repetitions": 100,
+    "warmup": 10
+   },
+   "encode_readout_batch1": {
+    "iqr_seconds": 5.843474355060607e-06,
+    "median_seconds": 0.000244819515501149,
+    "repetitions": 100,
+    "warmup": 10
+   },
+   "encode_readout_batch256": {
+    "iqr_seconds": 0.000319336264510639,
+    "median_seconds": 0.006068357004551217,
+    "repetitions": 100,
+    "warmup": 10
+   }
+  },
+  "scope": "CPU, one thread; includes allocation; no host/device transfer or compilation; encode_readout includes cosine readout, cross_decode includes sigmoid"
+ },
+ "determinism": "torch.use_deterministic_algorithms(True), CPU only; fork workers with per-task streams",
+ "dirty": true,
+ "dtype": "complex64 activations/weights, float32 pixels and losses",
+ "environment_overrides": {},
+ "memory": {
+  "mlp": {
+   "inference_full_bytes": 3274976,
+   "inference_recognition_only_bytes": 813424,
+   "parameter_bytes": {
+    "dice_modality": 1634896,
+    "digit_centroids": 640,
+    "digit_modality": 1634896,
+    "successor": 4544
+   },
+   "probe_feature_cache_bytes_per_example": 64,
+   "stage1_adam_moment_bytes": 3278880,
+   "stage1_gradient_bytes": 1639440,
+   "stage2_adam_moment_bytes": 3269792,
+   "stage2_gradient_bytes": 1634896
+  },
+  "note": "complex64 8 bytes/scalar, float32 4 bytes/scalar; analytical counts, not allocator measurements",
+  "rotation": {
+   "inference_full_bytes": 3270464,
+   "inference_recognition_only_bytes": 813424,
+   "parameter_bytes": {
+    "dice_modality": 1634896,
+    "digit_centroids": 640,
+    "digit_modality": 1634896,
+    "successor": 32
+   },
+   "probe_feature_cache_bytes_per_example": 64,
+   "stage1_adam_moment_bytes": 3269856,
+   "stage1_gradient_bytes": 1634928,
+   "stage2_adam_moment_bytes": 3269792,
+   "stage2_gradient_bytes": 1634896
+  }
+ },
+ "module_sha256": "d8af3f35a76ece96a09f34da5d451cdbbb57a2ddc06592b41b96b89fd02c5479",
+ "not_applicable": [
+  "grouping search",
+  "sparse code",
+  "covariance estimator",
+  "solver tolerance"
+ ],
+ "numpy": "2.5.4",
+ "outputs": {
+  "manifest": {
+   "bytes_uncompressed": 5785795,
+   "file": "reports/number-concept-network-v1-confirmation-manifest.json.gz",
+   "sha256_uncompressed": "5e56a3510c168264b00a2f88c403f4813a86382e55ab21b43d119d4e09b81c83"
+  },
+  "results": {
+   "bytes_uncompressed": 2135141,
+   "file": "reports/number-concept-network-v1-confirmation-results.json.gz",
+   "sha256_uncompressed": "9455925fcabbfacf9bb99c9b780d82b8a1deb6d12b77be7ee8e27f044d4d240e"
+  }
+ },
+ "parent_cpu_seconds": 21.824049684000002,
+ "peak_rss_children_max_kb": 800284,
+ "peak_rss_parent_kb": 800284,
+ "peak_workspace_bytes": null,
+ "peak_workspace_reason": "torch CPU allocator peak is not exposed; see peak RSS",
+ "phases": {
+  "acceptance_checks": {
+   "parent_cpu_seconds": 0.20223802199999996,
+   "wall_seconds": 0.20225126200239174
+  },
+  "artifact_writing": {
+   "parent_cpu_seconds": 0.9935154420000032,
+   "wall_seconds": 0.9935788739821874
+  },
+  "data_preparation": {
+   "parent_cpu_seconds": 15.251500574,
+   "wall_seconds": 15.255284461993142
+  },
+  "deployment_timing": {
+   "parent_cpu_seconds": 4.045381506999998,
+   "wall_seconds": 4.0459082640009
+  },
+  "grids": {
+   "parent_cpu_seconds": 1.0275396010000009,
+   "wall_seconds": 1.0278600189776625
+  },
+  "stage1": {
+   "parent_cpu_seconds": 0.02197109000000097,
+   "wall_seconds": 2952.0962473260006
+  },
+  "stage2": {
+   "parent_cpu_seconds": 0.1382574969999979,
+   "wall_seconds": 2897.8134571270202
+  }
+ },
+ "platform": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+ "revision": "344f89ede74df5d63f6891602a62e234e82a5ecb",
+ "rss_convention": "Linux ru_maxrss in KiB; children value is the largest single worker process",
+ "runner_sha256": "29a180fb9cd7af22f9a77739924ca145e2d88de11d18364e023eddcbeb312ed7",
+ "seed_policy": "named SeedSequence streams under ROOT_SEED 2026102801: mnist_split, subset, dice_meta, dice_place, dice_noise, init/{digit,dice,successor}, sample/{modality,seed,role}, anchor, grid",
+ "spec_sha256": "c0f45c25725beb184bf5d3cfe46937324d68f2585607f29fca17aadd1dab8e00",
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "wall_seconds": 5871.628900914991,
+ "worker_cpu_seconds_total": 59795.669503317,
+ "worker_tasks": {
+  "dice/0/mlp/A": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 55,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 722860,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 676.1124716579998,
+   "evaluation_cpu_seconds": 6.509512067999822,
+   "peak_rss_kb": 695684,
+   "wall_seconds": 678.0545967440121
+  },
+  "dice/0/mlp/AO": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 90,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 0,
+    "distinct_target_examples": 0,
+    "encoded_images": 241580,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 0,
+    "target_exposures": 0
+   },
+   "cpu_seconds": 321.4923805129997,
+   "evaluation_cpu_seconds": 7.956707401000131,
+   "peak_rss_kb": 702192,
+   "wall_seconds": 322.78404961398337
+  },
+  "dice/0/mlp/SH": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 190,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 722860,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 764.5636111600002,
+   "evaluation_cpu_seconds": 6.515498509000281,
+   "peak_rss_kb": 690372,
+   "wall_seconds": 767.4186576369975
+  },
+  "dice/0/mlp/SW": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 286,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 722860,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 757.3261941390001,
+   "evaluation_cpu_seconds": 10.870089351999923,
+   "peak_rss_kb": 691804,
+   "wall_seconds": 759.945826798008
+  },
+  "dice/0/mlp/U": {
+   "counts": {
+    "anchor_exposures": 0,
+    "clips": 2,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 721920,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 732.6708273600002,
+   "evaluation_cpu_seconds": 6.4892782349998015,
+   "peak_rss_kb": 684456,
+   "wall_seconds": 734.7057355470024
+  },
+  "dice/0/rotation/A": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 40,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 722860,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 725.594902072,
+   "evaluation_cpu_seconds": 8.087575053999899,
+   "peak_rss_kb": 701956,
+   "wall_seconds": 727.4799547549919
+  },
+  "dice/0/rotation/AO": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 132,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 0,
+    "distinct_target_examples": 0,
+    "encoded_images": 241580,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 0,
+    "target_exposures": 0
+   },
+   "cpu_seconds": 342.0256562090003,
+   "evaluation_cpu_seconds": 6.16878984899995,
+   "peak_rss_kb": 679344,
+   "wall_seconds": 343.08612586799427
+  },
+  "dice/0/rotation/SH": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 251,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 722860,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 704.9797116519999,
+   "evaluation_cpu_seconds": 6.262778718999925,
+   "peak_rss_kb": 694160,
+   "wall_seconds": 706.8954779820051
+  },
+  "dice/0/rotation/SW": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 53,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 722860,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 680.6699025530002,
+   "evaluation_cpu_seconds": 9.991869233000216,
+   "peak_rss_kb": 693844,
+   "wall_seconds": 682.4159747619997
+  },
+  "dice/0/rotation/U": {
+   "counts": {
+    "anchor_exposures": 0,
+    "clips": 2,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 721920,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 735.528432291,
+   "evaluation_cpu_seconds": 6.4913808300000255,
+   "peak_rss_kb": 693356,
+   "wall_seconds": 737.3342066389741
+  },
+  "dice/1/mlp/A": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 110,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 722860,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 677.8209085039998,
+   "evaluation_cpu_seconds": 4.553788389999681,
+   "peak_rss_kb": 694160,
+   "wall_seconds": 679.090451312979
+  },
+  "dice/1/mlp/AO": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 183,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 0,
+    "distinct_target_examples": 0,
+    "encoded_images": 241580,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 0,
+    "target_exposures": 0
+   },
+   "cpu_seconds": 319.9526790539999,
+   "evaluation_cpu_seconds": 6.523283172999982,
+   "peak_rss_kb": 684456,
+   "wall_seconds": 320.83611960100825
+  },
+  "dice/1/mlp/SH": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 422,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 722860,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 718.5630814820001,
+   "evaluation_cpu_seconds": 7.8198496830000295,
+   "peak_rss_kb": 701956,
+   "wall_seconds": 720.0460384610051
+  },
+  "dice/1/mlp/SW": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 78,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 722860,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 783.0763925500002,
+   "evaluation_cpu_seconds": 13.97156069200014,
+   "peak_rss_kb": 699608,
+   "wall_seconds": 784.1199743520119
+  },
+  "dice/1/mlp/U": {
+   "counts": {
+    "anchor_exposures": 0,
+    "clips": 4,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 721920,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 765.2236777049998,
+   "evaluation_cpu_seconds": 8.039565156000208,
+   "peak_rss_kb": 688568,
+   "wall_seconds": 767.1128212350013
+  },
+  "dice/1/rotation/A": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 103,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 722860,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 706.779805529,
+   "evaluation_cpu_seconds": 4.703981463999753,
+   "peak_rss_kb": 702192,
+   "wall_seconds": 707.4524192959943
+  },
+  "dice/1/rotation/AO": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 234,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 0,
+    "distinct_target_examples": 0,
+    "encoded_images": 241580,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 0,
+    "target_exposures": 0
+   },
+   "cpu_seconds": 349.8327802210001,
+   "evaluation_cpu_seconds": 6.175888251000288,
+   "peak_rss_kb": 695684,
+   "wall_seconds": 350.94553030101815
+  },
+  "dice/1/rotation/SH": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 537,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 722860,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 735.8112811650003,
+   "evaluation_cpu_seconds": 5.582629593000092,
+   "peak_rss_kb": 690916,
+   "wall_seconds": 736.978813727008
+  },
+  "dice/1/rotation/SW": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 108,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 722860,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 733.4970260700002,
+   "evaluation_cpu_seconds": 13.34493366300012,
+   "peak_rss_kb": 703396,
+   "wall_seconds": 734.8623554240039
+  },
+  "dice/1/rotation/U": {
+   "counts": {
+    "anchor_exposures": 0,
+    "clips": 2,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 721920,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 686.313314168,
+   "evaluation_cpu_seconds": 5.458645342999716,
+   "peak_rss_kb": 688568,
+   "wall_seconds": 688.5830841230054
+  },
+  "dice/2/mlp/A": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 120,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 722860,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 725.1677415880004,
+   "evaluation_cpu_seconds": 7.188265761999901,
+   "peak_rss_kb": 702192,
+   "wall_seconds": 726.7772357659996
+  },
+  "dice/2/mlp/AO": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 70,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 0,
+    "distinct_target_examples": 0,
+    "encoded_images": 241580,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 0,
+    "target_exposures": 0
+   },
+   "cpu_seconds": 343.36526217200026,
+   "evaluation_cpu_seconds": 6.337731222000002,
+   "peak_rss_kb": 703396,
+   "wall_seconds": 344.7726549769868
+  },
+  "dice/2/mlp/SH": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 322,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 722860,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 763.0959451580002,
+   "evaluation_cpu_seconds": 6.582742046000021,
+   "peak_rss_kb": 694160,
+   "wall_seconds": 765.3177772240015
+  },
+  "dice/2/mlp/SW": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 276,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 722860,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 734.880093369,
+   "evaluation_cpu_seconds": 10.68249529700006,
+   "peak_rss_kb": 691804,
+   "wall_seconds": 736.8679460900021
+  },
+  "dice/2/mlp/U": {
+   "counts": {
+    "anchor_exposures": 0,
+    "clips": 3,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 721920,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 727.2958260739997,
+   "evaluation_cpu_seconds": 6.262459687000046,
+   "peak_rss_kb": 690916,
+   "wall_seconds": 728.6421516929986
+  },
+  "dice/2/rotation/A": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 40,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 722860,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 737.807279909,
+   "evaluation_cpu_seconds": 6.451484842999889,
+   "peak_rss_kb": 699804,
+   "wall_seconds": 738.3922229369928
+  },
+  "dice/2/rotation/AO": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 150,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 0,
+    "distinct_target_examples": 0,
+    "encoded_images": 241580,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 0,
+    "target_exposures": 0
+   },
+   "cpu_seconds": 341.273778191,
+   "evaluation_cpu_seconds": 8.34162910499981,
+   "peak_rss_kb": 702192,
+   "wall_seconds": 342.5503458729945
+  },
+  "dice/2/rotation/SH": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 249,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 722860,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 741.9919938430003,
+   "evaluation_cpu_seconds": 7.908131524000055,
+   "peak_rss_kb": 695684,
+   "wall_seconds": 742.4359570459928
+  },
+  "dice/2/rotation/SW": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 81,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 722860,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 670.8186759979999,
+   "evaluation_cpu_seconds": 11.524521272999664,
+   "peak_rss_kb": 704292,
+   "wall_seconds": 671.3420427679957
+  },
+  "dice/2/rotation/U": {
+   "counts": {
+    "anchor_exposures": 0,
+    "clips": 2,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 721920,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 663.4138447460004,
+   "evaluation_cpu_seconds": 5.794685759999993,
+   "peak_rss_kb": 691804,
+   "wall_seconds": 664.7304721580003
+  },
+  "dice/3/mlp/A": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 174,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 722860,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 748.5781438239992,
+   "evaluation_cpu_seconds": 4.621849387000111,
+   "peak_rss_kb": 700252,
+   "wall_seconds": 750.3467004449922
+  },
+  "dice/3/mlp/AO": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 242,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 0,
+    "distinct_target_examples": 0,
+    "encoded_images": 241580,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 0,
+    "target_exposures": 0
+   },
+   "cpu_seconds": 252.25797205100002,
+   "evaluation_cpu_seconds": 8.324738686000273,
+   "peak_rss_kb": 699608,
+   "wall_seconds": 253.32708858602564
+  },
+  "dice/3/mlp/SH": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 341,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 722860,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 725.9047842100008,
+   "evaluation_cpu_seconds": 6.329433256999437,
+   "peak_rss_kb": 690916,
+   "wall_seconds": 726.8766436050064
+  },
+  "dice/3/mlp/SW": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 303,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 722860,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 663.3690999649998,
+   "evaluation_cpu_seconds": 13.5640843580004,
+   "peak_rss_kb": 702192,
+   "wall_seconds": 664.2482124149974
+  },
+  "dice/3/mlp/U": {
+   "counts": {
+    "anchor_exposures": 0,
+    "clips": 11,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 721920,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 738.3747823690001,
+   "evaluation_cpu_seconds": 6.0225250670000605,
+   "peak_rss_kb": 703396,
+   "wall_seconds": 740.7990104290075
+  },
+  "dice/3/rotation/A": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 165,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 722860,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 707.5624259679998,
+   "evaluation_cpu_seconds": 8.0717827819999,
+   "peak_rss_kb": 688568,
+   "wall_seconds": 710.24688396501
+  },
+  "dice/3/rotation/AO": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 214,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 0,
+    "distinct_target_examples": 0,
+    "encoded_images": 241580,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 0,
+    "target_exposures": 0
+   },
+   "cpu_seconds": 333.810959356,
+   "evaluation_cpu_seconds": 4.239417296000056,
+   "peak_rss_kb": 699608,
+   "wall_seconds": 335.2445262919937
+  },
+  "dice/3/rotation/SH": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 485,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 722860,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 695.4743858029997,
+   "evaluation_cpu_seconds": 7.746369175999462,
+   "peak_rss_kb": 699804,
+   "wall_seconds": 697.9037835329946
+  },
+  "dice/3/rotation/SW": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 173,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 722860,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 743.9083284749995,
+   "evaluation_cpu_seconds": 13.383093176999864,
+   "peak_rss_kb": 704292,
+   "wall_seconds": 745.5027007640165
+  },
+  "dice/3/rotation/U": {
+   "counts": {
+    "anchor_exposures": 0,
+    "clips": 2,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 721920,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 754.3979391450002,
+   "evaluation_cpu_seconds": 5.434408681000605,
+   "peak_rss_kb": 701956,
+   "wall_seconds": 756.078664486995
+  },
+  "dice/4/mlp/A": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 376,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 722860,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 451.1319637229999,
+   "evaluation_cpu_seconds": 1.4890263569996023,
+   "peak_rss_kb": 691240,
+   "wall_seconds": 451.7797567110101
+  },
+  "dice/4/mlp/AO": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 137,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 0,
+    "distinct_target_examples": 0,
+    "encoded_images": 241580,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 0,
+    "target_exposures": 0
+   },
+   "cpu_seconds": 286.85495321000053,
+   "evaluation_cpu_seconds": 7.551820126000166,
+   "peak_rss_kb": 703396,
+   "wall_seconds": 286.9525635179889
+  },
+  "dice/4/mlp/SH": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 527,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 722860,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 425.1601379920003,
+   "evaluation_cpu_seconds": 0.8338983740004551,
+   "peak_rss_kb": 704292,
+   "wall_seconds": 425.404724248976
+  },
+  "dice/4/mlp/SW": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 78,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 722860,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 374.1899023629994,
+   "evaluation_cpu_seconds": 2.2583998549998796,
+   "peak_rss_kb": 702236,
+   "wall_seconds": 374.4515317020123
+  },
+  "dice/4/mlp/U": {
+   "counts": {
+    "anchor_exposures": 0,
+    "clips": 3,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 721920,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 593.4819366509992,
+   "evaluation_cpu_seconds": 3.9310517249996337,
+   "peak_rss_kb": 699804,
+   "wall_seconds": 594.1511139290233
+  },
+  "dice/4/rotation/A": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 92,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 722860,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 673.4893101070002,
+   "evaluation_cpu_seconds": 2.8215718080000443,
+   "peak_rss_kb": 694160,
+   "wall_seconds": 673.9635094039841
+  },
+  "dice/4/rotation/AO": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 185,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 0,
+    "distinct_target_examples": 0,
+    "encoded_images": 241580,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 0,
+    "target_exposures": 0
+   },
+   "cpu_seconds": 263.0488090479994,
+   "evaluation_cpu_seconds": 8.845807142999547,
+   "peak_rss_kb": 688568,
+   "wall_seconds": 263.9723524120054
+  },
+  "dice/4/rotation/SH": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 344,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 722860,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 678.2186873740002,
+   "evaluation_cpu_seconds": 1.7765764880005008,
+   "peak_rss_kb": 691804,
+   "wall_seconds": 678.7942275399982
+  },
+  "dice/4/rotation/SW": {
+   "counts": {
+    "anchor_exposures": 940,
+    "clips": 102,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 722860,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 633.4181836110001,
+   "evaluation_cpu_seconds": 3.7407845100005943,
+   "peak_rss_kb": 701956,
+   "wall_seconds": 633.8301637040277
+  },
+  "dice/4/rotation/U": {
+   "counts": {
+    "anchor_exposures": 0,
+    "clips": 2,
+    "decoded_images": 240640,
+    "distinct_reconstruction_examples": 12000,
+    "distinct_source_examples": 10000,
+    "distinct_target_examples": 10000,
+    "encoded_images": 721920,
+    "encoded_images_eval": 24000,
+    "optimizer_steps": 940,
+    "reconstruction_exposures": 240640,
+    "source_exposures": 240640,
+    "successor_applications": 240640,
+    "target_exposures": 240640
+   },
+   "cpu_seconds": 693.9857709349999,
+   "evaluation_cpu_seconds": 5.298122712999884,
+   "peak_rss_kb": 699608,
+   "wall_seconds": 695.2846285810228
+  },
+  "stage1/0/mlp": {
+   "counts": {
+    "anchor_exposures": 0,
+    "clips": 93,
+    "decoded_images": 1080320,
+    "distinct_reconstruction_examples": 54000,
+    "distinct_source_examples": 48651,
+    "distinct_target_examples": 48677,
+    "encoded_images": 3240960,
+    "encoded_images_eval": 124000,
+    "optimizer_steps": 4220,
+    "probe_fits": 4,
+    "reconstruction_exposures": 1080320,
+    "source_exposures": 1080320,
+    "successor_applications": 1080320,
+    "target_exposures": 1080320
+   },
+   "cpu_seconds": 2941.590386632,
+   "evaluation_cpu_seconds": 25.700663929000257,
+   "peak_rss_kb": 702192,
+   "wall_seconds": 2945.509870784008
+  },
+  "stage1/0/rotation": {
+   "counts": {
+    "anchor_exposures": 0,
+    "clips": 114,
+    "decoded_images": 1080320,
+    "distinct_reconstruction_examples": 54000,
+    "distinct_source_examples": 48651,
+    "distinct_target_examples": 48677,
+    "encoded_images": 3240960,
+    "encoded_images_eval": 124000,
+    "optimizer_steps": 4220,
+    "probe_fits": 4,
+    "reconstruction_exposures": 1080320,
+    "source_exposures": 1080320,
+    "successor_applications": 1080320,
+    "target_exposures": 1080320
+   },
+   "cpu_seconds": 2887.930694608,
+   "evaluation_cpu_seconds": 85.54608575599968,
+   "peak_rss_kb": 683108,
+   "wall_seconds": 2891.8189117450092
+  },
+  "stage1/1/mlp": {
+   "counts": {
+    "anchor_exposures": 0,
+    "clips": 183,
+    "decoded_images": 1080320,
+    "distinct_reconstruction_examples": 54000,
+    "distinct_source_examples": 48651,
+    "distinct_target_examples": 48677,
+    "encoded_images": 3240960,
+    "encoded_images_eval": 124000,
+    "optimizer_steps": 4220,
+    "probe_fits": 4,
+    "reconstruction_exposures": 1080320,
+    "source_exposures": 1080320,
+    "successor_applications": 1080320,
+    "target_exposures": 1080320
+   },
+   "cpu_seconds": 2949.008359125,
+   "evaluation_cpu_seconds": 22.14268522300017,
+   "peak_rss_kb": 688200,
+   "wall_seconds": 2951.0309590219986
+  },
+  "stage1/1/rotation": {
+   "counts": {
+    "anchor_exposures": 0,
+    "clips": 85,
+    "decoded_images": 1080320,
+    "distinct_reconstruction_examples": 54000,
+    "distinct_source_examples": 48651,
+    "distinct_target_examples": 48677,
+    "encoded_images": 3240960,
+    "encoded_images_eval": 124000,
+    "optimizer_steps": 4220,
+    "probe_fits": 4,
+    "reconstruction_exposures": 1080320,
+    "source_exposures": 1080320,
+    "successor_applications": 1080320,
+    "target_exposures": 1080320
+   },
+   "cpu_seconds": 2851.891148866,
+   "evaluation_cpu_seconds": 48.73070907700003,
+   "peak_rss_kb": 680688,
+   "wall_seconds": 2855.860431424997
+  },
+  "stage1/2/mlp": {
+   "counts": {
+    "anchor_exposures": 0,
+    "clips": 162,
+    "decoded_images": 1080320,
+    "distinct_reconstruction_examples": 54000,
+    "distinct_source_examples": 48651,
+    "distinct_target_examples": 48677,
+    "encoded_images": 3240960,
+    "encoded_images_eval": 124000,
+    "optimizer_steps": 4220,
+    "probe_fits": 4,
+    "reconstruction_exposures": 1080320,
+    "source_exposures": 1080320,
+    "successor_applications": 1080320,
+    "target_exposures": 1080320
+   },
+   "cpu_seconds": 2810.6981926070002,
+   "evaluation_cpu_seconds": 135.25379269099994,
+   "peak_rss_kb": 693384,
+   "wall_seconds": 2814.100004313994
+  },
+  "stage1/2/rotation": {
+   "counts": {
+    "anchor_exposures": 0,
+    "clips": 78,
+    "decoded_images": 1080320,
+    "distinct_reconstruction_examples": 54000,
+    "distinct_source_examples": 48651,
+    "distinct_target_examples": 48677,
+    "encoded_images": 3240960,
+    "encoded_images_eval": 124000,
+    "optimizer_steps": 4220,
+    "probe_fits": 4,
+    "reconstruction_exposures": 1080320,
+    "source_exposures": 1080320,
+    "successor_applications": 1080320,
+    "target_exposures": 1080320
+   },
+   "cpu_seconds": 2875.155470811,
+   "evaluation_cpu_seconds": 45.98570091600004,
+   "peak_rss_kb": 679344,
+   "wall_seconds": 2878.1804402520065
+  },
+  "stage1/3/mlp": {
+   "counts": {
+    "anchor_exposures": 0,
+    "clips": 167,
+    "decoded_images": 1080320,
+    "distinct_reconstruction_examples": 54000,
+    "distinct_source_examples": 48651,
+    "distinct_target_examples": 48677,
+    "encoded_images": 3240960,
+    "encoded_images_eval": 124000,
+    "optimizer_steps": 4220,
+    "probe_fits": 4,
+    "reconstruction_exposures": 1080320,
+    "source_exposures": 1080320,
+    "successor_applications": 1080320,
+    "target_exposures": 1080320
+   },
+   "cpu_seconds": 2949.201794701,
+   "evaluation_cpu_seconds": 24.49184922099994,
+   "peak_rss_kb": 688568,
+   "wall_seconds": 2952.0894108690118
+  },
+  "stage1/3/rotation": {
+   "counts": {
+    "anchor_exposures": 0,
+    "clips": 213,
+    "decoded_images": 1080320,
+    "distinct_reconstruction_examples": 54000,
+    "distinct_source_examples": 48651,
+    "distinct_target_examples": 48677,
+    "encoded_images": 3240960,
+    "encoded_images_eval": 124000,
+    "optimizer_steps": 4220,
+    "probe_fits": 4,
+    "reconstruction_exposures": 1080320,
+    "source_exposures": 1080320,
+    "successor_applications": 1080320,
+    "target_exposures": 1080320
+   },
+   "cpu_seconds": 2893.597925091,
+   "evaluation_cpu_seconds": 44.757146336999995,
+   "peak_rss_kb": 683616,
+   "wall_seconds": 2896.715696041996
+  },
+  "stage1/4/mlp": {
+   "counts": {
+    "anchor_exposures": 0,
+    "clips": 34,
+    "decoded_images": 1080320,
+    "distinct_reconstruction_examples": 54000,
+    "distinct_source_examples": 48651,
+    "distinct_target_examples": 48677,
+    "encoded_images": 3240960,
+    "encoded_images_eval": 124000,
+    "optimizer_steps": 4220,
+    "probe_fits": 4,
+    "reconstruction_exposures": 1080320,
+    "source_exposures": 1080320,
+    "successor_applications": 1080320,
+    "target_exposures": 1080320
+   },
+   "cpu_seconds": 2916.0970787819997,
+   "evaluation_cpu_seconds": 34.84160083200004,
+   "peak_rss_kb": 685468,
+   "wall_seconds": 2919.3595629670017
+  },
+  "stage1/4/rotation": {
+   "counts": {
+    "anchor_exposures": 0,
+    "clips": 114,
+    "decoded_images": 1080320,
+    "distinct_reconstruction_examples": 54000,
+    "distinct_source_examples": 48651,
+    "distinct_target_examples": 48677,
+    "encoded_images": 3240960,
+    "encoded_images_eval": 124000,
+    "optimizer_steps": 4220,
+    "probe_fits": 4,
+    "reconstruction_exposures": 1080320,
+    "source_exposures": 1080320,
+    "successor_applications": 1080320,
+    "target_exposures": 1080320
+   },
+   "cpu_seconds": 2916.934498811,
+   "evaluation_cpu_seconds": 36.526197407999916,
+   "peak_rss_kb": 690064,
+   "wall_seconds": 2920.465670745005
+  }
+ },
+ "workers": 11
+}
