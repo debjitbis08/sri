@@ -47,12 +47,14 @@ per-seed accuracy thresholds. The seeds split into one near-complete success
 (rotation seed 3, 0.976), partial runs and near-total failures. This is not a
 uniform shortfall.
 
-## Diagnosis: recurrence without reliable cross-modal alignment
+## Diagnosis: successor discrimination without reliable cross-modal alignment
 
 The contract asks, when digit feasibility passes but A fails, whether within-dice
 recurrence or cross-modal alignment failed. The diagnostics point to alignment.
 
-1. **Dice succession is learned within the dice modality.** The final successor
+1. **Dice successor discrimination is learned within the dice modality.** This
+   shows S ranks the next count above the alternatives, not that applying S
+   produces the next count's representation (see item 3). The final successor
    loss is 3.94 for U and A in every seed and variant. That is the
    positive-multiplicity entropy floor, `log(256/5) = 3.94`. The unanchored arm
    shows the same structure on the test set as near-pure offsets:
@@ -61,11 +63,15 @@ recurrence or cross-modal alignment failed. The diagnostics point to alignment.
    prior-work section predicts: a correct internal ordering with an arbitrary
    cross-modal start. Rotation U seeds 0 and 3 land at offset 0 (0.93, 0.76)
    by that same ambiguity, not by anchoring.
-2. **The anchor fits one image, not the class.** The anchor residual is 0.01–0.03
-   in every anchored run. Test count-1 accuracy is 1.00 in all rotation A runs,
-   but the held-out count-1 centroid's relative raw residual is 0.99–1.61
-   (rotation) and 2.03–3.20 (MLP). Two MLP A runs (seeds 0 and 4) score 0.00
-   on test count-1 despite fitting the anchor.
+2. **The anchor fits one image more closely than the class.** The anchor residual
+   is 0.01–0.03 in every anchored run. Test count-1 accuracy is 1.00 in all
+   rotation A runs, but the held-out count-1 centroid's relative raw residual is
+   0.99–1.61 (rotation) and 2.03–3.20 (MLP). A raw residual mixes magnitude and
+   angle, and cosine readout ignores magnitude, so it does not by itself show
+   memorization. The [alignment analysis](number-concept-network-v1-alignment-analysis.md)
+   separates the two: the count-1 class centroid is 41–59° from `c_1` in rotation
+   A and 41–85° in MLP A, so the angular error is real. Two MLP A runs (seeds 0
+   and 4) score 0.00 on test count-1 despite fitting the anchor.
 3. **Anchoring does not propagate along the chain.** Arm A's modal predictions
    for counts 1–6 are, for example, `1,2,1,4,3,0` (rotation seed 0) and
    `1,0,1,7,8,9` (rotation seed 2). Count 1 is pinned, and some counts or
@@ -126,3 +132,12 @@ seed 0 A, one thread: encoding plus readout 0.24 ms (batch 1) and 6.1 ms (batch
 256) median; cross-decoding 0.31 ms and 11.7 ms. Running 10–11 fits in parallel
 was about 3.5× slower per step than one process alone; the pre-run 30-minute
 estimate used single-process timing.
+
+## Post-review analysis
+
+After external review, a post-hoc [alignment analysis](number-concept-network-v1-alignment-analysis.md)
+found that correct-relation arms give the two modalities a correlated latent shape
+(paired CKA 0.43–0.58) in untied coordinate frames. For rotation, the frame offset
+is almost entirely the predicted eight-angle phase symmetry. A phase map fitted on
+five counts classifies the sixth at 0.98 on average, and a class-level count-1
+phase correction gives 0.83, against 0.39 for the single-image anchor.

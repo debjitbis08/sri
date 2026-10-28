@@ -17,6 +17,10 @@ both variants; one-anchor transfer fails for both (A mean 0.39 rotation, 0.40 ML
 seed-bimodal). Dice succession is learned internally, but the anchor does not
 propagate along an approximately recurrent orbit. Results hold for the v1 jittered
 dice generator. Reproduce with the confirmation command (about 98 minutes on 11 workers).
+[Alignment analysis](number-concept-network-v1-alignment-analysis.md) (post hoc, 38 s):
+correlated latent shape in untied frames. For rotation the offset is the predicted
+eight-angle phase symmetry, which the single-image anchor fails to fix
+(class-level phase correction 0.83). `.venv/bin/python experiments/number_concept_alignment_analysis.py`.
 New experiments are added here, not to the README. Entries carried over from the
 README's original layout list keep their wording. Earlier studies that list never
 covered (for example the layered-module, locality-adaptation and relational
