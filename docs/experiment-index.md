@@ -36,6 +36,23 @@ equivalence-loss arm at wide size aligns them in the core. The input kind is dec
 from the core at 0.999. A tally test labelled at 1, 2 and 5 puts every other count in
 those bins. `src/number_core.py`, tests in `tests/test_number_core.py`;
 `.venv/bin/python experiments/number_core_network.py pilot|pilot2|tally` (6–8 minutes each).
+[Number systems v1](number-systems-v1-spec.md) (draft, pilot;
+[results](number-systems-v1-pilot-results.md)): 18 number representations after
+Lockhart's *Arithmetic* (`src/number_systems.py`, tests in `tests/test_number_systems.py`),
+one satellite per medium, complementary sparse labels, compatible versus private
+relation orders, held-out tree, german, thai_digits and hand.
+- Compatible order aligns numbers labelled in neither representation in the
+  cross-representation probe (0.26 against 0.15), including Morse ↔ images.
+- Labels and held-out transfer stay at chance.
+- Post-hoc diagnostics (fixed versus refitted probes, an interface copy) show
+  adaptation mostly moves the sources' coordinates through the shared interface.
+- Stage A (reuse cost): source experience raises few-shot accuracy, but private orders
+  benefit equally, and a shared interface halves source retention.
+
+Commands: `.venv/bin/python experiments/number_systems.py pilot` (25 minutes),
+`-m experiments.number_systems_pilot_analysis pilot` (12 minutes), and
+`-m experiments.number_systems_reuse_cost pilot` (67 minutes on 11 workers). Results
+gzip-compressed where large.
 New experiments are added here, not to the README. Entries carried over from the
 README's original layout list keep their wording. Earlier studies that list never
 covered (for example the layered-module, locality-adaptation and relational
