@@ -1,6 +1,7 @@
 # Number concept network v1: experiment specification
 
-Status: **implementation-ready draft; not a frozen confirmation contract**.
+Status: **draft history**. Frozen 2026-10-28 as the
+[contract](number-concept-network-v1-contract.md); read that file for the protocol.
 Date: 2026-10-28. No implementation or experimental results accompany this spec.
 Source: Debjit Biswas, *Number concept network: design doc*, 2026-10-28,
 five-page supplied PDF. This document revises that proposal for implementation;

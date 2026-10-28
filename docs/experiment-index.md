@@ -3,8 +3,9 @@
 Running list of experiments, with contracts, results and reproduction commands.
 Shared prior-work survey: `prior-work.md`; contract review practice: `literature-review.md`.
 Research directions: `inner-coupling-hypothesis.md` (whether inner coupling matters on complex data).
-Planned image study: [number concept network v1](number-concept-network-v1-spec.md),
-an implementation-ready draft for digit/dice succession and one-anchor transfer.
+Image study: [number concept network v1 contract](number-concept-network-v1-contract.md)
+(frozen 2026-10-28; draft history in the [specification](number-concept-network-v1-spec.md)),
+digit/dice succession and one-anchor transfer.
 Implementation: `src/number_concept.py`, `experiments/number_concept_network.py`
 (`pilot` | `confirmation`; confirmation refuses to run before the frozen contract
 exists), tests in `tests/test_number_concept.py`. MNIST goes in gitignored
