@@ -663,3 +663,32 @@ same code path and seeds, so it is identical apart from the new loss.
 (Chinese 0.41, Devanagari 0.40, means over seeds), learning from relational inference
 gives withheld forms their meaning beyond what succession training alone does. That is
 the fast-mapping step.
+
+## Confidence analysis on Part A checkpoints (2026-10-29, before running)
+
+**Question:** can the useful confidence signal found in Part A be anticipated *before*
+revising, so that it can gate revision? The signal is agreement between instinct and the
+relational answer, and it needs the revision to compute.
+
+- **Checkpoints:** the end-of-training checkpoints of the stable pilot 3 arms (A-order and
+  A-shuffled, seeds 100–102). Devanagari, the last-taught language, is the main group;
+  Chinese (partly forgotten) is a second group.
+- **Items:** the Part A evaluation forms, 30 per count per language, with the same
+  candidates and contexts. Split by index: half A trains, half B is reported.
+- **Pre-revision features:**
+  - matching margin and best score;
+  - entropy of the softmax over the 9 matching scores;
+  - equilibrium energy / ‖f‖²;
+  - ‖f‖.
+- **Targets:**
+  - agreement between the isolated answer and the two-sided revised answer (μ = 1);
+  - isolated correctness.
+- **Predictor:** logistic regression on standardized features.
+- **Reported on half B:**
+  - AUROC for agreement and for isolated correctness;
+  - selection: immediate, always revise, gated (revise when predicted agreement is
+    below a threshold chosen on half A to maximize accuracy minus 0.02 × revision rate),
+    random at the gated rate, and oracle.
+- **One more variant:** a cheap relational feature that needs no revision solve, the
+  distance between the isolated code and the successor of the lower context collection's
+  code. This tests whether a lightweight relational check can stand in for full revision.

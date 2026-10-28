@@ -104,6 +104,11 @@ pilots 3–4: counting episodes over persistent dot collections, languages in bl
 
 Command: `NCA_SEED=<seed> NSY_WORKERS=5 .venv/bin/python -m experiments.number_construction_part_a pilot|pilot2|pilot3|pilot4`
 (6–35 minutes).
+
+Confidence analysis: agreement can be anticipated by a cheap relational consistency check
+(AUROC 0.66–0.96) but not by recognition-only signals, and gating on it does not beat
+random gating. `NSY_WORKERS=6 .venv/bin/python -m experiments.number_construction_confidence pilot3`
+(under a minute).
 New experiments are added here, not to the README. Entries carried over from the
 README's original layout list keep their wording. Earlier studies that list never
 covered (for example the layered-module, locality-adaptation and relational

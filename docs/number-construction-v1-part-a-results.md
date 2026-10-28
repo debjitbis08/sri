@@ -260,6 +260,62 @@ Values for seeds 100 / 101 / 102, then the mean:
      form's meaning, with no succession loss on that form. Fast mapping would then be
      tested on its own.
 
+## Confidence analysis on pilot 3 checkpoints (2026-10-29)
+
+Design: [spec, "Confidence analysis on Part A
+checkpoints"](number-construction-v1-spec.md#confidence-analysis-on-part-a-checkpoints-2026-10-29-before-running).
+- Data: the end-of-training checkpoints of the six stable pilot 3 runs; interior counts
+  with two-sided context; half A trains the predictor and half B is reported.
+- Command: `NSY_WORKERS=6 .venv/bin/python -m experiments.number_construction_confidence pilot3`.
+- Artifacts: `reports/number-construction-v1-part-a-confidence-results.json.gz`, `-runtime.json`.
+
+Agreement again separates right from wrong instinctive answers:
+
+| Language | Accuracy when agreeing | When disagreeing |
+| --- | --- | --- |
+| Devanagari | 0.39–0.70 | 0.15–0.38 |
+| Chinese (mostly forgotten) | 0.31–0.62 | 0.05–0.08 |
+
+**Can agreement be anticipated before revising?** AUROC on half B (range over six runs):
+
+| Features | Predicting agreement, Devanagari | Predicting agreement, Chinese | Predicting isolated correctness |
+| --- | --- | --- | --- |
+| pre-revision: margin, best score, entropy, energy, ‖f‖ | 0.45–0.67 | 0.47–0.86 | 0.46–0.71 |
+| plus a cheap relational check (no revision solve) | 0.66–0.79 | 0.86–0.96 | 0.49–0.83 |
+
+- **Recognition-only signals barely anticipate agreement.** No single one is reliable
+  (single-feature AUROC 0.16–0.68, often near 0.5).
+- **A cheap relational check does.** It measures how well the isolated code fits the
+  successor relation with the neighbouring collections:
+  ‖c − S(c_{n−1})‖² + ‖c_{n+1} − S(c)‖², without solving the revised state.
+  - Alone, its AUROC is 0.07–0.32, inverted: a low misfit means agreement. That
+    corresponds to 0.68–0.93.
+  - It is computed from codes the context already needs. In this architecture the
+    revision solve itself is cheap (one shared factorization), so the saving is small
+    here.
+
+**Gating revision with the predicted agreement does not beat random gating:**
+- gated accuracy is within −0.02 to +0.05 of random revision at the same rate;
+- always revising is about as good as or better than gating in most runs;
+- the oracle selector is 0.03–0.18 above always revising, so there is room.
+
+The predictor anticipates *disagreement*, but disagreement does not say *which* answer is
+right. In Devanagari, revised and isolated accuracy are similar (0.39–0.52 against
+0.24–0.53).
+
+**Reading:**
+- Confidence can be anticipated, but only with relational information. A recognition-only
+  confidence, the "instinct knows when it is unsure" idea, is weak here.
+- That favours the researchers' framing: knowing when you are unsure needs the deeper
+  structure.
+- For gating, the controller's target should be *whether revision helps* (help / hurt,
+  as in B1's controller), with relational features. For Part C, agreement is a natural
+  trigger: a confident relational hypothesis that disagrees with recognition marks a
+  gap worth asking about.
+
+Cost: wall 32 s (data and rendering 30 s, analysis 2 s on 6 workers); worker CPU 10 s.
+No selection cost beyond the threshold, chosen on half A.
+
 ## Status after pilots 1–4
 
 - **Established in the stable arms (three seeds):**
@@ -275,10 +331,14 @@ Values for seeds 100 / 101 / 102, then the mean:
   - forgetting under blocked teaching with one shared satellite: problem 1, untouched;
   - transfer to a new language: near chance;
   - slow learning of English words.
-- **Confidence (the researchers' question):** a usable signal exists. It is agreement
-  with the core, available after revision. The next step is a predictor trained to
-  anticipate it from pre-revision features, which then gates revision and the curiosity
-  questions of Part C.
+- **Confidence (the researchers' question):**
+  - a usable signal exists: agreement with the core, available after revision;
+  - it can be anticipated by a cheap relational consistency check (AUROC 0.66–0.96), but
+    not by recognition-only signals;
+  - gating on predicted agreement did not beat random gating. The controller target
+    should be whether revision helps, with relational features;
+  - agreement against a confident relational hypothesis is a natural trigger for Part C's
+    questions.
 
 ## Cost (pilot 4)
 
