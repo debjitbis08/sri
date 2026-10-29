@@ -140,6 +140,17 @@ each learned step covers about a fifth of a real step along the comparison direc
 pulls the count range's ends toward the middle; the inverse overshoots, which strict
 crossings reward. `NSY_WORKERS=11 .venv/bin/python -m experiments.number_construction_projection pilot`
 (under a minute).
+
+[Multi-step teaching](number-construction-v1-multistep-results.md), three seeds: an explicit
+objective that the successor applied 1–3 times lands on the real endpoint collection. Step
+length along the comparison direction rises from 0.38 to 0.95 of a real step, forward strict
+crossings from 0.53–0.54 to 0.68–0.69 in every seed (the shown-result level), and inverse
+overshoot disappears. Withheld forms improve (Devanagari 0.46 → 0.60); paired forms, English
+and form comparisons lose 0.04–0.07. Equality pairs through the comparison head teach ties
+(0.48 → 0.68) but alone flatten the successor and break composition.
+`NSY_WORKERS=11 .venv/bin/python -m experiments.number_construction_multistep pilot`
+(24 minutes), then the composition and projection analyses with
+`NCC_RUNS=number-construction-v1-multistep-pilot`.
 New experiments are added here, not to the README. Entries carried over from the
 README's original layout list keep their wording. Earlier studies that list never
 covered (for example the layered-module, locality-adaptation and relational

@@ -923,3 +923,59 @@ Question it answers: are forward failures under-advancement, overshoot or a mism
 between senses, and does the error type differ by direction? Strict crossings reward
 landing beyond the reference and punish falling short, so an asymmetry in error type
 could explain why inverse-successor crossings work while forward ones fail.
+
+## Multi-step teaching (pilot, fixed before running, 2026-10-29)
+
+Agreed with the researchers after the composition test and its comparison-direction
+diagnostic: forward composition falls short because one-step *next* training lets a short
+step pass (in two of three seeds a learned step covers about a fifth of a real step along
+the comparison direction). Following the external review, multi-step teaching is an
+explicit objective, not longer sequences with adjacent-pair losses.
+
+**Base:** D-varied+rehearsal (Part D's best arm): same data, episodes, losses, schedule,
+rehearsal, taps contexts and comparison loss, seeds 100–102. The control arm reproduces it;
+the added losses draw from their own random streams, so every arm sees identical batches
+and identical draws for the existing losses.
+
+**Multi-step objective.** Within each counting episode, for steps of counts n and n + k
+(k = 1, 2, 3) where the step at n + k has a visible collection: the learned successor
+applied k times to any item at n (form, collection or taps) must match that collection.
+Loss: cross-entropy over 9 candidates under the *same* head (the batch's shared candidate
+collections, the real endpoint substituted at its count), as in the matching loss. Up to 64
+such pairs per batch, sampled uniformly; weight 1. The one-step *next* loss is kept.
+Descending episodes contribute the same pairs (the successor always goes from the lower to
+the higher count). Withheld forms can be starts, never endpoints (their collections are
+hidden). Nothing is trained on the hidden-result comparison task.
+
+**Equality.** 16 same-count pairs of collections or taps per batch, with the comparison head
+trained to say "not more" in both orders (target 0 for *larger*(a, b) and *larger*(b, a)).
+Comparisons still never involve forms.
+
+| Arm | Multi-step objective | Equality pairs |
+| --- | --- | --- |
+| M-control | no | no |
+| M-multistep | yes | no |
+| M-equality | no | yes |
+| M-multistep+equality | yes | yes |
+
+**Evaluation.**
+- Part D's full evaluation at the end of every block (acquisition, retention, untaught
+  compositions, coherence), to check that nothing is lost.
+- The composition test with its amended readings, on the end checkpoints. **Primary:**
+  forward strict crossings (critical items, "neither" stratum, k = 2, 3) and the full-set
+  verdict against the shortcut. Also: the tie stratum (equality), inverse-successor removal
+  as a diagnostic, and the action interventions.
+- The comparison-direction diagnostic: forward advance ratio, expected near 1 if the
+  objective works.
+
+**Readings fixed in advance:** M-multistep vs M-control on forward crossings and advance
+ratio; M-equality vs M-control on the tie stratum; M-multistep+equality for both together.
+Part D measures must not fall by more than seed-to-seed variation.
+
+**Prior work:** multi-step (simulation-error) training of learned dynamics is established
+for exactly this compounding failure (DaD-style training, cited in `prior-work.md` for the
+relational fixture). This is that remedy applied to a learned successor, not a new method.
+
+**Computation:** the multi-step loss adds up to 3 extra successor applications for at most 64
+codes and one 9-way matching per pair; equality adds 32 comparison logits. Both are small
+next to encoding; reported in the runtime file.

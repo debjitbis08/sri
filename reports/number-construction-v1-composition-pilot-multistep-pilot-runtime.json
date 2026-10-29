@@ -1,0 +1,86 @@
+{
+ "command": "/home/debjit/code/sri/.venv/bin/python /home/debjit/code/sri/experiments/number_construction_composition.py pilot",
+ "cpu_count": 12,
+ "data_bytes": 586809600,
+ "dirty": true,
+ "numpy": "2.5.4",
+ "parent_cpu_seconds": 8.096367671,
+ "part_d_sha256": "aa70dc87ddbd0a7813326cc4f63a392bb0ebf275f3b8e74a3073319e4f929bf0",
+ "peak_rss_children_max_kb": 1154392,
+ "phases": {
+  "analysis_wall_seconds": 7.665944439009763,
+  "prepare_wall_seconds": 27.348357644979842
+ },
+ "platform": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+ "revision": "8d5e3b4fb62b779246a230f4ef83213ea273bac5",
+ "runner_sha256": "c6f46365197888f3f3de9530019820332396df6caa98204e10006e8dca8aa288",
+ "scope": "nondeterministic timing and environment; scientific results are in -results.json.gz",
+ "spec_sha256": "a3d6a0c855ff97d20c553e005953aa842e40437fe69c2fec5b9c979d6bad92c7",
+ "tasks": {
+  "M-control/seed100": {
+   "cpu_seconds": 6.443499961,
+   "peak_rss_kb": 1114568,
+   "wall_seconds": 6.4486813220137265
+  },
+  "M-control/seed101": {
+   "cpu_seconds": 6.437149577,
+   "peak_rss_kb": 1114280,
+   "wall_seconds": 6.438415325013921
+  },
+  "M-control/seed102": {
+   "cpu_seconds": 6.408388171,
+   "peak_rss_kb": 1113568,
+   "wall_seconds": 6.409152292006183
+  },
+  "M-equality/seed100": {
+   "cpu_seconds": 6.416291835,
+   "peak_rss_kb": 1114132,
+   "wall_seconds": 6.418257407989586
+  },
+  "M-equality/seed101": {
+   "cpu_seconds": 6.409384312,
+   "peak_rss_kb": 1114360,
+   "wall_seconds": 6.41152538600727
+  },
+  "M-equality/seed102": {
+   "cpu_seconds": 6.336939973,
+   "peak_rss_kb": 1115164,
+   "wall_seconds": 6.369845776003785
+  },
+  "M-multistep+equality/seed100": {
+   "cpu_seconds": 6.369003199000001,
+   "peak_rss_kb": 1115620,
+   "wall_seconds": 6.369673762994353
+  },
+  "M-multistep+equality/seed101": {
+   "cpu_seconds": 6.437895826,
+   "peak_rss_kb": 1115644,
+   "wall_seconds": 6.44992727501085
+  },
+  "M-multistep+equality/seed102": {
+   "cpu_seconds": 6.478930458,
+   "peak_rss_kb": 1115320,
+   "wall_seconds": 6.5328309850010555
+  },
+  "M-multistep/seed100": {
+   "cpu_seconds": 3.715947285,
+   "peak_rss_kb": 1113784,
+   "wall_seconds": 3.7163994059956167
+  },
+  "M-multistep/seed101": {
+   "cpu_seconds": 6.438433968,
+   "peak_rss_kb": 1113740,
+   "wall_seconds": 6.43969021900557
+  },
+  "M-multistep/seed102": {
+   "cpu_seconds": 3.5132976229999997,
+   "peak_rss_kb": 1113784,
+   "wall_seconds": 3.5148013430007268
+  }
+ },
+ "torch": "2.14.1+cpu",
+ "wall_seconds": 35.04904895697837,
+ "worker_cpu_seconds_total": 71.405162188,
+ "workers": 11
+}

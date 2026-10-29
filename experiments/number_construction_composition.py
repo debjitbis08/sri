@@ -6,6 +6,7 @@ Composed verdict: the learned successor applied k times (its inverse for remove)
 with the comparison-only shortcut (start against reference) and with the shown result. No training.
 
 Usage: NSY_WORKERS=11 .venv/bin/python -m experiments.number_construction_composition pilot
+Environment: NCC_RUNS (runs directory name; default the Part D runs).
 """
 from collections import defaultdict
 import gzip
@@ -28,8 +29,10 @@ from experiments import number_construction_part_d as D
 
 nc, ns = X.nc, X.ns
 ROOT = X.ROOT
-RUN_DIR = ROOT / 'runs' / 'number-construction-v1-part-d-pilot'
-NAME = f'number-construction-v1-composition-{X.MODE}' + ('-smoke' if X.SMOKE else '')
+RUN_NAME = os.environ.get('NCC_RUNS', 'number-construction-v1-part-d-pilot')
+RUN_DIR = ROOT / 'runs' / RUN_NAME
+TAG = '' if RUN_NAME == 'number-construction-v1-part-d-pilot' else '-' + RUN_NAME.replace('number-construction-v1-', '')
+NAME = f'number-construction-v1-composition-{X.MODE}{TAG}' + ('-smoke' if X.SMOKE else '')
 PREFIX = ROOT / 'reports' / NAME
 KINDS = ('collections', 'taps', 'forms/english', 'forms/chinese', 'forms/devanagari_digits')
 KS = (1, 2, 3)

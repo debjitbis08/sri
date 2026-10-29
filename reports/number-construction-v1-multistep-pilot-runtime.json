@@ -1,0 +1,128 @@
+{
+ "command": "/home/debjit/code/sri/.venv/bin/python /home/debjit/code/sri/experiments/number_construction_multistep.py pilot",
+ "cpu_count": 12,
+ "data_bytes": 586809600,
+ "dirty": true,
+ "environment_overrides": {
+  "NSY_WORKERS": "11"
+ },
+ "numpy": "2.5.4",
+ "parent_cpu_seconds": 8.205495439,
+ "part_d_sha256": "aa70dc87ddbd0a7813326cc4f63a392bb0ebf275f3b8e74a3073319e4f929bf0",
+ "peak_rss_children_max_kb": 1227592,
+ "phases": {
+  "data_wall_seconds": 23.941472853999585,
+  "render_wall_seconds": 3.034605836000992,
+  "runs_wall_seconds": 1412.1155354200164
+ },
+ "platform": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+ "revision": "8d5e3b4fb62b779246a230f4ef83213ea273bac5",
+ "rss_convention": "Linux ru_maxrss in KiB; children value is the largest single worker process",
+ "runner_sha256": "af132bd49f00aac553ae36163296a8ce9a3d1a4f8968d203849621fa9a55b8fe",
+ "scope": "nondeterministic timing and environment; scientific results are in -results.json.gz",
+ "spec_sha256": "a3d6a0c855ff97d20c553e005953aa842e40437fe69c2fec5b9c979d6bad92c7",
+ "tasks": {
+  "M-control/seed100": {
+   "cpu_seconds": 1090.150271962,
+   "eval_cpu_seconds": 6.323904002000006,
+   "peak_rss_kb": 1214012,
+   "train_cpu_seconds": 1074.723880141,
+   "updates": 6000,
+   "wall_seconds": 1092.7484572160174
+  },
+  "M-control/seed101": {
+   "cpu_seconds": 1116.717413868,
+   "eval_cpu_seconds": 6.379534623999973,
+   "peak_rss_kb": 1215612,
+   "train_cpu_seconds": 1097.0273810049998,
+   "updates": 6000,
+   "wall_seconds": 1118.8559377450147
+  },
+  "M-control/seed102": {
+   "cpu_seconds": 1109.550082243,
+   "eval_cpu_seconds": 6.492405337000093,
+   "peak_rss_kb": 1216436,
+   "train_cpu_seconds": 1090.1451495039998,
+   "updates": 6000,
+   "wall_seconds": 1112.6267025780107
+  },
+  "M-equality/seed100": {
+   "cpu_seconds": 1089.643445721,
+   "eval_cpu_seconds": 8.47421292600012,
+   "peak_rss_kb": 1214268,
+   "train_cpu_seconds": 1067.497340459,
+   "updates": 6000,
+   "wall_seconds": 1091.5440341240028
+  },
+  "M-equality/seed101": {
+   "cpu_seconds": 1096.610622894,
+   "eval_cpu_seconds": 6.821766590000152,
+   "peak_rss_kb": 1215888,
+   "train_cpu_seconds": 1076.324060633,
+   "updates": 6000,
+   "wall_seconds": 1098.745441548992
+  },
+  "M-equality/seed102": {
+   "cpu_seconds": 1081.8195516170001,
+   "eval_cpu_seconds": 8.79897215200009,
+   "peak_rss_kb": 1218768,
+   "train_cpu_seconds": 1061.502985873,
+   "updates": 6000,
+   "wall_seconds": 1084.1963716699975
+  },
+  "M-multistep+equality/seed100": {
+   "cpu_seconds": 1109.398718096,
+   "eval_cpu_seconds": 7.111849499000016,
+   "peak_rss_kb": 1216316,
+   "train_cpu_seconds": 1088.5404753910002,
+   "updates": 6000,
+   "wall_seconds": 1112.6872799030098
+  },
+  "M-multistep+equality/seed101": {
+   "cpu_seconds": 1097.856325847,
+   "eval_cpu_seconds": 7.051791890000231,
+   "peak_rss_kb": 1216500,
+   "train_cpu_seconds": 1077.413199704,
+   "updates": 6000,
+   "wall_seconds": 1100.193870646006
+  },
+  "M-multistep+equality/seed102": {
+   "cpu_seconds": 327.2646310739999,
+   "eval_cpu_seconds": 1.936501745999749,
+   "peak_rss_kb": 1227592,
+   "train_cpu_seconds": 317.54033179,
+   "updates": 6000,
+   "wall_seconds": 327.31604177801637
+  },
+  "M-multistep/seed100": {
+   "cpu_seconds": 1088.7181120409998,
+   "eval_cpu_seconds": 7.579489802000182,
+   "peak_rss_kb": 1215228,
+   "train_cpu_seconds": 1069.6789508900001,
+   "updates": 6000,
+   "wall_seconds": 1091.2999118060106
+  },
+  "M-multistep/seed101": {
+   "cpu_seconds": 1120.6546781549998,
+   "eval_cpu_seconds": 5.983456315000069,
+   "peak_rss_kb": 1219012,
+   "train_cpu_seconds": 1101.581642828,
+   "updates": 6000,
+   "wall_seconds": 1122.9366100269835
+  },
+  "M-multistep/seed102": {
+   "cpu_seconds": 1112.3934236329999,
+   "eval_cpu_seconds": 6.110739265000063,
+   "peak_rss_kb": 1217232,
+   "train_cpu_seconds": 1092.92770354,
+   "updates": 6000,
+   "wall_seconds": 1113.9699213679996
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "wall_seconds": 1439.1209200439916,
+ "worker_cpu_seconds_total": 12440.777277150999,
+ "workers": 11
+}

@@ -5,6 +5,7 @@ How far does the learned successor, applied k times (or its exact inverse), move
 w, against how far real items of the target count lie? No training.
 
 Usage: NSY_WORKERS=11 .venv/bin/python -m experiments.number_construction_projection pilot
+Environment: NCC_RUNS (runs directory name; default the Part D runs).
 """
 import gzip
 import json
@@ -27,7 +28,7 @@ from experiments import number_construction_composition as C
 
 nc, ns = X.nc, X.ns
 ROOT = X.ROOT
-NAME = f'number-construction-v1-projection-{X.MODE}' + ('-smoke' if X.SMOKE else '')
+NAME = f'number-construction-v1-projection-{X.MODE}{C.TAG}' + ('-smoke' if X.SMOKE else '')
 PREFIX = ROOT / 'reports' / NAME
 
 
