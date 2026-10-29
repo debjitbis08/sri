@@ -74,3 +74,18 @@ class GenericTransitionNet(GenericNet):
 
     def transition(self, c, action):
         return self.T(torch.cat([c, self.action.weight[ACTIONS.index(action)].expand(len(c), -1)], 1))
+
+
+class GenericSequenceNet(GenericNet):
+    """GenericNet plus one next-item predictor P(c_prev, c_cur): a two-layer MLP on the codes of the two most recent items
+    of a sequence, returning the predicted code of the next item. No action or relation tokens: the direction of a sequence
+    is inferred from its history. `scale` is the learned inverse temperature of the prediction loss."""
+
+    def __init__(self, media, generator=None, sizes=SIZES):
+        super().__init__(media, generator, sizes)
+        i = self.sizes[2]
+        self.P = nn.Sequential(nn.Linear(2 * i, HIDDEN), nn.ReLU(), nn.Linear(HIDDEN, HIDDEN), nn.ReLU(), nn.Linear(HIDDEN, i))
+        self.scale = nn.Parameter(torch.zeros(()))
+
+    def predict(self, prev, cur):
+        return self.P(torch.cat([prev, cur], 1))

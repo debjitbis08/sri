@@ -5,7 +5,8 @@ The generic measures (judgment revision, next-judgment coherence) are recomputed
 all three networks with the same procedures. Composition is reported for the transition network only. Outcome labels
 compare the transition network with each of the other two, using the audit's proposed margins.
 
-Usage: .venv/bin/python -m experiments.transition_pilot_analysis pilot
+Usage: .venv/bin/python -m experiments.transition_pilot_analysis pilot [transition|sequence]
+With 'sequence', the third network is the sequence prediction pilot (experiments.sequence_pilot) instead.
 """
 import gzip
 import json
@@ -22,12 +23,16 @@ from experiments import standard_baseline as SB
 from experiments import standard_baseline_compare as C
 from experiments import generic_relations as G
 from experiments import transition_pilot as TP
+from experiments import sequence_pilot as SP
 
 ROOT = X.ROOT
 SEEDS = C.SEEDS
+VARIANT = sys.argv[2] if len(sys.argv) > 2 else 'transition'
+THIRD = {'transition': TP, 'sequence': SP}[VARIANT]
+OUT = 'transition-pilot-v1' if VARIANT == 'transition' else 'sequence-pilot-v1'
 NETS = {'heads': ('number-construction-v1-standard-part-d-pilot', SB.make_model),
         'generic': ('generic-relations-v1-pilot', G.make_model),
-        'transition': (TP.NAME, TP.make_model)}
+        'transition': (THIRD.NAME, THIRD.make_model)}
 MAIN = 'D-varied+rehearsal'
 
 
@@ -89,17 +94,17 @@ def main():
     stored = max(abs(R['transition'][f'{MAIN}/seed{s}']['after_block'][-1]['context/withheld']['two_sided_revised'] - F['transition'][s]['context/withheld']['two_sided_revised']) for s in SEEDS)
     out = {'seeds': SEEDS, 'margins': C.MARGIN, 'networks': {n: v[0] for n, v in NETS.items()}, 'measures': rows,
            'composition': comp, 'recomputation_max_abs_error': stored}
-    with gzip.open(ROOT / 'reports' / 'transition-pilot-v1-comparison.json.gz', 'wt') as f:
+    with gzip.open(ROOT / 'reports' / f'{OUT}-comparison.json.gz', 'wt') as f:
         f.write(json.dumps(out, indent=1) + '\n')
-    (ROOT / 'reports' / 'transition-pilot-v1-comparison-runtime.json').write_text(json.dumps({
-        'scope': 'nondeterministic timing; results in transition-pilot-v1-comparison.json.gz', 'module_sha256': X.nc.sha256(__file__),
+    (ROOT / 'reports' / f'{OUT}-comparison-runtime.json').write_text(json.dumps({
+        'scope': f'nondeterministic timing; results in {OUT}-comparison.json.gz', 'module_sha256': X.nc.sha256(__file__),
         'revision': X.git('rev-parse', 'HEAD'), 'dirty': bool(X.git('status', '--porcelain')), 'command': ' '.join([sys.executable, *sys.argv]),
         'wall_seconds': time.perf_counter() - t0, 'cpu_seconds': time.process_time() - c0}, indent=1) + '\n')
     f = lambda v: f'{np.mean(v):.2f} ({", ".join(f"{x:.2f}" for x in v)})'
     print('| Measure | Heads | Generic | Generic + transition | vs heads | vs generic |\n| --- | --- | --- | --- | --- | --- |')
     for r in rows:
         print(f"| {r['measure']} | {np.mean(r['heads']):.2f} | {np.mean(r['generic']):.2f} | {f(r['transition'])} | {r['vs_heads']} | {r['vs_generic']} |")
-    print('\nComposition (transition network, D-varied+rehearsal):')
+    print(f'\nComposition ({VARIANT} network, D-varied+rehearsal):')
     for k, v in comp.items():
         if k.endswith('/same') or k.endswith('/distance'):
             print(k, f(v))

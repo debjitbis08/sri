@@ -65,9 +65,16 @@ def transition_loss(model, items, pairs, match, c, cand):
     return loss / max(n, 1)
 
 
+def extra_transition_loss(model, material, c, cand):
+    return transition_loss(model, *material[:3], c, cand)
+
+
+EXTRA_LOSS = extra_transition_loss  # replaced by runners that reuse train_update with another prediction loss
+
+
 def train_update(enc, model, opt, material, rng, compare):
-    """D.train_update (copied; same losses and draws) with the transition loss added to the total."""
-    items, pairs, match = material
+    """D.train_update (copied; same losses and draws) with EXTRA_LOSS (default: the transition loss) added to the total."""
+    items, pairs, match = material[:3]
     solvers = {'image': P.Coupled(model)}
     if any(it[0] == 'taps' for it in items):
         solvers['sequence'] = D.Sequence(model)
@@ -101,7 +108,7 @@ def train_update(enc, model, opt, material, rng, compare):
         keep = np.flatnonzero(cnt[u] != cnt[v])[:D.N_COMPARE]
         u, v = u[keep], v[keep]
         loss_cmp = F.binary_cross_entropy_with_logits(model.relation_logits(c[u], c[v], 2), torch.from_numpy((cnt[u] > cnt[v]).astype(np.float32)))
-    loss_t = transition_loss(model, items, pairs, match, c, cand)
+    loss_t = EXTRA_LOSS(model, material, c, cand)
     loss = loss_match + loss_next + loss_cmp + loss_t
     if not torch.isfinite(loss):
         raise nc.NumericalFailure('transition pilot update')
