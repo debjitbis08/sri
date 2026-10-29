@@ -5,8 +5,9 @@ The generic measures (judgment revision, next-judgment coherence) are recomputed
 all three networks with the same procedures. Composition is reported for the transition network only. Outcome labels
 compare the transition network with each of the other two, using the audit's proposed margins.
 
-Usage: .venv/bin/python -m experiments.transition_pilot_analysis pilot [transition|sequence]
-With 'sequence', the third network is the sequence prediction pilot (experiments.sequence_pilot) instead.
+Usage: .venv/bin/python -m experiments.transition_pilot_analysis pilot [transition|sequence|think]
+With 'sequence', the third network is the sequence prediction pilot (experiments.sequence_pilot) instead. With 'think',
+the third network is the thinking-loop pilot (experiments.think_pilot) and the middle column is the sequence pilot.
 """
 import gzip
 import json
@@ -28,11 +29,15 @@ from experiments import sequence_pilot as SP
 ROOT = X.ROOT
 SEEDS = C.SEEDS
 VARIANT = sys.argv[2] if len(sys.argv) > 2 else 'transition'
-THIRD = {'transition': TP, 'sequence': SP}[VARIANT]
-OUT = 'transition-pilot-v1' if VARIANT == 'transition' else 'sequence-pilot-v1'
+if VARIANT == 'think':
+    from experiments import think_pilot as THINK
+THIRD = {'transition': TP, 'sequence': SP, 'think': THINK if VARIANT == 'think' else None}[VARIANT]
+OUT = {'transition': 'transition-pilot-v1', 'sequence': 'sequence-pilot-v1', 'think': 'think-pilot-v1'}[VARIANT]
 NETS = {'heads': ('number-construction-v1-standard-part-d-pilot', SB.make_model),
         'generic': ('generic-relations-v1-pilot', G.make_model),
         'transition': (THIRD.NAME, THIRD.make_model)}
+if VARIANT == 'think':
+    NETS['generic'] = (SP.NAME, SP.make_model)  # the base the loop is added to
 MAIN = 'D-varied+rehearsal'
 
 

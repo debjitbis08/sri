@@ -89,3 +89,62 @@ class GenericSequenceNet(GenericNet):
 
     def predict(self, prev, cur):
         return self.P(torch.cat([prev, cur], 1))
+
+
+ROLES = ('query', 'candidate', 'first', 'second')
+THINK_HIDDEN, THINK_STEPS = 32, 4
+
+
+class ThinkingSequenceNet(GenericSequenceNet):
+    """GenericSequenceNet whose answers come from a recurrent relational loop (Palm, Paquet and Winther 2018) instead of
+    the one-pass comparator g (kept as a parameter only so the other parameters start as in the sequence pilot).
+
+    A question is a set of nodes: for 'same' (matching), the query and its 9 candidates; for 'next' and 'more', the two
+    items. Each node starts from its code, its role and the question token. For K steps every node sums messages
+    f(h_i, h_j) from the others and updates its state with a GRU cell; an answer logit is read from every node at every
+    step (candidates for matching, the second item otherwise). K is the thinking effort (`steps`, settable at test).
+
+    relation_logits keeps the pairwise signature used by the runners: for 'same', rows come in groups of 9 with one
+    repeated query, and each group is answered as one set. relation_steps returns the logits of every step.
+    """
+
+    def __init__(self, media, generator=None, sizes=SIZES):
+        super().__init__(media, generator, sizes)
+        i, H = self.sizes[2], THINK_HIDDEN
+        self.role = nn.Embedding(len(ROLES), TOKEN)
+        self.inp = nn.Linear(i + 2 * TOKEN, H)
+        self.msg = nn.Sequential(nn.Linear(2 * H, H), nn.ReLU(), nn.Linear(H, H))
+        self.cell = nn.GRUCell(2 * H, H)
+        self.out = nn.Linear(H, 1)
+        self.steps = THINK_STEPS
+
+    def think(self, codes, roles, head):
+        """codes (B, N, d), roles (N,) role indices -> list over steps of (B, N) logits."""
+        B, N, _ = codes.shape
+        x = self.inp(torch.cat([codes, self.role.weight[roles][None].expand(B, -1, -1),
+                                self.token.weight[head][None, None].expand(B, N, -1)], -1))
+        h, outs = x, []
+        off = 1 - torch.eye(N)[None, :, :, None]
+        for _ in range(self.steps):
+            pair = torch.cat([h[:, :, None].expand(-1, -1, N, -1), h[:, None].expand(-1, N, -1, -1)], -1)
+            m = (self.msg(pair) * off).sum(2)
+            h = self.cell(torch.cat([x, m], -1).reshape(B * N, -1), h.reshape(B * N, -1)).reshape(B, N, -1)
+            outs.append(self.out(h).squeeze(-1))
+        return outs
+
+    def relation_steps(self, ca, cb, head):
+        d = ca.shape[1]
+        if head == RELATIONS.index('same'):
+            if len(ca) % 9:
+                raise ValueError('matching expects groups of 9 candidates per query')
+            q = ca.reshape(-1, 9, d)
+            if not torch.equal(q, q[:, :1].expand_as(q)):
+                raise ValueError('matching expects one repeated query per group of 9')
+            codes = torch.cat([q[:, :1], cb.reshape(-1, 9, d)], 1)
+            roles = torch.tensor([ROLES.index('query')] + [ROLES.index('candidate')] * 9)
+            return [o[:, 1:].reshape(-1) for o in self.think(codes, roles, head)]
+        roles = torch.tensor([ROLES.index('first'), ROLES.index('second')])
+        return [o[:, 1] for o in self.think(torch.stack([ca, cb], 1), roles, head)]
+
+    def relation_logits(self, ca, cb, head):
+        return self.relation_steps(ca, cb, head)[-1]
