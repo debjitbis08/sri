@@ -57,6 +57,86 @@ Entries separate **shown** (what the source demonstrated), **differs** (how
 this architecture differs) and **hypothesis** (what the project infers, still
 untested).
 
+## Fan-in pressure
+
+2026-10-29: design review for the
+[fan-in pressure proposal](fan-in-pressure-proposal.md), which replaced a
+bounded learnable locality proposal the same day. Sources opened directly:
+the Conv1d operator documentation and the four paper abstracts below. This
+is a targeted component review, not a novelty search. The first number-network
+study uses fixed random fan-in limits; the locality entries below bear on its
+deferred ordered-input variant.
+
+- **Fan-in limit as pressure [hypothesis].** A fan-in-limited network is a
+  special case of the dense one **[derived]**, so the claim is about what
+  training finds, not what can be represented. A dense layer can set weights
+  to zero but has no reason to. Pruning, sparse-training and random-sparsity
+  results **[familiar; not read today]** show sparse networks matching dense
+  accuracy at moderate sparsity; none known to us shows better systematic
+  transfer. The expected outcome is therefore no gain, with reader limits the
+  likeliest exception. DropConnect, L1 and prune-after-training are the
+  stage-2 controls for random, soft and late pressure.
+
+- **Convolution and local connectivity.**
+  [PyTorch Conv1d](https://docs.pytorch.org/docs/2.9/generated/torch.nn.Conv1d.html)
+  **[read: operator definition]** applies a shared kernel across positions.
+  Untied local weights are a locally connected layer **[familiar]**. The
+  proposal instead learns static per-unit sampling positions within hard
+  intervals. Locality alone is not convolution **[derived]**. Ordinary
+  convolution and full-window untied local weights are required controls.
+- **Learned kernel positions.**
+  [Khalfaoui-Hassani, Pellegrini and Masquelier, DCLS: beyond bilinear interpolation (2023)](https://arxiv.org/abs/2306.00817)
+  **[abstract]** learns the positions of a convolution kernel's nonzero
+  elements by interpolation; the original bilinear version sees only the
+  nearest sites, and longer-range (Gaussian) interpolation improves
+  ImageNet-1k classification. This is the closest established mechanism.
+  It differs in tied weights and 2D tasks. With linear interpolation,
+  position gradients see only adjacent sites **[derived]**, so small
+  learned displacements are the expected outcome.
+- **Learned sparse connectivity.**
+  [Evci et al., Rigging the Lottery (ICML 2020)](https://arxiv.org/abs/1911.11134)
+  **[abstract]** trains sparse networks at fixed density, updating topology
+  by magnitude and occasional gradients, and reports better accuracy per
+  training cost than earlier sparse methods. Magnitude pruning with
+  fine-tuning and sparse evolutionary training are established
+  alternatives **[familiar]**. At an equal edge budget the candidate and a
+  pruned full window have the same compiled family **[derived]**, so the
+  pruned window is the decisive control.
+- **Learned sampling.**
+  [Dai et al., Deformable Convolutional Networks (2017)](https://arxiv.org/abs/1703.06211)
+  **[abstract]** learns sampling offsets from task supervision and reports
+  improved detection/segmentation. The proposed bounded static sampling is
+  related **[analogy]**, but differs in bounds, unit-specific parameters and
+  scalar shrinking layers. Those vision results do not predict a gain here.
+- **Differentiable spatial transformation.**
+  [Jaderberg et al., Spatial Transformer Networks (2015)](https://arxiv.org/abs/1506.02025)
+  **[abstract]** learns input-conditioned transformations and reports
+  invariance to several transformation families. The proposal uses static
+  positions shared across examples, so it cannot claim that per-example
+  adaptation **[derived]**. Differentiable sampling is the connection
+  **[analogy]**, not equivalent inference or an equivalent estimator.
+- **Earlier project evidence [read: local analysis/results].**
+  [Locality adaptation analysis](locality-adaptation-analysis.md) proves
+  linear approximation gaps and limits of phase adaptation.
+  [V2](locality-adaptation-v2-results.md) recovered shifted structure but
+  missed its joint criterion through aligned reconstruction noninferiority,
+  with substantial selection cost. This motivates explicit sample-budget
+  and cost comparisons; it does not validate nonlinear learned neighborhoods.
+- **Predictions and failure modes [derived].** Fixed learned interpolation
+  can be compiled into sparse weighted edges. A linear stack remains affine;
+  bounded paths cannot access excluded information. Smaller dimensionality
+  alone neither bounds information in bits nor ensures nuisance removal.
+  Meaningful ordering, predictive supervision, nonlinear responses and
+  transfer measurements are distinct obligations. Saturated location
+  parameters, coincident samples and boundary loss require diagnostics.
+
+The proposed contribution is an internal test of whether limiting how many
+units each unit combines arranges the shared code.
+No novelty or efficiency advantage is established. Pruned full local
+windows, ordinary CNNs, fixed local layers, dynamic sparse training and
+dense bottlenecks are cheaper or simpler alternatives whose costs must be
+measured rather than assumed.
+
 ## Where this project sits
 
 - The energy is a positive-definite quadratic in the activities. It defines a
