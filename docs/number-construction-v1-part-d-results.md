@@ -160,19 +160,20 @@ Nearest real input has the clamped count (top 1; top-5 majority in brackets):
   arms do. Not explained.
 - The sequence sense is untrained in arms without taps, so its rows are at chance there.
 
-**Decoded inputs are weak.** As prior work predicts, the decoder outputs the average
-input for a feature vector, and the features keep the count but not the dot positions:
-- decoded collections are blobs whose spread grows with count, not countable dots;
-  connected-component counting is 0.04–0.11 even on reconstructions of real collections;
-- the count reader reads reconstructions of real collections at 0.53–0.60 and decoded
-  imagery barely above chance;
-- decoded taps are more legible: the reader reads reconstructions of real taps at 1.00 in
-  the varied arms, and decoded imagery at 0.26–0.48 (gap 0.48, random 0.07);
-- the system's own reading of decoded inputs is at chance: decoded inputs lie off the
-  encoder's training distribution.
-
-So the **feature-level** imagery is clear, and the **pixel-level** rendering needs a
-generative decoder that can sample positions rather than average them.
+**What the system dreams.** The decoded inputs show what a core state looks like to each
+sense. The decoder gives the average input for a feature vector, so dreams are blurred.
+They keep the quantity but not where individual dots are:
+- in the image sense, a dreamed small count is a compact blob; by 6–9 it spreads into a
+  wide band. The dream carries "how much", not a particular arrangement. Collections,
+  symbols, the imagined successor, the gap and middle-layer states all dream this way.
+  Random states dream irregular, symbol-like fragments. A count reader trained on
+  reconstructions of real collections (0.53–0.60 on those) reads image dreams near
+  chance, so their count is visible to the eye only as spread;
+- in the sequence sense, dreams are pulse trains; the count reader recovers the count
+  from dreamed taps at 0.26–0.48 in the varied arms (gap 0.48, random 0.07; reader on
+  reconstructions of real taps 1.00);
+- the system's own reading of its dreams is at chance: dreamed inputs lie outside the
+  encoder's training distribution, so it does not recognise them as inputs.
 
 The output module has no loss in Part D, so it is not reported.
 
@@ -191,8 +192,6 @@ The output module has no loss in Part D, so it is not reported.
   update-equivalence check (5 updates), the tap generator's test, and one decoder check
   on a Part A checkpoint (3,000 updates, which led to adding the count reader and the
   nearest-input readout before the full probe).
-- A background watcher meant to wait for the Part D runs never exited (it matched its own
-  command line). It used no CPU, but the probe started several hours later than planned.
 
 ## Status after Part D
 
@@ -208,14 +207,12 @@ The output module has no loss in Part D, so it is not reported.
 - **Not yet:**
   - which part of the varied contexts helps (taps vs comparison);
   - transfer to a new language (Thai) remains at chance;
-  - English stays slow (0.31–0.35);
-  - pixel-level imagery.
+  - English stays slow (0.31–0.35).
 - **Unexplained:** reversed comparison on untaught Thai forms; D-base's failure in the
   imagery probe.
 - **Suggested next:**
   1. split the varied arm into taps-only and comparison-only;
   2. a trained single-pass coherence detector against the residual baseline, on held-out
      combinations (the instinct test);
-  3. a generative decoder (sampling, not averaging) for pixel imagery;
-  4. Part C questions, now with a concrete trigger: a coherence violation in a retained
+  3. Part C questions, now with a concrete trigger: a coherence violation in a retained
      concept, or a gap state.

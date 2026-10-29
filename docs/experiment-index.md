@@ -120,8 +120,8 @@ contexts, rehearsal and an imagery probe.
 - Successor residuals detect incoherent counting runs without training wherever the
   concept is retained (0.94–0.97).
 - Imagery: clamped core states, including the gap between two neighbours, reverse to
-  count-specific features in both senses (random control 0.04). Pixel decoding stays
-  blurred.
+  count-specific features in both senses (random control 0.04). Decoded "dreams" are
+  blurred and carry quantity, not arrangement.
 
 Commands: `NSY_WORKERS=11 .venv/bin/python -m experiments.number_construction_part_d pilot`
 (25 minutes), then `NSY_WORKERS=11 .venv/bin/python -m experiments.number_construction_imagery pilot`
