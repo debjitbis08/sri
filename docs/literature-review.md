@@ -8,6 +8,12 @@ The aim is practical: avoid rebuilding a known method under a new name, avoid
 directions already known to fail, and find cheaper established alternatives or
 baselines before spending a run.
 
+Keep recording useful findings during research discussions, even before a
+contract is proposed. Put topic-specific reading notes in docs/ and link them
+from docs/prior-work.md, separating source evidence from program implications
+and untested hypotheses. Start from the program's problem: understand the best
+relevant solutions and why they work, then identify useful improvements.
+
 ## Before freezing a contract
 
 Each contract gets a **Prior work** section, written before freezing, that:

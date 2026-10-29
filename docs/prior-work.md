@@ -8,6 +8,19 @@ studies are not yet reviewed.
 
 ## Search record and evidence levels
 
+On 2026-10-29, [conceptual instinct notes](conceptual-instinct-notes.md)
+reviewed predictive-coding novelty detection, compatibility-energy learning,
+amortized inference and BALD for the number-construction discussion. The notes
+separate learned inconsistency detection from answer reliability and question
+selection; the proposed mechanism is untested and is not a novelty claim.
+
+On 2026-10-27, user-supplied readings by Rudra (2022), Morton (2012), and
+Abbott–Zardini (2026) were reviewed in selected sections for the edge-algebra
+discussion. [Detailed notes and reading scope](edge-algebra-notes.md) record
+their complementary roles: efficient structured linear maps, compositional
+tensor diagrams, and algebraic model construction/compilation. The notes
+separate source findings from SRI-specific stateful-operator proposals.
+
 Searches on 2026-10-26 covered GLOM, multi-view and multimodal predictive
 coding, prospective configuration, equilibrium-propagation bias, predictive
 coding as associative memory, coupled dictionary learning, representation
@@ -208,6 +221,14 @@ untested).
     learned translations.
 
 ## Continual learning and consolidation
+
+The [continuous-learning notes](continuous-learning-notes.md) record the
+2026-10-27 reading on representation sharing versus interference (Holton et al.),
+hybrid predictive coding, wake–sleep, generative replay, eligibility traces and
+streaming learning components. Each entry separates reading depth, published
+evidence, differences from SRI and untested program implications. The central
+distinction is between making inference cheap and deciding which knowledge
+to share or preserve; neither mechanism supplies the other automatically.
 
 - **Synaptic Intelligence** ([Zenke, Poole & Ganguli 2017](https://arxiv.org/pdf/1703.04200)).
   - Shown [read, Section 3]: importance ω_k accumulates −g_k θ'_k along the
@@ -473,6 +494,82 @@ numerical scripts during this review and are not stored.
     [relational linear preflight](relational-linear-preflight-v1-contract.md)
     and its draft-check script].
 
+## Post-preflight originality review and GDL corrections
+
+Search/review date: 2026-10-27. See the
+[detailed review](relational-originality-review.md) for reading scope,
+derivations, corrections to the GDL notes, and the revised research decision.
+Searches covered multi-step prediction, latent-dynamics transfer, NRI,
+time-warping gates, unitary recurrence, switching state-space models,
+multiplicative transformation learning, Augerino, equilibrium models, and
+local temporal credit assignment. This is a targeted overlap review, not
+proof that no original SRI contribution is possible.
+
+- **GDL representation theory** [read, current book Chapter 3, §3.6.10].
+  [The authors' chapter](https://geometricdeeplearning.com/book/algebraicpriors.html)
+  explains irreducible decomposition and Schur's lemma, including the real
+  1/2/4-dimensional possibilities. Our joint alignment constraints are an
+  application. This does not establish noisy finite-sample encoder recovery.
+  Domain coarsening in [Chapter 4](https://geometricdeeplearning.com/book/geometricpriors.html)
+  is distinct from reducing channel width [read, §4.4.4].
+- **Multi-step prediction and latent transfer** [read, selected sections].
+  [Venkatraman et al.](https://cdn.aaai.org/ojs/9590/9590-13-13118-1-2-20201228.pdf)
+  explicitly contrast linear one-step and simulation objectives. [Sun et al.](https://arxiv.org/pdf/2201.00248)
+  give a transferable-dynamics result under deterministic-transition and
+  sufficient-representation assumptions (Theorem 8). These explain why the
+  broad objectives are established, but do not prove success of our noisy
+  fixture's estimator or local learning rule.
+- **Inferred relation types** [read, NRI §§3–3.4].
+  [Kipf et al.](https://proceedings.mlr.press/v80/kipf18a/kipf18a.pdf)
+  infer latent edge types and use type-specific prediction functions. They
+  train over multiple steps specifically to discourage ignoring relations.
+  SRI's proposed equilibrium edge state differs in inference and objective;
+  it is not a new relation-discovery capability merely because it is an
+  energy variable. Switching linear regimes are also established:
+  [Ghahramani and Hinton](https://www.cs.utoronto.ca/~hinton/absps/switch.html)
+  [abstract].
+- **Multiplicative transformation codes** [read, opening only].
+  [Memisevic and Hinton 2010](https://www.cs.toronto.edu/~rfm/pubs/factored.pdf)
+  use factored higher-order Boltzmann machines to represent transformations
+  and demonstrate visual analogy. This is a close conceptual predecessor of
+  content-independent relation codes. Their probabilistic estimator is not
+  equated with SRI's quadratic-residual construction.
+- **Gating** [read, §1].
+  [Tallec and Ollivier](https://arxiv.org/pdf/1804.11188) derive gates from
+  time transformations through a continuous-time model and discretization.
+  Our two-quadratic weighted-average identity is elementary [derived], not
+  an independent gating invention or an exact discrete time-warp theorem.
+- **Local temporal learning is also an active established area.**
+  The main text of both papers was later read for the
+  [fixture assessment](relational-linear-fixture-assessment.md).
+  - [Williams et al. 2026](https://proceedings.mlr.press/v306/williams26a.html)
+    [read, main text]. In data-aligned linear RNNs, one-step tBPTT shares
+    BPTT's fixed-point structure. RFLO's weight changes have rank at most
+    the output dimension, and it converges more slowly.
+  - [Potter and Rhodes 2026](https://arxiv.org/abs/2602.18131)
+    [read, main text; preprint, appendix proofs not audited]. Standard tPC
+    has one-step truncated credit. tPC-RTRL is local in space and time and
+    matches BPTT on four tasks. Propagating inferred states during training
+    worsens open-loop rollout.
+  - Differs: tPC-RTRL's exactness is for a single-layer element-wise
+    recurrence; its multilayer extension is layer-local and approximate
+    (§5.5). Williams et al. study a single linear recurrence with no
+    energy-based inference.
+  - Hypothesis: they supply machinery and controls for local long-horizon
+    learning. Neither is equivalent to SRI's procedure, and neither shows
+    that SRI's coupled-module combination is redundant.
+- **Cheap deductions** [derived, detailed in the review]: implicit-Euler
+  errors equal (I+hH)^−t e_0; product errors telescope and can accumulate
+  with horizon; one-step conditional prediction repeatedly inserts KR;
+  the Sylvester residual inherits local singular-value stability away from
+  zero normalization. None needs an experimental mechanism-discovery study.
+
+**Research decision:** the preflight adds implementation-specific feasibility
+and cost evidence. Before a further substantive run, specify a concrete
+advantage over the closest established method, its constraints, and a minimal
+falsifying test. The detailed review supersedes treating the GDL notes'
+follow-up list as an originality-ranked research agenda.
+
 ## Number concept network
 
 Search date: 2026-10-28. Starting point: the user-supplied *Number concept
@@ -568,6 +665,57 @@ decoder-free learning are sensible follow-ups, but this v1 claims neither
 general counting nor architectural/computational superiority. Its contribution
 would be controlled practical evidence for or against one-anchor relation
 transfer, not a novelty claim.
+
+## Number cross-relation pilot: originality assessment
+
+Search date: 2026-10-28, after reading
+[the pilot](number-cross-relation-pilot.md). Targeted queries included
+“knowledge graph entity alignment seed alignment TransE”, “MNIST dice successor
+shared representation alignment”, “On the Transferability of VAE Embeddings”,
+and “Coherent and Consistent Relational Transfer Learning”. This is a targeted
+assessment, not an exhaustive novelty search. No experimental artifacts changed.
+
+- [Strömfelt et al., NeurIPS 2022, *Formalizing Consistency and Coherence of
+  Representation Learning*](https://proceedings.neurips.cc/paper_files/paper/2022/file/2d95270d763751439626d91f57e9a750-Paper-Conference.pdf)
+  [read: introduction, decoder description, §§6–7]. Shown: MNIST-to-BlockStacks
+  partial relation transfer, training a target autoencoder through frozen
+  successor judgments and evaluating other relations; decoder consistency
+  relates to transfer performance. Differs: separate autoencoders, staged
+  transfer and within-target relation evaluation, rather than joint digit/dice
+  training with sparse cross-modal equality pairs. Implication: coherent
+  relation geometry aiding visual cross-domain transfer already has direct
+  precedent; the pilot is not a reproduction of their method [analogy].
+- [Strömfelt et al., 2020, *On the Transferability of VAE Embeddings using
+  Relational Knowledge with Semi-Supervision*](https://arxiv.org/pdf/2011.07137)
+  [read: abstract and main-text experiment description]. Shown: MNIST equality,
+  ordering and successor supervision, comparing structured and higher-capacity
+  relation decoders, including equality transfer to excluded classes. Differs:
+  a VAE and within-MNIST transfer rather than digit/dice correspondence.
+  Implication: even the structured-versus-flexible relation-decoder contrast
+  and held-out equality evaluation have close precedent [analogy].
+- [Zhu et al., IJCAI 2017, *Iterative Entity Alignment via Joint Knowledge
+  Embeddings*](https://www.ijcai.org/Proceedings/2017/0595.pdf)
+  [read: abstract, introduction and joint-embedding description]. Shown:
+  shared relations and seed correspondences support further entity alignment
+  across knowledge graphs. Differs: symbolic entity embeddings and iterative
+  alignment, not learned image encodings. Implication: extending sparse
+  correspondences using relational structure is established [analogy].
+- [Bordes et al., 2013, TransE](https://proceedings.neurips.cc/paper/2013/hash/1cecc7a77928ca8133fa24680a88d2f9-Abstract.html)
+  [abstract]. Shown: relational scoring through translations in embedding
+  space. Differs: the pilot uses a nonlinear residual successor and binary
+  judgments, not TransE's fixed relation-vector model. A shared translation
+  is therefore a simpler comparator, not an equivalent implemented method.
+
+Assessment [inference from these sources and the pilot]: the general principle
+is established; the particular MNIST/dice ablation is useful local evidence,
+but no new algorithm or scientific principle has been established. These
+searches did not establish whether the exact fixture/protocol already exists;
+absence of an exact match would not itself establish a substantive contribution.
+The strong numerical result supports feasibility, not originality. Before
+claiming novelty, compare against a simpler translation-based relational model
+and the closest structured-decoder approach, and identify a new capability,
+efficiency advantage or demonstrated limitation of those approaches. Merely
+adding seeds would strengthen reliability without resolving originality.
 
 ## Number core network
 
@@ -691,6 +839,23 @@ Contribution: no new general principle. Sparse-correspondence extension through
 relational structure and shared-label multimodal alignment are both established.
 The study tests whether the program's coupled-module architecture supports them,
 whether shared labels suffice as the bridge, and how coupling topology affects it.
+
+## Abstraction learning beyond coordinate alignment
+
+2026-10-28 follow-up to number-core pilot 2: see
+[learning reusable structure](abstraction-learning-principles.md) for the
+source/search record and claim-level evidence tags. The note distinguishes
+shared parameters from reused mechanisms, and predictive sufficiency from
+compression. It connects multi-view information bottleneck, predictive state
+representations, and DreamCoder's library refactoring to an untested SRI
+consolidation hypothesis. It also records the limits of importing
+identifiability results from unsupervised disentanglement. No new method,
+contract, or successful abstraction result is claimed.
+
+User-supplied follow-up: [An et al., 2023, v1](https://arxiv.org/html/2302.11978v1)
+is discussed in the same note, including a revision of research priority toward
+transfer dynamics and training history. Explicit consolidation remains a
+hypothesis rather than an established missing ingredient.
 
 ## Training for learning efficiency (number systems meta)
 

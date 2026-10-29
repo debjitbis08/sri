@@ -2,6 +2,12 @@
 
 2026-10-26. Reading notes, not a contract or result.
 
+**2026-10-27 review:** the [originality review](relational-originality-review.md)
+qualifies several mathematical claims below and supersedes the candidate
+follow-up priorities. In particular, settling rates are analytically available;
+inferred relations, gating and shared-dynamics transfer have close precedents.
+Read its corrections before using these informal notes to design a study.
+
 Source: Bronstein, Bruna, Cohen and Veličković,
 [Geometric Deep Learning: Grids, Groups, Graphs, Geodesics, and Gauges](https://arxiv.org/abs/2104.13478)
 (v2, 2021). Read: §3.4 scale separation, §3.5 the blueprint, §4.5 gauges,
