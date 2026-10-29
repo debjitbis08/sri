@@ -1,0 +1,120 @@
+{
+ "command": "/home/debjit/code/sri/.venv/bin/python /home/debjit/code/sri/experiments/transition_pilot.py pilot",
+ "cpu_count": 12,
+ "data_bytes": 586809600,
+ "dirty": true,
+ "environment_overrides": {
+  "NSY_WORKERS": "11"
+ },
+ "module_sha256": {
+  "src.number_concept": "d8af3f35a76ece96a09f34da5d451cdbbb57a2ddc06592b41b96b89fd02c5479",
+  "src.number_core": "354f1cc0bb9851a8e7d4e64563d177e38e49cf5fabf2d57883dda9829e940ddd",
+  "src.number_systems": "092878143524bcef2a54a1aa34a96fd33c3107d1ff39954eb8531ba03cfec34f",
+  "src.number_systems_net": "b2fb111ecd0afe5f2e8e252fa3806b23e3b19175220fc8b29231189870abe833"
+ },
+ "numpy": "2.5.4",
+ "parent_cpu_seconds": 7.630450431,
+ "part_a_sha256": "9701bce1e6d7d26aa06042f5bc9f8e025e5e3a188639d2ddee7153af3c0f9bee",
+ "peak_rss_children_max_kb": 1177456,
+ "peak_rss_parent_kb": 1130592,
+ "phases": {
+  "data_wall_seconds": 23.537699575012084,
+  "render_wall_seconds": 3.04746012200485,
+  "runs_wall_seconds": 667.8157127229788
+ },
+ "platform": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+ "revision": "b5382f633b2a6b17dd5b96c936b8180ac71c573a",
+ "rss_convention": "Linux ru_maxrss in KiB; children value is the largest single worker process",
+ "runner_sha256": "aa70dc87ddbd0a7813326cc4f63a392bb0ebf275f3b8e74a3073319e4f929bf0",
+ "scope": "nondeterministic timing and environment; scientific results are in -results.json.gz",
+ "spec_sha256": "a3d6a0c855ff97d20c553e005953aa842e40437fe69c2fec5b9c979d6bad92c7",
+ "tasks": {
+  "D-base/seed100": {
+   "cpu_seconds": 627.889401759,
+   "eval_cpu_seconds": 7.314199874999957,
+   "peak_rss_kb": 1167912,
+   "train_cpu_seconds": 597.0377785989999,
+   "transfer_cpu_seconds": 11.111347802999944,
+   "updates": 6200,
+   "wall_seconds": 628.0482439280022
+  },
+  "D-base/seed101": {
+   "cpu_seconds": 526.529140796,
+   "eval_cpu_seconds": 7.273373370999934,
+   "peak_rss_kb": 1168784,
+   "train_cpu_seconds": 491.52095148399997,
+   "transfer_cpu_seconds": 16.28091299700003,
+   "updates": 6200,
+   "wall_seconds": 526.6669062220026
+  },
+  "D-base/seed102": {
+   "cpu_seconds": 638.08720339,
+   "eval_cpu_seconds": 7.658706303999878,
+   "peak_rss_kb": 1169576,
+   "train_cpu_seconds": 609.339542392,
+   "transfer_cpu_seconds": 7.73525797700006,
+   "updates": 6200,
+   "wall_seconds": 638.1825411230093
+  },
+  "D-rehearsal/seed100": {
+   "cpu_seconds": 626.3049362559999,
+   "eval_cpu_seconds": 7.507642704000062,
+   "peak_rss_kb": 1168968,
+   "train_cpu_seconds": 593.8796125060001,
+   "transfer_cpu_seconds": 11.835110904999965,
+   "updates": 6200,
+   "wall_seconds": 626.7898602510104
+  },
+  "D-rehearsal/seed101": {
+   "cpu_seconds": 622.3521585220001,
+   "eval_cpu_seconds": 7.89080808500006,
+   "peak_rss_kb": 1169008,
+   "train_cpu_seconds": 586.509122595,
+   "transfer_cpu_seconds": 12.933612546999939,
+   "updates": 6200,
+   "wall_seconds": 622.56873661399
+  },
+  "D-rehearsal/seed102": {
+   "cpu_seconds": 498.181985596,
+   "eval_cpu_seconds": 5.807981066000053,
+   "peak_rss_kb": 1168648,
+   "train_cpu_seconds": 464.837833262,
+   "transfer_cpu_seconds": 17.487756687,
+   "updates": 6200,
+   "wall_seconds": 498.6609272719943
+  },
+  "D-varied+rehearsal/seed100": {
+   "cpu_seconds": 592.494489517,
+   "eval_cpu_seconds": 5.750997156000011,
+   "peak_rss_kb": 1176220,
+   "train_cpu_seconds": 562.870682006,
+   "transfer_cpu_seconds": 15.166000077999911,
+   "updates": 6200,
+   "wall_seconds": 592.6980857869785
+  },
+  "D-varied+rehearsal/seed101": {
+   "cpu_seconds": 667.338455469,
+   "eval_cpu_seconds": 5.683666318999997,
+   "peak_rss_kb": 1177336,
+   "train_cpu_seconds": 644.64781033,
+   "transfer_cpu_seconds": 5.250418568999976,
+   "updates": 6200,
+   "wall_seconds": 667.4149190410099
+  },
+  "D-varied+rehearsal/seed102": {
+   "cpu_seconds": 638.5903462509999,
+   "eval_cpu_seconds": 6.6317167959999495,
+   "peak_rss_kb": 1177456,
+   "train_cpu_seconds": 613.811812791,
+   "transfer_cpu_seconds": 7.8317272619999585,
+   "updates": 6200,
+   "wall_seconds": 638.6996090059984
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "wall_seconds": 694.4249796030053,
+ "worker_cpu_seconds_total": 5437.768117556,
+ "workers": 11
+}

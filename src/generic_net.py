@@ -55,3 +55,22 @@ class GenericSRI(net.MultiSRI):
 
     def S(self, c):
         raise AttributeError('GenericSRI has no successor map')
+
+
+ACTIONS = ('add', 'remove')
+
+
+class GenericTransitionNet(GenericNet):
+    """GenericNet plus one action-conditioned transition network T(c, action): a two-layer MLP on a code and a learned
+    action token, returning a predicted code. Trained to predict the next item's code (a world model); the actions are
+    tokens, not parameters with their own form. `scale` is the learned inverse temperature of the prediction loss."""
+
+    def __init__(self, media, generator=None, sizes=SIZES):
+        super().__init__(media, generator, sizes)
+        i = self.sizes[2]
+        self.action = nn.Embedding(len(ACTIONS), TOKEN)
+        self.T = nn.Sequential(nn.Linear(i + TOKEN, HIDDEN), nn.ReLU(), nn.Linear(HIDDEN, HIDDEN), nn.ReLU(), nn.Linear(HIDDEN, i))
+        self.scale = nn.Parameter(torch.zeros(()))
+
+    def transition(self, c, action):
+        return self.T(torch.cat([c, self.action.weight[ACTIONS.index(action)].expand(len(c), -1)], 1))
