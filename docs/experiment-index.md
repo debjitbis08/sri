@@ -152,6 +152,10 @@ and form comparisons lose 0.04–0.07. Equality pairs through the comparison hea
 (24 minutes), then the composition and projection analyses with
 `NCC_RUNS=number-construction-v1-multistep-pilot`.
 Summary of the number line so far: [number-line checkpoint](number-line-checkpoint.md) (draft).
+Next-step proposal: [architecture audit](architecture-audit.md) (draft): standard replacements for each component, and drift from the founding hypothesis.
+Architecture audit stage 1 (standard network on the Part D and multi-step pilots): [results](architecture-audit-stage1-results.md); `NSY_WORKERS=11 .venv/bin/python -m experiments.standard_baseline pilot <step>` for each step, then `experiments.standard_baseline_compare` and `experiments.standard_baseline_costs`.
+Cross-sense confirmation v1 (SRI against standard on form → taps, seeds 200–209): [contract](cross-sense-confirmation-v1-contract.md), [results](cross-sense-confirmation-v1-results.md) (confirmed by the frozen rule; explained by hubness, removed by a CSLS-style readout); `NSY_WORKERS=11 .venv/bin/python -m experiments.cross_sense_confirmation pilot {sri,standard}`, then `experiments.cross_sense_confirmation_analysis`.
+Generic relations v1 (standard network with one generic comparator instead of relation heads; Part D pilot): [spec](generic-relations-v1-spec.md), [results](generic-relations-v1-results.md) (taught relations survive; untaught transfer collapses to chance, in the standard network and in SRI); `NSY_WORKERS=11 .venv/bin/python -m experiments.generic_relations pilot`, then `experiments.generic_relations_analysis`.
 New experiments are added here, not to the README. Entries carried over from the
 README's original layout list keep their wording. Earlier studies that list never
 covered (for example the layered-module, locality-adaptation and relational

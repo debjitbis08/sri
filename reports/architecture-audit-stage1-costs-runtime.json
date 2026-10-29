@@ -1,0 +1,74 @@
+{
+ "blas": "mkl",
+ "command": "/home/debjit/code/sri/.venv/bin/python /home/debjit/code/sri/experiments/standard_baseline_costs.py",
+ "cpu_count": 12,
+ "dirty": true,
+ "dtype": "float32",
+ "module_sha256": {
+  "experiments/standard_baseline.py": "14254e3240c04f8b1ab0eb73bb0d50a59f90471c1d49ca9ba50cce8af884e5b5",
+  "experiments/standard_baseline_compare.py": "04fe5ef9283ce812083d0327c44aaf20a2720b97d4a41aeeb2ae23e923aa5141",
+  "experiments/standard_baseline_costs.py": "bd92a135e6d0c29696e4014600e4eb5e611e3656576ba9cf1d0333e0fabae71c",
+  "src/standard_net.py": "e4f2864471593d5722de149858d8d2b0cce00d208721b16e1a02549889b279d5"
+ },
+ "numpy": "2.5.4",
+ "perception_microbenchmark": {
+  "image": {
+   "batch": 270,
+   "code_dim": 16,
+   "sri_solve_batch": {
+    "median_us": 1635.2249949704856,
+    "q25_us": 1632.1810180670582,
+    "q75_us": 1637.2477548429742,
+    "repeats": 200,
+    "warmup": 20
+   },
+   "sri_solver_construction_incl_cholesky": {
+    "median_us": 1167.6965077640489,
+    "q25_us": 1165.431982371956,
+    "q75_us": 1171.9120084308088,
+    "repeats": 200,
+    "warmup": 20
+   },
+   "standard_projection_batch": {
+    "median_us": 15.560974134132266,
+    "q25_us": 15.521007298957556,
+    "q75_us": 15.623256331309676,
+    "repeats": 200,
+    "warmup": 20
+   },
+   "state_dim_sri": 272
+  },
+  "sequence": {
+   "batch": 270,
+   "code_dim": 16,
+   "sri_solve_batch": {
+    "median_us": 1545.0685023097321,
+    "q25_us": 1541.573990834877,
+    "q75_us": 1556.4689892926253,
+    "repeats": 200,
+    "warmup": 20
+   },
+   "sri_solver_construction_incl_cholesky": {
+    "median_us": 1154.3860018718988,
+    "q25_us": 1129.0252587059513,
+    "q75_us": 1165.5960042844526,
+    "repeats": 200,
+    "warmup": 20
+   },
+   "standard_projection_batch": {
+    "median_us": 15.551020624116063,
+    "q25_us": 15.510006051044911,
+    "q75_us": 15.600991901010275,
+    "repeats": 200,
+    "warmup": 20
+   },
+   "state_dim_sri": 272
+  }
+ },
+ "platform": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+ "revision": "f62ef06684b7d7796681efbe85ebfd657847a485",
+ "scope": "nondeterministic timing and environment",
+ "threads": 1,
+ "torch": "2.14.1+cpu"
+}

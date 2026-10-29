@@ -1,0 +1,130 @@
+{
+ "command": "/home/debjit/code/sri/.venv/bin/python /home/debjit/code/sri/experiments/cross_sense_confirmation.py pilot standard",
+ "cpu_count": 12,
+ "data_bytes": 586809600,
+ "dirty": true,
+ "environment_overrides": {
+  "NCD_SEEDS": "200,201,202,203,204,205,206,207,208,209",
+  "NSY_WORKERS": "11"
+ },
+ "module_sha256": {
+  "src.number_concept": "d8af3f35a76ece96a09f34da5d451cdbbb57a2ddc06592b41b96b89fd02c5479",
+  "src.number_core": "354f1cc0bb9851a8e7d4e64563d177e38e49cf5fabf2d57883dda9829e940ddd",
+  "src.number_systems": "092878143524bcef2a54a1aa34a96fd33c3107d1ff39954eb8531ba03cfec34f",
+  "src.number_systems_net": "b2fb111ecd0afe5f2e8e252fa3806b23e3b19175220fc8b29231189870abe833"
+ },
+ "numpy": "2.5.4",
+ "parent_cpu_seconds": 7.758347537,
+ "part_a_sha256": "9701bce1e6d7d26aa06042f5bc9f8e025e5e3a188639d2ddee7153af3c0f9bee",
+ "peak_rss_children_max_kb": 1181892,
+ "peak_rss_parent_kb": 1138440,
+ "phases": {
+  "data_wall_seconds": 24.056832907983335,
+  "render_wall_seconds": 3.026245861023199,
+  "runs_wall_seconds": 830.722087681992
+ },
+ "platform": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+ "revision": "f62ef06684b7d7796681efbe85ebfd657847a485",
+ "rss_convention": "Linux ru_maxrss in KiB; children value is the largest single worker process",
+ "runner_sha256": "aa70dc87ddbd0a7813326cc4f63a392bb0ebf275f3b8e74a3073319e4f929bf0",
+ "scope": "nondeterministic timing and environment; scientific results are in -results.json.gz",
+ "spec_sha256": "a3d6a0c855ff97d20c553e005953aa842e40437fe69c2fec5b9c979d6bad92c7",
+ "tasks": {
+  "D-varied+rehearsal/seed200": {
+   "cpu_seconds": 824.681182112,
+   "eval_cpu_seconds": 5.195452726999974,
+   "peak_rss_kb": 1179480,
+   "train_cpu_seconds": 796.096581279,
+   "transfer_cpu_seconds": 7.755716490000054,
+   "updates": 6200,
+   "wall_seconds": 825.5477621580067
+  },
+  "D-varied+rehearsal/seed201": {
+   "cpu_seconds": 765.224536867,
+   "eval_cpu_seconds": 5.901370766999889,
+   "peak_rss_kb": 1179168,
+   "train_cpu_seconds": 724.101369224,
+   "transfer_cpu_seconds": 26.322247855,
+   "updates": 6200,
+   "wall_seconds": 766.3812584679981
+  },
+  "D-varied+rehearsal/seed202": {
+   "cpu_seconds": 826.800443947,
+   "eval_cpu_seconds": 4.895899280000037,
+   "peak_rss_kb": 1178732,
+   "train_cpu_seconds": 801.1560396459998,
+   "transfer_cpu_seconds": 8.638766239999995,
+   "updates": 6200,
+   "wall_seconds": 827.3274122150033
+  },
+  "D-varied+rehearsal/seed203": {
+   "cpu_seconds": 828.7214186130001,
+   "eval_cpu_seconds": 5.649962259000063,
+   "peak_rss_kb": 1179064,
+   "train_cpu_seconds": 800.730881622,
+   "transfer_cpu_seconds": 6.092982866000057,
+   "updates": 6200,
+   "wall_seconds": 830.2593297050043
+  },
+  "D-varied+rehearsal/seed204": {
+   "cpu_seconds": 826.176959824,
+   "eval_cpu_seconds": 5.786466413999847,
+   "peak_rss_kb": 1178940,
+   "train_cpu_seconds": 796.1314695579999,
+   "transfer_cpu_seconds": 8.745584460000032,
+   "updates": 6200,
+   "wall_seconds": 827.3738269890018
+  },
+  "D-varied+rehearsal/seed205": {
+   "cpu_seconds": 802.9722514079999,
+   "eval_cpu_seconds": 6.671943637000027,
+   "peak_rss_kb": 1179808,
+   "train_cpu_seconds": 769.240659727,
+   "transfer_cpu_seconds": 12.952405806999991,
+   "updates": 6200,
+   "wall_seconds": 803.882126646
+  },
+  "D-varied+rehearsal/seed206": {
+   "cpu_seconds": 762.631250893,
+   "eval_cpu_seconds": 5.731398935999948,
+   "peak_rss_kb": 1181892,
+   "train_cpu_seconds": 727.809506981,
+   "transfer_cpu_seconds": 16.435018464999985,
+   "updates": 6200,
+   "wall_seconds": 763.2715594799956
+  },
+  "D-varied+rehearsal/seed207": {
+   "cpu_seconds": 756.969503892,
+   "eval_cpu_seconds": 6.651803155999971,
+   "peak_rss_kb": 1179452,
+   "train_cpu_seconds": 709.9314975249999,
+   "transfer_cpu_seconds": 28.21744708899996,
+   "updates": 6200,
+   "wall_seconds": 757.599638751999
+  },
+  "D-varied+rehearsal/seed208": {
+   "cpu_seconds": 741.3896352200001,
+   "eval_cpu_seconds": 5.5521493049999435,
+   "peak_rss_kb": 1180488,
+   "train_cpu_seconds": 705.266901249,
+   "transfer_cpu_seconds": 18.03247779000003,
+   "updates": 6200,
+   "wall_seconds": 742.6672885380103
+  },
+  "D-varied+rehearsal/seed209": {
+   "cpu_seconds": 818.541165614,
+   "eval_cpu_seconds": 5.561970481999992,
+   "peak_rss_kb": 1180616,
+   "train_cpu_seconds": 789.3164568269999,
+   "transfer_cpu_seconds": 8.933454092000034,
+   "updates": 6200,
+   "wall_seconds": 819.2251918219845
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "wall_seconds": 857.8283853530011,
+ "worker_cpu_seconds_total": 7954.10834839,
+ "workers": 11
+}

@@ -1,0 +1,142 @@
+{
+ "analyses": {
+  "composition-d": {
+   "sri": {
+    "wall_seconds": 37.1272466009832,
+    "worker_cpu_seconds_total": 81.808972605
+   },
+   "standard": {
+    "wall_seconds": 36.66069837901159,
+    "worker_cpu_seconds_total": 80.898971513
+   }
+  },
+  "composition-m": {
+   "sri": {
+    "wall_seconds": 35.04904895697837,
+    "worker_cpu_seconds_total": 71.405162188
+   },
+   "standard": {
+    "wall_seconds": 35.3653117629874,
+    "worker_cpu_seconds_total": 71.530492334
+   }
+  },
+  "imagery": {
+   "sri": {
+    "wall_seconds": 772.2172543490015,
+    "worker_cpu_seconds_total": 7071.074432644
+   },
+   "standard": {
+    "wall_seconds": 787.4433960479801,
+    "worker_cpu_seconds_total": 7195.61884757
+   }
+  },
+  "projection-d": {
+   "sri": {
+    "wall_seconds": 28.357843119010795,
+    "worker_cpu_seconds_total": 2.103648345
+   },
+   "standard": {
+    "wall_seconds": 27.7842284119979,
+    "worker_cpu_seconds_total": 1.4957676690000001
+   }
+  },
+  "projection-m": {
+   "sri": {
+    "wall_seconds": 28.37112517800415,
+    "worker_cpu_seconds_total": 1.683483124
+   },
+   "standard": {
+    "wall_seconds": 28.27288090600632,
+    "worker_cpu_seconds_total": 1.319659031
+   }
+  }
+ },
+ "notes": [
+  "Rehearsal keeps a buffer of 500 episodes per language in both networks (index records, not rendered images).",
+  "The standard network has no energy; the energy confidence feature is unavailable (null in the comparison)."
+ ],
+ "parameters": {
+  "sri": {
+   "adam_state_bytes": 3061552,
+   "counts": {
+    "encoders": 356032,
+    "perception (SRI modules or projections)": 26368,
+    "relation heads": 294
+   },
+   "float32_bytes": 1530776,
+   "total": 382694
+  },
+  "standard": {
+   "adam_state_bytes": 2867248,
+   "counts": {
+    "encoders": 356032,
+    "perception (SRI modules or projections)": 2080,
+    "relation heads": 294
+   },
+   "float32_bytes": 1433624,
+   "total": 358406
+  }
+ },
+ "pilots": {
+  "multistep": {
+   "sri": {
+    "cpu_seconds": 12440.777277150999,
+    "eval_cpu_seconds": 79.06462414800075,
+    "peak_rss_children_max_kb": 1227592,
+    "tasks": 12,
+    "train_cpu_seconds": 12214.903101758,
+    "transfer_cpu_seconds": null,
+    "updates_per_task": [
+     6000
+    ],
+    "wall_seconds": 12467.120580410061,
+    "wall_seconds_job": 1439.1209200439916
+   },
+   "standard": {
+    "cpu_seconds": 10333.171930327,
+    "eval_cpu_seconds": 72.99702252100036,
+    "peak_rss_children_max_kb": 1177924,
+    "tasks": 12,
+    "train_cpu_seconds": 10092.808533623,
+    "transfer_cpu_seconds": null,
+    "updates_per_task": [
+     6000
+    ],
+    "wall_seconds": 10354.573897369963,
+    "wall_seconds_job": 1100.8757154819905
+   }
+  },
+  "part-d": {
+   "sri": {
+    "cpu_seconds": 13220.603825033,
+    "eval_cpu_seconds": 104.21803839400093,
+    "peak_rss_children_max_kb": 1185456,
+    "tasks": 15,
+    "train_cpu_seconds": 12621.595707839,
+    "transfer_cpu_seconds": 310.0813702260002,
+    "updates_per_task": [
+     6200
+    ],
+    "wall_seconds": 13433.895697133004,
+    "wall_seconds_job": 1500.6138269250223
+   },
+   "standard": {
+    "cpu_seconds": 11116.630644351,
+    "eval_cpu_seconds": 92.38370360399944,
+    "peak_rss_children_max_kb": 1184436,
+    "tasks": 15,
+    "train_cpu_seconds": 10523.802068941,
+    "transfer_cpu_seconds": 295.1039510810001,
+    "updates_per_task": [
+     6200
+    ],
+    "wall_seconds": 11143.992510575947,
+    "wall_seconds_job": 1199.7457389670017
+   }
+  }
+ },
+ "selection_and_tuning": {
+  "cost": "none: the revision evidence weight (1.0) and the imagery ridge (1e-3) were fixed before running; no candidates were scored",
+  "rejected_candidates": 0
+ }
+}

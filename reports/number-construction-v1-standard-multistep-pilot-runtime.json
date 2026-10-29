@@ -1,0 +1,128 @@
+{
+ "command": "/home/debjit/code/sri/.venv/bin/python /home/debjit/code/sri/experiments/standard_baseline.py pilot multistep",
+ "cpu_count": 12,
+ "data_bytes": 586809600,
+ "dirty": true,
+ "environment_overrides": {
+  "NSY_WORKERS": "11"
+ },
+ "numpy": "2.5.4",
+ "parent_cpu_seconds": 7.957892212000001,
+ "part_d_sha256": "aa70dc87ddbd0a7813326cc4f63a392bb0ebf275f3b8e74a3073319e4f929bf0",
+ "peak_rss_children_max_kb": 1177924,
+ "phases": {
+  "data_wall_seconds": 24.460281634994317,
+  "render_wall_seconds": 3.049943177989917,
+  "runs_wall_seconds": 1073.3386409489904
+ },
+ "platform": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+ "revision": "f62ef06684b7d7796681efbe85ebfd657847a485",
+ "rss_convention": "Linux ru_maxrss in KiB; children value is the largest single worker process",
+ "runner_sha256": "af132bd49f00aac553ae36163296a8ce9a3d1a4f8968d203849621fa9a55b8fe",
+ "scope": "nondeterministic timing and environment; scientific results are in -results.json.gz",
+ "spec_sha256": "a3d6a0c855ff97d20c553e005953aa842e40437fe69c2fec5b9c979d6bad92c7",
+ "tasks": {
+  "M-control/seed100": {
+   "cpu_seconds": 897.479196933,
+   "eval_cpu_seconds": 8.472558417999949,
+   "peak_rss_kb": 1174436,
+   "train_cpu_seconds": 872.0332608350001,
+   "updates": 6000,
+   "wall_seconds": 899.899452090991
+  },
+  "M-control/seed101": {
+   "cpu_seconds": 918.424343101,
+   "eval_cpu_seconds": 7.862835610000161,
+   "peak_rss_kb": 1175040,
+   "train_cpu_seconds": 894.313572903,
+   "updates": 6000,
+   "wall_seconds": 920.7168620630109
+  },
+  "M-control/seed102": {
+   "cpu_seconds": 925.664187706,
+   "eval_cpu_seconds": 5.708548961000076,
+   "peak_rss_kb": 1173352,
+   "train_cpu_seconds": 904.317283486,
+   "updates": 6000,
+   "wall_seconds": 927.5771315509919
+  },
+  "M-equality/seed100": {
+   "cpu_seconds": 939.828924903,
+   "eval_cpu_seconds": 5.611722856000085,
+   "peak_rss_kb": 1175300,
+   "train_cpu_seconds": 919.003179735,
+   "updates": 6000,
+   "wall_seconds": 941.4863815069839
+  },
+  "M-equality/seed101": {
+   "cpu_seconds": 766.1660717120001,
+   "eval_cpu_seconds": 6.049027372000069,
+   "peak_rss_kb": 1171964,
+   "train_cpu_seconds": 751.0517218110001,
+   "updates": 6000,
+   "wall_seconds": 768.1889251039829
+  },
+  "M-equality/seed102": {
+   "cpu_seconds": 937.8534000889999,
+   "eval_cpu_seconds": 5.339089135999984,
+   "peak_rss_kb": 1174348,
+   "train_cpu_seconds": 921.438357769,
+   "updates": 6000,
+   "wall_seconds": 939.4018377940229
+  },
+  "M-multistep+equality/seed100": {
+   "cpu_seconds": 938.353075644,
+   "eval_cpu_seconds": 5.0914556100000254,
+   "peak_rss_kb": 1171708,
+   "train_cpu_seconds": 917.5295201710001,
+   "updates": 6000,
+   "wall_seconds": 940.43943016298
+  },
+  "M-multistep+equality/seed101": {
+   "cpu_seconds": 933.683676057,
+   "eval_cpu_seconds": 6.446061282999892,
+   "peak_rss_kb": 1170936,
+   "train_cpu_seconds": 912.0003531779998,
+   "updates": 6000,
+   "wall_seconds": 935.5106009700103
+  },
+  "M-multistep+equality/seed102": {
+   "cpu_seconds": 304.4140918510001,
+   "eval_cpu_seconds": 1.2160467459999609,
+   "peak_rss_kb": 1177924,
+   "train_cpu_seconds": 293.77106984499994,
+   "updates": 6000,
+   "wall_seconds": 304.54602785099996
+  },
+  "M-multistep/seed100": {
+   "cpu_seconds": 924.026405176,
+   "eval_cpu_seconds": 6.459134559000006,
+   "peak_rss_kb": 1173880,
+   "train_cpu_seconds": 904.9145562879999,
+   "updates": 6000,
+   "wall_seconds": 926.3480914190004
+  },
+  "M-multistep/seed101": {
+   "cpu_seconds": 913.454411907,
+   "eval_cpu_seconds": 8.407126741000013,
+   "peak_rss_kb": 1170396,
+   "train_cpu_seconds": 887.755874397,
+   "updates": 6000,
+   "wall_seconds": 915.053773986001
+  },
+  "M-multistep/seed102": {
+   "cpu_seconds": 933.824145248,
+   "eval_cpu_seconds": 6.333415229000138,
+   "peak_rss_kb": 1172976,
+   "train_cpu_seconds": 914.679783205,
+   "updates": 6000,
+   "wall_seconds": 935.4053828709875
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "wall_seconds": 1100.8757154819905,
+ "worker_cpu_seconds_total": 10333.171930327,
+ "workers": 11
+}

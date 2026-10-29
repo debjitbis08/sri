@@ -1,0 +1,26 @@
+{
+ "command": "/home/debjit/code/sri/.venv/bin/python /home/debjit/code/sri/experiments/cross_sense_confirmation_analysis.py",
+ "contract_sha256": "ca2cadd465a86b79fb1d7239f44551c0f89fdebee79dc5ae49e0d098b8e8915b",
+ "cpu_count": 12,
+ "cpu_seconds": 8.070140609000001,
+ "dirty": true,
+ "module_sha256": {
+  "experiments/cross_sense_confirmation.py": "89bf47e2c1ec7ae1d7e988fab7cfef887bc9ef85636e796c54c58c9e89e9fb71",
+  "experiments/cross_sense_confirmation_analysis.py": "13c5a085ae32d186b4c49a33c10f911dae485e8cee39359d1f1d55abadf0cf38",
+  "experiments/number_construction_part_d.py": "aa70dc87ddbd0a7813326cc4f63a392bb0ebf275f3b8e74a3073319e4f929bf0",
+  "experiments/standard_baseline.py": "14254e3240c04f8b1ab0eb73bb0d50a59f90471c1d49ca9ba50cce8af884e5b5",
+  "src/standard_net.py": "e4f2864471593d5722de149858d8d2b0cce00d208721b16e1a02549889b279d5"
+ },
+ "numpy": "2.5.4",
+ "phases": {
+  "data_wall_seconds": 27.27522296900861,
+  "diagnostics_wall_seconds": 0.6434647740097716
+ },
+ "platform": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+ "revision": "f62ef06684b7d7796681efbe85ebfd657847a485",
+ "scope": "nondeterministic timing and environment; scientific results are in cross-sense-confirmation-v1-results.json.gz",
+ "torch": "2.14.1+cpu",
+ "wall_seconds": 27.934750101994723,
+ "workers_for_data": 11
+}
