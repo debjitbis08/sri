@@ -280,6 +280,46 @@ gradient is computed before masking) and a top-k per unit every 100 updates.
 Commands: `NSY_WORKERS=6 NFI_THREADS=2 NFI_CHANNELS_LAST=1 .venv/bin/python -m experiments.fan_in_pilot pilot rigl`,
 then `.venv/bin/python -m experiments.fan_in_pilot_analysis pilot rigl`.
 
+## Learned grouping at one dimension per operand (written before running)
+
+Added 2026-10-30 after the [learned-grouping results](fan-in-pilot-v1-rigl-results.md), at
+the researchers' request: RigL where the reader limit helped in the
+[confirmation](fan-in-pilot-v1-confirm-results.md), one code dimension per operand.
+
+**Method.** RigL as above, with k = 1 per operand. At each connectivity update every unit
+drops its one connection per operand and regrows the dimension with the largest gradient
+magnitude, the dropped one included; if the dropped dimension wins, nothing changes. A
+switched connection starts at weight zero. Interval, schedule and end point as above.
+
+**Arms, seeds 220–229 (fresh), D-varied+rehearsal, runtime settings as above:**
+
+| Arm | Question |
+| --- | --- |
+| `dense` | Reference |
+| `read-q16-untied` | Random reader limit, one dimension per operand (the confirmation's untied arm, fresh seeds) |
+| `read-q16-untied-rigl` | Same limit, learned grouping, same starting masks |
+
+**Contrasts** (paired 95% t-interval rule): RigL against random on the eight transfer
+and four taught measures; each limited arm against dense as context, which also
+re-tests the confirmation's untied gains on new seeds.
+
+**Diagnostics:** the fraction of final connections not in the initial mask, connections
+grown, and the fraction of units reading the same dimension of both operands (random
+about 1/16).
+
+**Predictions:**
+- RigL against random: no difference, as in the other two settings.
+- Random untied against dense: the confirmation's gains recur in direction (Chinese and
+  English comparison, Devanagari placement, isolated judgment), with some measures not
+  passing the rule.
+- Switching is frequent: with one connection per operand, each update compares it
+  against all 15 alternatives.
+
+**Cost:** 30 runs, 6 workers × 2 threads, about 350 s each: about 30 minutes.
+
+Commands: `NSY_WORKERS=6 NFI_THREADS=2 NFI_CHANNELS_LAST=1 .venv/bin/python -m experiments.fan_in_pilot pilot rigl1`,
+then `.venv/bin/python -m experiments.fan_in_pilot_analysis pilot rigl1`.
+
 ## Measures
 
 The sequence pilot's measures, scored identically

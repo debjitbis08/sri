@@ -24,8 +24,10 @@ largest gradient magnitude, keeping exactly k per unit (per operand for readers)
 Speed settings: NFI_THREADS (torch threads per worker, default 1) and NFI_CHANNELS_LAST=1 (channels-last image encoder
 activations; same function, different rounding).
 
-Usage: NSY_WORKERS=11 .venv/bin/python -m experiments.fan_in_pilot pilot [confirm|rigl]
-Then: .venv/bin/python -m experiments.fan_in_pilot_analysis pilot [confirm|rigl]
+'rigl1' (seeds 220-229): RigL on untied readers at one dimension per operand, against the same random limit and dense.
+
+Usage: NSY_WORKERS=11 .venv/bin/python -m experiments.fan_in_pilot pilot [confirm|rigl|rigl1]
+Then: .venv/bin/python -m experiments.fan_in_pilot_analysis pilot [confirm|rigl|rigl1]
 """
 import json
 import os
@@ -55,9 +57,11 @@ CONFIRM = {'dense': (None, None, None), 'read-q16': (None, 16, 'tied'), 'read-q1
            'learn-q16-tied': (None, 16, 'learn-tied'), 'learn-q16-untied': (None, 16, 'learn-untied')}
 RIGL = {'dense': (None, None, None), 'enc-q16': (16, None, None), 'enc-q16-rigl': (16, None, None),
         'read-q4-untied': (None, 4, 'untied'), 'read-q4-untied-rigl': (None, 4, 'untied')}
-RIGL_BASE = {'enc-q16-rigl': 'enc-q16', 'read-q4-untied-rigl': 'read-q4-untied'}  # RigL arm -> random arm with the same start
-CONFIGS = {'stage1': STAGE1, 'confirm': CONFIRM, 'rigl': RIGL}[STAGE]
-CONFIRM_SEEDS = tuple(range(200, 210)) if STAGE == 'confirm' else tuple(range(210, 220))
+RIGL1 = {'dense': (None, None, None), 'read-q16-untied': (None, 16, 'untied'), 'read-q16-untied-rigl': (None, 16, 'untied')}
+RIGL_BASE = {'enc-q16-rigl': 'enc-q16', 'read-q4-untied-rigl': 'read-q4-untied',
+             'read-q16-untied-rigl': 'read-q16-untied'}  # RigL arm -> random arm with the same start
+CONFIGS = {'stage1': STAGE1, 'confirm': CONFIRM, 'rigl': RIGL, 'rigl1': RIGL1}[STAGE]
+CONFIRM_SEEDS = tuple(range(*{'confirm': (200, 210), 'rigl': (210, 220), 'rigl1': (220, 230)}.get(STAGE, (0, 0))))
 DT, ALPHA, END_FRACTION = (10 if X.SMOKE else 100), .3, .75  # RigL: update interval, initial drop fraction, end of updates (fraction of training)
 RANDOM_OF = {'learn-tied': ('read-q16', 'tied'), 'learn-untied': ('read-q16-untied', 'untied')}  # learned arm's starting selection
 CODE = 16

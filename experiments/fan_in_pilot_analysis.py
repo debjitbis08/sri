@@ -13,7 +13,7 @@
 Confirmation ('confirm', seeds 200-209): no exactness check or stage-1 decision; outcomes use the paired 95% t-interval
 rule of the proposal ("Confirmation after stage 1") and the declared contrasts.
 
-Usage: .venv/bin/python -m experiments.fan_in_pilot_analysis pilot [confirm]
+Usage: .venv/bin/python -m experiments.fan_in_pilot_analysis pilot [confirm|rigl|rigl1]
 """
 import gzip
 import json
@@ -39,7 +39,8 @@ OUT = 'fan-in-pilot-v1' + ('' if FI.STAGE == 'stage1' else f'-{FI.STAGE}') + ('-
 CONTRASTS = {'confirm': (('read-q16', 'dense'), ('read-q16-untied', 'dense'), ('read-q16-untied', 'read-q16'),
                          ('learn-q16-tied', 'read-q16'), ('learn-q16-untied', 'read-q16-untied')),
              'rigl': (('enc-q16', 'dense'), ('enc-q16-rigl', 'dense'), ('enc-q16-rigl', 'enc-q16'),
-                      ('read-q4-untied', 'dense'), ('read-q4-untied-rigl', 'dense'), ('read-q4-untied-rigl', 'read-q4-untied'))
+                      ('read-q4-untied', 'dense'), ('read-q4-untied-rigl', 'dense'), ('read-q4-untied-rigl', 'read-q4-untied')),
+             'rigl1': (('read-q16-untied', 'dense'), ('read-q16-untied-rigl', 'dense'), ('read-q16-untied-rigl', 'read-q16-untied')),
              }.get(FI.STAGE, ())
 RIDGE = 1e-3
 THAI = str(max(P.TRANSFER_AT)) if X.SMOKE else '200'  # smoke runs stop transfer early
