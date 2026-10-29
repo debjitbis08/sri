@@ -49,9 +49,12 @@ D-varied+rehearsal, means over seeds (D-varied in brackets):
   | 2 | 0.53 (seeds 0.41, 0.44, 0.72) | 0.28 | 0.71 |
   | 3 | 0.54 (seeds 0.35, 0.43, 0.84) | 0.20 | 0.78 |
 
-  Composed is at chance on average, with one seed (102) succeeding and two failing. The
-  full-set gain comes from the critical items where the reference equals the start
-  (composed 0.71, shortcut 0.52).
+  Composed is at chance on average, with one seed (102) succeeding and two failing. It is
+  still above the shortcut in every seed (about 0.53 against 0.23): applying the action
+  moves judgments in the right direction, but often not far enough to answer correctly.
+  Critical items where the reference equals the start also contribute to the full-set gain
+  (composed 0.71, shortcut 0.52). (Corrected after external review: an earlier version said
+  the gain came only from those items.)
 - **Equality is a separate limitation, as the review predicted.** Where the result equals
   the reference, every verdict is near or below chance, the shown result included (0.48).
   The comparison head was never trained on equal pairs.
@@ -82,6 +85,51 @@ learned successor, not a learned removal operation.
   although they fail forward. This asymmetry is **unexplained**. The forward direction is
   the one the successor was trained in.
 
+## Comparison-direction diagnostic (after external review)
+
+Protocol: spec, "Comparison-direction diagnostic of composed states". Command:
+`NSY_WORKERS=11 .venv/bin/python -m experiments.number_construction_projection pilot`
+(28 s); artifacts `reports/number-construction-v1-projection-pilot-results.json.gz`,
+`-runtime.json`.
+
+The comparison head reads one projection q(c) = wᵀc. The **advance ratio** is how far the
+composed state moves along w, as a fraction of how far real items of the target count lie
+from real items of the start count (1 = exact, below 1 = falls short).
+
+D-varied+rehearsal, collections (seeds 100, 101, 102):
+
+| | k = 1 | k = 2 | k = 3 |
+| --- | --- | --- | --- |
+| Add (forward successor) | 0.17, 0.18, 0.80 | 0.25, 0.22, 0.86 | 0.29, 0.26, 0.93 |
+| Remove (exact inverse) | 0.46, 0.30, 0.76 | 1.03, 0.50, 0.78 | 1.70, 0.63, 0.79 |
+
+Taps behave the same way (forward 0.04–0.74, backward up to 2.44). D-varied shows forward
+under-advancement in every seed (0.10–0.50 for collections).
+
+- **Forward composition falls short.** In seeds 100 and 101, each learned step covers about
+  a fifth of a real step along w. The one seed that passed the strict forward crossings
+  (102: 0.72 and 0.84) is the one whose steps cover 0.80–0.93 of a real step.
+- **The step depends on where it starts.** The successor's advance along w on real
+  collections, by start count (real step 2.4 in seed 100):
+  - seed 100: −0.76, 0.37, 1.33, 1.70, 1.74, 1.14, 0.38, −0.31, −1.11 for counts 1–9;
+  - seed 102: 0.78 to 2.35, positive everywhere.
+
+  In seeds 100 and 101 the successor moves middle counts forward but pulls the ends back
+  toward the middle: near 9 a "next" step goes backwards along w.
+- **Why the inverse passes the crossings:** the inverse of a map that pulls toward the
+  middle pushes away from it, so backward steps grow with k (seed 100: 0.46, 1.03, 1.70) and
+  tend to land beyond the reference. Strict crossings reward overshoot and punish falling
+  short. The backward direction is not better learned; it inherits the mirror image of the
+  same distortion.
+- **Forms:** real form positions along w are not monotone in count at 1–3 places per
+  language, so form-level ratios are unstable (small or negative denominators) and are not
+  interpreted.
+- **Reading:** a diagnosis on three seeds, consistent with the composition results. The
+  one-step "next" judgment only requires S(cₙ) to be closer to cₙ₊₁ than to other codes; a
+  short step that pulls toward the middle satisfies it, and repeated application exposes
+  the shortfall. This supports the multi-step objective (Sᵏ of a real start matching a real
+  endpoint) as the next training change.
+
 ## Reading
 
 - **Primary question: partly yes.** Applying the learned successor before comparison
@@ -94,12 +142,22 @@ learned successor, not a learned removal operation.
 - So the compositional competence that a fast single-pass detector would need to absorb is
   present only in part.
 - **Next, agreed with the researchers (2026-10-29):** teach multi-step counting, and give
-  equality a little training. A separate comparison training on imagined states is not
-  needed in principle: the comparison head is one rule for all states, so if the imagined
-  result lands where real items of that count lie, comparison works. The forward failure
-  says Sᵏ drifts away from that region, which multi-step counting addresses at its source.
-  Equality may fit the existing *same* judgment rather than the comparison head, whose
-  single threshold cannot answer "neither more nor fewer".
+  equality a little training.
+  - *Chosen hypothesis:* the comparison head is one rule for all states, so if the
+    imagined result lands where real items of that count lie, comparison works. The
+    comparison-direction diagnostic above finds systematic forward under-advancement along
+    the comparison direction (not drift in general), which multi-step counting addresses at
+    its source. This is a diagnosis on three seeds, not yet shown by an intervention.
+  - *Multi-step teaching as an explicit objective* (external review): lengthening
+    sequences with adjacent-pair losses only would leave the issue largely unchanged.
+    Supervise directly that applying the learned successor two or three times matches a
+    real endpoint example, keep the one-step objective, and include equality examples,
+    without training on the hidden-result comparison task itself.
+  - *Equality:* the comparison head can represent "neither more nor fewer": with a negative
+    bias, both b + s wᵀ(cₐ − c_b) and the reversed comparison are negative when the
+    projected difference is small, a tolerance region. The limitation is that equal pairs
+    were excluded from training. Using the *same* judgment is an alternative design, not
+    forced by the architecture. (Corrected after external review.)
 
 ## Computation
 

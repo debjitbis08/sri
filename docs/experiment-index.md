@@ -135,6 +135,11 @@ crossings (reference between start and result, k = 2, 3) stay at chance on avera
 (0.53–0.54, unstable across seeds), while inverse-successor crossings work (0.68–0.77).
 Equality is untrained and caps every method. `NSY_WORKERS=11 .venv/bin/python -m
 experiments.number_construction_composition pilot` (under a minute).
+A comparison-direction diagnostic finds forward under-advancement: in two of three seeds
+each learned step covers about a fifth of a real step along the comparison direction and
+pulls the count range's ends toward the middle; the inverse overshoots, which strict
+crossings reward. `NSY_WORKERS=11 .venv/bin/python -m experiments.number_construction_projection pilot`
+(under a minute).
 New experiments are added here, not to the README. Entries carried over from the
 README's original layout list keep their wording. Earlier studies that list never
 covered (for example the layered-module, locality-adaptation and relational

@@ -899,3 +899,27 @@ review, not those numbers.
 
 The prototype readout (does Sᵏ(c) have the right count) separates a transformed state
 that loses quantity meaning from one that keeps it but is misread by the comparison head.
+
+### Comparison-direction diagnostic of composed states (fixed before running, 2026-10-29)
+
+Proposed by the external review after the composition test. Frozen Part D checkpoints, no
+training. The comparison head reads one projection q(c) = wᵀc (w = the *larger* head's
+direction).
+
+- **Real positions:** for each kind (collections, taps, three languages' forms) and count,
+  the mean q of the evaluation items' core-inner codes; the kind's real step is the mean
+  difference between consecutive counts.
+- **Advance ratio:** for a start of count n and k steps (add: Sᵏ; remove: the exact inverse,
+  as in the composition test), (q(composed) − q(start)) / (q̄ of the real target − q̄ of
+  the real start count), averaged over items and n. 1 means the composed state moved as
+  far along w as real items do; below 1 under-advancement; above 1 overshoot.
+- **Signed discrepancy:** (q(composed) − q̄ of the real target) in units of the kind's real
+  step, signed in the action's direction (positive = beyond the target).
+- **Spectrum of A:** eigenvalue magnitudes, and the per-step advance q(S(c)) − q(c) on real
+  codes of each count, which shows whether a step shrinks or grows along the count range.
+- By kind, k, direction and seed. Readings are the two varied arms.
+
+Question it answers: are forward failures under-advancement, overshoot or a mismatch
+between senses, and does the error type differ by direction? Strict crossings reward
+landing beyond the reference and punish falling short, so an asymmetry in error type
+could explain why inverse-successor crossings work while forward ones fail.
