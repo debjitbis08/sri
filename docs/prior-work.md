@@ -8,6 +8,16 @@ studies are not yet reviewed.
 
 ## Search record and evidence levels
 
+On 2026-10-29, [two-module graded expressivity analysis](two-module-graded-expressivity-analysis.md)
+compared reciprocal quadratic modules with linear bottleneck networks, and
+nonlinear block recurrence with ordinary RNNs and deep equilibrium models.
+The affine compilation, equilibrium communication-rank bound, and finite-step
+unrolling equivalence are **[derived]**. Hopfield (1984), abstract and model
+introduction **[read]**, and Bai et al. (2019) **[abstract]** provide architectural
+context; neither source establishes a benefit from inward-graded coupling.
+The note records assumptions, proofs, primary links, cheaper alternatives and
+theoretical costs; it makes no measured speed or learning claim.
+
 On 2026-10-29, [conceptual instinct notes](conceptual-instinct-notes.md)
 reviewed predictive-coding novelty detection, compatibility-energy learning,
 amortized inference and BALD for the number-construction discussion. The notes
