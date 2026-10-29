@@ -225,3 +225,54 @@ before a full test of the single-pass detector. They can be generated in the
 current setting (dots, add/remove events, comparisons, scripts). Source belief
 needs a different setting with sources, claims and a reading history, so it
 stays at design stage until the concepts themselves are stable.
+
+## Relational conflict without algebra (2026-10-29)
+
+Discussed with the external reviewer after Part D. The reviewer's first proposal
+("B follows A; C follows B; A is greater than C") introduced unknown quantities,
+which is an algebraic step. The researchers want the test to stay with familiar
+numbers and observable actions, so that it shows whether understanding numbers
+has become instinct, not whether the system can bind variables.
+
+**[proposal]** Hide the outcome. Every quantity is either seen or the result of
+a familiar action on something seen; the claim is about the hidden result
+relative to a visible reference. This is the infant addition paradigm (Wynn
+1992, objects added behind a screen; recalled, not retrieved) with one change.
+
+| Level | Example | Needs |
+| --- | --- | --- |
+| 1. Shown outcome | three dots; one is added; the screen lifts to show five | successor alone |
+| 2. Hidden outcome vs a visible reference | three dots behind a screen; one added; claim "it is more than 四" | successor and comparison together |
+| 3. Chains, mixed forms | three dots, add one twice, "fewer than five taps"; 五, remove one, compared with dots | composition across steps and senses |
+
+Level 1 is a familiar numerical mistake; level 2 is a conflict between
+principles. Nothing is unknown at level 2; the result is only not displayed.
+The system must form the hidden quantity internally, which links to the Part D
+imagery result (the inferred successor of n − 1 projects toward inputs of n).
+
+**[derived] Critical items.** Successor alone has no outcome to check.
+Comparison alone can only compare the starting quantity with the reference, and
+agrees with the truth except where the reference lies between start and result.
+Example: "three, add one, more than 三?" is true (4 > 3), but start-versus-
+reference says no. With k steps, k references are critical. Accuracy on critical
+items is the measure; combining relations should beat the comparison-only
+shortcut there and match it elsewhere.
+
+**[proposal] Controls.**
+- Each (action, claim word) template is half true, half false, so "add one …
+  smaller → false" cannot be learned from surface form.
+- Baselines: start-versus-reference comparison (ignores the action), successor
+  only, a learner on the claims' surface form.
+- Held-out combinations of start count, reference and sense or script pairs.
+- The same items with the action reversed flip the truth, so the action must be
+  used.
+
+**Two questions, in order.**
+1. Do the learned relations compose correctly at all? Apply the learned
+   successor k times (its inverse for "remove"), then the comparison head. This
+   needs no new training and runs on the Part D checkpoints.
+2. Is it instinct? Does a fast single pass flag false claims on held-out
+   combinations without stepping through the actions explicitly?
+
+Do (1) first: if explicit composition fails on critical items, there is nothing
+for a fast pass to absorb.

@@ -995,6 +995,14 @@ This is a targeted contract review, not a novelty search.
     feature space, are the usable readouts.
   - *Known failure:* a decoder can produce plausible inputs from its own training prior
     regardless of the clamped state. A random-state control is needed.
+- **Hidden-outcome arithmetic.** Wynn 1992 (infants shown objects added behind a screen
+  look longer at impossible outcomes) [memory].
+  - *Differs:* the outcome is shown, so it tests expectation of a single operation (the
+    composition test's level 1), not a comparison of a hidden result with a reference.
+- **Systematic composition in neural networks.** Lake and Baroni 2018 (SCAN): sequence
+  models often fail to compose learned primitives in new combinations [memory].
+  - *Predicts:* composed relations may work on familiar step counts and fail on new
+    crossings, so composition must be tested on strata where shortcuts fail.
 - **Coherence detection from successor residuals.** Prediction-error novelty detection
   (Rao and Ballard; Li, Tang and Bogacz 2025, in
   [conceptual instinct notes](conceptual-instinct-notes.md)).

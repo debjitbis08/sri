@@ -126,6 +126,15 @@ contexts, rehearsal and an imagery probe.
 Commands: `NSY_WORKERS=11 .venv/bin/python -m experiments.number_construction_part_d pilot`
 (25 minutes), then `NSY_WORKERS=11 .venv/bin/python -m experiments.number_construction_imagery pilot`
 (13 minutes).
+
+[Composition test](number-construction-v1-composition-results.md) on frozen Part D
+checkpoints: a hidden "add k" or "remove k" and a claim that the result is more or fewer
+than a visible reference. Applying the learned successor before comparison beats ignoring
+the action (0.80 against 0.75 for addition) and keeps non-critical accuracy. Strict forward
+crossings (reference between start and result, k = 2, 3) stay at chance on average
+(0.53–0.54, unstable across seeds), while inverse-successor crossings work (0.68–0.77).
+Equality is untrained and caps every method. `NSY_WORKERS=11 .venv/bin/python -m
+experiments.number_construction_composition pilot` (under a minute).
 New experiments are added here, not to the README. Entries carried over from the
 README's original layout list keep their wording. Earlier studies that list never
 covered (for example the layered-module, locality-adaptation and relational

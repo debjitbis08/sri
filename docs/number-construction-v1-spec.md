@@ -813,3 +813,89 @@ same couplings used for perception.
 prior regardless of the clamped state, so the random-state control and the counters
 matter more than appearance. The output module has no loss in Parts A and D, so reading it
 would show nothing; it is solved but not reported.
+
+## Relational composition test on Part D checkpoints (fixed before running, 2026-10-29)
+
+Question (1) of "Relational conflict without algebra" in
+`docs/conceptual-instinct-notes.md`: do the learned successor and comparison compose
+correctly, so that a claim about a hidden result can be checked against a visible
+reference? No training; the end-of-training Part D checkpoints (all arms, seeds
+100–102). Only the two varied arms have a trained comparison head, so they are the
+readings; the others are reported as a check that the result needs that head.
+
+**Items.** A start item of count n (a held-out collection, taps, or a form of english,
+chinese or devanagari_digits), an action (add or remove, k = 1, 2, 3 steps) with the
+result m = n ± k inside 1–9, a reference item of count r (any of the same kinds), and a
+claim: "the result is more than the reference" (true iff m > r) or "fewer than" (true
+iff m < r). Every n, k, action, r and claim, for all 25 start/reference kind pairs and
+the 30 evaluation items per count (same index for start and reference, shifted by one
+when the kinds are the same).
+
+**Verdicts.**
+- *Composed:* apply the learned successor S k times to the start's core-inner code (its
+  exact inverse for remove), then the comparison head against the reference's code.
+  "Fewer" uses the head with the arguments swapped.
+- *Comparison-only shortcut:* the comparison head on the start and the reference,
+  ignoring the action.
+- *Shown result* (upper reference, level 1 information): the comparison head on a real
+  item of count m (same kind as the start) and the reference.
+- Successor alone has no outcome to check, so it is at chance by construction (not run).
+
+**Critical items:** those where the shortcut's answer with a perfect comparator differs
+from the truth, that is where the reference lies between start and result (for example
+start 3, add 1, "more than 3"). The shortcut is wrong on all of them by construction;
+composed accuracy on critical items is the measure. Chance is 0.5.
+
+**Also reported:**
+- Accuracy on non-critical items, by k and action, for withheld forms (start or
+  reference), and by sense pairing.
+- Level 1 for comparison: successor residual ‖o − Sᵏ(c)‖² separating the true shown
+  outcome o from an outcome of another count (AUROC).
+- Whether Sᵏ(c) itself has the right count: nearest collection prototype under the
+  *same* head.
+
+**Computation:** one encoding pass per checkpoint over the evaluation items, then
+O(items × d²) for the successor applications and O(items × d) for the comparisons; no
+training.
+
+### Composition test amendment after external review (2026-10-29)
+
+**Order of events.** The test above was run twice before this review arrived. The first
+run used the original readings; the second added a split of critical items by whether
+the result equals the reference, after the first run showed equality cases near chance
+for the shown result as well. Those two runs are superseded by this amendment. Their
+numbers were seen before the amendment was written, and the changes below follow the
+review, not those numbers.
+
+**Changes:**
+1. **Primary measure is the full set**, not critical items: on frozen checkpoints, does
+   applying the learned successor before comparison improve hidden-result judgments over
+   ignoring the action, while preserving accuracy where the action does not change the
+   verdict? Critical and non-critical items are reported separately. On critical items an
+   *action-and-claim rule* that ignores both quantities is perfect (add + more → true,
+   add + fewer → false, remove + more → false, remove + fewer → true), so it is reported
+   beside the comparison-only shortcut, and critical accuracy alone is not evidence that a
+   future learned detector combines concepts. A future trained detector must balance
+   truth within each action/claim template.
+2. **Equality strata.** The comparison head was trained on unequal pairs only, and its
+   logit (bias plus a scaled projection of the difference) does not guarantee that both
+   "more" and "fewer" are false at equality. Items are reported in three strata:
+   reference = start, reference = result, neither. The cleanest composition diagnostic is
+   the "neither" stratum of critical items, which exists only for k = 2, 3. Equality
+   items are a separate limitation of these checkpoints.
+3. **Addition is primary; removal is a diagnostic** described as inverse-successor
+   inference, not as a learned removal operation. The smallest singular value and the
+   condition number of the successor matrix A are recorded. If A is not invertible to
+   finite values or its condition number exceeds 10³, removal is not evaluated for that
+   checkpoint; no pseudoinverse is substituted.
+4. **Action interventions** on the same examples: identity (no action, the shortcut),
+   reversed action and wrong step count (k + 1, or k − 1 when k + 1 leaves 1–9). For each,
+   on items where the intervened action's expected verdict differs from the true one,
+   report the accuracy of the composed calculation and of the intervened one against the
+   true verdict.
+5. **Wording.** Successor alone does not directly supply a comparison verdict (no
+   successor-only rule is defined). The shown result is a reference, not an upper bound:
+   an inferred state can be less noisy than an encoded real result.
+
+The prototype readout (does Sᵏ(c) have the right count) separates a transformed state
+that loses quantity meaning from one that keeps it but is misread by the comparison head.
