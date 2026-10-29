@@ -771,6 +771,70 @@ Contribution: no new method. The study tests whether the established
 learning-efficiency objective, applied to the SRI number network, turns structure that
 is visible to probes into lower learning cost.
 
+## Senses, varied contexts, rehearsal and imagery (number construction Part D)
+
+Search date: 2026-10-29, for the Part D protocol and imagery probe in the
+[number construction v1 specification](number-construction-v1-spec.md).
+
+Sources:
+- search-result summaries checked for Rolnick et al. 2019, Dosovitskiy and Brox 2016,
+  Izard et al. 2009 and Hinton et al. 1995;
+- the others are stated from memory.
+
+This is a targeted contract review, not a novelty search.
+
+- **Rehearsal against forgetting.** Ratcliff 1990 and Robins 1995 (rehearsal and
+  pseudo-rehearsal) [memory];
+  [Rolnick et al. 2019, *Experience Replay for Continual Learning*](https://arxiv.org/abs/1811.11682)
+  [search summary].
+  - *Shown:* replaying stored earlier experience greatly reduces catastrophic forgetting.
+    A small buffer with random discarding does almost as well as an unbounded one.
+  - *Predicts:* D-rehearsal should retain Chinese and English far better than D-base.
+    This is a standard component, the "standard solution" side of problem 1, not a
+    contribution.
+- **One quantity across senses.**
+  [Izard, Sann, Spelke and Streri 2009, *Newborn infants perceive abstract numbers*](https://pubmed.ncbi.nlm.nih.gov/19520833/)
+  [search summary].
+  - *Shown:* newborns familiarized with auditory sequences of a number look longer at
+    visual arrays with the matching number (4–18).
+  - *Differs:* innate approximate number, not learned exact counts; a behavioural
+    result, not a mechanism.
+  - *Implication:* taps–collection pairing as a second sense is a natural context, and
+    taps → form matching without any taps–form pairing is the cross-sense composition
+    to test.
+- **Varied versus repeated practice.** Shea and Morgan 1979 (contextual interference);
+  interleaving studies [memory].
+  - *Predicts:* varied practice can slow acquisition and improve transfer and
+    retention; acquisition speed is not the criterion.
+- **Multi-view and multi-task learning.** Shared representations trained on several
+  views or tasks generalize better when the tasks share structure (Caruana 1997;
+  multi-view contrastive learning) [memory].
+  - *Differs:* those set the views and tasks in advance with shared labels or paired
+    views; here the compositions are untaught pairs.
+- **Imagery by reverse inference.** A clamped quadratic energy is a Gaussian model:
+  clamping a core layer and solving the rest gives the conditional mean of every other
+  state [derived]. Generative top-down passes are the Helmholtz machine's sleep phase
+  ([Hinton, Dayan, Frey and Neal 1995](https://www.cs.toronto.edu/~hinton/absps/ws.htm),
+  [search summary]) and the predictive-coding generative direction (Rao and Ballard
+  1999).
+  - *Predicts:* the conditional mean shrinks toward zero, so solved features have small
+    norm. Rescaling is a readout convenience, not part of the model.
+- **Reading features as images.**
+  [Dosovitskiy and Brox 2016, *Inverting Visual Representations with Convolutional Networks*](https://arxiv.org/abs/1506.02753)
+  [search summary]; Mahendran and Vedaldi 2015 (optimization-based inversion) [memory].
+  - *Shown:* a trained decoder predicts the average of the images that could have
+    produced a feature vector.
+  - *Predicts (confirmed in a smoke check):* features invariant to dot positions decode
+    to blurred collections, so connected-component counting fails on reconstructions. A
+    count reader trained on reconstructions of real inputs, and nearest real inputs in
+    feature space, are the usable readouts.
+  - *Known failure:* a decoder can produce plausible inputs from its own training prior
+    regardless of the clamped state. A random-state control is needed.
+- **Coherence detection from successor residuals.** Prediction-error novelty detection
+  (Rao and Ballard; Li, Tang and Bogacz 2025, in
+  [conceptual instinct notes](conceptual-instinct-notes.md)).
+  - *Implication:* Part D records the untrained residual detector as a baseline only.
+
 ## Implications for contracts
 
 - Use standard names where the mechanism is the same: EP for the two-phase

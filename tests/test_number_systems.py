@@ -44,6 +44,14 @@ class NumberSystemsTests(unittest.TestCase):
                 centres = ndimage.center_of_mass(masks[0], ndimage.label(masks[0])[0], 1)
                 self.assertTrue(all(masks[k][int(round(centres[0])), int(round(centres[1]))] for k in range(9)))
 
+    def test_taps_pulse_count_is_the_number(self):
+        for mode in ('rate', 'span', None):
+            for n in ns.NUMBERS:
+                for i in range(20):
+                    x = ns.render_taps(n, nc.stream('taps_test', str(mode), n, i), mode=mode)
+                    self.assertEqual(x.shape, (128,))
+                    self.assertEqual(ns.count_pulses(x), n)
+
     def test_structural_definitions(self):
         self.assertEqual([sum(ns.EGYPTIAN_ROWS[n]) for n in ns.NUMBERS], list(ns.NUMBERS))
         self.assertTrue(all(max(r) <= 4 for r in ns.EGYPTIAN_ROWS.values()))

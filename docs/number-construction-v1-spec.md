@@ -692,3 +692,124 @@ relational answer, and it needs the revision to compute.
 - **One more variant:** a cheap relational feature that needs no revision solve, the
   distance between the isolated code and the successor of the lower context collection's
   code. This tests whether a lightweight relational check can stand in for full revision.
+
+## Part D protocol: senses, varied contexts and rehearsal (pilot, fixed before running, 2026-10-29)
+
+Decided autonomously while the researchers were away, as authorized, after the
+discussion in `docs/conceptual-instinct-notes.md`. The researchers' guidance:
+
+- assimilation should come from the same concept appearing in different contexts;
+- a **limited number of representations, not one**, acting as **senses** for different
+  kinds of input;
+- **rehearsal** matters;
+- probe what the system "sees" when a signal starts inside it (below, imagery probe).
+
+**Base:** Part A's A-order arm as run in pilot 3: the same languages, withholding, episodes,
+losses, batch of 16 episodes, 2,000 updates per block, Adam 1e-3, clipping 5, seeds
+100–102. The base arm uses Part A's random draws, so it should reproduce pilot 3 A-order
+exactly (checked to be update-for-update identical in a smoke run).
+
+**Two senses.** The image sense (existing image satellite: collections and written forms)
+and the sequence sense (existing sequence satellite, unused in Part A). The new sequence
+input is **taps**: a heard count, n identical pulses in a 128-sample signal
+(`render_taps` in `src/number_systems.py`). Half the signals keep one pulse length and gap
+(length grows with n), half spread the pulses over a fixed span, the analogue of fixed-area
+dots. An independent reader (`count_pulses`) recovers n on every test signal.
+
+**Changes, tested separately and together:**
+
+1. **Rehearsal.** In the Chinese and Devanagari blocks, 4 of each batch's 16 language
+   episodes are drawn from a bounded buffer of 500 episodes per earlier language
+   (sampled from that language's block). Withholding still applies to them.
+2. **Contexts.** 4 extra counting episodes per batch, without forms.
+   - *Varied:* each step pairs the episode's collection with taps of the same count
+     (matching loss, taps against the shared collection candidates), with succession on
+     both chains. A **comparison** loss ("which is more", the judge's *larger* head) on 64
+     batch pairs of collections and taps with different counts.
+   - *Repeated (matched control):* each step pairs the collection with a second persistent
+     collection of the same count; same item count, matching and succession; no
+     comparison loss.
+   - Both kinds are drawn in every arm from the same stream, so their counts, order and
+     collections are identical.
+
+| Arm | Rehearsal | Context episodes |
+| --- | --- | --- |
+| D-base | no | none |
+| D-rehearsal | yes | none |
+| D-repeated+rehearsal | yes | repeated (collection–collection) |
+| D-varied+rehearsal | yes | varied (taps–collection, comparison) |
+| D-varied | no | varied |
+
+**Untaught compositions (the assimilation tests).** Taps never meet forms, and comparisons
+never involve forms. So:
+- taps → form (pick among a language's 9 forms) and form → taps (pick among 9 taps),
+  reported separately for withheld forms;
+- comparison accuracy on forms of every language, and on pairs involving withheld forms.
+
+Above chance (0.11 for matching, 0.5 for comparison) means the concept learned through one
+sense or relation is usable where it was never taught.
+
+**Other measures** (at the end of every block, plus Part A's full evaluation):
+- taps → collection matching (taught);
+- comparison on held-out collections and taps (taught);
+- **retention**: earlier languages at the end against the end of their own block;
+- Thai transfer (Part A's procedure, same for every arm);
+- at the end, **coherence detection without training for it**: 5-step ascending runs with
+  one interior step replaced by another count, scored by summed successor residuals;
+  AUROC per kind and language. A baseline for the instinct thread.
+
+**Readings fixed in advance:**
+- Rehearsal: D-rehearsal vs D-base, and D-varied+rehearsal vs D-varied, on retention.
+  Prior work predicts a clear reduction in forgetting.
+- Varied vs repeated contexts: D-varied+rehearsal vs D-repeated+rehearsal at matched
+  items per update, on withheld forms, English, transfer and retention. The untaught
+  compositions have no meaningful value in arms without taps or comparisons; they are
+  reported only for the varied arms.
+- Prediction from the varied-practice literature: varied contexts may learn more slowly
+  but transfer better, so acquisition speed is not the criterion.
+
+**Computation.** Per update: encodings of about 2 × (episode steps) items through the
+image sense, plus taps through the sequence sense in varied arms; one Cholesky
+factorization per sense per update, O(n³) in the 3 × 112 free-state size. Rehearsal
+stores 500 episode descriptions per language (indices, not images). Runtime is recorded
+separately from results.
+
+### Imagery probe on Part D checkpoints (fixed before running, 2026-10-29)
+
+**Question:** when a state starts inside the system, in the core rather than from an
+input, what input does the system "see"?
+
+**Reverse solve.** The energy is a joint quadratic over a sense's module, the core and the
+output module. Normally the sense's outer layer is clamped to the encoder's features and
+everything else is solved. In reverse, a core layer (inner, or middle) is clamped to a
+chosen state and **every other state is solved, including the sense's outer layer**. The
+result f̂ is the feature vector the energy expects for that core state (the conditional
+mean of the corresponding Gaussian). The signal flows from the core outward, through the
+same couplings used for perception.
+
+**Core states clamped**, per count n:
+- prototypes: the mean core-inner code of held-out collections of n, of each language's
+  forms of n, and of taps of n;
+- imagined successor: S applied to the collection prototype of n − 1;
+- the gap: the state that best fits both neighbours, argmin ½‖c − S(p₍ₙ₋₁₎)‖² +
+  ½‖p₍ₙ₊₁₎ − S(c)‖², with no item ("something lies between n − 1 and n + 1");
+- middle layer: the mean core-middle state of collections of n, clamped instead of the
+  inner layer;
+- control: random states with the prototypes' norm.
+
+**From features to inputs.**
+1. **Decoder per sense**, trained after the fact on the frozen encoder's features of
+   training inputs (image sense: collections and the three taught languages' forms;
+   sequence sense: taps). Decodes f̂ as solved and rescaled to the mean feature norm,
+   because the conditional mean shrinks toward zero.
+2. **Nearest neighbours** of f̂ by cosine in a gallery of held-out inputs (collections,
+   forms of every language including Thai, taps): the kind and count of the top 5.
+3. **Independent counters** on decoded inputs: connected components for collections,
+   `count_pulses` for taps. Validated on decoder reconstructions of real held-out inputs.
+4. **The system's own reading:** the decoded input encoded again and matched against 9
+   collection candidates (cycle consistency).
+
+**Known failure modes:** a decoder can produce plausible images from its own training
+prior regardless of the clamped state, so the random-state control and the counters
+matter more than appearance. The output module has no loss in Parts A and D, so reading it
+would show nothing; it is solved but not reported.

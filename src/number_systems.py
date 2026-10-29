@@ -280,6 +280,36 @@ def render_morse(n, rng):
     return ncore.morse_signal(ncore.MORSE[n], rng)[0]
 
 
+def render_taps(n, rng, mode=None):
+    """A heard count: n identical pulses as a 128-sample signal. 'rate' keeps one pulse length and gap per signal, so
+    the signal lengthens with n; 'span' spreads the pulses over a fixed span, so length alone does not give the count.
+    Not in SYSTEMS: used by number construction Part D as a second sense, so the default pools are unchanged."""
+    rate = rng.random() < .5 if mode is None else mode == 'rate'
+    if rate:
+        d, gap = rng.uniform(3., 5.), rng.uniform(4., 6.)
+    else:
+        period = rng.uniform(80., 110.) / n
+        d = min(rng.uniform(3., 5.), .45 * period)
+        gap = period - d
+    t, x, amp = rng.uniform(0., 5.), np.zeros(ncore.MORSE_LEN, np.float32), rng.uniform(.7, 1.)
+    for _ in range(n):
+        a = int(round(t))
+        b = a + max(3, int(round(d * (1 + rng.uniform(-.2, .2)))))
+        if b > ncore.MORSE_LEN:
+            raise AssertionError('taps overflow the window')
+        x[a:b] = amp
+        t = b + max(3., gap * (1 + rng.uniform(-.2, .2)))
+    return x + rng.normal(0, ncore.MORSE_NOISE, ncore.MORSE_LEN).astype(np.float32)
+
+
+def count_pulses(x, threshold=.35):
+    """Independent reader for tap signals: runs of at least two samples above threshold after 3-sample smoothing."""
+    s = np.convolve(x, np.ones(3) / 3, mode='same') > threshold
+    edges = np.flatnonzero(np.diff(np.r_[0, s.astype(int), 0]))
+    starts, ends = edges[::2], edges[1::2]
+    return int(((ends - starts) >= 2).sum())
+
+
 # ---------------------------------------------------------------- registry
 
 SYSTEMS = {  # name: (family, medium, renderer)

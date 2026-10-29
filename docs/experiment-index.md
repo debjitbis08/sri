@@ -109,6 +109,23 @@ Confidence analysis: agreement can be anticipated by a cheap relational consiste
 (AUROC 0.66–0.96) but not by recognition-only signals, and gating on it does not beat
 random gating. `NSY_WORKERS=6 .venv/bin/python -m experiments.number_construction_confidence pilot3`
 (under a minute).
+
+[Part D results](number-construction-v1-part-d-results.md), three seeds: senses, varied
+contexts, rehearsal and an imagery probe.
+- Rehearsal removes most forgetting (Chinese at the end 0.20 → 0.53).
+- At matched exposure, varied contexts (taps through a second sense, plus comparison)
+  beat repeated ones on acquisition and retention by 0.08–0.17.
+- Untaught compositions work: taps → form 0.76–0.91 (withheld forms included), and
+  "which is more" learned on collections transfers to symbols (0.77–0.92).
+- Successor residuals detect incoherent counting runs without training wherever the
+  concept is retained (0.94–0.97).
+- Imagery: clamped core states, including the gap between two neighbours, reverse to
+  count-specific features in both senses (random control 0.04). Pixel decoding stays
+  blurred.
+
+Commands: `NSY_WORKERS=11 .venv/bin/python -m experiments.number_construction_part_d pilot`
+(25 minutes), then `NSY_WORKERS=11 .venv/bin/python -m experiments.number_construction_imagery pilot`
+(13 minutes).
 New experiments are added here, not to the README. Entries carried over from the
 README's original layout list keep their wording. Earlier studies that list never
 covered (for example the layered-module, locality-adaptation and relational
