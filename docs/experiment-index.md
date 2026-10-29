@@ -151,6 +151,7 @@ and form comparisons lose 0.04–0.07. Equality pairs through the comparison hea
 `NSY_WORKERS=11 .venv/bin/python -m experiments.number_construction_multistep pilot`
 (24 minutes), then the composition and projection analyses with
 `NCC_RUNS=number-construction-v1-multistep-pilot`.
+Summary of the number line so far: [number-line checkpoint](number-line-checkpoint.md) (draft).
 New experiments are added here, not to the README. Entries carried over from the
 README's original layout list keep their wording. Earlier studies that list never
 covered (for example the layered-module, locality-adaptation and relational
