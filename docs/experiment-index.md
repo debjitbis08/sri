@@ -117,11 +117,11 @@ contexts, rehearsal and an imagery probe.
   beat repeated ones on acquisition and retention by 0.08–0.17.
 - Untaught compositions work: taps → form 0.76–0.91 (withheld forms included), and
   "which is more" learned on collections transfers to symbols (0.77–0.92).
-- Successor residuals detect incoherent counting runs without training wherever the
-  concept is retained (0.94–0.97).
-- Imagery: clamped core states, including the gap between two neighbours, reverse to
-  count-specific features in both senses (random control 0.04). Decoded "dreams" are
-  blurred and carry quantity, not arrangement.
+- The learned successor flags incoherent counting runs, without separate anomaly
+  training, wherever the concept is retained (0.94–0.97).
+- Imagery: clamped core states, including the state inferred between two neighbours,
+  project back toward count-specific sensory features in both senses (nearest real
+  inputs). Decoded "dreams" are blurred and not shown to preserve count.
 
 Commands: `NSY_WORKERS=11 .venv/bin/python -m experiments.number_construction_part_d pilot`
 (25 minutes), then `NSY_WORKERS=11 .venv/bin/python -m experiments.number_construction_imagery pilot`

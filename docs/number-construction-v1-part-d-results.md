@@ -96,7 +96,7 @@ of training (D-varied in brackets):
 - Thai transfer (4 shots per count, 200 updates) stays near chance in every arm
   (0.12–0.15), as in Part A.
 
-## 4. Coherence detection with no training for it
+## 4. Coherence detection without separate anomaly training
 
 Five-step ascending runs, one interior step replaced by another count, scored by summed
 successor residuals (AUROC):
@@ -110,10 +110,14 @@ successor residuals (AUROC):
 | Thai (untaught) | 0.42 | 0.47 | 0.44 | 0.52 | 0.45 |
 | Taps | 0.50 | 0.51 | 0.49 | 1.00 | 1.00 |
 
-- The sense that a sequence is wrong is present exactly where the concept is held: high
-  for retained languages, at chance for forgotten or untaught ones.
-- This is still an explicit residual calculation over given codes, not a trained fast
-  detector. It is the baseline the instinct thread needs to beat on held-out combinations.
+- The successor relation was trained (positive and negative *next* pairs), so this is
+  learned knowledge being used to flag a violation; there was no separate
+  sequence-anomaly training.
+- The signal is present where the concept is held: high for retained languages, at
+  chance for forgotten or untaught ones.
+- It uses one relation. Detecting a contradiction that appears only when successor and
+  comparison are combined is not tested.
+- It is an explicit residual calculation over given codes, not a trained fast detector.
 
 ## 5. Imagery: what the system "sees" when a state starts in the core
 
@@ -141,34 +145,37 @@ Nearest real input has the clamped count (top 1; top-5 majority in brackets):
 | Core middle layer, collections | 0.52 (0.59) | 0.67 (0.89) | 0.67 (0.70) |
 | Random state (control) | 0.04 (0.07) | 0.04 (0.07) | 0.04 (0.04) |
 
-- **Signals started in the core reach the senses with their count intact.** Thinking a
-  Chinese "five" produces sequence-sense features nearest to five taps (0.93). Hearing a
-  count produces image-sense features nearest to symbols of that count (0.81).
-- **The gap is imagined as the missing count.** The state that fits "after n − 1 and
-  before n + 1", with no item at all, reverses to features nearest to inputs of n (0.57
-  image, 0.71 sequence). So the system can form a picture of a quantity it was not shown.
-  This is the "something lies between 3 and 5" idea made visible.
-- The imagined successor of n − 1 looks like n (0.71).
-- Random core states of the same norm produce nothing count-like (0.04), so the result is
-  not the readout's prior.
-- In the image sense, what the core evokes is often a *symbol* rather than a collection:
-  in the seed-100 D-varied+rehearsal grid, taps of 2 evoke 二, a Chinese form of 5 evokes
-  五, and a Devanagari "4" evokes 四. The sense has no preference for the collection
-  format.
+- **Core states project back toward count-specific sensory features.** The Chinese
+  "five" prototype, solved out to the sequence sense, gives features whose nearest real
+  input is five taps (0.93). The taps prototype, solved out to the image sense, gives
+  features nearest to symbols of that count (0.81). This is retrieval of count-specific
+  features, not demonstrated count-preserving generation (see the decoded dreams below).
+- **Relationally inferred states do the same.** The state inferred from the two
+  neighbours alone, "after n − 1 and before n + 1", projects toward inputs of n (0.57
+  image, 0.71 sequence), and the inferred successor of n − 1 toward inputs of n (0.71).
+  The count n was taught in other trials; it is only omitted from this one. This is the
+  "something lies between 3 and 5" idea at the feature level.
+- Random core states of the same norm do not project toward the count arbitrarily
+  assigned to them (0.04). That shows the table is not produced by the readout alone; it
+  does not show that random states carry no count.
+- The nearest real input is often a *symbol* rather than a collection: in the seed-100
+  D-varied+rehearsal grid, the nearest input for taps of 2 is 二, for the Chinese 5
+  prototype 五, and for the Devanagari 4 prototype 四. The grid's "nearest" rows are
+  retrieved real inputs, not generated images.
 - D-base gives chance in every row (0.00–0.22). Its core states for collections do not
   reverse to count-specific features, although forward matching works; the rehearsal
   arms do. Not explained.
 - The sequence sense is untrained in arms without taps, so its rows are at chance there.
 
 **What the system dreams.** The decoded inputs show what a core state looks like to each
-sense. The decoder gives the average input for a feature vector, so dreams are blurred.
-They keep the quantity but not where individual dots are:
+sense. The decoder gives the average input for a feature vector, so dreams are blurred,
+and the readouts below do not show that they preserve the count:
 - in the image sense, a dreamed small count is a compact blob; by 6–9 it spreads into a
-  wide band. The dream carries "how much", not a particular arrangement. Collections,
+  wide band. Spread, rather than any countable arrangement, is what changes. Collections,
   symbols, the imagined successor, the gap and middle-layer states all dream this way.
   Random states dream irregular, symbol-like fragments. A count reader trained on
   reconstructions of real collections (0.53–0.60 on those) reads image dreams near
-  chance, so their count is visible to the eye only as spread;
+  chance;
 - in the sequence sense, dreams are pulse trains; the count reader recovers the count
   from dreamed taps at 0.26–0.48 in the varied arms (gap 0.48, random 0.07; reader on
   reconstructions of real taps 1.00);
@@ -197,16 +204,19 @@ The output module has no loss in Part D, so it is not reported.
 
 - **Established in this pilot:**
   - rehearsal removes most forgetting;
-  - varied contexts through two senses improve acquisition and retention over repeated
-    contexts at matched exposure;
+  - the combined treatment (taps through a second sense plus comparison training)
+    improves acquisition and retention over repeated contexts at matched exposure;
   - concepts compose where they were never taught: across senses, and for a relation
     learned on collections;
-  - coherence violations are detectable without training wherever the concept is held;
-  - core states, including the gap and the imagined successor, reverse to count-specific
-    features in each sense.
+  - the learned successor flags single-relation coherence violations wherever the
+    concept is held;
+  - core states, including relationally inferred ones, project back toward
+    count-specific sensory features in each sense.
 - **Not yet:**
   - which part of the varied contexts helps (taps vs comparison);
-  - transfer to a new language (Thai) remains at chance;
+  - learning a new language (Thai) remains at chance. Shared knowledge is usable through
+    interfaces already learned; acquiring a new interface is a separate, unsolved problem;
+  - contradiction detection that needs two relations together;
   - English stays slow (0.31–0.35).
 - **Unexplained:** reversed comparison on untaught Thai forms; D-base's failure in the
   imagery probe.
@@ -216,3 +226,8 @@ The output module has no loss in Part D, so it is not reported.
      combinations (the instinct test);
   3. Part C questions, now with a concrete trigger: a coherence violation in a retained
      concept, or a gap state.
+- **External review (2026-10-29)** recommends a joint-relation contradiction test before
+  training another detector: teach successor and comparison separately, then present
+  claims such as "B follows A; C follows B; A is greater than C" on unfamiliar
+  combinations of familiar items with matched surface statistics, and compare each
+  relation alone against both together. Next steps are not yet decided.
