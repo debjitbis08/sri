@@ -92,8 +92,14 @@ learned successor, not a learned removal operation.
   average and unstable across seeds.
 - **Equality** is untrained in these checkpoints and caps every method on tie items.
 - So the compositional competence that a fast single-pass detector would need to absorb is
-  present only in part. Training comparisons on transformed states, multi-step succession
-  or equality judgments would be the obvious remedies; none is chosen yet.
+  present only in part.
+- **Next, agreed with the researchers (2026-10-29):** teach multi-step counting, and give
+  equality a little training. A separate comparison training on imagined states is not
+  needed in principle: the comparison head is one rule for all states, so if the imagined
+  result lands where real items of that count lie, comparison works. The forward failure
+  says Sᵏ drifts away from that region, which multi-step counting addresses at its source.
+  Equality may fit the existing *same* judgment rather than the comparison head, whose
+  single threshold cannot answer "neither more nor fewer".
 
 ## Computation
 
