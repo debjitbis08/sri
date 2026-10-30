@@ -1,6 +1,6 @@
 # Limited, decaying memory as pressure to consolidate
 
-Draft, 2026-10-30, revised twice the same day. Not frozen.
+Draft, 2026-10-30, revised three times the same day. Not frozen.
 
 **Revisions.**
 - The first draft modelled memory as an external store of training episodes. An
@@ -14,6 +14,13 @@ Draft, 2026-10-30, revised twice the same day. Not frozen.
 - The [timing run](fan-in-pilot-v1-timing-results.md) has finished. Neither the
   coordinate nor gradual timing reproduces RigL, so the structure part uses **RigL**
   wiring.
+- The [reset](fan-in-pilot-v1-reset-results.md) and [erasure](fan-in-pilot-v1-erasure-results.md)
+  runs and the [count-coordinate analysis](count-coordinate-analysis.md) have since
+  finished. This version adds what they show: disrupting sparse connections, not
+  moving them to a better place, is what helps; dense readers gain nothing from it; the
+  count is spread over most code coordinates, so the right transfer measure is the
+  average coordinate. It adds a reset arm beside decay, an average-coordinate measure,
+  checkpoints at each phase, and the prior work that was missing (see "Review points").
 
 ## Question
 
@@ -49,7 +56,22 @@ The researchers' view:
   gradient access.
 - **No unit-preserving arm has reproduced RigL's English and Devanagari gains**
   ([timing results](fan-in-pilot-v1-timing-results.md)). RigL's dead units, partial
-  concentration and repeated rewiring are untested candidates.
+  concentration and repeated rewiring were candidates; the later runs narrowed them.
+- **Disrupting sparse connections is what helps** ([erasure results](fan-in-pilot-v1-erasure-results.md)).
+  Random rewiring with restart at zero gets most of RigL's transfer with no
+  concentration and no dead units; resetting in place, or moving while keeping weight,
+  each beats random wiring; **dense readers reset at the same rate gain nothing**; half
+  the rate loses part of the gain and twice the rate adds little. So the structure
+  part's wiring is a choice (see "Open choices"), and a dense part is not expected to
+  gain from erasure.
+- **The count is spread over the code, not on one coordinate**
+  ([count-coordinate analysis](count-coordinate-analysis.md)). In every arm, dense
+  included, 13–16 of 16 coordinates individually order collections. The arms differ in
+  whether the average coordinate's count map transfers to taps and forms (Chinese forms
+  0.60 dense, 0.90 random rewire). Readers did not concentrate on the best coordinate
+  (0.06–0.09 of reads, chance 0.0625). The reading, untested, is that disrupted sparse
+  readers cannot depend on any coordinate, so every coordinate has to carry the count.
+  Retention could not be examined from final checkpoints.
 
 ## Design
 
@@ -149,7 +171,12 @@ Fresh seeds, ten per arm.
 | `mixed-h2000` | same | 2,000 (one block) |
 | `mixed-h500` | same | 500 |
 | `mixed-h125` | same | 125 |
+| `mixed-reset` | same | ∞; the 16 dense units' incoming connections reset to zero in place at the rewire arm's per-connection rate, as in `dense-inplace` but on these units |
 
+- `mixed-reset` compares decay with the established form of disruption. Decay and reset
+  both remove memory-unit content, but only reset has been run, and on dense readers it
+  gained nothing. The question is whether decay does better on the memory part, not
+  whether reset helps the structure part.
 - `sparse48` is the right short-H limit: as H shrinks, the memory part goes silent and
   leaves 48 structure units, not 64.
 - The three half-lives are declared candidates, not tuning. A claim that rests on one
@@ -221,6 +248,19 @@ quicker.
   curve from each arm's own accuracy at the start of relearning.
 - **At the end of block 3, after the delay, and after relearning:** the sequence pilot's
   full measures, the arrangement probe and the fan-in code-structure diagnostics.
+  **Save a checkpoint at each of the three points** (and at the end of block 1); the
+  count-coordinate analysis could not study retention because only final checkpoints
+  existed.
+- **Count on the average coordinate:** the [coordinate probe](count-coordinate-analysis.md)
+  at the same points: order accuracy of a collection-fitted count map on taps and each
+  script's forms, **averaged over all 16 coordinates** (the transfer measure of
+  record), with the best-on-collections coordinate and the linear-direction alignment
+  reported beside it. Not computed at a chosen coordinate.
+- **Under reader disruption:** at the same points, the eight transfer measures again
+  with a random 25% of each reader's first-layer connections zeroed (fresh draws,
+  ten per checkpoint). A count that every coordinate carries should survive; a count that
+  the readers depend on specific connections for should not. Descriptive; the 25% is
+  a declared level, not tuned.
 
 ## Predictions
 
@@ -237,6 +277,12 @@ Written before any run.
   longer than training.
 - **After the delay,** English matching falls most in short-H arms. What remains is
   carried by the structure part.
+- **Average-coordinate transfer** (Chinese forms, taps) falls in `mixed` relative to
+  `sparse48`, if the dense part gives readers a path that does not need every coordinate
+  (as random coordinates did in `fixed75`). It recovers as H shortens, if decay silences
+  the memory part. `mixed-reset` is expected to stay near `mixed`, since dense readers
+  gained nothing from reset. If decay does no better than reset on the memory part, the
+  decay story has no support beyond reset.
 - **Relearning** is faster from structure-rich arms, on the curve measure, for the count
   ordering. A lost link between a specific shape and its count cannot be restored by
   structure without new examples.
@@ -248,7 +294,8 @@ rule.
 
 - **Contrasts:**
   - each decaying arm against `sparse48`, `sparse64` and `mixed`;
-  - `mixed` against `dense` and `sparse64`.
+  - `mixed` against `dense` and `sparse64`;
+  - the best decaying arm against `mixed-reset`.
 
   On: the eight transfer measures after block 3; Chinese paired at its block;
   structure-only accuracy at the end of block 3; English matching after the delay; the
@@ -263,6 +310,8 @@ rule.
     structure-only accuracy.
   - **Gain compensation:** memory-column norms fall while dependence on the memory part
     does not.
+  - **Decay beyond reset:** some H is better than `mixed-reset` on average-coordinate
+    transfer or structure-only accuracy.
   - **Inconclusive is not equivalent.**
 
 ## Prior work and expected limits
@@ -302,6 +351,23 @@ read before this is frozen.
   Stage 2 is the first unless it models the code distribution. Both fit the
   [foundations'](foundations.md) commitment to replay with no store of experience.
 
+- **Forgetting that helps generalization.** Periodic reinitialization of part of a
+  network (Zhou et al. 2022, "fortuitous forgetting") and iterated learning (Ren et al.
+  2020) **[familiar]**; notes in [forget-relearn-iterated-learning-notes](forget-relearn-iterated-learning-notes.md)
+  and the [after-reset analysis](rigl-after-reset-analysis.md). Shrink-and-perturb
+  (Ash and Adams 2020) **[familiar]**: shrink weights toward zero and add noise to keep
+  a warm start trainable; the decay here shrinks toward the start point and is applied
+  per step.
+- **Dropout and DropConnect.** Randomly zeroing units or connections each step
+  (Srivastava et al. 2014; Wan et al. 2013) **[familiar]** is the established
+  counterpart of the reader disruption here and of the disruption test above. It is not
+  an arm: the fan-in results use persistent sparse wiring that changes at a set rate,
+  which differs, and the cost of adding it to this design is a separate run.
+- **Weight-decay variants as the cheaper baseline.** Plain L2 or decay on the whole
+  reader, with no sparse part, is the cheapest alternative to a memory/structure split
+  and is covered by `dense` plus the established decay results above. Whether it
+  matches `mixed-h*` is not tested; the arms differ in connectivity as well as decay.
+
 **Known failure modes.**
 - **Gain compensation** by the non-decaying layers. Measured by dependence and norms.
 - **Renewal during the delay** by context gradients and Adam's moments. Separated by the
@@ -309,6 +375,9 @@ read before this is frozen.
 - **Units that do not reactivate.** Measured directly.
 - **Incomplete handoff within training.** Expected from the timescale; not read as
   failure.
+- **Dense units undoing sparse disruption.** `fixed75` and the dense-reset arm both
+  show that units that see all coordinates remove the effect. `mixed` is expected to
+  show it; it is the baseline the decaying arms must beat.
 - **Silencing is approximate:** it changes the inputs the later layers were trained on.
   Reported as dependence with interaction terms.
 
@@ -346,6 +415,16 @@ open.
 | Token weights, RigL row assumption, rewiring stop, starting weights | Specified |
 | Half-life grid needs confirmation | Stated in "Arms" and decision rules |
 
+**Reset, erasure and count-coordinate results (third draft).**
+
+| Point | Change |
+| --- | --- |
+| Dense readers gain nothing from reset at the same rate | `mixed-reset` arm added; "What is already known" and predictions updated |
+| The count is on most coordinates, not one | Average-coordinate measure of record; per-unit story dropped |
+| Retention could not be studied from final checkpoints | Checkpoints at each phase |
+| Disruption helps sparse readers | Reader-disruption test added; structure wiring made an open choice |
+| Forgetting, shrink-and-perturb and DropConnect not cited | Added under prior work, tagged **[familiar]** |
+
 ## Computation plan
 
 - **Decay:** in `g`, 16 × 41 incoming (40 weights and a bias) plus 16 × 64 outgoing:
@@ -356,10 +435,19 @@ open.
   both), every 500 updates.
 - **Decay-only diagnostic:** 2,000 steps of decay on one frozen copy per run;
   negligible.
-- **Runs:** 70 (7 arms × 10 seeds), each 8,200 updates (6,000 + 2,000 delay + 200
+- **Runs:** 80 (8 arms × 10 seeds), each 8,200 updates (6,000 + 2,000 delay + 200
   relearning) instead of 6,000, plus evaluation.
-  - On CPU (6 workers × 2 threads), about 480 s per run plus evaluation: about 100
-    minutes.
+  - On CPU (6 workers × 2 threads), about 480 s per run plus evaluation: about 115
+    minutes. An estimate from the earlier runs.
+- **Reset arm:** one Bernoulli draw per memory-unit incoming connection per reset step:
+  16 × 41 + 16 × 33 = 1,184 draws, negligible.
+- **Coordinate probe and disruption test:** the probe is a closed-form fit per
+  coordinate; the analysis script took 34 s for 80 checkpoints. The disruption test adds
+  ten masked evaluations per measure per checkpoint, about ten times one evaluation
+  pass, for each of the eight transfer measures.
+- **Checkpoints:** four per run (end of block 1, end of block 3, after the delay, after
+  relearning), about 1.5 MB each as float32 by the erasure run's size (117 MB for 80):
+  about 480 MB untracked for 80 runs.
   - The [CPU against GPU benchmark](cpu-gpu-benchmark-v1.md) suggests the GPU could be
     several times faster. It would need device handling, deterministic settings and a
     real-pilot timing first. This study uses fresh seeds and no CPU comparison arm, so it
@@ -370,6 +458,9 @@ open.
 ## Open choices for the researchers
 
 - The split: 48 structure and 16 memory units.
+- The structure part's wiring: RigL as decided, or random rewiring with restart at zero,
+  which got most of RigL's transfer with no gradient step, no top-k and no dead units.
+  It is the cheaper established alternative and would change every arm's baseline.
 - The half-lives: 2,000, 500 and 125 updates.
 - Whether to keep the existing rehearsal buffer (external replay) for comparability with
   the fan-in runs, or drop it so that only the network's own memory holds old blocks.

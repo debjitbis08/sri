@@ -1196,3 +1196,10 @@ This is a targeted contract review, not a novelty search.
   - bidirectional predictive coding for the objective question;
   - correlated-nuisance fixtures to separate prediction from alignment;
   - anchor-penalty SI and training-regime controls for forgetting.
+- For forgetting-as-pressure designs (2026-10-30): the established counterparts are
+  periodic reinitialization (Zhou et al. 2022), shrink-and-perturb (Ash and Adams 2020),
+  DropConnect (Wan et al. 2013) and iterated learning; all **[familiar]**, not read.
+  In this project disrupting sparse reader connections helps, dense readers do not gain,
+  and the count sits on most code coordinates, so measure transfer on the average
+  coordinate ([analysis](count-coordinate-analysis.md),
+  [limited-memory proposal](limited-memory-proposal.md)).
