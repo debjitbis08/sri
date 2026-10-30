@@ -1,10 +1,11 @@
-# Arbitrary pairings v1: contract (draft, not frozen)
+# Arbitrary pairings v1: contract (frozen 2026-10-31)
 
-Status: **draft for the researchers' decisions; revised after an external review
-(2026-10-30).** Nothing here has been run. Follows the [limited-memory results](limited-memory-v1-results.md),
-which showed a trade between cross-sense transfer (best in `sparse48`) and taught matching
-(higher in arms with dense units, inconclusively on the confirmation run), and left
-memorization itself untested.
+Status: **frozen 2026-10-31**, after the pilots and two external reviews. Arms, seeds, schedules,
+endpoints and readings below do not change after results are seen; anything added later is labeled post hoc.
+Follows the [limited-memory results](limited-memory-v1-results.md), which showed a trade between cross-sense
+transfer (best in `sparse48`) and taught matching (higher in arms with dense units, inconclusively on the
+confirmation run), and left memorization itself untested. The study is two runs on the same seeds: **Option A,
+the primary architecture comparison**, and **Option B, a separate disruption test** (below).
 
 ## Question
 
@@ -64,26 +65,25 @@ Sequential A→B is kept. The alternative, A taught inside block 3, confounds pa
 the block whose transfer is measured.
 
 **Arms:** `sparse48`, `dense`, `mixed`, `mixed-h125`, `mixed-h500`, `mixed-reset`.
-- **Rewiring and reset schedules (decision 5, decided by the researchers: Option B is the
-  experiment; Option A is the debugging baseline).**
-  - **Option B, the study (seeds 320–329).** RigL rewiring of the structure rows and the
-    `mixed-reset` resets continue through the end of block 5 (update 10,200), at the
-    inherited rate and rule, in every branch including the matched controls `C` and `P-A`.
-    Decay in `mixed-h125` and `mixed-h500` is active throughout. Rewiring therefore also
-    runs through the end of block 3, so the parents are not the limited-memory parents
-    and blocks 1–3 are rerun on the new seeds. Pairs are learned while the structure
-    part is still changing; "active decay against active reset" is the contrast.
-  - **Option A, debugging only (seed 299 pilot).** The inherited schedules stop at update
-    4,500, before block 4 starts at 6,200: connectivity is fixed during pairing and
-    `mixed-reset` is a past intervention. It exists to debug the runner and the controls
-    in a cleaner setting and to set N and block length. It yields no reading.
-  - **Reading B with care.** Continuing resets and rewiring can erase or move the
-    connections that hold pairs, so a deficit in a rewiring arm is damage from disruption
-    as much as a limit of the architecture. `sparse48` (RigL) and `mixed-reset` carry that
-    cost by design; `dense` and the decay arms without reset differ in it.
+- **Option A: primary architecture comparison (seeds 320–329).** The inherited schedules stop at update
+  4,500, before block 4 starts at 6,200: connectivity is fixed during pairing and `mixed-reset` is a past
+  intervention. It measures learning new associations with previously learned connectivity held fixed. Decay in
+  `mixed-h125` and `mixed-h500` is active throughout blocks 4 and 5, so decay against reset compares active decay
+  with a completed reset. All readings below are under Option A.
+- **Option B: disruption test (the same seeds, 320–329).** RigL rewiring of the structure rows and the
+  `mixed-reset` resets continue through the end of block 5 (update 10,200), at the inherited rate and rule, in every
+  branch including `C` and `P-A`. It asks whether the ability measured in Option A survives continued rewiring and
+  resets. Its readings are the within-arm, within-seed differences B − A.
+  - **Limit of the test:** RigL's drop/grow fraction anneals by a cosine to zero at the end of the schedule, so under
+    B the anneal also runs differently during blocks 1–3 and the parents differ from Option A's. B − A therefore
+    compares two whole schedules, not only the rewiring during pairing. `dense` has no rewiring or reset, so its B
+    and A runs must be identical (a determinism check).
+  - **Reading B with care:** a deficit in a rewiring arm is damage from disruption as much as a limit of the
+    architecture; `sparse48` (RigL) and `mixed-reset` carry that cost by design. In the pilot the rewiring arms were
+    near the floor under B, so absolute Option B values for them may be floor-bound.
 - The structure part's rewiring rule is RigL; the random-rewiring follow-up reuses the task (decision 3).
 
-**Seeds:** 320–329, one fixed cohort of 10 (Option B); seed 299 for the Option A pilot. No second cohort and no stopping rule:
+**Seeds:** 320–329, one fixed cohort of 10, run under both options; seed 299 was the pilot. No second cohort and no stopping rule:
 inconclusive readings stay inconclusive, and any later cohort is a new, labeled run.
 
 ## Controls
@@ -155,6 +155,17 @@ Contrasts: `mixed` against `sparse48`; `mixed-h125` against `mixed`; `mixed-h125
 - **Active decay against active reset:** `mixed-h125` against `mixed-reset` on the same
   measures, named as such.
 - **Inconclusive is not equivalent.**
+- **Co-primary:** recall on the training renderings is read beside recall on independent renderings for the
+  retained and acquisition readings; the early acquisition window (in-block updates 0–250) is the primary acquisition measure.
+
+### Disruption test (Option B), prespecified
+
+For each arm, the paired difference B − A over seeds on: recall on A at the end of block 4 and block 5 (independent and
+training renderings), the early acquisition window, and absolute (a) at the end of block 5 in `P-AB`.
+- **Ability survives** if the interval for B − A is noninferior (lower bound above −0.05); **does not survive** if
+  worse. Otherwise inconclusive.
+- **Differences in survival between arms** (for example `mixed` against `sparse48` in B − A) are descriptive.
+- `dense` must show B − A = 0 exactly; any difference is a runner fault.
 
 ## Prior work
 
@@ -213,9 +224,8 @@ Notation: P parameters, E evaluation renderings per symbol, K the evaluation poi
   randomized candidate positions and the two shuffled-label checks.
 - **Look-alike symbols:** at 28×28 many symbols are close. The filter removes near-duplicates;
   residual confusion lowers recall for every arm alike.
-- **Disruption during pairing:** under Option B the rewiring and resets run while pairs are
-  learned (see Arms). Option A, seed 299 only, shows what happens without them; the two are
-  not combined in one reading.
+- **Disruption during pairing:** Option A holds connectivity fixed; Option B tests continued rewiring and resets (see Arms).
+  The two are separate runs and separate readings, never combined.
 - **Shared code:** both tasks use the 16-dimensional code and the readers. A drop in
   structure can come from added updates alone, so the damage of pairing is read against
   the matched continuation `C`, not against zero or the earlier delay.
@@ -227,14 +237,14 @@ Decided by the researchers (2026-10-30):
 2. Schedule: sequential A→B with the matched controls `C` and `P-A`.
 3. Random-rewiring arms are not in this study; they follow as a separate, labeled run on this task.
 4. A nearest-neighbor lookup on the item embedding is included as a recall reference (not an arm).
-5. Option B (rewiring and resets continue through block 5) is the study; Option A (inherited
-   schedules) is the debugging baseline on seed 299.
+5. Decided (revised 2026-10-31): Option A (inherited schedules, connectivity fixed during pairing) is the primary
+   architecture comparison; Option B (rewiring and resets continue through block 5) is a separate disruption test on the
+   same seeds.
 6. Pair-set size N and block length were set by the seed-299 pilot under Option A
    ([pilot](arbitrary-pairings-v1-pilot.md)): **N = 45, L = 2,000 updates**, chosen on floor,
    ceiling and the two shuffled-label checks only. The distance threshold stays at 0.35.
 
-**Before freezing:** the runner is built and the Option A pilot is done (N, L and the threshold are
-fixed above). Remaining: the researchers' approval to freeze, then the Option B study on seeds 320–329.
+**Frozen with the following specifications:**
 - **Evaluation points:** update 0 of each block, 25, 50, 100, 150 and 200 updates into it, then every 250
   (the pilot's recall curves were flat from the first point at 250).
 - **Early acquisition window (fixed before the study):** the trapezoid mean of (recall − chance) over in-block
@@ -248,10 +258,7 @@ fixed above). Remaining: the researchers' approval to freeze, then the Option B 
   recognition ceiling).
 - **Shuffled-label rescoring** reports the mean and spread over 100 permutations; it, and the `P-A'` check, are
   sanity checks, not clearance for leakage.
-- **Option B and the RigL anneal:** RigL's drop/grow fraction anneals by a cosine to zero at the end of the
-  schedule, so extending the end to update 10,200 also changes the anneal during blocks 1–3
-  relative to the limited-memory runs. The parents are new, so nothing is reused.
 - **Storage correction:** the runner writes no model checkpoints, only the per-arm record (about 70 KB for six
   arms at N = 45, L = 2,000), so the cohort needs under 10 MB, not 0.6 GB.
-- **Measured cost:** at N = 45, L = 2,000, six arms took 546 s with six GPU processes; the study (60 arm-seeds)
-  is expected to take about 95 minutes.
+- **Measured cost:** at N = 45, L = 2,000, six arms took 546–555 s with six GPU processes; each option on 60
+  arm-seeds is expected to take about 95 minutes, so about 3.2 hours for both.
