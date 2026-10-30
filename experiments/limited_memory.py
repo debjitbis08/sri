@@ -49,7 +49,7 @@ ARMS = ('dense', 'sparse64', 'sparse48', 'mixed', 'mixed-h2000', 'mixed-h500', '
 HALF_LIFE = {'mixed-h2000': 2000, 'mixed-h500': 500, 'mixed-h125': 125}
 FORK = {'fork-hinf': None, 'fork-h2000': 2000, 'fork-h500': 500, 'fork-h125': 125}
 SEEDS = {'main': tuple(range(300, 310)), 'fork': tuple(range(300, 310)), 'confirm': tuple(range(310, 320)),
-         'fork-confirm': tuple(range(310, 320))}[STAGE]
+         'fork-confirm': tuple(range(310, 320))}.get(STAGE, ())
 DELAY, RELEARN, FORK_STEPS, EVERY = (20, 8, 20, 10) if SMOKE else (2000, 200, 2000, 500)
 DISRUPT_P, DISRUPT_DRAWS = .25, 10
 NAME = 'limited-memory-v1-' + STAGE + ('-smoke' if SMOKE else '') + os.environ.get('NFI_TAG', '')
@@ -151,7 +151,7 @@ def train_update(enc, model, opt, material, rng, compare):
     """TP.train_update, then RigL on the structure rows, the memory units' reset, and decay (arm-specific)."""
     arm = CURRENT['arm']
     CURRENT['step'] += 1
-    step, end = CURRENT['step'], FI.END_FRACTION * 3 * D.STEPS
+    step, end = CURRENT['step'], CURRENT.get('end') or FI.END_FRACTION * 3 * D.STEPS
     rigl = structure_layers(model) if arm not in ('dense',) and step % FI.DT == 0 and step <= end else {}
     for lin in rigl.values():
         lin.collect, lin.probe = True, torch.zeros_like(lin.weight, requires_grad=True)
