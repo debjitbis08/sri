@@ -1,0 +1,9 @@
+# CUDA environment for the fan-in runners (NFI_DEVICE=cuda); same library versions as requirements.txt except torch.
+# uv venv --python 3.12 /data/venvs/sri-cuda
+# uv pip install --python /data/venvs/sri-cuda/bin/python -r requirements-cuda.txt
+--index-url https://download.pytorch.org/whl/cu130
+--extra-index-url https://pypi.org/simple
+numpy==2.5.4
+scipy==1.18.1
+torch==2.14.1
+pillow==13.0.0

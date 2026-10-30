@@ -22,8 +22,7 @@ Draft, 2026-10-30, revised five times the same day. Not frozen.
   count is spread over most code coordinates, so the right transfer measure is the
   average coordinate. It adds a reset arm beside decay, an average-coordinate measure,
   checkpoints at each phase, and the prior work that was missing (see "Review points").
-- A second external review: the study is meant to run on the GPU if a real timing and a
-  determinism check allow it. The review's six points
+- A second external review. The GPU port has since been built and timed (see "Device"). The review's six points
   are addressed (see "Review points"): a checkpoint-fork experiment for handoff,
   a fully specified reset control, a corrected replay limit, a corrected decay bound,
   a frozen selection and confirmation protocol with full costs, and a corrected claim
@@ -612,11 +611,13 @@ selection candidates and confirmation:
 - total: 1,064,000 updates (RigL's gradient collection adds a little on the 45 update
   steps per run that carry it).
 
-**Estimates (not measurements).** From the earlier CPU runs, about 0.08 s per update per
-worker (480 s per 6,000-update run), so with 6 workers: selection run about 146
-minutes, forks about 18, confirmation about 73: **about 4 hours on CPU**. An earlier
-draft's 115 minutes scaled the run count but not the run length and was wrong. The
-GPU figure is unknown until measured.
+**Estimates.** Measured on the reset stage: 60 s effective per 6,200-update run on six CPU
+workers, or 0.0097 s per update, so with RigL's gradient steps included in that measure:
+selection run about 106 minutes, forks about 13, confirmation about 53: **about 3 hours on
+CPU**. On the GPU, with six processes, 37 s effective per run ([timing](gpu-timing-fan-in-v1.md)),
+about 66, 8 and 33 minutes: **about 1.8 hours**. The previous draft's "about 4 hours" and its
+claim that the first estimate was wrong were themselves wrong: its 0.08 s per update assumed 480 s
+covered 6,000 updates, but it covered 8,200, as the first draft said.
 
 **Checkpoints.** Four per run (ends of block 1, block 3, delay, relearning), parameters
 only, about 1.5 MB each by the erasure run's size (117 MB for 80): about 480 MB untracked
@@ -627,19 +628,18 @@ selection run (all three fully executed, counted above); confirmation reruns fou
 fresh seeds (counted above). The 48/16 split, the delay length, the relearning length,
 the fork length and the 25% disruption level are fixed and not tuned.
 
-**Device.** The GTX 1650 (4 GB) is the intended device if two checks pass; otherwise the
-study runs on CPU. The [benchmark](cpu-gpu-benchmark-v1.md) measured about 5.8× six CPU
-threads on a simplified step at batch 270 and says the real gain is smaller and
-unmeasured.
-- **Needed:** device handling in the runner (models, data tensors and encoder inputs on
-  the device; rendering on the CPU), `torch.use_deterministic_algorithms(True)` with
-  `CUBLAS_WORKSPACE_CONFIG`, and a one-seed real timing against the CPU runtime.
-- **Determinism check:** one arm and seed run twice on the GPU must give identical
-  results, and a fork continuation must reproduce a straight run. This replaces the
-  earlier runs' exact CPU reproduction.
-- **Consequence:** GPU results will not equal the CPU fan-in runs, so comparisons with
-  them are approximate. Every arm here is rerun, so the study's contrasts are within one
-  device. CPU and GPU arms must not be mixed in one comparison.
+**Device.** The GPU port exists and was timed ([results](gpu-timing-fan-in-v1.md)).
+- **Determinism:** two GPU runs of the same configuration and seed gave identical results
+  at smoke scale, for random rewiring and RigL. Not yet repeated at full length.
+- **Throughput:** 1.6× six CPU workers at six GPU processes, far below the benchmark's
+  5.8×; the runs are bound by Python and kernel-launch overhead. About an hour saved.
+- **Agreement:** no clear device effect on 103 measures (6 differ at |z| > 2, about 5 by
+  chance), but six composition measures are lower on the GPU.
+- **Consequence:** GPU results will not equal the CPU fan-in runs. Every arm here is
+  rerun, so the contrasts are within one device. CPU and GPU arms must not be mixed in
+  one comparison.
+- **Choice:** CPU (about 3 hours, comparable with earlier runs) or GPU (about 1.8 hours,
+  a second environment). Open for the researchers.
 
 **Reporting.** Each run writes a separate runtime JSON: command, revision and dirty
 status, device, dtype, library versions, threads and workers, wall and process CPU
@@ -653,13 +653,12 @@ Settled by the researchers:
 - RigL is the structure wiring for this run; random rewiring is a later alternative.
 - The 48/16 split and the half-lives 2,000, 500 and 125 are kept.
 - The rehearsal buffer is not part of the system; it is used only in retraining.
-- GPU if the two checks in the computation plan pass.
+- The GPU port exists and passes its determinism check at smoke scale; whether to use it is open (see "Device").
+- The buffer is a reference the system consults when retraining, not part of how it
+  learns. The relearning phase and the fork continuations both draw from it, and it holds
+  all three languages, so relearning also re-presents Chinese and Devanagari.
 
 Still to confirm:
-- **Retraining detail.** The relearning phase and the fork continuations draw rehearsal
-  episodes from the buffer, which holds all three languages. That means relearning also
-  re-presents Chinese and Devanagari. The alternative is to limit relearning to English
-  only and let only the fork use the buffer.
 - The declared protocol values in "Selection and confirmation" and the fork (fork length
   2,000, eligibility margin 0.05, threshold of 5 eligible seeds, disruption level 0.25).
 - Reading the **[familiar]** citations before the contract is frozen.

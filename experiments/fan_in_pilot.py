@@ -65,10 +65,12 @@ from experiments import standard_baseline as SB
 from experiments import generic_relations as G
 from experiments import transition_pilot as TP
 from experiments import sequence_pilot as SP
+from experiments import device as DEV
 
 nc = X.nc
 STAGE = sys.argv[2] if len(sys.argv) > 2 else 'stage1'
-NAME = 'fan-in-pilot-v1-' + X.MODE + ('' if STAGE == 'stage1' else f'-{STAGE}') + ('-smoke' if X.SMOKE else '')
+NAME = 'fan-in-pilot-v1-' + X.MODE + ('' if STAGE == 'stage1' else f'-{STAGE}') + ('-smoke' if X.SMOKE else '') + os.environ.get('NFI_TAG', '')
+ONLY = os.environ.get('NFI_ONLY')  # 'config:seed,...': run only these configurations and seeds (timing and checks); use with NFI_TAG
 BASE_ARM = 'D-varied+rehearsal'
 # (encoder 1/phi, readers 1/phi, reader selection); None = dense
 STAGE1 = {'dense': (None, None, None), 'enc-q4': (4, None, None), 'enc-q16': (16, None, None), 'read-q4': (None, 4, 'tied'),
@@ -448,26 +450,34 @@ def run(task):
     config, seed = task
     CURRENT['config'], CURRENT['seed'], CURRENT['step'] = config, seed, 0
     torch.set_num_threads(THREADS)
+    DEV.install()
     mode = CONFIGS[config][2]
     D.train_update = rigl_train_update if config in RIGL_BASE else gradual_train_update if mode in GRADUAL else TP.train_update
-    return ORIG_RUN(task)
+    key, res, rt = ORIG_RUN(task)
+    if DEV.ACTIVE:
+        rt['gpu_peak_allocated_bytes'] = torch.cuda.max_memory_allocated()
+    return key, res, rt
 
 
 def main():
     SB.install()
-    X.make_model = lambda seed: make_model(seed, CURRENT['config'])
+    X.make_model = lambda seed: DEV.build(lambda: make_model(seed, CURRENT['config']))
     TP.EXTRA_LOSS = SP.sequence_loss
     P.evaluate, D.evaluate_senses, D.train_update, D.batch_material = G.evaluate, SP.evaluate_senses, TP.train_update, SP.batch_material
     D.ARMS = {c: D.ARMS[BASE_ARM] for c in CONFIGS}
     if STAGE != 'stage1':
         D.SEEDS = CONFIRM_SEEDS
+    if ONLY:
+        picked = [t.split(':') for t in ONLY.split(',')]
+        D.ARMS = {c: D.ARMS[c] for c in dict.fromkeys(c for c, _ in picked)}
+        D.SEEDS = sorted({int(s) for _, s in picked})
     D.run = run
     D.NAME = NAME
     D.PREFIX, D.RUNS = X.ROOT / 'reports' / NAME, X.ROOT / 'runs' / NAME
     D.main()
     path = X.ROOT / 'reports' / f'{NAME}-runtime.json'
     rt = json.loads(path.read_text())
-    rt.update({'threads_per_worker': THREADS, 'channels_last_image_encoder': CHANNELS_LAST})
+    rt.update({'threads_per_worker': THREADS, 'channels_last_image_encoder': CHANNELS_LAST, **DEV.info()})
     path.write_text(json.dumps(rt, indent=1, sort_keys=True, default=float) + '\n')
 
 
