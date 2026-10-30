@@ -561,6 +561,90 @@ exactly.
 Commands: `NSY_WORKERS=6 NFI_THREADS=2 NFI_CHANNELS_LAST=1 .venv/bin/python -m experiments.fan_in_pilot pilot reset`,
 then `.venv/bin/python -m experiments.fan_in_pilot_analysis pilot reset`.
 
+## Erasure, moving, sparsity and rate (written before running)
+
+Added 2026-10-30 after the [reset results](fan-in-pilot-v1-reset-results.md) and an external
+review of them ([after-reset analysis](rigl-after-reset-analysis.md),
+[literature notes](forget-relearn-iterated-learning-notes.md)). Random rewiring with
+restart at zero gave most of RigL's transfer, without concentrating the readers. It does
+three things at once: it erases a connection's weight and Adam moments, it moves the
+connection to another coordinate, and it does so at one fixed rate in sparse readers.
+This stage separates them.
+
+**Arms, seeds 230–239 (paired with the earlier runs), D-varied+rehearsal:**
+
+| Arm | What it isolates |
+| --- | --- |
+| `dense`, `read-q16-untied`, `read-q16-untied-rewire` | Reruns; must reproduce the reset run exactly |
+| `read-q16-untied-inplace` | Erasure without moving: at each connectivity update, each code connection restarts at zero (weight and moments) with the rewire arm's probability (0.357 in `g`, 0.230 in `P`); the mask never changes |
+| `read-q16-untied-rewirecarry` | Moving without erasure: the rewire arm's random moves (same draws), but a moved connection keeps its weight; moments reset |
+| `dense-inplace` | Is sparsity needed: dense readers, each code weight restarts at zero in place with the same per-connection probability. The relation-token columns of `g` are not reset, as in every arm |
+| `read-q16-untied-rewire-half`, `-rewire-double` | Rate: rewiring at half and twice the probability (`g` 0.179 / 0.714, `P` 0.115 / 0.460). The draws are shared with the rewire arm, so each update's moves at half rate are a subset of its moves |
+
+Schedule as before: every 100 updates until update 4,500, 45 events. Draws come from
+named streams (`fanin_rewire` for moves, `fanin_reset` for in-place resets), so the
+batches match the earlier runs by seed.
+
+**Contrasts** (paired 95% t-interval rule, as before): in place − random, in place −
+rewire; keep-weight − random, keep-weight − rewire; dense in place − dense; half − rewire,
+double − rewire, half − random, double − random.
+
+**Pre-declared readings,** on taps → withheld Chinese forms and English comparison, with
+Devanagari comparison reported alongside:
+
+- **Erasure alone suffices:** in place better than random on both.
+- **Moving adds to erasure:** rewire better than in place on either (that is, in place −
+  rewire worse on either).
+- **Moving alone suffices:** keep-weight better than random on both.
+- **Erasure is needed for moves:** keep-weight worse than rewire on either.
+- **Sparsity is needed:** dense in place not better than dense on either measure. Erasure
+  also helps dense readers if dense in place is better than dense on both.
+- **Rate:** more erasure helps if double is better than rewire on either measure; less
+  erasure loses if half is worse than rewire on either. An intermediate rate is best if
+  both half and double are worse than rewire on either measure.
+
+**Single-coordinate probe** (new, descriptive; the review's cheaper diagnostic): for each
+of the 16 code coordinates, an affine map from that coordinate to count, fitted on
+collections only and applied unchanged to taps and forms. Reported as the distribution
+over all coordinates (mean collection R², number of coordinates with R² ≥ 0.5, mean
+pairwise order accuracy on each set); no coordinate is selected. The review derives that
+a fresh one-coordinate reader's best error is Var(n)(1 − Corr(n, c_j)²), so a code read
+well by changing random readers should carry count in many coordinates. Predicted: the
+erasure arms have higher mean R² and order on forms than random.
+
+**Predictions:**
+- In place gives most of the rewire arm's gain: what matters is losing the reader's
+  solution, not where the connection goes. Moderate confidence.
+- Keep-weight gives little: random moves that keep their weight are mostly noise to the
+  reader, which can follow the moved weight.
+- Dense in place gives little: a dense row keeps about two thirds of its code weights at
+  each event, so the solution is not lost. Low confidence.
+- Rate: half gives less than rewire; double about the same on transfer, with a larger
+  cost to taught fit. Low confidence; the review's recurrence predicts an intermediate
+  optimum but not where.
+
+**Not tested here** (the review's other diagnostics; each needs its own contract): fresh
+sparse readers trained on frozen final codes, with learning curves; immediate forgetting
+and recovery on copies of mid-training states, with encoders frozen or free.
+
+**Prior work.** In-place reset of a random subset of weights is the partial-reset
+intervention of forget-and-relearn (Zhou et al. 2022, read sections recorded in the
+[literature notes](forget-relearn-iterated-learning-notes.md)); its rate, layer scope,
+zero initialization and optimizer-state reset are specified here, not imported. Random
+moves without erasure resemble topology noise in sparse evolutionary training (Mocanu et
+al. 2018) **[familiar]**. Shrink-and-perturb (Ash and Adams 2020) is the continuous
+cousin of partial resets **[familiar]**. None predicts the effect of these
+interventions on cross-sense transfer here.
+
+**Cost:** 80 runs, 6 workers × 2 threads on CPU, about 350 s each: about 80 minutes. The
+new operations draw one number per connection per event (O(E) for E code connections,
+45 events; dense in place 4,096 per event); not measurable against training. Analysis
+about 1 minute, plus the single-coordinate probe (16 least-squares fits per checkpoint).
+CPU is required: the reruns must match the reset run exactly.
+
+Commands: `NSY_WORKERS=6 NFI_THREADS=2 NFI_CHANNELS_LAST=1 .venv/bin/python -m experiments.fan_in_pilot pilot erasure`,
+then `.venv/bin/python -m experiments.fan_in_pilot_analysis pilot erasure`.
+
 ## Measures
 
 The sequence pilot's measures, scored identically

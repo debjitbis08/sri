@@ -41,6 +41,11 @@ operand produces its transfer. RigL on P only or g only; RigL carrying the old w
 restarting it at zero; random rewiring with zero restart at RigL's mean switch rate; and the random arm with as many
 reader units silenced from the start as RigL leaves dead. dense, random and RigL are rerun and must reproduce 'fixed'.
 
+'erasure' (seeds 230-239 again; proposal, "Erasure, moving, sparsity and rate"): which part of random rewiring gives its
+transfer. Connections reset to zero in place, without moving; random moves that keep their weight; dense readers whose
+code weights reset in place at the same per-connection rate; random rewiring at half and twice the rate. dense, random
+and random rewiring are rerun and must reproduce 'reset'.
+
 Usage: NSY_WORKERS=11 .venv/bin/python -m experiments.fan_in_pilot pilot [confirm|rigl|rigl1]
 Then: .venv/bin/python -m experiments.fan_in_pilot_analysis pilot [confirm|rigl|rigl1]
 """
@@ -95,8 +100,18 @@ RIGL_MODE = {'read-q16-untied-riglcarry': 'carry', 'read-q16-untied-rewire': 'ra
 REWIRE_P = {'g/first': 2054.7 / (45 * 128), 'P/first': 1322.0 / (45 * 128)}
 DEAD_UNITS = {'g': 7, 'P': 32}  # read-q16-untied-dead: RigL's mean units dead for every code input in 'fixed', rounded
 DEAD_BIAS = -1.
-CONFIGS = {'stage1': STAGE1, 'confirm': CONFIRM, 'rigl': RIGL, 'rigl1': RIGL1, 'fixed': FIXED, 'timing': TIMING, 'reset': RESET}[STAGE]
-CONFIRM_SEEDS = tuple(range(*{'confirm': (200, 210), 'rigl': (210, 220), 'rigl1': (220, 230), 'fixed': (230, 240), 'timing': (230, 240), 'reset': (230, 240)}.get(STAGE, (0, 0))))
+ERASURE = {'dense': (None, None, None), 'read-q16-untied': (None, 16, 'untied'), 'read-q16-untied-rewire': (None, 16, 'untied'),
+           'read-q16-untied-inplace': (None, 16, 'untied'), 'read-q16-untied-rewirecarry': (None, 16, 'untied'),
+           'dense-inplace': (None, None, None), 'read-q16-untied-rewire-half': (None, 16, 'untied'),
+           'read-q16-untied-rewire-double': (None, 16, 'untied')}
+RIGL_BASE.update({c: 'read-q16-untied' for c in ERASURE if c.startswith('read-q16-untied-')})
+RIGL_BASE['dense-inplace'] = 'dense'
+RIGL_MODE.update({'read-q16-untied-inplace': 'inplace', 'dense-inplace': 'inplace', 'read-q16-untied-rewirecarry': 'random-carry',
+                  'read-q16-untied-rewire-half': 'random', 'read-q16-untied-rewire-double': 'random'})
+RATE = {'read-q16-untied-rewire-half': .5, 'read-q16-untied-rewire-double': 2.}  # multiplies REWIRE_P
+DENSE_READERS = ('dense-inplace',)  # dense readers held as MaskedLinear with an all-ones mask (same function, exactly)
+CONFIGS = {'stage1': STAGE1, 'confirm': CONFIRM, 'rigl': RIGL, 'rigl1': RIGL1, 'fixed': FIXED, 'timing': TIMING, 'reset': RESET, 'erasure': ERASURE}[STAGE]
+CONFIRM_SEEDS = tuple(range(*{'confirm': (200, 210), 'rigl': (210, 220), 'rigl1': (220, 230), 'fixed': (230, 240), 'timing': (230, 240), 'reset': (230, 240), 'erasure': (230, 240)}.get(STAGE, (0, 0))))
 DT, ALPHA, END_FRACTION = (10 if X.SMOKE else 100), .3, .75  # RigL: update interval, initial drop fraction, end of updates (fraction of training)
 RANDOM_OF = {'learn-tied': ('read-q16', 'tied'), 'learn-untied': ('read-q16-untied', 'untied')}  # learned arm's starting selection
 START_OF = {**RANDOM_OF, **{m: ('read-q16-untied', 'untied') for m in ('fixed', 'fixed75', 'fixed-rigld', 'gradual', 'gradual-rigld')}}  # masks an arm starts from
@@ -241,10 +256,13 @@ def rigl_step(lin, groups, opt, alpha, mode='zero', rng=None, p=None):
     a connection dropped and regrown at once is unchanged.
     mode 'carry' (k = 1 only): a grown connection takes the dropped connection's weight; its Adam moments are zeroed.
     mode 'random' (k = 1 only): no gradient; each connection moves with probability p to a uniformly drawn other
-    coordinate, starting at w = 0 with zeroed moments."""
+    coordinate, starting at w = 0 with zeroed moments; 'random-carry' likewise, keeping its weight.
+    mode 'inplace': no gradient and no move; each code connection restarts at w = 0 with zeroed moments with probability p."""
     W, M = lin.weight, lin.mask
-    if mode == 'random':
-        return rewire_step(lin, groups, opt, rng, p)
+    if mode in ('random', 'random-carry'):
+        return rewire_step(lin, groups, opt, rng, p, carry=mode == 'random-carry')
+    if mode == 'inplace':
+        return reset_step(lin, opt, rng, p)
     Gd = lin.probe.grad
     state = opt.state.get(W, {})
     for cols in groups:
@@ -273,7 +291,7 @@ def rigl_step(lin, groups, opt, alpha, mode='zero', rng=None, p=None):
 
 
 @torch.no_grad()
-def rewire_step(lin, groups, opt, rng, p):
+def rewire_step(lin, groups, opt, rng, p, carry=False):
     W, M = lin.weight, lin.mask
     state = opt.state.get(W, {})
     for cols in groups:
@@ -286,11 +304,26 @@ def rewire_step(lin, groups, opt, rng, p):
         if len(rows):
             M[rows, cols[old[rows]]] = 0.
             M[rows, cols[new[rows]]] = 1.
-            W[rows, cols[new[rows]]] = 0.
+            W[rows, cols[new[rows]]] = W[rows, cols[old[rows]]] if carry else 0.
             for key in ('exp_avg', 'exp_avg_sq'):
                 if key in state:
                     state[key][rows, cols[new[rows]]] = 0.
             lin.swaps += len(rows)
+
+
+@torch.no_grad()
+def reset_step(lin, opt, rng, p):
+    """Each active code connection (columns of both operands; g's relation-token columns excluded) restarts at w = 0 with
+    zeroed Adam moments with probability p; the mask is unchanged."""
+    W, M = lin.weight, lin.mask
+    state = opt.state.get(W, {})
+    hit = (M[:, :2 * CODE] > 0) & torch.as_tensor(rng.random((len(M), 2 * CODE)) < p)
+    rows, cols = hit.nonzero(as_tuple=True)
+    W[rows, cols] = 0.
+    for key in ('exp_avg', 'exp_avg_sq'):
+        if key in state:
+            state[key][rows, cols] = 0.
+    lin.swaps += len(rows)
 
 
 def rigl_layers(enc, model):
@@ -309,8 +342,9 @@ def rigl_train_update(enc, model, opt, material, rng, compare):
     mode = RIGL_MODE.get(CURRENT['config'], 'zero')
     for name, lin in layers.items():
         lin.collect = False
-        rng = nc.stream('fanin_rewire', CURRENT['seed'], name, step) if mode == 'random' else None
-        rigl_step(lin, rigl_groups(name, lin), opt, alpha, mode, rng, REWIRE_P.get(name))
+        rng = (nc.stream('fanin_rewire', CURRENT['seed'], name, step) if mode in ('random', 'random-carry') else
+               nc.stream('fanin_reset', CURRENT['seed'], name, step) if mode == 'inplace' else None)
+        rigl_step(lin, rigl_groups(name, lin), opt, alpha, mode, rng, REWIRE_P.get(name, 0.) * RATE.get(CURRENT['config'], 1.))
         del lin.probe
     return out
 
@@ -338,6 +372,9 @@ def make_model(seed, config):
             if mode in FIXED_SHARE:
                 rng = nc.stream('fanin_mask', seed, 'fixed' if mode == 'fixed-rigld' else mode, name)  # same order as 'fixed'
                 fix_rows(seq[0], fixed_coordinate(seed, mode), FIXED_SHARE[mode], rng)
+    if config in DENSE_READERS:
+        for seq in (model.g, model.P):
+            limit(seq[0], torch.ones_like(seq[0].weight), torch.arange(2 * CODE))
     if config in RIGL_BASE:
         for name, lin in limited_layers(enc, model).items():
             if hasattr(lin, 'mask') and name in RIGL_SITES.get(config, (name,)):

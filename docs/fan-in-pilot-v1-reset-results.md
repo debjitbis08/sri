@@ -20,7 +20,10 @@ D-varied+rehearsal. **A pilot.**
 
 ## Summary
 
-**Erasure matters; gradient choice and dead units do not by themselves explain RigL.**
+**Erasure matters; dead units alone do not explain RigL; the contribution of gradient
+choice is not bounded.** Corrected 2026-10-30 after an external review
+([after-reset analysis](rigl-after-reset-analysis.md)), which flagged two overstatements in
+the first version.
 
 - **Random rewiring with restart at zero gets most of RigL's gain.** Each connection moves
   to a random coordinate at RigL's switch rate and restarts at zero. Against random wiring
@@ -169,27 +172,32 @@ layer), 0.05–0.07 at the start: at the end RigL 0.81 in `g`, 0.92 in `P`; `P` 
 ## Interpretation
 
 - **Repeated erasure is the main ingredient.** Restarting connections at zero, on RigL's
-  schedule and at random coordinates, reproduces most of RigL's transfer. Gradient choice
-  adds at most a little: rewire is 0.15 below RigL on taps → withheld Chinese, with an
-  interval that includes zero, and equal on comparison.
+  schedule and at random coordinates, reproduces most of RigL's transfer. How much gradient
+  choice adds is not bounded: rewire is 0.15 below RigL on taps → withheld Chinese with an
+  interval of [−0.36, +0.06], and equivalent only on Devanagari comparison.
 - **Concentrated readers are not needed for transfer.** The rewire arm's readers stay
   spread across the code, unlike RigL's and the fixed arm's. The code itself becomes
   close to one-dimensional, which a spread reader can still read. Concentration onto a
   coordinate (the fixed and timing runs) and a one-dimensional code (rewire) are two
   routes to the same transfer.
-- **Dead units are a by-product, not a cause.** Silencing as many units from the start
-  does nothing. Erasure kills units, but the units are not what matters. The keep-weight
-  arm cannot separate erasure from dead units, because it removes both; the silenced arm
-  shows dead units alone are not enough.
+- **Dead units alone are not enough.** Silencing as many units from the start does
+  nothing. This does not show that units dying during learning is irrelevant, or that it
+  does not interact with erasure. The keep-weight arm cannot separate erasure from dead
+  units, because it removes both; it also makes about twice as many moves as RigL, so it
+  does not intervene on erasure alone.
+- **Low rank alone is not enough.** RigL on `P` only puts 97% of collection variance on
+  one direction, close to rewire's 98%, but transfers much less across senses.
 - **Both readers contribute.** Erasure in `g` alone gives the Chinese gain; erasure in
   either gives about two thirds of the English gain. The full effect needs both.
 - **What erasure does is not yet shown.** A plausible account: a connection reset to zero
   must be relearned from whatever the code currently offers, so reader solutions that fit
   only some contexts are repeatedly lost, and the encoders are pushed toward a code that
   any newly grown connection can read. This is the review's hypothesis without its `P`
-  part. It is the same pressure as limited, decaying memory
-  ([limited-memory proposal](limited-memory-proposal.md)): what survives repeated loss is
-  what is shared.
+  part. It is an instance of forget-and-relearn (Zhou et al. 2022) and resembles
+  iterated learning ([literature notes](forget-relearn-iterated-learning-notes.md)). Three
+  explanations remain distinct: useful structure resists the reset, is relearned faster
+  after it, or repeated relearning changes the encoders. Final transfer does not separate
+  them ([reviewer's note](rigl-after-reset-analysis.md)).
 - **The cost remains.** Every arm with erasure in `g` loses taught Chinese at its own block
   and English retention. Erasure trades fitting the current block for transfer.
 

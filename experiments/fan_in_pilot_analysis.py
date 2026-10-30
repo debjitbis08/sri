@@ -9,6 +9,9 @@
    to taps and form codes; mean absolute count error and pairwise order accuracy.
 5. Diagnostics: effective edges per limited layer, code participation ratio, reader units never active; for learned
    selection, the fraction of units whose dimension changed and the fraction reading the same dimension of both operands.
+6. Single-coordinate probe ('erasure' onward): per code coordinate, an affine count map fitted on collections only and
+   applied unchanged to taps and forms; the distribution over all coordinates (proposal, "Erasure, moving, sparsity and
+   rate").
 
 Confirmation ('confirm', seeds 200-209): no exactness check or stage-1 decision; outcomes use the paired 95% t-interval
 rule of the proposal ("Confirmation after stage 1") and the declared contrasts.
@@ -51,8 +54,15 @@ CONTRASTS = {'confirm': (('read-q16', 'dense'), ('read-q16-untied', 'dense'), ('
              'reset': tuple((a, b) for a in ('read-q16-untied-riglP', 'read-q16-untied-riglg', 'read-q16-untied-riglcarry',
                                              'read-q16-untied-rewire', 'read-q16-untied-dead')
                             for b in ('read-q16-untied', 'read-q16-untied-rigl')),
+             'erasure': (('read-q16-untied-inplace', 'read-q16-untied'), ('read-q16-untied-inplace', 'read-q16-untied-rewire'),
+                         ('read-q16-untied-rewirecarry', 'read-q16-untied'), ('read-q16-untied-rewirecarry', 'read-q16-untied-rewire'),
+                         ('dense-inplace', 'dense'), ('read-q16-untied-rewire-half', 'read-q16-untied-rewire'),
+                         ('read-q16-untied-rewire-double', 'read-q16-untied-rewire'), ('read-q16-untied-rewire-half', 'read-q16-untied'),
+                         ('read-q16-untied-rewire-double', 'read-q16-untied')),
              }.get(FI.STAGE, ())
-RERUN = {'timing': ('dense', 'read-q16-untied-rigl', 'read-q16-fixed'), 'reset': ('dense', 'read-q16-untied', 'read-q16-untied-rigl')}
+RERUN = {'timing': ('dense', 'read-q16-untied-rigl', 'read-q16-fixed'), 'reset': ('dense', 'read-q16-untied', 'read-q16-untied-rigl'),
+         'erasure': ('dense', 'read-q16-untied', 'read-q16-untied-rewire')}
+RERUN_OF = {'timing': 'fixed', 'reset': 'fixed', 'erasure': 'reset'}  # stage the reruns must reproduce
 RIDGE = 1e-3
 THAI = str(max(P.TRANSFER_AT)) if X.SMOKE else '200'  # smoke runs stop transfer early
 PRIMARY = ('Chinese withheld, own block', 'Devanagari withheld, own block', 'taps → Chinese form, withheld',
@@ -146,6 +156,32 @@ def probe(enc, model, withheld):
     return out
 
 
+@torch.no_grad()
+def coordinate_probe(enc, model):
+    """Per code coordinate j: the least-squares affine map from coordinate j of collection codes to count, fitted on
+    collections only and applied unchanged to taps and form codes. Returns, per coordinate, the collection R^2 and the
+    pairwise order accuracy on each set (constant coordinates: R^2 0, order 0.5). All coordinates are kept; none is
+    selected."""
+    code = G.codes_fn(enc, model)
+    colls = torch.stack([code(P.DOTS['succ'][n], 'image') for n in ns.NUMBERS]).double()  # (9, E, d)
+    sets = {'taps': torch.stack([code(D.TAPS[('eval', n)], 'sequence') for n in ns.NUMBERS]).double(),
+            **{f'forms/{L}': torch.stack([code(X.DATA[(L, 'eval')][0][P.EVAL[(L, n, 'idx')]], 'image') for n in ns.NUMBERS]).double()
+               for L in P.LANGS}}
+    y = torch.arange(1., 10., dtype=torch.float64)[:, None].expand(-1, colls.shape[1])
+    out = {'r2': [], **{k: [] for k in ('collections', *sets)}}
+    for j in range(colls.shape[-1]):
+        x = colls[..., j]
+        xc, yc = x - x.mean(), y - y.mean()
+        var = (xc ** 2).mean()
+        a = float((xc * yc).mean() / var) if var > 1e-12 else 0.
+        b = float(y.mean() - a * x.mean())
+        out['r2'].append(float((xc * yc).mean() ** 2 / (var * (yc ** 2).mean())) if var > 1e-12 else 0.)
+        for k, v in (('collections', colls), *sets.items()):
+            p = (a * v[..., j] + b).numpy()
+            out[k].append(float(np.mean([np.mean((p[u] > p[w]) == (u > w)) for u in range(9) for w in range(9) if u != w])))
+    return out
+
+
 def live_readers(active, mask):
     """Live units of a masked reader layer: fraction reading the same dimension of both operands, and the share of their
     code connections on the most-read dimension (and that dimension). Dead units are left out: with zero gradient,
@@ -189,12 +225,13 @@ def diagnostics(enc, model, seed, config):
     active_g = sum((g0(torch.cat([a, b, model.token.weight[h].expand(len(a), -1)], 1)) > 0).any(0) for h in range(3)) > 0
     active_p = (p0(torch.cat([a, b], 1)) > 0).any(0)
     edges = {k: int(lin.mask.sum()) if hasattr(lin, 'mask') else lin.weight.numel() for k, lin in FI.limited_layers(enc, model).items()}
-    readers = {n: live_readers(act, lin.mask) for n, act, lin in (('g', active_g, g0), ('P', active_p, p0)) if hasattr(lin, 'mask')}
+    readers = {n: live_readers(act, lin.mask) for n, act, lin in (('g', active_g, g0), ('P', active_p, p0))
+               if hasattr(lin, 'mask') and not bool(lin.mask.all())}  # an all-ones mask is a dense reader
     axis = readers['g']['modal_dim'] if readers else None  # dense: the coordinate with the largest first-direction loading
     return {'participation_ratio_collections': float(ev.sum() ** 2 / (ev ** 2).sum()),
             'g_first_never_active': float(1 - active_g.float().mean()), 'P_first_never_active': float(1 - active_p.float().mean()),
             'edges': edges, 'selection': selection(seed, config, model, enc), 'live_readers': readers,
-            'code_structure': code_structure(colls9, by_lang, axis)}
+            'code_structure': code_structure(colls9, by_lang, axis), 'coordinate_probe': coordinate_probe(enc, model)}
 
 
 def dig(d, path):
@@ -211,8 +248,8 @@ def main():
     X.prepare(); P.prepare(); D.prepare()
     R = C.load(FI.NAME)
     exact = None
-    if FI.STAGE in RERUN:  # rerun arms must reproduce the 'fixed' stage exactly
-        S = C.load(FI.NAME.replace(f'-{FI.STAGE}', '-fixed'))
+    if FI.STAGE in RERUN:  # rerun arms must reproduce an earlier stage exactly
+        S = C.load(FI.NAME.replace(f'-{FI.STAGE}', f'-{RERUN_OF[FI.STAGE]}'))
         same = lambda a, b: {k: v for k, v in a.items() if k != 'checkpoint'} == {k: v for k, v in b.items() if k != 'checkpoint'}
         exact = {f'{c}/seed{s}': same(R[f'{c}/seed{s}'], S[f'{c}/seed{s}']) for c in RERUN[FI.STAGE] for s in SEEDS}
     if not CONFIRM:
@@ -263,6 +300,10 @@ def main():
         ('Code: collection variance on first direction', lambda c, s: DG[c, s]['code_structure']['pc1_share'], 'descriptive'),
         ('Code: collection variance on reader axis', lambda c, s: DG[c, s]['code_structure']['axis_share'], 'descriptive'),
         ('Code: cosine of first direction with reader axis', lambda c, s: DG[c, s]['code_structure']['pc1_axis_cosine'], 'descriptive'),
+        ('Single coordinates: mean collection R²', lambda c, s: np.mean(DG[c, s]['coordinate_probe']['r2']), 'descriptive'),
+        ('Single coordinates: count with collection R² ≥ 0.5', lambda c, s: np.sum(np.array(DG[c, s]['coordinate_probe']['r2']) >= .5), 'descriptive'),
+        *[(f'Single coordinates: mean order, {k}', lambda c, s, k=k: np.mean(DG[c, s]['coordinate_probe'][k]), 'descriptive')
+          for k in ('collections', 'taps', *[f'forms/{L}' for L in P.LANGS])],
         *[(f'Code: {L} forms offset off axis', lambda c, s, L=L: DG[c, s]['code_structure']['offset_off_axis'][L], 'descriptive')
           for L in P.LANGS],
     ]
