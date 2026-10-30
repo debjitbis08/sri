@@ -36,6 +36,11 @@ one RigL converged on for the same seed in 'fixed'). Gradual arms start from the
 connectivity updates a growing share of units, in a fixed random order, moves both operands onto the coordinate, keeping
 their weights (moved to the new columns, Adam moments reset). dense, RigL and fixed are rerun and must reproduce 'fixed'.
 
+'reset' (seeds 230-239 again; proposal, "Resets, rewiring and predictor capacity"): what in RigL at one dimension per
+operand produces its transfer. RigL on P only or g only; RigL carrying the old weight to the new coordinate instead of
+restarting it at zero; random rewiring with zero restart at RigL's mean switch rate; and the random arm with as many
+reader units silenced from the start as RigL leaves dead. dense, random and RigL are rerun and must reproduce 'fixed'.
+
 Usage: NSY_WORKERS=11 .venv/bin/python -m experiments.fan_in_pilot pilot [confirm|rigl|rigl1]
 Then: .venv/bin/python -m experiments.fan_in_pilot_analysis pilot [confirm|rigl|rigl1]
 """
@@ -76,10 +81,22 @@ FIXED_SHARE = {'fixed': 1., 'fixed75': .75, 'fixed-rigld': 1.}  # fraction of re
 GRADUAL = ('gradual', 'gradual-rigld')
 # The live g units' most-read dimension of read-q16-untied-rigl, seeds 230-239, in reports/fan-in-pilot-v1-fixed-comparison.json.gz
 RIGL_COORDINATE = dict(zip(range(230, 240), (5, 1, 15, 7, 13, 12, 7, 2, 9, 2)))
-RIGL_BASE = {'enc-q16-rigl': 'enc-q16', 'read-q4-untied-rigl': 'read-q4-untied',
-             'read-q16-untied-rigl': 'read-q16-untied'}  # RigL arm -> random arm with the same start
-CONFIGS = {'stage1': STAGE1, 'confirm': CONFIRM, 'rigl': RIGL, 'rigl1': RIGL1, 'fixed': FIXED, 'timing': TIMING}[STAGE]
-CONFIRM_SEEDS = tuple(range(*{'confirm': (200, 210), 'rigl': (210, 220), 'rigl1': (220, 230), 'fixed': (230, 240), 'timing': (230, 240)}.get(STAGE, (0, 0))))
+RESET = {'dense': (None, None, None), 'read-q16-untied': (None, 16, 'untied'), 'read-q16-untied-rigl': (None, 16, 'untied'),
+         'read-q16-untied-riglP': (None, 16, 'untied'), 'read-q16-untied-riglg': (None, 16, 'untied'),
+         'read-q16-untied-riglcarry': (None, 16, 'untied'), 'read-q16-untied-rewire': (None, 16, 'untied'),
+         'read-q16-untied-dead': (None, 16, 'untied')}
+RIGL_BASE = {'enc-q16-rigl': 'enc-q16', 'read-q4-untied-rigl': 'read-q4-untied', 'read-q16-untied-rigl': 'read-q16-untied',
+             'read-q16-untied-riglP': 'read-q16-untied', 'read-q16-untied-riglg': 'read-q16-untied',
+             'read-q16-untied-riglcarry': 'read-q16-untied', 'read-q16-untied-rewire': 'read-q16-untied'}  # RigL arm -> random arm with the same start
+RIGL_SITES = {'read-q16-untied-riglP': ('P/first',), 'read-q16-untied-riglg': ('g/first',)}  # default: every limited layer
+RIGL_MODE = {'read-q16-untied-riglcarry': 'carry', 'read-q16-untied-rewire': 'random'}  # default: 'zero' (RigL)
+# Random rewiring: per connection and connectivity update, the probability of moving to another coordinate, matched to
+# read-q16-untied-rigl's mean grown connections in 'fixed' (g 2054.7, P 1322.0 per run) over 45 updates x 128 connections
+REWIRE_P = {'g/first': 2054.7 / (45 * 128), 'P/first': 1322.0 / (45 * 128)}
+DEAD_UNITS = {'g': 7, 'P': 32}  # read-q16-untied-dead: RigL's mean units dead for every code input in 'fixed', rounded
+DEAD_BIAS = -1.
+CONFIGS = {'stage1': STAGE1, 'confirm': CONFIRM, 'rigl': RIGL, 'rigl1': RIGL1, 'fixed': FIXED, 'timing': TIMING, 'reset': RESET}[STAGE]
+CONFIRM_SEEDS = tuple(range(*{'confirm': (200, 210), 'rigl': (210, 220), 'rigl1': (220, 230), 'fixed': (230, 240), 'timing': (230, 240), 'reset': (230, 240)}.get(STAGE, (0, 0))))
 DT, ALPHA, END_FRACTION = (10 if X.SMOKE else 100), .3, .75  # RigL: update interval, initial drop fraction, end of updates (fraction of training)
 RANDOM_OF = {'learn-tied': ('read-q16', 'tied'), 'learn-untied': ('read-q16-untied', 'untied')}  # learned arm's starting selection
 START_OF = {**RANDOM_OF, **{m: ('read-q16-untied', 'untied') for m in ('fixed', 'fixed75', 'fixed-rigld', 'gradual', 'gradual-rigld')}}  # masks an arm starts from
@@ -218,11 +235,17 @@ def rigl_groups(name, lin):
 
 
 @torch.no_grad()
-def rigl_step(lin, groups, opt, alpha):
+def rigl_step(lin, groups, opt, alpha, mode='zero', rng=None, p=None):
     """Per unit and group: drop the max(1, round(alpha k)) smallest-|w| active connections, grow as many inactive ones
     (dropped ones included) with the largest |dense gradient|. Grown connections start at w = 0 with zeroed Adam moments;
-    a connection dropped and regrown at once is unchanged."""
-    W, M, Gd = lin.weight, lin.mask, lin.probe.grad
+    a connection dropped and regrown at once is unchanged.
+    mode 'carry' (k = 1 only): a grown connection takes the dropped connection's weight; its Adam moments are zeroed.
+    mode 'random' (k = 1 only): no gradient; each connection moves with probability p to a uniformly drawn other
+    coordinate, starting at w = 0 with zeroed moments."""
+    W, M = lin.weight, lin.mask
+    if mode == 'random':
+        return rewire_step(lin, groups, opt, rng, p)
+    Gd = lin.probe.grad
     state = opt.state.get(W, {})
     for cols in groups:
         m = M[:, cols]
@@ -237,12 +260,37 @@ def rigl_step(lin, groups, opt, alpha):
         born = (new > 0) & (m == 0)
         rows, idx = born.nonzero(as_tuple=True)
         full = cols[idx]
-        W[rows, full] = 0.
+        if mode == 'carry':
+            assert n == 1 and k == 1
+            W[rows, full] = W[rows, cols[drop[rows, 0]]]
+        else:
+            W[rows, full] = 0.
         for key in ('exp_avg', 'exp_avg_sq'):
             if key in state:
                 state[key][rows, full] = 0.
         M[:, cols] = new
         lin.swaps += born.sum()
+
+
+@torch.no_grad()
+def rewire_step(lin, groups, opt, rng, p):
+    W, M = lin.weight, lin.mask
+    state = opt.state.get(W, {})
+    for cols in groups:
+        m = M[:, cols]
+        assert int(m[0].sum()) == 1
+        old = m.argmax(1)
+        move = torch.as_tensor(rng.random(len(m)) < p)
+        new = (old + torch.as_tensor(rng.integers(1, len(cols), len(m)))) % len(cols)  # uniform over the other coordinates
+        rows = move.nonzero(as_tuple=True)[0]
+        if len(rows):
+            M[rows, cols[old[rows]]] = 0.
+            M[rows, cols[new[rows]]] = 1.
+            W[rows, cols[new[rows]]] = 0.
+            for key in ('exp_avg', 'exp_avg_sq'):
+                if key in state:
+                    state[key][rows, cols[new[rows]]] = 0.
+            lin.swaps += len(rows)
 
 
 def rigl_layers(enc, model):
@@ -258,9 +306,11 @@ def rigl_train_update(enc, model, opt, material, rng, compare):
         lin.collect, lin.probe = True, torch.zeros_like(lin.weight, requires_grad=True)
     out = TP.train_update(enc, model, opt, material, rng, compare)
     alpha = ALPHA * (1 + np.cos(np.pi * step / end)) / 2
+    mode = RIGL_MODE.get(CURRENT['config'], 'zero')
     for name, lin in layers.items():
         lin.collect = False
-        rigl_step(lin, rigl_groups(name, lin), opt, alpha)
+        rng = nc.stream('fanin_rewire', CURRENT['seed'], name, step) if mode == 'random' else None
+        rigl_step(lin, rigl_groups(name, lin), opt, alpha, mode, rng, REWIRE_P.get(name))
         del lin.probe
     return out
 
@@ -289,10 +339,22 @@ def make_model(seed, config):
                 rng = nc.stream('fanin_mask', seed, 'fixed' if mode == 'fixed-rigld' else mode, name)  # same order as 'fixed'
                 fix_rows(seq[0], fixed_coordinate(seed, mode), FIXED_SHARE[mode], rng)
     if config in RIGL_BASE:
-        for lin in limited_layers(enc, model).values():
-            if hasattr(lin, 'mask'):
+        for name, lin in limited_layers(enc, model).items():
+            if hasattr(lin, 'mask') and name in RIGL_SITES.get(config, (name,)):
                 lin.register_buffer('swaps', torch.zeros((), dtype=torch.long))
+    if config == 'read-q16-untied-dead':
+        for name, seq in (('g', model.g), ('P', model.P)):
+            silence_units(seq[0], nc.stream('fanin_mask', seed, 'dead', name).permutation(seq[0].weight.shape[0])[:DEAD_UNITS[name]])
     return enc, model
+
+
+@torch.no_grad()
+def silence_units(lin, rows):
+    """Units that never respond: every input masked (relation token included) and a negative bias. ReLU passes no
+    gradient, so the bias stays fixed and the units stay silent, as RigL's dead units do."""
+    rows = torch.as_tensor(np.sort(rows))
+    lin.mask[rows] = 0.
+    lin.bias[rows] = DEAD_BIAS
 
 
 def gradual_share(step, end):

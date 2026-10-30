@@ -48,7 +48,11 @@ CONTRASTS = {'confirm': (('read-q16', 'dense'), ('read-q16-untied', 'dense'), ('
                         ('read-q16-gradual-rigld', 'read-q16-fixed-rigld'), ('read-q16-gradual-rigld', 'read-q16-gradual'),
                         ('read-q16-gradual', 'read-q16-untied-rigl'), ('read-q16-fixed-rigld', 'read-q16-untied-rigl'),
                         ('read-q16-gradual-rigld', 'read-q16-untied-rigl')),
+             'reset': tuple((a, b) for a in ('read-q16-untied-riglP', 'read-q16-untied-riglg', 'read-q16-untied-riglcarry',
+                                             'read-q16-untied-rewire', 'read-q16-untied-dead')
+                            for b in ('read-q16-untied', 'read-q16-untied-rigl')),
              }.get(FI.STAGE, ())
+RERUN = {'timing': ('dense', 'read-q16-untied-rigl', 'read-q16-fixed'), 'reset': ('dense', 'read-q16-untied', 'read-q16-untied-rigl')}
 RIDGE = 1e-3
 THAI = str(max(P.TRANSFER_AT)) if X.SMOKE else '200'  # smoke runs stop transfer early
 PRIMARY = ('Chinese withheld, own block', 'Devanagari withheld, own block', 'taps → Chinese form, withheld',
@@ -207,11 +211,10 @@ def main():
     X.prepare(); P.prepare(); D.prepare()
     R = C.load(FI.NAME)
     exact = None
-    if FI.STAGE == 'timing':  # rerun arms must reproduce the 'fixed' stage exactly
-        S = C.load(FI.NAME.replace('-timing', '-fixed'))
+    if FI.STAGE in RERUN:  # rerun arms must reproduce the 'fixed' stage exactly
+        S = C.load(FI.NAME.replace(f'-{FI.STAGE}', '-fixed'))
         same = lambda a, b: {k: v for k, v in a.items() if k != 'checkpoint'} == {k: v for k, v in b.items() if k != 'checkpoint'}
-        exact = {f'{c}/seed{s}': same(R[f'{c}/seed{s}'], S[f'{c}/seed{s}']) for c in ('dense', 'read-q16-untied-rigl', 'read-q16-fixed')
-                 for s in SEEDS}
+        exact = {f'{c}/seed{s}': same(R[f'{c}/seed{s}'], S[f'{c}/seed{s}']) for c in RERUN[FI.STAGE] for s in SEEDS}
     if not CONFIRM:
         S = C.load(SP.NAME)
         same = lambda a, b: {k: v for k, v in a.items() if k != 'checkpoint'} == {k: v for k, v in b.items() if k != 'checkpoint'}

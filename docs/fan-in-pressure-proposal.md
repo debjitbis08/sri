@@ -482,6 +482,85 @@ Analysis about 1 minute.
 Commands: `NSY_WORKERS=6 NFI_THREADS=2 NFI_CHANNELS_LAST=1 .venv/bin/python -m experiments.fan_in_pilot pilot timing`,
 then `.venv/bin/python -m experiments.fan_in_pilot_analysis pilot timing`.
 
+## Resets, rewiring and predictor capacity (written before running)
+
+Added 2026-10-30 after the [timing results](fan-in-pilot-v1-timing-results.md) and an
+external review of them ([after-timing analysis](rigl-after-timing-analysis.md)). Neither
+the coordinate nor gradual concentration reproduced RigL. The review points to what RigL
+actually does at one connection per operand:
+
+- **Every connection is reconsidered every 100 updates,** until update 4,500. The drop
+  count is max(1, round(αk)) = 1, so α has no effect. If the largest gradient is on
+  another coordinate, the connection moves and its weight and Adam moments restart at
+  zero.
+- **Units die.** In the final RigL checkpoints of seeds 230–239, 28–37 of `P`'s 64 units
+  (mean 31.5) and 3–12 of `g`'s (mean 7.1) have both code weights exactly zero and can
+  never become active. Verified independently from the checkpoints. A `P` unit has only
+  its two code inputs and a bias, so if both connections restart at zero with a bias at
+  or below zero, it never recovers. A `g` unit also reads the relation token.
+
+**The review's hypothesis:** repeated resets erase reader solutions that are useful only
+in some contexts, and favour features useful across them; the loss of about half of `P`
+further limits prediction; the encoders adapt by making count easy to read across senses.
+
+**Arms, seeds 230–239 (paired with the fixed-coordinate and timing runs), D-varied+rehearsal:**
+
+| Arm | What it isolates |
+| --- | --- |
+| `dense`, `read-q16-untied`, `read-q16-untied-rigl` | Reruns; must reproduce the fixed-coordinate run exactly |
+| `read-q16-untied-riglP` | RigL on `P` only; `g` keeps its random wiring. Where the effect starts |
+| `read-q16-untied-riglg` | RigL on `g` only; `P` keeps its random wiring |
+| `read-q16-untied-riglcarry` | RigL's gradient-chosen moves, but a moved connection keeps the old weight (Adam moments reset). Moves without erasure, so no dead units from resets |
+| `read-q16-untied-rewire` | Erasure without gradient choice: at each connectivity update, each connection moves with probability p to a uniformly drawn other coordinate and restarts at zero. p matches RigL's mean switch rate in the fixed-coordinate run: 0.357 in `g` (2,054.7 grown per run over 45 updates × 128 connections), 0.230 in `P` (1,322.0) |
+| `read-q16-untied-dead` | Lost capacity alone: the random arm with 32 of `P`'s and 7 of `g`'s units silenced from the start (all inputs masked, bias −1, so no gradient reaches them), matching RigL's mean dead units |
+
+All arms start from the random arm's masks and weights for each seed. RigL, its schedule,
+interval and stop at update 4,500 are unchanged. The units silenced in the last arm are
+drawn from their own stream.
+
+**Contrasts** (paired 95% t-interval rule, eight transfer and four taught measures): each
+of the five new arms against the random arm and against RigL.
+
+**Pre-declared readings,** on taps → withheld Chinese forms and English comparison (the
+two largest RigL effects), with Devanagari comparison reported alongside:
+
+- **Origin:** an effect starts in `P` if `riglP` is better than random on both measures;
+  in `g` likewise for `riglg`. Both or neither are possible.
+- **Erasure matters:** `riglcarry` is worse than RigL on either measure.
+- **Gradient choice matters:** `rewire` is worse than RigL on either measure.
+- **Erasure alone suffices:** `rewire` is equivalent to or better than RigL on both.
+- **Capacity alone suffices:** `dead` is better than random on both measures.
+- **The review's hypothesis is supported** if `riglP` reproduces RigL's gain (better than
+  random on both measures) and `riglcarry` loses it (worse than RigL on both).
+
+**Predictions:**
+- `riglP` carries most of the effect, because `P` is where units die (the review's
+  reasoning). Moderate confidence.
+- `riglcarry` loses most of the gain, and has few dead units.
+- `rewire` gives part of the gain: erasure without gradient choice also leaves units dead,
+  but does not concentrate the readers.
+- `dead` alone gives little: smaller readers do not by themselves reorganize the code.
+  Low confidence.
+
+**Diagnostics:** dead units, live-unit concentration and code structure, as in the
+earlier runs; connections changed and grown in each rewired layer.
+
+**Prior work.** The arms are ablations of RigL (Evci et al. 2020, [abstract](https://arxiv.org/abs/1911.11134))
+in this setting. Random regrowth is the regrowth rule of sparse evolutionary training
+(Mocanu et al. 2018) **[familiar]**, which RigL's paper compares against. Resetting
+weights to break up specialized solutions resembles the reset and plasticity-loss
+literature, for example periodic resets of later layers (Nikishin et al. 2022, "The
+primacy bias in deep reinforcement learning") **[familiar]**. Dead ReLU units after
+pruning and regrowth are a known failure mode of sparse training **[familiar]**. None of
+these predicts the effect on transfer here.
+
+**Cost:** 80 runs, 6 workers × 2 threads on CPU, about 350 s each: about 80 minutes.
+Analysis about 1 minute. CPU is required: the reruns must match the fixed-coordinate run
+exactly.
+
+Commands: `NSY_WORKERS=6 NFI_THREADS=2 NFI_CHANNELS_LAST=1 .venv/bin/python -m experiments.fan_in_pilot pilot reset`,
+then `.venv/bin/python -m experiments.fan_in_pilot_analysis pilot reset`.
+
 ## Measures
 
 The sequence pilot's measures, scored identically

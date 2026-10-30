@@ -5,6 +5,15 @@ written before the run. Follows the [fixed-coordinate results](fan-in-pilot-v1-f
 Run 2026-10-30, seeds 230–239 (paired with the fixed-coordinate run), D-varied+rehearsal.
 **A pilot.**
 
+*Correction, 2026-10-30.* The pre-registration says the gradual schedule follows RigL's
+change budget. At one connection per operand it does not: RigL drops max(1, round(αk)) = 1
+connection per operand at every connectivity update, so it reconsiders every connection
+every 100 updates whatever α is, and a switched connection restarts at zero. The gradual
+arms move each unit once and carry its weights. This run therefore rules out that
+intervention, not every explanation based on RigL's training history. Found by an external
+review ([after-timing analysis](rigl-after-timing-analysis.md)); followed up in the
+[resets proposal](fan-in-pressure-proposal.md#resets-rewiring-and-predictor-capacity-written-before-running).
+
 - **Commands:**
   - `NSY_WORKERS=6 NFI_THREADS=2 NFI_CHANNELS_LAST=1 .venv/bin/python -m experiments.fan_in_pilot pilot timing` (60 minutes);
   - `.venv/bin/python -m experiments.fan_in_pilot_analysis pilot timing` (44 s).
