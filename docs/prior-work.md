@@ -1197,8 +1197,9 @@ This is a targeted contract review, not a novelty search.
   - correlated-nuisance fixtures to separate prediction from alignment;
   - anchor-penalty SI and training-regime controls for forgetting.
 - For forgetting-as-pressure designs (2026-10-30): the established counterparts are
-  periodic reinitialization (Zhou et al. 2022), shrink-and-perturb (Ash and Adams 2020),
-  DropConnect (Wan et al. 2013) and iterated learning; all **[familiar]**, not read.
+  forget-and-relearn (Zhou et al. 2022), warm starting and its fix (Ash and Adams 2019),
+  DropConnect (Wan et al. 2013) and neural iterated learning (Ren et al. 2020); abstracts
+  read 2026-10-30, full texts not read.
   In this project disrupting sparse reader connections helps, dense readers do not gain,
   and the count sits on most code coordinates, so measure transfer on the average
   coordinate ([analysis](count-coordinate-analysis.md),

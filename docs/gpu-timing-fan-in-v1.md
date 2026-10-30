@@ -13,7 +13,8 @@ left "device handling, determinism and a real timing" open. **Timing and a devic
   - `NFI_DEVICE=cuda NSY_WORKERS=6 NFI_ONLY=read-q16-untied-rigl:230 NFI_TAG=-gputiming /data/venvs/sri-cuda/bin/python -m experiments.fan_in_pilot pilot reset`;
   - the same with seeds 231–233 (`-gputiming3`, 3 workers) and 234–239 (`-gputiming6`, 6 workers);
   - `.venv/bin/python -m experiments.fan_in_gpu_check` (the tables below).
-- **Artifacts:** `reports/fan-in-pilot-v1-pilot-reset-gputiming{,3,6}-{results.json.gz,runtime.json}`; checkpoints in
+- **Artifacts:** `reports/fan-in-pilot-v1-pilot-reset-gputiming{,3,6}-{results.json.gz,runtime.json}` and the full-length repeat
+  `-gpudetfull` (the same command as `-gputiming` with `NFI_TAG=-gpudetfull`); checkpoints in
   `runs/` (untracked).
 
 ## What the port does
@@ -28,8 +29,10 @@ run after the change still finishes.
 
 At smoke scale (70 updates), the same configuration and seed run twice on the GPU gave identical results and
 bit-identical weights, for random rewiring (`read-q16-untied-rewire`) and for RigL (`read-q16-untied-rigl`); the
-dense-reset path (`dense-inplace`) runs. This has not been repeated at full length on one task twice. GPU results do not
-equal CPU results, and the GPU runs use a different library build.
+dense-reset path (`dense-inplace`) runs. **At full length (6,200 updates), `read-q16-untied-rigl` seed 230 run twice
+(`-gputiming` and `-gpudetfull`, one process each) gave identical results and the same checkpoint sha256.** Whether a result
+is unchanged when other processes share the GPU was not tested. GPU results do not equal CPU results, and the GPU runs use a
+different library build.
 
 ## Throughput
 

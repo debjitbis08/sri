@@ -1,6 +1,8 @@
 # Limited, decaying memory as pressure to consolidate
 
-Draft, 2026-10-30, revised five times the same day. Not frozen.
+Draft, 2026-10-30, revised six times the same day. **All design choices are now decided
+(see "Decisions"); not frozen**: the runner is not yet written, and the contract is frozen
+after its preflight.
 
 **Revisions.**
 - The first draft modelled memory as an external store of training episodes. An
@@ -448,7 +450,9 @@ Frozen here, before any run.
 
 Search and read date: 2026-10-30. Read today: the abstracts of Chaudhry et al. (2019),
 Khandelwal et al. (2020) and Power et al. (2022). The decaying readers review read the
-abstracts of Hinton and Plaut (1987), Li et al. (2018) and Loshchilov and Hutter. Kumaran
+abstracts of Hinton and Plaut (1987), Li et al. (2018) and Loshchilov and Hutter. The
+abstracts of Zhou et al. (2022), Ash and Adams (2019), Ren et al. (2020) and Wan et al.
+(2013) were read on 2026-10-30 (below). Kumaran
 et al. (2016) was seen through search snippets and summaries; the earlier analysis read
 selected sections. Everything else is from memory, marked **[familiar]**, and must be
 read before this is frozen.
@@ -482,16 +486,23 @@ read before this is frozen.
   Stage 2 is the first unless it models the code distribution. Both fit the
   [foundations'](foundations.md) commitment to replay with no store of experience.
 
-- **Forgetting that helps generalization.** Periodic reinitialization of part of a
-  network (Zhou et al. 2022, "fortuitous forgetting") and iterated learning (Ren et al.
-  2020) **[familiar]**; notes in [forget-relearn-iterated-learning-notes](forget-relearn-iterated-learning-notes.md)
-  and the [after-reset analysis](rigl-after-reset-analysis.md). Shrink-and-perturb
-  (Ash and Adams 2020) **[familiar]**: shrink weights toward zero and add noise to keep
-  a warm start trainable; the decay here shrinks toward the start point and is applied
-  per step.
-- **Dropout and DropConnect.** Randomly zeroing units or connections each step
-  (Srivastava et al. 2014; Wan et al. 2013) **[familiar]** is the established
-  counterpart of the reader disruption here and of the disruption test above. It is not
+- **Forgetting that helps generalization.** [Zhou et al. 2022](https://arxiv.org/abs/2202.00155)
+  **[abstract]**: "forget-and-relearn", selective forgetting that removes unhelpful
+  information followed by relearning that strengthens consistently useful features, which
+  they argue is why iterative training methods work. That periodic reinitialization of
+  part of a network is the forgetting operation is **[familiar]**. This is the closest
+  prior art to the reset and relearning phases here. [Ren et al. 2020](https://arxiv.org/abs/2002.01365)
+  **[abstract]**: neural iterated learning yields more structured, compositional
+  languages that speed learning. Notes in [forget-relearn-iterated-learning-notes](forget-relearn-iterated-learning-notes.md)
+  and the [after-reset analysis](rigl-after-reset-analysis.md).
+- **Warm starts and shrink-and-perturb.** [Ash and Adams 2019](https://arxiv.org/abs/1910.08475)
+  **[abstract]**: starting from the previous model's solution often generalizes worse than
+  a fresh start, and a simple trick overcomes it. That the trick is shrinking weights
+  toward zero and adding noise is **[familiar]**. The decay here shrinks toward the start
+  point and is applied per step.
+- **Dropout and DropConnect.** [Wan et al. 2013](https://proceedings.mlr.press/v28/wan13.html)
+  **[abstract]**: DropConnect zeroes weights at random where Dropout zeroes activations
+  (Srivastava et al. 2014 **[familiar]**). It is the established counterpart of the reader disruption here and of the disruption test above. It is not
   an arm: the fan-in results use persistent sparse wiring that changes at a set rate,
   which differs, and the cost of adding it to this design is a separate run.
 - **Weight-decay variants as the cheaper baseline.** Plain L2 or decay on the whole
@@ -555,7 +566,7 @@ open.
 | The count is on most coordinates, not one | Average-coordinate measure of record; per-unit story dropped |
 | Retention could not be studied from final checkpoints | Checkpoints at each phase |
 | Disruption helps sparse readers | Reader-disruption test added; structure wiring made an open choice |
-| Forgetting, shrink-and-perturb and DropConnect not cited | Added under prior work, tagged **[familiar]** |
+| Forgetting, shrink-and-perturb and DropConnect not cited | Added under prior work; abstracts read 2026-10-30 |
 
 **External feedback on the protocol, with the researchers' decisions (fifth draft).**
 
@@ -611,13 +622,17 @@ selection candidates and confirmation:
 - total: 1,064,000 updates (RigL's gradient collection adds a little on the 45 update
   steps per run that carry it).
 
-**Estimates.** Measured on the reset stage: 60 s effective per 6,200-update run on six CPU
-workers, or 0.0097 s per update, so with RigL's gradient steps included in that measure:
-selection run about 106 minutes, forks about 13, confirmation about 53: **about 3 hours on
-CPU**. On the GPU, with six processes, 37 s effective per run ([timing](gpu-timing-fan-in-v1.md)),
-about 66, 8 and 33 minutes: **about 1.8 hours**. The previous draft's "about 4 hours" and its
-claim that the first estimate was wrong were themselves wrong: its 0.08 s per update assumed 480 s
-covered 6,000 updates, but it covered 8,200, as the first draft said.
+**Estimates.** Measured on the reset stage with RigL's gradient steps included: 60 s
+effective per 6,200-update run on six CPU workers (0.0097 s per update), 37 s on six GPU
+processes ([timing](gpu-timing-fan-in-v1.md), 0.0060 s per update). For the 1,064,000
+updates above:
+
+| Part | Updates | CPU | GPU (plan) |
+| --- | --- | --- | --- |
+| Selection run | 656,000 | 106 min | 66 min |
+| Forks | 80,000 | 13 min | 8 min |
+| Confirmation | 328,000 | 53 min | 33 min |
+| Total | 1,064,000 | about 3.0 h | about 1.8 h |
 
 **Checkpoints.** Four per run (ends of block 1, block 3, delay, relearning), parameters
 only, about 1.5 MB each by the erasure run's size (117 MB for 80): about 480 MB untracked
@@ -628,18 +643,22 @@ selection run (all three fully executed, counted above); confirmation reruns fou
 fresh seeds (counted above). The 48/16 split, the delay length, the relearning length,
 the fork length and the 25% disruption level are fixed and not tuned.
 
-**Device.** The GPU port exists and was timed ([results](gpu-timing-fan-in-v1.md)).
-- **Determinism:** two GPU runs of the same configuration and seed gave identical results
-  at smoke scale, for random rewiring and RigL. Not yet repeated at full length.
-- **Throughput:** 1.6× six CPU workers at six GPU processes, far below the benchmark's
-  5.8×; the runs are bound by Python and kernel-launch overhead. About an hour saved.
-- **Agreement:** no clear device effect on 103 measures (6 differ at |z| > 2, about 5 by
-  chance), but six composition measures are lower on the GPU.
-- **Consequence:** GPU results will not equal the CPU fan-in runs. Every arm here is
-  rerun, so the contrasts are within one device. CPU and GPU arms must not be mixed in
-  one comparison.
-- **Choice:** CPU (about 3 hours, comparable with earlier runs) or GPU (about 1.8 hours,
-  a second environment). Open for the researchers.
+**Device: the GPU** (decided). The port exists and was timed ([results](gpu-timing-fan-in-v1.md)).
+- **Determinism:** two GPU runs of the same configuration and seed gave identical results,
+  at smoke scale for random rewiring and RigL and at full length (6,200 updates) for RigL.
+- **Throughput:** 1.6× six CPU workers at six GPU processes; the runs are bound by Python and
+  kernel-launch overhead.
+- **Agreement:** no clear device effect on 103 measures (6 differ at |z| > 2, about 5 by chance),
+  but six composition measures are lower on the GPU. The composition measures are reported
+  with that caveat.
+- **Consequence:** GPU results will not equal the CPU fan-in runs. Every arm here is rerun, so
+  the contrasts are within one device. CPU and GPU arms are never mixed in one comparison.
+- **Six processes** at 2.5 GB peak each; a run is restarted with the same command.
+
+**Crash safety.** Every task writes a durable record when it finishes and the same command
+resumes ([crash-safe runs](crash-safe-runs.md)). A power cut loses at most the tasks in
+flight, about 6 minutes each for an 8,200-update GPU run at six processes. Fork parents are
+saved atomically before any continuation starts.
 
 **Reporting.** Each run writes a separate runtime JSON: command, revision and dirty
 status, device, dtype, library versions, threads and workers, wall and process CPU
@@ -647,18 +666,28 @@ seconds by phase (training blocks, delay, relearning, evaluation, probes, forks,
 confirmation), peak RSS and GPU peak memory, updates executed. Timing stays out of the
 results JSON.
 
-## Open choices for the researchers
+## Decisions
 
-Settled by the researchers:
+By the researchers:
 - RigL is the structure wiring for this run; random rewiring is a later alternative.
 - The 48/16 split and the half-lives 2,000, 500 and 125 are kept.
-- The rehearsal buffer is not part of the system; it is used only in retraining.
-- The GPU port exists and passes its determinism check at smoke scale; whether to use it is open (see "Device").
-- The buffer is a reference the system consults when retraining, not part of how it
-  learns. The relearning phase and the fork continuations both draw from it, and it holds
-  all three languages, so relearning also re-presents Chinese and Devanagari.
+- The rehearsal buffer is a reference the system consults when retraining, not part of how
+  it learns. The relearning phase and the fork continuations draw from it, and it holds all
+  three languages, so relearning also re-presents Chinese and Devanagari.
+- The study runs on the GPU and is crash-safe.
 
-Still to confirm:
-- The declared protocol values in "Selection and confirmation" and the fork (fork length
-  2,000, eligibility margin 0.05, threshold of 5 eligible seeds, disruption level 0.25).
-- Reading the **[familiar]** citations before the contract is frozen.
+Protocol values, decided now (delegated to the assistant, 2026-10-30), fixed before any run:
+- fork length 2,000 updates; eligibility margin 0.05, applied once at the parent on even
+  items; at least 5 of 10 seeds eligible for an inferential conditional reading;
+- reader-disruption probability 0.25 on active code-input weights, ten draws per checkpoint;
+- selection endpoint (a), the underfit gate (b) and the tie-break as in "Selection and
+  confirmation".
+
+Preconditions before the selection run (not design choices):
+- the runner's preflight: the `dense` and `sparse64` arms run end to end in smoke mode with a
+  killed-and-resumed run matching an uninterrupted one.
+
+Met: a full-length GPU determinism repeat (RigL, seed 230, 6,200 updates, identical results and
+checkpoint hash; single process). Untested: invariance when processes share the GPU.
+
+The cited papers were read at abstract level on 2026-10-30; the full texts have not been read.
