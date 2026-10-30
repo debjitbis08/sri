@@ -140,3 +140,31 @@ Recall on A at the end of block 4 (chance 0.111), Option A, then Option B where 
 - **Option B** remains measurable: independent-rendering recall 0.22–0.30, none at the floor; the rewiring and reset arms
   (`mixed-h125` 0.44, `mixed-reset` 0.43, `sparse48` 0.30) lose training-rendering recall relative to Option A.
 - One seed; no reading.
+
+## Pool of 64 training renderings (seed 299, N = 45, L = 2,000; `NFI_TAG=-diag3`, revision `bd187cd`)
+
+Each symbol now has 64 fixed training renderings instead of 8 (one font per symbol; rotation, size, position, brightness
+and noise vary); evaluation renderings are 5 fresh ones per symbol. Recall on the training renderings is scored on the
+first 5 of the 64, images the network was trained on. Both options were rerun (about 9 minutes each).
+
+Recall on A at the end of block 4 (chance 0.111), Option A, then Option B:
+
+| Arm | A indep. | A training | lookup count / identity | Option B indep. / training |
+|---|---|---|---|---|
+| sparse48 | 0.38 | 0.49 | 0.54 / 0.40 | 0.22 / 0.25 |
+| dense | 0.56 | 0.65 | 0.73 / 0.59 | 0.56 / 0.65 (identical, as it must be) |
+| mixed | 0.39 | 0.50 | 0.66 / 0.55 | 0.44 / 0.61 |
+| mixed-h125 | 0.45 | 0.48 | 0.65 / 0.54 | 0.28 / 0.34 |
+| mixed-h500 | 0.42 | 0.51 | 0.65 / 0.54 | 0.40 / 0.44 |
+| mixed-reset | 0.43 | 0.57 | 0.76 / 0.67 | 0.26 / 0.28 |
+
+- **The larger pool narrows the gap and raises independent recall.** Independent recall is 0.38–0.56 (against 0.28–0.34 with 8
+  renderings) and training-rendering recall 0.48–0.65 (against 0.59–0.74); the gap falls from about 0.3 to about 0.1.
+  This is consistent with the 8-rendering network having stored images, not symbols. Nearest-neighbor symbol identity
+  rises to 0.40–0.67 (chance 0.022).
+- **Shuffled-label rescoring** is at chance in every arm (0.11, sd 0.02–0.03).
+- **Option B stays above chance but is lower for the rewiring arms:** independent recall `sparse48` 0.22, `mixed-reset` 0.26,
+  `mixed-h125` 0.28, against 0.38–0.45 under Option A; `mixed`, `mixed-h500` and `dense` stay at 0.40–0.56. The `sparse48`
+  acquisition curve is nearly flat (0.14 at update 0, 0.17 at 250), so contrasts that rest on the rewiring arms under Option B
+  are close to their floor.
+- **The pilot parameters hold:** N = 45, L = 2,000, threshold 0.35, 64 training renderings. One seed; no reading.

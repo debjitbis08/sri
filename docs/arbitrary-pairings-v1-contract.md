@@ -240,7 +240,10 @@ fixed above). Remaining: the researchers' approval to freeze, then the Option B 
 - **Early acquisition window (fixed before the study):** the trapezoid mean of (recall − chance) over in-block
   updates 0–250, reported beside the whole-block normalized area; if most learning ends before 250 updates the
   whole-block area mostly measures the plateau. The early window is the primary acquisition measure.
-- **Recognition versus association:** each recall is also scored on the exact training renderings, and
+- **Renderings:** each symbol has 64 fixed training renderings (the pilot with 8 stored images, not symbols:
+  independent recall 0.28–0.34 against 0.59–0.74 on training renderings; with 64 the gap fell to about 0.1)
+  and 5 fresh evaluation renderings.
+- **Recognition versus association:** each recall is also scored on 5 of the training renderings, and
   1-nearest-neighbor symbol-identity accuracy is reported (the count lookup is a decoder reference, not a
   recognition ceiling).
 - **Shuffled-label rescoring** reports the mean and spread over 100 permutations; it, and the `P-A'` check, are
