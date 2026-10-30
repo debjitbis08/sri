@@ -58,3 +58,10 @@ scaling, not extrapolation from a 32-dimensional task.
 
 Keep scientific JSON deterministic and timing JSON separate. Small analytical
 checks should record their own cost, but need not run a large timing sweep.
+
+## Hardware measurements
+
+- [CPU against GPU benchmark v1](cpu-gpu-benchmark-v1.md) (2026-10-30): a training step
+  shaped like the sequence and fan-in pilots, on the Ryzen 5 3600 and GTX 1650. The GPU is
+  about 5–6× faster than six CPU workers at batch 270 on the benchmark step; the real
+  pilot's gain is not yet measured.

@@ -1,0 +1,16 @@
+{
+ "scope": "nondeterministic timing; synthetic data, no scientific output",
+ "date": "2026-10-30",
+ "finished": "2026-10-30T09:55:32+05:30",
+ "cpu": "AMD Ryzen 5 3600 6-Core Processor (6 cores / 12 threads)",
+ "ram_gb": 15,
+ "gpu": "NVIDIA GeForce GTX 1650, 4096 MiB",
+ "nvidia_driver": "580.173.02",
+ "torch": "2.14.1+cu130",
+ "cuda": "13.0",
+ "cudnn": 92400,
+ "dtype": "float32",
+ "environment": "separate virtualenv with the CUDA build of torch; numpy not installed (warning in the log, unused)",
+ "concurrent_load": "none; run_all.sh refuses to start while a fan-in pilot run is active",
+ "commands": "benchmarks/cpu_gpu_v1/run_all.sh (calls bench.py once per configuration)"
+}
