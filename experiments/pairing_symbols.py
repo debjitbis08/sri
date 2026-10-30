@@ -7,8 +7,11 @@ disjoint sets of N symbols (A and B, N a multiple of nine) and balanced count as
 (A') serves the learning check. Training and evaluation renderings use separate named streams.
 
 Coverage is tested without a font-table library: a codepoint is covered by a font if its glyph differs from the font's
-missing-glyph box and is not blank. Requiring all eight fonts leaves 5 of 569 candidates, so a symbol is kept if at least
-MIN_FONTS fonts cover it and is rendered only in the fonts that cover it (no missing-glyph box is ever drawn).
+missing-glyph box and is not blank. Requiring all eight fonts leaves 5 of 569 candidates, so a symbol is rendered in one
+font drawn by a seeded stream from the fonts that cover it (no missing-glyph box is ever drawn). The font is fixed per
+symbol, because one symbol's renderings in different fonts differ about as much as different symbols do (measured: the
+largest cross-font distance has median 0.62 against 0.53 to the nearest other symbol, for 242 of 387 symbols);
+rotation, size, position, brightness and noise still vary.
 
 Usage: .venv/bin/python -m experiments.pairing_symbols   (prints the survivor count and a few draws)
 """
@@ -29,7 +32,7 @@ EMOJI = {*range(0x23E9, 0x23ED), 0x231A, 0x231B, 0x23F0, 0x23F3, 0x25FD, 0x25FE,
 FONT_LIST = ns.FONTS['latin']
 DISTANCE_THRESHOLD = 0.35  # provisional; fixed by the seed-299 pilot before the contract is frozen
 CANON_FONTS = 4
-MIN_FONTS = 4
+MIN_FONTS = 1
 SIZE, SS = ns.SIZE, ns.SS
 
 
@@ -54,15 +57,15 @@ def _mask(spec, ch):
 
 
 def covering(cps):
-    """{codepoint: indices of the fonts in FONT_LIST that draw it as a non-blank glyph different from the missing-glyph box},
-    for codepoints covered by at least MIN_FONTS fonts."""
+    """{codepoint: [index of its one font in FONT_LIST]}, drawn by a seeded stream from the fonts that draw the codepoint as a
+    non-blank glyph different from the missing-glyph box, for codepoints covered by at least MIN_FONTS fonts."""
     have = {cp: [] for cp in cps}
     for i, spec in enumerate(FONT_LIST):
         missing = _mask(spec, '\uffff')
         for cp in cps:
             if (m := _mask(spec, chr(cp))).any() and not np.array_equal(m, missing):
                 have[cp].append(i)
-    return {cp: f for cp, f in have.items() if len(f) >= MIN_FONTS}
+    return {cp: [f[int(nc.stream('pair_font', cp).integers(len(f)))]] for cp, f in have.items() if len(f) >= MIN_FONTS}
 
 
 def render(cp, rng, fonts):

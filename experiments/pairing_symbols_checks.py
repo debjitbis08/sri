@@ -10,7 +10,7 @@ from experiments import pairing_symbols as S
 def main():
     pool = S.survivors()
     assert len(pool) >= 2 * 90, len(pool)
-    assert all(len(f) >= S.MIN_FONTS for f in pool.values())
+    assert all(len(f) == 1 for f in pool.values()), 'one fixed font per symbol'
     assert all(not any(w in unicodedata.name(chr(cp)) + ' ' for w in S.NAME_EXCLUDED) and cp not in S.EMOJI for cp in pool)
     for n in (18, 45, 90):
         sets = S.draw_sets(321, n, pool)
