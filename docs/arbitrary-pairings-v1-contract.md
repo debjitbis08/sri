@@ -93,7 +93,7 @@ inconclusive readings stay inconclusive, and any later cohort is a new, labeled 
   Recall on A and on A' should be equivalent (margin 0.05): if learning depends on which
   counts the symbols got, the assignment leaks.
 - **Chance level and the lookup reference.** Recall is reported above chance. A
-  nearest-neighbor lookup on the item embedding is an optional reference (decision 4).
+  nearest-neighbor lookup on the item embedding is an optional reference (decision 4, decided: included).
 - Random labels remove predictable count meaning. They do not show **where** an association
   is stored; silencing shows dependence only (see Measures).
 
@@ -168,7 +168,7 @@ classifiers; that does not establish reduced sequential interference for these r
 so the direction of the interference reading is open. Catastrophic interference
 (McCloskey and Cohen 1989, French 1999) and fast and slow weights (Hinton and Plaut 1987
 **[abstract]**) and complementary learning systems are **[familiar]** context. A
-nearest-neighbor lookup is the cheaper reference (decision 4). The design is an internal
+nearest-neighbor lookup is the cheaper reference (decision 4, decided: included). The design is an internal
 control for the limited-memory study, not a new method.
 
 ## Computation
@@ -216,16 +216,17 @@ Notation: P parameters, E evaluation renderings per symbol, K the evaluation poi
   structure can come from added updates alone, so the damage of pairing is read against
   the matched continuation `C`, not against zero or the earlier delay.
 
-## Decisions for the researchers
+## Decisions
 
-1. Symbol source: random Unicode symbols with the exclusions and filters above (default), or a
-   different set.
-2. Schedule: sequential A→B with the matched controls `C` and `P-A` (recommended), or A taught
-   together with block 3.
-3. Whether the random-rewiring arms run in this task from the start. The reviewer's
-   recommendation is to add the matched continuation before wiring variants, as done here.
-4. Whether to add a nearest-neighbor lookup as a recall reference.
-5. Decided: Option B (rewiring and resets continue through block 5) is the study; Option A
-   (inherited schedules, stopping at update 4,500) is the debugging baseline on seed 299.
+Decided by the researchers (2026-10-30):
+1. Symbol source: random Unicode symbols with the exclusions and filters above.
+2. Schedule: sequential A→B with the matched controls `C` and `P-A`.
+3. Random-rewiring arms are not in this study; they follow as a separate, labeled run on this task.
+4. A nearest-neighbor lookup on the item embedding is included as a recall reference (not an arm).
+5. Option B (rewiring and resets continue through block 5) is the study; Option A (inherited
+   schedules) is the debugging baseline on seed 299.
 6. Pair-set size N (a multiple of nine, tried at 18, 45 and 90) and block length (1,000 or
-   2,000), set by the seed-299 pilot unless you want fixed values.
+   2,000) are set by the seed-299 pilot, under Option A, before the contract is frozen.
+
+**Before freezing:** build the runner, run the Option A pilot, fix N, block length and the
+distance threshold from it, update the measured cost table, then freeze.
