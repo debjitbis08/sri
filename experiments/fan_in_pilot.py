@@ -66,6 +66,7 @@ from experiments import generic_relations as G
 from experiments import transition_pilot as TP
 from experiments import sequence_pilot as SP
 from experiments import device as DEV
+from experiments import durable as DUR
 
 nc = X.nc
 STAGE = sys.argv[2] if len(sys.argv) > 2 else 'stage1'
@@ -471,8 +472,8 @@ def main():
         picked = [t.split(':') for t in ONLY.split(',')]
         D.ARMS = {c: D.ARMS[c] for c in dict.fromkeys(c for c, _ in picked)}
         D.SEEDS = sorted({int(s) for _, s in picked})
-    D.run = run
     D.NAME = NAME
+    D.run = DUR.durable(run, X.ROOT / 'runs' / NAME / 'done', '{0}-seed{1}')  # finished tasks survive a power cut
     D.PREFIX, D.RUNS = X.ROOT / 'reports' / NAME, X.ROOT / 'runs' / NAME
     D.main()
     path = X.ROOT / 'reports' / f'{NAME}-runtime.json'
