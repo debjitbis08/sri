@@ -70,7 +70,7 @@ configurations, 36 arm-runs. The runner writes no model checkpoints; the per-arm
 results file 72 KB for six arms). N barely changes cost; block length does. At L = 2,000 the study (60 arm-seeds in ten
 batches of six) is expected to take about 95 minutes.
 
-## Diagnostic pilots (seed 299, N = 45, L = 2,000; update 0, recognition diagnostics, Option B preflight)
+## Diagnostic pilots (seed 299, N = 45, L = 2,000; update 0, recognition diagnostics, Option B preflight) — superseded by the fixed-font rerun below
 
 Run after the external review, at revision `4806eba`, with `NFI_TAG=-diag`: Option A (`...-A-N45-L2000-diag-*`)
 and Option B (`...-B-N45-L2000-diag-*`), six arms each, about 10 minutes each. One seed; no reading.
@@ -109,3 +109,34 @@ Recall on A at the end of block 4 (chance 0.111):
 outcome beside independent-rendering recall. It measures memory of the arbitrary association with recognition
 generalization removed, and the study's question is memory; independent-rendering recall stays as the recognition-
 generalization measure. Fixed before the cohort, it adds no analysis choice after seeing results.
+
+## Fixed-font rerun (seed 299, N = 45, L = 2,000; `NFI_TAG=-diag2`, revision `9b93805`)
+
+A check of the symbol renderings found that one symbol drawn in different fonts differs about as much as different
+symbols do: the largest cross-font distance (noise-free 28×28 images, unit norm) has median 0.62, against 0.53 to the
+nearest other symbol, for 242 of 387 symbols, and 72 of 1,841 font renderings (3.9%) are closer to another symbol's
+mean than to their own. Each symbol is now drawn in one font fixed by a seeded stream; rotation, size, position,
+brightness and noise still vary. The symbol pool becomes 512 (covered by one or more fonts, after the 0.35 distance filter).
+Both options were rerun; the earlier diagnostic numbers above used the old rendering.
+
+Recall on A at the end of block 4 (chance 0.111), Option A, then Option B where it differs:
+
+| Arm | A indep. | A training | lookup count / identity | Option B: indep. / training |
+|---|---|---|---|---|
+| sparse48 | 0.31 | 0.59 | 0.35 / 0.19 | 0.25 / 0.30 |
+| dense | 0.28 | 0.62 | 0.44 / 0.30 | 0.28 / 0.62 (identical, as it must be) |
+| mixed | 0.32 | 0.71 | 0.42 / 0.26 | 0.30 / 0.64 |
+| mixed-h125 | 0.31 | 0.67 | 0.45 / 0.31 | 0.22 / 0.44 |
+| mixed-h500 | 0.34 | 0.60 | 0.43 / 0.30 | 0.28 / 0.59 |
+| mixed-reset | 0.33 | 0.74 | 0.52 / 0.41 | 0.25 / 0.43 |
+
+- **Fixing the font did not close the gap.** Independent-rendering recall stays at 0.28–0.34 against 0.59–0.74 on the
+  training renderings; identity accuracy by nearest neighbor is 0.19–0.41 (chance 0.022), a little higher than before.
+  So the cross-font spread was real but not the main reason for the gap.
+- **Consistent reading, not established:** each symbol has only 8 training renderings, each seen thousands of times;
+  the network may be storing those bitmaps rather than the symbols. A larger rendering pool, or fresh renderings every
+  update, would test this. It is a design choice for the researchers.
+- **Shuffled-label rescoring** is at chance in every arm (0.11, sd 0.02–0.03).
+- **Option B** remains measurable: independent-rendering recall 0.22–0.30, none at the floor; the rewiring and reset arms
+  (`mixed-h125` 0.44, `mixed-reset` 0.43, `sparse48` 0.30) lose training-rendering recall relative to Option A.
+- One seed; no reading.
