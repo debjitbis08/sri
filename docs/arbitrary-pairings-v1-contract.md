@@ -43,7 +43,7 @@ whose transfer is measured.
 
 **Arms:** `sparse48`, `dense`, `mixed`, `mixed-h125`, `mixed-h500`, `mixed-reset`. Decay and
 reset schedules are as in the limited-memory study; decay stays on in blocks 4 and 5.
-Wiring is RigL; the random-rewiring follow-up reuses this task (decision 3).
+The structure part's rewiring rule is RigL; the random-rewiring follow-up reuses this task (decision 3).
 
 **Seeds:** 320–329, fresh. One cohort with the readings below fixed before it runs; a
 second fresh cohort (330–339) only if a reading is borderline, decided before looking.

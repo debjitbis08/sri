@@ -148,7 +148,7 @@ change committed as `94fae4a`; analysis `reports/limited-memory-v1-fork-confirm-
   inconclusive on both. This is the one difference between the cohorts.
 - **Limit:** the repeat uses a new cohort of seeds, but the same design, the same
   curriculum and the same fork protocol. It does not show that the transfer survives a
-  change of wiring, which the random-rewiring follow-up tests.
+  change of rewiring rule (RigL picks new connections by gradient; random rewiring picks them at random), which the random-rewiring follow-up tests.
 
 ## Confirmation (seeds 310–319; the readings are decided here)
 
@@ -188,7 +188,7 @@ Paired differences, `mixed-h125` against each arm (mean, 95% interval, outcome):
 - **Supported (descriptive of a fork, not of the main endpoints):** at H = 125 the structure
   part takes over taught Chinese matching as the memory part decays, in two independent
   cohorts. It is evidence consistent with handoff, not a demonstration.
-- **Open:** whether the pattern depends on RigL as the structure wiring. The proposal's
+- **Open:** whether the pattern depends on RigL's gradient-based choice of new connections, as against random rewiring. The proposal's
   [follow-up](limited-memory-proposal.md) reruns the arms with random rewiring.
 - **Alternative explanations not excluded:**
   - Shared nonlinear layers can make the silenced-memory drop an interaction, not stored
