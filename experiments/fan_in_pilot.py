@@ -113,7 +113,7 @@ RIGL_MODE.update({'read-q16-untied-inplace': 'inplace', 'dense-inplace': 'inplac
                   'read-q16-untied-rewire-half': 'random', 'read-q16-untied-rewire-double': 'random'})
 RATE = {'read-q16-untied-rewire-half': .5, 'read-q16-untied-rewire-double': 2.}  # multiplies REWIRE_P
 DENSE_READERS = ('dense-inplace',)  # dense readers held as MaskedLinear with an all-ones mask (same function, exactly)
-CONFIGS = {'stage1': STAGE1, 'confirm': CONFIRM, 'rigl': RIGL, 'rigl1': RIGL1, 'fixed': FIXED, 'timing': TIMING, 'reset': RESET, 'erasure': ERASURE}[STAGE]
+CONFIGS = {'stage1': STAGE1, 'confirm': CONFIRM, 'rigl': RIGL, 'rigl1': RIGL1, 'fixed': FIXED, 'timing': TIMING, 'reset': RESET, 'erasure': ERASURE}.get(STAGE, {})  # other runners (limited_memory) import this module with their own stage names
 CONFIRM_SEEDS = tuple(range(*{'confirm': (200, 210), 'rigl': (210, 220), 'rigl1': (220, 230), 'fixed': (230, 240), 'timing': (230, 240), 'reset': (230, 240), 'erasure': (230, 240)}.get(STAGE, (0, 0))))
 DT, ALPHA, END_FRACTION = (10 if X.SMOKE else 100), .3, .75  # RigL: update interval, initial drop fraction, end of updates (fraction of training)
 RANDOM_OF = {'learn-tied': ('read-q16', 'tied'), 'learn-untied': ('read-q16-untied', 'untied')}  # learned arm's starting selection
