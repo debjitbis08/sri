@@ -234,8 +234,16 @@ Decided by the researchers (2026-10-30):
 
 **Before freezing:** the runner is built and the Option A pilot is done (N, L and the threshold are
 fixed above). Remaining: the researchers' approval to freeze, then the Option B study on seeds 320–329.
-- **Evaluation points:** every 250 updates, plus 25, 50, 100, 150 and 200 updates into each block
+- **Evaluation points:** update 0 of each block, 25, 50, 100, 150 and 200 updates into it, then every 250
   (the pilot's recall curves were flat from the first point at 250).
+- **Early acquisition window (fixed before the study):** the trapezoid mean of (recall − chance) over in-block
+  updates 0–250, reported beside the whole-block normalized area; if most learning ends before 250 updates the
+  whole-block area mostly measures the plateau. The early window is the primary acquisition measure.
+- **Recognition versus association:** each recall is also scored on the exact training renderings, and
+  1-nearest-neighbor symbol-identity accuracy is reported (the count lookup is a decoder reference, not a
+  recognition ceiling).
+- **Shuffled-label rescoring** reports the mean and spread over 100 permutations; it, and the `P-A'` check, are
+  sanity checks, not clearance for leakage.
 - **Option B and the RigL anneal:** RigL's drop/grow fraction anneals by a cosine to zero at the end of the
   schedule, so extending the end to update 10,200 also changes the anneal during blocks 1–3
   relative to the limited-memory runs. The parents are new, so nothing is reused.

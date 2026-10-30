@@ -28,14 +28,21 @@ Recall on A at the end of block 4, chance 1/9 = 0.111, by arm (sparse48, dense, 
 - **Rescoring against shuffled labels** is at chance for N = 45 and 90 (0.05–0.13). For N = 18 it reaches
   0.17–0.24: with 18 symbols the score is noisy (sd about 0.07, since a symbol's renderings pick alike),
   so N = 18 cannot confirm the check.
-- **Learning check (`P-A'` against A):** within a few points of each other in both arms at every size
-  (largest gaps 0.07 at N = 45 and N = 90), no evidence that learning depends on which counts were assigned.
-- **Recall is mostly recognition-limited.** The nearest-neighbor lookup on the item code (training against evaluation
-  renderings) is 0.22–0.57, often above the network's recall, so the ceiling for recall here is set by recognizing a
-  symbol across font, rotation and size.
+- **Learning check (`P-A'` against A):** the gaps are 0.00–0.07 (0.07 at N = 45, L = 1,000 in `sparse48` and at
+  N = 90, L = 2,000 in `sparse48`). With one seed and a few dozen items that is within noise, but it is a sanity
+  check, not clearance: equal performance on two assignments does not rule out a shortcut common to both.
+- **Rescoring against shuffled labels** is likewise a sanity check. One permutation fluctuates widely; the study
+  now reports the mean and spread over 100 permutations.
+- **The lookup does not show a recognition ceiling (corrected after external review).** The nearest-neighbor lookup
+  measured count-label accuracy in the learned embedding, 0.22–0.57 and often above the network's recall. That shows
+  another decoder recovers more from the embedding, not that recognition is the dominant limit: different symbols
+  share counts and the embedding changes with pairing training. The runner now also reports recall on the training
+  renderings and 1-nearest-neighbor symbol-identity accuracy, so recognition and association learning can be separated:
+  high recall on training renderings with poor recall on independent ones supports a recognition bottleneck; both low
+  leaves association learning or decoding open. The diagnostic pilot below reports them.
 - **Curves are flat from the first point.** Recall at 250 updates is already near its end-of-block value in
-  most arms, so acquisition speed is unresolved at 250-update resolution. The runner now adds points at 25, 50, 100,
-  150 and 200 updates of each block.
+  most arms, so acquisition speed is unresolved at 250-update resolution, and the runner started recording after
+  training began. The runner now records update 0 of each block and adds points at 25, 50, 100, 150 and 200 updates.
 
 ## Choice, made on floor, ceiling and the controls only (not on which arm does best)
 
