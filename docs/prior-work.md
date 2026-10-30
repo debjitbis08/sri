@@ -368,6 +368,14 @@ to share or preserve; neither mechanism supplies the other automatically.
   [Foundations](foundations.md) commits to dreaming without a replay store,
   which places it in the generative-replay family. That family is not yet
   reviewed here.
+- **Limited, decaying memory** (2026-10-30). The [limited-memory proposal](limited-memory-proposal.md#prior-work-and-expected-limits)
+  reviews complementary learning systems, small episodic replay memories
+  ([Chaudhry et al. 2019](https://arxiv.org/abs/1902.10486), abstract), nearest-neighbour
+  memory beside a network ([Khandelwal et al. 2020](https://arxiv.org/abs/1911.00172),
+  abstract), forgetting curves, and generalization after memorization
+  ([Power et al. 2022](https://arxiv.org/abs/2201.02177), abstract). Its bounded, fading
+  store sits between the foundations' short-term memory satellite and their exclusion of a
+  historical replay store.
 
 ## Results that bear on this survey
 
