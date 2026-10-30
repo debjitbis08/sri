@@ -4,6 +4,10 @@ Design, contrasts and predictions: [proposal, "Replication with a fixed coordina
 written before the run. Follows the [one-dimension RigL results](fan-in-pilot-v1-rigl1-results.md).
 Run 2026-10-30, fresh seeds 230–239, D-varied+rehearsal. **A pilot.**
 
+*Corrected 2026-10-30:* the 16 non-concentrated units of `fixed75` were described
+ambiguously as "free"; they keep random one-dimension wiring and are not dense. The
+dead-unit conclusion is narrowed to the Chinese gain after the timing run.
+
 - **Commands:**
   - `NSY_WORKERS=6 NFI_THREADS=2 NFI_CHANNELS_LAST=1 .venv/bin/python -m experiments.fan_in_pilot pilot fixed` (50 minutes);
   - `.venv/bin/python -m experiments.fan_in_pilot_analysis pilot fixed` (43 s).
@@ -36,12 +40,15 @@ matters.**
     Devanagari comparison 0.66 (RigL 0.81), taps → withheld Devanagari 0.39 (RigL 0.64).
   - **Taught costs** are similar to RigL's. Chinese paired at its block falls less (0.56
     against RigL's 0.38), English retention falls more (0.20 against 0.24).
-- **Fixed coordinate, 75% of units (`fixed75`).** Mostly like the random arm. The 16 free
-  units per reader appear to let the network avoid the axis. Chinese comparison still
+- **Fixed coordinate, 75% of units (`fixed75`).** Mostly like the random arm. The 16 units
+  per reader that keep their random coordinates (still one dimension per operand, not
+  dense) appear to let the network avoid the shared axis. Chinese comparison still
   improves (+0.20 against dense), and retention is closer to dense.
-- **Dead units are not the mechanism.** The fixed arms have no dead units; RigL has 12%
-  in `g` and 49% in `P`. The fixed arm, with full capacity, transfers on Chinese as well
-  as RigL does, so RigL's gain does not need lost capacity.
+- **Dead units are not needed for the Chinese gain.** The fixed arms have no dead units;
+  RigL has 12% in `g` and 49% in `P`. The fixed arm, with full capacity, transfers on
+  Chinese as well as RigL does. Whether RigL's English and Devanagari gains need its dead
+  units is open: no arm without dead units has reproduced them (see the
+  [timing results](fan-in-pilot-v1-timing-results.md)).
 
 ## Pre-declared readings
 
@@ -169,10 +176,11 @@ Live units only; dead units are those never active on evaluation codes.
   Why Chinese in particular benefits under the fixed arm is also unexplained. It is the
   second block, and Chinese 一, 二, 三 are drawn as one, two and three strokes; neither is
   shown to matter.
-- **Free reader units undo the pressure.** With 16 of 64 units free, the network largely
-  behaves as with random wiring. This matches the [proposal's premise](fan-in-pressure-proposal.md#question)
-  that freedom the network keeps is freedom it uses: a quarter of the units left free is
-  enough to remove most of the pressure.
+- **Units on other coordinates undo the pressure.** With 16 of 64 units left on their
+  random coordinates, the network largely behaves as with random wiring. These units are
+  as sparse as the rest (one dimension per operand); what they keep is the freedom to read
+  a different coordinate. This matches the [proposal's premise](fan-in-pressure-proposal.md#question)
+  that freedom the network keeps is freedom it uses. It does not test fully dense units.
 - **The costs are the same as before.** Squeezing the readers onto one coordinate costs
   taught matching and retention, whether or not the coordinate is learned.
 
