@@ -49,10 +49,11 @@ in the fork, comes from the selection run only and has not been repeated.**
   (and on selection, −0.000). On the selection seeds `mixed-h125` was better than
   `mixed-reset` on Chinese paired at block 2 (+0.142) and taps → withheld Chinese
   (+0.083); neither repeated (+0.037 and −0.002, inconclusive).
-- **Fork handoff (selection run only).** `fork-h125` is consistent with handoff in the
-  full cohort and in the eligible subset (7 of 10 seeds). `fork-h500` and `fork-h2000`
-  are not. This is the only effect of the study that is large against its interval, and
-  it has no confirmation.
+- **Fork handoff, repeated on fresh parents.** `fork-h125` is consistent with handoff in the
+  full cohort and in the eligible subset on both the selection parents (seeds 300–309,
+  7 of 10 eligible) and the fresh parents (seeds 310–319, 5 of 10 eligible). `fork-h500`
+  and `fork-h2000` are not on either. This is the only effect of the study that is large
+  against its interval and that repeated; see "Fork repeat".
 - **Sparse beats mixed on the primary endpoint, in both cohorts.** `sparse48` has the
   highest (a) in both (0.781 selection, 0.763 confirmation), with every `mixed` arm
   below it.
@@ -116,7 +117,38 @@ all three languages. Differences are against the H = ∞ branch from the same pa
 - **What this shows.** It is evidence consistent with handoff, not a demonstration:
   continued supervised training can teach the structure part directly, and the memory
   part's decay removes the alternative route. It is a result on one cohort's parents.
-  The `confirm` stage does not include a fork, so the effect has no fresh-seed repeat.
+  The repeat on fresh parents is below.
+
+## Fork repeat (seeds 310–319; `mixed` parents of the confirm stage; stage `fork-confirm`)
+
+Run after the results above, with the protocol unchanged (2,000 updates, margin 0.05, at
+least 5 of 10 eligible); `NFI_DEVICE=cuda NSY_WORKERS=6 /data/venvs/sri-cuda/bin/python -m experiments.limited_memory pilot fork-confirm`
+(about 9 minutes), then `experiments.limited_memory_analysis pilot fork-confirm`. Runner
+change committed as `94fae4a`; analysis `reports/limited-memory-v1-fork-confirm-analysis.json`.
+
+- **Eligibility:** 5 of 10 parents (seeds 310, 311, 313, 314, 317), exactly the minimum, so
+  the conditional reading is inferential but rests on five seeds.
+- **Results at 2,000 updates (full cohort):**
+
+| Branch | Structure-only Chinese | Memory dependence | Consistent with handoff |
+|---|---|---|---|
+| fork-h2000 | +0.020 [−0.018, 0.058] inconclusive | −0.030 [−0.101, 0.040] inconclusive | no |
+| fork-h500 | +0.033 [−0.039, 0.106] inconclusive | −0.093 [−0.158, −0.028] lower | no |
+| fork-h125 | +0.237 [0.093, 0.382] better | −0.309 [−0.443, −0.174] lower | yes |
+
+  The eligible-subset results agree: h125 +0.229 [0.020, 0.437] and −0.335
+  [−0.494, −0.176] (consistent with handoff); h500 dependence −0.091 [−0.182, −0.001]
+  with structure-only +0.025 inconclusive.
+- **Agrees with the selection parents** in sign and size for h125 (+0.298 and −0.331
+  there). The rise again is progressive (full cohort, structure-only: 0, −0.008, 0.023,
+  0.094, 0.237; dependence: 0, −0.026, −0.119, −0.170, −0.309), later than on the
+  selection parents.
+- **`fork-h500` now shows lower dependence without a rise in structure-only accuracy,** the
+  proposal's "erasure without handoff" pattern. On the selection parents it was
+  inconclusive on both. This is the one difference between the cohorts.
+- **Limit:** the repeat uses a new cohort of seeds, but the same design, the same
+  curriculum and the same fork protocol. It does not show that the transfer survives a
+  change of wiring, which the random-rewiring follow-up tests.
 
 ## Confirmation (seeds 310–319; the readings are decided here)
 
@@ -153,8 +185,10 @@ Paired differences, `mixed-h125` against each arm (mean, 95% interval, outcome):
   weight-reset control, or beyond `sparse48`. At this size the memory units give no
   decisive benefit on (a), and `mixed` is lower than `dense` on taught Chinese in the
   means (−0.054, inconclusive).
-- **Open:** the fork's handoff at h125 (selection run only; needs fresh parents), and
-  whether the pattern depends on RigL as the structure wiring. The proposal's
+- **Supported (descriptive of a fork, not of the main endpoints):** at H = 125 the structure
+  part takes over taught Chinese matching as the memory part decays, in two independent
+  cohorts. It is evidence consistent with handoff, not a demonstration.
+- **Open:** whether the pattern depends on RigL as the structure wiring. The proposal's
   [follow-up](limited-memory-proposal.md) reruns the arms with random rewiring.
 - **Alternative explanations not excluded:**
   - Shared nonlinear layers can make the silenced-memory drop an interaction, not stored

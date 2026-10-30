@@ -1,0 +1,18 @@
+{
+ "command": "/home/debjit/code/sri/experiments/limited_memory_analysis.py pilot fork-confirm",
+ "descriptive": false,
+ "dirty": true,
+ "input": {
+  "reports/limited-memory-v1-fork-confirm-results.json.gz": "48c931ad414edf850e9e5a1659fba7a67c1ca4181c297e265c31195a979ff7ac"
+ },
+ "measured": "loading the results file, computing all endpoints and contrasts, writing the analysis JSON",
+ "output_sha256": "9b97abd163a39664c747c1dce229cedadc9504a3f4154a9e16e3a47b10eebe8f",
+ "process_cpu_seconds": 0.012148937000000082,
+ "revision": "94fae4a706e493e25aa4eedd4b2c8701fc676f6a",
+ "scope": "nondeterministic timing; the analysis JSON holds the scientific content only",
+ "sources_sha256": {
+  "limited_memory": "158f37ecc2cf6b5099f0cbba87fe87d5abd9b7a439bd13f5b59ffe43c86e452c",
+  "limited_memory_analysis": "770a25de03dda1c8291f15f5ed4752d5d86e34b1f56ff4c1374f13ee15e1f371"
+ },
+ "wall_seconds": 0.012150514998211293
+}
