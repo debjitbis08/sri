@@ -59,6 +59,44 @@ untested).
 
 ## Fan-in pressure
 
+2026-10-30 after timing: [RigL resets and predictor attrition](rigl-after-timing-analysis.md)
+revises the coordinate-choice explanation following the failed timing controls.
+It derives k=1's gradient-conditioned resets and a condition for global ReLU
+inactivity, and audits all ten final RigL checkpoints. Selective forgetting and
+predictor simplification remain hypotheses; final structural inactivity does
+not identify the cause of transfer. Proposed locus/reset controls are not yet
+frozen contracts or new runs.
+
+2026-10-30 revision review: [decaying-reader theory](decaying-readers-theory.md)
+supersedes external-store critiques for proposal revision `217701a`. It derives
+the decay filter, a positive slow/fast handoff result and its timescale,
+functional-forgetting conditions, a shared-ReLU rescaling loophole, and a
+conditional-expectation limit for proposed internal replay. Fast-weight,
+L2-SP and decoupled-decay abstracts were checked. It also corrects fixed75's
+residual units: they were randomly sparse, not dense. Proofs are conditional,
+with separate fixed-fixture checks and computation receipts; no neural
+consolidation or transfer improvement is newly established.
+
+2026-10-30 mathematical follow-up: [transfer and retention theory](fan-in-memory-theory.md)
+gives conditional proofs for grounded-graph identifiability and sharp resistance
+bounds, functional-bypass margins, scale-invariant quadratic growth, optimal-design
+memory scores, quadratic interference and finite binding information. All are
+**[derived]**, with numerical identity checks and separate computation receipts.
+Graph Gaussian fields (Zhu et al.), optimal design (Lu and Pong), and GEM provide
+established context; reading scopes and limits are recorded in the note. The
+grounded scalar model is a stronger assumption than the pilot's generic readers,
+not an established description of their learned dynamics.
+
+2026-10-30 follow-up: [fan-in and limited-memory analytical review](fan-in-memory-analysis.md)
+records the fixed-coordinate replication and reviews the planned decaying store.
+The reader derivative restriction, k=1's constant full reconsideration rate,
+FIFO replay-age law and retrieval/training separation are **[derived]** from
+local code and stated assumptions. Adaptive alignment is a hypothesis, not an
+identified mechanism. RigL, tiny replay, kNN-LM and grokking abstracts were
+checked; selected sections of Kumaran et al. (2016) were read. The note separates
+their findings from predictions for this network and identifies replay-refresh,
+withheld-label and delay-protocol ambiguities before a memory contract is frozen.
+
 2026-10-29: design review for the
 [fan-in pressure proposal](fan-in-pressure-proposal.md), which replaced a
 bounded learnable locality proposal the same day. Sources opened directly:
