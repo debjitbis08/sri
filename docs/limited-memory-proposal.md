@@ -444,7 +444,11 @@ Frozen here, before any run.
   earlier pilots.
 - **Wiring:** RigL for this run. Random rewiring (the cheaper alternative that got most
   of RigL's transfer in the reset and erasure runs) is not an arm; it is a candidate for
-  a later run.
+  a later run. **A random-rewiring test is required as a follow-up** (researchers'
+  decision, 2026-10-30): after this study's confirmation run, the same arms are rerun with
+  random rewiring (zero restart, the `mixed-reset` schedule) as the structure part's
+  wiring, on fresh seeds, with the same endpoints, and compared with the RigL results.
+  It is a separate, separately labeled run; it does not change this study's arms.
 
 ## Prior work and expected limits
 
@@ -707,7 +711,8 @@ results JSON.
 ## Decisions
 
 By the researchers:
-- RigL is the structure wiring for this run; random rewiring is a later alternative.
+- RigL is the structure wiring for this run; a random-rewiring test of the same arms follows
+  the confirmation run (separate run, fresh seeds).
 - The 48/16 split and the half-lives 2,000, 500 and 125 are kept.
 - The rehearsal buffer is a reference the system consults when retraining, not part of how
   it learns. The relearning phase and the fork continuations draw from it, and it holds all
