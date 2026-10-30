@@ -69,3 +69,43 @@ Data preparation 28–29 s and rendering 3 s per configuration. The grid took 1.
 configurations, 36 arm-runs. The runner writes no model checkpoints; the per-arm record is about 70 KB (compressed
 results file 72 KB for six arms). N barely changes cost; block length does. At L = 2,000 the study (60 arm-seeds in ten
 batches of six) is expected to take about 95 minutes.
+
+## Diagnostic pilots (seed 299, N = 45, L = 2,000; update 0, recognition diagnostics, Option B preflight)
+
+Run after the external review, at revision `4806eba`, with `NFI_TAG=-diag`: Option A (`...-A-N45-L2000-diag-*`)
+and Option B (`...-B-N45-L2000-diag-*`), six arms each, about 10 minutes each. One seed; no reading.
+
+Recall on A at the end of block 4 (chance 0.111):
+
+| Arm | A: independent renderings | A: training renderings | A: lookup count / identity | B: independent | B: training | B: lookup count / identity |
+|---|---|---|---|---|---|---|
+| sparse48 | 0.24 | 0.57 | 0.31 / 0.10 | 0.14 | 0.31 | 0.26 / 0.13 |
+| dense | 0.30 | 0.63 | 0.42 / 0.28 | 0.30 | 0.63 | 0.42 / 0.28 |
+| mixed | 0.27 | 0.65 | 0.30 / 0.19 | 0.27 | 0.60 | 0.31 / 0.19 |
+| mixed-h125 | 0.35 | 0.77 | 0.39 / 0.29 | 0.18 | 0.55 | 0.36 / 0.28 |
+| mixed-h500 | 0.27 | 0.64 | 0.48 / 0.35 | 0.26 | 0.61 | 0.41 / 0.29 |
+| mixed-reset | 0.32 | 0.68 | 0.44 / 0.32 | 0.20 | 0.44 | 0.38 / 0.29 |
+
+- **`dense` is identical in the two options** (0.30 / 0.63 in both), as it must be: it has no rewiring or reset, so
+  the schedule switch changes nothing for it.
+- **The associations are learned.** Recall on the exact training renderings is 0.44–0.77 against 0.14–0.35 on independent
+  renderings (chance 0.111). Both are above chance, so association learning is not the failure; the gap shows the
+  network separates the trained images far better than it generalizes a symbol across font, rotation and size.
+  Symbol-identity accuracy by nearest neighbor is 0.10–0.35 (chance 1/45 = 0.022), so recognition across renderings
+  is weak. This supports recognition across renderings as a substantial limit on the independent-rendering recall.
+  It does not show recognition is the only limit.
+- **Shuffled-label rescoring** is at chance in every arm (mean 0.11, sd 0.02–0.03 over 100 permutations).
+- **Option A, update 0 and early window.** Recall starts near chance (0.10–0.18 at update 0) and rises through the first
+  250 updates in most arms (for example `dense` 0.13 to 0.26), so the early window now resolves acquisition.
+- **Option B preflight: measurable, with a floor in the rewiring arms.** `sparse48` is at 0.14 on independent
+  renderings and its curve is flat at 0.14 from update 0; its training-rendering recall is 0.31. `mixed-reset` (0.20 / 0.44)
+  and `mixed-h125` (0.18 / 0.55) also fall relative to Option A, while `mixed` and `mixed-h500`, which do not rewire the memory
+  part's connections through the reset, stay near their Option A values. Under Option B, then, continuing RigL
+  or resets while pairs are taught erodes pair memory in the arms that carry that disruption, as the contract's caveat
+  expected. The contrast of `mixed` with `sparse48` could be floor-bound on the `sparse48` side on independent renderings.
+- **A to B comparisons are one seed;** the size of the erosion is not established.
+
+**Proposed adjustment before freezing (for the researchers):** make recall on the training renderings a co-primary
+outcome beside independent-rendering recall. It measures memory of the arbitrary association with recognition
+generalization removed, and the study's question is memory; independent-rendering recall stays as the recognition-
+generalization measure. Fixed before the cohort, it adds no analysis choice after seeing results.

@@ -1225,6 +1225,15 @@ were scored on structured relations only. Scoring arbitrary pairings in the same
 tests the memory/structure trade directly; it is an internal control for the limited-memory
 study, not a new method.
 
+## Memorized facts and relational inference
+
+2026-10-30 targeted search: [memory and relational prior work](memory-relational-prior-work.md)
+records TEM, complementary structure-learning, DNC, Memory Networks, Go-CLS,
+Wide & Deep and shared/routed experts, with evidence levels and architecture differences.
+The central distinction is coexistence of recall and reasoning versus inference that
+actually uses newly memorized facts; connectivity sparsity must also be distinguished
+from sparse representations and expert routing. These are reading notes, not a new contract.
+
 ## Implications for contracts
 
 - Use standard names where the mechanism is the same: EP for the two-phase
