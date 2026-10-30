@@ -1,0 +1,544 @@
+{
+ "arms": [
+  "sparse48",
+  "mixed",
+  "mixed-reset",
+  "mixed-h125"
+ ],
+ "contrasts": {
+  "mixed-h125 - mixed": {
+   "a_avg_coordinate_transfer": {
+    "mean_ci": [
+     0.037320601851851855,
+     0.0008095453424107682,
+     0.07383165836129293
+    ],
+    "outcome": "inconclusive"
+   },
+   "b_chinese_paired_block2": {
+    "mean_ci": [
+     -0.05904761904761906,
+     -0.1625602122429739,
+     0.04446497414773577
+    ],
+    "outcome": "inconclusive"
+   },
+   "c_structure_only_chinese": {
+    "mean_ci": [
+     0.010476190476190476,
+     -0.06084831220057761,
+     0.08180069315295856
+    ],
+    "outcome": "inconclusive"
+   },
+   "english_matching_after_delay": {
+    "mean_ci": [
+     -0.010740740740740742,
+     -0.023382535477364193,
+     0.0019010539958827094
+    ],
+    "outcome": "equivalent"
+   },
+   "transfer8/chinese_to_taps_withheld": {
+    "mean_ci": [
+     0.03833333333333333,
+     -0.09443723769481158,
+     0.17110390436147824
+    ],
+    "outcome": "inconclusive"
+   },
+   "transfer8/chinese_withheld_matching": {
+    "mean_ci": [
+     -0.028333333333333332,
+     -0.12665776816882404,
+     0.06999110150215737
+    ],
+    "outcome": "inconclusive"
+   },
+   "transfer8/comparison_chinese": {
+    "mean_ci": [
+     -0.03282407407407407,
+     -0.09647465623916235,
+     0.030826508091014206
+    ],
+    "outcome": "inconclusive"
+   },
+   "transfer8/comparison_devanagari": {
+    "mean_ci": [
+     0.09999999999999998,
+     0.055632637707360655,
+     0.1443673622926393
+    ],
+    "outcome": "better"
+   },
+   "transfer8/comparison_english": {
+    "mean_ci": [
+     -0.0044444444444444895,
+     -0.022487256402994194,
+     0.013598367514105213
+    ],
+    "outcome": "equivalent"
+   },
+   "transfer8/devanagari_withheld_matching": {
+    "mean_ci": [
+     0.03166666666666668,
+     -0.055485393463922804,
+     0.11881872679725616
+    ],
+    "outcome": "inconclusive"
+   },
+   "transfer8/taps_to_chinese_withheld": {
+    "mean_ci": [
+     -0.03166666666666667,
+     -0.13597724695125057,
+     0.07264391361791722
+    ],
+    "outcome": "inconclusive"
+   },
+   "transfer8/taps_to_devanagari_withheld": {
+    "mean_ci": [
+     0.14999999999999997,
+     -0.017105752089975224,
+     0.31710575208997516
+    ],
+    "outcome": "inconclusive"
+   }
+  },
+  "mixed-h125 - mixed-reset": {
+   "a_avg_coordinate_transfer": {
+    "mean_ci": [
+     0.01885223765432097,
+     -0.011348407442317795,
+     0.04905288275095973
+    ],
+    "outcome": "equivalent"
+   },
+   "b_chinese_paired_block2": {
+    "mean_ci": [
+     0.03666666666666666,
+     -0.03704473052006469,
+     0.11037806385339802
+    ],
+    "outcome": "inconclusive"
+   },
+   "c_structure_only_chinese": {
+    "mean_ci": [
+     0.002380952380952382,
+     -0.05985886774393551,
+     0.06462077250584027
+    ],
+    "outcome": "inconclusive"
+   },
+   "english_matching_after_delay": {
+    "mean_ci": [
+     -0.004074074074074072,
+     -0.02033231442852819,
+     0.012184166280380044
+    ],
+    "outcome": "equivalent"
+   },
+   "transfer8/chinese_to_taps_withheld": {
+    "mean_ci": [
+     0.058333333333333334,
+     -0.06674368190944692,
+     0.1834103485761136
+    ],
+    "outcome": "inconclusive"
+   },
+   "transfer8/chinese_withheld_matching": {
+    "mean_ci": [
+     -0.01333333333333333,
+     -0.11305341573661856,
+     0.08638674906995189
+    ],
+    "outcome": "inconclusive"
+   },
+   "transfer8/comparison_chinese": {
+    "mean_ci": [
+     0.031712962962962964,
+     -0.04673965339805477,
+     0.11016557932398069
+    ],
+    "outcome": "inconclusive"
+   },
+   "transfer8/comparison_devanagari": {
+    "mean_ci": [
+     0.07925925925925922,
+     0.03331500144563434,
+     0.1252035170728841
+    ],
+    "outcome": "better"
+   },
+   "transfer8/comparison_english": {
+    "mean_ci": [
+     -0.019120370370370406,
+     -0.04013716247452193,
+     0.0018964217337811215
+    ],
+    "outcome": "equivalent"
+   },
+   "transfer8/devanagari_withheld_matching": {
+    "mean_ci": [
+     0.06500000000000002,
+     -0.036392867326902764,
+     0.16639286732690278
+    ],
+    "outcome": "inconclusive"
+   },
+   "transfer8/taps_to_chinese_withheld": {
+    "mean_ci": [
+     -0.001666666666666663,
+     -0.10688182159719338,
+     0.10354848826386005
+    ],
+    "outcome": "inconclusive"
+   },
+   "transfer8/taps_to_devanagari_withheld": {
+    "mean_ci": [
+     0.15999999999999998,
+     -0.14851710413379932,
+     0.46851710413379927
+    ],
+    "outcome": "inconclusive"
+   }
+  },
+  "mixed-h125 - sparse48": {
+   "a_avg_coordinate_transfer": {
+    "mean_ci": [
+     -0.03379243827160493,
+     -0.07571263553073979,
+     0.008127758987529932
+    ],
+    "outcome": "inconclusive"
+   },
+   "b_chinese_paired_block2": {
+    "mean_ci": [
+     0.04714285714285715,
+     -0.05337758200713051,
+     0.1476632962928448
+    ],
+    "outcome": "inconclusive"
+   },
+   "c_structure_only_chinese": {
+    "mean_ci": [
+     -0.021904761904761903,
+     -0.06786605029177305,
+     0.02405652648224924
+    ],
+    "outcome": "inconclusive"
+   },
+   "english_matching_after_delay": {
+    "mean_ci": [
+     -0.0037037037037037047,
+     -0.0127963581761417,
+     0.005388950768734291
+    ],
+    "outcome": "equivalent"
+   },
+   "transfer8/chinese_to_taps_withheld": {
+    "mean_ci": [
+     0.11499999999999996,
+     -0.00921536613986812,
+     0.23921536613986805
+    ],
+    "outcome": "inconclusive"
+   },
+   "transfer8/chinese_withheld_matching": {
+    "mean_ci": [
+     0.05833333333333333,
+     -0.006056147422377943,
+     0.12272281408904459
+    ],
+    "outcome": "inconclusive"
+   },
+   "transfer8/comparison_chinese": {
+    "mean_ci": [
+     -0.027546296296296298,
+     -0.08156800764015684,
+     0.02647541504756424
+    ],
+    "outcome": "inconclusive"
+   },
+   "transfer8/comparison_devanagari": {
+    "mean_ci": [
+     -0.04444444444444445,
+     -0.08464929723584722,
+     -0.004239591653041691
+    ],
+    "outcome": "inconclusive"
+   },
+   "transfer8/comparison_english": {
+    "mean_ci": [
+     -0.009490740740740761,
+     -0.030539517218256627,
+     0.011558035736775104
+    ],
+    "outcome": "equivalent"
+   },
+   "transfer8/devanagari_withheld_matching": {
+    "mean_ci": [
+     -0.11333333333333333,
+     -0.24110263447946684,
+     0.014435967812800168
+    ],
+    "outcome": "inconclusive"
+   },
+   "transfer8/taps_to_chinese_withheld": {
+    "mean_ci": [
+     0.009999999999999998,
+     -0.06267472606012534,
+     0.08267472606012533
+    ],
+    "outcome": "inconclusive"
+   },
+   "transfer8/taps_to_devanagari_withheld": {
+    "mean_ci": [
+     -0.31,
+     -0.5690376963013154,
+     -0.0509623036986846
+    ],
+    "outcome": "worse"
+   }
+  }
+ },
+ "disruption_descriptive": {
+  "mixed": {
+   "block3": {
+    "chinese_to_taps_withheld": 0.12283333333333335,
+    "chinese_withheld_matching": 0.13566666666666666,
+    "comparison_chinese": 0.6400694444444444,
+    "comparison_devanagari": 0.6656064814814815,
+    "comparison_english": 0.47881944444444446,
+    "devanagari_withheld_matching": 0.18316666666666667,
+    "taps_to_chinese_withheld": 0.0905,
+    "taps_to_devanagari_withheld": 0.19933333333333333
+   },
+   "delay": {
+    "chinese_to_taps_withheld": 0.06966666666666668,
+    "chinese_withheld_matching": 0.07666666666666666,
+    "comparison_chinese": 0.5779120370370371,
+    "comparison_devanagari": 0.6122777777777778,
+    "comparison_english": 0.49249074074074084,
+    "devanagari_withheld_matching": 0.10666666666666666,
+    "taps_to_chinese_withheld": 0.0395,
+    "taps_to_devanagari_withheld": 0.13383333333333333
+   },
+   "relearn": {
+    "chinese_to_taps_withheld": 0.155,
+    "chinese_withheld_matching": 0.16183333333333333,
+    "comparison_chinese": 0.7771157407407407,
+    "comparison_devanagari": 0.636986111111111,
+    "comparison_english": 0.530662037037037,
+    "devanagari_withheld_matching": 0.15583333333333332,
+    "taps_to_chinese_withheld": 0.07933333333333333,
+    "taps_to_devanagari_withheld": 0.1381666666666667
+   }
+  },
+  "mixed-h125": {
+   "block3": {
+    "chinese_to_taps_withheld": 0.11966666666666667,
+    "chinese_withheld_matching": 0.10816666666666667,
+    "comparison_chinese": 0.6124675925925926,
+    "comparison_devanagari": 0.744,
+    "comparison_english": 0.4752268518518519,
+    "devanagari_withheld_matching": 0.15433333333333332,
+    "taps_to_chinese_withheld": 0.1,
+    "taps_to_devanagari_withheld": 0.2881666666666667
+   },
+   "delay": {
+    "chinese_to_taps_withheld": 0.07216666666666667,
+    "chinese_withheld_matching": 0.09933333333333334,
+    "comparison_chinese": 0.570587962962963,
+    "comparison_devanagari": 0.6547638888888889,
+    "comparison_english": 0.491925925925926,
+    "devanagari_withheld_matching": 0.11800000000000002,
+    "taps_to_chinese_withheld": 0.030166666666666668,
+    "taps_to_devanagari_withheld": 0.17500000000000002
+   },
+   "relearn": {
+    "chinese_to_taps_withheld": 0.16183333333333333,
+    "chinese_withheld_matching": 0.16666666666666669,
+    "comparison_chinese": 0.7118425925925926,
+    "comparison_devanagari": 0.7171990740740741,
+    "comparison_english": 0.6128425925925927,
+    "devanagari_withheld_matching": 0.10966666666666666,
+    "taps_to_chinese_withheld": 0.17533333333333337,
+    "taps_to_devanagari_withheld": 0.19633333333333333
+   }
+  },
+  "mixed-reset": {
+   "block3": {
+    "chinese_to_taps_withheld": 0.09350000000000001,
+    "chinese_withheld_matching": 0.11850000000000001,
+    "comparison_chinese": 0.5784537037037036,
+    "comparison_devanagari": 0.6857916666666667,
+    "comparison_english": 0.49218981481481483,
+    "devanagari_withheld_matching": 0.176,
+    "taps_to_chinese_withheld": 0.055499999999999994,
+    "taps_to_devanagari_withheld": 0.2778333333333334
+   },
+   "delay": {
+    "chinese_to_taps_withheld": 0.026500000000000006,
+    "chinese_withheld_matching": 0.05683333333333333,
+    "comparison_chinese": 0.5274675925925927,
+    "comparison_devanagari": 0.620824074074074,
+    "comparison_english": 0.4963148148148148,
+    "devanagari_withheld_matching": 0.15566666666666668,
+    "taps_to_chinese_withheld": 0.0365,
+    "taps_to_devanagari_withheld": 0.14150000000000001
+   },
+   "relearn": {
+    "chinese_to_taps_withheld": 0.2125,
+    "chinese_withheld_matching": 0.2038333333333333,
+    "comparison_chinese": 0.7226944444444443,
+    "comparison_devanagari": 0.6474953703703703,
+    "comparison_english": 0.570949074074074,
+    "devanagari_withheld_matching": 0.12133333333333333,
+    "taps_to_chinese_withheld": 0.06883333333333333,
+    "taps_to_devanagari_withheld": 0.19099999999999998
+   }
+  },
+  "sparse48": {
+   "block3": {
+    "chinese_to_taps_withheld": 0.029666666666666668,
+    "chinese_withheld_matching": 0.05716666666666668,
+    "comparison_chinese": 0.637523148148148,
+    "comparison_devanagari": 0.8029675925925925,
+    "comparison_english": 0.4832777777777778,
+    "devanagari_withheld_matching": 0.2613333333333333,
+    "taps_to_chinese_withheld": 0.08033333333333334,
+    "taps_to_devanagari_withheld": 0.4843333333333333
+   },
+   "delay": {
+    "chinese_to_taps_withheld": 0.07816666666666666,
+    "chinese_withheld_matching": 0.06,
+    "comparison_chinese": 0.5891249999999999,
+    "comparison_devanagari": 0.7039166666666666,
+    "comparison_english": 0.4964351851851852,
+    "devanagari_withheld_matching": 0.16366666666666668,
+    "taps_to_chinese_withheld": 0.02983333333333334,
+    "taps_to_devanagari_withheld": 0.21399999999999997
+   },
+   "relearn": {
+    "chinese_to_taps_withheld": 0.14483333333333331,
+    "chinese_withheld_matching": 0.14150000000000001,
+    "comparison_chinese": 0.8345740740740741,
+    "comparison_devanagari": 0.752564814814815,
+    "comparison_english": 0.6919814814814815,
+    "devanagari_withheld_matching": 0.1495,
+    "taps_to_chinese_withheld": 0.19766666666666668,
+    "taps_to_devanagari_withheld": 0.2678333333333333
+   }
+  }
+ },
+ "means": {
+  "mixed": {
+   "a_avg_coordinate_transfer": 0.6923398919753087,
+   "b_chinese_paired_block2": 0.6057142857142856,
+   "c_structure_only_chinese": 0.11952380952380952,
+   "d_A0": 0.09777777777777777,
+   "d_A_final": 0.26407407407407407,
+   "d_G": 0.09444444444444446,
+   "english_matching_after_delay": 0.09777777777777777,
+   "interaction_chinese_block3": 0.025238095238095237,
+   "transfer8/chinese_to_taps_withheld": 0.11666666666666667,
+   "transfer8/chinese_withheld_matching": 0.1433333333333333,
+   "transfer8/comparison_chinese": 0.6370370370370371,
+   "transfer8/comparison_devanagari": 0.6705555555555556,
+   "transfer8/comparison_english": 0.4799074074074075,
+   "transfer8/devanagari_withheld_matching": 0.24333333333333335,
+   "transfer8/taps_to_chinese_withheld": 0.09333333333333334,
+   "transfer8/taps_to_devanagari_withheld": 0.27666666666666667
+  },
+  "mixed-h125": {
+   "a_avg_coordinate_transfer": 0.7296604938271605,
+   "b_chinese_paired_block2": 0.5466666666666666,
+   "c_structure_only_chinese": 0.12999999999999998,
+   "d_A0": 0.08703703703703705,
+   "d_A_final": 0.23407407407407405,
+   "d_G": 0.08611111111111111,
+   "english_matching_after_delay": 0.08703703703703705,
+   "interaction_chinese_block3": -0.03666666666666667,
+   "transfer8/chinese_to_taps_withheld": 0.15499999999999997,
+   "transfer8/chinese_withheld_matching": 0.11499999999999999,
+   "transfer8/comparison_chinese": 0.6042129629629629,
+   "transfer8/comparison_devanagari": 0.7705555555555555,
+   "transfer8/comparison_english": 0.475462962962963,
+   "transfer8/devanagari_withheld_matching": 0.275,
+   "transfer8/taps_to_chinese_withheld": 0.06166666666666667,
+   "transfer8/taps_to_devanagari_withheld": 0.42666666666666664
+  },
+  "mixed-reset": {
+   "a_avg_coordinate_transfer": 0.7108082561728395,
+   "b_chinese_paired_block2": 0.51,
+   "c_structure_only_chinese": 0.1276190476190476,
+   "d_A0": 0.09111111111111111,
+   "d_A_final": 0.2496296296296296,
+   "d_G": 0.0944212962962963,
+   "english_matching_after_delay": 0.09111111111111111,
+   "interaction_chinese_block3": 0.0038095238095238156,
+   "transfer8/chinese_to_taps_withheld": 0.09666666666666666,
+   "transfer8/chinese_withheld_matching": 0.12833333333333333,
+   "transfer8/comparison_chinese": 0.5725,
+   "transfer8/comparison_devanagari": 0.6912962962962963,
+   "transfer8/comparison_english": 0.49458333333333326,
+   "transfer8/devanagari_withheld_matching": 0.21000000000000002,
+   "transfer8/taps_to_chinese_withheld": 0.06333333333333332,
+   "transfer8/taps_to_devanagari_withheld": 0.26666666666666666
+  },
+  "sparse48": {
+   "a_avg_coordinate_transfer": 0.7634529320987655,
+   "b_chinese_paired_block2": 0.49952380952380954,
+   "c_structure_only_chinese": 0.1519047619047619,
+   "d_A0": 0.09074074074074075,
+   "d_A_final": 0.23074074074074075,
+   "d_G": 0.07912037037037037,
+   "english_matching_after_delay": 0.09074074074074075,
+   "interaction_chinese_block3": 0.0,
+   "transfer8/chinese_to_taps_withheld": 0.04,
+   "transfer8/chinese_withheld_matching": 0.05666666666666668,
+   "transfer8/comparison_chinese": 0.6317592592592592,
+   "transfer8/comparison_devanagari": 0.8150000000000001,
+   "transfer8/comparison_english": 0.4849537037037037,
+   "transfer8/devanagari_withheld_matching": 0.3883333333333333,
+   "transfer8/taps_to_chinese_withheld": 0.05166666666666667,
+   "transfer8/taps_to_devanagari_withheld": 0.7366666666666666
+  }
+ },
+ "missing_runs": [],
+ "relearning_descriptive": {
+  "mixed": {
+   "A0": 0.09777777777777777,
+   "A_final": 0.26407407407407407,
+   "G": 0.09444444444444446
+  },
+  "mixed-h125": {
+   "A0": 0.08703703703703705,
+   "A_final": 0.23407407407407405,
+   "G": 0.08611111111111111
+  },
+  "mixed-reset": {
+   "A0": 0.09111111111111111,
+   "A_final": 0.2496296296296296,
+   "G": 0.0944212962962963
+  },
+  "sparse48": {
+   "A0": 0.09074074074074075,
+   "A_final": 0.23074074074074075,
+   "G": 0.07912037037037037
+  }
+ },
+ "seeds": [
+  310,
+  311,
+  312,
+  313,
+  314,
+  315,
+  316,
+  317,
+  318,
+  319
+ ],
+ "status": "complete cohort"
+}
