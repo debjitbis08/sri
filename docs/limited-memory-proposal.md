@@ -591,6 +591,40 @@ open.
 | Selection, endpoints, curve summary and confirmation unspecified; costs missing | "Selection and confirmation" section; costs and phase table below |
 | fixed75 claim contradicts the corrected baseline | Failure mode restated as a hypothesis for `mixed` |
 
+## Implementation
+
+`experiments/limited_memory.py`, `experiments/limited_memory_analysis.py`, `experiments/limited_memory_checks.py`
+(structural checks) and `experiments/limited_memory_resume_check.sh` (killed-and-resumed check).
+
+- **Stages:** `main` (8 arms, seeds 300–309), `fork` (4 branches from each `mixed` end-of-block-3 parent, seeds
+  300–309), `confirm` (`sparse48`, `mixed`, `mixed-reset` and the selected half-life, seeds 310–319, chosen by
+  `NLM_SELECTED`). Commands: `NFI_DEVICE=cuda NSY_WORKERS=6 /data/venvs/sri-cuda/bin/python -m experiments.limited_memory pilot main`,
+  then `fork`, then the analysis with `.venv/bin/python -m experiments.limited_memory_analysis pilot main`.
+- **Model:** each reader's first layer is a structure part (48 RigL-masked rows) and a memory part (16 dense rows),
+  concatenated; the second layer keeps 64 inputs. All arms start from the sequence pilot's initial weights; the
+  structure rows are the first 48 of `sparse64`'s 64; `sparse48` leaves the 16 memory outputs at zero.
+- **Recorded at the end of blocks 1–3, after the delay and after relearning:** the sequence pilot's full evaluation;
+  Chinese/English/Devanagari matching and the eight transfer measures with nothing, the memory part, the structure
+  part or both silenced; the per-coordinate probe and linear-direction alignment; per-memory-unit activity and
+  outgoing norms; layer norms. The disruption test (ten draws) runs at the end of block 3, after the delay and after
+  relearning. A decay-only diagnostic (the end-of-block-3 network with only decay applied for the delay) is recorded
+  for the decaying arms. Every 500 updates: the eight transfer measures, matching and layer norms.
+- **Fork branches:** Chinese paired matching with nothing, the memory part or the structure part silenced, on all,
+  even and odd items, at the fork start and every 500 updates, and the full four-way record at the end.
+- **Analysis:** endpoints (a)–(d) as defined above; dependence is full minus memory-silenced Chinese paired
+  matching and structure-only accuracy is the memory-silenced matching; the interaction residual of the four silencing
+  conditions is recorded for Chinese at the end of block 3. An incomplete cohort is refused unless a labeled
+  descriptive summary is requested; timing goes to a separate runtime file.
+- **Not recorded:** the outgoing-gradient magnitude of the memory units (the reactivation measure of the design);
+  activity and outgoing norms are recorded instead.
+- **Checks passed:** seven structural checks at smoke scale (equal starting weights, silencing, decay arithmetic,
+  RigL invariants, reset scope, rehearsal only in retraining, matching equal to the pilots', fork parent equal to
+  the end-of-block-3 network), and a killed-and-resumed run equal to an uninterrupted one on the GPU.
+- **Full-length preflight (`mixed`, `mixed-h500`, seed 300, test tag):** 8,200 updates in 182 s with two processes.
+  Learning is on the scale of the fan-in runs (English matching after block 1 0.23 and 0.27; Chinese at its block
+  0.61 and 0.45; the fan-in `dense` and RigL arms average 0.36 and 0.20 on English, 0.64 and 0.38 on Chinese).
+  Silencing the memory part removes the taught Chinese answers in `mixed` (0.61 to 0.07), as the design intends.
+
 ## Computation plan
 
 Follows [computation reporting](computation-reporting.md). Orders are per optimizer
@@ -622,17 +656,21 @@ selection candidates and confirmation:
 - total: 1,064,000 updates (RigL's gradient collection adds a little on the 45 update
   steps per run that carry it).
 
-**Estimates.** Measured on the reset stage with RigL's gradient steps included: 60 s
-effective per 6,200-update run on six CPU workers (0.0097 s per update), 37 s on six GPU
-processes ([timing](gpu-timing-fan-in-v1.md), 0.0060 s per update). For the 1,064,000
-updates above:
+**Estimates.** One full-length run of this runner on the GPU (`mixed`, 8,200 updates, all measures) took
+182 s wall with two processes sharing the GPU, 27 s of it evaluation. Six processes were not run with this
+runner; scaling the two-process figure by the fan-in runner's six-to-two process ratio (about 1.9) gives
+about 340 s per run. For the 1,064,000 updates above:
 
-| Part | Updates | CPU | GPU (plan) |
-| --- | --- | --- | --- |
-| Selection run | 656,000 | 106 min | 66 min |
-| Forks | 80,000 | 13 min | 8 min |
-| Confirmation | 328,000 | 53 min | 33 min |
-| Total | 1,064,000 | about 3.0 h | about 1.8 h |
+| Part | Runs | GPU, six processes (estimate) |
+| --- | --- | --- |
+| Selection run | 80 | 75 min |
+| Forks | 40 branches, 2,000 updates | 11 min |
+| Confirmation | 40 | 38 min |
+| Data preparation | 3 stages | 4 min |
+| Total | | about 2.1 h |
+
+On six CPU workers the training rate measured in the reset stage (0.0097 s per update effective) plus the
+evaluation gives about 3.2 h.
 
 **Checkpoints.** Four per run (ends of block 1, block 3, delay, relearning), parameters
 only, about 1.5 MB each by the erasure run's size (117 MB for 80): about 480 MB untracked
