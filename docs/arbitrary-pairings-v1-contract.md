@@ -28,8 +28,11 @@ pilot (decision 6); a disjoint set **B** has the same size.
 1. Candidates: codepoints in Geometric Shapes, Arrows, Dingbats and Miscellaneous Symbols.
 2. Excluded: Braille patterns, dice, tally marks, digits, numerals, fractions, any
    character of the taught or transfer scripts (including CJK), and emoji.
-3. Keep codepoints that every font in the renderer's list covers, checked from each
-   font's character map, so no missing-glyph box stands for several symbols.
+3. Keep codepoints covered by at least 4 of the renderer's 8 Latin fonts, checked by
+   comparing each font's glyph with its missing-glyph box, and render a symbol only in the
+   fonts that cover it, so no missing-glyph box is ever drawn. (Requiring all eight left
+   5 of 569 candidates; measured 2026-10-30. Of 569 candidates, 441 pass and 387 survive
+   the provisional distance filter at 0.35.)
 4. Render each survivor with the usual variation and drop any whose images lie within a
    distance threshold of another symbol's (threshold fixed by the pilot, before the study).
 5. Draw the symbols of A and B from the survivors with a seeded stream, disjoint, and
