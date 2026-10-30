@@ -60,17 +60,26 @@ Sequential A→B is kept. The alternative, A taught inside block 3, confounds pa
 the block whose transfer is measured.
 
 **Arms:** `sparse48`, `dense`, `mixed`, `mixed-h125`, `mixed-h500`, `mixed-reset`.
-- **Rewiring and reset schedules.** The inherited schedules stop at update 4,500
-  (`END_FRACTION`·3·block steps), before block 4 starts at update 6,200. In this design:
-  - the sparse connectivity is therefore **fixed** during pairing, as the result of earlier RigL rewiring;
-  - `mixed-reset` is a **past intervention** whose effect is already in the weights;
-  - decay in `mixed-h125` and `mixed-h500` is **active** throughout blocks 4 and 5.
-
-  So "decay against reset" compares active decay with a completed reset. A variant that
-  continues rewiring and resets through blocks 4 and 5 is a different experiment (decision 5).
+- **Rewiring and reset schedules (decision 5, decided by the researchers: Option B is the
+  experiment; Option A is the debugging baseline).**
+  - **Option B, the study (seeds 320–329).** RigL rewiring of the structure rows and the
+    `mixed-reset` resets continue through the end of block 5 (update 10,200), at the
+    inherited rate and rule, in every branch including the matched controls `C` and `P-A`.
+    Decay in `mixed-h125` and `mixed-h500` is active throughout. Rewiring therefore also
+    runs through the end of block 3, so the parents are not the limited-memory parents
+    and blocks 1–3 are rerun on the new seeds. Pairs are learned while the structure
+    part is still changing; "active decay against active reset" is the contrast.
+  - **Option A, debugging only (seed 299 pilot).** The inherited schedules stop at update
+    4,500, before block 4 starts at 6,200: connectivity is fixed during pairing and
+    `mixed-reset` is a past intervention. It exists to debug the runner and the controls
+    in a cleaner setting and to set N and block length. It yields no reading.
+  - **Reading B with care.** Continuing resets and rewiring can erase or move the
+    connections that hold pairs, so a deficit in a rewiring arm is damage from disruption
+    as much as a limit of the architecture. `sparse48` (RigL) and `mixed-reset` carry that
+    cost by design; `dense` and the decay arms without reset differ in it.
 - The structure part's rewiring rule is RigL; the random-rewiring follow-up reuses the task (decision 3).
 
-**Seeds:** 320–329, one fixed cohort of 10. No second cohort and no stopping rule:
+**Seeds:** 320–329, one fixed cohort of 10 (Option B); seed 299 for the Option A pilot. No second cohort and no stopping rule:
 inconclusive readings stay inconclusive, and any later cohort is a new, labeled run.
 
 ## Controls
@@ -139,7 +148,7 @@ Contrasts: `mixed` against `sparse48`; `mixed-h125` against `mixed`; `mixed-h125
   block 5 noninferior, and absolute transfer at the end of block 5 better or noninferior.
 - **Decay sacrifices it:** `mixed-h125` worse than `mixed` on recall on A at the end of
   block 5 or on normalized acquisition area.
-- **Active decay against completed reset:** `mixed-h125` against `mixed-reset` on the same
+- **Active decay against active reset:** `mixed-h125` against `mixed-reset` on the same
   measures, named as such.
 - **Inconclusive is not equivalent.**
 
@@ -200,8 +209,9 @@ Notation: P parameters, E evaluation renderings per symbol, K the evaluation poi
   randomized candidate positions and the two shuffled-label checks.
 - **Look-alike symbols:** at 28×28 many symbols are close. The filter removes near-duplicates;
   residual confusion lowers recall for every arm alike.
-- **Frozen connectivity and past reset:** see Arms. The design tests pairing on a network whose
-  sparse part stopped rewiring, not on one that is still rewiring.
+- **Disruption during pairing:** under Option B the rewiring and resets run while pairs are
+  learned (see Arms). Option A, seed 299 only, shows what happens without them; the two are
+  not combined in one reading.
 - **Shared code:** both tasks use the 16-dimensional code and the readers. A drop in
   structure can come from added updates alone, so the damage of pairing is read against
   the matched continuation `C`, not against zero or the earlier delay.
@@ -215,7 +225,7 @@ Notation: P parameters, E evaluation renderings per symbol, K the evaluation poi
 3. Whether the random-rewiring arms run in this task from the start. The reviewer's
    recommendation is to add the matched continuation before wiring variants, as done here.
 4. Whether to add a nearest-neighbor lookup as a recall reference.
-5. Whether rewiring and resets continue through blocks 4 and 5 (a different experiment) or the
-   inherited schedules stop at update 4,500 as written.
+5. Decided: Option B (rewiring and resets continue through block 5) is the study; Option A
+   (inherited schedules, stopping at update 4,500) is the debugging baseline on seed 299.
 6. Pair-set size N (a multiple of nine, tried at 18, 45 and 90) and block length (1,000 or
    2,000), set by the seed-299 pilot unless you want fixed values.
