@@ -1172,6 +1172,54 @@ This is a targeted contract review, not a novelty search.
   [conceptual instinct notes](conceptual-instinct-notes.md)).
   - *Implication:* Part D records the untrained residual detector as a baseline only.
 
+## Memorization, interference and sparse representations (arbitrary-pairings design)
+
+Search and read date: 2026-10-30. Abstracts or arXiv listing summaries of the four arXiv
+papers below were read; the older interference literature is from memory. Written for the
+[arbitrary-pairings contract](arbitrary-pairings-v1-contract.md) before freezing.
+
+- **Networks can memorize arbitrary pairings.** [Zhang et al. 2017](https://arxiv.org/abs/1611.03530)
+  **[abstract]**: large convolutional networks trained by stochastic gradient methods fit
+  random labelings, and random-noise inputs, and removing regularization does not change
+  this qualitatively; a depth-two network can fit any finite sample once parameters exceed
+  samples. Differs: their setting is image classification at scale with one head. Hypothesis:
+  capacity to memorize unstructured pairs is not in doubt here; what varies across arms is
+  how fast and at what cost to structure.
+- **Memorization can be needed for accuracy.** [Feldman 2020](https://arxiv.org/abs/1906.05271)
+  **[abstract]**: on a long-tailed mixture of subpopulations, memorizing rare examples is
+  required for near-optimal generalization, and limiting memorization (compression,
+  privacy) costs some subgroups more than others. Differs: a theoretical model plus
+  supporting experiments, not a number task. Hypothesis: a network with a memory part may
+  hold specific associations that a structure-only network cannot, so a deficit of
+  `sparse48` on arbitrary pairs is the expected sign.
+- **Compression forgets the rare, atypical cases first.** [Hooker et al. 2019](https://arxiv.org/abs/1911.05248)
+  **[abstract]**: pruned and quantized networks keep aggregate accuracy while losing
+  disproportionately on a small set of atypical or noisy exemplars (PIEs). Differs: post
+  hoc compression of a trained model; here sparsity is built in. Hypothesis: a sparse
+  reader will show the same pattern on pairings with no shared structure.
+- **Sparse representations are more robust to interference.** [Ahmad and Scheinkman 2019](https://arxiv.org/abs/1903.11257)
+  **[abstract]**: highly sparse weights and activations were more robust to noise and
+  interference than dense ones with competitive accuracy on MNIST and Google Speech Commands.
+  Differs: the interference there is input noise, not the learning of later tasks. Hypothesis:
+  the sparse part may suffer less interference between pairings; the memory part more.
+- **Catastrophic interference and its remedies.** McCloskey and Cohen (1989), Ratcliff
+  (1990) and French (1999, a review that includes semi-distributed representations)
+  **[familiar]**: learning new associations in a shared distributed network overwrites
+  old ones, and less overlapping representations reduce this. Complementary learning
+  systems and fast weights are in the [limited-memory proposal](limited-memory-proposal.md#prior-work-and-expected-limits).
+
+**Predictions the literature supports.** Dense-with-memory arms acquire arbitrary pairs
+faster and with higher accuracy than `sparse48` **[derived from Zhang, Feldman, Hooker;
+untested here]**. Sparse arms suffer less interference **[Ahmad and Scheinkman, French;
+different settings]**. Decay is expected to cost retention of arbitrary pairs unless
+rehearsal restores them **[Hinton and Plaut 1987, abstract]**. None of this predicts the
+size of any effect here.
+
+**What the pairings design adds.** The earlier arms differ in connectivity and decay but
+were scored on structured relations only. Scoring arbitrary pairings in the same curriculum
+tests the memory/structure trade directly; it is an internal control for the limited-memory
+study, not a new method.
+
 ## Implications for contracts
 
 - Use standard names where the mechanism is the same: EP for the two-phase
