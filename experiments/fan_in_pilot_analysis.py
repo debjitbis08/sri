@@ -44,6 +44,10 @@ CONTRASTS = {'confirm': (('read-q16', 'dense'), ('read-q16-untied', 'dense'), ('
              'fixed': (('read-q16-untied-rigl', 'read-q16-untied'), ('read-q16-untied-rigl', 'dense'),
                        ('read-q16-fixed', 'read-q16-untied-rigl'), ('read-q16-fixed75', 'read-q16-untied-rigl'),
                        ('read-q16-fixed', 'dense'), ('read-q16-fixed75', 'dense'), ('read-q16-fixed', 'read-q16-fixed75')),
+             'timing': (('read-q16-gradual', 'read-q16-fixed'), ('read-q16-fixed-rigld', 'read-q16-fixed'),
+                        ('read-q16-gradual-rigld', 'read-q16-fixed-rigld'), ('read-q16-gradual-rigld', 'read-q16-gradual'),
+                        ('read-q16-gradual', 'read-q16-untied-rigl'), ('read-q16-fixed-rigld', 'read-q16-untied-rigl'),
+                        ('read-q16-gradual-rigld', 'read-q16-untied-rigl')),
              }.get(FI.STAGE, ())
 RIDGE = 1e-3
 THAI = str(max(P.TRANSFER_AT)) if X.SMOKE else '200'  # smoke runs stop transfer early
@@ -203,6 +207,11 @@ def main():
     X.prepare(); P.prepare(); D.prepare()
     R = C.load(FI.NAME)
     exact = None
+    if FI.STAGE == 'timing':  # rerun arms must reproduce the 'fixed' stage exactly
+        S = C.load(FI.NAME.replace('-timing', '-fixed'))
+        same = lambda a, b: {k: v for k, v in a.items() if k != 'checkpoint'} == {k: v for k, v in b.items() if k != 'checkpoint'}
+        exact = {f'{c}/seed{s}': same(R[f'{c}/seed{s}'], S[f'{c}/seed{s}']) for c in ('dense', 'read-q16-untied-rigl', 'read-q16-fixed')
+                 for s in SEEDS}
     if not CONFIRM:
         S = C.load(SP.NAME)
         same = lambda a, b: {k: v for k, v in a.items() if k != 'checkpoint'} == {k: v for k, v in b.items() if k != 'checkpoint'}
@@ -283,7 +292,7 @@ def main():
         'revision': X.git('rev-parse', 'HEAD'), 'dirty': bool(X.git('status', '--porcelain')), 'command': ' '.join([sys.executable, *sys.argv]),
         'wall_seconds': time.perf_counter() - t0, 'cpu_seconds': time.process_time() - c0}, indent=1) + '\n')
     cfgs = [c for c in FI.CONFIGS if c != 'dense']
-    print('dense reproduces sequence pilot:', exact)
+    print('reproduces earlier runs:', exact if exact is None else all(exact.values()), exact)
     print('| Measure | dense | ' + ' | '.join(cfgs) + ' |\n|' + ' --- |' * (len(cfgs) + 2))
     for r in rows:
         cell = lambda c: f"{np.mean(r['values'][c]):.2f}" + ('' if r['kind'] == 'descriptive' else f" {r['vs_dense'][c][:3]}")

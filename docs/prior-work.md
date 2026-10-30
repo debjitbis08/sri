@@ -108,6 +108,11 @@ deferred ordered-input variant.
   terms a one-dimensional bottleneck or ordinal latent score **[familiar]**. Predicts
   alignment of the code on one axis, at a cost to tasks that need other axes. It is
   also the form of the linear `larger` head the project removed **[derived]**.
+- **Gradual constraints** (added 2026-10-30, for the timing arms). Curriculum and
+  continuation methods (Bengio et al. 2009) and gradual pruning schedules (Zhu and Gupta
+  2017) **[familiar]** impose a constraint progressively. They predict that what is learned
+  early is kept better than under a constraint present from the start. Neither speaks to
+  transfer.
 - **Learned sampling.**
   [Dai et al., Deformable Convolutional Networks (2017)](https://arxiv.org/abs/1703.06211)
   **[abstract]** learns sampling offsets from task supervision and reports

@@ -406,6 +406,82 @@ about 1 minute.
 Commands: `NSY_WORKERS=6 NFI_THREADS=2 NFI_CHANNELS_LAST=1 .venv/bin/python -m experiments.fan_in_pilot pilot fixed`,
 then `.venv/bin/python -m experiments.fan_in_pilot_analysis pilot fixed`.
 
+## Timing or choice of the coordinate (written before running)
+
+Added 2026-10-30 after the [fixed-coordinate results](fan-in-pilot-v1-fixed-results.md), at
+the researchers' request. A coordinate fixed from the start matched RigL on Chinese forms
+but not on English or Devanagari. The fixed arm differs from RigL in two ways:
+
+- **Timing.** RigL starts from spread-out random readers and concentrates gradually. The
+  fixed arm is concentrated from the first update, before English (the first block) is
+  learned.
+- **Choice.** RigL's coordinate is found from gradients, probably where count already
+  lies. The fixed arm's is drawn without data.
+
+**Design: a 2 × 2 on seeds 230–239, paired with the fixed-coordinate run.**
+
+| | Coordinate drawn without data | RigL's coordinate for the seed |
+| --- | --- | --- |
+| **Concentrated from the start** | `read-q16-fixed` (rerun) | `read-q16-fixed-rigld` |
+| **Concentrated gradually** | `read-q16-gradual` | `read-q16-gradual-rigld` |
+
+Also `dense` and `read-q16-untied-rigl`, rerun. The three rerun arms must reproduce the
+fixed-coordinate run exactly; the analysis checks this.
+
+- **RigL's coordinate** is the live `g` units' most-read dimension of
+  `read-q16-untied-rigl` for the same seed in the fixed-coordinate run (5, 1, 15, 7, 13, 12,
+  7, 2, 9, 2). It is taken from a finished run, so it uses information the network does
+  not have at the start: an oracle for "where count settles in this seed". The drawn
+  coordinates are 13, 1, 6, 13, 3, 6, 10, 8, 2, 2. **In seeds 231 and 239 the two are
+  the same**, so the start arms are identical there, and so are the gradual arms. Eight
+  seeds carry the choice contrast.
+- **Gradual schedule.** The gradual arms start from the random arm's masks. At each of
+  RigL's connectivity updates (every 100 updates until update 4,500), units move onto the
+  coordinate, in a fixed random order per reader, so that the moved share follows the
+  integral of RigL's cosine drop fraction: share(x) = x + sin(πx)/π at fraction x of the
+  update period. That is 27 of 64 units by update 1,000, 49 by 2,000 (end of the English
+  block), 60 by 3,000, and all 64 by 4,500. A moved unit keeps its two code weights,
+  carried to the new columns; their Adam moments are reset. No weight starts at zero, so
+  RigL's dead units are not reproduced.
+- The share follows RigL's change budget, not its measured concentration curve, which was
+  not recorded.
+
+**Contrasts** (paired 95% t-interval rule):
+- timing: gradual − fixed (drawn coordinate), gradual-rigld − fixed-rigld;
+- choice: fixed-rigld − fixed, gradual-rigld − gradual;
+- each new arm − RigL.
+
+**Pre-declared readings,** on taps → withheld Chinese forms and English comparison (the
+two measures of the earlier rules) and Devanagari comparison (where the fixed arm also
+fell short):
+- **Timing matters** if gradual is better than start for at least one coordinate on
+  English or Devanagari comparison.
+- **Choice matters** if RigL's coordinate is better than the drawn one, at either timing,
+  on English or Devanagari comparison.
+- **RigL is explained** if `gradual-rigld` is equivalent to or better than RigL on all
+  three measures. If no new arm reaches RigL, something else in RigL matters (the
+  partial concentration, its dead units, or the order in which units move).
+
+**Predictions:**
+- Timing matters: gradual arms improve English comparison over the start arms, because
+  English is placed while readers still see several dimensions. Moderate confidence.
+- Choice matters less: with a drawn coordinate, collections already put 47% of their
+  variance on it, as under RigL.
+- `gradual-rigld` comes close to RigL but stays below it on English comparison.
+- Chinese gains of the fixed arm remain in all four cells.
+
+**Prior work.** Gradually increasing a constraint during training is curriculum or
+continuation (Bengio et al. 2009) and gradual pruning schedules (Zhu and Gupta 2017)
+**[familiar]**. These predict that late or gradual constraints keep more of what was learned
+early than constraints imposed from the start. No source read today predicts the effect on
+transfer.
+
+**Cost:** 60 runs, 6 workers × 2 threads, about 345 s each: about 60 minutes on CPU.
+Analysis about 1 minute.
+
+Commands: `NSY_WORKERS=6 NFI_THREADS=2 NFI_CHANNELS_LAST=1 .venv/bin/python -m experiments.fan_in_pilot pilot timing`,
+then `.venv/bin/python -m experiments.fan_in_pilot_analysis pilot timing`.
+
 ## Measures
 
 The sequence pilot's measures, scored identically

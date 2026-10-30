@@ -30,6 +30,12 @@ activations; same function, different rounding).
 read one coordinate d of both operands, chosen per seed without data: all units ('fixed') or 48 of 64 per reader, the
 rest keeping the random arm's masks ('fixed75').
 
+'timing' (seeds 230-239 again, paired with 'fixed'; proposal, "Timing or choice of the coordinate"): a 2 x 2 of when
+readers concentrate (from the start, or gradually on RigL's schedule) and which coordinate (drawn without data, or the
+one RigL converged on for the same seed in 'fixed'). Gradual arms start from the random arm's masks; at each of RigL's
+connectivity updates a growing share of units, in a fixed random order, moves both operands onto the coordinate, keeping
+their weights (moved to the new columns, Adam moments reset). dense, RigL and fixed are rerun and must reproduce 'fixed'.
+
 Usage: NSY_WORKERS=11 .venv/bin/python -m experiments.fan_in_pilot pilot [confirm|rigl|rigl1]
 Then: .venv/bin/python -m experiments.fan_in_pilot_analysis pilot [confirm|rigl|rigl1]
 """
@@ -63,14 +69,20 @@ RIGL = {'dense': (None, None, None), 'enc-q16': (16, None, None), 'enc-q16-rigl'
         'read-q4-untied': (None, 4, 'untied'), 'read-q4-untied-rigl': (None, 4, 'untied')}
 RIGL1 = {'dense': (None, None, None), 'read-q16-untied': (None, 16, 'untied'), 'read-q16-untied-rigl': (None, 16, 'untied')}
 FIXED = {**RIGL1, 'read-q16-fixed': (None, 16, 'fixed'), 'read-q16-fixed75': (None, 16, 'fixed75')}
-FIXED_SHARE = {'fixed': 1., 'fixed75': .75}  # fraction of reader units moved onto the fixed coordinate
+TIMING = {'dense': (None, None, None), 'read-q16-untied-rigl': (None, 16, 'untied'), 'read-q16-fixed': (None, 16, 'fixed'),
+          'read-q16-gradual': (None, 16, 'gradual'), 'read-q16-fixed-rigld': (None, 16, 'fixed-rigld'),
+          'read-q16-gradual-rigld': (None, 16, 'gradual-rigld')}
+FIXED_SHARE = {'fixed': 1., 'fixed75': .75, 'fixed-rigld': 1.}  # fraction of reader units moved onto the coordinate at the start
+GRADUAL = ('gradual', 'gradual-rigld')
+# The live g units' most-read dimension of read-q16-untied-rigl, seeds 230-239, in reports/fan-in-pilot-v1-fixed-comparison.json.gz
+RIGL_COORDINATE = dict(zip(range(230, 240), (5, 1, 15, 7, 13, 12, 7, 2, 9, 2)))
 RIGL_BASE = {'enc-q16-rigl': 'enc-q16', 'read-q4-untied-rigl': 'read-q4-untied',
              'read-q16-untied-rigl': 'read-q16-untied'}  # RigL arm -> random arm with the same start
-CONFIGS = {'stage1': STAGE1, 'confirm': CONFIRM, 'rigl': RIGL, 'rigl1': RIGL1, 'fixed': FIXED}[STAGE]
-CONFIRM_SEEDS = tuple(range(*{'confirm': (200, 210), 'rigl': (210, 220), 'rigl1': (220, 230), 'fixed': (230, 240)}.get(STAGE, (0, 0))))
+CONFIGS = {'stage1': STAGE1, 'confirm': CONFIRM, 'rigl': RIGL, 'rigl1': RIGL1, 'fixed': FIXED, 'timing': TIMING}[STAGE]
+CONFIRM_SEEDS = tuple(range(*{'confirm': (200, 210), 'rigl': (210, 220), 'rigl1': (220, 230), 'fixed': (230, 240), 'timing': (230, 240)}.get(STAGE, (0, 0))))
 DT, ALPHA, END_FRACTION = (10 if X.SMOKE else 100), .3, .75  # RigL: update interval, initial drop fraction, end of updates (fraction of training)
 RANDOM_OF = {'learn-tied': ('read-q16', 'tied'), 'learn-untied': ('read-q16-untied', 'untied')}  # learned arm's starting selection
-START_OF = {**RANDOM_OF, 'fixed': ('read-q16-untied', 'untied'), 'fixed75': ('read-q16-untied', 'untied')}  # masks an arm starts from
+START_OF = {**RANDOM_OF, **{m: ('read-q16-untied', 'untied') for m in ('fixed', 'fixed75', 'fixed-rigld', 'gradual', 'gradual-rigld')}}  # masks an arm starts from
 CODE = 16
 THREADS = int(os.environ.get('NFI_THREADS', '1'))  # torch threads per worker
 CHANNELS_LAST = os.environ.get('NFI_CHANNELS_LAST') == '1'  # image encoder convolutions in channels-last layout
@@ -129,8 +141,14 @@ def reader_mask(lin, q, rng, rng_b=None):
     limit(lin, mask, np.arange(2 * CODE))
 
 
-def fixed_coordinate(seed):
+def fixed_coordinate(seed, mode='fixed'):
+    if mode.endswith('rigld'):
+        return RIGL_COORDINATE[seed]
     return int(nc.stream('fanin_mask', seed, 'fixed-coordinate').integers(CODE))
+
+
+def gradual_order(seed, name, m):
+    return nc.stream('fanin_mask', seed, 'gradual-order', name).permutation(m)
 
 
 def fix_rows(lin, d, share, rng):
@@ -268,12 +286,54 @@ def make_model(seed, config):
             if mode in RANDOM_OF:
                 seq[0] = SelectLinear(seq[0], tied=mode == 'learn-tied')
             if mode in FIXED_SHARE:
-                fix_rows(seq[0], fixed_coordinate(seed), FIXED_SHARE[mode], nc.stream('fanin_mask', seed, mode, name))
+                rng = nc.stream('fanin_mask', seed, 'fixed' if mode == 'fixed-rigld' else mode, name)  # same order as 'fixed'
+                fix_rows(seq[0], fixed_coordinate(seed, mode), FIXED_SHARE[mode], rng)
     if config in RIGL_BASE:
         for lin in limited_layers(enc, model).values():
             if hasattr(lin, 'mask'):
                 lin.register_buffer('swaps', torch.zeros((), dtype=torch.long))
     return enc, model
+
+
+def gradual_share(step, end):
+    """Share of units moved by update `step`: the integral of RigL's cosine drop fraction, normalized to 1 at `end`."""
+    x = min(step / end, 1.)
+    return x + np.sin(np.pi * x) / np.pi
+
+
+@torch.no_grad()
+def move_rows(lin, rows, d, opt):
+    """Move each row's single code connection per operand onto dimension d, carrying its weight; Adam moments of every
+    changed entry are reset."""
+    W, M = lin.weight, lin.mask
+    state = opt.state.get(W, {})
+    for j in rows.tolist():
+        for off in (0, CODE):
+            old = off + int(M[j, off:off + CODE].argmax())
+            new = off + d
+            if old == new:
+                continue
+            W[j, new], W[j, old] = W[j, old].clone(), 0.
+            M[j, old], M[j, new] = 0., 1.
+            for key in ('exp_avg', 'exp_avg_sq'):
+                if key in state:
+                    state[key][j, old] = state[key][j, new] = 0.
+
+
+def gradual_train_update(enc, model, opt, material, rng, compare):
+    """TP.train_update; at RigL's connectivity updates (every DT until END_FRACTION), move units onto the coordinate so
+    that the moved share follows gradual_share."""
+    CURRENT['step'] += 1
+    step, end = CURRENT['step'], END_FRACTION * 3 * D.STEPS
+    out = TP.train_update(enc, model, opt, material, rng, compare)
+    if step % DT == 0 and step <= end:
+        seed, mode = CURRENT['seed'], CONFIGS[CURRENT['config']][2]
+        for name, seq in (('g', model.g), ('P', model.P)):
+            m = seq[0].weight.shape[0]
+            before = round(gradual_share(step - DT, end) * m)
+            after = m if step + DT > end else round(gradual_share(step, end) * m)
+            move_rows(seq[0], torch.as_tensor(gradual_order(seed, name, m)[before:after]), fixed_coordinate(seed, mode), opt)
+    return out
 
 
 def limited_layers(enc, model):
@@ -287,9 +347,10 @@ ORIG_RUN = D.run
 
 def run(task):
     config, seed = task
-    CURRENT['config'], CURRENT['step'] = config, 0
+    CURRENT['config'], CURRENT['seed'], CURRENT['step'] = config, seed, 0
     torch.set_num_threads(THREADS)
-    D.train_update = rigl_train_update if config in RIGL_BASE else TP.train_update
+    mode = CONFIGS[config][2]
+    D.train_update = rigl_train_update if config in RIGL_BASE else gradual_train_update if mode in GRADUAL else TP.train_update
     return ORIG_RUN(task)
 
 
