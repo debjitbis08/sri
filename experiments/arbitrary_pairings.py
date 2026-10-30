@@ -43,6 +43,7 @@ N = int(os.environ.get('NAP_N', '18' if not X.SMOKE else '9'))
 L = int(os.environ.get('NAP_L', '2000' if not X.SMOKE else '20'))
 BATCH = int(os.environ.get('NAP_BATCH', '16'))
 EVERY = 250 if not X.SMOKE else 10
+EARLY = (25, 50, 100, 150, 200) if not X.SMOKE else ()  # finer points early in a block: the pilot's curves were flat from the first point at 250
 TRAIN_RENDERS, EVAL_RENDERS = 8, 5
 ARMS = tuple(os.environ.get('NAP_ARMS', 'sparse48,dense,mixed,mixed-h125,mixed-h500,mixed-reset').split(','))
 SEEDS = tuple(int(s) for s in os.environ.get('NAP_SEEDS', ','.join(map(str, range(320, 330)))).split(','))
@@ -153,7 +154,7 @@ def block(enc, model, opt, rng, seed, number, steps, taught, row, watch, curve, 
         if taught is not None:
             pair_items(items, match, taught, row, prng)
         LM.train_update(enc, model, opt, (items, pairs, match, *rest), rng, True)
-        if (step + 1) % EVERY == 0:
+        if (step + 1) % EVERY == 0 or (step + 1) in EARLY:
             curve.append({'update': CURRENT['step'], 'block': number,
                           **{k: recall(enc, model, t, ev, seed, k)[0] for k, (t, ev) in watch.items()}})
 

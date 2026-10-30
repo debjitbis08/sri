@@ -228,8 +228,18 @@ Decided by the researchers (2026-10-30):
 4. A nearest-neighbor lookup on the item embedding is included as a recall reference (not an arm).
 5. Option B (rewiring and resets continue through block 5) is the study; Option A (inherited
    schedules) is the debugging baseline on seed 299.
-6. Pair-set size N (a multiple of nine, tried at 18, 45 and 90) and block length (1,000 or
-   2,000) are set by the seed-299 pilot, under Option A, before the contract is frozen.
+6. Pair-set size N and block length were set by the seed-299 pilot under Option A
+   ([pilot](arbitrary-pairings-v1-pilot.md)): **N = 45, L = 2,000 updates**, chosen on floor,
+   ceiling and the two shuffled-label checks only. The distance threshold stays at 0.35.
 
-**Before freezing:** build the runner, run the Option A pilot, fix N, block length and the
-distance threshold from it, update the measured cost table, then freeze.
+**Before freezing:** the runner is built and the Option A pilot is done (N, L and the threshold are
+fixed above). Remaining: the researchers' approval to freeze, then the Option B study on seeds 320–329.
+- **Evaluation points:** every 250 updates, plus 25, 50, 100, 150 and 200 updates into each block
+  (the pilot's recall curves were flat from the first point at 250).
+- **Option B and the RigL anneal:** RigL's drop/grow fraction anneals by a cosine to zero at the end of the
+  schedule, so extending the end to update 10,200 also changes the anneal during blocks 1–3
+  relative to the limited-memory runs. The parents are new, so nothing is reused.
+- **Storage correction:** the runner writes no model checkpoints, only the per-arm record (about 70 KB for six
+  arms at N = 45, L = 2,000), so the cohort needs under 10 MB, not 0.6 GB.
+- **Measured cost:** at N = 45, L = 2,000, six arms took 546 s with six GPU processes; the study (60 arm-seeds)
+  is expected to take about 95 minutes.

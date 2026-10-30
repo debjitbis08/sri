@@ -1,0 +1,84 @@
+{
+ "L": 2000,
+ "N": 45,
+ "command": "/data/venvs/sri-cuda/bin/python /home/debjit/code/sri/experiments/arbitrary_pairings.py pilot pairs",
+ "cpu_count": 12,
+ "cublas_workspace_config": ":4096:8",
+ "cuda": "13.0",
+ "cudnn": 92400,
+ "data_bytes": 586809600,
+ "deterministic_algorithms": true,
+ "device": "cuda",
+ "dirty": true,
+ "environment_overrides": {
+  "NSY_WORKERS": "6"
+ },
+ "gpu": "NVIDIA GeForce GTX 1650",
+ "module_sha256": {
+  "src.number_concept": "d8af3f35a76ece96a09f34da5d451cdbbb57a2ddc06592b41b96b89fd02c5479",
+  "src.number_core": "354f1cc0bb9851a8e7d4e64563d177e38e49cf5fabf2d57883dda9829e940ddd",
+  "src.number_systems": "092878143524bcef2a54a1aa34a96fd33c3107d1ff39954eb8531ba03cfec34f",
+  "src.number_systems_net": "b2fb111ecd0afe5f2e8e252fa3806b23e3b19175220fc8b29231189870abe833"
+ },
+ "numpy": "2.5.4",
+ "option": "A",
+ "parent_cpu_seconds": 6.847351660000001,
+ "part_a_sha256": "9701bce1e6d7d26aa06042f5bc9f8e025e5e3a188639d2ddee7153af3c0f9bee",
+ "peak_rss_children_max_kb": 2514364,
+ "peak_rss_parent_kb": 1552524,
+ "phases": {
+  "data_wall_seconds": 28.712468523997813,
+  "render_wall_seconds": 3.2163649150024867,
+  "runs_wall_seconds": 546.2537261770012
+ },
+ "platform": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+ "revision": "218300f88305e1767a0791ca98def38b258b3948",
+ "rss_convention": "Linux ru_maxrss in KiB; children value is the largest single worker process",
+ "runner_sha256": "aa70dc87ddbd0a7813326cc4f63a392bb0ebf275f3b8e74a3073319e4f929bf0",
+ "scope": "nondeterministic timing and environment; scientific results are in -results.json.gz",
+ "spec_sha256": "a3d6a0c855ff97d20c553e005953aa842e40437fe69c2fec5b9c979d6bad92c7",
+ "tasks": {
+  "dense/seed299": {
+   "cpu_seconds": 493.112091921,
+   "gpu_peak_allocated_bytes": 139238912,
+   "peak_rss_kb": 2466528,
+   "wall_seconds": 494.48917019099827
+  },
+  "mixed-h125/seed299": {
+   "cpu_seconds": 511.03346605400003,
+   "gpu_peak_allocated_bytes": 139327488,
+   "peak_rss_kb": 2514192,
+   "wall_seconds": 512.429683426999
+  },
+  "mixed-h500/seed299": {
+   "cpu_seconds": 512.6257984299999,
+   "gpu_peak_allocated_bytes": 139327488,
+   "peak_rss_kb": 2508160,
+   "wall_seconds": 514.0375654279997
+  },
+  "mixed-reset/seed299": {
+   "cpu_seconds": 509.657965402,
+   "gpu_peak_allocated_bytes": 139327488,
+   "peak_rss_kb": 2507696,
+   "wall_seconds": 510.9171153269999
+  },
+  "mixed/seed299": {
+   "cpu_seconds": 543.8193016839999,
+   "gpu_peak_allocated_bytes": 139327488,
+   "peak_rss_kb": 2506712,
+   "wall_seconds": 545.2560570050009
+  },
+  "sparse48/seed299": {
+   "cpu_seconds": 541.8686198839999,
+   "gpu_peak_allocated_bytes": 139237376,
+   "peak_rss_kb": 2508252,
+   "wall_seconds": 543.1811089929979
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cu130",
+ "wall_seconds": 578.2372091969992,
+ "worker_cpu_seconds_total": 3112.117243375,
+ "workers": 6
+}
