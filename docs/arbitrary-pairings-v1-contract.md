@@ -16,16 +16,27 @@ network has learned, so only memory can supply it.
 
 **Arbitrary-pairing task.** Matching, as in the existing evaluation: given an item, pick
 the collection image with the matching count among the nine candidates. The item is a
-specific image from a script outside the three taught scripts (English, Chinese,
-Devanagari) and the held-out Thai transfer script; the default is **Roman numerals**
-(decision 1). Each specific image is assigned a count by a seeded random permutation
-that ignores its true numeral, with each count assigned equally often. A pair is one image
-and one count. Pair set **A** has 90 images (10 per count); a disjoint set **B** of the same
-size is built the same way.
+**symbol**, a random Unicode character with no numeric meaning, rendered with the usual
+variation in font, rotation and size. Each symbol is assigned one count by a seeded
+random draw, each count equally often. A pair is one symbol and one count. Pair set **A**
+has N symbols, a multiple of nine, set by the pilot (decision 6); a disjoint set **B** of
+the same size is built the same way.
+
+**Symbol selection (frozen with the contract).**
+1. Candidates: codepoints in Geometric Shapes, Arrows, Dingbats and Miscellaneous Symbols.
+2. Excluded: Braille patterns, dice, tally marks, digits, numerals, fractions, any
+   character of the taught or transfer scripts (including CJK), and emoji.
+3. Keep codepoints that every font in the renderer's list covers, checked from each
+   font's character map, so no missing-glyph box stands for several symbols.
+4. Render each survivor with the usual variation and drop any whose images lie within a
+   distance threshold of another symbol's (the threshold is fixed from the seed-299
+   pilot, before the study).
+5. Draw the symbols of A and B from the survivors with a seeded stream, disjoint, and
+   assign counts balanced over the nine counts.
 
 **Why this isolates memory.** An image's assigned count carries no information about other
 images, so a network can answer on A only by storing the image–count association. The
-same images with new random assignments (a **shuffled control**) should score at chance,
+same symbols with new random assignments (a **shuffled control**) should score at chance,
 which is 1/9 = 0.111, if the network is not exploiting a leak.
 
 **Schedule (decision 2).** The first three blocks are the existing curriculum, unchanged,
@@ -104,7 +115,7 @@ for the limited-memory study, not a new method.
   about 1.5 times a limited-memory run, so about 85 s effective per run on the GPU with six
   processes, and about 85 minutes for 6 arms × 10 seeds. This is an extrapolation, to be
   replaced by measured costs.
-- **Storage:** two sets of 90 images, held in memory; checkpoints at the end of each block
+- **Storage:** two sets of N symbol images, held in memory (N is small); checkpoints at the end of each block
   as before (about 12 MB per run), so about 0.7 GB for the cohort.
 - **Tuning cost:** the pair-set size and block length are set from a pilot on seed 299
   only; its cost is recorded. No seed in the study is used for it.
@@ -112,14 +123,16 @@ for the limited-memory study, not a new method.
 
 ## Risks
 
-- **Floor or ceiling:** 90 pairs and 2,000 updates could leave every arm at chance or at
+- **Floor or ceiling:** N pairs and 2,000 updates could leave every arm at chance or at
   1.0, which would make the contrasts uninformative. The seed-299 pilot sets the size
   before freezing.
 - **Resets destroy pairings:** `mixed-reset` zeroes code-input weights every 100 updates
   until update 4,500 of the earlier schedule; whether it runs through blocks 4 and 5 is
   decision 5.
-- **Leakage:** the script's true numerals could help if pairs were assigned by value; the
-  shuffled control and the seeded permutation guard against this.
+- **Leakage:** a symbol could resemble a numeral or carry a count (strokes, dots). The
+  exclusions above and the shuffled control guard against this.
+- **Look-alike symbols:** at 28×28 many symbols are close. The distance filter removes the
+  near-duplicates; some residual confusion remains and lowers recall for every arm alike.
 - **Confounds with the number code:** both tasks share the 16-dimensional code and the
   readers, which is the point, but a drop in structure can come from the added updates
   alone. The cost of pairing is therefore read against the arm's own change in the
@@ -127,10 +140,11 @@ for the limited-memory study, not a new method.
 
 ## Decisions for the researchers
 
-1. Script for the pairs: Roman numerals (default), or another script outside the three
-   taught and the Thai transfer scripts.
+1. Symbol source: random Unicode symbols with the exclusions and filters above (default), or a
+   different set.
 2. Schedule: sequential blocks 4 and 5 (recommended), or A taught together with block 3.
 3. Whether the random-rewiring arms run in this task from the start.
 4. Whether to add a nearest-neighbor lookup as a recall reference.
 5. Whether the reset schedule runs through blocks 4 and 5.
-6. Pair-set size and block length are set by the seed-299 pilot unless you want fixed values.
+6. Pair-set size N (a multiple of nine, tried at 18, 45 and 90 on seed 299) and block length are
+   set by the seed-299 pilot unless you want fixed values.
