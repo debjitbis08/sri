@@ -1,5 +1,11 @@
 # After the timing result: selective resets and predictor attrition
 
+**Follow-up:** the [reset controls](fan-in-pilot-v1-reset-results.md) do not
+support the P-centered hypothesis as stated. See the
+[revised interpretation](rigl-after-reset-analysis.md): random rewiring gives
+substantial transfer without concentrated readers, suggesting code accessibility
+under repeated readout relearning as a new hypothesis.
+
 2026-10-30. Hypothesis development and read-only checkpoint audit, not a new
 training contract. Sources: [timing results](fan-in-pilot-v1-timing-results.md),
 `rigl_step` and `move_rows` in `experiments/fan_in_pilot.py`, and final RigL

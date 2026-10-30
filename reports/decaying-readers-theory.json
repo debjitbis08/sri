@@ -1,0 +1,135 @@
+{
+  "ablation_interaction": 0.5,
+  "checks": [
+    {
+      "max_error": 0.0,
+      "name": "increment filter"
+    },
+    {
+      "max_error": 0.0,
+      "name": "constant update fixed point"
+    },
+    {
+      "max_error": 2.220446049250313e-16,
+      "name": "SGD penalty equivalence"
+    },
+    {
+      "max_error": 0.0,
+      "name": "ReLU rescaling c=0.1"
+    },
+    {
+      "max_error": 2.220446049250313e-16,
+      "name": "ReLU rescaling c=0.001"
+    },
+    {
+      "name": "functional bound r^t=0.5",
+      "slack": 0.12926461653736335
+    },
+    {
+      "name": "functional bound r^t=0.0625",
+      "slack": 0.004611870663900144
+    },
+    {
+      "name": "functional bound r^t=1.52587890625e-05",
+      "slack": 8.105153735531505e-07
+    },
+    {
+      "max_error": 2.947674656444965e-19,
+      "name": "flow eigenvalues H=2000"
+    },
+    {
+      "max_error": 4.0123460109953157e-13,
+      "name": "discrete equilibrium H=2000"
+    },
+    {
+      "max_error": 1.9273471707492718e-13,
+      "name": "discrete recurrence H=2000"
+    },
+    {
+      "max_error": 8.673617379884035e-19,
+      "name": "flow eigenvalues H=500"
+    },
+    {
+      "max_error": 1.0091927293842673e-13,
+      "name": "discrete equilibrium H=500"
+    },
+    {
+      "max_error": 1.0641487691032125e-13,
+      "name": "discrete recurrence H=500"
+    },
+    {
+      "max_error": 7.047314121155779e-19,
+      "name": "flow eigenvalues H=125"
+    },
+    {
+      "max_error": 2.5868196473766147e-14,
+      "name": "discrete equilibrium H=125"
+    },
+    {
+      "max_error": 1.4876988529977098e-14,
+      "name": "discrete recurrence H=125"
+    },
+    {
+      "max_error": 0.0,
+      "name": "nonadditive ablation"
+    },
+    {
+      "max_error": 0.0,
+      "name": "conditional projection student=0.0"
+    },
+    {
+      "max_error": 0.0,
+      "name": "conditional projection student=1.0"
+    },
+    {
+      "max_error": 0.0,
+      "name": "conditional projection student=2.0"
+    }
+  ],
+  "decayed_parameters": {
+    "P": 1552,
+    "g": 1680
+  },
+  "half_lives": [
+    {
+      "H": 2000,
+      "discrete_spectral_radius": 0.9999796492585864,
+      "fast_contribution_at_6000": 0.8314795564708727,
+      "flow_handoff_half_life": 34065.24519102531,
+      "parameter_attenuation_after_2000": 0.5,
+      "prediction_at_6000": 0.998304426838459,
+      "slow_contribution_at_6000": 0.1668248703675863,
+      "weak_decay_approximation": 34000.0
+    },
+    {
+      "H": 500,
+      "discrete_spectral_radius": 0.999919025485879,
+      "fast_contribution_at_6000": 0.5747886233111469,
+      "flow_handoff_half_life": 8565.268451529251,
+      "parameter_attenuation_after_2000": 0.0625,
+      "prediction_at_6000": 0.9953076812272335,
+      "slow_contribution_at_6000": 0.4205190579160865,
+      "weak_decay_approximation": 8500.0
+    },
+    {
+      "H": 125,
+      "discrete_spectral_radius": 0.9996827912843811,
+      "fast_contribution_at_6000": 0.13628022492494654,
+      "flow_handoff_half_life": 2190.359047058294,
+      "parameter_attenuation_after_2000": 1.5258789062500007e-05,
+      "prediction_at_6000": 0.9955354531722251,
+      "slow_contribution_at_6000": 0.8592552282472786,
+      "weak_decay_approximation": 2125.0
+    }
+  ],
+  "irreducible_distillation_mse": 1.0,
+  "saved_start_float32_bytes": 4736,
+  "scope": "Conditional mathematics, not a trained-network prediction",
+  "two_path_fixture": {
+    "a": 1.0,
+    "b": 4.0,
+    "eta": 0.01,
+    "steps": 6000,
+    "y": 1.0
+  }
+}

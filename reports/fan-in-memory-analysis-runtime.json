@@ -1,0 +1,25 @@
+{
+  "command": ".venv/bin/python -m experiments.fan_in_memory_analysis",
+  "dirty": true,
+  "fits": 0,
+  "hashes": {
+    "docs/fan-in-memory-analysis.md": "53e5045c0ef25b8aa6d9062fe61f40e73368c620ac006fc965a1a77d22ebf770",
+    "docs/limited-memory-proposal.md": "e0803b0e1b3868bf9c3136a8ffc5313ddf4995cac29d3c23031e12abc0ef98e1",
+    "experiments/fan_in_memory_analysis.py": "8a0cb095c259fc7ff864f7b871c0692c898ae10554b997ae99d6fd30433a2725",
+    "experiments/fan_in_pilot.py": "4feec8756b2174883c9070eca161d44c743d0e46c6d451c37a1c63c76d575bf8"
+  },
+  "machine": "x86_64",
+  "measurement_note": "Whole script through analysis and provenance collection; excludes final runtime JSON write",
+  "numeric": "Python float (double precision)",
+  "optimizer_steps": 0,
+  "peak_rss_kib_linux": 18188,
+  "platform": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+  "process_cpu_seconds": 0.014959424999999991,
+  "python": "3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]",
+  "revision": "3e91eedf2e8214e4e45cca5ce9ace51cfb087063",
+  "scope": "Read frozen comparison, aggregate means, verify scalar counterexample and FIFO formulas; no neural training",
+  "seed_policy": "No random sampling",
+  "tuning_candidates": 0,
+  "wall_seconds": 0.039711452001938596,
+  "workers": 1
+}

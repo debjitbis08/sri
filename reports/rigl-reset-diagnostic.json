@@ -1,0 +1,198 @@
+{
+  "checkpoint_sha256": {
+    "runs/fan-in-pilot-v1-pilot-timing/read-q16-untied-rigl-seed230.pt": "097974abc9ec3bed36b59a273525103a3dc8dac3badefd0ac1751d6d96759997",
+    "runs/fan-in-pilot-v1-pilot-timing/read-q16-untied-rigl-seed231.pt": "81d1d93ba2b878ddbd0306767ff858230e8e5b1d54304e2d11d63b141757bee6",
+    "runs/fan-in-pilot-v1-pilot-timing/read-q16-untied-rigl-seed232.pt": "b31a11331d3a203bb7538a32f6d9ffd14eb0230eee1225935081789a60ca0aa1",
+    "runs/fan-in-pilot-v1-pilot-timing/read-q16-untied-rigl-seed233.pt": "87aeb1f3a5b89428b4e0ae824c2cb64641a4452d3888360eac773e5cc5c4c21d",
+    "runs/fan-in-pilot-v1-pilot-timing/read-q16-untied-rigl-seed234.pt": "ee42918da68fdbc2feaaef6d3ba8b1a49b861b1010286dcd8f2eb3e79742140b",
+    "runs/fan-in-pilot-v1-pilot-timing/read-q16-untied-rigl-seed235.pt": "dc9c8107ff25c7e4da58c6ec26417163ffe68d28206a1ee10dea1f96042dc8c1",
+    "runs/fan-in-pilot-v1-pilot-timing/read-q16-untied-rigl-seed236.pt": "2b44baee798b419ac2d4f5506ed7b35d40f99a7cde1396f49e4d49282b634aef",
+    "runs/fan-in-pilot-v1-pilot-timing/read-q16-untied-rigl-seed237.pt": "c3713ca141135228283df52fe982c0b6e57721d69487a5f7fd0b6c7290acd345",
+    "runs/fan-in-pilot-v1-pilot-timing/read-q16-untied-rigl-seed238.pt": "b64b1b6202ab2890281818a7aee9fa7827f4e46738d6049a34285b970974b25f",
+    "runs/fan-in-pilot-v1-pilot-timing/read-q16-untied-rigl-seed239.pt": "ab66753611e121cfa9ad7e0699a3624be8557034df9ce86bfebec38cac4b6b6f"
+  },
+  "mean_counts_out_of_64": {
+    "P": {
+      "certified_inactive_all_codes": 31.5,
+      "zero_code_input_rows": 31.5
+    },
+    "g": {
+      "certified_inactive_all_codes": 7.1,
+      "zero_code_input_rows": 7.1
+    }
+  },
+  "scope": "Final state only; all real code inputs and the three learned g relation tokens",
+  "seeds": [
+    {
+      "P": {
+        "all_input_weights_zero": 32,
+        "certified_inactive_all_codes": 32,
+        "nonpositive_bias_rows": 33,
+        "units": 64,
+        "zero_code_input_rows": 32
+      },
+      "g": {
+        "all_input_weights_zero": 0,
+        "certified_inactive_all_codes": 5,
+        "nonpositive_bias_rows": 20,
+        "units": 64,
+        "zero_code_input_rows": 5
+      },
+      "seed": 230
+    },
+    {
+      "P": {
+        "all_input_weights_zero": 28,
+        "certified_inactive_all_codes": 28,
+        "nonpositive_bias_rows": 28,
+        "units": 64,
+        "zero_code_input_rows": 28
+      },
+      "g": {
+        "all_input_weights_zero": 0,
+        "certified_inactive_all_codes": 6,
+        "nonpositive_bias_rows": 35,
+        "units": 64,
+        "zero_code_input_rows": 6
+      },
+      "seed": 231
+    },
+    {
+      "P": {
+        "all_input_weights_zero": 31,
+        "certified_inactive_all_codes": 31,
+        "nonpositive_bias_rows": 31,
+        "units": 64,
+        "zero_code_input_rows": 31
+      },
+      "g": {
+        "all_input_weights_zero": 0,
+        "certified_inactive_all_codes": 3,
+        "nonpositive_bias_rows": 18,
+        "units": 64,
+        "zero_code_input_rows": 3
+      },
+      "seed": 232
+    },
+    {
+      "P": {
+        "all_input_weights_zero": 29,
+        "certified_inactive_all_codes": 29,
+        "nonpositive_bias_rows": 29,
+        "units": 64,
+        "zero_code_input_rows": 29
+      },
+      "g": {
+        "all_input_weights_zero": 0,
+        "certified_inactive_all_codes": 6,
+        "nonpositive_bias_rows": 34,
+        "units": 64,
+        "zero_code_input_rows": 6
+      },
+      "seed": 233
+    },
+    {
+      "P": {
+        "all_input_weights_zero": 32,
+        "certified_inactive_all_codes": 32,
+        "nonpositive_bias_rows": 34,
+        "units": 64,
+        "zero_code_input_rows": 32
+      },
+      "g": {
+        "all_input_weights_zero": 0,
+        "certified_inactive_all_codes": 7,
+        "nonpositive_bias_rows": 25,
+        "units": 64,
+        "zero_code_input_rows": 7
+      },
+      "seed": 234
+    },
+    {
+      "P": {
+        "all_input_weights_zero": 31,
+        "certified_inactive_all_codes": 31,
+        "nonpositive_bias_rows": 32,
+        "units": 64,
+        "zero_code_input_rows": 31
+      },
+      "g": {
+        "all_input_weights_zero": 0,
+        "certified_inactive_all_codes": 10,
+        "nonpositive_bias_rows": 26,
+        "units": 64,
+        "zero_code_input_rows": 10
+      },
+      "seed": 235
+    },
+    {
+      "P": {
+        "all_input_weights_zero": 37,
+        "certified_inactive_all_codes": 37,
+        "nonpositive_bias_rows": 37,
+        "units": 64,
+        "zero_code_input_rows": 37
+      },
+      "g": {
+        "all_input_weights_zero": 0,
+        "certified_inactive_all_codes": 7,
+        "nonpositive_bias_rows": 32,
+        "units": 64,
+        "zero_code_input_rows": 7
+      },
+      "seed": 236
+    },
+    {
+      "P": {
+        "all_input_weights_zero": 30,
+        "certified_inactive_all_codes": 30,
+        "nonpositive_bias_rows": 30,
+        "units": 64,
+        "zero_code_input_rows": 30
+      },
+      "g": {
+        "all_input_weights_zero": 0,
+        "certified_inactive_all_codes": 12,
+        "nonpositive_bias_rows": 23,
+        "units": 64,
+        "zero_code_input_rows": 12
+      },
+      "seed": 237
+    },
+    {
+      "P": {
+        "all_input_weights_zero": 34,
+        "certified_inactive_all_codes": 34,
+        "nonpositive_bias_rows": 34,
+        "units": 64,
+        "zero_code_input_rows": 34
+      },
+      "g": {
+        "all_input_weights_zero": 0,
+        "certified_inactive_all_codes": 5,
+        "nonpositive_bias_rows": 27,
+        "units": 64,
+        "zero_code_input_rows": 5
+      },
+      "seed": 238
+    },
+    {
+      "P": {
+        "all_input_weights_zero": 31,
+        "certified_inactive_all_codes": 31,
+        "nonpositive_bias_rows": 31,
+        "units": 64,
+        "zero_code_input_rows": 31
+      },
+      "g": {
+        "all_input_weights_zero": 0,
+        "certified_inactive_all_codes": 10,
+        "nonpositive_bias_rows": 22,
+        "units": 64,
+        "zero_code_input_rows": 10
+      },
+      "seed": 239
+    }
+  ],
+  "zero_test": "Exact equality on masked weights; nonpositive maximum preactivation"
+}

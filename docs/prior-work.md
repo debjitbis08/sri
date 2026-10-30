@@ -59,6 +59,23 @@ untested).
 
 ## Fan-in pressure
 
+2026-10-30 user-supplied reading: [forget-and-relearn and iterated learning](forget-relearn-iterated-learning-notes.md)
+records selected primary-source sections of Zhou et al. (2022), Kirby et al.
+(2008), Ren et al. (2020), and Li and Bowling (2019). This supplies established
+context missing from the reset interpretation. Immediate robustness, recovery
+speed and retained-encoder adaptation are distinct hypotheses. A simple
+attenuation/recovery recurrence is **[derived]** under fixed-mode assumptions;
+neither it nor the cited papers guarantees this network's transfer. Reading
+scope, differences, cheaper controls and the limit of old-task relearning
+during a form-free delay are recorded in the note.
+
+2026-10-30 after reset controls: [code accessibility under changing readers](rigl-after-reset-analysis.md)
+withdraws the P-centered explanation and distinguishes distributed scalar codes
+from coordinate-concentrated wiring. The single-coordinate affine-risk identity
+is **[derived]**; faster readout relearning is an untested hypothesis. Random
+rewiring's substantial transfer does not establish equivalence to RigL, and
+static unit-removal failure does not rule out dynamic attrition interactions.
+
 2026-10-30 after timing: [RigL resets and predictor attrition](rigl-after-timing-analysis.md)
 revises the coordinate-choice explanation following the failed timing controls.
 It derives k=1's gradient-conditioned resets and a condition for global ReLU

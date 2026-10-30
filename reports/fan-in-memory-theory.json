@@ -1,0 +1,267 @@
+{
+  "bias_threshold_squared": 0.125,
+  "bias_variance": [
+    {
+      "discard_mse": 0.0625,
+      "old_bias_squared": 0.0,
+      "retain_mse": 0.03125
+    },
+    {
+      "discard_mse": 0.0625,
+      "old_bias_squared": 0.125,
+      "retain_mse": 0.0625
+    },
+    {
+      "discard_mse": 0.0625,
+      "old_bias_squared": 0.5,
+      "retain_mse": 0.15625
+    }
+  ],
+  "binding_entropy_bits": 18.46913301982959,
+  "binding_fixed_length_bits": 19,
+  "candidate_edges": [
+    {
+      "name": "reinforce form-3 grounding",
+      "query_resistance_reduction": 0.0694994700897309
+    },
+    {
+      "name": "reinforce collection-8-to-9 succession",
+      "query_resistance_reduction": 2.894423726695905e-06
+    }
+  ],
+  "checks": [
+    {
+      "max_absolute_error": 1.1102230246251565e-16,
+      "name": "bridge Rayleigh identity alpha=1.0"
+    },
+    {
+      "max_absolute_error": 8.881784197001252e-15,
+      "name": "exact grounding alpha=1.0"
+    },
+    {
+      "max_absolute_error": 2.168404344971009e-19,
+      "name": "sharp energy alpha=1.0"
+    },
+    {
+      "max_absolute_error": 6.938893903907228e-18,
+      "name": "sharp query bound alpha=1.0"
+    },
+    {
+      "max_absolute_error": 1.3877787807814457e-17,
+      "name": "bridge Rayleigh identity alpha=0.1"
+    },
+    {
+      "max_absolute_error": 7.105427357601002e-15,
+      "name": "exact grounding alpha=0.1"
+    },
+    {
+      "max_absolute_error": 6.505213034913027e-19,
+      "name": "sharp energy alpha=0.1"
+    },
+    {
+      "max_absolute_error": 0.0,
+      "name": "sharp query bound alpha=0.1"
+    },
+    {
+      "max_absolute_error": 4.423544863740858e-17,
+      "name": "bridge Rayleigh identity alpha=0.01"
+    },
+    {
+      "max_absolute_error": 4.8405723873656825e-14,
+      "name": "exact grounding alpha=0.01"
+    },
+    {
+      "max_absolute_error": 3.686287386450715e-18,
+      "name": "sharp energy alpha=0.01"
+    },
+    {
+      "max_absolute_error": 0.0,
+      "name": "sharp query bound alpha=0.01"
+    },
+    {
+      "max_absolute_error": 0.0,
+      "name": "bridge Rayleigh identity alpha=0.0"
+    },
+    {
+      "max_absolute_error": 0.0,
+      "name": "ungrounded script null vector"
+    },
+    {
+      "max_absolute_error": 0.0,
+      "name": "shift preserves remaining constraints"
+    },
+    {
+      "max_absolute_error": 4.440892098500626e-15,
+      "name": "reinforce form-3 grounding inverse"
+    },
+    {
+      "max_absolute_error": 5.551115123125783e-17,
+      "name": "reinforce form-3 grounding resistance reduction"
+    },
+    {
+      "max_absolute_error": 1.7763568394002505e-14,
+      "name": "reinforce collection-8-to-9 succession inverse"
+    },
+    {
+      "max_absolute_error": 1.8347326560591223e-16,
+      "name": "reinforce collection-8-to-9 succession resistance reduction"
+    },
+    {
+      "max_absolute_error": 0.0,
+      "name": "original coordinate loss decrease"
+    },
+    {
+      "max_absolute_error": 0.0,
+      "name": "rescaled coordinate loss decrease"
+    },
+    {
+      "max_absolute_error": 0.0,
+      "name": "rescaling invariant gain"
+    },
+    {
+      "max_absolute_error": 0.0,
+      "name": "bias variance difference 0.0"
+    },
+    {
+      "max_absolute_error": 0.0,
+      "name": "bias variance difference 0.125"
+    },
+    {
+      "max_absolute_error": 0.0,
+      "name": "bias variance difference 0.5"
+    },
+    {
+      "max_absolute_error": 0.0,
+      "name": "quadratic ODE t=0.0"
+    },
+    {
+      "max_absolute_error": 0.0,
+      "name": "null and compatible preservation t=0.0"
+    },
+    {
+      "max_absolute_error": 0.0,
+      "name": "quadratic drift t=0.0"
+    },
+    {
+      "max_absolute_error": 0.0,
+      "name": "quadratic ODE t=0.5"
+    },
+    {
+      "max_absolute_error": 0.0,
+      "name": "null and compatible preservation t=0.5"
+    },
+    {
+      "max_absolute_error": 0.0,
+      "name": "quadratic drift t=0.5"
+    },
+    {
+      "max_absolute_error": 0.0,
+      "name": "quadratic ODE t=2.0"
+    },
+    {
+      "max_absolute_error": 0.0,
+      "name": "null and compatible preservation t=2.0"
+    },
+    {
+      "max_absolute_error": 0.0,
+      "name": "quadratic drift t=2.0"
+    },
+    {
+      "max_absolute_error": 1.3877787807814457e-17,
+      "name": "consolidation deadline equality"
+    }
+  ],
+  "counts": {
+    "candidate_edges_scored": 2,
+    "linear_solves": 3,
+    "matrix_inversions": 5,
+    "symmetric_eigendecompositions": 4
+  },
+  "deadline_exposure": 4.992887122589984,
+  "fixture": {
+    "anchor": "collection 1 = 1",
+    "edges": 40,
+    "form_bridges": 7,
+    "nodes": 27,
+    "withheld_counts": [
+      4,
+      6
+    ]
+  },
+  "graph": [
+    {
+      "bridge_weight": 1.0,
+      "min_eigenvalue": 0.01743972958223055,
+      "query_resistance": 1.370623022099539,
+      "rayleigh_upper_bound": 0.7777777777777778,
+      "sharp_error_at_energy_0_001": 0.05235691018575368
+    },
+    {
+      "bridge_weight": 0.1,
+      "min_eigenvalue": 0.014991286222460973,
+      "query_resistance": 3.0152273586523233,
+      "rayleigh_upper_bound": 0.07777777777777778,
+      "sharp_error_at_energy_0_001": 0.07765600245508808
+    },
+    {
+      "bridge_weight": 0.01,
+      "min_eigenvalue": 0.0063327666408646704,
+      "query_resistance": 16.07164039906165,
+      "rayleigh_upper_bound": 0.007777777777777778,
+      "sharp_error_at_energy_0_001": 0.17928547291435326
+    },
+    {
+      "bridge_weight": 0.0,
+      "min_eigenvalue": -1.6909572836027651e-16,
+      "rayleigh_upper_bound": 0.0,
+      "undetermined_query_shift": 6.666666666666666
+    }
+  ],
+  "growth": [
+    {
+      "gain": [
+        2.0,
+        0.5
+      ],
+      "name": "original",
+      "normalized_choice": 0,
+      "raw_gradient_choice": 0
+    },
+    {
+      "gain": [
+        2.0,
+        0.5
+      ],
+      "name": "rescaled",
+      "normalized_choice": 0,
+      "raw_gradient_choice": 1
+    }
+  ],
+  "quadratic_flow": [
+    {
+      "t": 0.0,
+      "theta": [
+        3.0,
+        2.0,
+        1.0
+      ]
+    },
+    {
+      "t": 0.5,
+      "theta": [
+        3.0,
+        2.0,
+        0.36787944117144233
+      ]
+    },
+    {
+      "t": 2.0,
+      "theta": [
+        3.0,
+        2.0,
+        0.01831563888873418
+      ]
+    }
+  ],
+  "scope": "Illustrative algebra; no neural model or empirically fitted mechanism"
+}

@@ -1,0 +1,346 @@
+{
+  "H": 750,
+  "K": 1500,
+  "fifo_assumptions": "One fresh write/update; no replay reinsertion; full store; ages 0..K-1",
+  "fixed_run_means": {
+    "Chinese paired, end": {
+      "dense": 0.6190476190476191,
+      "read-q16-fixed": 0.5004761904761905,
+      "read-q16-fixed75": 0.6,
+      "read-q16-untied": 0.628095238095238,
+      "read-q16-untied-rigl": 0.49142857142857144
+    },
+    "Chinese paired, own block": {
+      "dense": 0.6366666666666667,
+      "read-q16-fixed": 0.560952380952381,
+      "read-q16-fixed75": 0.6090476190476191,
+      "read-q16-untied": 0.6195238095238095,
+      "read-q16-untied-rigl": 0.38142857142857145
+    },
+    "Chinese withheld, own block": {
+      "dense": 0.2783333333333333,
+      "read-q16-fixed": 0.4066666666666667,
+      "read-q16-fixed75": 0.29,
+      "read-q16-untied": 0.355,
+      "read-q16-untied-rigl": 0.30666666666666664
+    },
+    "Code participation ratio (collections)": {
+      "dense": 1.2812262399480399,
+      "read-q16-fixed": 1.4625026048317764,
+      "read-q16-fixed75": 1.4163764289707865,
+      "read-q16-untied": 1.214634682337229,
+      "read-q16-untied-rigl": 1.024500000948581
+    },
+    "Code: chinese forms offset off axis": {
+      "dense": 2.8401812076568604,
+      "read-q16-fixed": 0.6640886396169663,
+      "read-q16-fixed75": 1.8016381800174712,
+      "read-q16-untied": 6.063352811336517,
+      "read-q16-untied-rigl": 0.7410516053438186
+    },
+    "Code: collection variance on first direction": {
+      "dense": 0.8796161653351636,
+      "read-q16-fixed": 0.8136592000723003,
+      "read-q16-fixed75": 0.8296854163203474,
+      "read-q16-untied": 0.9064536981913178,
+      "read-q16-untied-rigl": 0.9880080165733798
+    },
+    "Code: collection variance on reader axis": {
+      "dense": 0.14276227584692755,
+      "read-q16-fixed": 0.46773932428693266,
+      "read-q16-fixed75": 0.30301692324481283,
+      "read-q16-untied": 0.04970984296000384,
+      "read-q16-untied-rigl": 0.4787449740350293
+    },
+    "Code: cosine of first direction with reader axis": {
+      "dense": 0.3923158725877409,
+      "read-q16-fixed": 0.719365194447876,
+      "read-q16-fixed75": 0.5906606541883705,
+      "read-q16-untied": 0.18159693743054545,
+      "read-q16-untied-rigl": 0.6934589751344173
+    },
+    "Code: devanagari_digits forms offset off axis": {
+      "dense": 1.0008709251880645,
+      "read-q16-fixed": 0.4248603329062462,
+      "read-q16-fixed75": 0.7557110905647277,
+      "read-q16-untied": 2.101353460550308,
+      "read-q16-untied-rigl": 0.18797268271446227
+    },
+    "Code: english forms offset off axis": {
+      "dense": 1.727952527999878,
+      "read-q16-fixed": 0.7067563489079476,
+      "read-q16-fixed75": 1.8127501010894775,
+      "read-q16-untied": 3.4070286452770233,
+      "read-q16-untied-rigl": 0.30560836791992185
+    },
+    "Comparison, Chinese forms (untaught)": {
+      "dense": 0.5650925925925926,
+      "read-q16-fixed": 0.9887037037037038,
+      "read-q16-fixed75": 0.7693055555555556,
+      "read-q16-untied": 0.6381944444444445,
+      "read-q16-untied-rigl": 0.8631481481481482
+    },
+    "Comparison, Devanagari forms (untaught)": {
+      "dense": 0.6350925925925925,
+      "read-q16-fixed": 0.6631481481481482,
+      "read-q16-fixed75": 0.6709722222222223,
+      "read-q16-untied": 0.6847685185185185,
+      "read-q16-untied-rigl": 0.8081481481481482
+    },
+    "Comparison, English forms (untaught)": {
+      "dense": 0.4949537037037037,
+      "read-q16-fixed": 0.5223148148148148,
+      "read-q16-fixed75": 0.5070833333333333,
+      "read-q16-untied": 0.5565740740740741,
+      "read-q16-untied-rigl": 0.7454166666666667
+    },
+    "Comparison, collections": {
+      "dense": 0.9724074074074074,
+      "read-q16-fixed": 0.9648148148148149,
+      "read-q16-fixed75": 0.9731018518518519,
+      "read-q16-untied": 0.9737962962962963,
+      "read-q16-untied-rigl": 0.9614814814814815
+    },
+    "Devanagari withheld, own block": {
+      "dense": 0.19666666666666666,
+      "read-q16-fixed": 0.255,
+      "read-q16-fixed75": 0.17833333333333334,
+      "read-q16-untied": 0.19333333333333333,
+      "read-q16-untied-rigl": 0.33
+    },
+    "English, end": {
+      "dense": 0.3874074074074074,
+      "read-q16-fixed": 0.1988888888888889,
+      "read-q16-fixed75": 0.3233333333333333,
+      "read-q16-untied": 0.40185185185185185,
+      "read-q16-untied-rigl": 0.23925925925925925
+    },
+    "Judgment revision: isolated, withheld": {
+      "dense": 0.22749999999999998,
+      "read-q16-fixed": 0.295,
+      "read-q16-fixed75": 0.23,
+      "read-q16-untied": 0.305,
+      "read-q16-untied-rigl": 0.3591666666666667
+    },
+    "Judgment revision: revised, withheld": {
+      "dense": 0.5908333333333333,
+      "read-q16-fixed": 0.555,
+      "read-q16-fixed75": 0.6008333333333333,
+      "read-q16-untied": 0.6058333333333333,
+      "read-q16-untied-rigl": 0.5308333333333334
+    },
+    "Next-judgment coherence AUROC, Chinese": {
+      "dense": 0.9274177777777778,
+      "read-q16-fixed": 0.9396133333333333,
+      "read-q16-fixed75": 0.9221911111111111,
+      "read-q16-untied": 0.9261244444444444,
+      "read-q16-untied-rigl": 0.9030933333333333
+    },
+    "Next-judgment coherence AUROC, English": {
+      "dense": 0.8092133333333333,
+      "read-q16-fixed": 0.7400444444444444,
+      "read-q16-fixed75": 0.7592,
+      "read-q16-untied": 0.8227733333333334,
+      "read-q16-untied-rigl": 0.69828
+    },
+    "P first layer, never active": {
+      "dense": 0.0,
+      "read-q16-fixed": 0.003125,
+      "read-q16-fixed75": 0.0015625,
+      "read-q16-untied": 0.003125,
+      "read-q16-untied-rigl": 0.4921875
+    },
+    "P live units: same dimension of both operands": {
+      "dense": NaN,
+      "read-q16-fixed": 1.0,
+      "read-q16-fixed75": 0.7699404776096344,
+      "read-q16-untied": 0.07207341305911541,
+      "read-q16-untied-rigl": 0.8375026762485505
+    },
+    "P live units: share on most-read dimension": {
+      "dense": NaN,
+      "read-q16-fixed": 1.0,
+      "read-q16-fixed75": 0.7683779776096344,
+      "read-q16-untied": 0.06269841343164444,
+      "read-q16-untied-rigl": 0.8944465219974518
+    },
+    "Probe MAE, Chinese withheld forms": {
+      "dense": 3.3855441857041546,
+      "read-q16-fixed": 1.3688329110871653,
+      "read-q16-fixed75": 2.6356595920197035,
+      "read-q16-untied": 3.6772992524525057,
+      "read-q16-untied-rigl": 2.575287198602028
+    },
+    "Probe MAE, Devanagari withheld forms": {
+      "dense": 1.7821405649691,
+      "read-q16-fixed": 1.6323208018850024,
+      "read-q16-fixed75": 1.826706236184207,
+      "read-q16-untied": 1.833557288235443,
+      "read-q16-untied-rigl": 1.2005729812685737
+    },
+    "Probe order, Chinese forms": {
+      "dense": 0.5699074074074074,
+      "read-q16-fixed": 0.9387037037037038,
+      "read-q16-fixed75": 0.6927777777777778,
+      "read-q16-untied": 0.5253703703703704,
+      "read-q16-untied-rigl": 0.7660185185185185
+    },
+    "Probe order, Devanagari forms": {
+      "dense": 0.6535185185185185,
+      "read-q16-fixed": 0.6592592592592592,
+      "read-q16-fixed75": 0.6301851851851852,
+      "read-q16-untied": 0.612037037037037,
+      "read-q16-untied-rigl": 0.7437962962962963
+    },
+    "Probe order, English forms": {
+      "dense": 0.4981481481481482,
+      "read-q16-fixed": 0.51,
+      "read-q16-fixed75": 0.5021296296296296,
+      "read-q16-untied": 0.5103703703703704,
+      "read-q16-untied-rigl": 0.6849999999999999
+    },
+    "Probe order, taps": {
+      "dense": 0.8125,
+      "read-q16-fixed": 0.7633333333333333,
+      "read-q16-fixed75": 0.6183333333333333,
+      "read-q16-untied": 0.7918518518518518,
+      "read-q16-untied-rigl": 0.5962962962962963
+    },
+    "Succession pairwise, collections": {
+      "dense": 0.9085118986134019,
+      "read-q16-fixed": 0.8612499972007104,
+      "read-q16-fixed75": 0.9092261847640787,
+      "read-q16-untied": 0.9202380908919232,
+      "read-q16-untied-rigl": 0.8646428542477744
+    },
+    "Thai, 4 shots, after 200 updates": {
+      "dense": 0.1862962962962963,
+      "read-q16-fixed": 0.17555555555555555,
+      "read-q16-fixed75": 0.1862962962962963,
+      "read-q16-untied": 0.18074074074074073,
+      "read-q16-untied-rigl": 0.18
+    },
+    "form \u2192 taps, Chinese withheld": {
+      "dense": 0.3066666666666667,
+      "read-q16-fixed": 0.595,
+      "read-q16-fixed75": 0.4033333333333333,
+      "read-q16-untied": 0.205,
+      "read-q16-untied-rigl": 0.5700000000000001
+    },
+    "g first layer, never active": {
+      "dense": 0.0,
+      "read-q16-fixed": 0.0,
+      "read-q16-fixed75": 0.0015625,
+      "read-q16-untied": 0.003125,
+      "read-q16-untied-rigl": 0.1203125
+    },
+    "g live units: same dimension of both operands": {
+      "dense": NaN,
+      "read-q16-fixed": 1.0,
+      "read-q16-fixed75": 0.7621279776096344,
+      "read-q16-untied": 0.04707341343164444,
+      "read-q16-untied-rigl": 0.7860728144645691
+    },
+    "g live units: share on most-read dimension": {
+      "dense": NaN,
+      "read-q16-fixed": 1.0,
+      "read-q16-fixed75": 0.7675967276096344,
+      "read-q16-untied": 0.06269841343164444,
+      "read-q16-untied-rigl": 0.8695519924163818
+    },
+    "taps \u2192 Chinese form, withheld": {
+      "dense": 0.12833333333333333,
+      "read-q16-fixed": 0.765,
+      "read-q16-fixed75": 0.3116666666666667,
+      "read-q16-untied": 0.12166666666666666,
+      "read-q16-untied-rigl": 0.6566666666666666
+    },
+    "taps \u2192 Devanagari form, withheld": {
+      "dense": 0.325,
+      "read-q16-fixed": 0.395,
+      "read-q16-fixed75": 0.3383333333333333,
+      "read-q16-untied": 0.315,
+      "read-q16-untied-rigl": 0.64
+    },
+    "taps \u2192 collection (taught)": {
+      "dense": 0.644074074074074,
+      "read-q16-fixed": 0.6018518518518519,
+      "read-q16-fixed75": 0.6548148148148148,
+      "read-q16-untied": 0.6785185185185185,
+      "read-q16-untied-rigl": 0.6074074074074074
+    }
+  },
+  "k1_drop_counts": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "mean_replay_age": 581.5213576830722,
+  "old_script_replay": {
+    "0": {
+      "old_script_episodes_per_update": 4.0,
+      "replay_fraction_old_script": 1.0
+    },
+    "1000": {
+      "old_script_episodes_per_update": 0.783201402624258,
+      "replay_fraction_old_script": 0.1958003506560645
+    },
+    "1500": {
+      "old_script_episodes_per_update": 0.0,
+      "replay_fraction_old_script": 0.0
+    },
+    "500": {
+      "old_script_episodes_per_update": 2.026456133052984,
+      "replay_fraction_old_script": 0.506614033263246
+    }
+  },
+  "scalar_counterexample": {
+    "matching": 0.1111111111111111,
+    "order": 1.0
+  },
+  "source": "reports/fan-in-pilot-v1-fixed-comparison.json.gz",
+  "source_sha256": "900e7c7c3f21780bd374b8c4c8a31b2ecbd3d236fe7ee3e6f8c65a57736ecc02",
+  "stationary_expected_replays_per_inserted_episode": 4.0
+}
