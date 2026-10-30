@@ -102,6 +102,12 @@ deferred ordered-input variant.
   alternatives **[familiar]**. At an equal edge budget the candidate and a
   pruned full window have the same compiled family **[derived]**, so the
   pruned window is the decisive control.
+- **One shared coordinate read by every relation** (added 2026-10-30, for the
+  fan-in pilot's fixed-coordinate arm). This is the accumulator or mental-number-line
+  account of magnitude (Gallistel and Gelman; Dehaene) **[familiar]**, and in learning
+  terms a one-dimensional bottleneck or ordinal latent score **[familiar]**. Predicts
+  alignment of the code on one axis, at a cost to tasks that need other axes. It is
+  also the form of the linear `larger` head the project removed **[derived]**.
 - **Learned sampling.**
   [Dai et al., Deformable Convolutional Networks (2017)](https://arxiv.org/abs/1703.06211)
   **[abstract]** learns sampling offsets from task supervision and reports

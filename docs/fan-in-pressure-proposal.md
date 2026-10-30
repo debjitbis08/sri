@@ -320,6 +320,92 @@ about 1/16).
 Commands: `NSY_WORKERS=6 NFI_THREADS=2 NFI_CHANNELS_LAST=1 .venv/bin/python -m experiments.fan_in_pilot pilot rigl1`,
 then `.venv/bin/python -m experiments.fan_in_pilot_analysis pilot rigl1`.
 
+## Replication with a fixed coordinate (written before running)
+
+Added 2026-10-30 after the [one-dimension RigL results](fan-in-pilot-v1-rigl1-results.md),
+at the researchers' request. There, RigL's live reader units converged on one code
+coordinate per seed, and untaught transfer rose sharply. Two questions:
+
+1. **Does it replicate** on fresh seeds?
+2. **Is learning needed, or is concentration enough?** If every reader unit is wired to
+   one coordinate chosen in advance, with no learning, does the same transfer appear? The
+   fixed arms also have no zero-initialized connections, so dead units from RigL's
+   regrowth cannot occur; this separates concentration from RigL's loss of reader
+   capacity.
+
+**Arms, seeds 230–239 (fresh), D-varied+rehearsal, runtime settings as above:**
+
+| Arm | Question |
+| --- | --- |
+| `dense` | Reference |
+| `read-q16-untied` | Random reader limit, one dimension per operand |
+| `read-q16-untied-rigl` | RigL from the same masks (the replication) |
+| `read-q16-fixed` | Every first-layer unit of `g` and `P` reads coordinate d of both operands |
+| `read-q16-fixed75` | 48 of 64 units per reader read d of both operands; the other 16 keep the random arm's masks |
+
+- **The coordinate d** is drawn once per seed (`fanin_mask` stream, `fixed-coordinate`),
+  uniform over the 16 code dimensions, and is the same for `g` and `P`, as RigL found.
+  Nothing chooses it from data.
+- **Fixed arms** start from the random arm's masks, with the chosen units' code columns
+  replaced. The kept fraction per unit (2 of 32) and therefore the rescaling are
+  unchanged. The masks are held for the whole run.
+- **75%** approximates RigL's final state in `g` (65–79% of live units' code connections
+  on the shared coordinate in the three seeds checked). It was not tuned.
+- The `fixed` arm turns each reader's first layer into a function of one scalar per item
+  (plus the relation token in `g`). Later layers cannot see the other 15 coordinates.
+  The code's other coordinates are still trained, through `P`'s prediction target (the
+  squared distance to collection codes uses all 16).
+
+**Contrasts** (paired 95% t-interval rule, eight transfer and four taught measures):
+RigL − random and RigL − dense (replication); fixed − RigL and fixed75 − RigL (is
+learning needed); fixed − dense, fixed75 − dense, fixed − fixed75.
+
+**Pre-declared readings:**
+- **Replicated** if RigL − random is better on taps → withheld Chinese forms and on English
+  comparison, the two largest effects in rigl1.
+- **Concentration is enough** if `fixed` or `fixed75` is equivalent to or better than RigL
+  on both of those measures. **The learned choice matters** if both fixed arms are worse
+  than RigL on either. Otherwise unresolved.
+
+**Diagnostics:**
+- Reader units never active (dead), by arm.
+- Among live units only: the fraction reading the same dimension of both operands, and
+  the share of code connections on the most-read dimension. This replaces rigl1's
+  overlap measure, which counted dead units.
+- Code structure: the share of collection-code variance on the first principal
+  direction and on the readers' most-read coordinate; the cosine between the two; and
+  the offset of each form set's mean from the collections' mean outside that coordinate,
+  in collection standard deviations along it. These were measured ad hoc on three rigl1
+  seeds and are now computed for every checkpoint.
+
+**Predictions:**
+- RigL replicates in direction on both measures. Expected to pass on taps → withheld
+  Chinese; English comparison may be smaller on fresh seeds.
+- `fixed` loses more taught matching than RigL. A single scalar per item has to carry
+  every taught distinction, including Chinese paired matching, which fell under RigL.
+- `fixed75` comes closest to RigL on transfer. Weak expectation: transfer with fixed
+  concentration is lower than RigL, because RigL's coordinate is chosen where count
+  already lies, and a random d must be built up from scratch.
+- No dead units to speak of in the fixed arms (under 10%).
+
+**Prior work.**
+- A single scalar read by every relation is the classic accumulator or
+  mental-number-line model of magnitude (Gallistel and Gelman; Dehaene) **[familiar]**,
+  and the linear `larger` head this project removed. The fixed arm imposes the axis but
+  not its content; whether that counts as hand-given structure is the researchers' call.
+- In machine learning it is a one-dimensional bottleneck between encoder and readers
+  (information bottleneck; ordinal regression on one latent score) **[familiar]**. These
+  predict that a scalar bottleneck aligns the code on one axis, at a cost to any task
+  that needs more than one axis. That matches rigl1's costs.
+- RigL as above. No source read today predicts whether a learned or a fixed coordinate
+  transfers better.
+
+**Cost:** 50 runs, 6 workers × 2 threads, about 345 s each: about 50 minutes. Analysis
+about 1 minute.
+
+Commands: `NSY_WORKERS=6 NFI_THREADS=2 NFI_CHANNELS_LAST=1 .venv/bin/python -m experiments.fan_in_pilot pilot fixed`,
+then `.venv/bin/python -m experiments.fan_in_pilot_analysis pilot fixed`.
+
 ## Measures
 
 The sequence pilot's measures, scored identically

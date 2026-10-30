@@ -41,6 +41,9 @@ CONTRASTS = {'confirm': (('read-q16', 'dense'), ('read-q16-untied', 'dense'), ('
              'rigl': (('enc-q16', 'dense'), ('enc-q16-rigl', 'dense'), ('enc-q16-rigl', 'enc-q16'),
                       ('read-q4-untied', 'dense'), ('read-q4-untied-rigl', 'dense'), ('read-q4-untied-rigl', 'read-q4-untied')),
              'rigl1': (('read-q16-untied', 'dense'), ('read-q16-untied-rigl', 'dense'), ('read-q16-untied-rigl', 'read-q16-untied')),
+             'fixed': (('read-q16-untied-rigl', 'read-q16-untied'), ('read-q16-untied-rigl', 'dense'),
+                       ('read-q16-fixed', 'read-q16-untied-rigl'), ('read-q16-fixed75', 'read-q16-untied-rigl'),
+                       ('read-q16-fixed', 'dense'), ('read-q16-fixed75', 'dense'), ('read-q16-fixed', 'read-q16-fixed75')),
              }.get(FI.STAGE, ())
 RIDGE = 1e-3
 THAI = str(max(P.TRANSFER_AT)) if X.SMOKE else '200'  # smoke runs stop transfer early
@@ -135,11 +138,40 @@ def probe(enc, model, withheld):
     return out
 
 
+def live_readers(active, mask):
+    """Live units of a masked reader layer: fraction reading the same dimension of both operands, and the share of their
+    code connections on the most-read dimension (and that dimension). Dead units are left out: with zero gradient,
+    RigL's top-k puts them all on one dimension by tie-breaking."""
+    m = mask[active][:, :2 * FI.CODE]
+    a, b = m[:, :FI.CODE], m[:, FI.CODE:]
+    reads = (a + b).sum(0)
+    return {'tied': float((a * b).sum(1).gt(0).float().mean()), 'modal_share': float(reads.max() / reads.sum()),
+            'modal_dim': int(reads.argmax())}
+
+
+def code_structure(colls, forms, axis):
+    """colls (9, E, d); forms {name: (9, E, d)}. Collection variance on the first principal direction and on `axis`, their
+    cosine, and each form set's mean offset from the collections' mean outside `axis`, in collection SDs along `axis`."""
+    C = colls.reshape(-1, colls.shape[-1]).double()
+    C = C - C.mean(0)
+    ev, evec = torch.linalg.eigh(torch.cov(C.T))
+    pc1 = evec[:, -1]
+    if axis is None:
+        axis = int(pc1.abs().argmax())
+    other = [i for i in range(colls.shape[-1]) if i != axis]
+    cm, sd = colls.reshape(-1, colls.shape[-1]).mean(0), colls[..., axis].std()
+    return {'axis': axis, 'pc1_share': float(ev[-1] / ev.sum()), 'axis_share': float(C[:, axis].var() / C.var(0).sum()),
+            'pc1_axis_cosine': float(pc1[axis].abs()),
+            'offset_off_axis': {k: float((v.reshape(-1, v.shape[-1]).mean(0) - cm)[other].norm() / sd) for k, v in forms.items()}}
+
+
 @torch.no_grad()
 def diagnostics(enc, model, seed, config):
     code = G.codes_fn(enc, model)
-    colls = torch.cat([code(P.DOTS['succ'][n], 'image') for n in ns.NUMBERS])
-    forms = torch.cat([code(X.DATA[(L, 'eval')][0][P.EVAL[(L, n, 'idx')]], 'image') for L in P.LANGS for n in ns.NUMBERS])
+    colls9 = torch.stack([code(P.DOTS['succ'][n], 'image') for n in ns.NUMBERS])  # (9, E, d)
+    by_lang = {L: torch.stack([code(X.DATA[(L, 'eval')][0][P.EVAL[(L, n, 'idx')]], 'image') for n in ns.NUMBERS]) for L in P.LANGS}
+    colls = colls9.reshape(-1, colls9.shape[-1])
+    forms = torch.cat([v.reshape(-1, v.shape[-1]) for v in by_lang.values()])
     allc = torch.cat([colls, forms])
     ev = torch.linalg.eigvalsh(torch.cov(colls.T.double())).clamp(min=0)
     rng = np.random.default_rng(0)
@@ -149,9 +181,12 @@ def diagnostics(enc, model, seed, config):
     active_g = sum((g0(torch.cat([a, b, model.token.weight[h].expand(len(a), -1)], 1)) > 0).any(0) for h in range(3)) > 0
     active_p = (p0(torch.cat([a, b], 1)) > 0).any(0)
     edges = {k: int(lin.mask.sum()) if hasattr(lin, 'mask') else lin.weight.numel() for k, lin in FI.limited_layers(enc, model).items()}
+    readers = {n: live_readers(act, lin.mask) for n, act, lin in (('g', active_g, g0), ('P', active_p, p0)) if hasattr(lin, 'mask')}
+    axis = readers['g']['modal_dim'] if readers else None  # dense: the coordinate with the largest first-direction loading
     return {'participation_ratio_collections': float(ev.sum() ** 2 / (ev ** 2).sum()),
             'g_first_never_active': float(1 - active_g.float().mean()), 'P_first_never_active': float(1 - active_p.float().mean()),
-            'edges': edges, 'selection': selection(seed, config, model, enc)}
+            'edges': edges, 'selection': selection(seed, config, model, enc), 'live_readers': readers,
+            'code_structure': code_structure(colls9, by_lang, axis)}
 
 
 def dig(d, path):
@@ -211,6 +246,13 @@ def main():
         ('Code participation ratio (collections)', lambda c, s: DG[c, s]['participation_ratio_collections'], 'descriptive'),
         ('g first layer, never active', lambda c, s: DG[c, s]['g_first_never_active'], 'descriptive'),
         ('P first layer, never active', lambda c, s: DG[c, s]['P_first_never_active'], 'descriptive'),
+        *[(f'{n} live units: {label}', lambda c, s, n=n, k=k: DG[c, s]['live_readers'].get(n, {}).get(k, np.nan), 'descriptive')
+          for n in ('g', 'P') for k, label in (('tied', 'same dimension of both operands'), ('modal_share', 'share on most-read dimension'))],
+        ('Code: collection variance on first direction', lambda c, s: DG[c, s]['code_structure']['pc1_share'], 'descriptive'),
+        ('Code: collection variance on reader axis', lambda c, s: DG[c, s]['code_structure']['axis_share'], 'descriptive'),
+        ('Code: cosine of first direction with reader axis', lambda c, s: DG[c, s]['code_structure']['pc1_axis_cosine'], 'descriptive'),
+        *[(f'Code: {L} forms offset off axis', lambda c, s, L=L: DG[c, s]['code_structure']['offset_off_axis'][L], 'descriptive')
+          for L in P.LANGS],
     ]
     rows = []
     cls = classify_ci if CONFIRM else C.classify

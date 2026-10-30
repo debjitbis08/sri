@@ -26,6 +26,10 @@ activations; same function, different rounding).
 
 'rigl1' (seeds 220-229): RigL on untied readers at one dimension per operand, against the same random limit and dense.
 
+'fixed' (seeds 230-239; proposal, "Replication with a fixed coordinate"): rigl1's arms again, plus readers whose units
+read one coordinate d of both operands, chosen per seed without data: all units ('fixed') or 48 of 64 per reader, the
+rest keeping the random arm's masks ('fixed75').
+
 Usage: NSY_WORKERS=11 .venv/bin/python -m experiments.fan_in_pilot pilot [confirm|rigl|rigl1]
 Then: .venv/bin/python -m experiments.fan_in_pilot_analysis pilot [confirm|rigl|rigl1]
 """
@@ -58,12 +62,15 @@ CONFIRM = {'dense': (None, None, None), 'read-q16': (None, 16, 'tied'), 'read-q1
 RIGL = {'dense': (None, None, None), 'enc-q16': (16, None, None), 'enc-q16-rigl': (16, None, None),
         'read-q4-untied': (None, 4, 'untied'), 'read-q4-untied-rigl': (None, 4, 'untied')}
 RIGL1 = {'dense': (None, None, None), 'read-q16-untied': (None, 16, 'untied'), 'read-q16-untied-rigl': (None, 16, 'untied')}
+FIXED = {**RIGL1, 'read-q16-fixed': (None, 16, 'fixed'), 'read-q16-fixed75': (None, 16, 'fixed75')}
+FIXED_SHARE = {'fixed': 1., 'fixed75': .75}  # fraction of reader units moved onto the fixed coordinate
 RIGL_BASE = {'enc-q16-rigl': 'enc-q16', 'read-q4-untied-rigl': 'read-q4-untied',
              'read-q16-untied-rigl': 'read-q16-untied'}  # RigL arm -> random arm with the same start
-CONFIGS = {'stage1': STAGE1, 'confirm': CONFIRM, 'rigl': RIGL, 'rigl1': RIGL1}[STAGE]
-CONFIRM_SEEDS = tuple(range(*{'confirm': (200, 210), 'rigl': (210, 220), 'rigl1': (220, 230)}.get(STAGE, (0, 0))))
+CONFIGS = {'stage1': STAGE1, 'confirm': CONFIRM, 'rigl': RIGL, 'rigl1': RIGL1, 'fixed': FIXED}[STAGE]
+CONFIRM_SEEDS = tuple(range(*{'confirm': (200, 210), 'rigl': (210, 220), 'rigl1': (220, 230), 'fixed': (230, 240)}.get(STAGE, (0, 0))))
 DT, ALPHA, END_FRACTION = (10 if X.SMOKE else 100), .3, .75  # RigL: update interval, initial drop fraction, end of updates (fraction of training)
 RANDOM_OF = {'learn-tied': ('read-q16', 'tied'), 'learn-untied': ('read-q16-untied', 'untied')}  # learned arm's starting selection
+START_OF = {**RANDOM_OF, 'fixed': ('read-q16-untied', 'untied'), 'fixed75': ('read-q16-untied', 'untied')}  # masks an arm starts from
 CODE = 16
 THREADS = int(os.environ.get('NFI_THREADS', '1'))  # torch threads per worker
 CHANNELS_LAST = os.environ.get('NFI_CHANNELS_LAST') == '1'  # image encoder convolutions in channels-last layout
@@ -120,6 +127,20 @@ def reader_mask(lin, q, rng, rng_b=None):
         mask[j, sa[j]] = 1.
         mask[j, CODE + sb[j]] = 1.
     limit(lin, mask, np.arange(2 * CODE))
+
+
+def fixed_coordinate(seed):
+    return int(nc.stream('fanin_mask', seed, 'fixed-coordinate').integers(CODE))
+
+
+def fix_rows(lin, d, share, rng):
+    """Move round(share * units) reader units, chosen by rng, onto code dimension d of both operands. The kept fraction
+    per unit is unchanged, so the rescaling applied by reader_mask still holds."""
+    m = lin.mask.shape[0]
+    rows = torch.as_tensor(np.sort(rng.permutation(m)[:round(share * m)]))
+    lin.mask[rows, :2 * CODE] = 0.
+    lin.mask[rows, d] = 1.
+    lin.mask[rows, CODE + d] = 1.
 
 
 def straight_through(logits):
@@ -238,7 +259,7 @@ def make_model(seed, config):
             encoder_mask(enc[sense].out, qe, nc.stream('fanin_mask', seed, mkey, sense, 'out'))
             encoder_mask(model.proj[sense], qe, nc.stream('fanin_mask', seed, mkey, sense, 'proj'))
     if qr:
-        key, base = RANDOM_OF.get(mode, (mkey, mode))
+        key, base = START_OF.get(mode, (mkey, mode))
         for name, seq in (('g', model.g), ('P', model.P)):
             if base == 'tied':
                 reader_mask(seq[0], qr, nc.stream('fanin_mask', seed, key, name))
@@ -246,6 +267,8 @@ def make_model(seed, config):
                 reader_mask(seq[0], qr, nc.stream('fanin_mask', seed, key, name, 'a'), nc.stream('fanin_mask', seed, key, name, 'b'))
             if mode in RANDOM_OF:
                 seq[0] = SelectLinear(seq[0], tied=mode == 'learn-tied')
+            if mode in FIXED_SHARE:
+                fix_rows(seq[0], fixed_coordinate(seed), FIXED_SHARE[mode], nc.stream('fanin_mask', seed, mode, name))
     if config in RIGL_BASE:
         for lin in limited_layers(enc, model).values():
             if hasattr(lin, 'mask'):
