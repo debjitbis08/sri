@@ -1,26 +1,28 @@
 # Arbitrary pairings v1: contract (draft, not frozen)
 
-Status: **draft for the researchers' decisions.** Nothing here has been run. Follows the
-[limited-memory results](limited-memory-v1-results.md), which showed a trade between
-cross-sense transfer (best in `sparse48`) and taught matching (higher in arms with dense
-units, inconclusively on the confirmation run), and left memorization itself untested.
+Status: **draft for the researchers' decisions; revised after an external review
+(2026-10-30).** Nothing here has been run. Follows the [limited-memory results](limited-memory-v1-results.md),
+which showed a trade between cross-sense transfer (best in `sparse48`) and taught matching
+(higher in arms with dense units, inconclusively on the confirmation run), and left
+memorization itself untested.
 
 ## Question
 
-Does a dense, decaying memory part let the system learn specifics without undermining
-structure, and does decay help or only remove useful information? Specifics here are
-**arbitrary pairings**: items whose partner cannot be inferred from any structure the
-network has learned, so only memory can supply it.
+Does a dense, decaying memory part let the system learn specifics, and does decay preserve
+or sacrifice that? Specifics are **arbitrary pairings**: symbols whose partner count
+cannot be inferred from any structure the network has learned. Dense superiority is a
+**hypothesis** to be tested, not an expectation from the literature (see "Prior work").
+
+**Primary outcomes:** acquisition of the pairs and retained recall of set A. Absolute
+structured-task performance is reported beside them.
 
 ## Design
 
-**Arbitrary-pairing task.** Matching, as in the existing evaluation: given an item, pick
-the collection image with the matching count among the nine candidates. The item is a
-**symbol**, a random Unicode character with no numeric meaning, rendered with the usual
-variation in font, rotation and size. Each symbol is assigned one count by a seeded
-random draw, each count equally often. A pair is one symbol and one count. Pair set **A**
-has N symbols, a multiple of nine, set by the pilot (decision 6); a disjoint set **B** of
-the same size is built the same way.
+**Arbitrary-pairing task.** Matching, as in the existing evaluation: given a symbol image,
+pick the collection image with the matching count among nine candidates, in randomized
+positions. A **symbol** is a random Unicode character with no numeric meaning. A pair is
+one symbol and one count. Pair set **A** has N symbols, a multiple of nine, set by the
+pilot (decision 6); a disjoint set **B** has the same size.
 
 **Symbol selection (frozen with the contract).**
 1. Candidates: codepoints in Geometric Shapes, Arrows, Dingbats and Miscellaneous Symbols.
@@ -29,122 +31,191 @@ the same size is built the same way.
 3. Keep codepoints that every font in the renderer's list covers, checked from each
    font's character map, so no missing-glyph box stands for several symbols.
 4. Render each survivor with the usual variation and drop any whose images lie within a
-   distance threshold of another symbol's (the threshold is fixed from the seed-299
-   pilot, before the study).
+   distance threshold of another symbol's (threshold fixed by the pilot, before the study).
 5. Draw the symbols of A and B from the survivors with a seeded stream, disjoint, and
    assign counts balanced over the nine counts.
 
-**Why this isolates memory.** An image's assigned count carries no information about other
-images, so a network can answer on A only by storing the image–count association. The
-same symbols with new random assignments (a **shuffled control**) should score at chance,
-which is 1/9 = 0.111, if the network is not exploiting a leak.
+**Same material across arms.** Within a seed, the symbol sets, count assignments, batch
+schedules and renderings are identical across arms: they are seeded by seed and symbol,
+never by arm. Training and evaluation use **independent renderings** of each symbol
+(separate named streams; no rendering is shared), so recall is recognition of the symbol
+across font, rotation and size, not of a stored bitmap.
 
-**Schedule (decision 2).** The first three blocks are the existing curriculum, unchanged,
-without rehearsal. Then:
+**Schedule.** Blocks 1–3 are the existing curriculum, unchanged, without rehearsal. The
+end-of-block-3 state of each arm and seed is the common **parent**. From it:
 
-1. **Block 4:** teach set A, 2,000 updates, with the structured curriculum's batch size
-   and no rehearsal.
-2. **Block 5:** teach set B, 2,000 updates (interference with A).
-3. **Delay and relearning** as in the limited-memory study, with the rehearsal buffer
-   consulted only in relearning; relearning includes A (secondary).
+| Branch | Updates after the parent | What it trains |
+|---|---|---|
+| `P-AB` | block 4 (2,000): A; block 5 (2,000): B | pairs, then interference |
+| `P-A` | block 4: A (shared with `P-AB`); block 5: continuation with no B | decay without interference |
+| `C` | blocks 4 and 5 (4,000): continuation with no pairs | matched control for the damage of pairing |
 
-Recommendation: sequential, as above. The alternative is to teach A inside block 3 beside
-Devanagari, which tests learning "together", but it confounds the pairings with the block
-whose transfer is measured.
+The **continuation** trains on exactly what the delay of the limited-memory study trains
+(context episodes, no pairs), with the same batch size, optimizer, decay or reset
+behavior and random streams as the paired branches wherever the material coincides. Block
+length is 2,000 unless the pilot sets another (decision 6). The delay and relearning
+phases of the limited-memory study are not part of this contract.
 
-**Arms:** `sparse48`, `dense`, `mixed`, `mixed-h125`, `mixed-h500`, `mixed-reset`. Decay and
-reset schedules are as in the limited-memory study; decay stays on in blocks 4 and 5.
-The structure part's rewiring rule is RigL; the random-rewiring follow-up reuses this task (decision 3).
+Sequential A→B is kept. The alternative, A taught inside block 3, confounds pairings with
+the block whose transfer is measured.
 
-**Seeds:** 320–329, fresh. One cohort with the readings below fixed before it runs; a
-second fresh cohort (330–339) only if a reading is borderline, decided before looking.
+**Arms:** `sparse48`, `dense`, `mixed`, `mixed-h125`, `mixed-h500`, `mixed-reset`.
+- **Rewiring and reset schedules.** The inherited schedules stop at update 4,500
+  (`END_FRACTION`·3·block steps), before block 4 starts at update 6,200. In this design:
+  - the sparse connectivity is therefore **fixed** during pairing, as the result of earlier RigL rewiring;
+  - `mixed-reset` is a **past intervention** whose effect is already in the weights;
+  - decay in `mixed-h125` and `mixed-h500` is **active** throughout blocks 4 and 5.
+
+  So "decay against reset" compares active decay with a completed reset. A variant that
+  continues rewiring and resets through blocks 4 and 5 is a different experiment (decision 5).
+- The structure part's rewiring rule is RigL; the random-rewiring follow-up reuses the task (decision 3).
+
+**Seeds:** 320–329, one fixed cohort of 10. No second cohort and no stopping rule:
+inconclusive readings stay inconclusive, and any later cohort is a new, labeled run.
+
+## Controls
+
+- **Rescoring against shuffled labels (evaluation check).** At the end of block 4, score
+  the trained network's choices on A against labels permuted independently with a seeded
+  stream. Accuracy should be chance (1/9 = 0.111) in every arm; a higher score means the
+  evaluation (candidate position, rendering order or a count prior) has a shortcut.
+- **Retraining on shuffled labels (learning check).** For `sparse48` and `mixed`, a branch
+  `P-A'` trains block 4 on a second independent assignment of counts to the same symbols.
+  Recall on A and on A' should be equivalent (margin 0.05): if learning depends on which
+  counts the symbols got, the assignment leaks.
+- **Chance level and the lookup reference.** Recall is reported above chance. A
+  nearest-neighbor lookup on the item embedding is an optional reference (decision 4).
+- Random labels remove predictable count meaning. They do not show **where** an association
+  is stored; silencing shows dependence only (see Measures).
 
 ## Measures
 
-All scored per seed and arm; recall means accuracy on the trained pairs of the named set.
+Recall means accuracy over the N trained pairs of the named set, on the evaluation
+renderings. Evaluated every 250 updates in blocks 4 and 5.
 
-- **Acquisition speed:** recall on A (and, in block 5, on B) every 250 updates; the area
-  under the recall curve above chance over block 4, and updates to reach recall 0.5
-  (censored at 2,000).
-- **Retention under interference:** recall on A at the end of block 4, at the end of
-  block 5, and after the delay; the drop from block 4 to block 5.
-- **Transfer cost:** the eight transfer measures of the limited-memory study at the end of
-  block 3 (before pairings), block 4, block 5 and after the delay; average-coordinate
-  transfer (a) as before. The cost of pairing is each arm's change from its own end of
-  block 3.
-- **Where pairs live:** four-way silencing (memory, structure, both) of recall on A at the
-  end of block 4 and block 5, with the interaction residual.
-- **Controls:** the shuffled control on A at the end of block 4; accuracy on the
-  structured Chinese task at the end of block 5 (does pairing damage taught structure).
+- **Acquisition (primary).**
+  - Normalized area: the trapezoid mean of (recall on A − chance) over the block-4 evaluation
+    points, divided by block duration, so it is the average recall above chance; the same for B in block 5.
+  - Updates to reach recall 0.5, censored at the block length. Descriptive only: report the
+    number censored, and compare arms by the proportion reaching 0.5 and the median
+    with censoring (no inferential reading).
+- **Retained recall (primary).** Recall on A at the end of block 4 (`P-AB`), and at the end
+  of block 5 in `P-AB` and in `P-A`.
+  - **Interference** = recall drop on A from block 4 to block 5 in `P-AB` minus the same drop
+    in `P-A`. The `P-A` drop is ongoing decay or drift with no B; the difference isolates B.
+- **Structured performance (reported with the primary outcomes).** The limited-memory
+  study's eight transfer measures and average-coordinate transfer (a), **absolute**, at the
+  end of block 3, block 4 and block 5.
+  - **Damage of pairing** = `P-AB` minus `C` at the end of block 5, within seed and arm, on each measure. This is
+    the matched control; the earlier delay runs have different seeds, durations and
+    histories and are not used.
+  - Also report the change from the arm's own end of block 3, descriptively.
+- **Where the pairs live.** Four-way silencing of recall on A at the end of blocks 4 and
+  5 with the interaction residual. It shows dependence under intervention, not a separate store.
+- Structured Chinese matching at the end of block 5 is one of the eight measures; it is not
+  a separate control.
 
-## Readings (prespecified; margin 0.05 for accuracies, paired 95% t-interval)
+## Readings (prespecified; margin 0.05 for accuracies)
 
-- **Memory adds specifics:** recall on A at the end of block 4 is better in `mixed` than in
-  `sparse48`. Also read the area under the curve.
-- **No cost to structure:** `mixed` is equivalent to or better than `sparse48` in its
-  change of (a) and of the eight transfer measures from the end of block 3. If not, memory
-  buys specifics at the price of structure.
-- **Interference:** the drop in recall on A from block 4 to block 5, `sparse48` against
-  `mixed`; the direction is not predicted (sparse overlaps less, dense stores more).
-- **Decay helps:** `mixed-h125` better than `mixed` on the transfer change after block 5
-  with recall on A not lower by more than the margin.
-- **Decay removes information:** `mixed-h125` lower than `mixed` on recall on A at the end
-  of block 5 or after the delay by more than the margin.
-- **Decay beyond reset:** `mixed-h125` against `mixed-reset` on recall and on the transfer
-  change.
+Rule, as in the earlier pilots: **better/worse** if |mean difference| > margin and the paired
+95% t-interval excludes 0; **equivalent** if the interval lies within ±margin; otherwise
+inconclusive. **Noninferior** if the lower bound of the interval for (arm − reference)
+exceeds −margin. Failing to show noninferiority is inconclusive, not harm; harm is the
+"worse" outcome only.
+
+Contrasts: `mixed` against `sparse48`; `mixed-h125` against `mixed`; `mixed-h125` against
+`mixed-reset`. Everything else, including `mixed-h500` and `dense`, is **descriptive**
+(dose and reference).
+
+- **Memory adds specifics:** normalized acquisition area and recall on A at the end of
+  block 4, `mixed` against `sparse48`: better.
+- **Retained arbitrary recall:** recall on A at the end of block 5 in `P-AB`, `mixed`
+  against `sparse48`; and interference as defined above.
+- **Structure preserved:** absolute (a) and the eight transfer measures at the end of block 5 in
+  `P-AB`, `mixed` noninferior to `sparse48`; together with the damage of pairing
+  (`P-AB` − `C`) for each arm. If `mixed` is worse on absolute transfer, memory buys
+  specifics at the price of structure; if only inconclusive, nothing is established.
+- **Decay preserves the benefit:** `mixed-h125` against `mixed`: recall on A at the end of
+  block 5 noninferior, and absolute transfer at the end of block 5 better or noninferior.
+- **Decay sacrifices it:** `mixed-h125` worse than `mixed` on recall on A at the end of
+  block 5 or on normalized acquisition area.
+- **Active decay against completed reset:** `mixed-h125` against `mixed-reset` on the same
+  measures, named as such.
 - **Inconclusive is not equivalent.**
 
 ## Prior work
 
 The shared survey is in [prior work](prior-work.md#memorization-interference-and-sparse-representations-arbitrary-pairings-design).
-The task is the standard random-label memorization test (Zhang et al. 2017 **[abstract]**)
-applied to a matching reader; the arms correspond to a sparse network, a dense network, and
-fast-and-slow components (Hinton and Plaut 1987 **[abstract]**, complementary learning
-systems **[familiar]**). Literature predictions are that memory-bearing arms acquire
-arbitrary pairs better (Zhang, Feldman 2020 **[abstract]**), sparse representations
-interfere less (Ahmad and Scheinkman 2019 **[abstract]**; French 1999 **[familiar]**),
-and compression-like sparsity loses atypical exemplars first (Hooker et al. 2019
-**[abstract]**). The cheaper alternative, a lookup table or kNN on the item embedding, is
-a reference point for recall, not an arm (decision 4). The design adds an internal control
-for the limited-memory study, not a new method.
+The task is the random-label memorization test of [Zhang et al. 2017](https://arxiv.org/abs/1611.03530)
+**[abstract]** applied to a matching reader. They establish that large networks fit random
+labels; they do not rank dense against sparse networks, so dense superiority here is a
+hypothesis. [Feldman 2020](https://arxiv.org/abs/1906.05271) **[abstract]** argues that
+memorizing rare examples is needed for accuracy on long-tailed data, and
+[Hooker et al. 2019](https://arxiv.org/abs/1911.05248) **[abstract]** finds that compression
+hurts atypical exemplars; both support asking the question, not a ranking of these arms.
+[Ahmad and Scheinkman 2019](https://arxiv.org/abs/1903.11257) **[abstract]** study sparse
+high-dimensional representations' robustness to noise and interference in image and speech
+classifiers; that does not establish reduced sequential interference for these readers,
+so the direction of the interference reading is open. Catastrophic interference
+(McCloskey and Cohen 1989, French 1999) and fast and slow weights (Hinton and Plaut 1987
+**[abstract]**) and complementary learning systems are **[familiar]** context. A
+nearest-neighbor lookup is the cheaper reference (decision 4). The design is an internal
+control for the limited-memory study, not a new method.
 
 ## Computation
 
-- **Time:** per run, the limited-memory run's 8,200 updates plus 4,000 for blocks 4 and 5,
-  plus evaluations every 250 updates; linear in updates. The estimate before measuring is
-  about 1.5 times a limited-memory run, so about 85 s effective per run on the GPU with six
-  processes, and about 85 minutes for 6 arms × 10 seeds. This is an extrapolation, to be
-  replaced by measured costs.
-- **Storage:** two sets of N symbol images, held in memory (N is small); checkpoints at the end of each block
-  as before (about 12 MB per run), so about 0.7 GB for the cohort.
-- **Tuning cost:** the pair-set size and block length are set from a pilot on seed 299
-  only; its cost is recorded. No seed in the study is used for it.
+Notation: P parameters, E evaluation renderings per symbol, K the evaluation points
+(candidate collections, 9), S surviving symbols, C candidate codepoints, F fonts.
+
+- **Symbol rendering and filtering (once, per cohort).** Coverage check O(C·F) character-map lookups.
+  Rendering R variants per survivor O(S·R) image draws at 28×28. The distance filter is
+  pairwise: O(S²·784) for R = 1, or O((S·R)²·784) if every variant is compared; a seeded
+  subsample bounds it. Storage: O(S·R·784) floats.
+- **Training per branch:** time linear in updates and in P (as the limited-memory run).
+  Per arm and seed beyond the parent: 2,000 (block 4, shared) + 2,000 (B) + 2,000
+  (`P-A` block 5) + 4,000 (`C`) = 10,000 updates, plus 2,000 for `P-A'` in two arms. With
+  6,200 for blocks 1–3 the total is 16,200 updates, about 2.0 times a limited-memory run.
+- **Evaluation:** each point scores N symbols × E renderings × 9 candidate collections:
+  O(N·E·9) forward passes; twice (A and B in block 5), plus the structured measures at
+  three checkpoints and four-way silencing at two. Evaluations run every 250 updates in
+  blocks 4 and 5; the limited-memory run's evaluation took about 27 s.
+- **Extrapolated wall time** (to be replaced by measured costs): the limited-memory stages
+  ran at 55 s effective per run with six GPU processes for 8,200 updates, so about 110 s per
+  arm-seed here, about 110 minutes for 6 arms × 10 seeds, before the added evaluations.
+- **Pilot (seed 299 only, all candidates recorded):** N in {18, 45, 90} × block length in
+  {1,000, 2,000} × the six arms = 36 arm-runs of the schedule above (the branch set needed to read
+  floor and ceiling), about 66 minutes at the same effective rate, plus the filter threshold
+  search. All candidates and their costs are reported, not only the chosen one.
+- **Persistent state:** model and Adam moments (about 3P floats) per checkpoint; checkpoints at the
+  parent, end of block 4, end of block 5 for each branch. In the limited-memory run the
+  checkpoints took 511 MB for 80 runs (about 1.6 MB each); here about 6 per arm-seed, so about 0.6 GB for the
+  cohort. There is no replay buffer in this design.
 - Nondeterministic timing is kept in the runtime files, apart from the scientific results.
 
 ## Risks
 
 - **Floor or ceiling:** N pairs and 2,000 updates could leave every arm at chance or at
-  1.0, which would make the contrasts uninformative. The seed-299 pilot sets the size
-  before freezing.
-- **Resets destroy pairings:** `mixed-reset` zeroes code-input weights every 100 updates
-  until update 4,500 of the earlier schedule; whether it runs through blocks 4 and 5 is
-  decision 5.
-- **Leakage:** a symbol could resemble a numeral or carry a count (strokes, dots). The
-  exclusions above and the shuffled control guard against this.
-- **Look-alike symbols:** at 28×28 many symbols are close. The distance filter removes the
-  near-duplicates; some residual confusion remains and lowers recall for every arm alike.
-- **Confounds with the number code:** both tasks share the 16-dimensional code and the
-  readers, which is the point, but a drop in structure can come from the added updates
-  alone. The cost of pairing is therefore read against the arm's own change in the
-  limited-memory study's delay, not against zero.
+  1.0. The pilot sets N and block length before freezing, using seed 299 only.
+- **Leakage and shortcuts:** addressed by the exclusions, independent renderings,
+  randomized candidate positions and the two shuffled-label checks.
+- **Look-alike symbols:** at 28×28 many symbols are close. The filter removes near-duplicates;
+  residual confusion lowers recall for every arm alike.
+- **Frozen connectivity and past reset:** see Arms. The design tests pairing on a network whose
+  sparse part stopped rewiring, not on one that is still rewiring.
+- **Shared code:** both tasks use the 16-dimensional code and the readers. A drop in
+  structure can come from added updates alone, so the damage of pairing is read against
+  the matched continuation `C`, not against zero or the earlier delay.
 
 ## Decisions for the researchers
 
 1. Symbol source: random Unicode symbols with the exclusions and filters above (default), or a
    different set.
-2. Schedule: sequential blocks 4 and 5 (recommended), or A taught together with block 3.
-3. Whether the random-rewiring arms run in this task from the start.
+2. Schedule: sequential A→B with the matched controls `C` and `P-A` (recommended), or A taught
+   together with block 3.
+3. Whether the random-rewiring arms run in this task from the start. The reviewer's
+   recommendation is to add the matched continuation before wiring variants, as done here.
 4. Whether to add a nearest-neighbor lookup as a recall reference.
-5. Whether the reset schedule runs through blocks 4 and 5.
-6. Pair-set size N (a multiple of nine, tried at 18, 45 and 90 on seed 299) and block length are
-   set by the seed-299 pilot unless you want fixed values.
+5. Whether rewiring and resets continue through blocks 4 and 5 (a different experiment) or the
+   inherited schedules stop at update 4,500 as written.
+6. Pair-set size N (a multiple of nine, tried at 18, 45 and 90) and block length (1,000 or
+   2,000), set by the seed-299 pilot unless you want fixed values.

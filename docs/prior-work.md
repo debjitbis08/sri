@@ -1208,12 +1208,17 @@ papers below were read; the older interference literature is from memory. Writte
   old ones, and less overlapping representations reduce this. Complementary learning
   systems and fast weights are in the [limited-memory proposal](limited-memory-proposal.md#prior-work-and-expected-limits).
 
-**Predictions the literature supports.** Dense-with-memory arms acquire arbitrary pairs
-faster and with higher accuracy than `sparse48` **[derived from Zhang, Feldman, Hooker;
-untested here]**. Sparse arms suffer less interference **[Ahmad and Scheinkman, French;
-different settings]**. Decay is expected to cost retention of arbitrary pairs unless
-rehearsal restores them **[Hinton and Plaut 1987, abstract]**. None of this predicts the
-size of any effect here.
+**What the literature does and does not support (corrected after external review).**
+Zhang et al. establish that large networks fit random labels, not that dense networks
+memorize better than sparse ones; Ahmad and Scheinkman study robustness of sparse
+high-dimensional representations to noise and interference in image and speech classifiers,
+not sequential interference between learned pairings in readers like these. Feldman and
+Hooker support asking whether limiting capacity costs rare, specific cases. So three things
+are **hypotheses**, none a prediction from the literature: that dense-with-memory arms
+acquire arbitrary pairs faster than `sparse48`; that sparse arms interfere less; that decay
+costs retention unless rehearsal restores it (Hinton and Plaut 1987 **[abstract]** describe
+rehearsal restoring fast-weight associations). The size and direction of each effect here
+are open.
 
 **What the pairings design adds.** The earlier arms differ in connectivity and decay but
 were scored on structured relations only. Scoring arbitrary pairings in the same curriculum
