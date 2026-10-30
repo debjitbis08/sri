@@ -102,23 +102,32 @@ def recall(enc, model, taught, ev, seed, tag):
 
 @torch.no_grad()
 def lookup_recall(enc, model, taught, row, ev, seed):
-    """Reference: 1-nearest-neighbor on the item code, the training renderings of the taught symbols against the evaluation ones."""
+    """Reference decoders on the item code, training renderings of the taught symbols against the evaluation ones: 1-nearest-neighbor
+    count accuracy (`count`) and 1-nearest-neighbor symbol-identity accuracy (`identity`)."""
     code = G.codes_fn(enc, model)
     cps = list(taught)
     tr = X.DATA[('pairsym', 'train')][0].reshape(-1, TRAIN_RENDERS, 28, 28)
     bank = code(np.concatenate([tr[row[cp]] for cp in cps]), 'image').double()
-    labels = np.repeat([taught[cp] for cp in cps], TRAIN_RENDERS)
+    ident = np.repeat(np.arange(len(cps)), TRAIN_RENDERS)
     q = code(ev.reshape(-1, 28, 28), 'image').double()
     nn_ = torch.cdist(q, bank).argmin(1).numpy()
-    return float((labels[nn_] == np.repeat([taught[cp] for cp in cps], ev.shape[1])).mean())
+    counts = np.array([taught[cp] for cp in cps])
+    return {'count': float((counts[ident[nn_]] == np.repeat(counts, ev.shape[1])).mean()),
+            'identity': float((ident[nn_] == np.repeat(np.arange(len(cps)), ev.shape[1])).mean())}
 
 
 def checks(enc, model, taught, row, ev, seed, tag):
     acc, pick = recall(enc, model, taught, ev, seed, tag)
-    truth = np.repeat([taught[cp] for cp in taught], ev.shape[1])
-    perm = nc.stream('ap_rescore', seed, tag).permutation(len(taught))  # independent shuffled labels, scored on the same picks
-    shuffled = np.repeat(np.array([taught[cp] for cp in taught])[perm], ev.shape[1])
-    out = {'recall': acc, 'rescored_shuffled': float((pick == shuffled).mean()), 'lookup': lookup_recall(enc, model, taught, row, ev, seed)}
+    counts = np.array([taught[cp] for cp in taught])
+    truth = np.repeat(counts, ev.shape[1])
+    # rescoring the same picks against independently permuted labels: the mean and spread over 100 permutations
+    prng = nc.stream('ap_rescore', seed, tag)
+    resc = [float((pick == np.repeat(counts[prng.permutation(len(counts))], ev.shape[1])).mean()) for _ in range(100)]
+    tr = X.DATA[('pairsym', 'train')][0].reshape(-1, TRAIN_RENDERS, 28, 28)
+    ev_train = np.stack([tr[row[cp]][:ev.shape[1]] for cp in taught])  # the exact images seen in training
+    out = {'recall': acc, 'recall_on_training_renderings': recall(enc, model, taught, ev_train, seed, tag)[0],
+           'rescored_shuffled_mean': float(np.mean(resc)), 'rescored_shuffled_sd': float(np.std(resc)),
+           'lookup': lookup_recall(enc, model, taught, row, ev, seed)}
     for name, parts in (('mem_silenced', ('mem',)), ('struct_silenced', ('struct',)), ('both_silenced', ('mem', 'struct'))):
         with LM.silenced(model, parts):
             out[name] = recall(enc, model, taught, ev, seed, tag)[0]
@@ -149,13 +158,14 @@ def block(enc, model, opt, rng, seed, number, steps, taught, row, watch, curve, 
     crng = nc.stream('ap_context', seed, number)  # the same context episodes in every branch
     prng = nc.stream('ap_pairs', seed, number, set_name or 'none')
     t0 = CURRENT['step']
+    curve.append({'update': t0, 'offset': 0, 'block': number, **{k: recall(enc, model, t, ev, seed, k)[0] for k, (t, ev) in watch.items()}})
     for step in range(steps):
         items, pairs, match, *rest = SP.batch_material([], D.context_episodes(crng, D.N_CONTEXT), 'taps')
         if taught is not None:
             pair_items(items, match, taught, row, prng)
         LM.train_update(enc, model, opt, (items, pairs, match, *rest), rng, True)
         if (step + 1) % EVERY == 0 or (step + 1) in EARLY:
-            curve.append({'update': CURRENT['step'], 'block': number,
+            curve.append({'update': CURRENT['step'], 'offset': step + 1, 'block': number,
                           **{k: recall(enc, model, t, ev, seed, k)[0] for k, (t, ev) in watch.items()}})
 
 
