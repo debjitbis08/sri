@@ -9,6 +9,7 @@ relearning.
 
 Stages (argv[2]):
   main     8 arms x seeds 300-309 (the selection run)
+  fork-confirm  the same fork from the confirm stage's `mixed` parents, seeds 310-319
   fork     decay against no decay from the end-of-block-3 checkpoint of `mixed`, seeds 300-309
   confirm  sparse48, mixed, mixed-reset and NLM_SELECTED, seeds 310-319
 
@@ -47,11 +48,13 @@ STRUCT, MEM, CODE = 48, 16, FI.CODE
 ARMS = ('dense', 'sparse64', 'sparse48', 'mixed', 'mixed-h2000', 'mixed-h500', 'mixed-h125', 'mixed-reset')
 HALF_LIFE = {'mixed-h2000': 2000, 'mixed-h500': 500, 'mixed-h125': 125}
 FORK = {'fork-hinf': None, 'fork-h2000': 2000, 'fork-h500': 500, 'fork-h125': 125}
-SEEDS = {'main': tuple(range(300, 310)), 'fork': tuple(range(300, 310)), 'confirm': tuple(range(310, 320))}[STAGE]
+SEEDS = {'main': tuple(range(300, 310)), 'fork': tuple(range(300, 310)), 'confirm': tuple(range(310, 320)),
+         'fork-confirm': tuple(range(310, 320))}[STAGE]
 DELAY, RELEARN, FORK_STEPS, EVERY = (20, 8, 20, 10) if SMOKE else (2000, 200, 2000, 500)
 DISRUPT_P, DISRUPT_DRAWS = .25, 10
 NAME = 'limited-memory-v1-' + STAGE + ('-smoke' if SMOKE else '') + os.environ.get('NFI_TAG', '')
-MAIN_NAME = 'limited-memory-v1-main' + ('-smoke' if SMOKE else '') + os.environ.get('NFI_TAG', '')
+FORK_LIKE = STAGE in ('fork', 'fork-confirm')
+PARENT_NAME = 'limited-memory-v1-' + ('confirm' if STAGE == 'fork-confirm' else 'main') + ('-smoke' if SMOKE else '') + os.environ.get('NFI_TAG', '')
 RUNS = X.ROOT / 'runs' / NAME
 CURRENT = {}
 FLAGS = {'full': (), 'mem_silenced': ('mem',), 'struct_silenced': ('struct',), 'both_silenced': ('mem', 'struct')}
@@ -60,7 +63,7 @@ FLAGS = {'full': (), 'mem_silenced': ('mem',), 'struct_silenced': ('struct',), '
 def arms_for_stage():
     if STAGE == 'main':
         return ARMS
-    if STAGE == 'fork':
+    if FORK_LIKE:
         return tuple(FORK)
     sel = os.environ.get('NLM_SELECTED')
     if sel not in HALF_LIFE:
@@ -417,9 +420,9 @@ def run_main(task):
 def run_fork(task):
     arm, seed = task
     t0, c0 = time.perf_counter(), time.process_time()
-    path = X.ROOT / 'runs' / MAIN_NAME / 'parents' / f'mixed-seed{seed}.pt'
+    path = X.ROOT / 'runs' / PARENT_NAME / 'parents' / f'mixed-seed{seed}.pt'
     if not path.exists():
-        raise SystemExit(f'fork parent missing: {path} (run the main stage first)')
+        raise SystemExit(f'fork parent missing: {path} (run the parent stage first)')
     ck = torch.load(path, weights_only=False)
     withheld = {k: tuple(v) for k, v in ck['withheld'].items()}
     CURRENT.update(arm='mixed', seed=seed, step=ck['step'], r=None if FORK[arm] is None else 2. ** (-1. / FORK[arm]))

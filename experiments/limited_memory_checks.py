@@ -136,7 +136,7 @@ def check_matching_agrees_with_pilot():
 def check_fork_parent_is_block3():
     res = RESULT['mixed']
     block3 = res['snapshots']['block3']['four_way']['full']['matching']
-    ck = torch.load(LM.X.ROOT / 'runs' / LM.MAIN_NAME / 'parents' / f'mixed-seed{SEED}.pt', weights_only=False)
+    ck = torch.load(LM.X.ROOT / 'runs' / LM.PARENT_NAME / 'parents' / f'mixed-seed{SEED}.pt', weights_only=False)
     LM.CURRENT.update(arm='mixed', seed=SEED, step=ck['step'], r=None)
     torch.manual_seed(SEED)
     enc, model = X.make_model(SEED)

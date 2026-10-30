@@ -183,7 +183,7 @@ def fork_like():
 
 def main():
     t0, c0 = time.perf_counter(), time.process_time()
-    out = fork_like() if LM.STAGE == 'fork' else main_like(LM.STAGE)
+    out = fork_like() if LM.FORK_LIKE else main_like(LM.STAGE)
     OUT.write_text(json.dumps(out, indent=1, sort_keys=True, default=float) + '\n')
     results = ROOT / 'reports' / f'{LM.NAME}-results.json.gz'
     RUNTIME.write_text(json.dumps({
@@ -195,7 +195,7 @@ def main():
         'output_sha256': LM.nc.sha256(OUT), 'command': ' '.join(sys.argv), 'descriptive': DESCRIPTIVE,
         'revision': X.git('rev-parse', 'HEAD'), 'dirty': bool(X.git('status', '--porcelain'))}, indent=1, sort_keys=True) + '\n')
     print('wrote', OUT.relative_to(ROOT), '|', out['status'])
-    if LM.STAGE == 'fork':
+    if LM.FORK_LIKE:
         print(f"eligible {out['n_eligible']}/{out['n_total']}; conditional inferential: {out['conditional_inferential']}")
         for b, v in out['branches'].items():
             print(b, {k: (x.get('outcome'), x.get('mean_ci_at_end') and [round(c, 3) for c in x['mean_ci_at_end']]) for k, x in v.items() if isinstance(x, dict)},
