@@ -1,0 +1,92 @@
+{
+ "command": "retention_remedies_analysis",
+ "wall_seconds": 0.3967052220104961,
+ "process_cpu_seconds": 0.3966899210000001,
+ "extra_time_fraction_over_ctx": {
+  "sparse48": {
+   "der-M": -0.00321792011412068,
+   "der-M-strong": -0.004055581441176001,
+   "hold-M": 0.008361322574018453,
+   "rehearse-M": -0.0011851414547343563,
+   "consolidate-cache": 0.018184750587781812,
+   "consolidate-cache1": 0.01801256734994241,
+   "consolidate-random": 0.017962345998215196,
+   "consolidate-other": 0.01793817357575346,
+   "consolidate-cache-anchor": 0.051586466707994105,
+   "consolidate-cache1-anchor": 0.05168280666391527
+  },
+  "mixed": {
+   "ctx-m0": 0.007941172924502495,
+   "der-M": -0.006638763368921263,
+   "der-M-strong": -0.007979332276545587,
+   "hold-M": 0.003740117723587738,
+   "rehearse-M": -0.032292058464806477,
+   "rehearse-M-m0": -0.030793445924622243,
+   "stable-path-replay": -0.07706872732810251,
+   "consolidate-cache": 0.018529224217321012,
+   "consolidate-cache1": 0.018851609082281576,
+   "consolidate-random": 0.01869508110993818,
+   "consolidate-other": 0.018062305116157067,
+   "consolidate-cache-anchor": 0.053935248703438375,
+   "consolidate-cache1-anchor": 0.05302349127280951
+  },
+  "mixed-h125": {
+   "ctx-m0": 0.002880163863640551,
+   "der-M": -0.003362700355747916,
+   "der-M-strong": -0.009018733557914596,
+   "hold-M": -0.0007328906043259697,
+   "rehearse-M": -0.027030120144527818,
+   "consolidate-cache": 0.018766905723706335,
+   "consolidate-cache1": 0.018516272109750702,
+   "consolidate-random": 0.018441815876296935,
+   "consolidate-other": 0.01845818788650224,
+   "consolidate-cache-anchor": 0.05274933685667209,
+   "consolidate-cache1-anchor": 0.051855187916973314
+  }
+ },
+ "within_25_percent": {
+  "sparse48": {
+   "der-M": true,
+   "der-M-strong": true,
+   "hold-M": true,
+   "rehearse-M": true,
+   "consolidate-cache": true,
+   "consolidate-cache1": true,
+   "consolidate-random": true,
+   "consolidate-other": true,
+   "consolidate-cache-anchor": true,
+   "consolidate-cache1-anchor": true
+  },
+  "mixed": {
+   "ctx-m0": true,
+   "der-M": true,
+   "der-M-strong": true,
+   "hold-M": true,
+   "rehearse-M": true,
+   "rehearse-M-m0": true,
+   "stable-path-replay": true,
+   "consolidate-cache": true,
+   "consolidate-cache1": true,
+   "consolidate-random": true,
+   "consolidate-other": true,
+   "consolidate-cache-anchor": true,
+   "consolidate-cache1-anchor": true
+  },
+  "mixed-h125": {
+   "ctx-m0": true,
+   "der-M": true,
+   "der-M-strong": true,
+   "hold-M": true,
+   "rehearse-M": true,
+   "consolidate-cache": true,
+   "consolidate-cache1": true,
+   "consolidate-random": true,
+   "consolidate-other": true,
+   "consolidate-cache-anchor": true,
+   "consolidate-cache1-anchor": true
+  }
+ },
+ "scope": "nondeterministic timing (reading 7 time part); the analysis JSON holds the deterministic content",
+ "revision": "0b26fec96944f15bfd05597f4afd5bdb14f0e5e7",
+ "dirty": true
+}

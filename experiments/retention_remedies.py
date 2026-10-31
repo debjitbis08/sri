@@ -194,7 +194,7 @@ def recall_MU(enc, model, ctx, seed):
     return {'M': AP.recall(enc, model, ctx['M'], ctx['ev_M'], seed, 'M')[0], 'U': AP.recall(enc, model, ctx['U'], ctx['ev_U'], seed, 'U')[0]}
 
 
-def run_branch(name, spec, b4, arm, seed, ctx, withheld):
+def run_branch(name, spec, b4, arm, seed, ctx, withheld, keep_end=False):
     t0 = time.perf_counter()
     enc, model, opt, rng = AP.thaw(b4, arm, seed)
     path0 = digest(path_params(enc, model))
@@ -246,7 +246,7 @@ def run_branch(name, spec, b4, arm, seed, ctx, withheld):
     AP.block(enc2, model2, opt2, rng2, seed, 6, NEW_UPDATES, ctx['B'], ctx['row'], {'B': (ctx['B'], ctx['ev_B'])}, curveB, 'B')
     rec['new_B'] = curveB
     rec['wall_seconds_total'] = time.perf_counter() - t0
-    return rec
+    return (rec, end) if keep_end else rec
 
 
 # ---------------------------------------------------------------- static branches (teacher = the end-of-block-4 network)
