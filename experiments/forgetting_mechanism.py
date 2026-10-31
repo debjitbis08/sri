@@ -68,6 +68,7 @@ SPECS = {  # train, zero_grad, decay_only, freeze, decay (explicit decay active)
     'hold': dict(train=True, decay=True, pairs='hold'),
     'rehearse-10': dict(train=True, decay=True, pairs='rehearse'),
 }
+RELEARN_ON = True  # the momentum-reset study switches this off
 DECAY_ONLY_ARMS = ('mixed-h125',)  # branches that exist only where explicit decay exists
 DECAY_BRANCHES = ('decay-only', 'ctx-nodecay')
 
@@ -82,6 +83,21 @@ def group_of(name):
     if '.0.' in name:
         return 'first_dense'
     return 'later_layers'
+
+
+def apply_adam(opt, mode):
+    """'m0': zero `exp_avg` of every initialized parameter state, keeping `exp_avg_sq` and `step`, and check bitwise that parameters,
+    second moments and step counters are unchanged and the first moments are exactly zero. 'fresh': clear the whole state."""
+    params = [p for g in opt.param_groups for p in g['params']]
+    if mode == 'fresh':
+        opt.state.clear()
+        return {'mode': mode, 'n_params': len(params)}
+    kept = {p: (p.detach().clone(), opt.state[p]['exp_avg_sq'].clone(), opt.state[p]['step'].clone()) for p in params if opt.state.get(p)}
+    for p in kept:
+        opt.state[p]['exp_avg'].zero_()
+    ok = all(torch.equal(p.detach(), a) and torch.equal(opt.state[p]['exp_avg_sq'], b) and torch.equal(opt.state[p]['step'], c)
+             and not bool(opt.state[p]['exp_avg'].any()) for p, (a, b, c) in kept.items())
+    return {'mode': mode, 'n_initialized': len(kept), 'n_uninitialized': len(params) - len(kept), 'unchanged_and_zeroed': bool(ok)}
 
 
 def named_params(enc, model):
@@ -153,7 +169,8 @@ def run_branch(name, b4, arm, seed, ctx, ref, withheld, spec):
     for k in frozen:
         params[k].requires_grad_(False)
     crng, prng = nc.stream('ap_context', seed, 5), nc.stream('ap_pairs', seed, 5, 'A-' + name)
-    curve = []
+    curve, losses = [], []
+    adam_check = apply_adam(opt, spec['adam']) if spec.get('adam') else None
 
     def record(k):
         rec = {'offset': k, **measure(enc, model, ctx, params)}
@@ -168,7 +185,7 @@ def run_branch(name, b4, arm, seed, ctx, ref, withheld, spec):
             items, pairs, match, *rest = SP.batch_material([], D.context_episodes(crng, D.N_CONTEXT), 'taps')
             if spec.get('pairs') == 'hold' or (spec.get('pairs') == 'rehearse' and (step + 1) % REHEARSE_EVERY == 0):
                 AP.pair_items(items, match, ctx['A'], ctx['row'], prng)
-            LM.train_update(enc, model, opt, (items, pairs, match, *rest), rng, True)
+            losses.append(LM.train_update(enc, model, opt, (items, pairs, match, *rest), rng, True))
         elif spec.get('zero_grad'):
             for p in opt.param_groups[0]['params']:
                 p.grad = torch.zeros_like(p)
@@ -181,6 +198,10 @@ def run_branch(name, b4, arm, seed, ctx, ref, withheld, spec):
     rec = {'curve': curve, 'movement_final': movement(params, ctx['start']),
            'frozen_unchanged': all(bool(torch.equal(params[k].detach(), ctx['start'][k])) for k in frozen),
            'n_frozen_tensors': len(frozen)}
+    if adam_check is not None:
+        rec['adam_check'] = adam_check
+    if losses:
+        rec['losses'] = losses
     if name != 'noupdate':
         rec['snapshot'] = LM.snapshot(enc, model, withheld, seed, name, False)
     rec['wall_seconds'] = time.perf_counter() - t0
@@ -239,7 +260,8 @@ def run_task(task):
         out['branches'][name], state = run_branch(name, b4, arm, seed, ctx, (ref_enc, ref_model), withheld, spec)
         if name == 'ctx':
             end = state
-    out['relearn'] = relearn(end, arm, seed, sets, row, ev)
+    if RELEARN_ON:
+        out['relearn'] = relearn(end, arm, seed, sets, row, ev)
     return f'{arm}/seed{seed}', out, {
         'wall_seconds': time.perf_counter() - t0, 'cpu_seconds': time.process_time() - c0,
         'peak_rss_kb': resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
