@@ -33,3 +33,23 @@ targeted comparison, not a comprehensive survey or new experiment contract.
 their retention–new-learning–compute–storage tradeoffs before another broad diagnosis
 study. A first-moment reset remains a focused mechanistic diagnostic; the zero-gradient
 result does not establish it as a remedy during actual context training.
+
+## Retention-remedies contract review (2026-10-31)
+
+**[derived]** Distillation does not impose a general teacher-accuracy upper bound on
+held-out ground-truth accuracy. Exact agreement would reproduce teacher accuracy on
+those same inputs; approximate fitting from other cues does not require exact agreement.
+[Born Again Neural Networks](https://proceedings.mlr.press/v80/furlanello18a.html)
+**[read: abstract and introductory excerpt]** reports students outperforming teachers,
+but its use of label supervision means it is context, not direct evidence that our
+teacher-only destination will improve on its teacher. Record fidelity and accuracy separately.
+
+**[read: local code]** `experiments/generic_relations.py:codes_fn` calls
+`StandardSolver.code`, which applies `model.proj[medium]` after the modality encoder
+(`src/standard_net.py`). A stable cached-code interface must include this projection,
+not only the encoder. The projection currently belongs to the non-encoder parameter group.
+
+**[derived]** Frozen-destination persistence follows from freezing the entire inference
+path. The empirical questions are acquisition fidelity, generalization, selective retention,
+resource savings relative to a frozen snapshot, and eventually adding more durable facts.
+Unrouted destination recall cannot establish successful combined-system inference.
