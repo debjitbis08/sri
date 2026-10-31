@@ -73,7 +73,7 @@ Before the stream, every arm is given the same **old knowledge**: 8 known rules 
 
 | item | bytes | notes |
 |---|---|---|
-| lifecycle trace | 560 | cue and outcome 512, trace counters 16, and one group record 32, reserved so group state can never overflow |
+| lifecycle trace | 560 | cue and outcome 512, trace counters and flags (pinned, consumed, familiar) 16, and one group record 32, reserved so group state can never overflow |
 | shadow | 528 | ē, ĉ 512, counters 16 |
 | new slot | 512 | |
 | sketch entry | 8 | the projection is regenerated from the seed and not stored |
@@ -127,32 +127,36 @@ MLP width is whatever fills the total budget, counting weights, momentum and win
 
 Eligibility is decided from the cue alone, before the outcome is seen. Every eligible event is scored, so a group can never select the outcomes it is judged on. Grouping uses the outcome, but only to propose a candidate, never to validate one.
 
-On each event with an outcome:
+On each event with an outcome, in this order. Steps 1–5 run on every such event; 6–8 only if the event is still surprising. A query has no outcome and runs none of them, except in `life-selfcount`.
 
-1. **Fix eligibility from c.** A same-cue group is eligible if `cos(c, its cue) ≥ τ`. A shadow is eligible if `cos(c, ĉ) ≥ τ_s` and c is not within τ of one of its fit traces, which are pinned (step 6).
-2. **Score every eligible group and shadow, on every eligible event, surprising or not.** Same-cue: *hit* or *miss* for its mean outcome. Shadow, on the reader path alone (slots ignored): *win* if R + Δ hits and R misses, *failure* if R + Δ misses, otherwise neutral. Separately, on every event with an outcome, a shadow *damages* if R hits and R + Δ misses. Queries have no outcome and score nothing.
-3. **Stop if the answer hit.**
-4. **Keep the evidence.** Append a trace holding cue and outcome, not a scalar.
-5. **Group two ways.** Join a *same-cue* group if `cos(c, its cue) ≥ τ`. Join a *residual* group if `cos(e, ē_G) ≥ τ_e`, where `e = o − Rc`: experiences wrong in the same way, whatever they look like. A trace is in at most one of each.
-6. **Propose.** A residual group with m traces from distinct episodes, whose unit cues have mean resultant length at least κ, freezes a rank-one shadow `Δ = ē ĉᵀ/‖ĉ‖²` on its first m such traces, if none exists for it. Those fit traces are **pinned** for the shadow's life: they count toward the trace budget and cannot be evicted, so eligibility can always be checked and the exclusion needs no uncounted memory. When a shadow leaves, its traces unpin and stay as ordinary traces, unless promoted. κ rejects chance groups, which a rank-one update could not generalize from anyway. If all S places are taken, the shadow with the fewest wins goes, oldest first.
-7. **Decide.** An *episode* is at least E events after a group's last counted one. Hits and wins count once per episode. **Misses, failures and damage always count.**
+1. **Fix eligibility and answer from c, before the outcome is read.** A same-cue group is eligible if `cos(c, its cue) ≥ τ`. A shadow is eligible if `cos(c, ĉ) ≥ τ_s` and c is not within τ of one of its fit traces.
+2. **Score everything, surprising or not, against the state at step 1.** Same-cue group, if eligible: *hit* or *miss* for its mean outcome. Shadow, if eligible, on the reader path alone (slots ignored): *win* if R + Δ hits and R misses, *failure* if R + Δ misses, otherwise neutral. Every shadow, eligible or not: *damage* if R hits and R + Δ misses, and *R-hit* counted if R hits. An *episode* is at least E events after a group's last counted one. Hits and wins count once per episode. **Misses, failures and damage always count.**
+3. **Decide, in this order, using the counts just updated.**
 
-| evidence | action |
-|---|---|
-| same-cue hits ≥ h_b, misses 0 | write a slot with the group's mean outcome, drop its traces (`binding`, `exception`) |
-| same-cue misses ≥ h_n | drop its traces (`noise-repeat`) |
-| shadow wins ≥ h_r, failures ≤ h_f − 1, damage ≤ δ of events where R hit | `R ← R + Δ`, drop its traces (`rule`) |
-| shadow failures ≥ h_f, or damage above δ once R has hit 64 times since it was fitted | drop the shadow, keep its traces |
-| none | trace remains until evicted |
+| order | evidence | action |
+|---|---|---|
+| a | same-cue misses ≥ h_n | drop its traces (`noise-repeat`) |
+| b | same-cue hits ≥ h_b, misses 0 | write a slot with the group's mean outcome, drop its traces (`binding`, `exception`) |
+| c | shadow failures ≥ h_f, or damage above δ of its R-hits once it has 64 | **retire** the shadow |
+| d | a remaining shadow with wins ≥ h_r and damage at most δ of its R-hits (0 R-hits counts as 0) | `R ← R + Δ`, drop its traces, delete the shadow (`rule`). At most one per event: the most wins, then the oldest |
 
-8. **After `R` changes,** recompute each residual group's e from its traces under the new R. Traces R now hits leave the group, a group below m traces loses its shadow, and any remaining shadow is refit on its group's first m remaining traces, repinned, with its win, failure and damage counts **reset to zero**. Slot writes do not change R, and shadow scores use only the reader path, so they cause no reset.
-9. **Evict** the unpinned trace whose group has the lowest distinct-episode support (the higher of its two groups; a singleton has 0), oldest first. Singletons therefore leave first in FIFO order, which is what the reach calculation assumes.
+Groups in a and b, and shadows in c, go oldest first. If a or b would drop a pinned trace, that trace leaves the same-cue group but stays until its shadow leaves.
 
-**Membership.** An evicted trace leaves both its groups, whose means and resultant are computed from the traces remaining. A group keeps its counts (hits, misses, episodes, last counted event) while it holds at least one trace. They are not reduced by eviction, since they record evidence seen. A group with no traces is deleted with its counts, which is how evidence is forgotten. If a same-cue promotion or drop would remove a pinned trace, that trace leaves the same-cue group but stays until its shadow leaves.
+4. **If R changed,** recompute each residual group's e from its traces under the new R. Traces R now hits leave the group. Any remaining shadow is refit on those of its fit traces that remain, topped up with the group's oldest *unconsumed* traces from distinct episodes, and repinned, with all its counts **reset to zero**, since it is now a different candidate. A shadow that cannot reach m traces retires. Slot writes do not change R, and shadow scores use only the reader path, so they cause no reset.
+5. **Recompute the answer under the state after steps 3–4, and stop if it hits.** No trace is kept for what has just been absorbed.
+6. **Keep the evidence.** Append a trace holding cue and outcome, not a scalar. Join a *same-cue* group if `cos(c, its cue) ≥ τ`. Join a *residual* group if `cos(e, ē_G) ≥ τ_e`, where `e = o − Rc`: experiences wrong in the same way, whatever they look like. A trace is in at most one of each, and never moves to another; it only leaves.
+7. **Propose.** A residual group without a shadow, holding m **unconsumed** traces from distinct episodes, whose unit cues have mean resultant length at least κ, freezes a rank-one shadow `Δ = ē ĉᵀ/‖ĉ‖²` fitted on the oldest such m. Those fit traces are **pinned** for the shadow's life: they count toward the trace budget and cannot be evicted, so eligibility can always be checked and the exclusion needs no uncounted memory. κ rejects chance groups, which a rank-one update could not generalize from anyway. If all S places are taken, the shadow with the fewest wins, then the oldest, is displaced.
+8. **Evict if over budget,** by the order below, and on a slot write likewise.
 
-There is no time-based expiry, since a clock would decide the gap by another name. A shadow leaves by failing, by being displaced, or by promotion.
+**Retiring and retrying.** A shadow leaves by retiring, by being displaced, or by promotion. On retirement or displacement its fit traces unpin and are marked **consumed**. They remain ordinary members of the group, still contribute to ē, and may be evicted, but can never fit a shadow again. So a rejected candidate can return only by way of m new traces, each kept after the old shadow was fitted. Its failures cannot be cleared by reproposing it, and nothing is retried on unchanged evidence. A displaced shadow is treated the same, so displacement cannot launder failures either. The number of tries per group is limited only by the evidence arriving, and is reported by hidden kind, since each retry on noise is another chance of a false promotion. The reset in step 4 is the one case where counts clear without new traces. It occurs at most once per promotion, and it is disclosed because it could rescue a failing shadow.
 
-**Sketch.** A ring of 8-byte entries: 32 sign bits of a fixed projection of the cue, 32 of the residual. Every surprise writes one. A new surprise matching an entry within Hamming radius ρ, on either half, enters the store with support 1, so it outlasts singletons.
+**Eviction order.** Among unpinned traces, by the key (support, familiar, age), lowest support first, unfamiliar before familiar, oldest first. *Support* is the higher of the distinct-episode counts of the trace's two groups, 0 for a singleton. *Familiar* is the sketch's bit, below. So singletons without a sketch match leave first, in FIFO order, which is what the reach calculation assumes.
+
+**Membership.** An evicted trace leaves both its groups, whose means and resultant are computed from the traces remaining. A group keeps its counts (hits, misses, episodes, last counted event, tries) while it holds at least one trace. They are not reduced by eviction, since they record evidence seen. A group with no traces is deleted with its counts, which is how evidence is forgotten.
+
+There is no time-based expiry, since a clock would decide the gap by another name.
+
+**Sketch.** A ring of 8-byte entries: 32 sign bits of a fixed projection of the cue, 32 of the residual under R at writing, so old residual bits go stale when R changes. Every surprise looks up, then writes one, so an event never matches itself. A match within Hamming radius ρ, on either half, sets the trace's **familiar** bit. This bit is held per trace, so it survives regrouping and group deletion, and it is used **only** as the eviction tie-break above. It never counts as support, an episode, a hit, a win, or toward m, κ, h_b or h_r, in `life-sketch` or `count-sketch`. Familiarity buys a trace time to meet independent confirmation and is not itself confirmation. Combining them is not tested here.
 
 **Provenance.** Each trace comes from a sensory outcome; `query` events have none. Only `life-selfcount` breaks this rule.
 
@@ -192,7 +196,7 @@ An audit reads a copy of the state, on audit renderings, never changing the arm.
 - **Noise capture.** The same behavioural reading in every arm, whichever part holds the memory, including anything absorbed into R. Target: per cue, the **last outcome** that cue was shown with. Cues: all `noise-repeat`, all `noise-burst`, and up to 128 `noise-once` cues drawn uniformly from the first 80% of the stream, the same cues for every arm of a seed and cell. Each is audited on 8 renderings. Per kind: `P(answer = target) − P(answer = target of a different cue of that kind)`, the second term being the empirical null, over a fixed derangement. Reading: the mean of the three kinds. This measures whether the arm repeats old noise as knowledge. It cannot separate a memory held as episodic from one taken as true, since no arm abstains.
 - **Old knowledge.** Macro-average of known rules on audit-only items, known bindings, and each `exception` family on audit-only items.
 
-**Descriptive.** Slots promoted per hidden kind (the arm's own routing, reported separately from noise capture), `rare` recall, occurrences to first correct, slots and traces held, shadows proposed and promoted, sketch true and false match rates against hidden identity, curves over the quarter points.
+**Descriptive.** Slots promoted per hidden kind (the arm's own routing, reported separately from noise capture), `rare` recall, occurrences to first correct, slots and traces held, shadows proposed, retired, displaced and promoted, tries per group by hidden kind, resets rescuing a shadow that later promoted, sketch true and false match rates against hidden identity, curves over the quarter points.
 
 **Compute.** Operations per event (derived per arm): multiplications plus one for each 64-bit Hamming comparison. Measured µs per event on one thread, every byte by category.
 
@@ -266,6 +270,12 @@ Second review, also before any build, all correct and fixed above:
 - The `uninformative` outcome read too much into a failed superiority test and could override a passing candidate. It is gone: headroom is reported, and a separate pilot feasibility gate decides whether to confirm.
 - Shadow validity under eviction is now specified, by pinning fit traces, as is eviction's effect on group membership and counts.
 - Old-knowledge fitting is now specified: the set, its size, ridge, the MLP optimizer, stopping and target.
+
+Third review, also before any build, all correct and fixed above. The event loop is now one ordered procedure:
+
+- A rejected shadow could be recreated unchanged with its failures cleared. Fit traces are now consumed on retirement or displacement, so a retry needs m new traces.
+- The early return skipped decisions on events the answer hit, so retirement depended on when an unrelated surprise came. Scoring and decisions now run on every outcome, and only keeping a trace is conditional.
+- Sketch support conflicted with group support in eviction. Familiarity is now a per-trace tie-break only, and never counts as confirmation.
 
 ## Changes from the pilot
 
@@ -361,4 +371,4 @@ K traces, S shadows, Z sketch entries, W MLP weights, c window, D_c = 96, D_o = 
 
 ## Reproduction
 
-To be written with the implementation: `src/surprise_lifecycle.py`, `experiments/surprise_lifecycle.py`, `tests/test_surprise_lifecycle.py`.
+To be written with the implementation: `src/surprise_lifecycle.py`, `experiments/surprise_lifecycle.py`, `tests/test_surprise_lifecycle.py`. The tests cover each state transition above, including: a retired shadow cannot return without m new traces; a shadow retires on an unsurprising event; the familiar bit never changes a count; a pinned trace cannot be evicted; deleting a group deletes its counts.
