@@ -55,7 +55,9 @@ CURVE = (0, 5, 10, 20) if SMOKE else (0, 25, 50, 100, 250, 500, 1000, 2000)
 BRANCHES = ('main', 'frozen-encoder')
 ARMS = tuple(os.environ.get('TM_ARMS', 'mixed,sparse48').split(','))
 SEEDS = tuple(int(s) for s in os.environ.get('TM_SEEDS', ','.join(map(str, range(360, 370)))).split(','))
-NAME = 'translation-memory-v1-host' + ('-smoke' if SMOKE else '') + os.environ.get('NFI_TAG', '')
+IDENTITY = os.environ.get('TM_IDENTITY') == '1'  # revision after the pilot: key head and supervised contrastive identity loss
+KEY_DIM, SUPCON_TEMPERATURE = 32, 0.1
+NAME = 'translation-memory-v1-host' + ('-identity' if IDENTITY else '') + ('-smoke' if SMOKE else '') + os.environ.get('NFI_TAG', '')
 RUNS = X.ROOT / 'runs' / NAME
 SPEC = X.ROOT / 'docs' / 'translation-memory-v1-draft.md'
 STATE = {}  # the active word trials, read by the extra loss
@@ -99,6 +101,49 @@ def batch_words(b):
     return list(range(WORDS * b, WORDS * (b + 1)))
 
 
+# ---------------------------------------------------------------- key head (identity revision)
+
+def install_key_head():
+    """With TM_IDENTITY=1, every model built gets a key head on the image encoder's output (64 -> KEY_DIM), registered
+    as a submodule of the image encoder so it is saved, loaded and optimized with it (and frozen with it in
+    frozen-encoder). Its initial weights come from their own stream, so the shared weights start as before."""
+    if not IDENTITY or getattr(X.make_model, 'tm_key_head', False):
+        return
+    base = X.make_model
+
+    def make(seed):
+        enc, model = base(seed)
+        dev = next(enc['image'].parameters()).device
+        g = torch.Generator().manual_seed(int(nc.stream('tm_key_head', seed).integers(2 ** 62)))
+        head = torch.nn.Linear(enc['image'].out.out_features, KEY_DIM, device='cpu')
+        bound = 1 / np.sqrt(head.in_features)
+        with torch.no_grad():
+            head.weight.copy_(torch.rand(head.weight.shape, generator=g, device='cpu') * 2 * bound - bound)
+            head.bias.copy_(torch.rand(head.bias.shape, generator=g, device='cpu') * 2 * bound - bound)
+        enc['image'].key_head = head.to(dev)
+        return enc, model
+
+    make.tm_key_head = True
+    X.make_model = make
+
+
+def keys_of(enc, x):
+    """Unit-norm identity keys of image tensors x (n, 28, 28)."""
+    return F.normalize(enc['image'].key_head(enc['image'](x)), dim=1)
+
+
+def supcon(z, labels, t=SUPCON_TEMPERATURE):
+    """Supervised contrastive loss (Khosla et al. 2020, L_out): z (n, d) unit norm; positives share a label."""
+    n = len(z)
+    sim = z @ z.T / t
+    self_mask = torch.eye(n, dtype=torch.bool)
+    sim = sim.masked_fill(self_mask, float('-inf'))
+    logp = sim - torch.logsumexp(sim, 1, keepdim=True)
+    pos = (labels[:, None] == labels[None]) & ~self_mask
+    keep = pos.any(1)
+    return -(logp.masked_fill(~pos, 0).sum(1)[keep] / pos.sum(1)[keep]).mean()
+
+
 # ---------------------------------------------------------------- word trials
 
 def install_loss():
@@ -118,23 +163,33 @@ def install_loss():
         logits = G.pair(model, q, k[None].expand(len(q), -1, -1), 1)
         l = F.cross_entropy(logits, torch.from_numpy(s['label']))
         STATE['losses'].append(float(l.detach()))
+        if IDENTITY:
+            z = keys_of(enc, torch.from_numpy(np.concatenate([s['src'], s['src2']])))
+            words = torch.from_numpy(np.array(s['words'] * 2))
+            li = supcon(z, words)
+            STATE.setdefault('id_losses', []).append(float(li.detach()))
+            l = l + li
         return loss + l
 
     TP.EXTRA_LOSS = extra
     STATE['wrapped'] = True
 
 
-def trials(mat, words, rng):
+def trials(mat, words, rng, vrng=None):
     """TRIALS word trials from `words`: source renderings, CANDIDATES target candidates (each trial's target among them),
-    labels (candidate position) and the words drawn."""
+    labels (candidate position) and the words drawn; with `vrng`, a second training rendering of each trial's source
+    (the identity loss's second view, from its own stream so the trials are those of the pilot)."""
     w = [words[int(i)] for i in rng.integers(len(words), size=TRIALS)]
     j = rng.integers(R_TRAIN, size=TRIALS)
     targets = list(dict.fromkeys(mat['tgt'][x] for x in w))
     others = [t for t in rng.permutation(N_TGT).tolist() if t not in targets][:CANDIDATES - len(targets)]
     cands = targets + others
     cj = rng.integers(R_TRAIN, size=CANDIDATES)
-    return {'src': mat['src_train'][w, j], 'cand': mat['tgt_train'][cands, cj],
-            'label': np.array([cands.index(mat['tgt'][x]) for x in w]), 'words': w, 'renders': j.tolist()}
+    out = {'src': mat['src_train'][w, j], 'cand': mat['tgt_train'][cands, cj],
+           'label': np.array([cands.index(mat['tgt'][x]) for x in w]), 'words': w, 'renders': j.tolist()}
+    if vrng is not None:
+        out['src2'] = mat['src_train'][w, vrng.integers(R_TRAIN, size=TRIALS)]
+    return out
 
 
 @torch.no_grad()
@@ -190,6 +245,7 @@ def acquisition(enc, model, opt, rng, mat, seed, b, buf, log, steps, words):
     """steps updates of context episodes plus (when words is not None) word trials from `words`."""
     crng = nc.stream('tm_context', seed, b)
     trng = nc.stream('tm_trials', seed, b)
+    vrng = nc.stream('tm_views', seed, b) if IDENTITY else None
     curve = []
     if words is not None and 0 in CURVE:
         curve.append({'offset': 0, 'acc': host_accuracy(enc, model, mat, words)})
@@ -197,7 +253,7 @@ def acquisition(enc, model, opt, rng, mat, seed, b, buf, log, steps, words):
         mat_ctx = SP.batch_material([], D.context_episodes(crng, D.N_CONTEXT), 'taps')
         STATE['trials'] = None
         if words is not None:
-            tr = trials(mat, words, trng)
+            tr = trials(mat, words, trng, vrng)
             STATE['trials'] = tr
             for w, j in zip(tr['words'], tr['renders']):
                 log['exposures'][w] += 1
@@ -226,7 +282,9 @@ def run_branch(name, start, arm, seed, mat, withheld):
         STATE['losses'] = []
         curve = acquisition(enc, model, opt, rng, mat, seed, b, buf, log, L_ACQ, batch_words(b))
         points.append({'point': b + 1, 'step': CURRENT['step'], 'host': host_state(enc, model), 'buffer': buf.snapshot(),
-                       'curve': curve, 'trial_loss_mean': float(np.mean(STATE['losses']))})
+                       'curve': curve, 'trial_loss_mean': float(np.mean(STATE['losses'])),
+                       'identity_loss_mean': float(np.mean(STATE['id_losses'])) if STATE.get('id_losses') else None})
+        STATE['id_losses'] = []
         if name == 'main' and b == 0:
             start_b1 = {'host': AP.freeze(enc, model, opt, rng), 'buf': copy.deepcopy(buf), 'log': copy.deepcopy(log),
                         'points': copy.deepcopy(points), 'next_batch': 1}
@@ -279,6 +337,7 @@ def main():
     AP.NAME, AP.RUNS, AP.run_task = NAME, RUNS, run_task
     D.SPEC = SPEC
     LM.install()
+    install_key_head()
     D.ARMS = {a: (False, 'taps') for a in ARMS}
     D.SEEDS = SEEDS
     D.NAME = NAME

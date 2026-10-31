@@ -51,14 +51,14 @@ def consolidate(arm, seed):
     rec, maps, encs = {}, {}, {}
     for point in range(1, TM.BATCHES + 2):
         enc, model = host.load(point)
-        A = MP.encode(enc, model, mat['anchor_imgs'])
+        A = MP.encode_keys(enc, model, mat['anchor_imgs'])
         if point == 1:
             m.set_reference(A)
         elif point <= TM.BATCHES:
             m.fit(A)
         maps[point] = (m.A.clone(), m.mu, m.s2)
         tcodes = MP.encode(enc, model, mat['tgt_train'][:, 0])
-        ev = MP.encode(enc, model, mat['src_eval']).reshape(TM.N_WORDS, TM.R_EVAL, -1)
+        ev = MP.encode_keys(enc, model, mat['src_eval']).reshape(TM.N_WORDS, TM.R_EVAL, -1)
         encs[point] = m(ev.reshape(-1, MP.D_CODE)).reshape(TM.N_WORDS, TM.R_EVAL, -1)
         if point > TM.BATCHES:
             continue
@@ -66,9 +66,9 @@ def consolidate(arm, seed):
         new = [e for e in buf if e['word'] not in rec]
         if not new:
             continue
-        x = MP.encode(enc, model, np.stack([mat['src_train'][e['word'], e['render']] for e in new]))
-        ans = MP.logits_against_targets(model, x, tcodes).argmax(1)
-        xr = m(x)
+        imgs = np.stack([mat['src_train'][e['word'], e['render']] for e in new])
+        ans = MP.logits_against_targets(model, MP.encode(enc, model, imgs), tcodes).argmax(1)
+        xr = m(MP.encode_keys(enc, model, imgs))
         for e, k, a in zip(new, xr, ans.tolist()):
             rec[e['word']] = {'key': k, 'teacher': a, 'point': point}
     return mat, rec, maps, encs
@@ -126,6 +126,9 @@ def historical(seed, mat, rec, maps, encs, cfgs):
                    'assoc-1step': TS.target_scores(mem.one_step(qs), cb).argmax(1)}
             res, info = mem.retrieve(qs)
             ans['assoc-16'] = TS.target_scores(res[16], cb).argmax(1)
+            near = (F.normalize(zkey(qf), dim=1) @ dense.T).argmax(1)  # recognition: the nearest historical key's word
+            r.setdefault('recognition', {})[qname] = {str(b + 1): float((near == torch.arange(len(words)).repeat_interleave(R))[rep(batch) == b].float().mean())
+                                                     for b in range(TM.BATCHES)}
             r[qname] = {name: {'agree_teacher': {str(b + 1): float((a == rep(teach))[rep(batch) == b].float().mean()) for b in range(TM.BATCHES)},
                                'correct': {str(b + 1): float((a == rep(truth))[rep(batch) == b].float().mean()) for b in range(TM.BATCHES)}}
                         for name, a in ans.items()}
@@ -138,6 +141,7 @@ def historical(seed, mat, rec, maps, encs, cfgs):
 def main():
     torch.set_num_threads(8)
     LM.install()
+    TM.install_key_head()
     out = {}
     for seed in SEEDS:
         for arm in TM.ARMS:
@@ -146,7 +150,7 @@ def main():
             out[f'{arm}/seed{seed}'] = {'oracle': oracle(seed, [(w, rec[w]['teacher']) for w in order]),
                                          'historical': historical(seed, mat, rec, maps, encs, ((1024, 41), (1024, 20), (256, 5)))}
             print('done', arm, seed, flush=True)
-    path = X.ROOT / 'reports' / 'translation-memory-v1-pilot-controls.json'
+    path = X.ROOT / 'reports' / ('translation-memory-v1-pilot-controls' + ('-identity' if TM.IDENTITY else '') + ('-smoke' if TM.SMOKE else '') + '.json')
     path.write_text(json.dumps(out, indent=1, sort_keys=True) + '\n')
 
 

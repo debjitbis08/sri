@@ -56,7 +56,7 @@ VARIANTS = ('assoc', 'assoc-1step', 'assoc-nomap', 'flat-sparse', 'flat-store')
 SELECTION = X.ROOT / 'reports' / ('translation-memory-v1-selection' + ('-smoke' if SMOKE else '') + '.json')
 NAME = 'translation-memory-v1-memory' + ('-smoke' if SMOKE else '') + os.environ.get('NFI_TAG', '')
 WORKERS = X.WORKERS
-D_CODE = 16  # the host's code width (inner width of the wide standard network)
+D_CODE = TM.KEY_DIM if TM.IDENTITY else 16  # key width: the identity key head, or the host's code (inner width of the wide standard network)
 
 
 # ---------------------------------------------------------------- host access
@@ -97,6 +97,14 @@ class Host:
 @torch.no_grad()
 def encode(enc, model, x):
     return G.codes_fn(enc, model)(np.ascontiguousarray(x.reshape(-1, 28, 28), dtype=np.float32), 'image').double()
+
+
+@torch.no_grad()
+def encode_keys(enc, model, x):
+    """The memory's key representation: the identity key head when the host stage trained one, else the host's code."""
+    if not TM.IDENTITY:
+        return encode(enc, model, x)
+    return TM.keys_of(enc, torch.from_numpy(np.ascontiguousarray(x.reshape(-1, 28, 28), dtype=np.float32))).double()
 
 
 @torch.no_grad()
@@ -539,6 +547,7 @@ def main_stage():
 def setup():
     torch.set_num_threads(1)
     LM.install()
+    TM.install_key_head()
 
 
 if __name__ == '__main__':
