@@ -49,13 +49,13 @@ The diagnosis uses eight-rendering prototypes from the final encoder; the memory
 (1,024 units, 41 active; 20 active is similar, 256 units with 5 active is worse for the sparse methods: exact-key agreement 0.52 flat-sparse, 0.35 at sixteen steps.)
 
 Reading, in order of size:
-- **Single-rendering keys do not generalize across renderings.** Even with no drift and exact dense lookup, a different rendering of the same word finds its own key only about a quarter of the time. This is the largest loss.
-- **Drift then removes most of what remains** (0.26 → 0.12 by the end of batch 6 → 0.04 after the final context block); the anchor map does not prevent it.
+- **Across renderings, at the write point, a different rendering finds the written answer only about a quarter of the time.** This is the largest step in the table. *Corrected by the decomposition below: every row uses the anchor map, and the map accounts for much of this step (recognition 0.25 with the map, 0.59 without). The table does not show that single-rendering keys fail on their own.*
+- **Time then removes most of what remains** (0.26 → 0.12 by the end of batch 6 → 0.04 after the final context block).
 - **Teacher errors** cap correctness: 0.65 of written answers are correct (0.39–0.86 by arm-seed).
 - **Associative interference on correlated keys** costs 0.11–0.16 on exact keys (flat-sparse 0.99 against one-step 0.89 at 41 active); **settling** costs a further 0.05.
 - Separation itself costs little at 1,024 units (dense 1.00 against flat-sparse 0.99 on exact keys).
 
-So "the key is already wrong" dominates: across renderings and across time. Storage and settling lose a smaller, separate amount on correlated keys, and none on independent ones.
+So "the key is already wrong" dominates. Storage and settling lose a smaller, separate amount on correlated keys, and none on independent ones.
 
 ## Revision (for the researchers)
 
@@ -63,6 +63,49 @@ The strongest candidate (fourth review): an **identity-learning objective**, tra
 
 The revised gate tests the memory interface, not fresh prototypes: recognition of all experienced words across independent renderings, and compatibility with historical single-rendering keys, by batch age. Lowering the storage gate without this would leave the memory study testing nothing.
 
+## Identity host: perception gate (fails)
+
+Host stage with the [identity revision](translation-memory-v1-draft.md) (`TM_IDENTITY=1`), same seeds and arms; the gate was committed before these results. Controls: `reports/translation-memory-v1-pilot-controls-identity.json`.
+
+| reading (pooled over arm-seeds and batches) | gate | no identity loss | identity loss |
+|---|---|---|---|
+| recognition, queries at the write point | ≥ 0.90 | 0.25 | **0.59** |
+| recognition, end of batch 6 | ≥ 0.80 | 0.11 | **0.21** |
+| recognition, after the final context block | reported | 0.03 | 0.13 |
+
+**The gate fails, so the memory grid does not run.** Other changes: exact written keys are now stored faithfully (at 1,024 units, 41 active, all four retrieval methods agree with the written answer on 1.00 of exact keys, against 0.84–0.89 for the associative reads before; 256 units with 5 active: 0.90 at sixteen steps), and teacher answers improve (0.77 correct against 0.65). Last-batch host accuracy at the end of its batch, by arm-seed: 0.72–0.90 (0.20–0.93 before). `frozen-encoder` still learns later batches poorly (0.00–0.42). The number-structure snapshots were recorded but not analysed here, so the loss's effect on transfer is unknown.
+
+## Decomposition (post hoc)
+
+`experiments/translation_memory_identity_diagnosis.py`; `reports/translation-memory-v1-identity-diagnosis.json` and, for the original host, `reports/translation-memory-v1-pilot-decomposition.json`. Recognition from evaluation renderings by nearest single-rendering key; means over the four arm-seeds. Measurements only: the "same encoder" rows re-encode old renderings the system no longer holds.
+
+| reading | no identity loss | identity loss |
+|---|---|---|
+| current batch's keys only, 20-way, its own encoder, no map | 0.69 | 0.98 |
+| all 120 keys, the same (final batch-6) encoder, no map | 0.31 | 0.51 (batches 1–5: 0.40–0.54; batch 6: 0.80) |
+| the same, prototypes of eight renderings | 0.43 | 0.69 |
+| the same, other training renderings as queries | 0.33 | 0.53 |
+| keys as written, queries at the write point, no map | 0.59 | 0.95 |
+| keys as written, queries at the write point, map λ = 0.01 | 0.25 | 0.59 |
+| keys as written, end of batch 6, no map | 0.14 | 0.21 |
+| keys as written, end of batch 6, map λ = 0.01 | 0.11 | 0.21 |
+
+Reading (identity host):
+- **The objective works for words being taught** (0.98 among the 20 current words).
+- **It does not hold 120 words apart, even with no drift and no map** (0.51). Older batches are lower than the newest, and even the newest drops from 0.98 to 0.80 with 120 candidates, so lost training and a larger candidate set both contribute and are not separated here. Seen renderings do little better than new ones (0.53 against 0.51), so this is not overfitting to particular images.
+- **Stored keys go stale.** Without a map, the end-of-batch-6 reading is about 0.98–0.99 for batch 6 and at most 0.20 for every older batch (0.00–0.02 for batch 1).
+- **The anchor map moves accuracy rather than adding it.** It recovers some old keys and damages current ones: 0.95 → 0.59 at the write point, no pooled gain at the end of batch 6, at any λ tried (0.19–0.24; the selected λ was chosen on anchors for the host's code, not for these keys). The unmapped 0.95 overstates identity, since a word's competitors there are keys written by other encoder states, which have drifted away.
+
+Correction: earlier statements in this report that single-rendering keys do not generalize across renderings, and that the map merely fails to prevent drift, were too strong; the map itself does damage on these keys.
+
+## Next revision (for the researchers)
+
+The two remaining failures are that identity for words no longer taught is not held, and that stored keys drift. Candidates:
+
+1. **A stable key pathway.** A separate small encoder trained for identity on a broad background alphabet, then frozen or slowed, on the metric-learning premise that it discriminates symbols it never trained on (Siamese and prototypical networks **[familiar; read before use]**). Drift is removed by construction, at constant storage, and the host keeps learning, unlike `frozen-encoder`, which freezes the host's own path. Cheap to test without host training: recognition of held-out symbols. Constraint: the filtered pool has about 85 symbols outside the lexicon, targets and anchors, so a background alphabet needs a larger pool. Whether perception that stops adapting suits the program's goals is the researchers' call.
+2. **Hold the reference during training.** Penalize change in the stored anchors' keys while the encoder learns (feature distillation, Li and Hoiem 2017 **[familiar; read before use]**), instead of correcting afterwards with a map. Constant storage; keeps the encoder learning. Its risk is the map's: anchors may not represent lexicon words.
+3. **Rewrite keys from replayed renderings.** Rejected as the design: storage grows with facts, as the retention-remedies review already established.
+
 ## Computation (measured costs only)
 
-Host stage: 819 s wall on the GTX 1650, four tasks in parallel (761–776 s each). Selection: 27 s wall on the CPU with 11 workers (λ 2.5 s, grid 25 s). Diagnosis: about 5 s. Controls: 22 s wall on the CPU. Timing is in the runtime files.
+Host stage: 819 s wall on the GTX 1650, four tasks in parallel (761–776 s each). Selection: 27 s wall on the CPU with 11 workers (λ 2.5 s, grid 25 s). Diagnosis: about 5 s. Controls: 22 s wall on the CPU. Identity host stage: 918 s wall on the same GPU (about 12% longer than the original). Decomposition: about 6 s per host. Timing is in the runtime files.
