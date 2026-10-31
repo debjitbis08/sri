@@ -1,7 +1,7 @@
 # Forgetting mechanism v1: contract (frozen 2026-10-31)
 
 Status: **frozen 2026-10-31**, after an external review and the prior-work reading. Arms, seeds, branches, endpoints and readings below do not change after results are seen; anything added later is labeled post hoc. Implemented in `experiments/forgetting_mechanism.py` (smoke-checked: frozen parameters bitwise unchanged, `noupdate` reproduces update-0 recall exactly, `zero-grad` moves weights, frozen-bank decoder equals the rebuilt bank at update 0).
-fell to near chance (0.12–0.15 against 0.111) by the end of block 5 in every arm, with no interference from B. Before any
+Follows [arbitrary pairings v1](arbitrary-pairings-v1-results.md), where recall of the 45 taught pairs fell to near chance (0.12–0.15 against 0.111) by the end of block 5 in every arm, with no interference from B. Before any
 further architecture comparison (random rewiring, routing, working memory) we want to know **why** the pairs are lost.
 
 ## What the finished study already shows (post hoc, descriptive; seeds 320–329, Option A, branch `P-A`)
