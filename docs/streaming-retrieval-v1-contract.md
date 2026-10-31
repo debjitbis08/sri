@@ -1,6 +1,6 @@
 # Streaming retrieval v1: contract
 
-Status: **draft, 2026-10-31**. The pilot on seeds 299 and 298 fixes the budgets below; the contract is frozen before confirmation seeds 370–379 are built.
+Status: **frozen 2026-10-31**, before confirmation seeds 370–379 were built. Draft committed before the pilot; changes the pilot caused are listed under *Changes from the pilot*.
 
 ## Question
 
@@ -49,7 +49,7 @@ All read the same similarities (cosines of the frame's key against P stored keys
 | `hysteresis` | As `ema`, plus a held decision: yields only to a word ahead by δ, or when falling below τ − δ. A word is accepted at τ | D floats, one index |
 | `hmm` | Forward filter over P words and an unfamiliar state, vMF evidence κ·similarity, constant evidence κτ for unfamiliar, uniform switch hazard h. **Reference, not one of the compared mechanisms** | P + 1 floats |
 | `idp-key` | Input-driven dynamics on the keys themselves, D = 32 | D floats |
-| `idp-wide` | Input-driven dynamics at N = 1,024, with stored patterns the signs of a fixed Gaussian projection of the keys, and input its projection. Primary condition only | N floats |
+| `idp-wide` | Input-driven dynamics at N = 1,024, with stored patterns the signs of a fixed Gaussian projection of the keys, and input its projection. `degraded` and `clean` only | N floats |
 
 **Input-driven dynamics** (Eqs. 7, 8 and 19 of the published paper, Euler–Maruyama):
 
@@ -66,10 +66,10 @@ The implementation is called *inspired by*, not a reproduction. Differences: rea
 | method | grid |
 |---|---|
 | `nearest` | threshold 0 to 2× the median nearest similarity on the first pilot stream of that condition, steps of 0.05× |
-| `ema` | a ∈ {1/2, 1/3, 1/4, 1/6, 1/8, 1/12, 1/16, 1/24}, threshold as above |
-| `hysteresis` | a as above, τ ∈ {0.5, 0.65, 0.8, 1, 1.2}× median, δ ∈ {0.05, 0.1, 0.2, 0.3, 0.5}× median |
+| `ema` | a ∈ {1, 1/2, 1/3, 1/4, 1/6, 1/8, 1/12, 1/16, 1/24}, threshold as above |
+| `hysteresis` | a as above, τ ∈ {0.5, 0.65, 0.8, 1, 1.2}× median, δ ∈ {0.02, 0.05, 0.1, 0.2, 0.3, 0.5}× median |
 | `hmm` | κ ∈ {5, 10, 20, 40, 80}/median, h ∈ {0.001, 0.003, 0.01, 0.03, 0.1}, τ as `hysteresis` |
-| `idp-key` | g ∈ {1, 2, 4, 8, 16, 32}, τ ∈ {0.1, 0.25, 0.5, 1, 2}, K ∈ {1, 2, 4, 16} (16 only for τ ≥ 0.25), σ ∈ {0, 1, 2, 4}, overlap threshold 0–1 in steps of 0.025 |
+| `idp-key` | g ∈ {0.25, 0.5, 1, 2, 4, 8, 16, 32}, τ ∈ {0.1, 0.25, 0.5, 1, 2}, K ∈ {1, 2, 4, 16} (16 only for τ ≥ 0.25), σ ∈ {0, 1, 2, 4}, overlap threshold 0–1 in steps of 0.025 |
 | `idp-wide` | g ∈ {4, 8, 16, 32}, τ ∈ {0.25, 0.5, 1}, K ∈ {1, 2}, σ ∈ {0, 2}, threshold as above |
 | `idp` at `oracle` | g ∈ {64, 128, 256, 512, 1024}, τ, K, σ as `idp-wide`, threshold as above |
 
@@ -87,7 +87,9 @@ Per stream, on the decision sequence y:
 
 ## Selection and decision rule
 
-**Selection, on pilot seeds 299 and 298, primary condition, P = 120, one setting per method.** Among settings whose means meet the budgets, the fewest wrong switches, then the fewest multiplications. The provisional budgets are **delay mean ≤ 8 frames** (twice the longest burst), **failure to reject ≤ 0.10**, **dropout ≤ 0.10**. If no method can meet them, the pilot changes them before freezing, and the same numbers apply to every method. A method with no setting within budget reports its closest and is marked.
+**Selection, on pilot seeds 299 and 298, primary condition, P = 120, one setting per method.** Among settings whose means meet the budgets, the fewest wrong switches, then the fewest multiplications. The budgets are **delay mean ≤ 24 frames, failure to reject ≤ 0.40, dropout ≤ 0.40**, the same for every method. A method with no setting within budget reports its closest, by largest relative excess over a budget, and is marked; it still enters the rule below.
+
+Descriptive conditions are selected the same way: `held` as above; `clean` at delay ≤ 16, 0.15, 0.15; `oracle` at delay ≤ 8, 0.10, 0.10.
 
 `idp-key` is selected twice: among settings with **at most 6× the retrieval multiplications of `ema`** (**comparable cost**; this admits K ≤ 2), and without limit. The factor is generous because a single dynamics step is already 2 extra matrix-vector products, and the smoothing methods have nothing further to spend. Comparison uses retrieval work only, even though the encoder dominates each frame.
 
@@ -107,7 +109,19 @@ A candidate **beats** the better smoother if all hold:
 
 Descriptive only: every other condition, loads, capture by kind, `hmm` against everything, and the frontier.
 
-**Frontier.** On four confirmation seeds, the full grid (`idp-wide` excepted) at the primary condition gives the fewest wrong switches at delay budgets 4, 8 and 16. This tunes on test streams for every method alike. It checks whether frozen settings or thresholds hide a win, and does not count toward the rule.
+**Frontier.** On four confirmation seeds, the full grid (`idp-wide` excepted) at the primary condition gives the fewest wrong switches at delay budgets 16, 24 and 32. This tunes on test streams for every method alike. It checks whether frozen settings or thresholds hide a win, and does not count toward the rule.
+
+## Changes from the pilot
+
+Pilot results on seeds 299 and 298 caused these changes, all before the confirmation seeds existed:
+
+- **Budgets.** The provisional budgets (delay ≤ 8, 0.10, 0.10) were unattainable for every method on `degraded`: the lowest attainable larger-of(failure to reject, dropout) is 0.36 for the smoothers and 0.37 for `nearest`. The budgets became the tightest round values the smoothers meet. This loosens them for every method alike; `idp-key` and `idp-wide` still have no setting within them.
+- **Grids.** Selected settings lay on edges, so `a = 1`, `δ = 0.02×` and `g ∈ {0.25, 0.5}` were added. After that, `idp-wide` still selects τ = 1 and σ = 0 at grid edges on `degraded`; not extended, since at 133× the multiplications of `ema` it cannot reach comparable cost.
+- **Corruption ladder.** The first ladder, tried at smoke scale, was too coarse (its mildest level already gave 0.23), so a finer one replaced it before the rule was applied. By the rule: `degraded` noise 0.06 with occluder 4 (single-frame accuracy 0.65 on validation symbols), burst noise 0.15 with occluder 6 (0.08).
+- **`idp-wide`** also runs on `clean`, where real keys give it the best chance.
+- **Frontier** on four seeds and without `idp-wide`, for cost.
+
+Pilot expectation to set against the result, recorded here: `does-not-beat`.
 
 ## Prior work
 
@@ -136,8 +150,8 @@ Per frame, P keys of width D, dynamics width N, K steps; multiplications as coun
 | `nearest` | PD | none | PD | linear in P |
 | `ema`, `hysteresis` | PD + P | D (or P) | PD | linear in P; state does not grow with P |
 | `hmm` | PD + 3P | P + 1 | PD | state grows with P |
-| `idp-key` | (2 + 2K)PD + K(P + 2D) | D | PD | linear in P, multiplied by the steps |
-| `idp-wide` | ND + (2 + 2K)PN + K(P + 2N) | N | PN + ND | the same, multiplied by N/D |
+| `idp-key` | (2 + 2K)PD + (K + 1)P + 2KD | D | PD | linear in P, multiplied by the steps |
+| `idp-wide` | ND + (2 + 2K)PN + (K + 1)P + 2KN | N | PN + ND | the same, multiplied by N/D |
 
 - **Facts.** All are linear in P. A sublinear index could replace the first read for any of them, and truncating W(u) to the k largest α would make a dynamics step O(kN). **[derived]**, not run. None of the state advantages favours `idp` over `ema`, since smoothing the query has the same D-wide state, which is the one scaling argument that might otherwise have favoured it.
 - **Probe.** The selected settings, frozen at P = 120, run at P = 30 and 360 on the primary condition. Gains and thresholds tuned for one load may not survive another, and this measures that.
@@ -146,7 +160,7 @@ Per frame, P keys of width D, dynamics width N, K steps; multiplications as coun
 ## Computation plan
 
 - **Construction.** Encoders: pilot seeds exist; confirmation about 70 s each on the GTX 1650. Streams: rendering and encoding, CPU, under a minute per seed.
-- **Selection.** Pilot grid: on the order of 500–600 settings per method-condition for `idp-key`, about 30 CPU-hours bound at smoke rates and full stream length, scored on 11 workers; measured and reported, rejected settings included.
+- **Selection.** Pilot grid: 168,800 scored setting-threshold pairs, about 3.7 CPU-hours over 11 workers, rejected settings included (`reports/streaming-retrieval-v1-pilot-runtime.json`; that file's wall time covers only its last session).
 - **Confirmation.** Selected settings on ten seeds; the frontier on four.
 - **Deterministic and timed output kept apart.** `reports/streaming-retrieval-v1-{pilot,confirm,analysis}` and separate `-runtime` files with revision, versions, wall and worker CPU by phase, peak RSS, settings scored. `timing` measures one thread, a warm-up pass, 15 passes over 2,000 frames, median and spread, batch similarity included, encoder separately.
 - **Persistence.** Tasks are durable (`experiments/durable.py`); rerunning the same command resumes. Streams and fits are written atomically.

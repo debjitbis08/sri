@@ -1,0 +1,87 @@
+{
+ "burst_level": 8,
+ "clean_accuracy": 0.9963333333333333,
+ "degraded_level": 5,
+ "ladder": [
+  {
+   "accuracy": 0.9956666666666667,
+   "level": 0,
+   "noise": 0.01,
+   "occluder": 0
+  },
+  {
+   "accuracy": 0.9916666666666666,
+   "level": 1,
+   "noise": 0.02,
+   "occluder": 2
+  },
+  {
+   "accuracy": 0.9823333333333334,
+   "level": 2,
+   "noise": 0.03,
+   "occluder": 2
+  },
+  {
+   "accuracy": 0.9253333333333333,
+   "level": 3,
+   "noise": 0.04,
+   "occluder": 3
+  },
+  {
+   "accuracy": 0.8140000000000001,
+   "level": 4,
+   "noise": 0.05,
+   "occluder": 3
+  },
+  {
+   "accuracy": 0.646,
+   "level": 5,
+   "noise": 0.06,
+   "occluder": 4
+  },
+  {
+   "accuracy": 0.37233333333333335,
+   "level": 6,
+   "noise": 0.08,
+   "occluder": 4
+  },
+  {
+   "accuracy": 0.22199999999999998,
+   "level": 7,
+   "noise": 0.1,
+   "occluder": 4
+  },
+  {
+   "accuracy": 0.08,
+   "level": 8,
+   "noise": 0.15,
+   "occluder": 6
+  },
+  {
+   "accuracy": 0.033999999999999996,
+   "level": 9,
+   "noise": 0.2,
+   "occluder": 6
+  },
+  {
+   "accuracy": 0.013000000000000001,
+   "level": 10,
+   "noise": 0.3,
+   "occluder": 8
+  }
+ ],
+ "oracle": {
+  "burst": {
+   "accuracy": 0.20166666666666666,
+   "signal": 0.0501708984375
+  },
+  "clean": {
+   "accuracy": 0.9608333333333333,
+   "signal": 0.1380615234375
+  },
+  "degraded": {
+   "accuracy": 0.7016666666666667,
+   "signal": 0.0977783203125
+  }
+ }
+}

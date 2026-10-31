@@ -57,14 +57,18 @@ LADDER = [(.01, 0), (.02, 2), (.03, 2), (.04, 3), (.05, 3), (.06, 4), (.08, 4), 
 TARGET_DEGRADED, TARGET_BURST = .70, .20
 ORACLE_CLEAN = .96
 
-RATES = (1 / 2, 1 / 3, 1 / 4, 1 / 6, 1 / 8, 1 / 12, 1 / 16, 1 / 24)
-GAINS = {'idp-key': (1, 2, 4, 8, 16, 32), 'idp-wide': (4, 8, 16, 32), 'idp-oracle': (64, 128, 256, 512, 1024)}
+RATES = (1, 1 / 2, 1 / 3, 1 / 4, 1 / 6, 1 / 8, 1 / 12, 1 / 16, 1 / 24)
+GAINS = {'idp-key': (.25, .5, 1, 2, 4, 8, 16, 32), 'idp-wide': (4, 8, 16, 32), 'idp-oracle': (64, 128, 256, 512, 1024)}
 FRAME_T = {'idp-key': (.1, .25, .5, 1, 2), 'idp-wide': (.25, .5, 1), 'idp-oracle': (.25, .5, 1)}
 STEPS = {'idp-key': (1, 2, 4, 16), 'idp-wide': (1, 2), 'idp-oracle': (1, 2)}
 SIGMAS = {'idp-key': (0, 1, 2, 4), 'idp-wide': (0, 2), 'idp-oracle': (0, 2)}
 COMPARABLE = 6.  # retrieval multiplications per frame, against EMA
-# provisional until the pilot, frozen with the contract
-BUDGET = {'delay_mean': 8., 'accept_unfamiliar': .10, 'dropout': .10}
+# set by the pilot, frozen with the contract: the same numbers for every method within a condition
+BUDGETS = {'clean': {'delay_mean': 16., 'accept_unfamiliar': .15, 'dropout': .15},
+           'degraded': {'delay_mean': 24., 'accept_unfamiliar': .40, 'dropout': .40},
+           'held': {'delay_mean': 24., 'accept_unfamiliar': .40, 'dropout': .40},
+           'oracle': {'delay_mean': 8., 'accept_unfamiliar': .10, 'dropout': .10}}
+DELAY_BUDGETS = {'clean': (4, 8, 16), 'degraded': (16, 24, 32), 'held': (16, 24, 32), 'oracle': (4, 8, 16)}
 METHODS = ('nearest', 'ema', 'hysteresis', 'hmm', 'idp-key', 'idp-wide')
 SMOOTHERS = ('ema', 'hysteresis')
 
@@ -271,7 +275,7 @@ def grid(method, cond):
     sweep = [round(float(x) * scale, 4) for x in np.arange(0, 2.001, .05)]
     unit = [round(float(x), 3) for x in np.arange(0, 1.0001, .025)]
     fracs = (.5, .65, .8, 1., 1.2)
-    margins = (.05, .1, .2, .3, .5)
+    margins = (.02, .05, .1, .2, .3, .5)
     if method == 'nearest':
         return [({'method': 'nearest'}, sweep)]
     if method == 'ema':
@@ -281,8 +285,8 @@ def grid(method, cond):
     if method == 'hmm':
         return [({'method': 'hmm', 'kappa': round(k / scale, 3), 'hazard': h, 'tau': round(f * scale, 4)}, None)
                 for k in (5, 10, 20, 40, 80) for h in (.001, .003, .01, .03, .1) for f in fracs]
-    if method == 'idp-wide' and cond != PRIMARY:
-        return []  # the cost of width is read on the primary condition; oracle patterns are already wide and idp-key reads them directly
+    if method == 'idp-wide' and cond not in (PRIMARY, 'clean'):
+        return []  # width is read on the primary condition and where real keys are cleanest; oracle patterns are already wide and idp-key reads them directly
     kind = 'idp-oracle' if cond == 'oracle' else method
     return [({'method': method, 'gain': g, 'tau': t, 'steps': k, 'sigma': s}, unit)
             for g in GAINS[kind] for t in FRAME_T[kind] for k in STEPS[kind] for s in SIGMAS[kind] if k < 16 or t >= .25]
@@ -413,12 +417,12 @@ def tasks_for(seeds, conds=CONDITIONS, methods=METHODS):
     return out
 
 
-def select_all(results, seeds, budget=None):
-    budget = budget or BUDGET
+def select_all(results, seeds):
     D = 32
     out = {}
     for cond in CONDITIONS:
         out[cond] = {}
+        budget = BUDGETS[cond]
         width = ORACLE_N if cond == 'oracle' else D
         ema_ops = sr.ops('ema', PRIMARY_LOAD, width)
         for method in METHODS:
@@ -437,11 +441,11 @@ def select_all(results, seeds, budget=None):
     return out
 
 
-def frontier(rows, budgets):
-    """For each delay budget, the fewest wrong switches within the reject and dropout limits."""
+def frontier(rows, cond):
+    """For each delay budget, the fewest wrong switches within the condition's reject and dropout limits."""
     out = {}
-    for d in budgets:
-        ok = [r for r in rows if r['delay_mean'] <= d and r['accept_unfamiliar'] <= BUDGET['accept_unfamiliar'] and r['dropout'] <= BUDGET['dropout']]
+    for d in DELAY_BUDGETS[cond]:
+        ok = [r for r in rows if r['delay_mean'] <= d and r['accept_unfamiliar'] <= BUDGETS[cond]['accept_unfamiliar'] and r['dropout'] <= BUDGETS[cond]['dropout']]
         out[str(d)] = None if not ok else min(ok, key=lambda r: r['wrong_per_1000'])
     return out
 
@@ -465,8 +469,8 @@ def pilot():
             print(i + 1, '/', len(tasks), key, round(rt['wall_seconds'], 1), flush=True)
     results.sort(key=lambda z: z[0])
     sel = select_all(results, set(seeds))
-    frontiers = {cond: {m: frontier(pooled_rows(results, set(seeds), cond, PRIMARY_LOAD, m), (4, 8, 16)) for m in METHODS} for cond in CONDITIONS}
-    save_json(f'{REPORT}-pilot.json', {'seeds': list(seeds), 'budget': BUDGET, 'selected': sel, 'frontier': frontiers, 'levels': levels()})
+    frontiers = {cond: {m: frontier(pooled_rows(results, set(seeds), cond, PRIMARY_LOAD, m), cond) for m in METHODS} for cond in CONDITIONS}
+    save_json(f'{REPORT}-pilot.json', {'seeds': list(seeds), 'budgets': BUDGETS, 'selected': sel, 'frontier': frontiers, 'levels': levels()})
     cpu = sum(rt['cpu_seconds'] for _, _, rt in results)
     save_json(f'{REPORT}-pilot-runtime.json', runtime({'wall_seconds': time.perf_counter() - t0, 'stream_build_wall_seconds': build_s, 'grid_wall_seconds': time.perf_counter() - t1, 'worker_cpu_seconds': cpu,
                                                        'tasks': len(results), 'settings_scored': sum(len(r['rows']) for _, r, _ in results), 'by_task': {k: rt for k, _, rt in results}}))
@@ -514,7 +518,7 @@ def confirm():
             if i % 10 == 0:
                 print(i + 1, '/', len(tasks), flush=True)
     results.sort(key=lambda z: z[0])
-    fr = {m: frontier(pooled_rows(results, set(frontier_seeds), PRIMARY, PRIMARY_LOAD, m), (4, 8, 16)) for m in frontier_methods}
+    fr = {m: frontier(pooled_rows(results, set(frontier_seeds), PRIMARY, PRIMARY_LOAD, m), PRIMARY) for m in frontier_methods}
     with gzip.open(f'{REPORT}-confirm.json.gz', 'wt') as f:
         json.dump({'seeds': list(seeds), 'frontier_seeds': list(frontier_seeds), 'selected': sel, 'readings': full, 'frontier_primary': fr}, f, sort_keys=True, default=float)
     save_json(f'{REPORT}-confirm-runtime.json', runtime({'wall_seconds': time.perf_counter() - t0, 'stream_build_wall_seconds': build_s, 'selected_wall_seconds': selected_s, 'frontier_wall_seconds': time.perf_counter() - t2,
@@ -577,21 +581,29 @@ def analyse():
     capture = {m: {f'{g}:{k}': float(np.nanmean(np.array([read[f'{s}/{PRIMARY}/P{PRIMARY_LOAD}/{m}'][g][k] if read[f'{s}/{PRIMARY}/P{PRIMARY_LOAD}/{m}'][g][k] is not None else np.nan for s in seeds], float)))
                    for g, keys in (('capture_by_kind', sr.BURST_KINDS), ('capture_by_length', [str(n) for n in sr.BURST_LENGTHS])) for k in keys} for m in sel}
     loads = {str(p): {m: {k: float(get(m, k, PRIMARY, p).mean()) for k in ('wrong_per_1000', 'delay_mean', 'accept_unfamiliar', 'dropout')} for m in sel} for p in LOADS}
-    contrasts = {}
-    for name in ('idp-key:comparable', 'idp-key', 'idp-wide', 'hmm'):
-        if name not in sel:
-            continue
-        d = get(name, 'wrong_per_1000') - get(smoother, 'wrong_per_1000')
-        base = get(smoother, 'wrong_per_1000').mean()
-        guards = {k: {'difference': float((get(name, k) - get(smoother, k)).mean()), 'ci95': bootstrap(get(name, k) - get(smoother, k), rng), 'margin': MARGINS[k]} for k in MARGINS}
-        ci = bootstrap(d, rng)
-        reduction = float(-d.mean() / base) if base else 0.
-        guards_ok = all(g['ci95'][1] <= g['margin'] for g in guards.values())
-        contrasts[name] = {'against': smoother, 'wrong_difference': float(d.mean()), 'ci95': ci, 'relative_reduction': reduction, 'guards': guards, 'guards_hold': guards_ok,
-                           'beats': bool(ci[1] < 0 and reduction >= MIN_REDUCTION and guards_ok), 'ops_ratio_to_ema': sel[name]['ops_ratio_to_ema'], 'within_budget_on_pilot': sel[name]['within_budget']}
+
+    def contrast_set(cond):
+        chosen = z['selected'][cond]
+        better = min(SMOOTHERS, key=lambda m: (not chosen[m]['within_budget'], chosen[m]['wrong_per_1000']))
+        out = {}
+        for name in ('idp-key:comparable', 'idp-key', 'idp-wide', 'hmm'):
+            if name not in chosen:
+                continue
+            base = get(better, 'wrong_per_1000', cond)
+            d = get(name, 'wrong_per_1000', cond) - base
+            guards = {k: {'difference': float((get(name, k, cond) - get(better, k, cond)).mean()), 'ci95': bootstrap(get(name, k, cond) - get(better, k, cond), rng), 'margin': MARGINS[k]} for k in MARGINS}
+            ci = bootstrap(d, rng)
+            reduction = float(-d.mean() / base.mean()) if base.mean() else 0.
+            guards_ok = all(g['ci95'][1] <= g['margin'] for g in guards.values())
+            out[name] = {'against': better, 'wrong_difference': float(d.mean()), 'ci95': ci, 'relative_reduction': reduction, 'guards': guards, 'guards_hold': guards_ok,
+                         'beats': bool(ci[1] < 0 and reduction >= MIN_REDUCTION and guards_ok), 'ops_ratio_to_ema': chosen[name]['ops_ratio_to_ema'], 'within_budget_on_pilot': chosen[name]['within_budget']}
+        return out
+
+    by_condition = {cond: contrast_set(cond) for cond in CONDITIONS}
+    contrasts = by_condition[PRIMARY]
     primary = contrasts.get('idp-key:comparable', {})
     outcome = 'earns-role' if primary.get('beats') else ('beats-only-at-higher-cost' if any(contrasts[n]['beats'] for n in ('idp-key', 'idp-wide') if n in contrasts) else 'does-not-beat')
-    out = {'seeds': seeds, 'smoother': smoother, 'table': table, 'capture': capture, 'loads': loads, 'contrasts': contrasts, 'outcome': outcome, 'frontier_primary': z['frontier_primary']}
+    out = {'seeds': seeds, 'smoother': smoother, 'table': table, 'capture': capture, 'loads': loads, 'contrasts': contrasts, 'descriptive_contrasts': {c: v for c, v in by_condition.items() if c != PRIMARY}, 'outcome': outcome, 'frontier_primary': z['frontier_primary']}
     save_json(f'{REPORT}-analysis.json', out)
     print(outcome, smoother)
     print(json.dumps(contrasts, indent=1, default=float))
