@@ -1,0 +1,32 @@
+{
+ "cublas_workspace_config": ":4096:8",
+ "cuda": "13.0",
+ "cudnn": 92400,
+ "deterministic_algorithms": true,
+ "device": "cuda",
+ "dirty": true,
+ "fits": {
+  "base-key32": {
+   "render_seconds": 39.39327792500262,
+   "train_seconds": 26.113720852998085
+  },
+  "base-key64": {
+   "render_seconds": 0.6821443380031269,
+   "train_seconds": 25.33120753300318
+  },
+  "wide-key32": {
+   "render_seconds": 0.6821260880096816,
+   "train_seconds": 31.874341640999774
+  },
+  "wide-key64": {
+   "render_seconds": 0.7309262829949148,
+   "train_seconds": 31.828248246005387
+  }
+ },
+ "gpu": "NVIDIA GeForce GTX 1650",
+ "peak_rss_kb": 1877560,
+ "revision": "92666eb9886fda04643207ea1c8fa2cd9af05f9f",
+ "scope": "nondeterministic timing",
+ "symbol_filter_seconds": 28.194463146006456,
+ "wall_seconds": 186.07647503100452
+}

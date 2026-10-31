@@ -106,6 +106,25 @@ The two remaining failures are that identity for words no longer taught is not h
 2. **Hold the reference during training.** Penalize change in the stored anchors' keys while the encoder learns (feature distillation, Li and Hoiem 2017 **[familiar; read before use]**), instead of correcting afterwards with a map. Constant storage; keeps the encoder learning. Its risk is the map's: anchors may not represent lexicon words.
 3. **Rewrite keys from replayed renderings.** Not pursued now. Bounded replay need not grow with facts, since it can keep a fixed subset; its unresolved problem here is how to maintain keys for facts whose renderings have been discarded.
 
+## Stable keys: perception gate (passes)
+
+The [stable key revision](translation-memory-v1-draft.md): a separate, fully frozen encoder, with rules committed before results and the test symbols read once. `experiments/translation_stable_keys.py`; `reports/translation-memory-v1-stable-keys-selection.json`, `reports/translation-memory-v1-stable-keys-confirmation.json`.
+
+- **Symbols.** 3,207 candidates outside the pool leave 2,187 after duplicate-glyph thinning: 200 validation, 1,987 background.
+- **Selection (validation symbols, seed 299).** All sixteen readings lie between 0.94 and 0.999. Rule's choice: base network, key width 32, 8,000 steps, **0.996**, 839,040 bytes. Wide with key width 32 reaches 0.999 at four times the bytes. Raw pixels 0.09, untrained base network 0.05.
+- **Gate (test symbols: the 120-word lexicons, the buffered rendering as key, five independent renderings as queries, all 120 candidates).** **0.962 pooled** (seed 299: 0.952; seed 298: 0.972) against the working threshold 0.90. **Passes.** Raw pixels 0.10–0.11, untrained network 0.05–0.06 on the same images.
+
+| candidates (teaching order) | 20 | 40 | 60 | 80 | 100 | 120 |
+|---|---|---|---|---|---|---|
+| seed 299 | 0.99 | 0.96 | 0.97 | 0.95 | 0.95 | 0.95 |
+| seed 298 | 1.00 | 0.995 | 0.99 | 0.975 | 0.97 | 0.97 |
+
+Readings:
+- **Competition costs little over this range** (1.00–0.99 down to 0.97–0.95). The slope is what would limit a larger lexicon; 120 words does not show where it ends.
+- **Test is below validation** (0.962 against 0.989–0.996). The task's pool comes from different Unicode blocks than the validation symbols, so validation overstates transfer to these symbols.
+- **All 120 candidates held fixed across seven checkpoints give identical keys, queries and recognition**, on both seeds. This only checks the implementation, since no host trains in this test; the digest check during integration is the first real one.
+- **Scope.** This is recognition through perception pretrained on about 2,000 symbols, which then stops adapting. It says nothing about continually adapting memory perception. Each key is still stored from one rendering, and 3–5% of renderings still reach the wrong key.
+
 ## Computation (measured costs only)
 
-Host stage: 819 s wall on the GTX 1650, four tasks in parallel (761–776 s each). Selection: 27 s wall on the CPU with 11 workers (λ 2.5 s, grid 25 s). Diagnosis: about 5 s. Controls: 22 s wall on the CPU. Identity host stage: 918 s wall on the same GPU (about 12% longer than the original). Decomposition: about 6 s per host. Timing is in the runtime files.
+Host stage: 819 s wall on the GTX 1650, four tasks in parallel (761–776 s each). Selection: 27 s wall on the CPU with 11 workers (λ 2.5 s, grid 25 s). Diagnosis: about 5 s. Controls: 22 s wall on the CPU. Identity host stage: 918 s wall on the same GPU (about 12% longer than the original). Decomposition: about 6 s per host. Stable keys, selection: symbol filter 28 s, rendering 39 s, four fits 26–32 s each on the same GPU; confirmation: 69 s wall, including one further fit and its rendering. Encoder 839,040 persistent bytes. Timing is in the runtime files.
