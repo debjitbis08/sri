@@ -1620,3 +1620,45 @@ rate, and any online rule must treat a cause's first occurrence like a one-off. 
 match was found in these searches for residual grouping with prequentially scored
 shadow updates routed to binding or shared stores. Not a novelty claim; the
 searches were few and MINAS's full text is unread.
+
+### Sleep: scheduled consolidation and dreaming
+
+Reading date 2026-11-01. [Behrouz et al., "Language Models Need Sleep", arXiv
+2606.03979v2](https://arxiv.org/abs/2606.03979) **[read: introduction, §3.2–3.4,
+§4 tables, §4.2, appendix on self-distillation; appendix B and figure values not
+read]**, from the [Google Research post](https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/).
+
+- **Shown.** A chain of memory blocks with ordered update frequencies. At step
+  multiples of chunk sizes, a new low-rank expert is added to the slower block, all
+  other parameters are frozen, the faster block is distilled into it (on-policy
+  distillation plus imitation reward), and the sender's experts are reset. Then
+  dreaming: generate synthetic samples with a randomly added expert, keep top-k by
+  a gradient-based score plus b random, fine-tune an isolated copy on each, and
+  reward generation if downstream measure τ improves (Eq. 5). Reports on sequential
+  Manchu and Kalamang translation that performance rises with consolidation stages
+  (Figure 5, values not read). No-context SQuAD: base 31.9, SEAL 46.7/43.2, Sleep
+  48.9/46.2 (n = 1 / n = 200); no dreaming 35.7/36.2; without gradient selection
+  47.1/45.2; without the random expert 48.0/44.7. ARC: 80% on 8 held-out tasks after
+  filtering unsolvable ones. Math reasoning gains of 1–3 points. The tables read show
+  no intervals.
+- **Differs.** LLMs with task measures; a text world without bounded total memory;
+  trigger is a fixed schedule. Selection applies to dreams, not to which experience
+  is consolidated. No exhaustion behaviour is given for the pre-allocated experts.
+  It frames forgetting as "insufficient capacity". Whether τ uses labels is not
+  stated in the sections read, and it follows SEAL (not yet read).
+- **[derived]** In the SQuAD ablation, nearly all gain comes from dreaming, and little
+  from gradient selection or memory levels, on one benchmark without intervals. So
+  it does not establish that the consolidation hierarchy causes retention there.
+  Upward distillation into frozen-protected new parameters resembles our
+  [retention remedies](retention-remedies-v1-results.md) destination. There, on M,
+  `consolidate-cache` 0.459 against `rehearse-M` 0.471 and `frozen-snapshot` 0.502,
+  and `consolidate-random` 0.273: uninformative cues transferred far less. Different
+  scale and task, so context only. **[hypothesis]** Dream quality may matter for the
+  same reason.
+- **[hypothesis]** Scheduled unselective consolidation is the alternative the
+  accumulated-surprise proposal must beat. Resetting the fast block at each sleep
+  also ends any evidence that has not resolved yet, so it should struggle with
+  evidence spanning sleeps, unless the slow block accumulates it. Its frequency chain
+  is an established form of the intermediate level in the
+  [notes](continuous-sensory-memory-notes.md), and should be a matched-resources
+  comparator in any test of whether a middle level earns its place.

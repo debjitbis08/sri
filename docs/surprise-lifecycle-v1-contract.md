@@ -106,8 +106,11 @@ The slot cap shown is `life`'s; `life-sketch` has half that or less (8 at 16 KiB
 | `reservoir-replay` | as above, uniform sample of all events (Vitter's Algorithm R) | ordinary bounded replay |
 | `titans-m0`, `titans` | MLP M, `M_t = (1 − α)M_{t−1} + S_t`, `S_t = βS_{t−1} − θ_M∇‖M(c) − o‖²`; β = 0 in `-m0` | inspired by [Titans](https://arxiv.org/html/2501.00663v1) Eqs. 12–14 |
 | `omega` | MLP M, one gradient step per event on the last c events, γ = 1 | inspired by [ATLAS](https://arxiv.org/pdf/2505.23735) Eq. 9 |
+| `sleep-periodic` | FIFO of all events with outcomes answers lookups. Every P events, ridge-fit the store's residuals into R, penalized toward the current R, with no selection; then clear the store | scheduled, unselective consolidation, inspired by [Sleep](https://arxiv.org/abs/2606.03979) §3.2–3.3 |
 
 MLP width is whatever fills the total budget, counting weights, momentum and window. These three are **inspired by, not tests of,** the published systems. Their α, β, θ_M and γ are constants rather than functions of the input, there is no attention or outer-loop training, and ATLAS's feature mapping and optimizer are left out. A loss here does not count against those papers. Omega's input-dependent γ can prune inside the window, which a constant γ cannot.
+
+`sleep-periodic` keeps only Sleep's schedule and lack of selection. It has no distillation, dreaming, reinforcement learning, memory chain or growth, so it too is not a test of that system. **`sleep-grow`**, descriptive only and outside the rule, adds a new rank-r expert at each sleep instead of changing R, with the sender's store cleared and old experts frozen. Its bytes grow with sleeps and are reported, since it cannot meet a fixed budget: about 3 MB at r = 4 on the longest stream. It shows what growth alone would buy.
 
 ### The mechanism
 
@@ -160,6 +163,9 @@ There is no time-based expiry, since a clock would decide the gap by another nam
 | τ_g (`life-cuegroup`) | 0.5, 0.6, 0.7 | 0.6 |
 | η | 0.003, 0.01, 0.03, 0.1, 0.3 | 0.03 |
 | r | 1, 4 | 1 |
+| P | K, K/2 | K |
+| ridge λ | 0.1, 1, 10 | 1 |
+| expert rank (`sleep-grow`) | 2, 4 | 4 |
 | MLP | layers 1, 2; α 0, 0.0001, 0.001; β 0.5, 0.9; θ_M 0.001, 0.003, 0.01, 0.03; c 16, 64, 256 | 2, 0.0001, 0.9, 0.01, 64 |
 
 ## Readings
@@ -191,7 +197,7 @@ An audit reads a copy of the state, on audit renderings, never changing the arm.
 
 The candidate **beats** a comparator on a reading at a gap if the mean gain is at least 0.10 and the lower bound exceeds 0, and the guards hold: lower bound of the difference ≥ −0.03 on the other of rule generalization and binding recall, ≥ −0.02 on old knowledge, and upper bound ≤ +0.02 on noise capture.
 
-The **long gaps** are 2,048, 8,192 and 32,768, each beyond the reach of every full-store arm at the primary cell (see below). Comparators are `slow`, `surprise-fifo`, `fifo-replay`, `reservoir-replay`, `titans-m0`, `titans` and `omega`. A reading is **won** if the candidate beats **all seven at the same gap**, at **at least two** long gaps. Requiring all comparators is conservative and needs no adjustment across them **[derived: intersection-union]**; the choice of two of three gaps is not adjusted.
+The **long gaps** are 2,048, 8,192 and 32,768, each beyond the reach of every full-store arm at the primary cell (see below). Comparators are `slow`, `surprise-fifo`, `fifo-replay`, `reservoir-replay`, `titans-m0`, `titans`, `omega` and `sleep-periodic`. A reading is **won** if the candidate beats **all eight at the same gap**, at **at least two** long gaps. Requiring all comparators is conservative and needs no adjustment across them **[derived: intersection-union]**; the choice of two of three gaps is not adjusted.
 
 | outcome, first that applies | condition | meaning |
 |---|---|---|
@@ -208,9 +214,9 @@ The **long gaps** are 2,048, 8,192 and 32,768, each beyond the reach of every fu
 - **Sketch:** `life-sketch` against `life`, and `count-sketch` against `count` on noise capture.
 - **Self-support:** `life-selfcount` against `life`, on noise capture.
 
-Everything else (other q, B, `clean`, short gaps, `rare`) is descriptive.
+Everything else (other q, B, `clean`, short gaps, `rare`, `sleep-grow`) is descriptive.
 
-**Expectations recorded before any run:** `life` is better than `count` on noise capture. `life-cuegroup` may match `life`, because the family glyph makes a rule visible in the cue, so this world does not favour grouping by error; equivalence here would not rule it out for structure the cue hides. 8 small steps leave `slow` weak at long gaps. 32,768 defeats all but possibly the sketch. `binding-store-only` is at least as likely as `earns-role`.
+**Expectations recorded before any run:** `life` is better than `count` on noise capture. `life-cuegroup` may match `life`, because the family glyph makes a rule visible in the cue, so this world does not favour grouping by error; equivalence here would not rule it out for structure the cue hides. 8 small steps leave `slow` weak at long gaps. 32,768 defeats all but possibly the sketch. `sleep-periodic` learns `rule` better than `slow` but absorbs noise into R, since it consolidates everything. `binding-store-only` is at least as likely as `earns-role`.
 
 ## Gates
 
@@ -235,6 +241,8 @@ Before any build. The review found these; all were correct and are fixed above:
 - Selection and verdicts were left open. Search order, stopping, infeasible settings, the AUROC gate, intervals and same-gap requirement are now specified, and secondary contrasts read better, equivalent or inconclusive. `replay-suffices` became `no-advantage-shown`.
 - Cost now counts Hamming comparisons, and complexity and workspace are stated.
 
+Added after reading [Sleep](https://arxiv.org/abs/2606.03979), since it names an established alternative: `sleep-periodic` and `sleep-grow`.
+
 Added while revising: the κ requirement and `uninformative` outcome. Chance residual groups turned out to be common by arithmetic (see below), and a world where the oracle cannot win would otherwise read as a failure of the mechanism.
 
 ## Changes from the pilot
@@ -244,6 +252,7 @@ None yet.
 ## Before freezing
 
 - Full text of MINAS's short-term-memory and validation rules (read so far: abstract only).
+- [SEAL](https://arxiv.org/abs/2506.10943), to see what its downstream measure τ uses, since Sleep's Eq. 5 inherits it and it is the nearest published form of accepting an update only if it helps.
 - Prior work on prequential or sequential testing of candidate updates in continual learning, and noisy-label replay.
 - Whether the noise-capture and old-knowledge limits are attainable by anything. The streaming budgets were not at first.
 - Whether 1,500 configurations per arm is enough; the budget's use is the evidence.
@@ -252,7 +261,7 @@ None yet.
 
 Shared survey: [prior-work.md](prior-work.md#surprise-lifecycle-unresolved-experience-as-evidence).
 
-**Established names.** Holding unexplained examples until a group forms a new pattern: novelty detection in data streams, MINAS **[abstract]**. Deciding whether new evidence belongs to an old cause: latent-cause inference, [Gershman et al. 2017](https://elifesciences.org/articles/23763) **[read: model section]**. Scoring a model only on data it has not yet seen: prequential evaluation (Dawid 1984) **[familiar]**. Accumulating to a threshold: sequential testing (Wald) **[familiar]**, and the fixed-count rule here is a crude form of it. Uniform replay: reservoir sampling (Vitter 1985) **[familiar]**. Selective consolidation: Go-CLS ([Sun et al. 2023](https://www.nature.com/articles/s41593-023-01382-9)) **[read: excerpts]**. Ignoring unlearnable surprise: learning progress (Schmidhuber 1991; Oudeyer's IAC) **[abstract/secondary]**. Sign-bit sketch: locality-sensitive hashing **[familiar]**.
+**Established names.** Holding unexplained examples until a group forms a new pattern: novelty detection in data streams, MINAS **[abstract]**. Deciding whether new evidence belongs to an old cause: latent-cause inference, [Gershman et al. 2017](https://elifesciences.org/articles/23763) **[read: model section]**. Scoring a model only on data it has not yet seen: prequential evaluation (Dawid 1984) **[familiar]**. Accumulating to a threshold: sequential testing (Wald) **[familiar]**, and the fixed-count rule here is a crude form of it. Uniform replay: reservoir sampling (Vitter 1985) **[familiar]**. Selective consolidation: Go-CLS ([Sun et al. 2023](https://www.nature.com/articles/s41593-023-01382-9)) **[read: excerpts]**. Ignoring unlearnable surprise: learning progress (Schmidhuber 1991; Oudeyer's IAC) **[abstract/secondary]**. Sign-bit sketch: locality-sensitive hashing **[familiar]**. Scheduled consolidation and accepting a candidate update only if it improves performance: Sleep, Eq. 5 **[read: §3.2–3.4]**.
 
 **What follows without running [derived].**
 
@@ -277,7 +286,7 @@ Shared survey: [prior-work.md](prior-work.md#surprise-lifecycle-unresolved-exper
 
 **Baselines.** Replay, recent windows, immediate updates, slow learning and the two neural-memory update rules are all included. Prioritized replay is not, since priority by error favours noise here; `count` and `surprise-fifo` cover its two main ingredients **[derived; not a test of it]**.
 
-**What this adds.** A matched-bytes test of whether a sensory evidence process earns its keep over ordinary replay, across gaps, with the first-occurrence limit made explicit. MINAS and its kind work on feature clusters of unlabeled examples to discover classes; the additions here are shadow updates validated on cue-eligible later events, and routing to two destinations. No match was found in these few searches, which is not a novelty claim.
+**What this adds.** A matched-bytes test of whether a sensory evidence process earns its keep over ordinary replay, across gaps, with the first-occurrence limit made explicit. MINAS and its kind work on feature clusters of unlabeled examples to discover classes; Sleep tests a candidate on an isolated copy against a supplied downstream measure τ, and consolidates on a schedule with no selection of what to keep. The additions here are selection by evidence accumulated across the schedule, validation on cue-eligible later sensory events rather than a supplied task, and routing to two destinations. No exact match was found in these few searches, which is not a novelty claim.
 
 ## Scaling
 
@@ -292,6 +301,8 @@ K traces, S shadows, Z sketch entries, W MLP weights, c window, D_c = 64, D_o = 
 | `fifo-replay`, `reservoir-replay` | K·D_c + (1 + r)D_c·D_o | K(D_c + D_o) | as above; FIFO reach fixed at K events |
 | `titans-m0`, `titans` | ≈ 2W | W or 2W | constant; capacity limits unknown here |
 | `omega` | ≈ 2cW | W + c(D_c + D_o) | c multiplies the work |
+| `sleep-periodic` | K·D_c, and every P events K·D_c² + D_c³ | K(D_c + D_o) | sleep cost; store limits what one sleep sees |
+| `sleep-grow` | as above, plus each expert's r(D_c + D_o) | + r(D_c + D_o) per sleep | grows linearly with stream length |
 | `life` | (K + F)·D_c + K·D_o + S(2D_c + 2D_o) + D_c·D_o, and on a promotion K·D_c·D_o | K(D_c + D_o) + S(D_c + D_o) + F(D_c + D_o) | linear in K |
 | `life-sketch` | as `life` + 2Z Hamming comparisons | + 8Z bytes | Z linear; reach linear in Z |
 
@@ -319,8 +330,8 @@ K traces, S shadows, Z sketch entries, W MLP weights, c window, D_c = 64, D_o = 
 *Estimates, not measurements.*
 
 - **Construction.** Encoders: seeds 299 and 298 exist; 380–389 about 70 s each on the GTX 1650 (`/data/venvs/sri-cuda`). Key pool under a minute of CPU per seed and condition.
-- **Pilot.** At most 1,500 configurations × 15 arms × 2 seeds × 5 gaps as a hard ceiling; coordinate descent should use a small part of it. Expect 1–4 CPU-hours on 11 workers, rejected settings counted.
-- **Confirmation.** 15 arms × 10 seeds × 5 gaps × 2 values of q, mean stream about 87,000 events, roughly 5–30 s per run. About 10–30 minutes wall. Other B, `clean` and probes add about the same.
+- **Pilot.** At most 1,500 configurations × 17 arms × 2 seeds × 5 gaps as a hard ceiling; coordinate descent should use a small part of it. Expect 1–4 CPU-hours on 11 workers, rejected settings counted.
+- **Confirmation.** 17 arms × 10 seeds × 5 gaps × 2 values of q, mean stream about 87,000 events, roughly 5–30 s per run. About 10–30 minutes wall. Other B, `clean` and probes add about the same.
 - **Deterministic and timed output kept apart.** `reports/surprise-lifecycle-v1-{pilot,confirm,analysis}` and separate `-runtime` files, per [computation reporting](computation-reporting.md), with executed runs, events, configurations scored, shadows proposed, and each phase above. `timing` measures one thread, warm-up, 15 repeats, median and spread.
 - **Persistence.** Tasks durable (`experiments/durable.py`); rerunning resumes. Pools written atomically under gitignored `runs/`.
 - **Dtype.** float32. Raw images are not retained after encoding; pools hold keys.
