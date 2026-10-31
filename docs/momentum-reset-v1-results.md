@@ -23,7 +23,7 @@ D = −0.112 (sparse48), −0.105 (dense), −0.194 (mixed), −0.138 (mixed-h12
 | mixed | −0.081 | −0.024 | +0.058 [+0.003, +0.112] | better | +0.011, inconclusive | +0.008, equivalent |
 | mixed-h125 | −0.088 | −0.006 | +0.082 [+0.033, +0.131] | better | +0.034, inconclusive | +0.002, equivalent |
 
-Zeroing the first moments reduced the drop at 50 updates in the two arms with a memory component, by about three-quarters or more of `ctx`'s drop in `mixed-h125`
+Zeroing the first moments reduced the drop at 50 updates in the two arms with a memory component (a significant result in those arms and inconclusive ones elsewhere does not establish an interaction between architecture and reset), by about three-quarters or more of `ctx`'s drop in `mixed-h125`
 (−0.088 to −0.006) and about two-thirds in `mixed`. The benefit is early and transient: by 250 updates it is no longer established in any arm, and by 2,000 updates the
 two branches are equivalent in every arm (D(2,000) about −0.2 to −0.3 in both, no prediction was made). The `mixed` lower bound (+0.003) is barely above zero; the
 `mixed-h125` bound is clearer. In `sparse48` and `dense` the data neither show a benefit nor exclude one up to the interval width (about ±0.07). "Equivalent" at 250
@@ -52,13 +52,13 @@ adjustment across the four arms. A reset is not a retention solution on this evi
 
 ## Reading 6: descriptive
 - `ctx-fresh` (state fully cleared) minus `ctx`: not better than the first-moment reset anywhere; at update 250 it is worse than `ctx` in all arms (sparse48 −0.059, dense
-  −0.150, mixed −0.075, mixed-h125 −0.077; intervals exclude 0), so also clearing the second moments appears to hurt. Not a prespecified comparison.
+  −0.150, mixed −0.075, mixed-h125 −0.077; intervals exclude 0), so clearing the entire optimizer state (first and second moments and step counters) hurts recall at update 250. The intervention does not isolate the second moments. Not a prespecified comparison.
 - Recall at 2,000 updates is 0.12–0.20 in `ctx` and `ctx-m0` in all arms (chance 0.111), again close to the floor.
 
 ## Interpretation (bounded)
 Inherited first-moment state is a supported contributor to the early recall drop in real context training in the memory-bearing arms: removing it reduces the drop
-at 50 updates. It cannot account for the long-term loss, which is the same with or without the reset. The reset costs nothing measurable on the gates in
-`mixed-h125` (and `sparse48`). It is a candidate component for the remedy comparison, not a remedy.
+at 50 updates. It cannot account for the long-term loss, which is the same with or without the reset. In `mixed-h125` (and `sparse48`) the reset passes the specified noninferiority gates (lower bound > −0.05); those gates allow costs smaller than 0.05 and assess continued
+context performance, transfer and rehearsal, not acquisition of new tasks. It is a candidate optional component for the remedy comparison, not a remedy; there it should be compared against the remedy alone, since replay changes the gradients at the boundary and may remove or alter the reset's benefit.
 
 ## Computation (measured costs only)
 Theoretical: the reset is one pass over the optimizer state, O(P) time once per branch and no extra storage (it overwrites `exp_avg` in place); the study's cost is
