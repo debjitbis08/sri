@@ -10,6 +10,9 @@ Usage: NFI_DEVICE=cuda NSY_WORKERS=6 /data/venvs/sri-cuda/bin/python -m experime
 import os
 
 os.environ.setdefault('NAP_SEEDS', ','.join(map(str, range(340, 350))))
+if not os.environ.get('NSY_SMOKE'):  # the contract's configuration, not the arbitrary-pairings defaults
+    for k, v in (('NAP_OPTION', 'A'), ('NAP_N', '45'), ('NAP_L', '2000'), ('NAP_ARMS', 'sparse48,dense,mixed,mixed-h125')):
+        os.environ.setdefault(k, v)
 
 from experiments import arbitrary_pairings as AP
 from experiments import forgetting_mechanism as FM

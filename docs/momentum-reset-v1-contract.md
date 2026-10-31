@@ -88,7 +88,7 @@ per training branch. Training time is O(updates · batch · P) with P the dense 
 
 Decided by the researchers (2026-10-31): **fresh seeds 340–349; all four arms; freeze and run.**
 
-Command: `NFI_DEVICE=cuda NSY_WORKERS=6 /data/venvs/sri-cuda/bin/python -m experiments.momentum_reset pilot pairs` (resumes if interrupted).
+Command (defaults to Option A, N = 45, L = 2,000, the four arms): `NFI_DEVICE=cuda NSY_WORKERS=6 /data/venvs/sri-cuda/bin/python -m experiments.momentum_reset pilot pairs` (resumes if interrupted).
 
 ## Acceptable cost for the remedy comparison that follows (recorded here, not read in this study)
 
