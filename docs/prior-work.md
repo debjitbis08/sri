@@ -1563,3 +1563,60 @@ for online recognition; open-set rejection in streams.
 - **No match found** in these searches for hysteresis or open-set rejection
   evaluated together on a stream of retrievals from memory. Not a novelty claim;
   the searches were few.
+
+### Surprise lifecycle: unresolved experience as evidence
+
+Search date 2026-11-01, for the [surprise lifecycle draft](surprise-lifecycle-v1-contract.md).
+Queries: MINAS novelty detection in streams; latent-cause memory modification;
+Anderson and Schooler 1991; semantic drift compensation; storage and retrieval
+strength; coherent gradients; noisy TV and learning progress. Sources also
+read: Titans Eqs. 11–15, ATLAS Eq. 9 and its memorization note.
+
+- [MINAS, de Faria, Carvalho and Gama, 2016](https://repositorio.inesctec.pt/handle/123456789/5309)
+  **[abstract/search record]**: stream examples the model cannot explain are marked
+  unknown, and groups of them become new patterns. **[familiar, full text not
+  obtained]** a short-term memory holds the unknowns and they age out. Difference:
+  clusters unlabeled examples to find classes; no durable-update routing.
+  **[hypothesis]** The closest stream-mining relative of the accumulated-surprise
+  proposal. Read in full before freezing.
+- [Gershman et al., 2017](https://elifesciences.org/articles/23763) **[read: model
+  section]**: a time-sensitive Chinese restaurant process, with a power-law
+  temporal kernel, decides whether a trial shares a latent cause with old trials;
+  delta-rule updates are scaled by the posterior. Longer gaps make assignment to
+  an old cause less likely. Difference: Pavlovian conditioning model with few
+  stimuli. **[hypothesis]** Far-apart recurrence is inherently ambiguous between
+  "same cause" and "new cause", and its theory treats that as inference.
+- [Titans](https://arxiv.org/html/2501.00663v1) **[read: Eqs. 11–15]**:
+  `M_t = (1 − α_t)M_{t−1} + S_t`, `S_t = η_t S_{t−1} − θ_t∇‖M(k_t) − v_t‖²`, with
+  α, η, θ data-dependent. [ATLAS](https://arxiv.org/pdf/2505.23735) **[read: Eq. 9,
+  arXiv v1]**: minimizes `Σ γ_i‖M(k_i) − v_i‖²` over the last c tokens, c = 1 being
+  the delta rule. Its γ are input-dependent gates that can prune inside the window,
+  so selection there is learned, within a window fixed by recency. **[read]** The
+  authors state that no persistent learning typically carries over once the memory
+  is cleared. Difference from our use: constants replace learned controls.
+- [Anderson and Schooler, 1991](https://www.psychologicalscience.org/journals/psychological-science/j.1467-9280.1991.tb00174.x/)
+  **[abstract/search record]**: memory availability relates to frequency, recency
+  and pattern of exposure, and environmental need falls as a power of the retention
+  interval. **[hypothesis]** A single store with such a priority is the baseline any
+  intermediate level must beat.
+- [Semantic drift compensation, Yu et al., 2020](https://arxiv.org/abs/2004.00440)
+  **[search record]**: estimates old prototypes' drift from current data, without
+  exemplars. **[hypothesis]** Baseline for retrieval-driven key refresh.
+- [Coherent gradients, Chatterjee, 2020](https://arxiv.org/abs/2002.10657) and
+  [Chatterjee and Zielinski, 2020](https://deepai.org/publication/making-coherence-out-of-nothing-at-all-measuring-the-evolution-of-gradient-alignment)
+  **[abstract]**: gradients from similar examples reinforce; per-example coherence
+  also reaches high values on random labels. **[derived]** Alignment alone does not
+  separate shared structure from memorization.
+- [Learning progress against irreducible noise](https://arxiv.org/abs/2509.25438)
+  **[abstract]**: unlearnable transitions give prediction error but no progress.
+  Difference: exploration reward, not memory consolidation. **[hypothesis]** Scoring
+  candidate updates on later experience should reject repeating noise.
+- [Bjork's new theory of disuse](https://bjorklab.psych.ucla.edu/wp-content/uploads/sites/13/2021/01/RABjorkELBjorkJARMAC2020ForPostingSingleSpaced.pdf)
+  **[search record]**: storage and retrieval strength are separate; unused memories
+  lose accessibility rather than storage.
+
+**[derived]** Under FIFO eviction a singleton's reach is traces held / surprise
+rate, and any online rule must treat a cause's first occurrence like a one-off. No
+match was found in these searches for residual grouping with prequentially scored
+shadow updates routed to binding or shared stores. Not a novelty claim; the
+searches were few and MINAS's full text is unread.
