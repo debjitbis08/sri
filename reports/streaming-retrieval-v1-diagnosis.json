@@ -1,0 +1,219 @@
+{
+ "rejection": {
+  "clean": {
+   "centred": {
+    "auroc_single_frame": 0.9281954638459633,
+    "auroc_smoothed": 0.9288812306701268,
+    "mean_similarity": 0.0004738264751722454,
+    "top_familiar": 0.9086358606815338,
+    "top_unfamiliar": 0.7220185816287994
+   },
+   "mean_query_norm": 0.29417616575956346,
+   "raw": {
+    "auroc_single_frame": 0.9220343260350834,
+    "auroc_smoothed": 0.9209592077022617,
+    "mean_similarity": 0.06586993783712387,
+    "top_familiar": 0.9241879761219025,
+    "top_unfamiliar": 0.7428552985191346
+   }
+  },
+  "degraded": {
+   "centred": {
+    "auroc_single_frame": 0.777787621677007,
+    "auroc_smoothed": 0.8041865019236429,
+    "mean_similarity": 0.00037474016135092826,
+    "top_familiar": 0.8209823310375214,
+    "top_unfamiliar": 0.7105812132358551
+   },
+   "mean_query_norm": 0.44224381148815156,
+   "raw": {
+    "auroc_single_frame": 0.7019511070453495,
+    "auroc_smoothed": 0.7068040664225661,
+    "mean_similarity": 0.0813998520374298,
+    "top_familiar": 0.8224949777126312,
+    "top_unfamiliar": 0.7457773804664611
+   }
+  },
+  "held": {
+   "centred": {
+    "auroc_single_frame": 0.7789086999578161,
+    "auroc_smoothed": 0.7984476789018695,
+    "mean_similarity": 0.00036244692746549844,
+    "top_familiar": 0.8212012112140655,
+    "top_unfamiliar": 0.710607397556305
+   },
+   "mean_query_norm": 0.4413708120584488,
+   "raw": {
+    "auroc_single_frame": 0.7030046410258831,
+    "auroc_smoothed": 0.7034297856920293,
+    "mean_similarity": 0.08126191571354865,
+    "top_familiar": 0.8226937472820282,
+    "top_unfamiliar": 0.7454647183418274
+   }
+  }
+ },
+ "rejection_seeds": [
+  370,
+  371,
+  372,
+  373,
+  374,
+  375,
+  376,
+  377,
+  378,
+  379
+ ],
+ "settling": {
+  "independent patterns, width 1,024": {
+   "gain 1, sigma 0": {
+    "correct": 1.0,
+    "runner_up_overlap": 0.08589370052707629,
+    "top_overlap": 0.9999094077914492
+   },
+   "gain 1, sigma 2": {
+    "correct": 0.037500000000000006,
+    "runner_up_overlap": 0.07362719582569463,
+    "top_overlap": 0.08368308961109819
+   },
+   "gain 16, sigma 0": {
+    "correct": 1.0,
+    "runner_up_overlap": 0.08590087890625,
+    "top_overlap": 1.0
+   },
+   "gain 16, sigma 2": {
+    "correct": 1.0,
+    "runner_up_overlap": 0.08590087890625,
+    "top_overlap": 1.0
+   },
+   "gain 4, sigma 0": {
+    "correct": 1.0,
+    "runner_up_overlap": 0.08590087890625,
+    "top_overlap": 1.0
+   },
+   "gain 4, sigma 2": {
+    "correct": 1.0,
+    "runner_up_overlap": 0.08571730914698927,
+    "top_overlap": 0.9946495773171201
+   },
+   "gain 64, sigma 0": {
+    "correct": 1.0,
+    "runner_up_overlap": 0.08590087890625,
+    "top_overlap": 1.0
+   },
+   "gain 64, sigma 2": {
+    "correct": 1.0,
+    "runner_up_overlap": 0.08590087890625,
+    "top_overlap": 1.0
+   }
+  },
+  "real keys, width 32": {
+   "gain 1, sigma 0": {
+    "correct": 0.60625,
+    "runner_up_overlap": 0.6943994942836793,
+    "top_overlap": 0.7685429701008943
+   },
+   "gain 1, sigma 2": {
+    "correct": 0.25625,
+    "runner_up_overlap": 0.5689029578014553,
+    "top_overlap": 0.617156235037648
+   },
+   "gain 16, sigma 0": {
+    "correct": 0.60625,
+    "runner_up_overlap": 0.6955383081248118,
+    "top_overlap": 0.7706907221916866
+   },
+   "gain 16, sigma 2": {
+    "correct": 0.5875000000000001,
+    "runner_up_overlap": 0.702477588107987,
+    "top_overlap": 0.7703704771956742
+   },
+   "gain 4, sigma 0": {
+    "correct": 0.5875,
+    "runner_up_overlap": 0.6960751412462697,
+    "top_overlap": 0.7695631046981137
+   },
+   "gain 4, sigma 2": {
+    "correct": 0.56875,
+    "runner_up_overlap": 0.6850138226346287,
+    "top_overlap": 0.7630462341492775
+   },
+   "gain 64, sigma 0": {
+    "correct": 0.5625,
+    "runner_up_overlap": 0.7010782015243434,
+    "top_overlap": 0.77062594526907
+   },
+   "gain 64, sigma 2": {
+    "correct": 0.55625,
+    "runner_up_overlap": 0.7010461200282488,
+    "top_overlap": 0.7694060195519453
+   }
+  },
+  "sign patterns of real keys, width 1,024": {
+   "gain 1, sigma 0": {
+    "correct": 0.7875000000000001,
+    "runner_up_overlap": 0.5994545164974617,
+    "top_overlap": 0.9078123482423572
+   },
+   "gain 1, sigma 2": {
+    "correct": 0.17500000000000002,
+    "runner_up_overlap": 0.20097011924788755,
+    "top_overlap": 0.21511715578623203
+   },
+   "gain 16, sigma 0": {
+    "correct": 0.79375,
+    "runner_up_overlap": 0.5962403751997178,
+    "top_overlap": 0.9171261716571679
+   },
+   "gain 16, sigma 2": {
+    "correct": 0.7874999999999999,
+    "runner_up_overlap": 0.5972260849369952,
+    "top_overlap": 0.9154079690409532
+   },
+   "gain 4, sigma 0": {
+    "correct": 0.7875000000000001,
+    "runner_up_overlap": 0.5963901114081399,
+    "top_overlap": 0.9169686102977728
+   },
+   "gain 4, sigma 2": {
+    "correct": 0.79375,
+    "runner_up_overlap": 0.6071143804185163,
+    "top_overlap": 0.8685063368230654
+   },
+   "gain 64, sigma 0": {
+    "correct": 0.7875000000000001,
+    "runner_up_overlap": 0.5961840321186438,
+    "top_overlap": 0.917730370120617
+   },
+   "gain 64, sigma 2": {
+    "correct": 0.79375,
+    "runner_up_overlap": 0.5960493164641512,
+    "top_overlap": 0.9176714430755933
+   }
+  }
+ },
+ "settling_seeds": [
+  370,
+  371,
+  372,
+  373
+ ],
+ "spectrum": {
+  "independent patterns": {
+   "effective_rank": 107.57071876525879,
+   "mean_abs_cosine": 0.024951718747615814,
+   "p99_abs_cosine": 0.07958984375
+  },
+  "real keys": {
+   "effective_rank": 12.7249755859375,
+   "mean_abs_cosine": 0.20621370151638985,
+   "p99_abs_cosine": 0.7601254284381866
+  },
+  "sign patterns": {
+   "effective_rank": 23.92420019918373,
+   "mean_abs_cosine": 0.13950051700367644,
+   "p99_abs_cosine": 0.55712890625
+  }
+ },
+ "words_per_setting": 40
+}

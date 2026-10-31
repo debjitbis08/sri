@@ -1,0 +1,21 @@
+{
+ "children_peak_rss_kb": 353104,
+ "command": "/home/debjit/code/sri/experiments/streaming_retrieval_diagnosis.py diagnose",
+ "contract_sha256": "e43db306d1e33d28a65c42062de289bd282e30ac991781155bcc8a82f64f0217",
+ "cpu": "x86_64",
+ "dirty": true,
+ "dtype": "float32",
+ "mechanisms_sha256": "69be76e22e8ded510e73cf200189071b1ba8bafacd1a09121388bc50b3b03c93",
+ "numpy": "2.5.4",
+ "parent_peak_rss_kb": 353104,
+ "python": "3.12.3",
+ "revision": "2db201f2e4adfeffa8f11d8f9d3c087f58fd0040",
+ "scope": "nondeterministic timing",
+ "settling_worker_cpu_seconds": 1628.336662533,
+ "source_sha256": "9ba4846509d1b262869ad5868e447bab6598d80e6cf5bf0b3d69267908663204",
+ "stage": "diagnose",
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "wall_seconds": 419.5887473420007,
+ "workers": 11
+}

@@ -25,6 +25,7 @@ import time
 import numpy as np
 import torch
 
+from experiments import device as DEV
 from experiments import durable as DUR
 from experiments import number_systems as X
 from experiments import pairing_symbols as PS
@@ -174,6 +175,8 @@ def levels():
 
 def fit_encoders():
     assert not SMOKE
+    torch.set_num_threads(4)
+    DEV.install()
     c = json.loads(open(f'{TK.REPORT}-selection.json').read())['chosen']
     syms = TK.symbol_splits()
     for seed in CONFIRM_SEEDS:

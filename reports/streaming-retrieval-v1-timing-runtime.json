@@ -1,0 +1,133 @@
+{
+ "children_peak_rss_kb": 390444,
+ "command": "/home/debjit/code/sri/experiments/streaming_retrieval.py timing",
+ "contract_sha256": "e43db306d1e33d28a65c42062de289bd282e30ac991781155bcc8a82f64f0217",
+ "cpu": "x86_64",
+ "dirty": true,
+ "dtype": "float32",
+ "mechanisms_sha256": "69be76e22e8ded510e73cf200189071b1ba8bafacd1a09121388bc50b3b03c93",
+ "numpy": "2.5.4",
+ "parent_peak_rss_kb": 390444,
+ "python": "3.12.3",
+ "revision": "2db201f2e4adfeffa8f11d8f9d3c087f58fd0040",
+ "scope": "nondeterministic timing",
+ "source_sha256": "9ba4846509d1b262869ad5868e447bab6598d80e6cf5bf0b3d69267908663204",
+ "stage": "timing",
+ "threads_per_worker": 1,
+ "timings": {
+  "ema": {
+   "cfg": {
+    "a": 0.5,
+    "method": "ema"
+   },
+   "frames_per_pass": 2000,
+   "multiplications_per_frame": 3960,
+   "passes": 15,
+   "scope": "includes the similarity matrix-vector work per frame as a batch, and allocation; excludes the encoder",
+   "state_floats": 32,
+   "us_per_frame_iqr": 0.014075252693146467,
+   "us_per_frame_median": 3.1252539993147366
+  },
+  "encoder": {
+   "batched": true,
+   "frames_per_pass": 256,
+   "multiplications_per_frame": 458816,
+   "passes": 20,
+   "persistent_bytes": 839040,
+   "us_per_frame_iqr": 4.62955854629854,
+   "us_per_frame_median": 19.18793947197628
+  },
+  "hmm": {
+   "cfg": {
+    "hazard": 0.01,
+    "kappa": 104.343,
+    "method": "hmm",
+    "tau": 0.7667
+   },
+   "frames_per_pass": 2000,
+   "multiplications_per_frame": 4200,
+   "passes": 15,
+   "scope": "includes the similarity matrix-vector work per frame as a batch, and allocation; excludes the encoder",
+   "state_floats": 121,
+   "us_per_frame_iqr": 0.34586650144774467,
+   "us_per_frame_median": 10.762291494756937
+  },
+  "hysteresis": {
+   "cfg": {
+    "a": 0.5,
+    "delta": 0.0383,
+    "method": "hysteresis",
+    "tau": 0.7667
+   },
+   "frames_per_pass": 2000,
+   "multiplications_per_frame": 3960,
+   "passes": 15,
+   "scope": "includes the similarity matrix-vector work per frame as a batch, and allocation; excludes the encoder",
+   "state_floats": 33,
+   "us_per_frame_iqr": 0.00844050373416394,
+   "us_per_frame_median": 3.5715620033442974
+  },
+  "idp-key": {
+   "cfg": {
+    "gain": 1,
+    "method": "idp-key",
+    "sigma": 1,
+    "steps": 1,
+    "tau": 0.5
+   },
+   "frames_per_pass": 2000,
+   "multiplications_per_frame": 15664,
+   "passes": 15,
+   "scope": "includes the similarity matrix-vector work per frame as a batch, and allocation; excludes the encoder",
+   "state_floats": 32,
+   "us_per_frame_iqr": 0.21072925301268697,
+   "us_per_frame_median": 23.82899149961304
+  },
+  "idp-key:comparable": {
+   "cfg": {
+    "gain": 1,
+    "method": "idp-key",
+    "sigma": 1,
+    "steps": 1,
+    "tau": 0.5
+   },
+   "frames_per_pass": 2000,
+   "multiplications_per_frame": 15664,
+   "passes": 15,
+   "scope": "includes the similarity matrix-vector work per frame as a batch, and allocation; excludes the encoder",
+   "state_floats": 32,
+   "us_per_frame_iqr": 0.4705515020759776,
+   "us_per_frame_median": 24.169472999346908
+  },
+  "idp-wide": {
+   "cfg": {
+    "gain": 16,
+    "method": "idp-wide",
+    "sigma": 0,
+    "steps": 1,
+    "tau": 1
+   },
+   "frames_per_pass": 2000,
+   "multiplications_per_frame": 526576,
+   "passes": 15,
+   "scope": "includes the similarity matrix-vector work per frame as a batch, and allocation; excludes the encoder",
+   "state_floats": 1024,
+   "us_per_frame_iqr": 3.5418062507233117,
+   "us_per_frame_median": 628.3776589989429
+  },
+  "nearest": {
+   "cfg": {
+    "method": "nearest"
+   },
+   "frames_per_pass": 2000,
+   "multiplications_per_frame": 3840,
+   "passes": 15,
+   "scope": "includes the similarity matrix-vector work per frame as a batch, and allocation; excludes the encoder",
+   "state_floats": 0,
+   "us_per_frame_iqr": 0.004304991307435557,
+   "us_per_frame_median": 0.13414250133791938
+  }
+ },
+ "torch": "2.14.1+cpu",
+ "workers": 11
+}
