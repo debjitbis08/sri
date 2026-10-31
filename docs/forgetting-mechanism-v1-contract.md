@@ -1,6 +1,6 @@
-# Forgetting mechanism v1: contract (DRAFT, not frozen, not run)
+# Forgetting mechanism v1: contract (frozen 2026-10-31)
 
-Status: **draft 2026-10-31, revised after an external review the same day** (no-update and optimizer diagnostics, encoder and reader freezes, reassigned-count relearning, narrower readings, accuracy-change endpoints). Follows [arbitrary pairings v1](arbitrary-pairings-v1-results.md), where recall of the 45 taught pairs
+Status: **frozen 2026-10-31**, after an external review and the prior-work reading. Arms, seeds, branches, endpoints and readings below do not change after results are seen; anything added later is labeled post hoc. Implemented in `experiments/forgetting_mechanism.py` (smoke-checked: frozen parameters bitwise unchanged, `noupdate` reproduces update-0 recall exactly, `zero-grad` moves weights, frozen-bank decoder equals the rebuilt bank at update 0).
 fell to near chance (0.12–0.15 against 0.111) by the end of block 5 in every arm, with no interference from B. Before any
 further architecture comparison (random rewiring, routing, working memory) we want to know **why** the pairs are lost.
 
@@ -130,5 +130,7 @@ Notation: P parameters (dense matrices), N pairs, E evaluation renderings, R tra
 - GPU: the composition-measure caveat applies to transfer (a) only.
 
 ## Decisions
+
+Command: `NFI_DEVICE=cuda NSY_WORKERS=6 /data/venvs/sri-cuda/bin/python -m experiments.forgetting_mechanism pilot pairs` (defaults: the four arms, seeds 330–339, N = 45, L = 2,000, Option A; resumes if interrupted). Relearning lasts 250 updates at evaluation offsets 0, 25, 50, 100, 250; ridge probe λ = 1 on standardized codes.
 
 Decided by the researchers (2026-10-31): four arms (`sparse48`, `dense`, `mixed`, `mixed-h125`); ten fresh seeds (330–339); structured transfer descriptive; one rehearsal dose (`rehearse-10`).
