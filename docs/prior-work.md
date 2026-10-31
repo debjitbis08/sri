@@ -1454,3 +1454,112 @@ learning; primary abstract below.
   identical codes for identical inputs. Slowing updates does not provide this
   guarantee. Stable keys can still be confused as more competing keys arrive;
   evaluate candidate-set growth separately from time with candidates fixed.
+
+### Input-driven retrieval (Betteti et al., 2025)
+
+Reading date 2026-10-31. User supplied DOI 10.1126/sciadv.adu6991;
+publisher PDF denied access, so read the
+[primary full text on PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC12017325/).
+**[read: main text including equations and methods; supplement not read]**.
+Input continually modulates retrieval couplings using squared overlaps with
+stored patterns. Simulations examine ambiguity, noise and transient glitches;
+long-term learning remains future work. Inputs are constructed mixtures of
+stored patterns. The general sensory-to-memory mapping is left open.
+
+**[derived]** Our unclamped synchronous completion rule is not this model;
+its failure does not test input-driven retrieval. Conversely, successful
+tracking is not evidence of continual acquisition, bounded retention or
+compatibility with changing encoders. For P patterns of width D, the explicit
+factorization requires O(PD) pattern storage and dense matrix-vector work per
+dynamics step; forming a D-by-D input-dependent matrix directly costs
+O(PD²). These are implementation orders, not measured speed results.
+
+**[hypothesis]** Persistent sensory evidence could stabilize retrieval under
+brief corruption while permitting genuine changes. A small diagnostic should
+compare input-driven dynamics with independent nearest-memory retrieval and
+temporal smoothing/hysteresis on the same similarities. Measure false switches,
+switch delay, failure to reject unfamiliar inputs and compute at matched
+latency. Test image/audio evidence and conflicting cues only as an extension,
+not a reproduction. No new contract or run is established by this note.
+
+### LSTM gates for continuous sensory memory
+
+Search date 2026-10-31: original LSTM and Learning to Forget.
+[Gers, Schmidhuber and Cummins, 2000](https://pubmed.ncbi.nlm.nih.gov/11032042/)
+**[abstract]** introduce adaptive forget gates for continuous streams without
+externally marked resets, demonstrating benefits on their continual prediction
+benchmarks. Difference: retention in recurrent state, not a demonstration of
+lifelong multimodal storage or preservation during online parameter updates.
+**[derived]** Persistent state and persistent learned parameters are different
+memory mechanisms; gating the former does not automatically protect the latter.
+**[hypothesis]** Test an ordinary LSTM receiving sensory embeddings as a bounded
+memory baseline, before building a custom store controller. Teach delayed
+cross-modal recall, distractor resistance and revisions through sensory
+experience; measure old/new recall and interference at fixed state size.
+Separate state-only adaptation with fixed parameters from continual parameter
+learning. A gated associative matrix is a possible later extension, not an
+LSTM reproduction. Count state, parameters and training workspace separately.
+
+### Retrieval as a memory-changing experience
+
+Search date 2026-10-31: Roediger/Karpicke testing effect and Anderson/Bjork
+retrieval-induced forgetting.
+- [Roediger and Karpicke, 2006](https://pubmed.ncbi.nlm.nih.gov/16507066/)
+  **[abstract/search record]** report improved long-term retention from testing.
+  Difference: human learning, not evidence that an LSTM automatically implements
+  retrieval-dependent strengthening. **[hypothesis]** Sensory queries and the
+  resulting retrieval activity should be allowed to alter persistent state.
+- [Anderson, Bjork and Bjork, 1994](https://bjorklab.psych.ucla.edu/wp-content/uploads/sites/13/2016/07/Anderson_RBjork_EBjork_1994.pdf)
+  **[abstract: indexed excerpt]** find impaired delayed recall for unpracticed
+  related items after selective retrieval practice. **[derived]** Human evidence
+  does not imply every retrieval preserves its item or all unused items simply
+  decay independently; competitive effects matter.
+
+**[derived]** LSTM state can change through recurrent feedback without parameter
+updates, but output gating alone is not a rule that reinforces the retrieved
+association. **[hypothesis]** Train/test use-dependent retention at fixed state
+capacity, separating query-only retrieval from sensory feedback/re-exposure.
+Do not use evaluator correctness to select updates. Compare identical initial
+states exposed to retrieval practice, matched re-exposure, or distractors;
+measure delayed retention and incorrect-answer persistence. Natural queries
+may update state; audit evaluations use discarded copies to avoid secretly
+rehearsing memories through repeated measurement. Earlier frozen results keep
+their original state-preserving evaluation protocol.
+
+Streaming retrieval review, 2026-10-31, for
+[streaming retrieval v1](streaming-retrieval-v1-contract.md). Searches: Betteti
+preprint parameters; leaky competing accumulators and multi-alternative
+sequential tests; quickest change detection; temporal smoothing and hysteresis
+for online recognition; open-set rejection in streams.
+
+- [Betteti et al., preprint](https://arxiv.org/abs/2411.05849)
+  **[read: HTML, first 100,000 characters]** gives dt = 0.01, x(0) ~ N(0, I)
+  and orthogonal or large-N i.i.d. binary patterns, and gives no capacity result
+  for the input-driven model. It differs from the published version: weight
+  linear in overlap, ψ = tanh(z), σ = 8. **[derived]** A contract must name the
+  version it follows.
+- [Xie et al., 2021](https://arxiv.org/abs/2104.04186)
+  **[read: sections II–III.C]**: with known distributions CUSUM and the Shiryaev
+  procedure are optimal in their senses; first-order delay is |log α|/D; EWMA is
+  a simple alternative that needs no knowledge of the distributions. Transient
+  dynamics change the problem. Difference: detecting one change between known
+  distributions, not retrieval among P items with unfamiliar input.
+  **[derived]** Delay and false alarms trade off; any comparison has to hold one
+  fixed. A forward filter is the reference for independent frames.
+- [Usher and McClelland, 2001](https://pubmed.ncbi.nlm.nih.gov/11488378/)
+  **[abstract]**: leaky, competing nonlinear accumulators for perceptual choice.
+  Difference: fits behaviour, one decision at a time, additive input.
+  **[derived]** Input-driven dynamics in overlap coordinates also leak, but input
+  multiplies the state; the two are not equated.
+- Bogacz and Gurney, 2007 (Neural Computation)
+  **[search excerpt only]**: the multihypothesis sequential
+  probability ratio test as a multi-alternative decision benchmark. Context for
+  using a filter as the reference.
+- [Zhao and Krähenbühl, 2022](https://arxiv.org/abs/2209.09236)
+  **[search excerpt]**: temporal smoothing kernels with constant-time updates for
+  online video detection. Difference: learned features with supervision.
+  **[derived]** Constant-time smoothing is established practice, so a recurrent
+  mechanism has to beat it, not merely per-frame classification.
+- **No match found** in these searches for hysteresis or open-set rejection
+  evaluated together on a stream of retrievals from memory. Not a novelty claim;
+  the searches were few.
