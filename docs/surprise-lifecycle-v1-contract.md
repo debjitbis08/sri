@@ -252,6 +252,7 @@ None yet.
 ## Before freezing
 
 - Full text of MINAS's short-term-memory and validation rules (read so far: abstract only).
+- Match `sleep-periodic` to the candidate's total update allowance as well as its bytes, as the other [Sleep note](prior-work.md#sleep-consolidation-into-persistent-parameters) proposes, so a win cannot come from delaying updates alone. The pilot records each arm's reader-update operations; the matching rule must be fixed from those before freezing.
 - [SEAL](https://arxiv.org/abs/2506.10943), to see what its downstream measure τ uses, since Sleep's Eq. 5 inherits it and it is the nearest published form of accepting an update only if it helps.
 - Prior work on prequential or sequential testing of candidate updates in continual learning, and noisy-label replay.
 - Whether the noise-capture and old-knowledge limits are attainable by anything. The streaming budgets were not at first.
