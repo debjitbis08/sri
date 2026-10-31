@@ -1,0 +1,498 @@
+{
+ "298": {
+  "clean": {
+   "gate1": {
+    "by_tau": {
+     "0.7": {
+      "binding_recall": 1.0,
+      "exception_family": 1.0,
+      "known_binding": 1.0,
+      "known_rule": 0.984375,
+      "noise_capture": -0.014973958333333334,
+      "noise_capture_by_kind": {
+       "noise-burst": 0.0625,
+       "noise-once": 0.001953125,
+       "noise-repeat": -0.109375
+      },
+      "old_knowledge": 0.9947916666666666,
+      "rare_recall": 1.0,
+      "rule_generalization": 0.99609375
+     },
+     "0.8": {
+      "binding_recall": 0.9861111111111112,
+      "exception_family": 1.0,
+      "known_binding": 0.9947916666666666,
+      "known_rule": 0.99609375,
+      "noise_capture": -0.014973958333333334,
+      "noise_capture_by_kind": {
+       "noise-burst": 0.0625,
+       "noise-once": 0.001953125,
+       "noise-repeat": -0.109375
+      },
+      "old_knowledge": 0.9969618055555555,
+      "rare_recall": 1.0,
+      "rule_generalization": 0.99609375
+     },
+     "0.9": {
+      "binding_recall": 0.6666666666666666,
+      "exception_family": 1.0,
+      "known_binding": 0.8802083333333334,
+      "known_rule": 1.0,
+      "noise_capture": -0.012369791666666666,
+      "noise_capture_by_kind": {
+       "noise-burst": 0.0625,
+       "noise-once": 0.009765625,
+       "noise-repeat": -0.109375
+      },
+      "old_knowledge": 0.9600694444444445,
+      "rare_recall": 0.65625,
+      "rule_generalization": 0.99609375
+     },
+     "0.95": {
+      "binding_recall": 0.10416666666666667,
+      "exception_family": 1.0,
+      "known_binding": 0.2604166666666667,
+      "known_rule": 1.0,
+      "noise_capture": -0.012369791666666666,
+      "noise_capture_by_kind": {
+       "noise-burst": 0.0625,
+       "noise-once": 0.009765625,
+       "noise-repeat": -0.109375
+      },
+      "old_knowledge": 0.7534722222222223,
+      "rare_recall": 0.10416666666666667,
+      "rule_generalization": 0.99609375
+     }
+    },
+    "floor": {
+     "binding_recall": 0.04861111111111111,
+     "exception_family": 1.0,
+     "known_binding": 0.9947916666666666,
+     "known_rule": 0.99609375,
+     "noise_capture": 0.0400390625,
+     "noise_capture_by_kind": {
+      "noise-burst": 0.125,
+      "noise-once": -0.0048828125,
+      "noise-repeat": 0.0
+     },
+     "old_knowledge": 0.9969618055555555,
+     "rare_recall": 0.041666666666666664,
+     "rule_generalization": 0.0
+    },
+    "residual_fit": {
+     "binding_recall": 0.0763888888888889,
+     "exception_family": 1.0,
+     "known_binding": 0.9947916666666666,
+     "known_rule": 0.9609375,
+     "noise_capture": -0.0361328125,
+     "noise_capture_by_kind": {
+      "noise-burst": 0.0,
+      "noise-once": 0.0009765625,
+      "noise-repeat": -0.109375
+     },
+     "old_knowledge": 0.9852430555555555,
+     "rare_recall": 0.03125,
+     "rule_generalization": 0.89453125
+    }
+   },
+   "gate2_auroc": 0.9987794117647059,
+   "gate3": {
+    "new_families": 40,
+    "new_rule_families": 4,
+    "posterior_rule_given_new_family": 0.1,
+    "reserved_clash": false,
+    "unique_once": true
+   },
+   "gate5": {
+    "floor_noise_capture": 0.0400390625
+   },
+   "mlp": {
+    "1": {
+     "H": 174,
+     "epochs": 394,
+     "known_binding": 1.0,
+     "known_rule": 1.0,
+     "val_loss": 0.10027597099542618
+    },
+    "2": {
+     "H": 98,
+     "epochs": 223,
+     "known_binding": 1.0,
+     "known_rule": 1.0,
+     "val_loss": 0.10638520866632462
+    }
+   }
+  },
+  "degraded": {
+   "gate1": {
+    "by_tau": {
+     "0.7": {
+      "binding_recall": 0.7638888888888888,
+      "exception_family": 1.0,
+      "known_binding": 0.9583333333333334,
+      "known_rule": 0.93359375,
+      "noise_capture": -0.0419921875,
+      "noise_capture_by_kind": {
+       "noise-burst": 0.0,
+       "noise-once": -0.0009765625,
+       "noise-repeat": -0.125
+      },
+      "old_knowledge": 0.9639756944444445,
+      "rare_recall": 0.84375,
+      "rule_generalization": 0.859375
+     },
+     "0.8": {
+      "binding_recall": 0.4930555555555556,
+      "exception_family": 1.0,
+      "known_binding": 0.7708333333333334,
+      "known_rule": 0.9375,
+      "noise_capture": -0.039713541666666664,
+      "noise_capture_by_kind": {
+       "noise-burst": 0.0,
+       "noise-once": 0.005859375,
+       "noise-repeat": -0.125
+      },
+      "old_knowledge": 0.9027777777777778,
+      "rare_recall": 0.3541666666666667,
+      "rule_generalization": 0.859375
+     },
+     "0.9": {
+      "binding_recall": 0.0625,
+      "exception_family": 1.0,
+      "known_binding": 0.16145833333333334,
+      "known_rule": 0.94140625,
+      "noise_capture": -0.039388020833333336,
+      "noise_capture_by_kind": {
+       "noise-burst": 0.0,
+       "noise-once": 0.0068359375,
+       "noise-repeat": -0.125
+      },
+      "old_knowledge": 0.700954861111111,
+      "rare_recall": 0.020833333333333332,
+      "rule_generalization": 0.859375
+     },
+     "0.95": {
+      "binding_recall": 0.05555555555555555,
+      "exception_family": 1.0,
+      "known_binding": 0.08333333333333333,
+      "known_rule": 0.94140625,
+      "noise_capture": -0.039388020833333336,
+      "noise_capture_by_kind": {
+       "noise-burst": 0.0,
+       "noise-once": 0.0068359375,
+       "noise-repeat": -0.125
+      },
+      "old_knowledge": 0.6749131944444443,
+      "rare_recall": 0.0,
+      "rule_generalization": 0.859375
+     }
+    },
+    "floor": {
+     "binding_recall": 0.09027777777777778,
+     "exception_family": 1.0,
+     "known_binding": 0.7708333333333334,
+     "known_rule": 0.96875,
+     "noise_capture": 0.011393229166666666,
+     "noise_capture_by_kind": {
+      "noise-burst": 0.03125,
+      "noise-once": 0.0029296875,
+      "noise-repeat": 0.0
+     },
+     "old_knowledge": 0.9131944444444445,
+     "rare_recall": 0.041666666666666664,
+     "rule_generalization": 0.0
+    },
+    "residual_fit": {
+     "binding_recall": 0.0625,
+     "exception_family": 0.96875,
+     "known_binding": 0.7708333333333334,
+     "known_rule": 0.83984375,
+     "noise_capture": -0.029622395833333332,
+     "noise_capture_by_kind": {
+      "noise-burst": 0.0,
+      "noise-once": 0.0048828125,
+      "noise-repeat": -0.09375
+     },
+     "old_knowledge": 0.8598090277777778,
+     "rare_recall": 0.0,
+     "rule_generalization": 0.53515625
+    }
+   },
+   "gate2_auroc": 0.9852573529411764,
+   "gate3": {
+    "new_families": 40,
+    "new_rule_families": 4,
+    "posterior_rule_given_new_family": 0.1,
+    "reserved_clash": false,
+    "unique_once": true
+   },
+   "gate5": {
+    "floor_noise_capture": 0.011393229166666666
+   },
+   "mlp": {
+    "1": {
+     "H": 174,
+     "epochs": 400,
+     "known_binding": 0.9791666666666666,
+     "known_rule": 0.9453125,
+     "val_loss": 0.1817624568939209
+    },
+    "2": {
+     "H": 98,
+     "epochs": 326,
+     "known_binding": 0.9583333333333334,
+     "known_rule": 0.97265625,
+     "val_loss": 0.1607401818037033
+    }
+   }
+  }
+ },
+ "299": {
+  "clean": {
+   "gate1": {
+    "by_tau": {
+     "0.7": {
+      "binding_recall": 0.9444444444444444,
+      "exception_family": 0.96875,
+      "known_binding": 1.0,
+      "known_rule": 0.98046875,
+      "noise_capture": 0.0003255208333333333,
+      "noise_capture_by_kind": {
+       "noise-burst": 0.0,
+       "noise-once": 0.0009765625,
+       "noise-repeat": 0.0
+      },
+      "old_knowledge": 0.9830729166666666,
+      "rare_recall": 1.0,
+      "rule_generalization": 0.9921875
+     },
+     "0.8": {
+      "binding_recall": 0.9444444444444444,
+      "exception_family": 0.9947916666666666,
+      "known_binding": 1.0,
+      "known_rule": 1.0,
+      "noise_capture": 0.0003255208333333333,
+      "noise_capture_by_kind": {
+       "noise-burst": 0.0,
+       "noise-once": 0.0009765625,
+       "noise-repeat": 0.0
+      },
+      "old_knowledge": 0.9982638888888888,
+      "rare_recall": 1.0,
+      "rule_generalization": 1.0
+     },
+     "0.9": {
+      "binding_recall": 0.8472222222222222,
+      "exception_family": 1.0,
+      "known_binding": 0.765625,
+      "known_rule": 1.0,
+      "noise_capture": 0.0003255208333333333,
+      "noise_capture_by_kind": {
+       "noise-burst": 0.0,
+       "noise-once": 0.0009765625,
+       "noise-repeat": 0.0
+      },
+      "old_knowledge": 0.921875,
+      "rare_recall": 0.875,
+      "rule_generalization": 1.0
+     },
+     "0.95": {
+      "binding_recall": 0.1388888888888889,
+      "exception_family": 1.0,
+      "known_binding": 0.13541666666666666,
+      "known_rule": 1.0,
+      "noise_capture": 0.0003255208333333333,
+      "noise_capture_by_kind": {
+       "noise-burst": 0.0,
+       "noise-once": 0.0009765625,
+       "noise-repeat": 0.0
+      },
+      "old_knowledge": 0.7118055555555557,
+      "rare_recall": 0.2708333333333333,
+      "rule_generalization": 1.0
+     }
+    },
+    "floor": {
+     "binding_recall": 0.0,
+     "exception_family": 0.9947916666666666,
+     "known_binding": 1.0,
+     "known_rule": 1.0,
+     "noise_capture": -0.001953125,
+     "noise_capture_by_kind": {
+      "noise-burst": 0.0,
+      "noise-once": -0.005859375,
+      "noise-repeat": 0.0
+     },
+     "old_knowledge": 0.9982638888888888,
+     "rare_recall": 0.09375,
+     "rule_generalization": 0.0
+    },
+    "residual_fit": {
+     "binding_recall": 0.020833333333333332,
+     "exception_family": 0.890625,
+     "known_binding": 1.0,
+     "known_rule": 0.92578125,
+     "noise_capture": -0.0026041666666666665,
+     "noise_capture_by_kind": {
+      "noise-burst": 0.0,
+      "noise-once": -0.0078125,
+      "noise-repeat": 0.0
+     },
+     "old_knowledge": 0.9388020833333334,
+     "rare_recall": 0.010416666666666666,
+     "rule_generalization": 0.9765625
+    }
+   },
+   "gate2_auroc": 0.999360294117647,
+   "gate3": {
+    "new_families": 40,
+    "new_rule_families": 4,
+    "posterior_rule_given_new_family": 0.1,
+    "reserved_clash": false,
+    "unique_once": true
+   },
+   "gate5": {
+    "floor_noise_capture": -0.001953125
+   },
+   "mlp": {
+    "1": {
+     "H": 174,
+     "epochs": 391,
+     "known_binding": 1.0,
+     "known_rule": 1.0,
+     "val_loss": 0.11953648924827576
+    },
+    "2": {
+     "H": 98,
+     "epochs": 311,
+     "known_binding": 1.0,
+     "known_rule": 1.0,
+     "val_loss": 0.11014904826879501
+    }
+   }
+  },
+  "degraded": {
+   "gate1": {
+    "by_tau": {
+     "0.7": {
+      "binding_recall": 0.6597222222222222,
+      "exception_family": 0.8697916666666666,
+      "known_binding": 0.5989583333333334,
+      "known_rule": 0.81640625,
+      "noise_capture": -0.0003255208333333333,
+      "noise_capture_by_kind": {
+       "noise-burst": 0.0,
+       "noise-once": -0.0009765625,
+       "noise-repeat": 0.0
+      },
+      "old_knowledge": 0.76171875,
+      "rare_recall": 0.6979166666666666,
+      "rule_generalization": 0.8828125
+     },
+     "0.8": {
+      "binding_recall": 0.16666666666666666,
+      "exception_family": 0.875,
+      "known_binding": 0.15104166666666666,
+      "known_rule": 0.828125,
+      "noise_capture": -0.0003255208333333333,
+      "noise_capture_by_kind": {
+       "noise-burst": 0.0,
+       "noise-once": -0.0009765625,
+       "noise-repeat": 0.0
+      },
+      "old_knowledge": 0.6180555555555555,
+      "rare_recall": 0.3125,
+      "rule_generalization": 0.89453125
+     },
+     "0.9": {
+      "binding_recall": 0.0,
+      "exception_family": 0.875,
+      "known_binding": 0.0,
+      "known_rule": 0.828125,
+      "noise_capture": -0.0003255208333333333,
+      "noise_capture_by_kind": {
+       "noise-burst": 0.0,
+       "noise-once": -0.0009765625,
+       "noise-repeat": 0.0
+      },
+      "old_knowledge": 0.5677083333333334,
+      "rare_recall": 0.010416666666666666,
+      "rule_generalization": 0.89453125
+     },
+     "0.95": {
+      "binding_recall": 0.0,
+      "exception_family": 0.875,
+      "known_binding": 0.0,
+      "known_rule": 0.828125,
+      "noise_capture": -0.0003255208333333333,
+      "noise_capture_by_kind": {
+       "noise-burst": 0.0,
+       "noise-once": -0.0009765625,
+       "noise-repeat": 0.0
+      },
+      "old_knowledge": 0.5677083333333334,
+      "rare_recall": 0.0,
+      "rule_generalization": 0.89453125
+     }
+    },
+    "floor": {
+     "binding_recall": 0.006944444444444444,
+     "exception_family": 0.9947916666666666,
+     "known_binding": 0.15104166666666666,
+     "known_rule": 0.890625,
+     "noise_capture": 0.012044270833333334,
+     "noise_capture_by_kind": {
+      "noise-burst": 0.0,
+      "noise-once": 0.0361328125,
+      "noise-repeat": 0.0
+     },
+     "old_knowledge": 0.6788194444444445,
+     "rare_recall": 0.0,
+     "rule_generalization": 0.0
+    },
+    "residual_fit": {
+     "binding_recall": 0.013888888888888888,
+     "exception_family": 0.7864583333333334,
+     "known_binding": 0.16666666666666666,
+     "known_rule": 0.80078125,
+     "noise_capture": 0.0006510416666666666,
+     "noise_capture_by_kind": {
+      "noise-burst": 0.0,
+      "noise-once": 0.001953125,
+      "noise-repeat": 0.0
+     },
+     "old_knowledge": 0.5846354166666666,
+     "rare_recall": 0.0,
+     "rule_generalization": 0.55078125
+    }
+   },
+   "gate2_auroc": 0.9715514705882353,
+   "gate3": {
+    "new_families": 40,
+    "new_rule_families": 4,
+    "posterior_rule_given_new_family": 0.1,
+    "reserved_clash": false,
+    "unique_once": true
+   },
+   "gate5": {
+    "floor_noise_capture": 0.012044270833333334
+   },
+   "mlp": {
+    "1": {
+     "H": 174,
+     "epochs": 400,
+     "known_binding": 0.6770833333333334,
+     "known_rule": 0.890625,
+     "val_loss": 0.26335427165031433
+    },
+    "2": {
+     "H": 98,
+     "epochs": 370,
+     "known_binding": 0.8489583333333334,
+     "known_rule": 0.90234375,
+     "val_loss": 0.22003360092639923
+    }
+   }
+  }
+ }
+}
