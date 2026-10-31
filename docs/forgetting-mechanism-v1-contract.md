@@ -117,7 +117,8 @@ Notation: P parameters (dense matrices), N pairs, E evaluation renderings, R tra
 - **Updates per arm-seed:** blocks 1–3: 6,200; block 4: 2,000; branches with training: `ctx`, `hold`, `rehearse-10`, `ctx-enc-frozen`, `ctx-read-frozen` = 5 × 2,000 = 10,000, plus 2,000 for `ctx-nodecay` in `mixed-h125`;
   relearning 3 × 250 = 750. Total about 18,950 (20,950 for `mixed-h125`) against 16,200 in the frozen study, about 1.2×; frozen-group branches skip part of the backward pass. 40 arm-seeds at the measured 89 s effective
   per frozen arm-seed (six GPU processes): about 4,200 s before the added evaluation (15 points per branch with decoders and swaps); expect 1.5–2 h. To be replaced by measurement.
-- Selection and tuning: none beyond the smoke checks (frozen parameters unchanged, `noupdate` exactness, `zero-grad` displacement). Timing goes to the runtime file.
+- **Measured timing run** (seed 299, `mixed-h125`, one GPU process, tag `-timing`, not part of the cohort): 321 s for the arm-seed (data 128 s and rendering 14 s once per process); branches 0–30 s each (`ctx` 30 s, `zero-grad` 6 s, `decay-only` 3 s, `noupdate` under 1 s); peak RSS 2.56 GB. Extrapolation for 40 arm-seeds with six processes at the earlier 3.6× effective speed-up: about 1 h. Replaced by the measured study cost in the results.
+- Selection and tuning: none beyond the smoke checks and this timing run (frozen parameters unchanged, `noupdate` exactness, `zero-grad` displacement). Timing goes to the runtime file.
 - The dense-matrix point also corrects the computation description of the frozen studies, which said "active weights"; those artifacts are not rewritten.
 
 ## Risks
