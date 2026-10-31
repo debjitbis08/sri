@@ -1234,6 +1234,14 @@ The central distinction is coexistence of recall and reasoning versus inference 
 actually uses newly memorized facts; connectivity sparsity must also be distinguished
 from sparse representations and expert routing. These are reading notes, not a new contract.
 
+## Established remedies after the forgetting-mechanism study
+
+2026-10-31: [forgetting remedies](forgetting-remedies-prior-work.md) records the
+representation/readout distinction, Dark Experience Replay, Learning without Forgetting,
+and REMIND, with reading depth, storage requirements, and limits of transfer to our task.
+The proposed next emphasis is established retention baselines, not assuming the observed
+failure needs a new architectural solution.
+
 ## Implications for contracts
 
 - Use standard names where the mechanism is the same: EP for the two-phase
@@ -1297,3 +1305,8 @@ Search and read date: 2026-10-31. Abstracts of the arXiv papers below were read 
 **What this supports and does not.** The literature leads to expecting forgetting in the deeper, reader-side parameters and recoverability of representations; both are
 hypotheses for this setting (a matching reader, arbitrary pairs, Adam, a small network). None of it predicts the early 25-update drop or the role of inherited Adam moments, which the
 `zero-grad` branch tests directly. Nothing here is a ranking of the arms.
+
+**External note on remedies (2026-10-31):** [forgetting-remedies-prior-work.md](forgetting-remedies-prior-work.md) compares the forgetting-mechanism findings with established remedies
+(representation-versus-readout forgetting, Dark Experience Replay, Learning without Forgetting, REMIND). It is a targeted comparison, not a survey; its program implication is to
+prioritize established retention baselines and their retention–new-learning–compute–storage tradeoffs before another broad diagnosis, with a first-moment reset kept as a focused
+mechanistic diagnostic.
