@@ -45,7 +45,7 @@ Each condition uses its own selected settings and budgets.
 | `oracle`: delay | 5.7 | 7.3 | 7.2 | 4.5 | 7.7 | 7.6 | not run |
 
 - **`held`** was expected to expose smoothing's weakness, since errors persist for 8 frames. Smoothing does not collapse, and input-driven dynamics do not gain from it.
-- **`oracle`** is the mechanism's setting, and it works: every method but `nearest` is near zero, at 4× the multiplications of `ema` for the comparable `idp-key`. There wrong switches sit at a floor (`hysteresis` 0.03), so a 20% reduction could not be shown; `idp-key` is ahead of `nearest` and level with smoothing. The contract's `oracle` frontier was read on pilot seeds only: at delay ≤ 4, `hysteresis` 0.10, `ema` 0.49, `idp-key` 0.69, `hmm` 1.35. Nothing there favours the mechanism.
+- **`oracle`** is the mechanism's setting, and it works: every method but `nearest` is near zero, at 4× the multiplications of `ema` for the comparable `idp-key`. There wrong switches sit at a floor (`hysteresis` 0.03), so a 20% reduction could not be shown; `idp-key` is ahead of `nearest` and level with smoothing. The `oracle` frontier was read on pilot seeds only: at delay ≤ 4, `hysteresis` 0.10, `ema` 0.49, `idp-key` 0.69, `hmm` 1.35. Nothing there favours the mechanism.
 
 **Burst capture, primary condition.** Share of bursts followed by a wrong switch:
 
@@ -127,7 +127,7 @@ Multiplications are derived; µs per frame are measured: one thread, one warm-up
 
 Measured, `idp-key` costs about 6.8× `hysteresis`, more than its 4× in multiplications. Against the encoder, retrieval is cheap for every method but `idp-wide`, so per-frame compute would not decide between the others; quality does.
 
-**Selection and tuning, included in the comparison.** Pilot: 168,800 setting-threshold pairs across 106 tasks, 13,491 worker CPU seconds (`idp-wide` about half), 11 workers, peak worker RSS 484 MB. Stream building, two seeds: 13 s wall. Severity stage: 5 s wall.
+**Selection and tuning, included in the comparison.** Pilot: 168,800 setting-threshold pairs across 106 tasks, 13,491 worker CPU seconds (`idp-wide` about a quarter), 11 workers, peak worker RSS 484 MB. Stream building, two seeds: 13 s wall. Severity stage: 2 s wall.
 
 **Confirmation.** Ten encoders: 66 s each on the GTX 1650 (render and fit; 27 s fit alone). Confirmation: 718 s wall: streams 28 s (256 s worker CPU); 400 selected runs 122 s; frontier, 48 tasks and 102,932 pairs on 4 seeds, 568 s (6,297 worker CPU seconds); children's peak RSS 801 MB. Diagnosis: 420 s wall, of which settling 1,628 worker CPU seconds. Timing is in `reports/streaming-retrieval-v1-*-runtime.json`, separately from the deterministic files.
 
