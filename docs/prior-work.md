@@ -1310,3 +1310,20 @@ hypotheses for this setting (a matching reader, arbitrary pairs, Adam, a small n
 (representation-versus-readout forgetting, Dark Experience Replay, Learning without Forgetting, REMIND). It is a targeted comparison, not a survey; its program implication is to
 prioritize established retention baselines and their retention–new-learning–compute–storage tradeoffs before another broad diagnosis, with a first-moment reset kept as a focused
 mechanistic diagnostic.
+
+## Retention remedies and consolidation (added 2026-10-31, for retention remedies v1)
+
+Search date 2026-10-31; sources were abstract pages and search summaries unless tagged otherwise. Full texts unread.
+
+- **Rehearsal and pseudorehearsal.** Robins (1995, Connection Science 7) **[abstract: search summary]**: rehearsal of earlier items sharply reduces forgetting; pseudorehearsal replays
+  internally generated pseudo-patterns, giving rehearsal's benefit without stored old data. Differs: small feed-forward nets and generic pattern sets, not matched arbitrary pairs.
+  Hypothesis: the random-latent cue arm is a pseudorehearsal control; whether random cues land on the stored pairs is exactly what is open.
+- **Deep generative replay.** [Shin et al. 2017](https://arxiv.org/abs/1705.08690) **[abstract]**: a generative model supplies synthetic old-task data mixed with new data, avoiding storage of past
+  data. Differs: image classification tasks and a trained generator. Hypothesis: a cue cache (stored codes) is the storage-based counterpart of a generator; a learned generator is not tested here.
+- **Distillation.** [Hinton, Vinyals and Dean 2015](https://arxiv.org/abs/1503.02531) **[abstract]**: transfers a model's learned behavior into another by training on its outputs. Differs: ensemble to
+  single model, not recent memory to protected store. Hypothesis: destination training on the recent memory's soft outputs; the destination cannot exceed the teacher's fidelity.
+- **Complementary learning systems.** McClelland, McNaughton and O'Reilly (1995, Psychological Review 102) **[abstract: search summary]**: fast sparse learning plus slow interleaved consolidation to avoid interference
+  in overlapping distributed representations. Differs: a theory with partial empirical support, not a specification for this network. Hypothesis [analogy]: the project's second protected store follows this
+  division; the evidence here can neither confirm nor refute the theory.
+- **Dark Experience Replay, REMIND, Learning without Forgetting, representation versus readout forgetting:** see [forgetting-remedies-prior-work.md](forgetting-remedies-prior-work.md).
+- **Not found / unverified:** an identifier I had in mind for a "brain-inspired replay" paper (van de Ven et al.) resolved to an unrelated paper and is not cited; its claims are unverified.
