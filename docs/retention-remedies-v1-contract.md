@@ -64,6 +64,24 @@ Per branch and evaluation point (0, 50, 250, 500, 1,000, 2,000): recall on M and
 - What the study adds: a comparison of these remedies on matched arbitrary pairs against retention, new learning, transfer, compute and storage in this architecture. Otherwise nothing new.
 - Cheaper alternatives included: `hold-M`, `rehearse-M` and `ctx-m0`. Not included: weight-importance regularizers (EWC, Synaptic Intelligence) and Learning without Forgetting (cue sets on context inputs do not cover arbitrary pairs; no prediction made).
 
+## Scaling (required: the small design must be a scalable one)
+
+Notation: F facts kept (|M|), K cues per fact, d code dimension, A answer-space size (9 here), P model parameters, B frozen-copy parameters.
+
+| Component | Storage | Extra compute | Survives scale-up? |
+|---|---|---|---|
+| `rehearse-M` | O(F·K·input) | O(replay items) per update | storage linear in facts: bounded only by capping F or K; the input form is the largest term |
+| `der-M` | rehearse plus O(F·K·A) scores plus the A canonical candidates | A extra scores per replayed item | the scores scale with the answer space; here A = 9 is tiny, so this arm is **optimistic about DER** |
+| `stable-enc-replay` | O(F·K·d) | frozen encoders cost context learning | d, not input, but still linear in F; freezing blocks representation growth |
+| `consolidate-cache` | O(F·K·d) cues plus a head of O(d·h + h·A) plus B | O(steps·F·K·(d·h)) per consolidation | cue storage is linear in F, so it does not solve the storage problem, only shrinks the constant (codes vs inputs); the head's capacity must grow with F; A = 9 means many facts share answers, **unlike a general key→value memory** |
+| `consolidate-random` | O(R·d) | O(R) teacher queries | random cover of a d-dimensional code space needs exponentially many samples to hit F specific regions: expected to fail more as d grows |
+| `consolidate-other` | none | O(R) | same coverage problem; cheap but information-free about marked pairs |
+| frozen encoder copy | B | none | constant fraction of the model (56% here); at scale it is the largest cost, so any design needing it must justify it |
+| `consolidate-interleaved` | as cache | teacher queries on a schedule | cost multiplies with the number of consolidation rounds |
+
+What this design cannot show: that a protected store scales in capacity (F is 18), that an answer space larger than nine works (the pair task has nine values), or that cue storage can be cut below linear in facts. Stated so the results are not over-read.
+**Scale probe [decide]:** repeat the headline branches (`ctx`, `rehearse-M`, `der-M`, `consolidate-cache`, `consolidate-random`) at N = 90 (M = 36) on seeds 350–354, `mixed` only, as a labeled descriptive extension; it checks whether retention, selectivity and cost move with F as the table predicts (for example `consolidate-random` should not improve, cache storage should double). The symbol pool (about 387 symbols after filtering) supports 2N = 180. A larger answer space (a second pairing task with more values) is the next scaling axis and is not in this study.
+
 ## Computation (theoretical; to be replaced by measured costs)
 
 Per arm-seed: blocks 1–4 (8,200 updates) plus 11–12 branches of 2,000 updates and a 250-update B teaching each: about 8,200 + 12 × 2,250 = 35,000 updates, about twice the momentum-reset study (4,102 s for 40 arm-seeds), so on the order of 2.5 hours for 30 arm-seeds before the added losses; a pilot gives the estimate.
@@ -84,4 +102,5 @@ Decided 2026-10-31: stronger rule for retention benefit; both established baseli
 2. **Arms.** `mixed`, `sparse48`, `mixed-h125`; adding `dense` is cheap in code but adds time.
 3. **Marked set size** (18 of 45) and **K = 4**.
 4. **Provisional budget** (25% extra training time, one model's weight bytes of extra storage) and whether the frozen encoder copy counts in full.
-5. **Interleaved timing** (`consolidate-interleaved`) kept in this study or deferred.
+5. **Scale probe** at N = 90 on five seeds (about 40% extra time), see Scaling.
+6. **Interleaved timing** (`consolidate-interleaved`) kept in this study or deferred.
