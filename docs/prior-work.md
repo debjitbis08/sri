@@ -1327,3 +1327,10 @@ Search date 2026-10-31; sources were abstract pages and search summaries unless 
   division; the evidence here can neither confirm nor refute the theory.
 - **Dark Experience Replay, REMIND, Learning without Forgetting, representation versus readout forgetting:** see [forgetting-remedies-prior-work.md](forgetting-remedies-prior-work.md).
 - **Not found / unverified:** an identifier I had in mind for a "brain-inspired replay" paper (van de Ven et al.) resolved to an unrelated paper and is not cited; its claims are unverified.
+
+## Addressed memory and writing facts into weights (added 2026-10-31, for the translation-memory draft)
+
+Search date 2026-10-31; abstract pages only.
+- **Product-key memory layers.** [Lample et al. 2019](https://arxiv.org/abs/1907.05242) **[abstract]**: a structured memory layer with fast exact nearest-neighbor lookup adds up to about a billion parameters at small compute; a 12-layer transformer with it beat a 24-layer one and ran about twice as fast at inference. Differs: trained end to end, not written by consolidation. Hypothesis: addressing and retrieval cost for a bounded protected store.
+- **Fast weights.** [Ba et al. 2016](https://arxiv.org/abs/1610.06258) **[abstract]**: weights on a time scale between activities and slow weights hold temporary memories of recent inputs without storing activity copies. Hypothesis: a source of replay cues with no separate buffer.
+- **Mass-editing memory (MEMIT).** [Meng et al. 2022](https://arxiv.org/abs/2210.07229) **[abstract]**: thousands of associations written directly into GPT-J and GPT-NeoX weights. Differs: large pretrained models and known subject representations. Hypothesis: closed-form writes into existing weights as the alternative to a separate store.
