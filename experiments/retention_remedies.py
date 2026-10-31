@@ -52,6 +52,7 @@ REHEARSE_EVERY, BUFFER_BATCH = int(os.environ.get('RR_EVERY', '10')), int(os.env
 DER_ALPHA = float(os.environ.get('RR_DER_ALPHA', '1.0'))
 HEAD_H, DISTILL_STEPS = int(os.environ.get('RR_HEAD', '32')), int(os.environ.get('RR_STEPS', '300'))
 DISTILL_LR, DISTILL_WD = float(os.environ.get('RR_LR', '0.01')), float(os.environ.get('RR_WD', '0.001'))
+HP = {False: (HEAD_H, DISTILL_STEPS, DISTILL_WD), True: (HEAD_H, DISTILL_STEPS, DISTILL_WD)}  # (head width, steps, weight decay) for the nine-way and the anchored head
 NEW_UPDATES = 250 if not SMOKE else 10
 POINTS = FM.points(L, (0, 50, 250, 500, 1000, 2000))
 NAME = 'retention-remedies-v1' + ('-smoke' if SMOKE else '') + os.environ.get('NFI_TAG', '')
@@ -115,9 +116,9 @@ def scores(model, q, cand):
 
 
 class Head(torch.nn.Module):
-    def __init__(self, d, out):
+    def __init__(self, d, out, h):
         super().__init__()
-        self.net = torch.nn.Sequential(torch.nn.Linear(d, HEAD_H), torch.nn.ReLU(), torch.nn.Linear(HEAD_H, out))
+        self.net = torch.nn.Sequential(torch.nn.Linear(d, h), torch.nn.ReLU(), torch.nn.Linear(h, out))
 
     def forward(self, x):
         return self.net(x)
@@ -126,12 +127,13 @@ class Head(torch.nn.Module):
 def distill(cues, soft, anchored, canon, seed, tag):
     """Train a head on (cue code -> teacher response): KL to the teacher's softmax over the nine counts, or, anchored, mean squared error to the
     expected canonical code in the frozen path's code space. Full batch, DISTILL_STEPS Adam steps, weight decay DISTILL_WD."""
+    h, steps, wd = HP[anchored]
     with torch.random.fork_rng(devices=[]):
         torch.manual_seed(int(nc.stream('rr_head', seed, tag).integers(2 ** 31)))
-        head = Head(cues.shape[1], cues.shape[1] if anchored else 9)
-    opt = torch.optim.Adam(head.parameters(), DISTILL_LR, weight_decay=DISTILL_WD)
+        head = Head(cues.shape[1], cues.shape[1] if anchored else 9, h)
+    opt = torch.optim.Adam(head.parameters(), DISTILL_LR, weight_decay=wd)
     target = soft @ canon if anchored else soft
-    for _ in range(DISTILL_STEPS):
+    for _ in range(steps):
         out = head(cues)
         loss = F.mse_loss(out, target) if anchored else F.kl_div(F.log_softmax(out, 1), target, reduction='batchmean')
         opt.zero_grad(); loss.backward(); opt.step()
@@ -345,7 +347,7 @@ def run_task(task):
     withheld, sets, M, buf, b4, (ref_enc, ref_model), ctx, curve4 = (pre[k] for k in ('withheld', 'sets', 'M', 'buf', 'b4', 'ref', 'ctx', 'curve4'))
     out = {'N': N, 'L': L, 'K': K, 'points': POINTS, 'sets': {k: {str(cp): n for cp, n in v.items()} for k, v in sets.items()},
            'marked': {str(cp): n for cp, n in M.items()}, 'buffer': {str(cp): j for cp, j in buf.items()},
-           'hyper': dict(K=K, every=REHEARSE_EVERY, batch=BUFFER_BATCH, der_alpha=DER_ALPHA, head=HEAD_H, steps=DISTILL_STEPS, lr=DISTILL_LR, wd=DISTILL_WD),
+           'hyper': dict(K=K, every=REHEARSE_EVERY, batch=BUFFER_BATCH, der_alpha=DER_ALPHA, head_ninefold=HP[False], head_anchored=HP[True], lr=DISTILL_LR),
            'block4': {'curve': curve4, 'recall': recall_MU(ref_enc, ref_model, ctx, seed)}, 'branches': {}}
     out['static'] = static_branches(ref_enc, ref_model, ctx, seed, sets)
     for name, spec in HOST.items():

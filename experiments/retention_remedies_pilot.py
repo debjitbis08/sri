@@ -9,6 +9,8 @@ Selection rules (written before running):
                 the anchored head (nearest canonical code); ties go to fewer steps, then the narrower head. No evaluation renderings are used for selection.
   DER weight    {0.1, 1, 10}: the value with the highest recall on M after 2,000 updates (ties to the smaller weight). One seed and 18 pairs make this noisy; it is
                 a choice of a working value, not an estimate.
+  amendment     the first pilot picked grid corners (largest head, most steps; smallest DER weight), so both grids were widened (heads to 128, steps to 3000,
+                DER weights down to 0.01) and the pilot rerun; the rules are unchanged. A selection at an edge of the widened grid is reported as such.
   fixed         buffer cadence (every 10th update, 16 items: the earlier rehearse-10 precedent), K = 4, random and other cue counts (= |M| K).
 Outputs reports/retention-remedies-v1-pilot.json (deterministic content: selections, grids, feasibility) and -pilot-runtime.json (timing).
 """
@@ -22,8 +24,8 @@ import torch
 from experiments import retention_remedies as RR
 
 SEED, ARM = 299, 'mixed'
-GRID = list(itertools.product((16, 32, 64), (100, 300, 1000), (0., 1e-3, 1e-2)))
-DER_GRID = (0.1, 1., 10.)
+GRID = list(itertools.product((16, 32, 64, 128), (100, 300, 1000, 3000), (0., 1e-3, 1e-2)))  # widened after a first pilot picked grid corners (amendment)
+DER_GRID = (0.01, 0.03, 0.1, 1., 10.)  # extended downward after the first pilot picked the smallest value (amendment)
 OUT = RR.X.ROOT / 'reports' / 'retention-remedies-v1-pilot.json'
 RUNTIME = RR.X.ROOT / 'reports' / 'retention-remedies-v1-pilot-runtime.json'
 
@@ -61,7 +63,7 @@ def select_distillation(pre):
     for anchored in (False, True):
         rows = []
         for h, steps, wd in GRID:
-            RR.HEAD_H, RR.DISTILL_STEPS, RR.DISTILL_WD = h, steps, wd
+            RR.HP[anchored] = (h, steps, wd)
             head, loss = RR.distill(cues, soft, anchored, canon, SEED, f'pilot-{anchored}')
             pred = RR.answer(head, q, canon, anchored)
             rows.append({'head': h, 'steps': steps, 'wd': wd, 'final_loss': loss, 'val_agreement': float((pred == teacher).float().mean()),
@@ -96,7 +98,7 @@ def derived(pre, sel):
         out['collections_sanity'] = float(np.mean([float((ref_model.relation_logits(canon[a:a + 1], canon[b:b + 1], 2)[0] > 0) == (a > b)) for a in range(9) for b in range(9) if a != b]))
         out['teacher_symbol_codes'] = acc(ref_model.relation_logits(q[iu], q[ju], 2))
         for tag, anchored in (('ninefold', False), ('anchored', True)):
-            RR.HEAD_H, RR.DISTILL_STEPS, RR.DISTILL_WD = (sel[tag]['selected'][k] for k in ('head', 'steps', 'wd'))
+            RR.HP[anchored] = tuple(sel[tag]['selected'][k] for k in ('head', 'steps', 'wd'))
             with torch.enable_grad():
                 head, _ = RR.distill(cues, soft, anchored, canon, SEED, f'derived-{tag}')
             if anchored:
@@ -140,8 +142,11 @@ def main():
                               'path_unchanged': rec.get('path_unchanged'), 'wall_seconds': time.perf_counter() - t1}
     t1 = time.perf_counter()
     deriv = derived(pre, sel)
+    for anchored, tag in ((False, 'ninefold'), (True, 'anchored')):
+        RR.HP[anchored] = tuple(sel[tag]['selected'][k] for k in ('head', 'steps', 'wd'))
+    static = RR.static_branches(*pre['ref'], pre['ctx'], SEED, pre['sets'])
     result = {'seed': SEED, 'arm': ARM, 'N': RR.N, 'L': RR.L, 'distillation': sel, 'der': {'grid': der_rows, 'selected_alpha': best['alpha']},
-              'reference_recall_at_0': pre['curve4'][-1], 'teacher_M_original': RR.recall_MU(*pre['ref'], pre['ctx'], SEED), 'branches': branches, 'derived_relations': deriv}
+              'reference_recall_at_0': pre['curve4'][-1], 'teacher_M_original': RR.recall_MU(*pre['ref'], pre['ctx'], SEED), 'branches': branches, 'derived_relations': deriv, 'static': static}
     OUT.write_text(json.dumps(result, indent=1, sort_keys=True, default=float) + '\n')
     RUNTIME.write_text(json.dumps({'wall_seconds_total': time.perf_counter() - t0, 'prepare_seconds': t_prep, 'distillation_grid_seconds': t_dist,
                                    'der_branch_seconds': timing, 'branch_seconds': {k: v['wall_seconds'] for k, v in branches.items()}, 'device': str(RR.AP.DEV.ACTIVE),
