@@ -66,14 +66,14 @@ Before the stream, every arm is given the same **old knowledge**: 8 known rules 
 **Old knowledge.** Per seed and condition, once, cached, identical for every setting. The fit set is 3,840 events from stream renderings: 8 rules × 384 events, with random items in both slots, and 24 bindings × 32 events.
 
 - **Reader.** Ridge in closed form on the 3,072 rule events only, λ = 1, target the outcome key. The 24 known bindings are slots, written from the first event of each. Comparator and lifecycle arms all start from this R and these slots.
-- **MLP.** Fit to all 3,840 events by Adam, learning rate 0.001, batch 64, mean squared error, initialization from the seed's stream. 10% of the set is held out. Stop when held-out loss has not improved for 5 epochs, or at 200 epochs, restoring the best epoch's weights. Adam's state is **discarded** before the stream, since inherited moments alone cost recall in the [forgetting study](forgetting-mechanism-v1-results.md). Each distinct architecture is fit once.
+- **MLP.** Fit to all 3,840 events by Adam, learning rate 0.001, batch 64, mean squared error, initialization from the seed's stream. 10% of the set is held out. Stop when held-out loss has not improved for 20 epochs, or at 400 epochs, restoring the best epoch's weights. Adam's state is **discarded** before the stream, since inherited moments alone cost recall in the [forgetting study](forgetting-mechanism-v1-results.md). Each distinct architecture is fit once.
 - **Target.** Gate 1 requires each class to reach at least 0.90 on known rules and known bindings on audit renderings before the stream. An MLP architecture that does not is rejected before selection.
 
 **Bytes.** Identical outside B in every arm: the encoder, 12,288 bytes for the reader or its equivalent, and 12,288 bytes for the 24 known bindings (512 each). MLP arms get those last two as weights, so every arm has the same total. Inside B:
 
 | item | bytes | notes |
 |---|---|---|
-| lifecycle trace | 560 | cue and outcome 512, trace counters and flags (pinned, consumed, familiar) 16, and one group record 32, reserved so group state can never overflow |
+| lifecycle trace | 560 | cue and residual 512 (the residual under the current R is stored instead of the outcome, the same bytes, since o = e + cR), trace counters and flags (pinned, consumed, familiar) 16, and one group record 32, reserved so group state can never overflow |
 | shadow | 528 | ē, ĉ 512, counters 16 |
 | new slot | 512 | |
 | sketch entry | 8 | the projection is regenerated from the seed and not stored |
@@ -145,7 +145,7 @@ Groups in a and b, and shadows in c, go oldest first. If a or b would drop a pin
 4. **If R changed,** recompute each residual group's e from its traces under the new R. Traces R now hits leave the group. Any remaining shadow is refit on those of its fit traces that remain, topped up with the group's oldest *unconsumed* traces from distinct episodes, and repinned, with all its counts **reset to zero**, since it is now a different candidate. A shadow that cannot reach m traces retires. Slot writes do not change R, and shadow scores use only the reader path, so they cause no reset.
 5. **Recompute the answer under the state after steps 3–4, and stop if it hits.** No trace is kept for what has just been absorbed.
 6. **Keep the evidence.** Append a trace holding cue and outcome, not a scalar. Join a *same-cue* group if `cos(c, its cue) ≥ τ`. Join a *residual* group if `cos(e, ē_G) ≥ τ_e`, where `e = o − Rc`: experiences wrong in the same way, whatever they look like. A trace is in at most one of each, and never moves to another; it only leaves.
-7. **Propose.** A residual group without a shadow, holding m **unconsumed** traces from distinct episodes, whose unit cues have mean resultant length at least κ, freezes a rank-one shadow `Δ = ē ĉᵀ/‖ĉ‖²` fitted on the oldest such m. Those fit traces are **pinned** for the shadow's life: they count toward the trace budget and cannot be evicted, so eligibility can always be checked and the exclusion needs no uncounted memory. κ rejects chance groups, which a rank-one update could not generalize from anyway. If all S places are taken, the shadow with the fewest wins, then the oldest, is displaced.
+7. **Propose.** A residual group without a shadow, holding m **unconsumed** traces from distinct episodes, whose unit cues have mean resultant length at least κ, freezes a rank-one shadow `Δ = ē ĉᵀ/‖ĉ‖²` fitted on the oldest such m. Those fit traces are **pinned** for the shadow's life: they count toward the trace budget and cannot be evicted, so eligibility can always be checked and the exclusion needs no uncounted memory. κ rejects chance groups, which a rank-one update could not generalize from anyway. If all S places are taken, the shadow with the fewest wins, then the oldest, is displaced. At most one proposal per event, oldest group first.
 8. **Evict if over budget,** by the order below, and on a slot write likewise.
 
 **Retiring and retrying.** A shadow leaves by retiring, by being displaced, or by promotion. On retirement or displacement its fit traces unpin and are marked **consumed**. They remain ordinary members of the group, still contribute to ē, and may be evicted, but can never fit a shadow again. So a rejected candidate can return only on m **previously unused** traces: none has ever fitted a shadow in this group, though some may predate the earlier fit, since a group can already hold unused traces when it is fitted. The invariant is that a trace fits at most one shadow, step 4's refit of the same shadow excepted. Its failures cannot be cleared by reproposing it, and no fit repeats on the same evidence. A displaced shadow is treated the same, so displacement cannot launder failures either. The number of tries per group is limited only by the evidence arriving, and is reported by hidden kind, since each retry on noise is another chance of a false promotion. The reset in step 4 is the one case where counts clear without new traces. It occurs at most once per promotion, and it is disclosed because it could rescue a failing shadow.
@@ -187,7 +187,7 @@ There is no time-based expiry, since a clock would decide the gap by another nam
 
 ## Readings
 
-An audit reads a copy of the state, on audit renderings, never changing the arm. It runs at quarter points and at the end; the primary value is at the end, after the tail. Answers are decoded by nearest outcome key among 32 (chance 1/32). Primary audits use `clean` renderings, even in a `degraded` stream, so they measure what was learned rather than one noisy read. `degraded` audits are also reported.
+An audit reads a copy of the state, on audit renderings, never changing the arm. It runs at quarter points and at the end; the primary value is at the end, after the tail. Answers are decoded by the nearest of 32 evaluator-held outcome prototypes (chance 1/32), each the mean of that glyph's audit renderings **in the stream's own condition**, since an arm's predictions live in the key space it learned. Primary audits use `clean` renderings, even in a `degraded` stream, so they measure what was learned rather than one noisy read. `degraded` audits are also reported.
 
 **Primary.**
 
@@ -198,7 +198,7 @@ An audit reads a copy of the state, on audit renderings, never changing the arm.
 
 **Descriptive.** Slots promoted per hidden kind (the arm's own routing, reported separately from noise capture), `rare` recall, occurrences to first correct, slots and traces held, shadows proposed, retired, displaced and promoted, tries per group by hidden kind, resets rescuing a shadow that later promoted, sketch true and false match rates against hidden identity, curves over the quarter points.
 
-**Compute.** Operations per event (derived per arm): multiplications plus one for each 64-bit Hamming comparison. Measured µs per event on one thread, every byte by category.
+**Compute.** Operations per event (derived per arm), including the read every arm needs to answer every event: multiplications plus one for each 64-bit Hamming comparison. Measured µs per event on one thread, every byte by category.
 
 ## Selection and decision rule
 
@@ -240,7 +240,7 @@ Everything else (other q, B, `clean`, short gaps, `rare`, `sleep-grow`) is descr
 
 Each on pilot seeds, before selection. Failure stops the study until the design changes, recorded under *Changes from the pilot*.
 
-1. **World.** R fit offline on all `rule` events reaches rule generalization ≥ 0.85, and slots written once per cause reach binding recall ≥ 0.85, on `clean`. This shows a win is possible and sets the ceiling. `degraded` values are recorded.
+1. **World.** R fit offline on all `rule` events, each new rule's 8 events weighted to match a known rule's 384, reaches rule generalization ≥ 0.85, and slots written once per cause reach binding recall ≥ 0.85, on `clean`. A residual fit on those 8 events per rule alone, as a shadow's update would make, is also reported. This shows a win is possible and sets the ceiling. `degraded` values are recorded.
 2. **Separability of surprise.** With R and slots as fitted on old knowledge, AUROC of `1 − cos(ô, o)` between `known` events and first occurrences of causes must be ≥ 0.90 on `clean`. At `degraded`, if below 0.60, the primary cell cannot test the mechanism, and `clean` becomes primary before confirmation.
 3. **Construction.** No one-off cue repeats or matches a reserved cue; all cues have the same form. Every configuration in the search fits its budget, by asserted byte counts. A disclosure table reports, by kind, family novelty and glyph counts at first occurrence, and the posterior of a cause given each, against the 0.11 expected.
 4. **No privileged input.** Arm code receives only keys, in stream order. Tests check that a stream's outcome table, kind labels and cause ids cannot reach arm code, `life-oracle` excepted.
@@ -278,6 +278,28 @@ Third review, also before any build, all correct and fixed above. The event loop
 - A rejected shadow could be recreated unchanged with its failures cleared. Fit traces are now consumed on retirement or displacement, so a retry needs m previously unused traces.
 - The early return skipped decisions on events the answer hit, so retirement depended on when an unrelated surprise came. Scoring and decisions now run on every outcome, and only keeping a trace is conditional.
 - Sketch support conflicted with group support in eviction. Familiarity is now a per-trace tie-break only, and never counts as confirmation.
+
+## Changes from the gates
+
+Gates first run 2026-11-01, on seeds 299 and 298, before any pilot search. Gate 1 failed as first written; all three causes were procedural, and these changes came before any arm was compared:
+
+- **Gate 1's fit.** 32 new rule events were drowned by 3,072 known ones in one ridge fit: rule generalization 0.19–0.24 on `clean`. Weighted to match it reaches 1.00, and a residual fit on those 8 events per rule alone reaches 0.90–0.98. So the world was feasible and the gate's fit was at fault.
+- **Decoding.** Predictions learned on `degraded` decoded against clean prototypes read 0.41 and 0.92 on known rules (seeds 299, 298), against 0.89 and 0.97 with `degraded` prototypes on the same clean cues. Prototypes now come from the stream's condition. Otherwise the old-knowledge limit would have measured this mismatch.
+- **MLP fit.** Patience 5 stopped at about 30 epochs with known bindings near 0.1. Patience 20 and at most 400 epochs give 1.00 on `clean`, on all four architecture-seed pairs tried.
+
+**Gate readings after those changes** (`reports/surprise-lifecycle-v1-gates.json`), seeds 299 and 298:
+
+| reading | `clean` | `degraded` |
+|---|---|---|
+| gate 1: offline rule generalization | **1.00, 1.00** | 0.88, 0.86 |
+| gate 1: slots once per cause, binding recall | **0.94, 1.00** | 0.66, 0.76 |
+| residual fit on 8 events per rule, rule generalization | 0.98, 0.90 | 0.55, 0.54 |
+| gate 2: AUROC of surprise, known against first occurrence | **1.00, 1.00** | 0.97, 0.99 |
+| frozen old reader, old knowledge | 1.00, 1.00 | **0.68, 0.91** |
+| gate 5: noise capture on the frozen reader | 0.00, 0.04 | 0.01, 0.01 |
+| gate 3: posterior of a rule given a family new to the stream | 0.10 | 0.10 |
+
+Gates 1, 2, 3 and 5 pass. The posterior is 4 of 40 families, against the 0.11 expected, since binding families are also new to the stream, though at its start. **Open on `degraded`:** the frozen reader starts at 0.68 on seed 299, so the old-knowledge limit of 0.85 may exclude every arm at the primary cell, and a rule from 8 degraded events has a ceiling near 0.55. Whether the primary cell stays `degraded` is decided on the pilot, before confirmation, under the provisional limits rule.
 
 ## Changes from the pilot
 
@@ -339,7 +361,7 @@ K traces, S shadows, Z sketch entries, W MLP weights, c window, D_c = 96, D_o = 
 | `omega` | ≈ 2cW | W + c(D_c + D_o) | c multiplies the work |
 | `sleep-periodic` | K·D_c, and every P events K·D_c² + D_c³ | K(D_c + D_o) | sleep cost; store limits what one sleep sees |
 | `sleep-grow` | as above, plus each expert's r(D_c + D_o) | + r(D_c + D_o) per sleep | grows linearly with stream length |
-| `life` | (K + F)·D_c + K·D_o + S(2D_c + 2D_o) + D_c·D_o, and on a promotion K·D_c·D_o | K(D_c + D_o) + S(D_c + D_o) + F(D_c + D_o) | linear in K |
+| `life` | (K + F)·D_c + S(2D_c + 2D_o) + D_c·D_o, on a surprise K·D_o to compare residuals, on reading a group's outcome D_c·D_o per member, and on a promotion K·D_c·D_o | K(D_c + D_o) + S(D_c + D_o) + F(D_c + D_o) | linear in K |
 | `life-sketch` | as `life` + 2Z Hamming comparisons | + 8Z bytes | Z linear; fingerprint horizon linear in Z; learning reach to be measured |
 
 **Construction, fitting and search.**
@@ -349,7 +371,7 @@ K traces, S shadows, Z sketch entries, W MLP weights, c window, D_c = 96, D_o = 
 | Encoder fit | fixed, about 70 s per seed on the GTX 1650 | once per seed |
 | Rendering and encoding pool | O(symbols × 64 × conditions × encoder) | once per seed and condition |
 | Old knowledge, reader | O(n·D_c² + D_c³), n = 3,072 | ridge, direct solve; once per seed and condition |
-| Old knowledge, MLP | O(epochs × n × W), n = 3,456, at most 200 epochs | once per architecture, seed and condition; epochs reported |
+| Old knowledge, MLP | O(epochs × n × W), n = 3,456, at most 400 epochs | once per architecture, seed and condition; epochs reported |
 | Shadow fit | O(m·D_c·D_o) | at most once per proposal |
 | Audit | O(cues × renderings × (F·D_c + D_c·D_o)), or × W | plus one state copy |
 | Search | configurations × Σ per-gap L × per-event cost | rejected configurations counted |
@@ -358,7 +380,7 @@ K traces, S shadows, Z sketch entries, W MLP weights, c window, D_c = 96, D_o = 
 
 - **Facts.** Trace reach in intervening surprises grows linearly with bytes, for any trace-based arm. No bounded store reaches every gap. The sketch lengthens the fingerprint horizon by about 70× per byte (560 against 8), which bounds its learning reach without establishing it **[derived]**. Slots grow with what is kept, and an index would make reads sublinear; neither is run.
 - **Read cost.** Measured once before design: about 7 µs for a 640 × 64 store read, single-thread numpy.
-- **Probes.** Causes ×4 (g ≥ 512) with frozen settings, to see whether thresholds survive load. Occurrences n ∈ {4, 8, 32} at g = 512, to measure how many exposures each arm needs, which is where `slow` should catch up.
+- **Probes.** Causes ×4 (g ≥ 512; `rule` stays at 4, its families being limited) with frozen settings, to see whether thresholds survive load. Occurrences n ∈ {4, 8, 32} at g = 512, to measure how many exposures each arm needs, which is where `slow` should catch up.
 - **What would not survive scale-up.** 32 outcomes and decoding through an evaluator-held table; a linear reader; a family glyph handing the rule its feature; 512 glyphs; a rule family protected from one-off noise by construction. Real causes will not announce themselves in one 32-dimensional slot. Thresholds on cosines drifted across encoders in streaming retrieval, so expect this here.
 
 ## Computation plan
@@ -374,4 +396,12 @@ K traces, S shadows, Z sketch entries, W MLP weights, c window, D_c = 96, D_o = 
 
 ## Reproduction
 
-To be written with the implementation: `src/surprise_lifecycle.py`, `experiments/surprise_lifecycle.py`, `tests/test_surprise_lifecycle.py`. The tests cover each state transition above, including: no trace ever fits two shadows, and a retired shadow cannot return without m previously unused traces; a shadow retires on an unsurprising event; the familiar bit never changes a count; a pinned trace cannot be evicted; deleting a group deletes its counts.
+```
+.venv/bin/python -m experiments.surprise_lifecycle gates
+NSY_WORKERS=11 .venv/bin/python -m experiments.surprise_lifecycle pilot
+NFI_DEVICE=cuda /data/venvs/sri-cuda/bin/python -m experiments.surprise_lifecycle encoders
+NSY_WORKERS=11 .venv/bin/python -m experiments.surprise_lifecycle confirm
+.venv/bin/python -m experiments.surprise_lifecycle timing
+.venv/bin/python -m experiments.surprise_lifecycle analyse
+```
+`confirm` refuses to run until this file's status says frozen. Tests: `.venv/bin/python -m unittest tests.test_surprise_lifecycle`. Code: `src/surprise_lifecycle.py`, `experiments/surprise_lifecycle.py`. The tests cover each state transition above, including: no trace ever fits two shadows, and a retired shadow cannot return without m previously unused traces; a shadow retires on an unsurprising event; the familiar bit never changes a count; a pinned trace cannot be evicted; deleting a group deletes its counts.
