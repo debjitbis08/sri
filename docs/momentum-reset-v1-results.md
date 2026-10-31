@@ -38,8 +38,8 @@ and 2,000 means no practically meaningful difference at that checkpoint, not tha
 | mixed-h125 | −0.005 [−0.039, +0.029] yes | +0.008 yes | −0.002 [−0.048, +0.044] yes | +0.002 yes | yes |
 
 Gate (iii) failing for `dense` and `mixed` means the data cannot rule out a loss under rehearsal of more than 0.05 (wide intervals), not that a loss was found.
-The four training losses (descriptive) show no interval excluding zero for the match, transition or compare loss in the first 50 updates in any arm that I
-inspected (e.g. `mixed-h125` match loss difference −0.022 [−0.058, +0.013]).
+The four training losses are descriptive and are in the analysis JSON (`loss_diff_m0_minus_ctx`); for example the `mixed-h125` match-loss difference over updates
+1–50 is −0.022 [−0.058, +0.013]. They are not summarized further here.
 
 ## Reading 5: remedy candidate (D(50) better and every gate noninferior)
 - `mixed-h125`: **yes**. `ctx-m0` reduces the early drop (+0.082), with no demonstrated cost in continued context performance, transfer (a) or rehearsal.
@@ -63,5 +63,5 @@ at 50 updates. It cannot account for the long-term loss, which is the same with 
 ## Computation (measured costs only)
 Theoretical: the reset is one pass over the optimizer state, O(P) time once per branch and no extra storage (it overwrites `exp_avg` in place); the study's cost is
 7 branches × 4 arms × 10 seeds × up to 2,000 updates plus evaluation. Measured on the GTX 1650: 4,102 s wall (runs phase 4,066 s; data 28 s; rendering 3 s), 23,434 s
-total worker CPU, peak worker RSS 2.61 GB (parent 1.85 GB), 40 arm-seeds at about 100 s each. Analysis: 0.6 s. No tuning or selection was performed. Timing is in
+total worker CPU, peak worker RSS 2.61 GB (parent 1.85 GB), 40 arm-seeds, about 100 s of wall time per arm-seed on average with six workers in parallel. Analysis: 0.6 s. No tuning or selection was performed. Timing is in
 `reports/momentum-reset-v1-runtime.json` and `-analysis-runtime.json`; the results JSON holds only deterministic content.
