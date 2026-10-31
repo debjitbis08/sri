@@ -77,7 +77,7 @@ Before the stream, every arm is given the same **old knowledge**: 8 known rules 
 | **64 KiB** | 148 | 72, 4,096 | 83 | 168 |
 | 256 KiB | 603 | 299, 16,384 | 339 | 675 |
 
-The slot cap shown is `life`'s; `life-sketch` has half that or less (8 at 16 KiB, 40 at 64 KiB, 169 at 256 KiB). So `life-sketch` is infeasible at 16 KiB for every setting, and that cell reports `life` only. B = 16 KiB is descriptive, so no verdict depends on it.
+The slot cap shown is `life`'s; `life-sketch` has half that or less (8 at 16 KiB, 40 at 64 KiB, 168 at 256 KiB). So `life-sketch` is infeasible at 16 KiB for every setting, and that cell reports `life` only. B = 16 KiB is descriptive, so no verdict depends on it.
 
 **Settings.** One per arm, frozen across all gaps, q and B, since a real system is not told the gap.
 
