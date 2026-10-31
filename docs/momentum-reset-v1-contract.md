@@ -1,7 +1,7 @@
-# Momentum reset v1: contract (DRAFT, not frozen, not run)
+# Momentum reset v1: contract (frozen 2026-10-31)
 
-Status: **draft 2026-10-31, revised after an external review the same day** (single primary time point, narrower equivalence reading, a held-out context-performance gate, precise reset checks, two unsupported
-expectations removed). Follows [forgetting mechanism v1](forgetting-mechanism-v1-results.md), where inherited Adam state with zero new gradients lost 0.09–0.22
+Status: **frozen 2026-10-31**, after an external review and the abstract-level prior-work reading. Seeds, arms, branches, endpoints and readings below do not change after results are seen; anything added later is labeled post hoc. Implemented in `experiments/momentum_reset.py` (additive options in `experiments/forgetting_mechanism.py`; smoke-checked: reset checks true, `zero-grad-m0` moves nothing, loss records present).
+Follows [forgetting mechanism v1](forgetting-mechanism-v1-results.md), where inherited Adam state with zero new gradients lost 0.09–0.22
 recall within about 25 updates and then stopped. That shows a vulnerability, not how much of the early drop in real context training it explains.
 
 ## Why this study (the larger question)
@@ -86,7 +86,9 @@ per training branch. Training time is O(updates · batch · P) with P the dense 
 
 ## Decisions
 
-Decided by the researchers (2026-10-31): **fresh seeds 340–349; all four arms.**
+Decided by the researchers (2026-10-31): **fresh seeds 340–349; all four arms; freeze and run.**
+
+Command: `NFI_DEVICE=cuda NSY_WORKERS=6 /data/venvs/sri-cuda/bin/python -m experiments.momentum_reset pilot pairs` (resumes if interrupted).
 
 ## Acceptable cost for the remedy comparison that follows (recorded here, not read in this study)
 
