@@ -1,6 +1,6 @@
 # Translation memory v1: pilot (seeds 299 and 298)
 
-Status: **pilot, 2026-10-31**. Design: [draft](translation-memory-v1-draft.md). Not evidence about memory; it decides whether the design can be frozen. Outcome by the draft's rule: **no memory configuration passes the storage gate, so the design is revised before freezing.** The router selection and confirmation did not run.
+Status: **pilot, 2026-10-31**. Design: [draft](translation-memory-v1-draft.md). Not evidence about memory; it decides whether the design can be frozen. Sections run in the order done. First outcome: **no memory configuration passes the storage gate on the host's code.** Latest: with a separate frozen key encoder the perception and storage gates pass, and the pilot readings raise design decisions listed under *Before a main run*.
 
 ## Host stage
 
@@ -125,6 +125,55 @@ Readings:
 - **All 120 candidates held fixed across seven checkpoints give identical keys, queries and recognition**, on both seeds. This only checks the implementation, since no host trains in this test; the digest check during integration is the first real one.
 - **Scope.** This is recognition through perception pretrained on about 2,000 symbols, which then stops adapting. It says nothing about continually adapting memory perception. Each key is still stored from one rendering, and 3–5% of renderings still reach the wrong key.
 
+## Memory on frozen keys (pilot readings)
+
+`TM_STABLE_KEYS=1`: the memory stage replays the original host's saved runs (no identity loss), with keys from the frozen encoder, both arms and branches. No map, so `assoc-nomap` is gone. `reports/translation-memory-v1-selection-stable-keys.json`; `reports/translation-memory-v1-memory-stable-keys-pilot-results.json.gz` (the rule's choice) and `-pilot-1024-results.json.gz` (a sensitivity run chosen after seeing the selection; its router thresholds are those of the selected size, so its router column does not count). Four arm-seeds of `main`, on the seeds used for selection: **not evidence for any contrast.**
+
+Checks: at every point the encoder digest is unchanged, evaluation keys are bitwise identical, and evaluation preserves state.
+
+**Selection.** All six sizes pass the storage gate on seed 299. The rule picks the smallest, 256 units with 5 active, cap 1. On seed 298 it recovers 0.942 (`mixed`) and 0.967 (`sparse48`), passing only when pooled.
+
+| after the final context block, independent renderings | host | assoc, memory alone | flat-sparse | flat-store |
+|---|---|---|---|---|
+| batches 1–4, by arm-seed: 256 units, 5 active | 0.00–0.01 | 0.27–0.42 | 0.30–0.50 | 0.42–0.77 |
+| batches 1–4, by arm-seed: 1,024 units, 41 active | 0.00–0.01 | 0.38–0.73 | 0.42–0.74 | 0.42–0.77 |
+| persistent bytes, 256 units, 5 active | | 32,768 | 1,416 | 15,600 |
+| persistent bytes, 1,024 units, 41 active | | 524,288 | 10,080 | 15,600 |
+
+Readings, all descriptive:
+- **The host alone keeps nothing and the memory does.** Old words fall to 0.00–0.01 in the host, and batch 6 to 0.13 (from 0.65) after 2,000 context-only updates.
+- **Forgetting in the memory is small at the larger size and real at the smaller.** Batch 1, memory alone, right after its write and at the end: 0.455 → 0.435 at 1,024 units; 0.395 → 0.22 at 256. Its teacher was right on 0.46.
+- **Teacher errors are now the largest loss at 1,024 units.** Only 0.65 of written answers are correct (0.39–0.86 by arm-seed), and recall follows that figure closely.
+- **The rule's size is costly.** The storage gate tests exact cues only, and 256 units with 5 active loses about 0.2 on independent renderings against 1,024 units. Most of that is separation: `flat-sparse` on the same patterns loses nearly as much, `flat-store` nothing.
+- **Recurrence adds nothing.** Mean recall on batches 1–4: one step 0.354, sixteen steps 0.332 (256 units); 0.541 and 0.544 (1,024 units). On corrupted exact cues sixteen steps beat one only at 256 units with 40% moved (0.794 against 0.779), and are lower or equal elsewhere. Free recall from 200 random starts regenerates 66 of 120 stored pairs at 256 units and 17 at 1,024 (one arm-seed read).
+- **Routing has no job in this schedule.** A word is written before it is first evaluated, so the memory already holds current words. Gate weight does not vary with age (at the end of batch 6, 0.74 for batches 1–5 and 0.76 for batch 6 at 1,024 units), and the gate never beats memory alone by more than 0.01 on old batches. The dissociation is one-sided: the host fails old words, but nothing tests the memory failing on words it does not yet hold.
+- **Sentences follow word recall.** Whole-sentence accuracy on unseen combinations of old words at 1,024 units: 0.26 (single-word 0.59, position 0.57–0.61). At 256 units: 0.05 (0.35). Reversal is learned, though the mixing is not crisp in the one arm-seed inspected; the claim stays composition with a learned permutation.
+- **`frozen-encoder`** teaches poorly (0.09–0.36 correct), so its memory is poor too. With keys already frozen it has lost its role as a drift diagnostic.
+
+**The explicit stores dominate at 120 words.** `flat-store` matches or beats every associative reading at 1/33 of the bytes of the 1,024-unit memory, and with 120 × 32 = 3,840 multiplications a read, against about 600,000 active connections over sixteen steps.
+
+## Capacity on oracle codes (post hoc)
+
+`experiments/translation_memory_capacity.py`; `reports/translation-memory-v1-capacity.json`. Independent random codes and exact cues, so a best case for the memory: the largest load tried (steps of √2) with at least 95% recovery, seeds 299 and 298 pooled.
+
+| units, active | max load, 1 step | max load, 16 steps | joint memory, bytes per fact | source-to-target part only (a quarter), bytes per fact **[derived]** | flat-sparse, bytes per fact | flat-store, bytes per fact |
+|---|---|---|---|---|---|---|
+| 256, 5 | 800 | 566 | 41 | 10 | 12 | 130 |
+| 256, 10 | 566 | 400 | 58 | 14 | 22 | 130 |
+| 512, 10 | 1,600 | 1,600 | 82 | 20 | 22 | 130 |
+| 512, 20 | 800 | 800 | 164 | 41 | 42 | 130 |
+| 1,024, 20 | 3,200 | 3,200 | 164 | 41 | 42 | 130 |
+| 1,024, 41 | 1,131 | 1,131 | 464 | 116 | 84 | 130 |
+
+Readings:
+- **On storage the joint memory never beats a slot store on the same sparse code**, and recurrence pays for three quarters of its weights while adding nothing here.
+- **A source-to-target memory read in one step ties `flat-sparse` on bytes and can beat `flat-store`.** Its read work does not grow with facts, while exhaustive slots grow linearly. That is the only scaling advantage these numbers suggest. It is derived from the one-step load, not run as its own memory, and real keys will reduce it.
+- **Failure is abrupt** (1,024 units with 20 active: 0.99 at 3,200, 0.37 at 4,525), as the clipped rule predicts.
+
+## Before a main run
+
+Decisions for the researchers: the selection rule's exact-cue blindness; whether the system stays recurrent; teacher errors; a schedule that gives routing a job. Still to do regardless: the contract with prespecified readings, the literature tagged *read before freezing*, `rehearsal-matched` (not implemented), key encoders for seeds 360–369, and the host stage on those seeds.
+
 ## Computation (measured costs only)
 
-Host stage: 819 s wall on the GTX 1650, four tasks in parallel (761–776 s each). Selection: 27 s wall on the CPU with 11 workers (λ 2.5 s, grid 25 s). Diagnosis: about 5 s. Controls: 22 s wall on the CPU. Identity host stage: 918 s wall on the same GPU (about 12% longer than the original). Decomposition: about 6 s per host. Stable keys, selection: symbol filter 28 s, rendering 39 s, four fits 26–32 s each on the same GPU; confirmation: 69 s wall, including one further fit and its rendering. Encoder 839,040 persistent bytes. Timing is in the runtime files.
+Host stage: 819 s wall on the GTX 1650, four tasks in parallel (761–776 s each). Selection: 27 s wall on the CPU with 11 workers (λ 2.5 s, grid 25 s). Diagnosis: about 5 s. Controls: 22 s wall on the CPU. Identity host stage: 918 s wall on the same GPU (about 12% longer than the original). Decomposition: about 6 s per host. Stable keys, selection: symbol filter 28 s, rendering 39 s, four fits 26–32 s each on the same GPU; confirmation: 69 s wall, including one further fit and its rendering. Encoder 839,040 persistent bytes. Memory selection on frozen keys: 38 s wall, CPU. Pilot replay (8 tasks, 11 workers): 47 s wall and 320 s worker CPU at 256 units; 206 s and 1,436 s at 1,024 units. Capacity: 30 s wall. Timing is in the runtime files.

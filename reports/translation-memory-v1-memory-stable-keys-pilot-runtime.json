@@ -1,0 +1,55 @@
+{
+ "command": "/home/debjit/code/sri/.venv/bin/python /home/debjit/code/sri/experiments/translation_memory_pass.py main",
+ "device": "cpu",
+ "dirty": true,
+ "peak_rss_children_max_kb": 494284,
+ "revision": "1eaf0dd54f259b42c643941cd3be1f482925b090",
+ "runner_sha256": "c135724bb1f9dd5af280fab8b6b92a528e9f57df7fd0cde5028da7bfbcf13a4b",
+ "scope": "nondeterministic timing and environment; scientific results are in -results.json.gz",
+ "store_sha256": "871ec2270d7ec58c4700579acfb6fa7bffedbfc7a8916d35a68b2441182378b8",
+ "tasks": {
+  "mixed/seed298/frozen-encoder": {
+   "cpu_seconds": 46.607657408,
+   "peak_rss_kb": 492488,
+   "wall_seconds": 46.6228424669971
+  },
+  "mixed/seed298/main": {
+   "cpu_seconds": 34.205445914,
+   "peak_rss_kb": 493636,
+   "wall_seconds": 34.21476754300238
+  },
+  "mixed/seed299/frozen-encoder": {
+   "cpu_seconds": 39.382372357,
+   "peak_rss_kb": 494284,
+   "wall_seconds": 39.4045801859902
+  },
+  "mixed/seed299/main": {
+   "cpu_seconds": 40.217754855,
+   "peak_rss_kb": 493480,
+   "wall_seconds": 40.23165352801152
+  },
+  "sparse48/seed298/frozen-encoder": {
+   "cpu_seconds": 33.854216192,
+   "peak_rss_kb": 492152,
+   "wall_seconds": 33.863150802993914
+  },
+  "sparse48/seed298/main": {
+   "cpu_seconds": 45.695864881,
+   "peak_rss_kb": 491544,
+   "wall_seconds": 45.7179841039906
+  },
+  "sparse48/seed299/frozen-encoder": {
+   "cpu_seconds": 34.166203503999995,
+   "peak_rss_kb": 492288,
+   "wall_seconds": 34.17437343999336
+  },
+  "sparse48/seed299/main": {
+   "cpu_seconds": 46.335346853000004,
+   "peak_rss_kb": 493120,
+   "wall_seconds": 46.359463061991846
+  }
+ },
+ "wall_seconds": 46.85317345500516,
+ "worker_cpu_seconds_total": 320.464861964,
+ "workers": 11
+}
