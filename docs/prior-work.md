@@ -1266,3 +1266,34 @@ from sparse representations and expert routing. These are reading notes, not a n
   and the count sits on most code coordinates, so measure transfer on the average
   coordinate ([analysis](count-coordinate-analysis.md),
   [limited-memory proposal](limited-memory-proposal.md)).
+
+## Forgetting mechanism (design for the forgetting-mechanism contract)
+
+Search and read date: 2026-10-31. Abstracts of the arXiv papers below were read via their arXiv listing pages; Hinton and Plaut
+(1987) from a web-search summary of the paper and a later reproduction, not the full text. Written for the
+[forgetting-mechanism contract](forgetting-mechanism-v1-contract.md) before freezing.
+
+- **Forgetting concentrates in deeper layers.** [Ramasesh, Dyer and Raghu 2020](https://arxiv.org/abs/2007.07400) **[abstract]**: deeper layers are
+  disproportionately the source of forgetting; mitigation methods work by stabilizing them; forgetting peaks at intermediate task similarity.
+  Differs: image classification across tasks, not a matching reader after a pairing block. Hypothesis: the reader-side freeze should prevent
+  more of the loss than the encoder-side freeze; this is an expectation the branches can contradict.
+- **Representation can change without losing the knowledge.** [Davari et al. 2022](https://arxiv.org/abs/2203.13381) **[abstract]**: forgetting measured by
+  the drop in task performance conflates head change with feature change; an optimal linear probe on the features measures representation forgetting
+  separately and often shows it to be small even without anti-forgetting methods. Differs: supervised and unsupervised task sequences, not arbitrary pairs.
+  Hypothesis: the item code stays separable (the 1-NN result so far) while the readout fails; the contract's frozen-bank decoder and component swap
+  are aimed at the same distinction, and a linear probe trained on the current code is a cheaper established form worth adding as a descriptive measure.
+- **Regime matters for forgetting.** [Mirzadeh et al. 2020](https://arxiv.org/abs/2006.06958) **[abstract]**: learning-rate decay, batch size and dropout widen
+  minima and reduce forgetting; the optimizer is not named in the abstract. Differs: task sequences with a classifier. Hypothesis: lowering the step size
+  would reduce the loss, which is why the earlier draft's learning-rate branch was dropped as a confound of gradient and momentum effects, not because it is uninformative.
+- **Protecting important weights.** [Kirkpatrick et al. 2017](https://arxiv.org/abs/1612.00796) **[abstract]**: elastic weight consolidation slows learning on weights
+  important to earlier tasks. Differs: needs a task boundary and an importance estimate. It is the non-rehearsal alternative to `rehearse-10`; not included, since the question here is
+  where the loss arises, not a remedy.
+- **Fast weights and recovery by rehearsing a subset.** Hinton and Plaut (1987) **[secondary]**: a slow and a fast weight per connection; after set B degrades set A, brief
+  rehearsal of a subset of A restores the whole set. This is the nearest published form of a savings test; it motivates the relearning branches, and in the original rehearsal
+  hits a subset, which the contract's relearning does not (it retrains all of A).
+- **Catastrophic interference, rehearsal, complementary learning systems.** McCloskey and Cohen (1989), French (1999), Robins (1995) and McClelland, McNaughton and
+  O'Reilly (1995) **[familiar]**: not re-read for this entry; the contract treats them as context only and draws no prediction from them.
+
+**What this supports and does not.** The literature leads to expecting forgetting in the deeper, reader-side parameters and recoverability of representations; both are
+hypotheses for this setting (a matching reader, arbitrary pairs, Adam, a small network). None of it predicts the early 25-update drop or the role of inherited Adam moments, which the
+`zero-grad` branch tests directly. Nothing here is a ranking of the arms.

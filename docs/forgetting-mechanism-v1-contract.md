@@ -81,6 +81,7 @@ original − reassigned = assignment-specific advantage (reassignment interferen
 - **Component swap** at 50, 250 and 2,000 updates in `ctx`: recall with (current encoders, end-of-block-4 readers and downstream) and (end-of-block-4 encoders, current readers and downstream). It shows
   which side's change breaks the interface; mismatch can also come from co-adaptation, so it is descriptive.
 - **Weight movement** per group (image encoder, sequence encoder, structure rows, memory rows, later reader layers, shared layers) as relative L2 change from block 4, descriptive.
+- **Linear probe** (descriptive, after Davari et al. 2022): ridge-regularized linear classifier from the current item code to the count, fit on the training renderings and scored on the evaluation renderings, at the same points as the decoders.
 - Structured transfer (a) at the end of each branch, descriptive.
 
 ## Readings (prespecified; margin 0.05; the inherited rule: better/worse if |mean| > margin and the paired 95% t-interval excludes 0; equivalent if the interval lies within ±margin; noninferior if the lower bound exceeds −0.05; otherwise inconclusive; per arm over ten seeds; for differences between branches, Δ(branch) − Δ(reference), so positive means less loss)
@@ -94,13 +95,16 @@ original − reassigned = assignment-specific advantage (reassignment interferen
 
 Everything else (weight movement, swaps, per-part drift, arm differences) is descriptive. One fixed cohort; no stopping rule; inconclusive stays inconclusive.
 
-## Prior work (to complete before freezing; `docs/literature-review.md`)
+## Prior work (written 2026-10-31; shared survey in [prior-work.md](prior-work.md#forgetting-mechanism-design-for-the-forgetting-mechanism-contract))
 
-Corresponds to: catastrophic interference in sequential learning (McCloskey and Cohen 1989; French 1999, **[familiar]**); savings in relearning as a test for
-retained structure (Hinton and Plaut 1987, **[abstract]**; Ebbinghaus, **[familiar]**); rehearsal and pseudo-rehearsal (Robins 1995, **[familiar]**); weight-protection methods
-(Kirkpatrick et al. 2017, **[familiar]**); complementary learning systems (McClelland et al. 1995, **[familiar]**). Representation drift with a fixed reader (the swap and frozen-bank
-tests) and Adam momentum behaviour are to be checked. Cheaper alternatives: the stored-data reanalysis (done); `dense` alone. All **[familiar]** items must be read and
-recorded in [prior-work.md](prior-work.md) before the freeze. **Prerequisite, not done.**
+Corresponds to: the layer-wise analysis of forgetting ([Ramasesh et al. 2020](https://arxiv.org/abs/2007.07400) **[abstract]**: deeper layers are the main source), representation-versus-head
+forgetting measured with a linear probe ([Davari et al. 2022](https://arxiv.org/abs/2203.13381) **[abstract]**), training-regime effects ([Mirzadeh et al. 2020](https://arxiv.org/abs/2006.06958)
+**[abstract]**), weight protection ([Kirkpatrick et al. 2017](https://arxiv.org/abs/1612.00796) **[abstract]**, not included), and recovery by rehearsing a subset (Hinton and Plaut 1987 **[secondary]**, a
+web-search summary). Catastrophic interference, rehearsal and complementary learning systems (McCloskey and Cohen 1989, French 1999, Robins 1995, McClelland et al. 1995) remain **[familiar]** and are context only.
+Expected from this work (hypotheses, not facts for this setting): reader-side freezing prevents more of the loss than encoder-side freezing; representations stay separable while the readout fails. Known failure
+modes carried into the Risks: freezing changes the optimization regime, probes with labels measure separability. Addition suggested by Davari et al.: a **linear probe** trained on the current code (symbol → count, fit on
+the training renderings, tested on evaluation renderings) as a descriptive measure beside the 1-NN decoders. The study adds, beyond prior work, an intervention-based account (necessity and sufficiency of updates by group) in a
+reader that learns arbitrary pairs; the stored-data reanalysis is the cheaper alternative and is done. **Prerequisite status:** the arXiv items are read at abstract level; the older papers are not re-read, so no prediction rests on them.
 
 ## Computation
 
@@ -125,9 +129,6 @@ Notation: P parameters (dense matrices), N pairs, E evaluation renderings, R tra
 - `ctx` ends near chance, so late-block Δ is bounded; the early points carry most of the information.
 - GPU: the composition-measure caveat applies to transfer (a) only.
 
-## Decisions for the researchers
+## Decisions
 
-1. Arms: the four above, or all six at about 1.5× the cost.
-2. Ten fresh seeds (330–339), or five for a cheaper first look.
-3. Whether to read structured transfer under each branch (the draft keeps it descriptive).
-4. Whether to keep `rehearse-10` as the single dose, or add the second.
+Decided by the researchers (2026-10-31): four arms (`sparse48`, `dense`, `mixed`, `mixed-h125`); ten fresh seeds (330–339); structured transfer descriptive; one rehearsal dose (`rehearse-10`).
