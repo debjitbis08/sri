@@ -116,6 +116,20 @@ What stays externally supplied, labeled as such: the phase schedule, the router 
 - `snapshot-per-batch`: a frozen copy per batch, upper reference.
 - Later conditions (after the single rule and control are piloted): palimpsest rule, `blocks` (allocated protected units, PackNet-style), revision writes, writes at experience, perceptual target codes, MEMIT-style writes, fast-weight cues, product-key addressing.
 
+## Implementation (2026-10-31; details the draft left open)
+
+Code: `experiments/translation_memory.py` (host stage), `experiments/translation_store.py` (memory components; checks in `experiments/translation_store_checks.py`), `experiments/translation_memory_pass.py` (memory stage and pilot selection).
+
+- **Two stages.** The host never reads the memory and is frozen in phases 2–4, so its trajectory is identical for every memory variant. The host stage trains it and saves its state at points 1–7; the memory stage replays those states through phases 2–5 for all variants at once (on the CPU). Variants are therefore paired on one host trajectory per arm and seed. Branches of the host stage: `main` and `frozen-encoder`. `rehearsal-matched` is **not yet implemented**: its matching rule (bytes and exposures) needs the selected memory size first.
+- **Host.** Blocks 1–3 of the limited-memory curriculum, Option A schedule, as in the earlier studies. A word trial scores the source rendering against 32 target candidates (the update's distinct targets plus distractors from all 150 targets, random training renderings) with the existing matching head; cross-entropy. The host's answer for evaluation and teaching is the matching score against each target word's training rendering 0, over all 150 targets. Codes are the host's 16-dimensional code.
+- **Map.** Affine: A is d × (d + 1), the bias column regularized toward 0 by the same term, so a uniform shift of the code space can be corrected. Folds for λ: 4 folds of 8 anchor symbols.
+- **Separation.** The mapped code is centred on the reference anchors' mean and divided by s before the random expansion (an uncentred code would select the same units for every input).
+- **Gate.** 300 full-batch Adam steps (rate 0.05) per consolidation on the buffer, continuing from the previous batch's gate. Memory scores enter as p_mem = softmax(10 · score).
+- **Sentences.** Training: 200 sentences of the batch's words on training renderings, 200 Adam steps (rate 0.1) of the 3 × 3 mixing only. Test: 100 unseen combinations of old words on evaluation renderings per point. The mixing is shared across code units, so it generalizes to any word by construction; the probe tests composition with retrieval, not whether the rule could learn word-specific order.
+- **Explicit stores.** `flat-sparse` duplicates: identical pattern; `flat-store` duplicates: cosine ≥ 1 − 10⁻⁶. Capacity 120 slots (no eviction in the main condition).
+- **Extras (final point).** Corruption levels 0, 0.2, 0.4, 0.6 of the exact cue's active units; free recall from 200 random sparse starts, a stored pair counted as regenerated when the final target part's best normalized overlap is at least 0.8 with a written target.
+- **Selection** runs on both arms pooled; ties in the router go to the earlier option in the order host, 0, 0.25, 0.5, 0.75, 1.
+
 ## Measures and readings (to be prespecified in the contract)
 
 - Per word: **teacher accuracy at write** (from the recorded answer), **immediate memory accuracy** (memory alone, right after the write) and **retention** (memory alone and full system) by the three ages.
