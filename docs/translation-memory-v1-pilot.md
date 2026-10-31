@@ -1,6 +1,6 @@
 # Translation memory v1: pilot (seeds 299 and 298)
 
-Status: **pilot, 2026-10-31**. Design: [draft](translation-memory-v1-draft.md). Not evidence about memory; it decides whether the design can be frozen. Sections run in the order done. First outcome: **no memory configuration passes the storage gate on the host's code.** Latest: with a separate frozen key encoder the perception and storage gates pass, and the pilot readings raise design decisions listed under *Before a main run*.
+Status: **pilot, 2026-10-31**. Design: [draft](translation-memory-v1-draft.md). Not evidence about memory; it decides whether the design can be frozen. Sections run in the order done. First outcome: **no memory configuration passes the storage gate on the host's code.** Latest: with a frozen key encoder the perception gate passes on three seeds, but under the [binding revision](translation-memory-v1-draft.md) no one-step memory comes within 0.02 of the explicit store; see *Where this leaves the design*.
 
 ## Host stage
 
@@ -170,10 +170,65 @@ Readings:
 - **A source-to-target memory read in one step ties `flat-sparse` on bytes and can beat `flat-store`.** Its read work does not grow with facts, while exhaustive slots grow linearly. That is the only scaling advantage these numbers suggest. It is derived from the one-step load, not run as its own memory, and real keys will reduce it.
 - **Failure is abrupt** (1,024 units with 20 active: 0.99 at 3,200, 0.37 at 4,525), as the clipped rule predicts.
 
-## Before a main run
+## Binding revision: the size rule finds no memory (pilot)
 
-Decisions for the researchers: the selection rule's exact-cue blindness; whether the system stays recurrent; teacher errors; a schedule that gives routing a job. Still to do regardless: the contract with prespecified readings, the literature tagged *read before freezing*, `rehearsal-matched` (not implemented), key encoders for seeds 360–369, and the host stage on those seeds.
+The [binding revision](translation-memory-v1-draft.md), rules committed first. `experiments/translation_binding.py`; host stage `reports/translation-memory-v1-host-mid-results.json.gz` (its seed-299 learning curves equal the first host's, so the replication is exact); `reports/translation-memory-v1-binding-selection.json`. The run stage did not run, since there is no selected size.
+
+**Perception gate on fresh seed 297:** 0.952 at all 120 candidates. Passes again (0.99 at 60, 0.98 at 80, 0.96 at 100).
+
+**Size selection (seed 299, label writes, after all 120 writes).** With label writes the arms do not differ, since the host plays no part in the memory. Every size passes exact-cue recovery. **None comes within 0.02 of `flat-store`, so nothing is selected, and as specified the grid is not expanded.** Seed 297's memory readings were therefore never read and stay available as a fresh confirmation.
+
+| units, active | one-step, all words (old words) | joint recurrent, 16 steps | flat-sparse | flat-store | gap to flat-store |
+|---|---|---|---|---|---|
+| 256, 5 | 0.625 (0.610) | 0.640 | 0.663 | 0.952 (0.943) | 0.327 |
+| 256, 10 | 0.693 (0.682) | 0.652 | 0.790 | 0.952 | 0.259 |
+| 512, 10 | 0.803 (0.797) | 0.800 | 0.817 | 0.952 | 0.149 |
+| 512, 20 | 0.845 (0.853) | 0.828 | 0.888 | 0.952 | 0.107 |
+| 1,024, 20 | 0.893 (0.883) | 0.898 | 0.917 | 0.952 | 0.059 |
+| 1,024, 41 | 0.915 (0.907) | 0.923 | 0.925 | 0.952 | **0.037** |
+
+At the closest size, most of the gap is the expansion (`flat-sparse` loses 0.027 to `flat-store` on identical events), and associative storage adds 0.010. The trend suggests a larger memory would close it, at more bytes than the 8.4 times `flat-store` it already costs.
+
+## Sensitivity at 1,024 units, 41 active (not selected)
+
+The size that came closest, read on seed 299 only, so seed 297 stays unseen. Thresholds were chosen as the rule specifies, at this size. `reports/translation-memory-v1-binding-sensitivity-1024-41-results.json.gz`. **Two arm-seeds, a size that failed the rule: descriptive only.** Checks: state preserved and keys identical at every evaluation; the standalone one-step reads equal the joint network's first step on corrupted real patterns.
+
+**Retention.** After the final context block, old words (batches 1–4): host 0.00.
+
+| memory alone | one-step | joint recurrent | flat-sparse | flat-store |
+|---|---|---|---|---|
+| label writes, correct | 0.907 | 0.912 | 0.920 | 0.943 |
+| teacher writes, correct (range over the two arms) | 0.52–0.54 | 0.52–0.55 | 0.54–0.58 | 0.55–0.58 |
+| teacher writes, fidelity to the written answer | 0.90 | 0.90 | 0.92–0.93 | 0.94–0.95 |
+
+Under label writes, retained recall sits close to perception's own limit. Under teacher writes the memory keeps what it was told, about as faithfully, and what it was told was right 0.67 of the time. Recurrence: 0.907 at one step, 0.912 at sixteen.
+
+**Routing before the write** (`pre_write`, batches 2–6, mean; the two arms are within 0.04):
+
+| | current words | older words |
+|---|---|---|
+| host alone | 0.65–0.69 | 0.00 |
+| memory alone, one-step | 0.00 | 0.95 |
+| learned gate, one-step | 0.51–0.53 | 0.77–0.78 |
+| confidence router, one-step | 0.49–0.50 | 0.84 |
+| memory alone, flat-store | 0.00 | 0.96 |
+| learned gate, flat-store | 0.55–0.60 | 0.81–0.82 |
+| confidence router, flat-store | 0.41–0.45 | **0.96** |
+
+Pre-write evaluation does give routing a job, and the gate weight now separates the states (0.23–0.25 on current words against about 0.71 on older). **By the stated test, no router on the one-step memory passes: each gains current words but gives up old ones (0.95 → 0.78 or 0.84).** The fixed router on `flat-store` is the only one that preserves old words, because a dense key's cosine separates absent from present cleanly.
+
+**The routers do not hold up at the final point.** On old words, against 0.907 memory alone: one-step gate 0.49–0.56, one-step router 0.68. `flat-sparse` gate 0.19–0.32. The joint recurrent gate reaches 0.83–0.91 with the same memory-alone accuracy, so **that gap is not a retrieval advantage**. A threshold set on batches 2–3 also meets lower overlaps at full load. The gate is fragile, and as a mixture of probabilities it can let an overconfident host outvote a partial memory read; settling may help by sharpening reads to exact codes. These two causes are hypotheses, not tested here.
+
+**Sentences** read through the gate, so they inherit this. Whole-sentence accuracy under label writes: one-step 0.04–0.09, flat-store 0.53–0.60, joint recurrent 0.56–0.76. These measure the gate as much as composition, and should not be read as comparing memories.
+
+**Cost at this size.** Associative weights 131,072 bytes (one-step) against 524,288 (joint), 10,080 (`flat-sparse`) and 15,600 (`flat-store`). Beside them in every condition: the frozen encoder at 839,040 and the buffer at 125,800, which dominate total storage. A read: about 12,800 active connections (1,048,576 dense) for one-step, against 120 × 32 = 3,840 multiplications for `flat-store`.
+
+## Where this leaves the design
+
+At 120 words `flat-store` is ahead on accuracy, bytes, work per read and routing, and nothing yet measured favours the associative memory on real keys. The one scaling argument left, read work that does not grow with facts, is derived from oracle codes, and is the question a load curve on real keys would answer. Label writes need no host, so that curve is cheap.
+
+Decisions for the researchers: whether to keep testing an associative memory or adopt the explicit store as the system (the earlier decision made it a baseline); how to repair routing, which fails for reasons separate from the choice of memory; and how far to pursue the expansion loss. Still to do before any main run: the contract, the literature tagged *read before freezing*, `rehearsal-matched`, key encoders and host runs for seeds 360–369.
 
 ## Computation (measured costs only)
 
-Host stage: 819 s wall on the GTX 1650, four tasks in parallel (761–776 s each). Selection: 27 s wall on the CPU with 11 workers (λ 2.5 s, grid 25 s). Diagnosis: about 5 s. Controls: 22 s wall on the CPU. Identity host stage: 918 s wall on the same GPU (about 12% longer than the original). Decomposition: about 6 s per host. Stable keys, selection: symbol filter 28 s, rendering 39 s, four fits 26–32 s each on the same GPU; confirmation: 69 s wall, including one further fit and its rendering. Encoder 839,040 persistent bytes. Memory selection on frozen keys: 38 s wall, CPU. Pilot replay (8 tasks, 11 workers): 47 s wall and 320 s worker CPU at 256 units; 206 s and 1,436 s at 1,024 units. Capacity: 30 s wall. Timing is in the runtime files.
+Host stage: 819 s wall on the GTX 1650, four tasks in parallel (761–776 s each). Selection: 27 s wall on the CPU with 11 workers (λ 2.5 s, grid 25 s). Diagnosis: about 5 s. Controls: 22 s wall on the CPU. Identity host stage: 918 s wall on the same GPU (about 12% longer than the original). Decomposition: about 6 s per host. Stable keys, selection: symbol filter 28 s, rendering 39 s, four fits 26–32 s each on the same GPU; confirmation: 69 s wall, including one further fit and its rendering. Encoder 839,040 persistent bytes. Memory selection on frozen keys: 38 s wall, CPU. Pilot replay (8 tasks, 11 workers): 47 s wall and 320 s worker CPU at 256 units; 206 s and 1,436 s at 1,024 units. Capacity: 30 s wall. Binding revision: host stage 576 s wall on the GPU (seeds 299 and 297, 4 tasks), seed 297 encoder 66 s of rendering and training, selection 34 s and sensitivity 193 s wall on the CPU. Timing is in the runtime files.

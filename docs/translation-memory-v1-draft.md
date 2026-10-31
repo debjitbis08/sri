@@ -13,6 +13,7 @@ Revisions:
 5. After the [pilot](translation-memory-v1-pilot.md) failed the storage gate and its controls traced the failure to keys that do not carry word identity across renderings or time (fourth review): an **identity objective** and a **dedicated key head**, and a **perception gate** before the memory grid. See *Identity revision*. The identity host **fails that gate** ([pilot](translation-memory-v1-pilot.md)): 0.59 and 0.21. Another revision is needed; candidates are listed there.
 6. After that failure (fifth review): a **separate, fully frozen key encoder**, tested on the unchanged gate before any host run. See *Stable key revision*.
 7. After the [pilot's readings on frozen keys](translation-memory-v1-pilot.md) (sixth review): the system becomes a **one-step source-to-target memory with supervised label writes**; recurrent completion and host-teacher writes become comparisons; size selection adds independent renderings; routing gets pre-write evaluation and pre-write training examples. See *Binding revision*, which **supersedes earlier sections wherever they differ**.
+   Outcome: **no size passes the rule** (closest 0.915 against `flat-store` 0.952), so nothing is selected ([pilot](translation-memory-v1-pilot.md)).
 
 ## Why a new task
 

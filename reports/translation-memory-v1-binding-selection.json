@@ -1,0 +1,482 @@
+{
+ "chosen": null,
+ "confirmation": null,
+ "grid": {
+  "(1024, 20)": {
+   "passes": {
+    "exact": true,
+    "independent": false
+   },
+   "per_arm": {
+    "mixed": {
+     "assoc": {
+      "all_words": 0.89833332101504,
+      "old_words": 0.887499988079071
+     },
+     "exact_recovery": {
+      "assoc_16": 1.0,
+      "onestep": 1.0
+     },
+     "flat-sparse": {
+      "all_words": 0.9166666766007742,
+      "old_words": 0.9050000011920929
+     },
+     "flat-store": {
+      "all_words": 0.9516666829586029,
+      "old_words": 0.9425000101327896
+     },
+     "onestep": {
+      "all_words": 0.8933333357175192,
+      "old_words": 0.8825000077486038
+     },
+     "written_correct": 1.0
+    },
+    "sparse48": {
+     "assoc": {
+      "all_words": 0.89833332101504,
+      "old_words": 0.887499988079071
+     },
+     "exact_recovery": {
+      "assoc_16": 1.0,
+      "onestep": 1.0
+     },
+     "flat-sparse": {
+      "all_words": 0.9166666766007742,
+      "old_words": 0.9050000011920929
+     },
+     "flat-store": {
+      "all_words": 0.9516666829586029,
+      "old_words": 0.9425000101327896
+     },
+     "onestep": {
+      "all_words": 0.8933333357175192,
+      "old_words": 0.8825000077486038
+     },
+     "written_correct": 1.0
+    }
+   },
+   "pooled": {
+    "assoc": {
+     "all_words": 0.89833332101504,
+     "old_words": 0.887499988079071
+    },
+    "exact_recovery": {
+     "assoc_16": 1.0,
+     "onestep": 1.0
+    },
+    "flat-sparse": {
+     "all_words": 0.9166666766007742,
+     "old_words": 0.9050000011920929
+    },
+    "flat-store": {
+     "all_words": 0.9516666829586029,
+     "old_words": 0.9425000101327896
+    },
+    "onestep": {
+     "all_words": 0.8933333357175192,
+     "old_words": 0.8825000077486038
+    },
+    "written_correct": 1.0
+   }
+  },
+  "(1024, 41)": {
+   "passes": {
+    "exact": true,
+    "independent": false
+   },
+   "per_arm": {
+    "mixed": {
+     "assoc": {
+      "all_words": 0.9233333269755045,
+      "old_words": 0.9124999940395355
+     },
+     "exact_recovery": {
+      "assoc_16": 1.0,
+      "onestep": 1.0
+     },
+     "flat-sparse": {
+      "all_words": 0.924999992052714,
+      "old_words": 0.9199999868869781
+     },
+     "flat-store": {
+      "all_words": 0.9516666829586029,
+      "old_words": 0.9425000101327896
+     },
+     "onestep": {
+      "all_words": 0.9150000015894572,
+      "old_words": 0.9074999988079071
+     },
+     "written_correct": 1.0
+    },
+    "sparse48": {
+     "assoc": {
+      "all_words": 0.9233333269755045,
+      "old_words": 0.9124999940395355
+     },
+     "exact_recovery": {
+      "assoc_16": 1.0,
+      "onestep": 1.0
+     },
+     "flat-sparse": {
+      "all_words": 0.924999992052714,
+      "old_words": 0.9199999868869781
+     },
+     "flat-store": {
+      "all_words": 0.9516666829586029,
+      "old_words": 0.9425000101327896
+     },
+     "onestep": {
+      "all_words": 0.9150000015894572,
+      "old_words": 0.9074999988079071
+     },
+     "written_correct": 1.0
+    }
+   },
+   "pooled": {
+    "assoc": {
+     "all_words": 0.9233333269755045,
+     "old_words": 0.9124999940395355
+    },
+    "exact_recovery": {
+     "assoc_16": 1.0,
+     "onestep": 1.0
+    },
+    "flat-sparse": {
+     "all_words": 0.924999992052714,
+     "old_words": 0.9199999868869781
+    },
+    "flat-store": {
+     "all_words": 0.9516666829586029,
+     "old_words": 0.9425000101327896
+    },
+    "onestep": {
+     "all_words": 0.9150000015894572,
+     "old_words": 0.9074999988079071
+    },
+    "written_correct": 1.0
+   }
+  },
+  "(256, 10)": {
+   "passes": {
+    "exact": true,
+    "independent": false
+   },
+   "per_arm": {
+    "mixed": {
+     "assoc": {
+      "all_words": 0.6516666611035665,
+      "old_words": 0.6499999910593033
+     },
+     "exact_recovery": {
+      "assoc_16": 1.0,
+      "onestep": 0.9916666746139526
+     },
+     "flat-sparse": {
+      "all_words": 0.7900000015894572,
+      "old_words": 0.7875000089406967
+     },
+     "flat-store": {
+      "all_words": 0.9516666829586029,
+      "old_words": 0.9425000101327896
+     },
+     "onestep": {
+      "all_words": 0.6933333277702332,
+      "old_words": 0.6824999898672104
+     },
+     "written_correct": 1.0
+    },
+    "sparse48": {
+     "assoc": {
+      "all_words": 0.6516666611035665,
+      "old_words": 0.6499999910593033
+     },
+     "exact_recovery": {
+      "assoc_16": 1.0,
+      "onestep": 0.9916666746139526
+     },
+     "flat-sparse": {
+      "all_words": 0.7900000015894572,
+      "old_words": 0.7875000089406967
+     },
+     "flat-store": {
+      "all_words": 0.9516666829586029,
+      "old_words": 0.9425000101327896
+     },
+     "onestep": {
+      "all_words": 0.6933333277702332,
+      "old_words": 0.6824999898672104
+     },
+     "written_correct": 1.0
+    }
+   },
+   "pooled": {
+    "assoc": {
+     "all_words": 0.6516666611035665,
+     "old_words": 0.6499999910593033
+    },
+    "exact_recovery": {
+     "assoc_16": 1.0,
+     "onestep": 0.9916666746139526
+    },
+    "flat-sparse": {
+     "all_words": 0.7900000015894572,
+     "old_words": 0.7875000089406967
+    },
+    "flat-store": {
+     "all_words": 0.9516666829586029,
+     "old_words": 0.9425000101327896
+    },
+    "onestep": {
+     "all_words": 0.6933333277702332,
+     "old_words": 0.6824999898672104
+    },
+    "written_correct": 1.0
+   }
+  },
+  "(256, 5)": {
+   "passes": {
+    "exact": true,
+    "independent": false
+   },
+   "per_arm": {
+    "mixed": {
+     "assoc": {
+      "all_words": 0.6400000055631002,
+      "old_words": 0.6425000131130219
+     },
+     "exact_recovery": {
+      "assoc_16": 1.0,
+      "onestep": 1.0
+     },
+     "flat-sparse": {
+      "all_words": 0.663333331545194,
+      "old_words": 0.6349999979138374
+     },
+     "flat-store": {
+      "all_words": 0.9516666829586029,
+      "old_words": 0.9425000101327896
+     },
+     "onestep": {
+      "all_words": 0.6249999900658926,
+      "old_words": 0.6099999845027924
+     },
+     "written_correct": 1.0
+    },
+    "sparse48": {
+     "assoc": {
+      "all_words": 0.6400000055631002,
+      "old_words": 0.6425000131130219
+     },
+     "exact_recovery": {
+      "assoc_16": 1.0,
+      "onestep": 1.0
+     },
+     "flat-sparse": {
+      "all_words": 0.663333331545194,
+      "old_words": 0.6349999979138374
+     },
+     "flat-store": {
+      "all_words": 0.9516666829586029,
+      "old_words": 0.9425000101327896
+     },
+     "onestep": {
+      "all_words": 0.6249999900658926,
+      "old_words": 0.6099999845027924
+     },
+     "written_correct": 1.0
+    }
+   },
+   "pooled": {
+    "assoc": {
+     "all_words": 0.6400000055631002,
+     "old_words": 0.6425000131130219
+    },
+    "exact_recovery": {
+     "assoc_16": 1.0,
+     "onestep": 1.0
+    },
+    "flat-sparse": {
+     "all_words": 0.663333331545194,
+     "old_words": 0.6349999979138374
+    },
+    "flat-store": {
+     "all_words": 0.9516666829586029,
+     "old_words": 0.9425000101327896
+    },
+    "onestep": {
+     "all_words": 0.6249999900658926,
+     "old_words": 0.6099999845027924
+    },
+    "written_correct": 1.0
+   }
+  },
+  "(512, 10)": {
+   "passes": {
+    "exact": true,
+    "independent": false
+   },
+   "per_arm": {
+    "mixed": {
+     "assoc": {
+      "all_words": 0.799999992052714,
+      "old_words": 0.8049999922513962
+     },
+     "exact_recovery": {
+      "assoc_16": 1.0,
+      "onestep": 1.0
+     },
+     "flat-sparse": {
+      "all_words": 0.8166666527589163,
+      "old_words": 0.8199999928474426
+     },
+     "flat-store": {
+      "all_words": 0.9516666829586029,
+      "old_words": 0.9425000101327896
+     },
+     "onestep": {
+      "all_words": 0.8033333321412405,
+      "old_words": 0.7974999994039536
+     },
+     "written_correct": 1.0
+    },
+    "sparse48": {
+     "assoc": {
+      "all_words": 0.799999992052714,
+      "old_words": 0.8049999922513962
+     },
+     "exact_recovery": {
+      "assoc_16": 1.0,
+      "onestep": 1.0
+     },
+     "flat-sparse": {
+      "all_words": 0.8166666527589163,
+      "old_words": 0.8199999928474426
+     },
+     "flat-store": {
+      "all_words": 0.9516666829586029,
+      "old_words": 0.9425000101327896
+     },
+     "onestep": {
+      "all_words": 0.8033333321412405,
+      "old_words": 0.7974999994039536
+     },
+     "written_correct": 1.0
+    }
+   },
+   "pooled": {
+    "assoc": {
+     "all_words": 0.799999992052714,
+     "old_words": 0.8049999922513962
+    },
+    "exact_recovery": {
+     "assoc_16": 1.0,
+     "onestep": 1.0
+    },
+    "flat-sparse": {
+     "all_words": 0.8166666527589163,
+     "old_words": 0.8199999928474426
+    },
+    "flat-store": {
+     "all_words": 0.9516666829586029,
+     "old_words": 0.9425000101327896
+    },
+    "onestep": {
+     "all_words": 0.8033333321412405,
+     "old_words": 0.7974999994039536
+    },
+    "written_correct": 1.0
+   }
+  },
+  "(512, 20)": {
+   "passes": {
+    "exact": true,
+    "independent": false
+   },
+   "per_arm": {
+    "mixed": {
+     "assoc": {
+      "all_words": 0.8283333281675974,
+      "old_words": 0.8324999958276749
+     },
+     "exact_recovery": {
+      "assoc_16": 1.0,
+      "onestep": 1.0
+     },
+     "flat-sparse": {
+      "all_words": 0.8883333305517832,
+      "old_words": 0.8774999976158142
+     },
+     "flat-store": {
+      "all_words": 0.9516666829586029,
+      "old_words": 0.9425000101327896
+     },
+     "onestep": {
+      "all_words": 0.8450000087420145,
+      "old_words": 0.8525000065565109
+     },
+     "written_correct": 1.0
+    },
+    "sparse48": {
+     "assoc": {
+      "all_words": 0.8283333281675974,
+      "old_words": 0.8324999958276749
+     },
+     "exact_recovery": {
+      "assoc_16": 1.0,
+      "onestep": 1.0
+     },
+     "flat-sparse": {
+      "all_words": 0.8883333305517832,
+      "old_words": 0.8774999976158142
+     },
+     "flat-store": {
+      "all_words": 0.9516666829586029,
+      "old_words": 0.9425000101327896
+     },
+     "onestep": {
+      "all_words": 0.8450000087420145,
+      "old_words": 0.8525000065565109
+     },
+     "written_correct": 1.0
+    }
+   },
+   "pooled": {
+    "assoc": {
+     "all_words": 0.8283333281675974,
+     "old_words": 0.8324999958276749
+    },
+    "exact_recovery": {
+     "assoc_16": 1.0,
+     "onestep": 1.0
+    },
+    "flat-sparse": {
+     "all_words": 0.8883333305517832,
+     "old_words": 0.8774999976158142
+    },
+    "flat-store": {
+     "all_words": 0.9516666829586029,
+     "old_words": 0.9425000101327896
+    },
+    "onestep": {
+     "all_words": 0.8450000087420145,
+     "old_words": 0.8525000065565109
+    },
+    "written_correct": 1.0
+   }
+  }
+ },
+ "passing": [],
+ "router": null,
+ "rule": {
+  "exact_gate": 0.95,
+  "flat_store_tolerance": 0.02,
+  "order": "fewest units, then fewest active",
+  "write_source": "label"
+ },
+ "seeds": {
+  "confirmation": 297,
+  "selection": 299
+ },
+ "status": "pilot selection; the tolerance is an engineering selection rule, not a demonstrated statistical equivalence",
+ "teacher_check": null
+}

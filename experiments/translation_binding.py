@@ -18,6 +18,7 @@ Stages (argv[1]):
   select  seed 299: the two size gates under label writes, then the selected size under teacher writes; seed 297: confirmation;
           router thresholds on seed 299 batches 2-3, pre-write and post-write -> reports/<NAME>-selection.json
   run     both sources, both arms, the host stage's seeds, at the selected size -> reports/<NAME><TM_PASS_TAG>-results.json.gz
+  sensitivity units,active   a size that did not pass, selection seed only, descriptive -> reports/<NAME>-sensitivity-...
 
 Usage: TM_MID=250,1000 TM_BRANCHES=main NFI_TAG=-mid TM_STABLE_KEYS=1 .venv/bin/python -m experiments.translation_binding select
 """
@@ -446,16 +447,34 @@ def run_task(task):
     t0, c0 = time.perf_counter(), time.process_time()
     sel = json.loads(open(SELECTION).read())
     cfg = tuple(sel['chosen'])
-    if os.environ.get('TM_MEMORY_OVERRIDE'):
-        cfg = tuple(int(v) for v in os.environ['TM_MEMORY_OVERRIDE'].split(','))
     res = replay(arm, seed, cfg, source, MEMORIES, True, sel['router'][source]['chosen'])
     res['config'] = {'memory': cfg, 'source': source}
     return f'{arm}/seed{seed}/{source}', res, {'wall_seconds': time.perf_counter() - t0, 'cpu_seconds': time.process_time() - c0,
                                                'peak_rss_kb': resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}
 
 
+def sensitivity():
+    """A size that did not pass the rule (argv[2], 'units,active'), read on the selection seed only, so seed 297's memory readings stay
+    unseen. Descriptive: thresholds chosen as in `select`, at this size."""
+    t0 = time.perf_counter()
+    cfg = tuple(int(v) for v in sys.argv[2].split(','))
+    jobs = [(arm, SEL_SEED, cfg, src, MEMORIES, False, None) for arm in TM.ARMS for src in SOURCES]
+    results = starmap(jobs)
+    router = {src: router_choice([r for j, r in zip(jobs, results) if j[3] == src]) for src in SOURCES}
+    jobs = [(arm, SEL_SEED, cfg, src, MEMORIES, True, router[src]['chosen']) for arm in TM.ARMS for src in SOURCES]
+    results = starmap(jobs)
+    tag = f'{cfg[0]}-{cfg[1]}'
+    with gzip.open(f'{PREFIX}-sensitivity-{tag}-results.json.gz', 'wt') as f:
+        f.write(json.dumps({'status': 'sensitivity at a size that did not pass the selection rule; selection seed only; descriptive', 'config': cfg, 'router': router,
+                            'results': {f'{j[0]}/seed{j[1]}/{j[3]}': r for j, r in zip(jobs, results)}}, indent=1, sort_keys=True, default=float) + '\n')
+    DUR.atomic_write(f'{PREFIX}-sensitivity-{tag}-runtime.json', (json.dumps({'scope': 'nondeterministic timing', 'wall_seconds': time.perf_counter() - t0, 'workers': WORKERS, 'device': 'cpu',
+                     'revision': X.git('rev-parse', 'HEAD'), 'dirty': bool(X.git('status', '--porcelain'))}, indent=1, sort_keys=True) + '\n').encode())
+
+
 def run_stage():
     t0 = time.perf_counter()
+    if json.loads(open(SELECTION).read())['chosen'] is None:
+        raise SystemExit('no memory size passed the selection rule, so there is no selected size to run')
     tag = os.environ.get('TM_PASS_TAG', '')
     seeds = sorted({int(k.split('seed')[1]) for k in host_results()})
     tasks = [(arm, seed, s) for seed in seeds for arm in TM.ARMS for s in SOURCES]
@@ -478,4 +497,4 @@ def run_stage():
 if __name__ == '__main__':
     torch.set_num_threads(1)
     LM.install()
-    {'select': select, 'run': run_stage}[STAGE]()
+    {'select': select, 'run': run_stage, 'sensitivity': sensitivity}[STAGE]()
