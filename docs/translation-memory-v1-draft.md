@@ -1,8 +1,15 @@
 # Translation memory v1: design draft (not a contract)
 
-Status: **draft 2026-10-31**, for the researchers' review. Nothing is implemented or frozen. Follows [retention remedies v1](retention-remedies-v1-results.md), whose claim was narrowed to
+Status: **draft 2026-10-31, revised three times after external review the same day**, for the researchers' review. Nothing is implemented or frozen. Follows [retention remedies v1](retention-remedies-v1-results.md), whose claim was narrowed to
 "some behavior can be transferred into protected weights under an externally managed procedure", and the external review's requirements for a closed memory system recorded there.
-Builds on [kinds of memory and learned routing](memory-kinds-notes.md). Items marked **[decide]** need a decision.
+Builds on [kinds of memory and learned routing](memory-kinds-notes.md). No **[decide]** items remain (see *Open decisions*).
+
+Revisions:
+
+1. The flat key-value store is a **diagnostic reference**, not the system under test (researchers' decision). Also answered: what the cue buffer retains (no re-keying from stored codes), state-preserving evaluation and a no-exposure retention cohort, the gate's learning opportunity and a confidence-router comparison, exhaustive lookup with explicit allocation and eviction instead of a product-key claim, a fixed-encoder diagnostic, full accounting for the replay comparison, a minimal sentence probe in v1. Familiarity deferred.
+2. The system under test is a **bounded sparse associative memory** (separation, completion, reinstatement), motivated, not validated, by the neuroscience findings in [prior work](prior-work.md). Allocated protected blocks become an established comparison.
+3. Third review: the buffer holds one entry per word, so it spans batches; every write enters **one reference coordinate space**, fixed at the first consolidation and reached through a map fitted on stored anchor renderings; each event is **written once** with its teacher answer kept; a **phase schedule** per batch; **one exact associative rule** (clipped binary Hebbian, synchronous k-winners-take-all settling) with a **one-step control** on the same weights; an explicit store keyed by the same sparse patterns to isolate storage; overstated guarantees narrowed to hypotheses. The palimpsest rule and `blocks` wait until the single rule and its control are specified and piloted.
+4. Proposed pilot settings (external, adopted as proposals, not evidence the configuration works): task size and schedule fixed so only the memory is tuned; C = 40 (two batches); 64 anchors with an identity-centred ridge map; a six-configuration memory grid selected by a storage-fidelity gate, not by recurrence advantage; a logistic gate and a calibrated confidence router; arms `mixed` and `sparse48`. See *Pilot and selection*. Correction: the map is unchanged and current during phases 2–4, not exact.
 
 ## Why a new task
 
@@ -12,76 +19,145 @@ two invented alphabets drawn from the filtered Unicode pool, a lexicon of arbitr
 
 ## Question
 
-Can a bounded system with its own protected, selectively writable store learn successive batches of arbitrary word translations, keep the earlier batches while later ones are learned,
-and use the stored words through its own pathway (including inside sentences), with every store, buffer and cue source counted?
+Can a bounded sparse associative memory inside the system keep successive batches of arbitrary word translations in shared connections, retrieve them from imperfect perception,
+and reinstate them where the network's own sentence computation uses them, with every store, buffer and cue source counted? Does recurrent completion add anything over one-step retrieval from the same weights, and how does the memory compare with explicit stores on capacity, noisy-cue recall, successive learning, drift and measured computation?
 
 ## Task
 
-- **Alphabets.** Source S and target T, disjoint, drawn by a seeded stream from the filtered symbol pool (about 387 symbols after the distance filter), rendered with the existing variable renderer (font fixed per symbol; rotation, size, position, brightness and noise vary); separate training and evaluation renderings. Proposed sizes 150 each **[decide]**.
-- **Lexicon facts.** Each source word (one symbol in v1) maps to one target word. Answers are scored against **all** target words (chance 1/|T|, about 0.007), not nine shared values, so each fact must be stored individually.
-- **Batches.** The lexicon is taught in successive batches (proposed 6 batches of 20 words **[decide]**), each followed by a delay of other material (context episodes as before and translation of earlier words that are not replayed). One batch is "now"; earlier batches test durability.
-- **Connection to something stored (the researchers' hypothesis).** Within each batch, half the new source words map to target words already learned in an earlier batch (*familiar target*: the new fact links a new key to an existing item), half to target words never seen (*new target*: both ends are new). A second hook, *synonym*: a new source word with the same translation as an already-known source word. Prediction to test, not assume: familiar-target and synonym facts are acquired faster and kept longer.
-- **Sentences (structure through the system's own pathway).** Short source sentences (proposed three words) translate into target sentences under a fixed word-order rule (e.g. reversal) learned from known words. Test: sentences built from stored words of earlier batches, never seen as sentences. Success needs retrieval of each word and application of the learned order rule by the network, with no evaluator supplying the logic. **[decide: v1 words only, sentences in v2?]**
+- **Alphabets.** Source S and target T, disjoint, drawn by a seeded stream from the filtered symbol pool (about 387 symbols after the distance filter), rendered with the existing variable renderer (font fixed per symbol; rotation, size, position, brightness and noise vary); separate training and evaluation renderings. 150 symbols each; the 30 target words never used in v1's lexicon remain distractors in full-vocabulary scoring. 32 of the remaining pool symbols (about 87) supply the anchor set and are never lexicon words.
+- **Lexicon facts.** Each source word (one symbol in v1) maps to one target word. Answers are scored against **all** target words (chance 1/|T|, about 0.007), so each fact must be stored individually. In v1 every source word maps to a distinct target word that no earlier word uses (no synonyms; see *Deferred*).
+- **Batches.** Six batches of 20 words, 2,000 acquisition updates each (the earlier experiments' update scale), each update carrying 16 word trials and 4 context episodes (the [arbitrary-pairings](arbitrary-pairings-v1-contract.md) mix), identical across arms, with actual exposures recorded per word. After batch 6, 2,000 context-only updates. A word is presented externally only during its own batch (word trials and its own batch's sentences). Afterwards the only external material is unrelated: context episodes and later batches.
+- **Retention cohort and clocks.** "No further external presentation" is not "no further internal use": a word still in the buffer trains the gate (see *Gate*). Every retention reading is on words past their batch, and records three ages: updates since the last external presentation, since the word's single memory write, and since it left the buffer. The **primary** retention reading is on words that have left the buffer (at the end: batches 1–4); batches 5–6, still buffered, are reported separately as the recent-memory cohort.
+- **Evaluation is state-preserving.** No gradient, optimizer step, buffer insertion, memory write, map refit or running-statistic update. Checked by hashing the full system state before and after each evaluation.
+- **Sentences (minimal probe, kept in v1).** Three-word source sentences translate under one fixed word-order rule (reversal). Each batch's sentence phase trains the order rule on sentences of that batch's words only. Test: sentences whose **combinations** were never seen, built from words of earlier batches (each word did take part in its own batch's sentence training). The claim is narrow: composition of remembered words with a learned permutation, not general relational reasoning.
 
-## System (closed, modular)
+## System under test
 
 The decisions and computations belong to the evaluated system; fixed update rules and architectural constraints are allowed but each contribution is stated.
 
+Pathway: image → host code → **reference map** → **separation** (sparse source pattern) → **retrieval** (settling) → reinstated **target pattern** → answer by nearest target pattern; the routed target pattern feeds the sentence rule.
+
 | Part | Role | Written by | Counted as |
 |---|---|---|---|
-| Host network (the standard network, image path, readout) | fast acquisition, perception, the order rule | ordinary training | the model |
-| Durable store: a bounded addressed key-value memory (N slots, key and value of code width d) | durable lexicon | **consolidation only**; ordinary training cannot modify it (checked bitwise) | N · 2d floats |
-| Recent cue buffer: a bounded, decaying store of recent inputs' codes | cues for internal replay | the system, as it experiences inputs (fixed rule: first-in, first-out with capacity C) | C · d floats |
-| Consolidation | reads the recent buffer, queries the host for its current answer, writes key → value into the store; preserves earlier slots by addressed writes and an explicit eviction rule | a fixed schedule (every batch end) **[supplied; labeled]** | compute per write |
-| Read and route | the store returns a value with a match confidence; a learned gate combines it with the host's answer into the system's answer | the gate learns from the ordinary training signal | inference cost |
+| Host network (the standard network, image path, readout) | fast acquisition, perception | ordinary training (acquisition phase) | the model |
+| Anchor set: K renderings of non-lexicon symbols, each with its code in the reference space | fixes one reference coordinate space | stored once, at the first consolidation | K · (rendering + d) |
+| Reference map: a d × d linear map, ridge-regularized | maps current codes into the reference space | refitted at each consolidation on the anchors only | d² floats |
+| Separation: a fixed random expansion of the mapped code to M_s units, top k_s kept | distinct sparse source patterns | fixed at initialization | a seed (regenerable) |
+| Target codebook: one fixed sparse pattern (M_t units, k_t active) per target index | the reinstated content | fixed at initialization | a seed |
+| Associative weights: binary, over the joint pattern [source; target] (M = M_s + M_t), no self-connections | durable lexicon in shared connections | **consolidation only**; unreachable by every other phase (checked bitwise) | M² bits (fewer with sparse connectivity) |
+| Cue buffer: C entries, **one per word** | write cues; gate examples | the system, during acquisition | C · (rendering + label + teacher answer + entry step + written flag) |
+| Gate | mixes host and memory answers | gate phase only | a few parameters |
+| Sentence rule | maps three routed target patterns to three output positions | sentence phase only | small |
+| Consolidation | writes each unwritten buffer entry once | fixed schedule (batch end) **[supplied; labeled]** | compute per write |
 
-What stays externally supplied in v1, labeled as such: the consolidation schedule, and optionally marking a subset for preservation **[decide: mark, or consolidate everything the buffer holds]**. Not supplied: which store answers (the gate does), the cues (the recent buffer), the comparison or order logic (the network).
+### Buffer policy
 
-**Interface drift.** Store keys are codes from a perception path that keeps learning, so old keys drift. v1 measures the damage (store recall on old batches with a changing encoder) and tests one mitigation: re-keying slots during consolidation from cues still in the recent buffer. A drift-free interface is not assumed; a frozen copy of the path is not allowed, since it does not scale.
+An entry is inserted on a word's **first** presentation in its batch; later presentations of the same word do not insert (the same word is recognized by its label, which the system has during acquisition; this use of supervision is labeled). Capacity C counts **words**, one rendering each. When full, the oldest entry leaves (first in, first out by insertion). C = 40, exactly two batches: at the end of batch b the buffer holds all 20 words of batch b and all 20 of batch b − 1, so the gate trains on equal current and previous cohorts. No insertions happen in the final context-only phase.
 
-**Capacity.** No fixed store keeps arbitrarily many independent facts. v1 makes the limit explicit: N smaller than the total lexicon in one condition, so the eviction rule matters, and a capacity curve over N.
+### Reference coordinates
+
+The reference space is the host's code space at the **first consolidation** (end of batch 1). At that moment the K anchor renderings are encoded and their codes stored. At every later consolidation the anchors are encoded with the current encoder and a linear map A is fitted from current codes X to the stored anchor codes Y; it replaces the previous map. There is no composition of rolling maps, so error does not accumulate through a chain; it is bounded by how well one linear map fits the drift since batch 1, and by whether anchor drift represents lexicon drift (known failure: anchors cover a different part of code space). K = 64 anchors (32 non-lexicon symbols × 2 renderings).
+
+The fit is **identity-centred ridge**, correcting only the drift the anchors support:
+
+$$\min_A \; \frac{\|AX - Y\|_F^2}{K\, s^2} + \lambda\, \frac{\|A - I\|_F^2}{d},$$
+
+with s² the reference-code scale: the mean squared entry of the reference anchor codes, computed once at the first consolidation and fixed. λ is chosen once, in the pilot (see *Pilot and selection*), then frozen; main runs fit all 64 anchors. Lexicon alignment is an evaluation outcome, never a tuning target.
+
+Every write uses a **freshly encoded** buffered rendering, mapped into the reference space: x_ref = A_t · enc_t(x). Every read maps the same way with the latest map. Batch-1 writes use the identity. The explicit-store references use the same mapped codes. The `no-map` condition uses raw current codes throughout.
+
+### Write once
+
+Each buffer entry is written **exactly once**, at the first consolidation after its insertion. The teacher answer is the host's argmax at that moment; it is recorded in the entry and never recomputed. Entries still in the buffer at later consolidations are not rewritten, so host forgetting cannot write a wrong target over a correct association, and write corruption stays separate from storage interference. Revision (rewriting a stored association) is a later condition.
+
+### Associative rule (one rule in v1)
+
+- **Storage (clipped binary Hebbian, Willshaw-type).** For a joint pattern p = [s; t] (binary, k_s + k_t active), set W_ij = 1 for every i ≠ j with p_i = p_j = 1. Weights never return to 0. Self-connections are 0.
+- **Recurrent retrieval.** Start: source part = the cue pattern s̃ (separated mapped code), target part = 0. Each step, synchronously: h = W x; the new source part is the top k_s units of h over the source units, the new target part the top k_t over the target units; ties broken by a fixed seeded unit priority. The source part is **not clamped** after the first step, so a noisy cue can be completed. Stop when the state repeats: a fixed point counts as converged; a cycle (synchronous updates can produce period-2 cycles) is flagged non-converged, and the answer is read from the last state. Cap S from the pilot. Every read runs to 16 steps and records checkpoints 1, 2, 4, 8 and 16, so the recurrence comparison never depends on the chosen cap; the cap sets only the system's answer and its counted compute.
+- **One-step control (same weights).** Target part = top k_t of W_ts s̃, one step, no recurrence. Because the target part starts empty, this is the target part of checkpoint 1. Recurrence is credited only where later checkpoints beat it, primarily on noisy cues.
+- **Answer.** The target index whose codebook pattern has the largest overlap with the retrieved target part; confidence is that overlap and its margin to the second.
+- **Capacity.** Not sized from theory: capacity depends on the retrieval strategy and coding assumptions (Graham and Willshaw 1994, cited by the reviewer), so M, k_s and k_t are chosen by the pilot storage gate (see *Pilot and selection*), with the selection cost reported. The clipped rule overloads abruptly; a capacity condition shows where. The palimpsest rule (bounded weights with decay) is a later condition, and its graceful forgetting is a hypothesis to test, not a property of bounded weights.
+
+### Gate
+
+A single logistic unit, no hidden layer. Inputs (five scalars): the host's maximum softmax probability and normalized entropy, the memory's normalized overlap (best overlap / k_t), its margin to the second, and convergence; output: a mixing weight w. The routed target pattern for the sentence rule is w · (memory target part) + (1 − w) · (host's softmax-weighted codebook patterns). Learning opportunity: the gate phase trains the gate alone on buffered entries with their recorded labels; older entries (the whole previous batch) are where the host and the memory disagree. Compared against a **confidence router** with no learned parameters: the memory answers when its normalized overlap reaches a threshold from {0, 0.25, 0.5, 0.75, 1}, or the host always answers. The threshold is chosen in the pilot and frozen.
+
+### Phase schedule per batch
+
+| Phase | Material | Updates | Frozen |
+|---|---|---|---|
+| 1. Acquisition | batch b word trials, context episodes | host parameters; buffer insertions | memory, map, gate, sentence rule |
+| 2. Consolidation | buffer (unwritten entries), anchors | reference map; associative weights (one write per new entry); recorded teacher answers | host, gate, sentence rule |
+| 3. Gate | buffer entries and their labels | gate | everything else |
+| 4. Sentences | sentences of batch b words, read through the memory just written | sentence rule | everything else |
+| 5. Evaluation | evaluation renderings, all batches; held-out sentence combinations | nothing (state hash checked) | all |
+
+Phase 4 follows phase 2, so current-batch sentences read reinstated targets of associations already written. Because the host encoder is frozen in phases 2–4, the map fitted in phase 2 stays current through them; its fitting error and any failure to generalize from anchors to lexicon words remain. After batch 6, a final block of 2,000 context-only updates (phase 1 with no word trials and no buffer insertions) precedes the last evaluation.
+
+### Pilot and selection
+
+Proposed settings, not evidence that the configuration works. Task size, schedule and buffer are fixed above, so only the memory, the map and the router are selected. Pilot seeds: **299** for every selection, **298** for the confirmation; main runs: **fresh seeds 360–369** (ten). Every selection's cost is reported.
+
+1. **Map regularization.** λ ∈ {0.001, 0.01, 0.1, 1}, chosen by held-out anchor prediction error on pilot seeds with a **symbol-level split** (both renderings of a symbol on the same side). Then frozen.
+2. **Memory grid.** M_s = M_t ∈ {256, 512, 1,024}, activity per part about 2% or 4% (k = 5 or 10, 10 or 20, 20 or 41): six configurations. Tested first on exact stored cues, then on independent renderings and controlled corruption. Selected: the **smallest configuration recovering the written target on at least 95% of exact cues**, after all 120 writes. The step cap: the smallest checkpoint within one percentage point of 16-step recall on independent renderings (on exact cues it would trivially be 1). The selection is confirmed on a separate pilot seed. Never selected for the largest recurrence advantage, which is the experiment's question. If no configuration passes the storage gate, the design is revised before freezing.
+3. **Router threshold.** Chosen on pilot batches 2–3 (batch 1 has no forgetting to calibrate against), on independent renderings, balancing current and previous words. Calibrated separately for each retrieval method (recurrent, one-step, `flat-sparse`, `flat-store`) under the same budget, since their confidence distributions differ. Frozen before main runs.
+
+What stays externally supplied, labeled as such: the phase schedule, the router threshold, the fixed separation and codebook, the use of labels to deduplicate buffer entries. Not supplied: which source answers (the gate), the cues (the buffer), retrieval (settling), the word order (the network).
 
 ## Comparisons
 
-- `host`: host only, no store or buffer.
-- `rehearsal-matched`: host plus a replay buffer of stored renderings with the **same bytes** as store plus cue buffer (the fair storage-matched baseline).
-- `snapshot-per-batch`: a frozen copy per batch (growing storage), an upper reference that does not scale.
-- `store`: the closed system above; variants with and without re-keying, and over N.
-- Optional: a MEMIT-style closed-form write into one host layer instead of a separate store (facts written into existing weights; see prior work) **[decide]**.
+- `host`: host only.
+- `one-step`: the system under test read by the one-step control (same weights, same writes); a read mode, not a separate run.
+- `flat-sparse` (storage control): an explicit slot per write, keyed by the **same separated source pattern** with the same codebook value; read by largest overlap over all slots. Same buffer, map, writes and gate. It isolates shared-connection storage from slot storage. Allocation: free slot; duplicate (overlap above τ, same value): refresh; eviction when full: least used, ties oldest.
+- `flat-store` (system comparison): an explicit slot keyed by the mapped dense code (no separation), exhaustive O(N · d) lookup, the same allocation rules. It changes representation and retrieval as well as storage. A softmax attention over stored patterns (modern Hopfield networks) is in this class.
+- `no-map`: raw current codes everywhere.
+- `frozen-encoder` (diagnostic): image path frozen after batch 1. It removes drift but also changes acquisition of later batches, so a difference bounds drift's contribution rather than isolating it.
+- `rehearsal-matched`: replay of stored renderings and labels, matched on persistent bytes and on replay exposures and compute, with labels, metadata and optimizer state counted on both sides.
+- `snapshot-per-batch`: a frozen copy per batch, upper reference.
+- Later conditions (after the single rule and control are piloted): palimpsest rule, `blocks` (allocated protected units, PackNet-style), revision writes, writes at experience, perceptual target codes, MEMIT-style writes, fast-weight cues, product-key addressing.
 
 ## Measures and readings (to be prespecified in the contract)
 
-- Retention of each batch after k later batches (forgetting curves by batch age), on evaluation renderings, full-vocabulary scoring.
-- Acquisition speed of each new batch (does the system still learn).
-- Familiar-target and synonym against new-target facts, on acquisition and retention (the connection hypothesis).
-- Sentences from stored words (if included): word accuracy in position and whole-sentence accuracy.
-- Routing: gate weight on store for old against recent words; dissociations: silencing the store should hurt old batches and not the current one; silencing the host's fast path the reverse.
-- Capacity curve: retained facts against N; eviction outcomes.
-- Interface drift: store recall with and without re-keying.
-- Costs: persistent and temporary bytes per component, training and consolidation compute, inference overhead; storage-matched comparison against `rehearsal-matched`.
+- Per word: **teacher accuracy at write** (from the recorded answer), **immediate memory accuracy** (memory alone, right after the write) and **retention** (memory alone and full system) by the three ages.
+- Forgetting curves by batch age, full-vocabulary scoring, primary on words outside the buffer.
+- Recurrent against one-step: recall on clean and corrupted cues (bits flipped in the source pattern; rendering noise); steps taken; convergence, cycles and spurious states.
+- Storage: system under test against `flat-sparse` (same patterns) and `flat-store` (system comparison), on capacity, noisy-cue recall, successive learning, drift and computation.
+- Drift: lexicon code change since write, in reference coordinates and raw; anchor map residual; recall with and without the map; the `frozen-encoder` bound.
+- Acquisition speed of each batch.
+- Capacity: pilot curve of the exact rule (recall against stored pairs, for each M, k_s, k_t); overload point.
+- Free recall from random starts: stored pairs regenerated, spurious states (measurement only).
+- Routing: gate weight by batch age; learned gate against confidence router. Causal tests: silencing the memory should hurt old batches and not the current one; silencing the host's answer branch (keeping the encoder that feeds the map) should do the reverse.
+- Sentences: word accuracy by position and whole-sentence accuracy on unseen combinations of old words, against single-word accuracy on the same words. The fixed codebook keeps stored values constant; whether the sentence rule keeps using old codes correctly is measured (a rule trained only on recent words' patterns may not).
+- Computation, counted as work done: map and separation, connections processed per settling step, steps taken, retained weights in bits, writes, gate and sentence phases; dense-implementation operations and active-connection counts both reported; a sparsity saving is claimed only if the implementation exploits it and wall time shows it. Selection (capacity pilot, router threshold) and tuning costs reported per [computation reporting](computation-reporting.md).
 
 ## Scaling (required)
 
-- Store: O(N · d) storage; retrieval with product keys in O(√N · d) instead of O(N · d); a write touches O(1) slots, so interference between facts is bounded by addressing, not by the whole parameter set.
-- Recent buffer: O(C · d), bounded and decaying by design; consolidation must keep pace with the arrival rate.
-- Gate: O(d) per query.
-- Capacity: fixed N forces selection, eviction or compression; growth (adding slots) is a separate condition, not assumed.
-- Obstructions carried from the [internet-scale assessment](retention-remedies-v1-contract.md): bits per parameter; key drift under continued perception learning (tested here at small scale); answer spaces (here |T| = 150, still small); routing at scale (tested here by a learned gate); selection bookkeeping.
+- Associative weights: M² bits with full connectivity, M · c with fan-in c. Capacity of this rule at this coding is measured, not assumed; beyond it the clipped rule fails abruptly, which is the case for a forgetting rule later.
+- Retrieval: map O(d²), separation O(M_s · d), settling O(S · M²) dense or O(S · active connections) if the implementation follows active units. No comparison against one row per fact. Not O(1): parallel activity is not constant total work.
+- Answer readout: overlap with |T| codebook patterns, O(|T| · k_t); the answer-space obstruction at large vocabularies.
+- `flat-sparse` and `flat-store`: storage and lookup linear in writes. Product keys would give sub-linear lookup only with shared sub-key codebooks ([prior work](prior-work.md)).
+- Anchors O(K · (rendering + d)), buffer O(C · rendering), gate O(1): constant in facts. Whether K anchors keep fitting drift as the system grows is part of the drift question.
+- Obstructions carried from the [internet-scale assessment](retention-remedies-v1-contract.md): bits per parameter (bits per associative weight); key drift (here against one anchored reference space); answer spaces (|T| = 150); routing at scale; selection bookkeeping.
+
+## Deferred: familiarity and schema contrast
+
+Three hypotheses to separate in a later contrast, after the core protocol works: **perceptual familiarity** (target symbols seen without association), an **existing association** (synonym), and a **schema** (prior learned structure that new pairs fit). Only the third matches the finding that existing knowledge speeds consolidation. Target exposure matched across conditions; batch 1 all new targets as the bootstrap.
 
 ## Prior work (search 2026-10-31; abstracts only unless tagged)
 
-- **Product-key memory layers** ([Lample et al. 2019](https://arxiv.org/abs/1907.05242)) **[abstract]**: a large structured memory layer with exact fast nearest-neighbor lookup by product keys adds parameters with little compute. Differs: trained end to end by ordinary gradients in language modeling, not written only by consolidation. Hypothesis: the store's addressing and retrieval cost.
-- **Fast weights** ([Ba et al. 2016](https://arxiv.org/abs/1610.06258)) **[abstract]**; Hinton and Plaut 1987 **[secondary]**: weights changing faster than slow weights hold recent memories without storing activity copies. Hypothesis: an alternative to the recent cue buffer that would remove its storage, at the cost of enumerating cues from fast weights.
-- **Mass-editing memory** ([Meng et al. 2022, MEMIT](https://arxiv.org/abs/2210.07229)) **[abstract]**: thousands of associations written directly into a transformer's weights. Differs: large pretrained language models, edits computed from known subject representations. Hypothesis: a closed-form write into host weights is the "facts in existing weights" alternative to a separate store.
-- **Key-value and episodic memories** (memory networks, Weston et al. 2014; Sukhbaatar et al. 2015; neural episodic control, Pritzel et al. 2017; sparse distributed memory, Kanerva 1988) **[familiar]**; **complementary learning systems**, **pseudorehearsal and generative replay**, **distillation**: see [prior work](prior-work.md).
-- What the study would add: successive consolidation into a bounded protected store with internally held cues, learned routing and storage-matched baselines, on arbitrary translations with a familiar-connection manipulation. The components are established.
-- Known failure modes: key drift; gate collapse onto one source; eviction of useful facts; the recent buffer becoming the real memory (hence its bytes count and its own retention is measured).
+- **Neuroscience hints** (recorded with their limits in [prior work](prior-work.md)): pattern separation and completion (Neunuebel and Knierim 2014) **[read: summary]**; cortical reinstatement (Horner et al. 2015) **[read: excerpts]**; ripple suppression (Girardeau et al. 2009) **[abstract]**; schemas (Tse et al. 2007) **[abstract]**. Analogies and hypotheses only.
+- **Retrieval strategy and capacity** ([Graham and Willshaw 1994](https://papers.neurips.cc/paper_files/paper/1994/hash/8f468c873a32bb0619eaeb2050ba45d1-Abstract.html)) **[cited by review; not yet read]**: capacity of binary associative memories depends on the retrieval strategy; hence the pilot curve instead of a theoretical size.
+- **Associative memories** (Willshaw et al. 1969; Hopfield 1982; Kanerva 1988; Marr 1971; palimpsests, Parisi 1986 and Amit and Fusi 1994; sparse random expansion with winner-take-all, Dasgupta et al. 2017) **[familiar; read before freezing]**. Modern Hopfield networks (Ramsauer et al. 2020) **[familiar]**: attention over stored patterns, in the `flat-store` class.
+- **Complementary learning systems** (McClelland et al. 1995; Kumaran et al. 2016) **[familiar]**: roles partly reversed here (the host learns fast; the memory is written at batch end).
+- **Drift compensation** (semantic drift compensation, Yu et al. 2020) **[familiar; read before freezing]**; the anchor map is a linear, anchor-based variant.
+- **Product keys** ([Lample et al. 2019](https://arxiv.org/abs/1907.05242)) **[read: sections 3.1–3.2]**; **fast weights** (Ba et al. 2016) **[abstract]**; **MEMIT** (Meng et al. 2022) **[abstract]**; **parameter allocation** (PackNet, HAT, progressive networks) **[familiar]**; **gating** (Jacobs et al. 1991) **[familiar]**; **key-value and episodic memories** (Weston et al. 2014; Sukhbaatar et al. 2015; Pritzel et al. 2017) **[familiar]**.
+- What the study would add: a bounded binary associative memory written once per event by consolidation in one anchored coordinate space, with recurrent retrieval tested against one-step retrieval on the same weights, routed by a learned gate against a confidence router, feeding a learned sentence rule, with storage isolated by a same-pattern explicit store and computation measured. The components are established.
+- Known failure modes: overload of the clipped rule; spurious attractors and cycles; correlated codes defeating separation; anchor drift unrepresentative of lexicon drift; gate collapse; the buffer becoming the real memory (primary readings on words outside it); the sentence rule failing on old words even when single-word recall survives; sparsity savings that exist on paper only.
+
+## Arms
+
+The main comparison runs on `mixed` (continuity with the memory discussion) and `sparse48` (does the added associative memory need the host's dense component). `mixed-h125` is a prespecified follow-up: adding decay now would introduce another mechanism before the basic memory comparison is understood.
 
 ## Open decisions
 
-1. Alphabet sizes and batch schedule.
-2. v1 words only, or words and sentences.
-3. Marking a subset for preservation, or consolidating everything the recent buffer holds.
-4. Store type: separate key-value store, MEMIT-style write into host weights, or both.
-5. Recent cue buffer or fast weights for cues.
-6. Arms: `mixed` only, or also `sparse48` and `mixed-h125`.
+None. Decided 2026-10-31 (researchers deferred to the drafter's judgement): 16 word trials and 4 context episodes per update; s² from the reference anchors; pilot seeds 299 and 298, main seeds 360–369. Next: the literature reads tagged *read before freezing*, then the pilot.
