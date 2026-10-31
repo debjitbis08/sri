@@ -1,0 +1,66 @@
+{
+ "mixed": {
+  "code16": {
+   "anchor_whitened": {
+    "eval_vs_own_overlap": 0.39183333333333337,
+    "identity_1nn": 0.5183333158493042,
+    "nearest_other_overlap_max": 0.75,
+    "nearest_other_overlap_mean": 0.4858333333333333
+   },
+   "centred": {
+    "eval_vs_own_overlap": 0.7350833333333333,
+    "identity_1nn": 0.6083333492279053,
+    "nearest_other_overlap_max": 0.95,
+    "nearest_other_overlap_mean": 0.7575000000000001
+   },
+   "prototype_whitened_oracle": {
+    "eval_vs_own_overlap": 0.3305833333333334,
+    "identity_1nn": 0.4749999940395355,
+    "nearest_other_overlap_max": 0.7,
+    "nearest_other_overlap_mean": 0.405
+   },
+   "top3_variance_share": 0.9618651246498744
+  },
+  "encoder64": {
+   "centred": {
+    "eval_vs_own_overlap": 0.6786666666666668,
+    "identity_1nn": 0.675000011920929,
+    "nearest_other_overlap_max": 0.95,
+    "nearest_other_overlap_mean": 0.7195833333333332
+   },
+   "top3_variance_share": 0.9184051243976238
+  }
+ },
+ "sparse48": {
+  "code16": {
+   "anchor_whitened": {
+    "eval_vs_own_overlap": 0.36291666666666667,
+    "identity_1nn": 0.43666666746139526,
+    "nearest_other_overlap_max": 0.85,
+    "nearest_other_overlap_mean": 0.5041666666666667
+   },
+   "centred": {
+    "eval_vs_own_overlap": 0.7691666666666667,
+    "identity_1nn": 0.46833333373069763,
+    "nearest_other_overlap_max": 1.0,
+    "nearest_other_overlap_mean": 0.855
+   },
+   "prototype_whitened_oracle": {
+    "eval_vs_own_overlap": 0.2816666666666667,
+    "identity_1nn": 0.4000000059604645,
+    "nearest_other_overlap_max": 0.7,
+    "nearest_other_overlap_mean": 0.41708333333333336
+   },
+   "top3_variance_share": 0.9934626509755502
+  },
+  "encoder64": {
+   "centred": {
+    "eval_vs_own_overlap": 0.72375,
+    "identity_1nn": 0.5483333468437195,
+    "nearest_other_overlap_max": 0.95,
+    "nearest_other_overlap_mean": 0.7933333333333332
+   },
+   "top3_variance_share": 0.9674567367336523
+  }
+ }
+}
