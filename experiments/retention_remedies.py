@@ -274,8 +274,7 @@ def static_branches(ref_enc, ref_model, ctx, seed, sets):
     rng = nc.stream('rr_cues', seed)
     ctx_codes = codes(ref_enc, ref_model, np.stack([P.DOTS['train'][int(i)][int(n)] for i, n in zip(rng.integers(len(P.DOTS['train']), size=500), rng.integers(9, size=500))]))
     mu, sd = ctx_codes.mean(0), ctx_codes.std(0)
-    gen = torch.Generator(device='cpu'); gen.manual_seed(int(nc.stream('rr_random', seed).integers(2 ** 31)))
-    rand = (torch.randn(len(cue_cache), d, generator=gen).to(mu.device) * sd + mu)
+    rand = torch.tensor(nc.stream('rr_random', seed).standard_normal((len(cue_cache), d)), dtype=torch.float32) * sd + mu
     unused = [cp for cp in AP.POOL if cp not in sets['A'] and cp not in sets['B']]
     pick = [unused[int(i)] for i in nc.stream('rr_other', seed).permutation(len(unused))[:len(cue_cache)]]
     other = codes(ref_enc, ref_model, np.concatenate([PS.renderings(cp, AP.POOL[cp], seed, 'train', 1) for cp in pick]))
