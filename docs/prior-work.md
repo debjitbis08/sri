@@ -1334,3 +1334,80 @@ Search date 2026-10-31; abstract pages only.
 - **Product-key memory layers.** [Lample et al. 2019](https://arxiv.org/abs/1907.05242) **[abstract]**: a structured memory layer with fast exact nearest-neighbor lookup adds up to about a billion parameters at small compute; a 12-layer transformer with it beat a 24-layer one and ran about twice as fast at inference. Differs: trained end to end, not written by consolidation. Hypothesis: addressing and retrieval cost for a bounded protected store.
 - **Fast weights.** [Ba et al. 2016](https://arxiv.org/abs/1610.06258) **[abstract]**: weights on a time scale between activities and slow weights hold temporary memories of recent inputs without storing activity copies. Hypothesis: a source of replay cues with no separate buffer.
 - **Mass-editing memory (MEMIT).** [Meng et al. 2022](https://arxiv.org/abs/2210.07229) **[abstract]**: thousands of associations written directly into GPT-J and GPT-NeoX weights. Differs: large pretrained models and known subject representations. Hypothesis: closed-form writes into existing weights as the alternative to a separate store.
+
+Review follow-up, 2026-10-31: opened the linked primary sources for the
+translation-memory draft review; no new experiment or contract.
+
+- **Product-key constraints [read: sections 3.1–3.2].**
+  [Lample et al.](https://arxiv.org/html/1907.05242) use a Cartesian product of
+  two shared sub-key codebooks; fast exact lookup depends on that structure.
+  **[derived]** Independently stored observed codes do not automatically obtain
+  this lookup bound. Changing shared sub-keys can change multiple addresses;
+  touching one value slot does not guarantee preservation of other retrievals.
+  **[hypothesis]** Use exhaustive lookup as the small-scale reference before
+  testing structured addressing and its collision/allocation policy.
+- **Fast-weight accounting [abstract].**
+  [Ba et al.](https://arxiv.org/abs/1610.06258) describe temporary memory without
+  explicit copies of activity patterns. **[derived]** This replaces a storage
+  representation, not the need to count retained state. **[hypothesis]** Using
+  it to generate consolidation cues requires a separate retrieval/generation
+  mechanism; autonomous enumeration is not established by the abstract.
+
+### Neuroscience hints for translation-memory addressing
+
+Search date 2026-10-31. Queries covered hippocampal pattern separation and
+completion, memory indexing/cortical reinstatement, representational drift,
+Tse schema consolidation, and Girardeau ripple suppression. Selected evidence,
+not an exhaustive survey or a frozen design:
+
+- [Neunuebel and Knierim, 2014](https://pmc.ncbi.nlm.nih.gov/articles/PMC3904133/)
+  **[read: summary]**: simultaneous rat DG/CA3 recordings under conflicting spatial
+  cues showed separated DG representations and coherent CA3 completion.
+  Difference: spatial population activity, not arbitrary visual translations.
+  **[analogy]** Separate similar cues before associative storage, then recover
+  an established pattern from degraded cues. **[hypothesis]** Sparse encoding
+  plus recurrent retrieval may reduce interference; measure capacity and
+  convergence rather than assuming sublinear lookup.
+- [Horner et al., 2015](https://www.nature.com/articles/ncomms8462)
+  **[read: indexed results excerpts; full page inaccessible]**: human event
+  recall linked hippocampal activity to reinstatement of associated cortical
+  elements. Difference: multi-element episodic recollection, not a software
+  address table. **[analogy]** An associative index can reinstate content used
+  by another subsystem; this does not establish a particular indexing algorithm.
+- [Girardeau et al., 2009](https://pubmed.ncbi.nlm.nih.gov/19749750/)
+  **[abstract]**: suppressing hippocampal ripples impaired spatial memory in rats.
+  Difference: physiological intervention, not a specified replay algorithm.
+  **[hypothesis]** Test internally generated replay and its causal contribution;
+  the result does not establish replay as a solution to encoder drift.
+- [Tse et al., 2007](https://pubmed.ncbi.nlm.nih.gov/17412951/)
+  **[abstract]**: established flavor-place schemas supported rapid assimilation
+  of new paired associates in rats. Difference: structured prior knowledge,
+  not mere familiarity with an output symbol. **[hypothesis]** Distinguish
+  schema-compatible bindings from familiar-target bindings in future tasks.
+
+**[derived]** These findings motivate sparse associative retrieval and replay,
+not an O(1) lookup guarantee. Parallel neural activity must not be equated
+with constant total computational work. Software evaluation must count
+encoding, active connections, settling iterations, retained synapses and replay.
+
+Revised-draft review, 2026-10-31. Searches: Willshaw sparse capacity and
+winner-take-all retrieval; modern Hopfield attention; PackNet iterative pruning.
+
+- [Graham and Willshaw, 1994](https://papers.neurips.cc/paper_files/paper/1994/hash/8f468c873a32bb0619eaeb2050ba45d1-Abstract.html)
+  **[abstract]** analyze partial connectivity, noisy cues and winner-take-all
+  recall; modifying dendritic sums using activity and unit usage changes
+  capacity. Difference: not the draft's specified joint source/target dynamics
+  (which remain undecided). **[derived]** A capacity estimate must name the
+  retrieval rule, coding distribution and error criterion before it is used to
+  size this experiment. **[hypothesis]** Compare one-step associative readout
+  with recurrent settling to isolate the benefit of completion.
+- [Ramsauer et al., 2020](https://arxiv.org/abs/2008.02217)
+  **[abstract: search excerpt]** identify their update rule with transformer
+  attention. **[derived]** This does not equate the draft's nearest-key lookup
+  and duplicate/eviction policy with their full method; an attention reference
+  needs its own specified read operation.
+- [Mallya and Lazebnik, 2018](https://arxiv.org/abs/1711.05769)
+  **[read: indexed paper excerpts]** use iterative pruning and retraining to
+  allocate parameters. **[derived]** Newly allocated blocks without pruning
+  should be called a parameter-isolation baseline inspired by that literature,
+  not a reproduction of PackNet.
