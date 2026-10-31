@@ -37,6 +37,7 @@ from experiments import generic_relations as G
 from experiments import limited_memory as LM
 from experiments import number_systems as X
 from experiments import translation_memory as TM
+from experiments import translation_stable_keys as TK
 from experiments import translation_store as TS
 
 nc = X.nc
@@ -52,11 +53,34 @@ GATE_STEPS, GATE_LR = 300, 0.05
 SENT_TRAIN, SENT_TEST, SENT_STEPS, SENT_LR = 200, 100, 200, 0.1
 CORRUPTION = (0., .2, .4, .6)
 FREE_STARTS = 200
-VARIANTS = ('assoc', 'assoc-1step', 'assoc-nomap', 'flat-sparse', 'flat-store')
-SELECTION = X.ROOT / 'reports' / ('translation-memory-v1-selection' + ('-smoke' if SMOKE else '') + '.json')
-NAME = 'translation-memory-v1-memory' + ('-smoke' if SMOKE else '') + os.environ.get('NFI_TAG', '')
+STABLE = os.environ.get('TM_STABLE_KEYS') == '1'  # keys from the separate frozen encoder: no anchors, no map, no centring
+VARIANTS = ('assoc', 'assoc-1step', 'flat-sparse', 'flat-store') if STABLE else ('assoc', 'assoc-1step', 'assoc-nomap', 'flat-sparse', 'flat-store')
+VERSION = '-stable-keys' if STABLE else ''
+SELECTION = X.ROOT / 'reports' / ('translation-memory-v1-selection' + VERSION + ('-smoke' if SMOKE else '') + '.json')
+NAME = 'translation-memory-v1-memory' + VERSION + ('-smoke' if SMOKE else '') + os.environ.get('TM_PASS_TAG', '')
 WORKERS = X.WORKERS
 D_CODE = TM.KEY_DIM if TM.IDENTITY else 16  # key width: the identity key head, or the host's code (inner width of the wide standard network)
+
+
+class FixedFrame:
+    """The stable-key branch's coordinates: keys are used as they are."""
+
+    def __init__(self, d):
+        self.mu, self.s2, self.A = torch.zeros(d), 1., torch.zeros(1)
+
+    def __call__(self, x):
+        return x.float()
+
+
+def stable_key_encoder(seed):
+    """The frozen key encoder for a seed, at the setting selected on validation symbols."""
+    c = json.loads(open(f'{TK.REPORT}-selection.json').read())['chosen']
+    fit = torch.load(TK.RUNS / 'fits' / f"{c['arch']}-key{c['key']}-seed{seed}.pt", weights_only=False)
+    model = TK.build(c['arch'], c['key'], seed)
+    model.load_state_dict(fit['checkpoints'][c['steps']]['state'])
+    for p in model.parameters():
+        p.requires_grad_(False)
+    return model, c['key']
 
 
 # ---------------------------------------------------------------- host access
@@ -164,9 +188,9 @@ class Variant:
         return TS.digest(*parts, *[p for p in self.gate.parameters()], *[p for p in self.rule.parameters()])
 
 
-def build_variants(seed, cfg, cap, names):
+def build_variants(seed, cfg, cap, names, d=D_CODE):
     m, k = cfg
-    sep = TS.Separation(D_CODE, m, k, nc.stream('tm_separation', seed, m, k))
+    sep = TS.Separation(d, m, k, nc.stream('tm_separation', seed, m, k))
     cb = TS.codebook(TM.N_TGT, m, k, nc.stream('tm_codebook', seed, m, k))
     out = {}
     shared = None
@@ -199,8 +223,14 @@ def replay(arm, seed, branch, cfg, lam, cap, names, full=True, thresholds=None):
     host = Host(arm, seed, branch)
     mat = host.mat
     labels = torch.tensor(mat['tgt'])
-    V = build_variants(seed, cfg, cap, names)
-    ctx = {'map': TS.ReferenceMap(D_CODE, lam)}
+    key_model, key_digest, width = None, None, D_CODE
+    if STABLE:
+        key_model, width = stable_key_encoder(seed)
+        key_digest = TS.digest(*key_model.parameters())
+        ctx = {'map': FixedFrame(width)}
+    else:
+        ctx = {'map': TS.ReferenceMap(D_CODE, lam)}
+    V = build_variants(seed, cfg, cap, names, width)
     written, teacher, write_point = {}, {}, {}
     ref_code_at_write, exact = {}, {}
     sym = np.repeat(np.arange(TM.ANCHOR_SYMBOLS), TM.ANCHOR_RENDERS)
@@ -211,25 +241,33 @@ def replay(arm, seed, branch, cfg, lam, cap, names, full=True, thresholds=None):
         enc, model = host.load(point)
         pinfo = host.points[point - 1]
         rec = {'point': point, 'step': pinfo['step']}
-        A_now = encode(enc, model, mat['anchor_imgs'])
+        keyfn = (lambda x: TK.encode(key_model, x).double()) if STABLE else (lambda x, e=enc, m=model: encode_keys(e, m, x))
+        ctx['keyfn'] = keyfn
         tcodes = encode(enc, model, mat['tgt_train'][:, 0])
-        E = encode(enc, model, mat['src_eval'])  # (120 * R_EVAL, d)
+        E = encode(enc, model, mat['src_eval'])  # the host's codes, for its answers (120 * R_EVAL, d)
+        Ek = keyfn(mat['src_eval'])  # the memory's keys for the same renderings
         p_host_E = torch.softmax(logits_against_targets(model, E, tcodes), 1)
         consolidating = point <= TM.BATCHES
-        if point == 1:
-            ctx['map'].set_reference(A_now)
-        elif consolidating:
-            ctx['map'].fit(A_now)
-        rec['anchor_residual'] = ctx['map'].residual(A_now)
+        if STABLE:
+            rec['key_encoder_unchanged'] = TS.digest(*key_model.parameters()) == key_digest
+            rec['eval_keys_digest'] = TS.digest(Ek)
+        else:
+            A_now = keyfn(mat['anchor_imgs'])
+            if point == 1:
+                ctx['map'].set_reference(A_now)
+            elif consolidating:
+                ctx['map'].fit(A_now)
+            rec['anchor_residual'] = ctx['map'].residual(A_now)
         buf = pinfo['buffer']
-        bx = encode(enc, model, np.stack([mat['src_train'][e['word'], e['render']] for e in buf])) if buf else None
+        bimgs = np.stack([mat['src_train'][e['word'], e['render']] for e in buf]) if buf else None
+        bx, bk = (encode(enc, model, bimgs), keyfn(bimgs)) if buf else (None, None)
         bwords = torch.tensor([e['word'] for e in buf])
         if consolidating:
             # 2. consolidation: each unwritten entry once, teacher = the host's current answer
             new = [i for i, e in enumerate(buf) if e['word'] not in written]
             if new:
-                xn = bx[new]
-                ans = logits_against_targets(model, xn, tcodes).argmax(1)
+                xn = bk[new]
+                ans = logits_against_targets(model, bx[new], tcodes).argmax(1)
                 for i, a in zip(new, ans.tolist()):
                     w = buf[i]['word']
                     written[w], teacher[w], write_point[w] = True, a, point
@@ -244,10 +282,10 @@ def replay(arm, seed, branch, cfg, lam, cap, names, full=True, thresholds=None):
                 rec['written'] = ws
                 rec['teacher_acc'] = float((ans == labels[ws]).float().mean())
                 for w in ws:  # measurement only: the word's mean evaluation code in reference coordinates at write
-                    ref_code_at_write[w] = ctx['map'](E.reshape(TM.N_WORDS, TM.R_EVAL, -1)[w]).mean(0)
+                    ref_code_at_write[w] = ctx['map'](Ek.reshape(TM.N_WORDS, TM.R_EVAL, -1)[w]).mean(0)
                 # immediate accuracy: exact written cues (recovery of the written target) and evaluation renderings
                 rec['immediate'] = {}
-                Ew = E.reshape(TM.N_WORDS, TM.R_EVAL, -1)[ws].reshape(-1, E.shape[1])
+                Ew = Ek.reshape(TM.N_WORDS, TM.R_EVAL, -1)[ws].reshape(-1, Ek.shape[1])
                 for v in V.values():
                     sc_exact, _, _, _ = v.read(xn, ctx)
                     sc_ev, _, _, _ = v.read(Ew, ctx)
@@ -258,7 +296,7 @@ def replay(arm, seed, branch, cfg, lam, cap, names, full=True, thresholds=None):
                 ph = torch.softmax(logits_against_targets(model, bx, tcodes), 1)
                 rec['gate_loss'] = {}
                 for v in V.values():
-                    sc, _, conv, _ = v.read(bx, ctx, training=True)
+                    sc, _, conv, _ = v.read(bk, ctx, training=True)
                     rec['gate_loss'][v.name] = v.gate.fit(TS.features(ph, sc, conv), TS.p_memory(sc), ph, labels[bwords], GATE_STEPS, GATE_LR)
                 # 4. sentences of this batch's words (training renderings), read through the memory just written
                 bw = TM.batch_words(point - 1)
@@ -266,10 +304,11 @@ def replay(arm, seed, branch, cfg, lam, cap, names, full=True, thresholds=None):
                 train_sents.extend(tr.tolist())
                 rj = srng.integers(TM.R_TRAIN, size=tr.shape)
                 x = encode(enc, model, mat['src_train'][tr, rj])
+                xk = keyfn(mat['src_train'][tr, rj])
                 ph = torch.softmax(logits_against_targets(model, x, tcodes), 1)
                 rec['sentence_loss'] = {}
                 for v in V.values():
-                    sc, tp, conv, _ = v.read(x, ctx, training=True)
+                    sc, tp, conv, _ = v.read(xk, ctx, training=True)
                     with torch.no_grad():
                         w = v.gate(TS.features(ph, sc, conv))
                     r = TS.routed_patterns(w, tp, ph, v.cb).reshape(len(tr), 3, -1)
@@ -277,7 +316,7 @@ def replay(arm, seed, branch, cfg, lam, cap, names, full=True, thresholds=None):
         # 5. evaluation (state-preserving)
         before = {k: v.digest() for k, v in V.items()}
         map_before = TS.digest(ctx['map'].A)
-        rec['eval'] = evaluate(V, ctx, E, p_host_E, labels, written, point, full, thresholds, enc, model, mat, tcodes,
+        rec['eval'] = evaluate(V, ctx, Ek, p_host_E, labels, written, point, full, thresholds, enc, model, mat, tcodes,
                                train_sents, nc.stream('tm_sentence_test', seed, point))
         if 'assoc' in V and exact:  # recovery of the written target from every exact cue so far, per checkpoint
             ws_all = sorted(exact)
@@ -285,7 +324,7 @@ def replay(arm, seed, branch, cfg, lam, cap, names, full=True, thresholds=None):
             tg = torch.tensor([exact[w][1] for w in ws_all])
             rec['exact_all'] = {str(t): float((TS.target_scores(tp, V['assoc'].cb).argmax(1) == tg).float().mean()) for t, tp in res_x.items()}
         rec['state_preserved'] = all(V[k].digest() == before[k] for k in V) and TS.digest(ctx['map'].A) == map_before
-        Er = E.reshape(TM.N_WORDS, TM.R_EVAL, -1)
+        Er = Ek.reshape(TM.N_WORDS, TM.R_EVAL, -1)
         rec['drift'] = {str(w): float((ctx['map'](Er[w]).mean(0) - ref_code_at_write[w]).norm() / np.sqrt(ctx['map'].s2)) for w in written}
         if full and point == TM.BATCHES + 1:
             rec['extras'] = extras(V, exact, seed)
@@ -342,7 +381,7 @@ def sentence_test(v, ctx, old, enc, model, mat, tcodes, labels, train_sents, rng
     rj = rng.integers(TM.R_EVAL, size=te.shape)
     x = encode(enc, model, mat['src_eval'][te, rj])
     ph = torch.softmax(logits_against_targets(model, x, tcodes), 1)
-    sc, tp, conv, _ = v.read(x, ctx)
+    sc, tp, conv, _ = v.read(ctx['keyfn'](mat['src_eval'][te, rj]), ctx)
     f = TS.features(ph, sc, conv)
     single, w = v.gate.answer(f, TS.p_memory(sc), ph)
     r = TS.routed_patterns(w, tp, ph, v.cb).reshape(len(te), 3, -1)
@@ -409,9 +448,9 @@ def select():
     timing = {}
     # 1. map regularization: held-out anchor error, symbol-level folds, consolidation points 2-6
     t = time.perf_counter()
-    errs = {str(l): [] for l in LAMBDAS}
+    errs = {} if STABLE else {str(l): [] for l in LAMBDAS}
     sym = np.repeat(np.arange(TM.ANCHOR_SYMBOLS), TM.ANCHOR_RENDERS)
-    for seed in (sel_seed, conf_seed):
+    for seed in () if STABLE else (sel_seed, conf_seed):
         perm = nc.stream('tm_folds', seed).permutation(TM.ANCHOR_SYMBOLS)
         folds = [set(perm[i::FOLDS].tolist()) for i in range(FOLDS)]
         for arm in arms:
@@ -427,7 +466,7 @@ def select():
                     e = TS.heldout_anchor_error(A, ref, sym, l, s2, folds)
                     errs[str(l)].append({'seed': seed, 'arm': arm, 'point': point, 'error': e})
     mean_err = {l: float(np.mean([r['error'] for r in v if r['seed'] == sel_seed])) for l, v in errs.items()}
-    lam = float(min(mean_err, key=mean_err.get))
+    lam = float(min(mean_err, key=mean_err.get)) if mean_err else None
     confirm_err = {l: float(np.mean([r['error'] for r in v if r['seed'] == conf_seed])) for l, v in errs.items()}
     timing['lambda_seconds'] = time.perf_counter() - t
     # 2. memory grid on the selection seed: storage gate on exact cues after all writes (16-step read), then the cap
