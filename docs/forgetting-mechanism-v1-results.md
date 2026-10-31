@@ -42,7 +42,7 @@ Continued pair exposure protects recall. Differences from `ctx` in D (all ≥ th
 | mixed-h125 | +0.200 better | +0.391 better | +0.120 better | +0.241 better | +0.078 better | −0.072 worse |
 
 At the 2,000-update point `hold` keeps recall at or above its starting value in every arm, and rises in three (the pairs keep being learned); one rehearsal every ten updates removes
-about half to two-thirds of the loss but is not noninferior to no loss at 2,000 in `dense`, `mixed-h125` (worse) and inconclusive in the other two. This shows that continued exposure protects performance. It does not separate stopping exposure from interference that exposure counteracts, and the low-dose protection does not rule out capacity limits.
+about three-quarters to four-fifths of the 2,000-update loss (D −0.04 to −0.09 against −0.23 to −0.34) but is worse than no loss in `dense` and `mixed-h125`, and inconclusive in the other two. This shows that continued exposure protects performance. It does not separate stopping exposure from interference that exposure counteracts, and the low-dose protection does not rule out capacity limits.
 
 ## Reading 4: which updates are needed
 
@@ -58,7 +58,7 @@ equivalent would mean freezing it changed nothing, so the other group's updates 
 
 Freezing either group reduces the 2,000-update loss by roughly a quarter to a third in the dense-containing arms (only the reader-side freeze is clearly better in `sparse48`), and neither
 prevents it: the frozen branches still end 0.14–0.26 below their starting recall. So the loss does not come from the encoders alone or from the readers and downstream parameters alone;
-updates to either group are sufficient for substantial loss, and each group contributes part of it. Reader-side freezing has the larger effect at 250 updates in `mixed` and `mixed-h125`.
+updates to either group are sufficient for substantial loss, and each group contributes part of it. At 250 updates the reader-side freeze has the clearly larger effect only in `mixed-h125` (+0.097 against +0.026).
 These are statements about which updates are needed and sufficient, not about where the association is stored.
 
 ## Reading 5: savings
@@ -82,7 +82,7 @@ the gain over the first 100 updates is still +0.256 for the original assignment 
 
 - The first drop is largely an optimizer-state effect: recall falls as inherited momentum runs out without new gradients, and then plateaus. The slow loss to the floor needs training on other material; it is partly reduced by freezing either encoders or readers but not removed by either.
 - The pairs are not erased. Recognition survives, counts stay linearly decodable, and relearning the original pairs is faster than learning reassigned counts. What fails is the matching readout, after the item code has drifted from where the readers learned it.
-- Rehearsal at one in ten updates halves or better the loss; full-rate exposure removes it. This is not evidence against capacity or competition effects.
+- Rehearsal at one in ten updates removes most of the loss; full-rate exposure removes it. This is not evidence against capacity or competition effects.
 - Limits: one fixed cohort; one set of 45 pairs per seed; four arms; the `zero-grad` and frozen branches change the optimization regime; swap tests and the probe use labels or mix times and are descriptive; these results do not say whether the pattern holds for pairs with structure, or for a different optimizer (Adam only here).
 - Not claimed: that momentum is the cause of all forgetting, that the association is stored in any given group, or any ranking of arms (arm differences are descriptive).
 
