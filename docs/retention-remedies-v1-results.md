@@ -78,7 +78,7 @@ Which of two marked symbols has the larger count (288 pairs of 18 symbols per se
 - Through the host's comparison head on symbol codes: teacher 0.484, host after 2,000 `ctx` updates 0.467 (at chance: the comparison head does not apply to symbol codes).
 - Nine-way destination's answers compared as numbers: 0.818. Anchored destination through the comparison head: 0.797; its own nearest-canonical answers compared: 0.789.
 - **Connection benefit (anchored through the comparison head minus its own answers): +0.008 [−0.011, +0.028]: none detected.** Anchored minus nine-way: −0.021 [−0.065, +0.024]. The pilot's single-seed advantage for the anchored head (0.83 against 0.74) did not replicate.
-- Both destinations make the relation usable at about 0.8 while their exact recall is about 0.35–0.46: their errors are mostly near the right count, so ordinal information survives distillation.
+- The nine-way destination's 0.818 shows that its outputs carry ordinal information (its errors are mostly near the right count). It does **not** show that the network combines its stored facts with its own relational machinery: the comparison of predicted labels as numbers is done by the evaluator. The anchored branch, which did use the network's comparison head, showed no added benefit. (Qualified after an external review.)
 
 ## Reading 9: descriptive
 - DER's stored scores add nothing over bounded rehearsal at either weight (`mixed` 0.484 and 0.471 against 0.471), plausibly because the stored scores are those of a teacher that is right about half the time.
@@ -86,8 +86,23 @@ Which of two marked symbols has the larger count (288 pairs of 18 symbols per se
 - `hold-M` exceeds the pre-delay level in every arm: rehearsing with the full pool keeps teaching.
 - `mixed-h125`, with explicit decay, loses the most under `ctx` and gains the most from each remedy.
 
-## Interpretation (bounded)
-Arbitrary marked facts can be kept through 2,000 updates of other material by every established remedy tested, at small compute and storage costs; the new consolidation route keeps them in a protected head about as faithfully as its teacher answers, cue storage can be dropped (other symbols serve nearly as well) but random cues cannot replace it, and the stored information is the teacher's general code-to-count map rather than separate facts. Anchoring the destination in the host's count codes gave no relational benefit beyond its answers. Compression against keeping the old pathway is about 6%, because the frozen image path dominates. The `mixed` architecture's transfer cost remains the binding constraint for the combined objective; `mixed-h125` meets it here. Durability of the destination when new facts are added, routing, and a destination that does not need its own frozen path are the open questions (see the contract's internet-scale assessment).
+## Interpretation (bounded; narrowed after an external review)
+**Claim:** some behavior can be transferred into protected weights under an externally managed procedure, and established replay remedies keep marked facts through 2,000 updates of other material at small compute and storage cost. This is a component demonstration, not a memory architecture, and none of the remedies is a closed, scalable solution: replay stores inputs outside the weights and grows with the facts; stable-path replay stops the perception path from adapting; the protected destination is a separate never-again-trained head plus a frozen copy of the image path (compression against keeping the old pathway is about 6%).
+
+Abilities the experiment supplied from outside, and which the system has therefore not shown:
+
+| Supplied by the experiment | Not learned by the system |
+|---|---|
+| Marking which facts matter | Selecting memories for preservation |
+| Choosing cues and scheduling consolidation | Initiating and directing its own replay |
+| Sending memory queries to the destination | Routing between stores |
+| Comparing predicted count labels as numbers | Applying its own learned relation to retrieved facts |
+
+External marking is a legitimate intervention (like telling a learner "remember this"); success under it is not evidence that autonomous selection or routing works.
+
+Other observations that stand within that scope: the destination keeps about as much as its teacher answers; unrelated real symbols serve almost as well as stored cues and random codes do not; the destination learned the teacher's general code-to-count map rather than separate facts, which the task's nine shared answers make possible (a property of this task, not of memory). The `mixed` architecture's transfer cost remains the binding constraint for the combined objective; `mixed-h125` meets it here.
+
+**Requirements before calling anything a memory architecture** (external review, adopted as the program's next requirements, not solved mechanisms): a protected, selectively writable destination that ordinary context training cannot modify and consolidation can; successive writes into the same bounded store that preserve earlier facts; a stable interface that stays compatible with changing perception; retrieval and relational computation through an explicit system pathway with no evaluator choosing the store or supplying the answer's logic; cues for internal replay generated or held within the architecture, with any cue memory or generator counted and tested for failure. No fixed-size store keeps arbitrarily many independent facts at fixed fidelity, so a scalable design must also select, forget, compress predictable information or grow; keeping memory primarily in weights changes where information resides, not that capacity constraint.
 
 ## Computation (measured costs only)
 Theoretical costs are in the contract. Measured on a GTX 1650 with six workers: 3,681 s wall (runs 3,647 s; data 28 s; rendering 3 s), 20,708 s total worker CPU, peak worker RSS 2.70 GB (parent 1.78 GB); 30 arm-seeds.
