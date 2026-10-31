@@ -125,13 +125,13 @@ def main():
     t_dist = time.perf_counter() - t0 - t_prep
     der_rows = []
     for a in DER_GRID:
-        RR.DER_ALPHA = a
+        RR.HOST['der-M']['alpha'] = a
         t1 = time.perf_counter()
         rec = RR.run_branch('der-M', RR.HOST['der-M'], pre['b4'], ARM, SEED, pre['ctx'], pre['withheld'])
         der_rows.append({'alpha': a, 'M_at_2000': rec['curve'][-1]['M'], 'U_at_2000': rec['curve'][-1]['U'], 'penalty_mean': rec.get('replay_penalty_mean'),
                          'B_at_end': rec['new_B'][-1]['B'], 'wall_seconds': time.perf_counter() - t1})
     best = sorted(der_rows, key=lambda r: (-r['M_at_2000'], r['alpha']))[0]
-    RR.DER_ALPHA = best['alpha']
+    RR.HOST['der-M']['alpha'] = best['alpha']
     timing = {r['alpha']: r['wall_seconds'] for r in der_rows}
     branches = {}
     for name, spec in RR.HOST.items():

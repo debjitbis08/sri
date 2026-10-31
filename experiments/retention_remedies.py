@@ -49,10 +49,10 @@ L, N, R = AP.L, AP.N, AP.TRAIN_RENDERS
 K = int(os.environ.get('RR_K', '4'))
 PER_COUNT = max(1, min(2, N // 9 - 1))  # marked pairs per count (2 at N = 45); needs N >= 18 so that U is not empty
 REHEARSE_EVERY, BUFFER_BATCH = int(os.environ.get('RR_EVERY', '10')), int(os.environ.get('RR_BATCH', '16'))
-DER_ALPHA = float(os.environ.get('RR_DER_ALPHA', '1.0'))
-HEAD_H, DISTILL_STEPS = int(os.environ.get('RR_HEAD', '32')), int(os.environ.get('RR_STEPS', '300'))
-DISTILL_LR, DISTILL_WD = float(os.environ.get('RR_LR', '0.01')), float(os.environ.get('RR_WD', '0.001'))
-HP = {False: (HEAD_H, DISTILL_STEPS, DISTILL_WD), True: (HEAD_H, DISTILL_STEPS, DISTILL_WD)}  # (head width, steps, weight decay) for the nine-way and the anchored head
+DER_ALPHA = float(os.environ.get('RR_DER_ALPHA', '0.01'))  # the pilot's rule-selected weight; `der-M-strong` uses 0.1
+HEAD_H, DISTILL_STEPS = int(os.environ.get('RR_HEAD', '64')), int(os.environ.get('RR_STEPS', '1000'))
+DISTILL_LR, DISTILL_WD = float(os.environ.get('RR_LR', '0.01')), float(os.environ.get('RR_WD', '0.0'))
+HP = {False: (HEAD_H, DISTILL_STEPS, DISTILL_WD), True: (32, 3000, 0.001)}  # pilot selections (seed 299): nine-way head, anchored head  # (head width, steps, weight decay) for the nine-way and the anchored head
 NEW_UPDATES = 250 if not SMOKE else 10
 POINTS = FM.points(L, (0, 50, 250, 500, 1000, 2000))
 NAME = 'retention-remedies-v1' + ('-smoke' if SMOKE else '') + os.environ.get('NFI_TAG', '')
@@ -64,7 +64,8 @@ HOST = {  # name -> spec; `arms` limits where the branch exists
     'hold-M': dict(pairs='hold'),
     'rehearse-M': dict(pairs='buffer'),
     'rehearse-M-m0': dict(pairs='buffer', adam='m0', arms=('mixed',)),
-    'der-M': dict(pairs='buffer', der=True),
+    'der-M': dict(pairs='buffer', der=True, alpha=0.01),
+    'der-M-strong': dict(pairs='buffer', der=True, alpha=0.1),
     'stable-path-replay': dict(freeze_path=True, stored_codes=True, arms=('mixed',)),
 }
 STATE = {}  # the active replay state read by the extra loss
@@ -164,7 +165,7 @@ def install_extra_loss():
             q = c[torch.tensor(s['rows'])]
             pen = F.mse_loss(scores(model, q, cc), s['stored'])
             s['pen'].append(float(pen.detach()))
-            return loss + DER_ALPHA * pen
+            return loss + s['alpha'] * pen
         q, tgt = s['codes'], s['counts'] - 1  # stored codes against the step's candidate collections
         logits = model.relation_logits(q[:, None].expand(-1, 9, -1).reshape(-1, q.shape[1]), cand[None].expand(len(q), -1, -1).reshape(-1, q.shape[1]), 1)
         l = F.cross_entropy(logits.reshape(len(q), 9), tgt)
@@ -216,7 +217,7 @@ def run_branch(name, spec, b4, arm, seed, ctx, withheld):
             if mode == 'buffer':
                 drawn = buffer_items(items, match, M, ctx['row'], prng, buf)
                 if spec.get('der'):
-                    STATE['active'] = dict(kind='der', enc=enc, canon=ctx['canon_imgs'], pen=pen, rows=[f for f, _, _ in drawn],
+                    STATE['active'] = dict(kind='der', alpha=spec.get('alpha', DER_ALPHA), enc=enc, canon=ctx['canon_imgs'], pen=pen, rows=[f for f, _, _ in drawn],
                                            stored=torch.stack([ctx['stored_scores'][(cp, j)] for _, cp, j in drawn]))
             else:
                 cps = list(M)

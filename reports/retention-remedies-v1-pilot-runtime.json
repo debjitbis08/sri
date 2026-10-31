@@ -1,0 +1,22 @@
+{
+ "wall_seconds_total": 601.4013956560084,
+ "prepare_seconds": 160.5493527810031,
+ "distillation_grid_seconds": 89.03185004400439,
+ "der_branch_seconds": {
+  "0.01": 31.19814640301047,
+  "0.03": 31.122841218006215,
+  "0.1": 31.951315305006574,
+  "1.0": 31.283179677004227,
+  "10.0": 32.13704492899706
+ },
+ "branch_seconds": {
+  "ctx": 30.442540251999162,
+  "ctx-m0": 31.739448603009805,
+  "hold-M": 31.08333801898698,
+  "rehearse-M": 30.578095550008584,
+  "rehearse-M-m0": 31.14597187799518,
+  "stable-path-replay": 27.360279428001377
+ },
+ "device": "True",
+ "scope": "nondeterministic timing; the pilot JSON holds the selections and feasibility only"
+}
