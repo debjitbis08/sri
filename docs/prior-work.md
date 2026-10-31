@@ -1436,3 +1436,21 @@ in [the translation-memory pilot](translation-memory-v1-pilot.md).
   one-step storage recovery and recurrent recovery before attributing all
   failure to perception. Independent random source codes with controlled
   corruption provide a diagnostic of the memory rule without visual encoding.
+
+Stable-key follow-up, 2026-10-31. Search: prototypical networks for few-shot
+learning; primary abstract below.
+
+- [Snell et al., 2017](https://arxiv.org/abs/1703.05175)
+  **[abstract: search excerpt]** learn a metric for classification of classes
+  absent from training using a small support set. Difference: this does not
+  establish 120-way recognition from single rendered-symbol keys, nor lifelong
+  adaptability. **[hypothesis]** A separate encoder pretrained on disjoint
+  background symbols and then fully frozen can provide stable memory keys
+  while the host continues learning. Test unseen-symbol recognition before
+  integrating with the host; count pretraining and model selection costs.
+- **[derived]** Freezing one independent key pathway has constant model
+  storage, unlike retaining a snapshot per batch. Its preprocessing,
+  normalization statistics and projection must also be fixed to guarantee
+  identical codes for identical inputs. Slowing updates does not provide this
+  guarantee. Stable keys can still be confused as more competing keys arrive;
+  evaluate candidate-set growth separately from time with candidates fixed.
