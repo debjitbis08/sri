@@ -148,7 +148,7 @@ Groups in a and b, and shadows in c, go oldest first. If a or b would drop a pin
 7. **Propose.** A residual group without a shadow, holding m **unconsumed** traces from distinct episodes, whose unit cues have mean resultant length at least κ, freezes a rank-one shadow `Δ = ē ĉᵀ/‖ĉ‖²` fitted on the oldest such m. Those fit traces are **pinned** for the shadow's life: they count toward the trace budget and cannot be evicted, so eligibility can always be checked and the exclusion needs no uncounted memory. κ rejects chance groups, which a rank-one update could not generalize from anyway. If all S places are taken, the shadow with the fewest wins, then the oldest, is displaced.
 8. **Evict if over budget,** by the order below, and on a slot write likewise.
 
-**Retiring and retrying.** A shadow leaves by retiring, by being displaced, or by promotion. On retirement or displacement its fit traces unpin and are marked **consumed**. They remain ordinary members of the group, still contribute to ē, and may be evicted, but can never fit a shadow again. So a rejected candidate can return only by way of m new traces, each kept after the old shadow was fitted. Its failures cannot be cleared by reproposing it, and nothing is retried on unchanged evidence. A displaced shadow is treated the same, so displacement cannot launder failures either. The number of tries per group is limited only by the evidence arriving, and is reported by hidden kind, since each retry on noise is another chance of a false promotion. The reset in step 4 is the one case where counts clear without new traces. It occurs at most once per promotion, and it is disclosed because it could rescue a failing shadow.
+**Retiring and retrying.** A shadow leaves by retiring, by being displaced, or by promotion. On retirement or displacement its fit traces unpin and are marked **consumed**. They remain ordinary members of the group, still contribute to ē, and may be evicted, but can never fit a shadow again. So a rejected candidate can return only on m **previously unused** traces: none has ever fitted a shadow in this group, though some may predate the earlier fit, since a group can already hold unused traces when it is fitted. The invariant is that a trace fits at most one shadow, step 4's refit of the same shadow excepted. Its failures cannot be cleared by reproposing it, and no fit repeats on the same evidence. A displaced shadow is treated the same, so displacement cannot launder failures either. The number of tries per group is limited only by the evidence arriving, and is reported by hidden kind, since each retry on noise is another chance of a false promotion. The reset in step 4 is the one case where counts clear without new traces. It occurs at most once per promotion, and it is disclosed because it could rescue a failing shadow.
 
 **Eviction order.** Among unpinned traces, by the key (support, familiar, age), lowest support first, unfamiliar before familiar, oldest first. *Support* is the higher of the distinct-episode counts of the trace's two groups, 0 for a singleton. *Familiar* is the sketch's bit, below. So singletons without a sketch match leave first, in FIFO order, which is what the reach calculation assumes.
 
@@ -262,6 +262,8 @@ Before any build. The review found these; all were correct and are fixed above:
 
 Added after reading [Sleep](https://arxiv.org/abs/2606.03979), since it names an established alternative: `sleep-periodic` and `sleep-grow`.
 
+Clarified after the third review: retry eligibility and fingerprint horizon against learning reach.
+
 Added while revising: the κ requirement, since chance residual groups turned out to be common by arithmetic (see below).
 
 Second review, also before any build, all correct and fixed above:
@@ -273,7 +275,7 @@ Second review, also before any build, all correct and fixed above:
 
 Third review, also before any build, all correct and fixed above. The event loop is now one ordered procedure:
 
-- A rejected shadow could be recreated unchanged with its failures cleared. Fit traces are now consumed on retirement or displacement, so a retry needs m new traces.
+- A rejected shadow could be recreated unchanged with its failures cleared. Fit traces are now consumed on retirement or displacement, so a retry needs m previously unused traces.
 - The early return skipped decisions on events the answer hit, so retirement depended on when an unrelated surprise came. Scoring and decisions now run on every outcome, and only keeping a trace is conditional.
 - Sketch support conflicted with group support in eviction. Familiarity is now a per-trace tie-break only, and never counts as confirmation.
 
@@ -298,15 +300,16 @@ Shared survey: [prior-work.md](prior-work.md#surprise-lifecycle-unresolved-exper
 
 **What follows without running [derived].**
 
-- A singleton's chance of surviving to its second occurrence depends on intervening surprises. Under FIFO eviction the reach is K/(surprise rate), where K is the number of traces.
+- A singleton's chance of surviving to its second occurrence depends on intervening surprises. Under FIFO eviction the **trace reach** is K/(surprise rate), where K is the number of traces. A sketch entry survives Z/(surprise rate), its **fingerprint horizon**. That is how long a fingerprint lasts, not how far apart experiences can consolidate: familiarity only breaks eviction ties, and full traces must still survive to meet confirmation. So `life-sketch`'s effective learning reach is left to measurement, and lies somewhere from its trace reach (54 traces: ≈ 270 at q = 0.2) up to at most its horizon.
 
-| arm at 64 KiB | capacity | reach, q = 0.2 | reach, q = 0.05 |
+| arm at 64 KiB | capacity | horizon, q = 0.2 | horizon, q = 0.05 |
 |---|---|---|---|
 | `fifo-replay` | 127 events | 127 | 127 |
 | `omega` | c events | c | c |
 | `life`, S = 4 | 113 surprises, fewer while traces are pinned | ≈ 565 | ≈ 2,260 |
 | `surprise-fifo` | 127 surprises | ≈ 635 | ≈ 2,540 |
-| `life-sketch` | 4,096 sketch entries | ≈ 20,480 | ≈ 81,920 |
+| `life-sketch`, traces | 54 surprises | ≈ 270 | ≈ 1,080 |
+| `life-sketch`, fingerprints | 4,096 entries | ≈ 20,480 | ≈ 81,920 |
 
  These ignore cause events and false matches, and assume each one-off is surprising.
 - `reservoir-replay` keeps a share of traces equal to the share of events. Cause events are 368 of 10g, so at g = 8,192 under 1 of 127 stored events is a cause event. Uniform replay should fail at long gaps by arithmetic rather than by mechanism.
@@ -337,7 +340,7 @@ K traces, S shadows, Z sketch entries, W MLP weights, c window, D_c = 96, D_o = 
 | `sleep-periodic` | K·D_c, and every P events K·D_c² + D_c³ | K(D_c + D_o) | sleep cost; store limits what one sleep sees |
 | `sleep-grow` | as above, plus each expert's r(D_c + D_o) | + r(D_c + D_o) per sleep | grows linearly with stream length |
 | `life` | (K + F)·D_c + K·D_o + S(2D_c + 2D_o) + D_c·D_o, and on a promotion K·D_c·D_o | K(D_c + D_o) + S(D_c + D_o) + F(D_c + D_o) | linear in K |
-| `life-sketch` | as `life` + 2Z Hamming comparisons | + 8Z bytes | Z linear; reach linear in Z |
+| `life-sketch` | as `life` + 2Z Hamming comparisons | + 8Z bytes | Z linear; fingerprint horizon linear in Z; learning reach to be measured |
 
 **Construction, fitting and search.**
 
@@ -353,7 +356,7 @@ K traces, S shadows, Z sketch entries, W MLP weights, c window, D_c = 96, D_o = 
 
 **Workspace, apart from persistent state.** Key pool, 480 symbols × 64 renderings × 2 conditions × 128 bytes: 7.9 MB per seed, simulating the world. Schedule arrays: about 20 bytes per event, up to 6.6 MB at the longest stream. Audit: one copy of persistent state plus batches. Peak RSS by worker in the runtime files.
 
-- **Facts.** Reach in intervening surprises grows linearly with bytes, for any trace-based arm. No bounded store reaches every gap, and the sketch only changes the constant, by about 70× in bytes per entry (560 against 8) **[derived]**. Slots grow with what is kept, and an index would make reads sublinear; neither is run.
+- **Facts.** Trace reach in intervening surprises grows linearly with bytes, for any trace-based arm. No bounded store reaches every gap. The sketch lengthens the fingerprint horizon by about 70× per byte (560 against 8), which bounds its learning reach without establishing it **[derived]**. Slots grow with what is kept, and an index would make reads sublinear; neither is run.
 - **Read cost.** Measured once before design: about 7 µs for a 640 × 64 store read, single-thread numpy.
 - **Probes.** Causes ×4 (g ≥ 512) with frozen settings, to see whether thresholds survive load. Occurrences n ∈ {4, 8, 32} at g = 512, to measure how many exposures each arm needs, which is where `slow` should catch up.
 - **What would not survive scale-up.** 32 outcomes and decoding through an evaluator-held table; a linear reader; a family glyph handing the rule its feature; 512 glyphs; a rule family protected from one-off noise by construction. Real causes will not announce themselves in one 32-dimensional slot. Thresholds on cosines drifted across encoders in streaming retrieval, so expect this here.
@@ -371,4 +374,4 @@ K traces, S shadows, Z sketch entries, W MLP weights, c window, D_c = 96, D_o = 
 
 ## Reproduction
 
-To be written with the implementation: `src/surprise_lifecycle.py`, `experiments/surprise_lifecycle.py`, `tests/test_surprise_lifecycle.py`. The tests cover each state transition above, including: a retired shadow cannot return without m new traces; a shadow retires on an unsurprising event; the familiar bit never changes a count; a pinned trace cannot be evicted; deleting a group deletes its counts.
+To be written with the implementation: `src/surprise_lifecycle.py`, `experiments/surprise_lifecycle.py`, `tests/test_surprise_lifecycle.py`. The tests cover each state transition above, including: no trace ever fits two shadows, and a retired shadow cannot return without m previously unused traces; a shadow retires on an unsurprising event; the familiar bit never changes a count; a pinned trace cannot be evicted; deleting a group deletes its counts.
