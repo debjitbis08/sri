@@ -82,7 +82,21 @@ Notation: F facts kept (|M|), K cues per fact, d code dimension, A answer-space 
 | frozen path copy (`frozen-snapshot`, destination interface) | B (the image-to-code path; the full pathway for the snapshot) | the frozen path's forward passes at inference | constant fraction of the model (the encoder alone is 56% here); at scale the largest cost, so a design needing it must beat simply keeping the old pathway |
 
 What this design cannot show: that a protected store scales in capacity (F is 18), that an answer space larger than nine works (the pair task has nine values), or that cue storage can be cut below linear in facts. Stated so the results are not over-read.
-**Scale probe [decide]:** repeat the headline branches (`ctx`, `rehearse-M`, `der-M`, `consolidate-cache`, `consolidate-random`) at N = 90 (M = 36) on seeds 350–354, `mixed` only, as a labeled descriptive extension; it checks whether retention, selectivity and cost move with F as the table predicts (for example `consolidate-random` should not improve, cache storage should double); the reviewer recommended deferring it, while the program's scaling rule argues for keeping at least a reduced version, so it stays open. The symbol pool (about 387 symbols after filtering) supports 2N = 180. A larger answer space (a second pairing task with more values) is the next scaling axis and is not in this study.
+No scale probe (decided 2026-10-31). A larger answer space is the next scaling axis and is not in this study.
+
+## Internet-scale assessment (written 2026-10-31; estimates are order-of-magnitude [derived] unless tagged)
+
+Take 10^9–10^12 retained arbitrary facts. Obstructions to this design, most severe first:
+1. **Capacity of the weights.** An arbitrary fact costs bits. If a network stores on the order of 2 bits per parameter [familiar: reported for language models on synthetic facts; not re-read], 10^12 facts of about 30 bits need roughly 10^13 parameters. Compressible (structured) facts cost far less, which is why selection and structure carry the scaling argument; arbitrary memory must remain a small, selected fraction.
+2. **Writes into the destination interfere with each other.** This study protects the destination from context gradients only. Adding facts to a dense destination forgets its earlier facts unless old ones are replayed (retaining cues: linear storage; self-generated replay: the coverage problem) or writes are sparse and addressed so that a write touches few parameters. A dense head, as here, is the least scalable choice; an addressed (key-value or sparse-expert) destination is the scalable form and is the natural next comparison.
+3. **A frozen interface contradicts a growing model.** Stability is bought by freezing the image-to-code path; at scale the representation must keep learning, so the destination's keys drift. Remedies (re-encoding from retained keys, alignment or backward-compatible training of the representation) all need something retained or extra training.
+4. **Cue source and throughput.** Cues come from the recent store, which is bounded by design, so consolidation must keep pace with the arrival rate (streaming, with temporary storage bounded by the window, as the cue-discard rule requires). Compute is linear in facts times rounds, about 10^21 FLOPs for 10^12 facts at 10^9 FLOPs per distillation, comparable to training a large model.
+5. **Answer space and readout.** Nine candidates are scored exhaustively. A huge answer space needs hierarchical or approximate retrieval, or a generative readout; anchoring answers in shared concept codes (the proposed `consolidate-anchor`) helps only if the concept codes are compositional.
+6. **Key separation.** Many near-identical keys need pattern separation (sparse, high-dimensional codes), which favors the sparse component; whether `mixed` provides it at scale is untested.
+7. **Routing.** A system must know which queries the destination can answer; at scale this is a familiarity or retrieval problem of its own (deferred here).
+8. **Selection bookkeeping.** Recurrence, use and importance signals need counters per candidate memory; fine for a bounded recent store, not for unbounded candidates.
+
+What this study can and cannot inform: it measures distillation fidelity, cue discard, generalization to independent renderings and the storage comparison against keeping the old pathway; it does not address obstructions 1, 2, 3, 5, 6 or 7. The first result worth having for scaling is obstruction 2: whether a destination can accept a second marked set without forgetting the first, which is the durability question the reviewer identified.
 
 ## Computation (theoretical; to be replaced by measured costs)
 
@@ -100,10 +114,9 @@ Time: training O(updates · batch · P); buffer replay adds 16 items to a tenth 
 ## Decisions
 
 Decided 2026-10-31: stronger rule for retention benefit; both established baselines and consolidation in one study. **Adopted in this draft from the external review, pending the researchers' confirmation:** M = 18 and K = 4; K = 1 called a one-cue cache (no address mechanism); the full frozen inference path counted in storage and inference cost; `dense` not added; interleaving deferred; `frozen-snapshot` added as the storage baseline; cues discarded after distillation; primary contrast named; the three-way preservation outcome.
-**Open [decide]:**
-1. **Scale probe** at N = 90 on seeds 350–354 (see Scaling): keep, reduce or defer. About 40% extra time.
-2. **Primary contrast** as named in reading 2.
-3. **Anchored destination** (below).
+Decided 2026-10-31: no scale probe. **Open [decide]:**
+1. **Primary contrast** (reading 2).
+2. **Anchored destination** (below).
 
 ## Connecting to what is already stored (proposed, from the researchers' note)
 
