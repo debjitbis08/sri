@@ -1,6 +1,6 @@
 # Forgetting mechanism v1: contract (DRAFT, not frozen, not run)
 
-Status: **draft 2026-10-31**. Follows [arbitrary pairings v1](arbitrary-pairings-v1-results.md), where recall of the 45 taught pairs
+Status: **draft 2026-10-31, revised after an external review the same day** (no-update and optimizer diagnostics, encoder and reader freezes, reassigned-count relearning, narrower readings, accuracy-change endpoints). Follows [arbitrary pairings v1](arbitrary-pairings-v1-results.md), where recall of the 45 taught pairs
 fell to near chance (0.12–0.15 against 0.111) by the end of block 5 in every arm, with no interference from B. Before any
 further architecture comparison (random rewiring, routing, working memory) we want to know **why** the pairs are lost.
 
@@ -19,101 +19,115 @@ These come from the stored curves and decoders; no new training. They set the qu
   against 0.43–0.76. The network's own matching readout fell to chance. The decoder is given the labels, so this says the symbols
   stay separable in the embedding; it does not say the association is stored there. What is lost, at least first, is the mapping from
   symbol to count in the matching function.
-- **Not capacity or B.** `P-A` (no B) falls as far as `P-AB`; the seed-299 pilots at N = 18, 45, 90 (8 renderings, one seed) all
-  reached chance at block 5.
+- **Learning B is not necessary for the forgetting.** `P-A` (no B) falls as far as `P-AB`. Capacity limits and representational
+  competition are not excluded: the seed-299 size pilots (N = 18, 45, 90; 8 renderings; one seed) reached chance at block 5 but were not
+  designed to test them.
 
 ## Question
 
-Why do the pairs fall to chance? Candidate causes, which the branches below separate:
+Which changes make an acquired association inaccessible? Candidate accounts, which the branches below narrow but do not prove:
 
-1. **Cessation:** recall depends on pair items being in the recent batches; it drops when they stop (the fast early drop).
-2. **Context interference:** training on the other material overwrites the association (slow decline).
-3. **Drift independent of content:** weight change from the optimizer (Adam state, learning rate) erodes it whatever the material.
-4. **Lost or hidden:** the association is erased from the weights, or only unreadable (relearning savings).
+1. **Exposure:** recall depends on pair items being in recent batches (the fast early drop); continued exposure protects it.
+2. **Gradient-driven change from other material:** training on the context episodes changes the encoders or the readers so the association no longer works.
+3. **Optimizer or decay movement without new information:** inherited Adam state, or explicit decay (`mixed-h125`), moves weights anyway.
+4. **Hidden rather than erased:** some residual of the original assignment survives and can be reused by learning.
 
 ## Design
 
-Common start: the end of block 4 of the arbitrary-pairings schedule, Option A (connectivity fixed during pairing), arms
-`sparse48`, `dense`, `mixed`, `mixed-h125`, on **fresh seeds 330–339**, N = 45, L = 2,000, 64 training renderings, GPU, identical
-symbol sets and count assignments across arms within a seed (all as in the frozen contract; code reused).
-`mixed-h500` and `mixed-reset` add little to a mechanism question and are left out; this is stated, not hidden.
+Common start: the end of block 4 of the arbitrary-pairings schedule, Option A (connectivity fixed during pairing; RigL stopped at update
+4,500 and no resets, so structure rows are static and only gradients, Adam state and, for `mixed-h125`, explicit decay change weights),
+arms `sparse48`, `dense`, `mixed`, `mixed-h125`, **fresh seeds 330–339**, N = 45, L = 2,000, 64 training renderings, GPU, symbol sets and
+count assignments identical across arms within a seed. `mixed-h500` and `mixed-reset` add little here and are left out (stated, not hidden).
+Each branch starts from the same stored end-of-block-4 state (model, encoders, Adam moments, random streams).
 
-Branches from the end of block 4 (each 2,000 updates, same context episodes as the frozen block 5):
+**Parameter groups.** *Encoders* = image encoder and sequence encoder. *Readers and downstream* = every parameter of the model (`sri`) that
+is not an encoder: the first-layer structure and memory rows, all later layers of the readers, and the shared matching/relation layers. The two
+groups partition all trainable parameters; freezing sets `requires_grad = False` and a smoke check asserts the frozen parameters are bitwise unchanged.
+Where decay is explicit (`mixed-h125`) it is a third, separate factor.
 
-| Branch | Block-5 material | Separates |
+Branches (2,000 updates unless stated; context episodes as in frozen block 5):
+
+| Branch | What changes | Question |
 |---|---|---|
-| `ctx` | context episodes only (= frozen `P-A`) | reference |
-| `hold` | context + A pairs as in block 4 | is block 4 at a stable plateau; cause 1 |
-| `rehearse-10` | context + A pair items on every 10th update | cause 1 vs 2, dose of rehearsal |
-| `rehearse-50` | context + A pair items on every 50th update | the same, at a lower dose |
-| `pairs-only` | A pair items, no context | cause 2 vs 3 (no other material to interfere) |
-| `ctx-lr0.1` | `ctx` with learning rate × 0.1 for the whole block | cause 3: dependence on step size |
+| `noupdate` | nothing: evaluation of the end-of-block-4 state, no forward in training mode, no decay | zero reference; must reproduce update-0 recall exactly |
+| `zero-grad` | `opt.step()` with **explicit zero gradients** (tensors of zeros, not absent), no decay: only the inherited Adam moments move weights | movement from optimizer state alone |
+| `decay-only` (`mixed-h125` only) | explicit decay each update, no gradient steps | decay alone |
+| `ctx` | context episodes, everything trainable, decay as the arm's recipe (= frozen `P-A`) | reference |
+| `ctx-nodecay` (`mixed-h125` only) | `ctx` with decay disabled | decay's contribution under training |
+| `ctx-enc-frozen` | context episodes; encoders frozen; readers and downstream train; decay as the arm's recipe | are reader-side updates sufficient |
+| `ctx-read-frozen` | context episodes; readers and downstream frozen; encoders train; decay disabled for `mixed-h125` (comparator: `ctx-nodecay`) | are encoder-side updates sufficient |
+| `hold` | context + A pairs as in block 4 | does continued exposure protect |
+| `rehearse-10` | context + A pair items on every 10th update | one low rehearsal dose |
 
-`pairs-only` needs a batch with pair items alone; whether the training step supports that is to be checked in a smoke run before
-freezing, and if not the branch is replaced by a `ctx` batch whose context content is cut to a fixed small fraction (decision 2).
+Zero gradients and absent gradients differ for Adam: with absent gradients (`None`) parameters are skipped and nothing moves; with zero
+gradients the stored first and second moments are applied (first moment decays by β₁ per step, so the movement is brief). `zero-grad` uses
+zero gradients; a smoke check records the weight displacement to confirm it is nonzero and shrinking. `pairs-only`, learning-rate scaling and
+a second rehearsal dose from the earlier draft are dropped: they change the optimization regime and the material together and cannot isolate a cause.
 
-Relearning, from the end of `ctx` (2,000 updates in): 250 updates of **A pairs** (block-4 rate), and for the control 250 updates of
-**B pairs**, never seen in this branch; both evaluated at 0, 25, 50, 100, 250. Savings = early-window recall (0–100, trapezoid mean
-above chance) on A minus the same on B. It measures how much of the association survives in a form that learning can use again.
+**Relearning (association versus familiarity).** From the identical end of `ctx` (2,000 updates in), three continuations of 250 updates (context + pairs at the
+block-4 rate), evaluated at 0, 25, 50, 100, 250: the **original** assignment of A; the **reassigned** counts for the same A symbols (the frozen study's
+second assignment A′); and **B**, never trained in this branch (novelty reference). Early-window recall (0–100, trapezoid mean above chance):
+original − reassigned = assignment-specific advantage (reassignment interference is part of it); reassigned − B = symbol familiarity.
 
-Evaluation points in every branch: update 0, 10, 25, 50, 100, 150, 200, 250, then every 250 to 2,000 (the first 25 updates carry
-the fast drop and had only the 25-update point).
+**Evaluation points** in every branch: update 0, 10, 25, 50, 100, 150, 200, 250, then every 250 to 2,000: **15 points**.
 
 ## Measures
 
-- **Recall on A**, independent and training renderings (as in the frozen study), every point; shuffled-label rescoring only as a check.
-- **Decoders on the item code** at each point: 1-NN symbol identity, 1-NN count (labelled bank). Descriptive: recognition against association.
-- **Weight drift** at each point: relative L2 change from the end-of-block-4 values, separately for the image encoder, sequence
-  encoder, structure readers and memory rows. Descriptive; relation to recall by within-seed correlation over points.
-- **Excess recall** = recall − chance; **loss fraction at t** = 1 − excess(t) / excess(0).
-- Structured transfer (a): at the end of each branch, for the damage reading below.
+- **Recall on A**, independent and training renderings, every point; shuffled-label rescoring as a check.
+- **Accuracy change** Δ(t) = recall(t) − recall(0) for each seed and arm (paired), the inferential endpoint, at t = 50, 250 and 2,000.
+  Loss fraction (1 − excess(t)/excess(0)) is descriptive only, reported when the seed's excess at 0 is above 0.10 and otherwise as undefined; values below 0 or above 1 are shown, not clipped.
+- **Decoders on the item code**, 1-NN symbol identity and count, in two forms: (i) **rebuilt bank**, bank and queries encoded by the current encoder (separability now), and (ii) **frozen bank**, bank encoded by the
+  end-of-block-4 encoder and stored, queries by the current encoder (representation movement). The gap between (i) and (ii) is the movement hidden by rebuilding.
+- **Component swap** at 50, 250 and 2,000 updates in `ctx`: recall with (current encoders, end-of-block-4 readers and downstream) and (end-of-block-4 encoders, current readers and downstream). It shows
+  which side's change breaks the interface; mismatch can also come from co-adaptation, so it is descriptive.
+- **Weight movement** per group (image encoder, sequence encoder, structure rows, memory rows, later reader layers, shared layers) as relative L2 change from block 4, descriptive.
+- Structured transfer (a) at the end of each branch, descriptive.
 
-## Readings (prespecified; margin 0.05; the earlier rule: better/worse if |mean| > margin and the paired 95% t-interval excludes 0; equivalent if the interval lies within ±margin; noninferior if the lower bound exceeds −0.05; otherwise inconclusive). Per arm over ten seeds; arms are not pooled.
+## Readings (prespecified; margin 0.05; the inherited rule: better/worse if |mean| > margin and the paired 95% t-interval excludes 0; equivalent if the interval lies within ±margin; noninferior if the lower bound exceeds −0.05; otherwise inconclusive; per arm over ten seeds; for differences between branches, Δ(branch) − Δ(reference), so positive means less loss)
 
-1. **Plateau.** `hold` at 2,000 against its own update 0: equivalent → block 4 had reached a stable plateau, and the drop in `ctx` is caused by what changes at the boundary; worse → block 4 was not stable under its own recipe.
-2. **Cessation (cause 1).** Recall at 50 and at 250 updates: `hold` − `ctx`, better → stopping pair exposure drives the early drop.
-3. **Rehearsal.** Recall at 2,000: `rehearse-10` − `ctx` and `rehearse-50` − `ctx`; and each against `hold` for noninferiority. A low-rate protective effect → pair exposure, not capacity, sets retention.
-4. **Context interference against drift (2 vs 3).** Recall at 2,000: `pairs-only` − `ctx`. Better and noninferior to `hold` → the other material is what erases the pairs. Equivalent to `ctx` (still falls) → drift independent of material.
-5. **Step size.** Loss fraction at 250: `ctx-lr0.1` − `ctx`; better → forgetting depends on the step size.
-6. **Savings (cause 4).** Savings > margin (interval excludes 0) → the association is retained in usable form; equivalent to 0 → erased as far as this measure sees.
-7. **Recognition.** 1-NN identity at the end of `ctx` minus at update 0: equivalent → recognition retained while the association goes.
+1. **Evaluation stability.** `noupdate` Δ = 0 exactly (a runner check, as `dense` B = A in the last study).
+2. **Optimizer state and decay.** `zero-grad` Δ(250), Δ(2,000) against 0: equivalent → inherited Adam state does not move recall; worse → it does. For `mixed-h125`, `decay-only` against 0 likewise, and `ctx` − `ctx-nodecay`.
+3. **Exposure.** `hold` − `ctx` and `rehearse-10` − `ctx` at 250 and 2,000, and each against 0 for noninferiority. Better means continued pair exposure protects recall; it does not separate "stopping exposure" from "interference that exposure counteracts", and low-dose protection does not rule out capacity limits. Equivalence of start and end under `hold` is reported as such and is not called a plateau.
+4. **Which updates are needed.** `ctx-enc-frozen` − `ctx` and `ctx-read-frozen` − `ctx` (for `mixed-h125` read-frozen against `ctx-nodecay`) at 250 and 2,000. Better → updates of the unfrozen-complement group are *necessary* for the loss in this setting; equivalent → freezing that group does not prevent it, so the other group's updates are *sufficient*. These are interventions on necessity and sufficiency of updates; they do not locate storage.
+5. **Savings.** Original − reassigned and reassigned − B in early-window recall. Original − reassigned above the margin → assignment-specific residual information detected; equivalent → no savings detected by this test, not demonstrated erasure.
+6. **Recognition and representation movement.** Frozen-bank and rebuilt-bank 1-NN identity at the end of `ctx` against update 0: descriptive with the same intervals; no outcome label.
 
-Anything else (drift correlations, per-part drift, arm differences) is descriptive. One fixed cohort; no stopping rule; inconclusive stays inconclusive.
+Everything else (weight movement, swaps, per-part drift, arm differences) is descriptive. One fixed cohort; no stopping rule; inconclusive stays inconclusive.
 
-## Prior work (to complete before freezing; per `docs/literature-review.md`)
+## Prior work (to complete before freezing; `docs/literature-review.md`)
 
-Corresponds to: catastrophic interference in sequential learning (McCloskey and Cohen 1989; French 1999, **[familiar]**); savings in relearning
-as a test for retained structure (Hinton and Plaut 1987, **[abstract]** in the earlier survey; Ebbinghaus savings, **[familiar]**); rehearsal and
-pseudo-rehearsal (Robins 1995, **[familiar]**); weight-protection methods (Kirkpatrick et al. 2017, **[familiar]**) as the non-rehearsal
-alternative; complementary learning systems (McClelland et al. 1995, **[familiar]**) as the framing for fast memory plus consolidation. Cheaper
-alternatives: the reanalysis above (done); one arm (`dense`) only. All **[familiar]** items must be read and recorded in
-[prior-work.md](prior-work.md) before the freeze; theory to check includes the dependence of forgetting on learning rate and on overlap of
-tasks in feature space, which predict readings 4 and 5.
+Corresponds to: catastrophic interference in sequential learning (McCloskey and Cohen 1989; French 1999, **[familiar]**); savings in relearning as a test for
+retained structure (Hinton and Plaut 1987, **[abstract]**; Ebbinghaus, **[familiar]**); rehearsal and pseudo-rehearsal (Robins 1995, **[familiar]**); weight-protection methods
+(Kirkpatrick et al. 2017, **[familiar]**); complementary learning systems (McClelland et al. 1995, **[familiar]**). Representation drift with a fixed reader (the swap and frozen-bank
+tests) and Adam momentum behaviour are to be checked. Cheaper alternatives: the stored-data reanalysis (done); `dense` alone. All **[familiar]** items must be read and
+recorded in [prior-work.md](prior-work.md) before the freeze. **Prerequisite, not done.**
 
 ## Computation
 
-Notation: P parameters, W weights per part, K evaluation points, B branches.
+Notation: P parameters (dense matrices), N pairs, E evaluation renderings, R training renderings, d code dimension, T updates.
 
-- **Training:** time O(updates × batch × active weights), storage O(P) per live state; branches start from one stored end-of-block-4 state per
-  arm-seed (about 3P floats for model and Adam moments, held in memory, no checkpoint files).
-- **Updates per arm-seed:** blocks 1–3: 6,200; block 4: 2,000; branches: 6 × 2,000 = 12,000; relearning 2 × 250 = 500. Total 20,700 against 16,200 in the frozen
-  study (1.3×). 4 arms × 10 seeds = 40 arm-seeds. At the measured 89 s effective per 16,200-update arm-seed (six GPU processes), the extrapolation is 40 × 89 × 1.3 ≈ 4,600 s,
-  about 1.3 h, before the added evaluation points (twelve per branch against fourteen before, with decoders and drift added; expect up to 1.5–2 h). Replaced by measurement.
-- **Evaluation:** per point O(N·E·9) forward passes for recall, O(N·R·dim) for the 1-NN decoders (R = 64 training renderings), O(P) for drift.
-- Selection and tuning: none beyond the smoke run for `pairs-only`; the seed-299 sizing cost (1.0 h plus diagnostics) belongs to the arbitrary-pairings study.
-- Timing goes to the runtime file, apart from the scientific results.
+- **Training:** the masked reader multiplies dense matrices, so time is O(T · batch · P) with P the dense parameter count, not only active weights; storage O(P) per live state, with one stored
+  end-of-block-4 state (model plus Adam moments, about 3P floats) per arm-seed held in memory. `zero-grad` needs no forward or backward pass, only the optimizer step; `noupdate` costs evaluation only.
+- **Evaluation per point:** recall O(N·E·9) forward passes; brute-force 1-NN with N·E queries against an N·R bank: O(N²·E·R·d) distance work, excluding encoding (N·R bank images, N·E queries); the frozen-bank form adds a
+  stored bank (N·R·d floats) per branch.
+- **Updates per arm-seed:** blocks 1–3: 6,200; block 4: 2,000; branches with training: `ctx`, `hold`, `rehearse-10`, `ctx-enc-frozen`, `ctx-read-frozen` = 5 × 2,000 = 10,000, plus 2,000 for `ctx-nodecay` in `mixed-h125`;
+  relearning 3 × 250 = 750. Total about 18,950 (20,950 for `mixed-h125`) against 16,200 in the frozen study, about 1.2×; frozen-group branches skip part of the backward pass. 40 arm-seeds at the measured 89 s effective
+  per frozen arm-seed (six GPU processes): about 4,200 s before the added evaluation (15 points per branch with decoders and swaps); expect 1.5–2 h. To be replaced by measurement.
+- Selection and tuning: none beyond the smoke checks (frozen parameters unchanged, `noupdate` exactness, `zero-grad` displacement). Timing goes to the runtime file.
+- The dense-matrix point also corrects the computation description of the frozen studies, which said "active weights"; those artifacts are not rewritten.
 
 ## Risks
 
-- `pairs-only` and `ctx-lr0.1` change the optimization regime, not only the material; a result is a statement about that recipe.
-- The 1-NN decoder uses true labels; read it as separability, never as stored association.
-- The relearning control assumes B is neutral in `ctx`; it was never trained there, but it may be similar to A in feature space.
-- Floor effects: `ctx` ends at chance, so loss fractions at 2,000 are bounded; the early points carry the information.
-- GPU: composition-measure caveat from the earlier studies applies to transfer (a) only.
+- Freezing changes the optimization regime (Adam state of the frozen group stops updating); results are statements about these recipes.
+- The 1-NN decoders use true labels; separability, not stored association. Rebuilt-bank scores hide encoder movement; the frozen-bank form shows it.
+- The swap test mixes states of different times and can fail through co-adaptation alone.
+- Reassigned-count relearning includes reassignment interference; B differs from A in feature-space similarity.
+- `ctx` ends near chance, so late-block Δ is bounded; the early points carry most of the information.
+- GPU: the composition-measure caveat applies to transfer (a) only.
 
 ## Decisions for the researchers
 
-1. Arms: the four above (`mixed-h500`, `mixed-reset` left out), or all six at 1.5× the cost.
-2. If `pairs-only` is not supported by the training step: replace it with a reduced-context branch, or skip it and read cause 2 against 3 only through `ctx-lr0.1`.
-3. Ten fresh seeds (330–339), or five for a cheaper first look (larger intervals).
-4. Whether to add structured-damage readings (transfer (a) under each branch) or keep this study to pairs alone; the draft keeps it descriptive.
+1. Arms: the four above, or all six at about 1.5× the cost.
+2. Ten fresh seeds (330–339), or five for a cheaper first look.
+3. Whether to read structured transfer under each branch (the draft keeps it descriptive).
+4. Whether to keep `rehearse-10` as the single dose, or add the second.
