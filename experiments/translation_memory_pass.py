@@ -551,6 +551,9 @@ def run_main_task(task):
     t0, c0 = time.perf_counter(), time.process_time()
     sel = json.loads(SELECTION.read_text())
     cfg, cap = tuple(sel['memory_grid']['chosen']), sel['memory_grid']['cap']
+    if os.environ.get('TM_MEMORY_OVERRIDE'):  # sensitivity only: 'units,active,cap'; router thresholds stay those of the selected size
+        *cfg, cap = (int(v) for v in os.environ['TM_MEMORY_OVERRIDE'].split(','))
+        cfg = tuple(cfg)
     th = {k: (v if v == 'host' else float(v)) for k, v in sel['router']['chosen'].items()}
     res = replay(arm, seed, branch, cfg, sel['lambda']['chosen'], cap, VARIANTS, True, th)
     res['config'] = {'memory': cfg, 'cap': cap, 'lambda': sel['lambda']['chosen'], 'thresholds': th}
