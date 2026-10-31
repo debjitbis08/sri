@@ -1,0 +1,148 @@
+{
+ "arm": "mixed",
+ "per_seed": {
+  "350": {
+   "anchored": 0.8576388955116272,
+   "anchored_answers": 0.8229166865348816,
+   "ctx_end": 0.5868055820465088,
+   "matches_main_record": true,
+   "n_pairs": 288,
+   "ninefold": 0.819444477558136,
+   "teacher": 0.5451388955116272
+  },
+  "351": {
+   "anchored": 0.6770833134651184,
+   "anchored_answers": 0.6493055820465088,
+   "ctx_end": 0.3333333432674408,
+   "matches_main_record": true,
+   "n_pairs": 288,
+   "ninefold": 0.7465277910232544,
+   "teacher": 0.3333333432674408
+  },
+  "352": {
+   "anchored": 0.84375,
+   "anchored_answers": 0.8541666865348816,
+   "ctx_end": 0.4548611044883728,
+   "matches_main_record": true,
+   "n_pairs": 288,
+   "ninefold": 0.9652777910232544,
+   "teacher": 0.472222238779068
+  },
+  "353": {
+   "anchored": 0.9027777910232544,
+   "anchored_answers": 0.9340277910232544,
+   "ctx_end": 0.4444444477558136,
+   "matches_main_record": true,
+   "n_pairs": 288,
+   "ninefold": 0.9479166865348816,
+   "teacher": 0.5625
+  },
+  "354": {
+   "anchored": 0.7951388955116272,
+   "anchored_answers": 0.7465277910232544,
+   "ctx_end": 0.4583333432674408,
+   "matches_main_record": true,
+   "n_pairs": 288,
+   "ninefold": 0.7013888955116272,
+   "teacher": 0.5347222089767456
+  },
+  "355": {
+   "anchored": 0.8090277910232544,
+   "anchored_answers": 0.8159722089767456,
+   "ctx_end": 0.4618055522441864,
+   "matches_main_record": true,
+   "n_pairs": 288,
+   "ninefold": 0.8888888955116272,
+   "teacher": 0.4548611044883728
+  },
+  "356": {
+   "anchored": 0.694444477558136,
+   "anchored_answers": 0.663194477558136,
+   "ctx_end": 0.5208333134651184,
+   "matches_main_record": true,
+   "n_pairs": 288,
+   "ninefold": 0.6979166865348816,
+   "teacher": 0.5104166865348816
+  },
+  "357": {
+   "anchored": 0.6666666865348816,
+   "anchored_answers": 0.6909722089767456,
+   "ctx_end": 0.625,
+   "matches_main_record": true,
+   "n_pairs": 288,
+   "ninefold": 0.6840277910232544,
+   "teacher": 0.6493055820465088
+  },
+  "358": {
+   "anchored": 0.9027777910232544,
+   "anchored_answers": 0.8923611044883728,
+   "ctx_end": 0.4895833432674408,
+   "matches_main_record": true,
+   "n_pairs": 288,
+   "ninefold": 0.8854166865348816,
+   "teacher": 0.4340277910232544
+  },
+  "359": {
+   "anchored": 0.8229166865348816,
+   "anchored_answers": 0.819444477558136,
+   "ctx_end": 0.2916666567325592,
+   "matches_main_record": true,
+   "n_pairs": 288,
+   "ninefold": 0.84375,
+   "teacher": 0.34375
+  }
+ },
+ "seeds": [
+  350,
+  351,
+  352,
+  353,
+  354,
+  355,
+  356,
+  357,
+  358,
+  359
+ ],
+ "status": "supplement: computed in a separate pass (the main runner omitted this reading); deterministic recomputation checked against the main records",
+ "summary": {
+  "all_match_main_record": true,
+  "contrasts": {
+   "anchored - anchored_answers": {
+    "mean_ci": [
+     0.008333331346511841,
+     -0.01084245784669831,
+     0.027509120539721994
+    ]
+   },
+   "anchored - ctx_end": {
+    "mean_ci": [
+     0.33055556416511533,
+     0.2296749084002459,
+     0.43143621992998477
+    ]
+   },
+   "anchored - ninefold": {
+    "mean_ci": [
+     -0.02083333730697632,
+     -0.06542031602524714,
+     0.02375364141129451
+    ]
+   },
+   "anchored - teacher": {
+    "mean_ci": [
+     0.3131944477558136,
+     0.21619378412740983,
+     0.4101951113842174
+    ]
+   }
+  },
+  "means": {
+   "anchored": 0.7972222328186035,
+   "anchored_answers": 0.7888889014720917,
+   "ctx_end": 0.46666666865348816,
+   "ninefold": 0.8180555701255798,
+   "teacher": 0.48402778506278993
+  }
+ }
+}
