@@ -332,7 +332,34 @@ def confirm():
         print(s, round(r['recognition_120'], 3), r['identical_at_every_checkpoint'], r['growth_teaching_order'], {k: round(v['recognition'], 3) for k, v in r['alternatives'].items()})
 
 
+def check(seed):
+    """The unchanged perception gate on one further seed: its own encoder at the selected setting, its own lexicon."""
+    t0 = time.perf_counter()
+    syms = symbol_splits()
+    c = json.loads(open(f'{REPORT}-selection.json').read())['chosen']
+    fit = train(c['arch'], c['key'], seed, syms)
+    mat = TM.material(seed)
+    assert not set(mat['src']) & (set(syms['validation']) | set(syms['background'])) and set(mat['src']) <= set(syms['pool'])
+    stored = stored_renderings(seed)
+    model = build(c['arch'], c['key'], seed)
+    model.load_state_dict(fit['checkpoints'][c['steps']]['state'])
+    k = encode(model, np.stack([mat['src_train'][w, stored[w]] for w in range(TM.N_WORDS)]))
+    q = encode(model, mat['src_eval']).reshape(TM.N_WORDS, TM.R_EVAL, -1)
+    acc = recognition(k, q)
+    out = {'seed': seed, 'chosen': c, 'recognition_120': float(acc.mean()), 'gate_passes': float(acc.mean()) >= GATE_WRITE,
+           'by_batch': [float(acc[TM.WORDS * b:TM.WORDS * (b + 1)].mean()) for b in range(TM.BATCHES)],
+           'growth_teaching_order': growth(k, q, range(TM.WORDS, TM.N_WORDS + 1, TM.WORDS)),
+           'validation': fit['checkpoints'][c['steps']]['validation']['recognition']}
+    save_json(f'{REPORT}-check-seed{seed}.json', out)
+    save_json(f'{REPORT}-check-seed{seed}-runtime.json', {'scope': 'nondeterministic timing', 'wall_seconds': time.perf_counter() - t0, 'train_seconds': fit['train_seconds'],
+                                                         'render_seconds': fit['render_seconds'], **DEV.info(), 'revision': X.git('rev-parse', 'HEAD')})
+    print(json.dumps({k_: out[k_] for k_ in ('seed', 'recognition_120', 'gate_passes', 'validation', 'growth_teaching_order')}))
+
+
 if __name__ == '__main__':
     torch.set_num_threads(4)
     DEV.install()
-    {'select': select, 'confirm': confirm}[STAGE]()
+    if STAGE == 'check':
+        check(int(sys.argv[2]))
+    else:
+        {'select': select, 'confirm': confirm}[STAGE]()

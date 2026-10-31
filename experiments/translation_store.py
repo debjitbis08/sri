@@ -192,6 +192,36 @@ class Associative:
         return self.M * self.M / 8  # one bit per weight
 
 
+class OneStep:
+    """The source-to-target part alone: binary clipped W_ts (m_t, m_s), one-step read, target part = top k_t of W_ts s. Draws its
+    tie-break priorities in Associative's order, so its reads equal Associative.one_step on the same writes. No recurrence, so
+    a tolerant read here is associative retrieval, not recurrent pattern completion."""
+
+    def __init__(self, m_s, m_t, k_s, k_t, rng, device='cpu'):
+        self.m_s, self.m_t, self.k_s, self.k_t = m_s, m_t, k_s, k_t
+        self.W = torch.zeros(m_t, m_s, device=device)
+        priorities(m_s, rng)
+        self.prio_t = priorities(m_t, rng).to(device)
+        self.writes = 0
+
+    def write(self, s, t):
+        self.W = ((self.W + t.to(self.W).T @ s.to(self.W)) > 0).float()
+        self.writes += len(s)
+
+    def read(self, cue):
+        return kwta(cue.to(self.W) @ self.W.T, self.k_t, self.prio_t)
+
+    def active_connections(self, cue):
+        """Per query: nonzero weights leaving the cue's active units (the work if the implementation follows them)."""
+        return cue.to(self.W) @ self.W.sum(0)
+
+    def dense_ops(self):
+        return self.m_s * self.m_t
+
+    def nbytes(self):
+        return self.m_s * self.m_t / 8  # one bit per weight
+
+
 def target_scores(tpart, cb):
     """Normalized overlap of retrieved target parts (n, m_t) with every codebook pattern (T, m_t): (n, T) in [0, 1]."""
     return (tpart.to(cb) @ cb.T) / cb.sum(1)[None]

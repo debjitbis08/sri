@@ -46,6 +46,14 @@ def check_associative():
     for t, tp in out.items():
         acc = float((TS.target_scores(tp, cb).argmax(1) == tgt).float().mean())
         assert acc == 1.0, (t, acc)
+    alone = TS.OneStep(m_s, m_t, k_s, k_t, np.random.default_rng(1))
+    alone2 = TS.Associative(m_s, m_t, k_s, k_t, np.random.default_rng(1))
+    for i in range(0, n, 30):  # successive writes, as in consolidation
+        alone.write(S[i:i + 30], cb[tgt[i:i + 30]])
+        alone2.write(S[i:i + 30], cb[tgt[i:i + 30]])
+    assert torch.equal(alone.W, alone2.W[m_s:, :m_s]) and alone.nbytes() == alone2.nbytes() / 4
+    probe = TS.codebook(200, m_s, k_s, np.random.default_rng(9))  # includes cues never stored, where ties decide
+    assert torch.equal(alone.read(probe), alone2.one_step(probe)) and torch.equal(alone.read(S), alone2.one_step(S))
     # corrupted cues: replace 4 of the 10 active source units
     noisy = S.clone()
     for i in range(n):
@@ -54,6 +62,7 @@ def check_associative():
         noisy[i, off[rng.choice(len(off), 4, replace=False)]] = 1
     out, info = mem.retrieve(noisy)
     accs = {t: float((TS.target_scores(tp, cb).argmax(1) == tgt).float().mean()) for t, tp in out.items()}
+    print('one-step memory: weights and reads equal the joint memory\'s one-step control, a quarter of the weights')
     print(f'associative: exact cues 1.00 at every checkpoint; 40% corrupted cues {accs}; converged {float(info["converged"].float().mean()):.2f}, '
           f'cycles {float(info["cycle"].float().mean()):.2f}, mean steps {float(info["steps"].float().mean()):.1f}')
 

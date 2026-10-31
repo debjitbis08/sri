@@ -52,7 +52,8 @@ TRIALS, CANDIDATES = 16, 32
 R_TRAIN, R_EVAL = (4, 2) if SMOKE else (64, 5)
 CAPACITY = 40
 CURVE = (0, 5, 10, 20) if SMOKE else (0, 25, 50, 100, 250, 500, 1000, 2000)
-BRANCHES = ('main', 'frozen-encoder')
+BRANCHES = tuple(os.environ.get('TM_BRANCHES', 'main,frozen-encoder').split(','))
+MID = tuple(int(v) for v in os.environ.get('TM_MID', '').split(',') if v)  # offsets within a batch's acquisition at which the host state is also saved
 ARMS = tuple(os.environ.get('TM_ARMS', 'mixed,sparse48').split(','))
 SEEDS = tuple(int(s) for s in os.environ.get('TM_SEEDS', ','.join(map(str, range(360, 370)))).split(','))
 IDENTITY = os.environ.get('TM_IDENTITY') == '1'  # revision after the pilot: key head and supervised contrastive identity loss
@@ -241,7 +242,7 @@ class Buffer:
         return [dict(e) for e in self.entries]
 
 
-def acquisition(enc, model, opt, rng, mat, seed, b, buf, log, steps, words):
+def acquisition(enc, model, opt, rng, mat, seed, b, buf, log, steps, words, mids=None):
     """steps updates of context episodes plus (when words is not None) word trials from `words`."""
     crng = nc.stream('tm_context', seed, b)
     trng = nc.stream('tm_trials', seed, b)
@@ -262,6 +263,8 @@ def acquisition(enc, model, opt, rng, mat, seed, b, buf, log, steps, words):
         LM.train_update(enc, model, opt, mat_ctx, rng, True)
         if words is not None and (step + 1) in CURVE:
             curve.append({'offset': step + 1, 'acc': host_accuracy(enc, model, mat, words)})
+        if mids is not None and (step + 1) in MID:
+            mids.append({'offset': step + 1, 'step': CURRENT['step'], 'host': host_state(enc, model), 'buffer': buf.snapshot()})
     STATE['trials'] = None
     return curve
 
@@ -280,8 +283,9 @@ def run_branch(name, start, arm, seed, mat, withheld):
         path0 = TS.digest(*path_params(enc, model))
     for b in range(first, BATCHES):
         STATE['losses'] = []
-        curve = acquisition(enc, model, opt, rng, mat, seed, b, buf, log, L_ACQ, batch_words(b))
-        points.append({'point': b + 1, 'step': CURRENT['step'], 'host': host_state(enc, model), 'buffer': buf.snapshot(),
+        mids = []
+        curve = acquisition(enc, model, opt, rng, mat, seed, b, buf, log, L_ACQ, batch_words(b), mids)
+        points.append({'point': b + 1, 'step': CURRENT['step'], 'host': host_state(enc, model), 'buffer': buf.snapshot(), 'mids': mids,
                        'curve': curve, 'trial_loss_mean': float(np.mean(STATE['losses'])),
                        'identity_loss_mean': float(np.mean(STATE['id_losses'])) if STATE.get('id_losses') else None})
         STATE['id_losses'] = []
@@ -319,13 +323,15 @@ def run_task(task):
     states = {}
     rec, points, b1 = run_branch('main', start, arm, seed, mat, withheld)
     out['branches']['main'], states['main'] = rec, points
-    rec, points, _ = run_branch('frozen-encoder', b1, arm, seed, mat, withheld)
-    out['branches']['frozen-encoder'], states['frozen-encoder'] = rec, points
+    if 'frozen-encoder' in BRANCHES:
+        rec, points, _ = run_branch('frozen-encoder', b1, arm, seed, mat, withheld)
+        out['branches']['frozen-encoder'], states['frozen-encoder'] = rec, points
     for name in states:  # curves and steps go into the results; the host states into the checkpoint file
-        out['branches'][name]['points'] = [{k: v for k, v in p.items() if k != 'host'} for p in states[name]]
+        out['branches'][name]['points'] = [{**{k: v for k, v in p.items() if k not in ('host', 'mids')},
+                                            'mids': [{k: v for k, v in q.items() if k != 'host'} for q in p.get('mids', [])]} for p in states[name]]
     path = RUNS / 'states' / f'{arm}-seed{seed}.pt'
     bio = io.BytesIO()
-    torch.save({name: [{'point': p['point'], 'step': p['step'], 'host': p['host']} for p in pts] for name, pts in states.items()}, bio)
+    torch.save({name: [{'point': p['point'], 'step': p['step'], 'host': p['host'], 'mids': p.get('mids', [])} for p in pts] for name, pts in states.items()}, bio)
     DUR.atomic_write(path, bio.getvalue())
     out['checkpoint'] = {'file': str(path.relative_to(X.ROOT)), 'sha256': nc.sha256(path)}
     return f'{arm}/seed{seed}', out, {
