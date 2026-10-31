@@ -1,6 +1,6 @@
-# Retention remedies v1: contract (DRAFT, not frozen)
+# Retention remedies v1: contract (frozen 2026-10-31)
 
-Status: **draft 2026-10-31 (revised after an external review)**, for the researchers' review. Runner and pilot are implemented and smoke-checked; the pilot has run. Arms, seeds, branches, thresholds and readings change only before freezing; items marked **[decide]** need a decision.
+Status: **frozen 2026-10-31** at the researchers' go-ahead, after two external reviews and the seed-299 pilot. Arms, seeds, branches, parameters, endpoints and readings below do not change after results are seen; anything added later is labeled post hoc. Implemented in `experiments/retention_remedies.py`; command: `NFI_DEVICE=cuda NSY_WORKERS=6 /data/venvs/sri-cuda/bin/python -m experiments.retention_remedies pilot pairs` (defaults to the contract configuration; resumes if interrupted).
 Follows [momentum reset v1](momentum-reset-v1-results.md) (the reset delays the early drop and does not change the long decline; kept as an optional component) and the
 [acceptable-cost table](momentum-reset-v1-contract.md) recorded earlier. Decided 2026-10-31: **the stronger rule for retention benefit; both the established baselines and the consolidation design are in this study.**
 
@@ -116,7 +116,7 @@ Time: training O(updates · batch · P); buffer replay adds 16 items to a tenth 
 ## Decisions
 
 Decided 2026-10-31: stronger rule for retention benefit; both established baselines and consolidation in one study. **Adopted in this draft from the external review, pending the researchers' confirmation:** M = 18 and K = 4; K = 1 called a one-cue cache (no address mechanism); the full frozen inference path counted in storage and inference cost; `dense` not added; interleaving deferred; `frozen-snapshot` added as the storage baseline; cues discarded after distillation; primary contrast named; the three-way preservation outcome.
-Decided 2026-10-31: no scale probe; primary contrast as in reading 2; `consolidate-anchor` included, with the derived-relations reading conditional on a seed-299 feasibility check of the comparison harness before freezing. The seed-299 pilot ran 2026-10-31 and fixed the free parameters (above). **Open [decide]:** none; the contract awaits the researchers' review and an explicit freeze.
+Decided 2026-10-31: no scale probe; primary contrast as in reading 2; `consolidate-anchor` included, with the derived-relations reading conditional on a seed-299 feasibility check of the comparison harness before freezing. The seed-299 pilot ran 2026-10-31 and fixed the free parameters (above). **Open [decide]:** none.
 
 ## Connecting to what is already stored (included 2026-10-31, from the researchers' note)
 
