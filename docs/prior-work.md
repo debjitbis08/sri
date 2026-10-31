@@ -1411,3 +1411,28 @@ winner-take-all retrieval; modern Hopfield attention; PackNet iterative pruning.
   allocate parameters. **[derived]** Newly allocated blocks without pruning
   should be called a parameter-isolation baseline inspired by that literature,
   not a reproduction of PackNet.
+
+### Translation-memory pilot: identity objective follow-up
+
+Search date 2026-10-31. Queries: supervised contrastive learning; continual
+representation learning and forgetting. Prompted by the failed storage gate
+in [the translation-memory pilot](translation-memory-v1-pilot.md).
+
+- [Khosla et al., 2020](https://arxiv.org/abs/2004.11362)
+  **[abstract: search excerpt]** study supervised contrastive representation
+  learning for image classification. Difference: not this sequential symbol
+  stream, anchored interface or associative store. **[hypothesis]** Train
+  keys to identify symbols across renderings using known source identity;
+  assess retention of this identity across subsequent batches. This is
+  supervised identity learning when same-symbol labels define positives,
+  not automatically instance discrimination or a remedy for forgetting.
+- **Pilot interpretation [derived].** Nearest-prototype accuracy is the
+  performance of one decoder, not an upper bound on information in a code.
+  Concentration of variance in three directions does not alone establish
+  that identity is absent. The post-hoc diagnosis uses current prototypes
+  from eight training renderings at batch 6; it does not directly evaluate
+  the historical single-rendering keys used by the deployed memory.
+  **[hypothesis]** Separate current-code identity, historical-key matching,
+  one-step storage recovery and recurrent recovery before attributing all
+  failure to perception. Independent random source codes with controlled
+  corruption provide a diagnostic of the memory rule without visual encoding.
