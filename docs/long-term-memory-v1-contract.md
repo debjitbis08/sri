@@ -63,7 +63,7 @@ every C updates, with ḡ the mean gradient over those C updates, clipped to nor
 | `slow` | a slow-moving copy of the image encoder and projection, updated towards the host every update with half-life 2,000 updates; its 16-dimensional code | mostly; moves with the host | one encoder copy |
 | `frozen` | the [frozen key encoder](translation-memory-v1-pilot.md#stable-keys-perception-gate-passes), 32 dimensions, for queries; values as gate 2 decides | fully | 839,040 bytes |
 
-**Memory acts only when query and candidate are both images,** for every key source, `live` included. A sequence (taps) has no frozen or slow key or value, so memory's term is 0 for taps queries and taps candidates. Applying this to all key sources keeps key-source comparisons on the same tasks. **The cost:** memory cannot help cross-sense facts in this study. A sequence pathway is a later question.
+**Memory acts only when query and candidate are both images,** for every key source, `live` included. A sequence (taps) has no frozen or slow key or value, so memory's term is 0 for taps queries and taps candidates. Applying this to all key sources keeps key-source comparisons on the same tasks. **The cost:** memory cannot help cross-sense facts in this study. Merging memory with cross-sense is planned for later studies (user decision, 2026-11-01).
 
 **References, not arms of the system:** `sparse48` alone. `flat-store`: an explicit diagnostic that writes each pair's frozen key and target count once and answers by nearest key, for what perfect storage scores on these keys. `mixed` from the same protocol, for a transfer cost inside the host.
 

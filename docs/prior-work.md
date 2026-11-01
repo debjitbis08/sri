@@ -1564,6 +1564,31 @@ for online recognition; open-set rejection in streams.
   evaluated together on a stream of retrievals from memory. Not a novelty claim;
   the searches were few.
 
+2026-10-31: [Test-time neural memory: Titans, MIRAS and ATLAS](test-time-memory-prior-work.md)
+records a mechanism-level reading prompted by the sensory-memory discussion.
+It distinguishes online neural-memory updates, retention and windowed rehearsal
+from retrieval-induced strengthening and lifelong adaptation of perception.
+
+2026-10-31: [Continuous sensory memory: research direction](continuous-sensory-memory-notes.md)
+records the user's sensory-only multimodal requirements, imperfect/use-dependent
+retention, and the proposed intermediate memory for ongoing work across days.
+It separates immediate context, active work and durable memory as hypotheses
+and lists interruption/resumption and retrieval-practice tests before a contract.
+
+Follow-up in that note: assimilation versus reorganization, linked back to
+the sparse-reader transfer/acquisition/retention tradeoff and Go-CLS selective
+consolidation. Surprise and gradient conflict are not sufficient criteria for
+reorganizing shared representations; the proposed criterion is future
+predictive benefit with measured retention and resource costs.
+
+Further discussion records the user's [accumulated-surprise proposal](continuous-sensory-memory-notes.md#accumulating-surprises-before-changing-shared-knowledge):
+temporary sensory traces gain support from related independent experiences,
+drive association or representation updates, and otherwise fade. It separates
+retrieval strengthening from independent confirmation, connects the hypothesis
+to sparse-network retention, and identifies bounded replay and immediate
+surprise-weighted updates as comparisons. This is not a novelty claim or a
+frozen experiment contract.
+
 ### Surprise lifecycle: unresolved experience as evidence
 
 Search date 2026-11-01, for the [surprise lifecycle draft](surprise-lifecycle-v1-contract.md).
@@ -1628,6 +1653,41 @@ rate, and any online rule must treat a cause's first occurrence like a one-off. 
 match was found in these searches for residual grouping with prequentially scored
 shadow updates routed to binding or shared stores. Not a novelty claim; the
 searches were few and MINAS's full text is unread.
+
+### Sleep: consolidation into persistent parameters
+
+Reading date 2026-11-01. User supplied the
+[Google Research overview](https://research.google/blog/the-sleep-framework-a-new-way-for-llms-to-retain-knowledge-in-continual-learning/);
+followed its link to [Language Models Need Sleep](https://arxiv.org/pdf/2606.03979)
+(v2). **[read: introduction, sections 3.1–3.4 excerpts, section 4 results
+excerpts; not a full proof, implementation or compute audit]**.
+
+**Source evidence [read].** Sleep transfers fast memory into slower parameters
+through distillation and imitation learning, activates additional low-rank
+experts, and rehearses synthetic examples. Faster experts are reset after
+transfer. Expansion can use preallocated masked parameters. The paper reports
+retention improvements in sequential language learning and long-context tasks.
+
+**Difference [derived from the read mechanism and our contract].** This is
+direct prior work for temporary-to-durable consolidation. It does not by itself
+establish our narrower claim: that independent later sensory outcomes can
+validate unresolved surprises under a fixed total byte budget. Synthetic
+rehearsal can transfer an existing belief without supplying independent
+evidence that it is correct. Neither observation is a claim that Sleep fails.
+
+**Program implication [hypothesis].** Before freezing the lifecycle contract,
+consider a periodic consolidation control using the same bounded buffer,
+reader, observations and total update allowance. Compare scheduled replay or
+distillation with evidence-triggered consolidation, so a gain cannot be
+attributed solely to delaying updates. This would be a small control inspired
+by consolidation, not a reproduction or test of Sleep. Count dormant capacity,
+teacher state, synthetic generation and consolidation compute if implementing
+a closer variant. Record quality versus total cost, including offline work.
+
+**Open reading.** Audit the paper's capacity trajectory, consolidation schedule,
+training budgets and controls before making any quantitative comparison. The
+broad consolidation motivation is established prior work; any contribution
+claim here must concern the specific evidence-selection mechanism and fixture.
 
 ### Sleep: scheduled consolidation and dreaming
 
