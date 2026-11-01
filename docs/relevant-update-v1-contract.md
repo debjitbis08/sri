@@ -34,11 +34,11 @@ No stream. A **trial** starts from old knowledge and applies one update per new 
 
 | kind | contaminant | where it comes from |
 |---|---|---|
-| `unrelated` | a family not in the trial, random outcome | one-off noise |
-| `same-outcome` | a family not in the trial, the rule's outcome | v1's chance residual groups |
+| `unrelated` | one of the 4 other families, random outcome | one-off noise |
+| `same-outcome` | one of the 4 other families, the rule's outcome | v1's chance residual groups |
 | `same-family` | the rule's family, a random other outcome | an unreliable rule |
 
-**Trials.** 8 per cell, per seed and condition. Draws are the same across rules for a cell, so rule contrasts are paired down to the examples. Families not in a trial remain unused and serve the breadth reading.
+**Trials.** 8 per cell, per seed and condition. Draws are the same across rules for a cell, so rule contrasts are paired down to the examples. Rule families not in a trial remain unused and serve the breadth reading; contaminants never use them.
 
 ### Update rules
 
@@ -55,9 +55,9 @@ Each takes the set and the current memory. Every rule has a k = 1 form. Rules se
 | `omega` | MLP M. On the arrival of a set's j-th experience, one step: `M_t = (1 − α) M_{t−1} − η ∇ (1/j) Σ_{i≤j} ‖M(cᵢ) − oᵢ‖²`, γ = 1 | MLP fills the budget | Omega update, proceedings Eq. 5, gates off, no kernel, loss averaged rather than summed |
 | `titans`, `titans-m0` | MLP M, for each experience `M_t = (1 − α) M_{t−1} + S_t`, `S_t = β S_{t−1} − η ∇‖M(c) − o‖²`; β = 0 in `-m0` | MLP fills the budget, S included | Titans Eqs. 12–14, constants for its functions |
 
-`rank-one` and `ridge` update from the reader's residual, ignoring slots. α is decay, so 0 keeps everything. Momentum S persists across experiences and sets within a trial, as it would in a stream, and is zeroed at a trial's start. **Not included:** a polynomial kernel φ on the reader, since a degree-2 expansion of a 96-wide cue needs about 600 KB of weights, far beyond the budget; Muon, until gradient descent has been shown to be the limit; learned gates, which need outer-loop training with no sensory target defined yet. So `omega` is not a test of OmegaNet or ATLAS, and neither arm of Titans tests Titans.
+`rank-one` and `ridge` update from the reader's residual, ignoring slots. Linear rules answer from a known slot when its cue has cosine at least 0.8, a fixed value as in v1's starting setting, and MLPs hold known bindings in their weights. α is decay, so 0 keeps everything. Momentum S persists across experiences and sets within a trial, as it would in a stream, and is zeroed at a trial's start. **Not included:** a polynomial kernel φ on the reader, since a degree-2 expansion of a 96-wide cue needs about 600 KB of weights, far beyond the budget; Muon, until gradient descent has been shown to be the limit; learned gates, which need outer-loop training with no sensory target defined yet. So `omega` is not a test of OmegaNet or ATLAS, and neither arm of Titans tests Titans.
 
-**Keys and values.** Titans and ATLAS derive a key and a value from each single token through projections learned in an outer loop (`k_t = x_t W_K`, `v_t = x_t W_V`). There is no such projection here. The world hands each arm a paired event, and the frozen cue key is k and the frozen outcome key is v. So this tests how to update on (k, v) pairs once they exist, and it assumes away the question of what should associate with what. That pairing is sensory rather than a hidden label, but it is structure the published systems must learn. A stream of single inputs would need its own answer, such as k the present and v the next input, and is not tested here.
+**Keys and values.** Titans and ATLAS derive a key and a value from each single token through projections learned in an outer loop (`k_t = x_t W_K`, `v_t = x_t W_V`). There is no such projection here. The world hands each arm a paired event, and the frozen cue key is k and the frozen outcome key is v. So this tests how to update on (k, v) pairs once they exist, and it assumes away the question of what should associate with what. That pairing is sensory rather than a hidden label, but it is structure the published systems must learn. A stream of single inputs would need its own answer, such as k the present and v the next input, and is not tested here. **The next study must use learned projections for keys and values** (user decision, 2026-11-01).
 
 **Memory construction for the protective rules.** All are built once per seed and condition from the old-knowledge fit events, are fixed for a trial and across trials, and never take in new experiences. So they protect old knowledge only. Damage among new rules is unprotected, and reported through retention.
 
@@ -81,7 +81,7 @@ Shared and outside the budget: encoder; reader or equivalent 12,288 bytes; known
 
 ### Readings
 
-Audit after the trial's last update, unless stated, on `clean` audit renderings with audit-only items, decoded by nearest of 32 outcome prototypes from the stream's condition. Primary cell: **`degraded`, L = 16, k = 4, p = 0.** Means over a seed's trials, then bootstrap over seeds.
+Audit after the trial's last update, unless stated, on `clean` audit renderings with audit-only items, decoded by nearest of 32 outcome prototypes from the stream's condition. Primary cell: **`clean`, L = 16, k = 4, p = 0** (changed from `degraded` by the gates; see *Changes from the gates*). Means over a seed's trials, then bootstrap over seeds.
 
 **Primary.**
 
@@ -132,14 +132,14 @@ The **bar** is absolute: mean rule generalization ≥ 0.70 and old knowledge ≥
 - **More evidence:** chosen rule at k = 4 against k = 1. This is expected to help and is not the together test.
 - **Protection:** `ridge-rehearse` and `ridge-orthogonal` against `ridge`, on old knowledge.
 
-**Expectations, recorded before any run.** `ridge` beats `rank-one`, since a rank-one direction with mean cue over few items keeps item noise. `expert` protects old knowledge best, and is broadest at low τ_x. In comparison A, `omega` beats `titans-m0`, largely through extra work. In comparison B, differences are small: at the small steps selection is likely to pick, `omega` and `omega-seq` nearly coincide. So a real benefit of joint processing may not be there to find, and that would be a useful result for the bet. `same-outcome` contamination hurts more than `unrelated`. `no-rule-reaches-bar` on `degraded` with only 4 examples is plausible: v1's residual fit on 8 reached about 0.55 there.
+**Expectations, recorded before any run.** `ridge` beats `rank-one`, since a rank-one direction with mean cue over few items keeps item noise. `expert` protects old knowledge best, and is broadest at low τ_x. In comparison A, `omega` beats `titans-m0`, largely through extra work. In comparison B, differences are small: at the small steps selection is likely to pick, `omega` and `omega-seq` nearly coincide. So a real benefit of joint processing may not be there to find, and that would be a useful result for the bet. `same-outcome` contamination hurts more than `unrelated`. `no-rule-reaches-bar` is plausible: 4 examples is few, though v1's residual fit on 8 reached 0.90–0.98 on `clean`.
 
 ### Gates
 
 On pilot seeds, before selection. Failure stops stage 1 until the design changes, and is recorded.
 
-1. **Joint ceiling.** One R fit offline on old and new rules together, 384 events per rule, with known bindings as slots, audited on **both** rule generalization and old knowledge, at L = 4, 16 and 32, on both conditions. On `clean`, both must reach ≥ 0.85 at L = 16, or the study stops. A load failing that is descriptive only. On `degraded`, if the L = 16 ceiling on either reading is within 0.10 of the bar, that part of the bar becomes the ceiling minus 0.10, before any rule is compared and recorded here. Otherwise the bar could ask for what the map cannot hold.
-2. **Start.** Old knowledge at the start reproduces v1's level, at least 0.85 on the mean of the pilot seeds at `degraded`, else the bar is revised before any rule is compared.
+1. **Joint ceiling.** One R fit offline on old and new rules together, 384 events per rule, with known bindings as slots, audited on **both** rule generalization and old knowledge, at L = 4, 16 and 32, on both conditions. At the primary cell, both must reach at least the bar plus 0.05, or the study stops, since otherwise the bar could ask for what the map cannot hold. A load below that is descriptive only.
+2. **Start.** Old knowledge at the start is at least 0.85 on the mean of the pilot seeds at the primary cell.
 3. **Keys only.** Tests check that rules receive only keys, and that contaminant labels and outcome tables cannot reach them.
 4. **Sets.** Tests check that k, p and kinds are as specified, that a contaminant never comes from a family in the trial other than for `same-family`, and that draws match across rules.
 5. **Audit.** State is bitwise identical before and after an audit. Shuffled outcome keys score chance.
@@ -166,6 +166,21 @@ On pilot seeds, before selection. Failure stops stage 1 until the design changes
 **Readings.** Precision and recall of the set against hidden cause. Rate of updates on noise anchors. Then, with stage 1's rule, rule generalization, old knowledge and breadth, against `oracle`. **Pass:** a selector's precision reaches stage 1's tolerance (1 − p\*) at recall that leaves at least the k the rule needs, and its learning is within a margin of `oracle` while noise anchors do no measured harm. Exact numbers are set once stage 1 reports.
 
 **Stage 3,** a stream at gaps with (m − 1)·g inside a trace's measured lifetime, against replay and windows at matched bytes, is a later contract. Long gaps return only after that, with an account of what holds evidence between events.
+
+## Changes from the gates
+
+Gates first run 2026-11-01 on seeds 380 and 381, before any rule was compared (`reports/relevant-update-v1-gates.json`).
+
+| reading | `clean`: 380, 381 | `degraded`: 380, 381 |
+|---|---|---|
+| start, old knowledge | **1.00, 0.98** | 0.54, 0.84 |
+| joint ceiling L = 4: rules, old | 0.98, 1.00; 1.00, 0.98 | 0.84, 0.34; 0.94, 0.82 |
+| joint ceiling L = 16: rules, old | **0.93, 0.92; 0.89, 0.93** | 0.53, 0.33; 0.65, 0.73 |
+| joint ceiling L = 32: rules, old | 0.64, 0.79; 0.65, 0.83 | 0.39, 0.31; 0.47, 0.63 |
+
+**`clean` replaces `degraded` as primary.** On `degraded`, the joint ceiling at L = 16 is below the bar on both readings, and old knowledge starts at 0.54 on seed 380. A slot written from one degraded rendering often misses a clean audit cue (median similarity 0.71 on seed 380, 0.83 on 381, against a threshold of 0.8), and a full offline fit reaches only 0.53–0.65 on rules. No update could pass, so `degraded` could not answer whether an update can work at all. Stage 1 now answers that on `clean`, and `degraded` is descriptive at every cell. **So a pass here says nothing about noisy perception.** Lowering the bar to fit `degraded` was rejected, since it would make the bar meaningless.
+
+**L = 32 is descriptive,** with ceilings below the bar on both pilot seeds on `clean`. Gates 1, 2 and 5 pass at the primary cell; MLPs meet their 0.90 target on `clean`, 400 epochs being reached by some.
 
 ## Changes from external review
 
