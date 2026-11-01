@@ -1670,3 +1670,14 @@ read]**, from the [Google Research post](https://research.google/blog/the-sleep-
   is an established form of the intermediate level in the
   [notes](continuous-sensory-memory-notes.md), and should be a matched-resources
   comparator in any test of whether a middle level earns its place.
+
+### Relevant update: several experiences together
+
+Search date 2026-11-01, for the [relevant update draft](relevant-update-v1-contract.md). Sources: arXiv pages of the works below; ATLAS proceedings pp. 5-6 and Appendix G, recorded above.
+
+- [Maximally interfered retrieval, Aljundi et al., 2019](https://arxiv.org/abs/1908.04742) **[abstract]**: replays stored samples whose predictions a coming update would most worsen, with less forgetting than random replay reported. Difference: it chooses memories to protect from an update. **[hypothesis]** A candidate for what to rehearse, and a contrast with choosing experiences to form an update.
+- [A-GEM, Chaudhry et al., 2018](https://arxiv.org/abs/1812.00420) **[abstract]**: an efficient form of GEM, reported about as cheap as EWC. The constraint itself was not on the page read. **[hypothesis]** Baseline family for protecting old knowledge; read before use.
+- [Orthogonal weight modification, Zeng et al., 2018](https://arxiv.org/abs/1810.01256) **[abstract]**: learns context-dependent mapping rules online from about ten samples per rule without catastrophic forgetting. Difference: the setting and networks differ, and a context module supplies context. **[hypothesis]** Directly relevant to few-example rules; a low-rank form suits a bounded budget. Read before use.
+- [von Oswald et al., 2022](https://arxiv.org/abs/2212.07677) **[abstract]**: linear self-attention can implement gradient descent on a regression loss. ATLAS Appendix G attributes a recursive least-squares memory to them; the abstract does not describe one, so this is **secondary**.
+
+**[derived]** Omega's window, Titans' single step and least squares on a whole context are one family in ATLAS Appendix G, varying c and optimizer. So an update-rule test can vary them inside one rule, with γ the published slot for experience selection.
