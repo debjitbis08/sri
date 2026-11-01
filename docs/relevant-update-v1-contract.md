@@ -114,7 +114,7 @@ The **bar** is absolute: mean rule generalization ≥ 0.70 and old knowledge ≥
 - **Omega against the delta rule:** `omega` against `titans-m0` at k = 4, the same contrast on a neural memory.
 - **Protection:** `ridge-rehearse` and `ridge-orthogonal` against `ridge`, on old knowledge.
 
-**Expectations, recorded before any run.** `ridge` beats `rank-one`, since a rank-one direction with mean cue over few items keeps item noise. `expert` protects old knowledge best and is broadest to read at low τ_x. Together beats in turn only modestly on a linear reader with exact ridge fits, more clearly for `omega` against `titans-m0`. `same-outcome` contamination hurts more than `unrelated`. `no-rule-reaches-bar` on `degraded` with only 4 examples is plausible: v1's residual fit on 8 reached about 0.55 there.
+**Expectations, recorded before any run.** `ridge` beats `rank-one`, since a rank-one direction with mean cue over few items keeps item noise. `expert` protects old knowledge best, and is broadest at low τ_x. Together beats in turn only modestly on a linear reader with exact ridge fits, more clearly for `omega` against `titans-m0`. `same-outcome` contamination hurts more than `unrelated`. `no-rule-reaches-bar` on `degraded` with only 4 examples is plausible: v1's residual fit on 8 reached about 0.55 there.
 
 ### Gates
 
@@ -190,7 +190,7 @@ Per update: k experiences, D_c = 96, D_o = 32, r rehearsal events, q directions,
 | `ridge-interfered` | as above, plus B·D_c·D_o to rank | B(D_c + D_o) | buffer |
 | `ridge-orthogonal` | as `ridge` + q·D_c·D_o; refreshing directions q²D_c | q·D_c | q; subspace fills as rules grow |
 | `expert` | k(D_c + D_o) to fit, X·D_c per read | X(D_c + D_o) | **linear in rules**, like slots |
-| `omega` | ≈ 2k²W/2 over k arrivals | W | k² |
+| `omega` | ≈ k²W over k arrivals | W | k² |
 | `titans` | ≈ 2kW | W or 2W | none in itself; capacity unknown |
 
 - **Facts.** The reader's size is fixed, so any rule writing into R has a capacity limit in rules; `expert` trades that for linear growth. Stage 1 measures this through L = 4, 16, 32 **[probes]**.
@@ -201,7 +201,7 @@ Per update: k experiences, D_c = 96, D_o = 32, r rehearsal events, q directions,
 *Estimates, not measurements.*
 
 - **Construction.** Encoders for 12 seeds, about 70 s each on the GTX 1650. Key pool under a minute per seed and condition. Old knowledge: ridge O(n·D_c² + D_c³) once per seed and condition; MLP O(epochs × n × W) once per architecture, seed and condition.
-- **Stage 1 pilot.** 17 cells (p = 0 at four k; 12 contaminated; in turn) × 8 trials × 16 updates at the primary load, about 2,200 updates per setting, seed and condition. About 70 linear settings at under a second each and about 90 neural ones at a few seconds. Expected under 30 CPU-minutes, with rejected settings counted. v1's estimate was about 3× low.
+- **Stage 1 pilot.** 17 cells (p = 0 at four k; 12 contaminated; in turn) × 8 trials × 16 updates at the primary load, about 2,200 updates per setting, seed and condition. 89 linear settings at about a second each and 120 neural ones at a few seconds. Expected under 30 CPU-minutes, with rejected settings counted. v1's estimate was about 3× low.
 - **Stage 1 confirmation.** Chosen rule, `rank-one` and the others at frozen settings, 10 seeds, all cells, both conditions, three loads: under an hour of CPU.
 - **Deterministic and timed output kept apart.** `reports/relevant-update-v1-{gates,pilot,confirm,analysis}` and separate `-runtime` files, per [computation reporting](computation-reporting.md). Peak workspace: pool 7.9 MB per seed, one set, the audit cues.
 - **Persistence.** Tasks durable (`experiments/durable.py`); rerunning resumes. Pools written atomically under gitignored `runs/`.
