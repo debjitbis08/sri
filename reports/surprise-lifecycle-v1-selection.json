@@ -1,0 +1,2335 @@
+{
+ "candidate": "life",
+ "configs_scored": {
+  "count": 5,
+  "count-sketch": 1,
+  "fifo-replay": 26,
+  "frozen": 1,
+  "life": 86,
+  "life-cuegroup": 3,
+  "life-oracle": 1,
+  "life-selfcount": 1,
+  "life-sketch": 3,
+  "omega": 9,
+  "reservoir-replay": 22,
+  "sleep-grow": 2,
+  "sleep-periodic": 30,
+  "slow": 21,
+  "surprise-fifo": 25,
+  "titans": 15,
+  "titans-m0": 10
+ },
+ "gate6_oracle_headroom_on_objective": {
+  "2048": 0.6057942708333334,
+  "32768": 0.578125,
+  "8192": 0.5477430555555556
+ },
+ "search": {
+  "count": [
+   {
+    "chosen": 3,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.009375000000000003,
+     "objective": 0.11822916666666668,
+     "old_knowledge": 0.7205295138888889,
+     "ops": 19826.137734375
+    },
+    "setting": "h_b"
+   },
+   {
+    "chosen": 1,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.009375000000000003,
+     "objective": 0.11822916666666668,
+     "old_knowledge": 0.7205295138888889,
+     "ops": 19826.137734375
+    },
+    "setting": "h_r"
+   },
+   {
+    "chosen": 3,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.009375000000000003,
+     "objective": 0.11822916666666668,
+     "old_knowledge": 0.7205295138888889,
+     "ops": 19826.137734375
+    },
+    "setting": "h_b"
+   },
+   {
+    "chosen": 1,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.009375000000000003,
+     "objective": 0.11822916666666668,
+     "old_knowledge": 0.7205295138888889,
+     "ops": 19826.137734375
+    },
+    "setting": "h_r"
+   }
+  ],
+  "count-sketch": [],
+  "fifo-replay": [
+   {
+    "chosen": 0.1,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.0018554687499999993,
+     "objective": 0.023784722222222224,
+     "old_knowledge": 0.7219618055555557,
+     "ops": 28450.961396484374
+    },
+    "setting": "theta"
+   },
+   {
+    "chosen": 0.7,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.0018880208333333336,
+     "objective": 0.023784722222222224,
+     "old_knowledge": 0.8138888888888889,
+     "ops": 28450.961396484374
+    },
+    "setting": "tau"
+   },
+   {
+    "chosen": 0.003,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.00013020833333333358,
+     "objective": 0.017686631944444444,
+     "old_knowledge": 0.867404513888889,
+     "ops": 28450.961396484374
+    },
+    "setting": "eta"
+   },
+   {
+    "chosen": 4,
+    "pass": 1,
+    "score": {
+     "noise_capture": -0.0008463541666666665,
+     "objective": 0.018272569444444445,
+     "old_knowledge": 0.8521701388888887,
+     "ops": 45039.76139648438
+    },
+    "setting": "r"
+   },
+   {
+    "chosen": 0.1,
+    "pass": 2,
+    "score": {
+     "noise_capture": -0.0008463541666666665,
+     "objective": 0.018272569444444445,
+     "old_knowledge": 0.8521701388888887,
+     "ops": 45039.76139648438
+    },
+    "setting": "theta"
+   },
+   {
+    "chosen": 0.7,
+    "pass": 2,
+    "score": {
+     "noise_capture": -0.0008463541666666665,
+     "objective": 0.018272569444444445,
+     "old_knowledge": 0.8521701388888887,
+     "ops": 45039.76139648438
+    },
+    "setting": "tau"
+   },
+   {
+    "chosen": 0.003,
+    "pass": 2,
+    "score": {
+     "noise_capture": -0.0008463541666666665,
+     "objective": 0.018272569444444445,
+     "old_knowledge": 0.8521701388888887,
+     "ops": 45039.76139648438
+    },
+    "setting": "eta"
+   },
+   {
+    "chosen": 4,
+    "pass": 2,
+    "score": {
+     "noise_capture": -0.0008463541666666665,
+     "objective": 0.018272569444444445,
+     "old_knowledge": 0.8521701388888887,
+     "ops": 45039.76139648438
+    },
+    "setting": "r"
+   }
+  ],
+  "frozen": [],
+  "life": [
+   {
+    "chosen": 0.2,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.008072916666666666,
+     "objective": 0.08229166666666665,
+     "old_knowledge": 0.8171875,
+     "ops": 19898.996630859376
+    },
+    "setting": "theta"
+   },
+   {
+    "chosen": 0.7,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.007845052083333333,
+     "objective": 0.0892361111111111,
+     "old_knowledge": 0.9049479166666666,
+     "ops": 20077.045332031248
+    },
+    "setting": "tau"
+   },
+   {
+    "chosen": 0.9,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.007877604166666666,
+     "objective": 0.09012586805555553,
+     "old_knowledge": 0.9063368055555554,
+     "ops": 19975.848935546874
+    },
+    "setting": "tau_e"
+   },
+   {
+    "chosen": 0.6,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.007877604166666666,
+     "objective": 0.09012586805555553,
+     "old_knowledge": 0.9051215277777777,
+     "ops": 19526.3737109375
+    },
+    "setting": "tau_s"
+   },
+   {
+    "chosen": 0.4,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.007877604166666666,
+     "objective": 0.09012586805555553,
+     "old_knowledge": 0.9051215277777777,
+     "ops": 19526.3737109375
+    },
+    "setting": "kappa"
+   },
+   {
+    "chosen": 4,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.007877604166666666,
+     "objective": 0.09429253472222221,
+     "old_knowledge": 0.9074652777777776,
+     "ops": 19647.160556640625
+    },
+    "setting": "m"
+   },
+   {
+    "chosen": 1,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.002962239583333332,
+     "objective": 0.11111111111111109,
+     "old_knowledge": 0.9038194444444445,
+     "ops": 19363.392910156246
+    },
+    "setting": "h_b"
+   },
+   {
+    "chosen": 1,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.008365885416666666,
+     "objective": 0.11145833333333333,
+     "old_knowledge": 0.8908854166666668,
+     "ops": 19640.793955078127
+    },
+    "setting": "h_r"
+   },
+   {
+    "chosen": 4,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.00625,
+     "objective": 0.11180555555555556,
+     "old_knowledge": 0.8944444444444445,
+     "ops": 19501.67049804687
+    },
+    "setting": "h_f"
+   },
+   {
+    "chosen": 2,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.00625,
+     "objective": 0.11180555555555556,
+     "old_knowledge": 0.8944444444444445,
+     "ops": 19501.67049804687
+    },
+    "setting": "h_n"
+   },
+   {
+    "chosen": 4,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.00625,
+     "objective": 0.11180555555555556,
+     "old_knowledge": 0.8944444444444445,
+     "ops": 19501.67049804687
+    },
+    "setting": "S"
+   },
+   {
+    "chosen": 0.02,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.00625,
+     "objective": 0.11180555555555556,
+     "old_knowledge": 0.8944444444444445,
+     "ops": 19501.67049804687
+    },
+    "setting": "delta"
+   },
+   {
+    "chosen": 64,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.00625,
+     "objective": 0.11180555555555556,
+     "old_knowledge": 0.8944444444444445,
+     "ops": 19501.67049804687
+    },
+    "setting": "E"
+   },
+   {
+    "chosen": 0.5,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.010644531249999999,
+     "objective": 0.13873697916666666,
+     "old_knowledge": 0.8785590277777777,
+     "ops": 18279.29037109375
+    },
+    "setting": "theta"
+   },
+   {
+    "chosen": 0.7,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.010644531249999999,
+     "objective": 0.13873697916666666,
+     "old_knowledge": 0.8785590277777777,
+     "ops": 18279.29037109375
+    },
+    "setting": "tau"
+   },
+   {
+    "chosen": 0.9,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.010644531249999999,
+     "objective": 0.13873697916666666,
+     "old_knowledge": 0.8785590277777777,
+     "ops": 18279.29037109375
+    },
+    "setting": "tau_e"
+   },
+   {
+    "chosen": 0.6,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.010644531249999999,
+     "objective": 0.13873697916666666,
+     "old_knowledge": 0.8785590277777777,
+     "ops": 18279.29037109375
+    },
+    "setting": "tau_s"
+   },
+   {
+    "chosen": 0.4,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.010644531249999999,
+     "objective": 0.13873697916666666,
+     "old_knowledge": 0.8785590277777777,
+     "ops": 18279.29037109375
+    },
+    "setting": "kappa"
+   },
+   {
+    "chosen": 4,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.010644531249999999,
+     "objective": 0.13873697916666666,
+     "old_knowledge": 0.8785590277777777,
+     "ops": 18279.29037109375
+    },
+    "setting": "m"
+   },
+   {
+    "chosen": 1,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.010644531249999999,
+     "objective": 0.13873697916666666,
+     "old_knowledge": 0.8785590277777777,
+     "ops": 18279.29037109375
+    },
+    "setting": "h_b"
+   },
+   {
+    "chosen": 1,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.010644531249999999,
+     "objective": 0.13873697916666666,
+     "old_knowledge": 0.8785590277777777,
+     "ops": 18279.29037109375
+    },
+    "setting": "h_r"
+   },
+   {
+    "chosen": 4,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.010644531249999999,
+     "objective": 0.13873697916666666,
+     "old_knowledge": 0.8785590277777777,
+     "ops": 18279.29037109375
+    },
+    "setting": "h_f"
+   },
+   {
+    "chosen": 2,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.010644531249999999,
+     "objective": 0.13873697916666666,
+     "old_knowledge": 0.8785590277777777,
+     "ops": 18279.29037109375
+    },
+    "setting": "h_n"
+   },
+   {
+    "chosen": 2,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.017643229166666666,
+     "objective": 0.1411675347222222,
+     "old_knowledge": 0.8672309027777777,
+     "ops": 18463.448134765626
+    },
+    "setting": "S"
+   },
+   {
+    "chosen": 0.02,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.017643229166666666,
+     "objective": 0.1411675347222222,
+     "old_knowledge": 0.8672309027777777,
+     "ops": 18463.448134765626
+    },
+    "setting": "delta"
+   },
+   {
+    "chosen": 64,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.017643229166666666,
+     "objective": 0.1411675347222222,
+     "old_knowledge": 0.8672309027777777,
+     "ops": 18463.448134765626
+    },
+    "setting": "E"
+   },
+   {
+    "chosen": 0.5,
+    "pass": 3,
+    "score": {
+     "noise_capture": 0.017643229166666666,
+     "objective": 0.1411675347222222,
+     "old_knowledge": 0.8672309027777777,
+     "ops": 18463.448134765626
+    },
+    "setting": "theta"
+   },
+   {
+    "chosen": 0.7,
+    "pass": 3,
+    "score": {
+     "noise_capture": 0.017643229166666666,
+     "objective": 0.1411675347222222,
+     "old_knowledge": 0.8672309027777777,
+     "ops": 18463.448134765626
+    },
+    "setting": "tau"
+   },
+   {
+    "chosen": 0.9,
+    "pass": 3,
+    "score": {
+     "noise_capture": 0.017643229166666666,
+     "objective": 0.1411675347222222,
+     "old_knowledge": 0.8672309027777777,
+     "ops": 18463.448134765626
+    },
+    "setting": "tau_e"
+   },
+   {
+    "chosen": 0.6,
+    "pass": 3,
+    "score": {
+     "noise_capture": 0.017643229166666666,
+     "objective": 0.1411675347222222,
+     "old_knowledge": 0.8672309027777777,
+     "ops": 18463.448134765626
+    },
+    "setting": "tau_s"
+   },
+   {
+    "chosen": 0.4,
+    "pass": 3,
+    "score": {
+     "noise_capture": 0.017643229166666666,
+     "objective": 0.1411675347222222,
+     "old_knowledge": 0.8672309027777777,
+     "ops": 18463.448134765626
+    },
+    "setting": "kappa"
+   },
+   {
+    "chosen": 4,
+    "pass": 3,
+    "score": {
+     "noise_capture": 0.017643229166666666,
+     "objective": 0.1411675347222222,
+     "old_knowledge": 0.8672309027777777,
+     "ops": 18463.448134765626
+    },
+    "setting": "m"
+   },
+   {
+    "chosen": 1,
+    "pass": 3,
+    "score": {
+     "noise_capture": 0.017643229166666666,
+     "objective": 0.1411675347222222,
+     "old_knowledge": 0.8672309027777777,
+     "ops": 18463.448134765626
+    },
+    "setting": "h_b"
+   },
+   {
+    "chosen": 1,
+    "pass": 3,
+    "score": {
+     "noise_capture": 0.017643229166666666,
+     "objective": 0.1411675347222222,
+     "old_knowledge": 0.8672309027777777,
+     "ops": 18463.448134765626
+    },
+    "setting": "h_r"
+   },
+   {
+    "chosen": 4,
+    "pass": 3,
+    "score": {
+     "noise_capture": 0.017643229166666666,
+     "objective": 0.1411675347222222,
+     "old_knowledge": 0.8672309027777777,
+     "ops": 18463.448134765626
+    },
+    "setting": "h_f"
+   },
+   {
+    "chosen": 2,
+    "pass": 3,
+    "score": {
+     "noise_capture": 0.017643229166666666,
+     "objective": 0.1411675347222222,
+     "old_knowledge": 0.8672309027777777,
+     "ops": 18463.448134765626
+    },
+    "setting": "h_n"
+   },
+   {
+    "chosen": 2,
+    "pass": 3,
+    "score": {
+     "noise_capture": 0.017643229166666666,
+     "objective": 0.1411675347222222,
+     "old_knowledge": 0.8672309027777777,
+     "ops": 18463.448134765626
+    },
+    "setting": "S"
+   },
+   {
+    "chosen": 0.02,
+    "pass": 3,
+    "score": {
+     "noise_capture": 0.017643229166666666,
+     "objective": 0.1411675347222222,
+     "old_knowledge": 0.8672309027777777,
+     "ops": 18463.448134765626
+    },
+    "setting": "delta"
+   },
+   {
+    "chosen": 64,
+    "pass": 3,
+    "score": {
+     "noise_capture": 0.017643229166666666,
+     "objective": 0.1411675347222222,
+     "old_knowledge": 0.8672309027777777,
+     "ops": 18463.448134765626
+    },
+    "setting": "E"
+   }
+  ],
+  "life-cuegroup": [
+   {
+    "chosen": 0.6,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.0031901041666666666,
+     "objective": 0.12120225694444442,
+     "old_knowledge": 0.8612847222222223,
+     "ops": 19157.883505859376
+    },
+    "setting": "tau_g"
+   },
+   {
+    "chosen": 0.6,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.0031901041666666666,
+     "objective": 0.12120225694444442,
+     "old_knowledge": 0.8612847222222223,
+     "ops": 19157.883505859376
+    },
+    "setting": "tau_g"
+   }
+  ],
+  "life-oracle": [],
+  "life-selfcount": [],
+  "life-sketch": [
+   {
+    "chosen": 4,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.010351562499999998,
+     "objective": 0.1095703125,
+     "old_knowledge": 0.8904513888888888,
+     "ops": 13029.892666015625
+    },
+    "setting": "rho"
+   },
+   {
+    "chosen": 4,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.010351562499999998,
+     "objective": 0.1095703125,
+     "old_knowledge": 0.8904513888888888,
+     "ops": 13029.892666015625
+    },
+    "setting": "rho"
+   }
+  ],
+  "omega": [
+   {
+    "chosen": 2,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.004361979166666667,
+     "objective": 0.005902777777777778,
+     "old_knowledge": 0.6109375,
+     "ops": 1650005.8129296876
+    },
+    "setting": "layers"
+   },
+   {
+    "chosen": 0.0,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.005729166666666665,
+     "objective": 0.023524305555555555,
+     "old_knowledge": 0.8608506944444445,
+     "ops": 1650005.8129296876
+    },
+    "setting": "alpha"
+   },
+   {
+    "chosen": 0.01,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.005729166666666665,
+     "objective": 0.023524305555555555,
+     "old_knowledge": 0.8608506944444445,
+     "ops": 1650005.8129296876
+    },
+    "setting": "lr"
+   },
+   {
+    "chosen": 64,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.005729166666666665,
+     "objective": 0.023524305555555555,
+     "old_knowledge": 0.8608506944444445,
+     "ops": 1650005.8129296876
+    },
+    "setting": "c"
+   },
+   {
+    "chosen": 2,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.005729166666666665,
+     "objective": 0.023524305555555555,
+     "old_knowledge": 0.8608506944444445,
+     "ops": 1650005.8129296876
+    },
+    "setting": "layers"
+   },
+   {
+    "chosen": 0.0,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.005729166666666665,
+     "objective": 0.023524305555555555,
+     "old_knowledge": 0.8608506944444445,
+     "ops": 1650005.8129296876
+    },
+    "setting": "alpha"
+   },
+   {
+    "chosen": 0.01,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.005729166666666665,
+     "objective": 0.023524305555555555,
+     "old_knowledge": 0.8608506944444445,
+     "ops": 1650005.8129296876
+    },
+    "setting": "lr"
+   },
+   {
+    "chosen": 64,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.005729166666666665,
+     "objective": 0.023524305555555555,
+     "old_knowledge": 0.8608506944444445,
+     "ops": 1650005.8129296876
+    },
+    "setting": "c"
+   }
+  ],
+  "reservoir-replay": [
+   {
+    "chosen": 0.1,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.02054036458333334,
+     "objective": 0.0689670138888889,
+     "old_knowledge": 0.7020399305555556,
+     "ops": 28450.961396484374
+    },
+    "setting": "theta"
+   },
+   {
+    "chosen": 0.7,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.030859374999999994,
+     "objective": 0.09485677083333335,
+     "old_knowledge": 0.7768229166666666,
+     "ops": 28450.961396484374
+    },
+    "setting": "tau"
+   },
+   {
+    "chosen": 0.003,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.015527343749999997,
+     "objective": 0.09800347222222223,
+     "old_knowledge": 0.84765625,
+     "ops": 28450.961396484374
+    },
+    "setting": "eta"
+   },
+   {
+    "chosen": 1,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.015527343749999997,
+     "objective": 0.09800347222222223,
+     "old_knowledge": 0.84765625,
+     "ops": 28450.961396484374
+    },
+    "setting": "r"
+   },
+   {
+    "chosen": 0.1,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.015527343749999997,
+     "objective": 0.09800347222222223,
+     "old_knowledge": 0.84765625,
+     "ops": 28450.961396484374
+    },
+    "setting": "theta"
+   },
+   {
+    "chosen": 0.7,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.015527343749999997,
+     "objective": 0.09800347222222223,
+     "old_knowledge": 0.84765625,
+     "ops": 28450.961396484374
+    },
+    "setting": "tau"
+   },
+   {
+    "chosen": 0.003,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.015527343749999997,
+     "objective": 0.09800347222222223,
+     "old_knowledge": 0.84765625,
+     "ops": 28450.961396484374
+    },
+    "setting": "eta"
+   },
+   {
+    "chosen": 1,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.015527343749999997,
+     "objective": 0.09800347222222223,
+     "old_knowledge": 0.84765625,
+     "ops": 28450.961396484374
+    },
+    "setting": "r"
+   }
+  ],
+  "sleep-grow": [
+   {
+    "chosen": 2,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.011458333333333334,
+     "objective": 0.01831597222222222,
+     "old_knowledge": 0.8075954861111111,
+     "ops": 30597.494941406254
+    },
+    "setting": "rank"
+   },
+   {
+    "chosen": 2,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.011458333333333334,
+     "objective": 0.01831597222222222,
+     "old_knowledge": 0.8075954861111111,
+     "ops": 30597.494941406254
+    },
+    "setting": "rank"
+   }
+  ],
+  "sleep-periodic": [
+   {
+    "chosen": 0.1,
+    "pass": 1,
+    "score": {
+     "noise_capture": -0.016861979166666666,
+     "objective": 0.03203125,
+     "old_knowledge": 0.629079861111111,
+     "ops": 25922.828056640625
+    },
+    "setting": "theta"
+   },
+   {
+    "chosen": 0.7,
+    "pass": 1,
+    "score": {
+     "noise_capture": -0.016861979166666666,
+     "objective": 0.03203125,
+     "old_knowledge": 0.724782986111111,
+     "ops": 25922.828056640625
+    },
+    "setting": "tau"
+   },
+   {
+    "chosen": 1.0,
+    "pass": 1,
+    "score": {
+     "noise_capture": -0.016861979166666666,
+     "objective": 0.03203125,
+     "old_knowledge": 0.724782986111111,
+     "ops": 25922.828056640625
+    },
+    "setting": "P"
+   },
+   {
+    "chosen": 10.0,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.0032226562500000016,
+     "objective": 0.031901041666666664,
+     "old_knowledge": 0.806423611111111,
+     "ops": 25922.828056640625
+    },
+    "setting": "lam"
+   },
+   {
+    "chosen": 0.1,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.0032226562500000016,
+     "objective": 0.031901041666666664,
+     "old_knowledge": 0.806423611111111,
+     "ops": 25922.828056640625
+    },
+    "setting": "theta"
+   },
+   {
+    "chosen": 0.7,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.0032226562500000016,
+     "objective": 0.031901041666666664,
+     "old_knowledge": 0.806423611111111,
+     "ops": 25922.828056640625
+    },
+    "setting": "tau"
+   },
+   {
+    "chosen": 0.5,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.001204427083333333,
+     "objective": 0.03155381944444444,
+     "old_knowledge": 0.8078125,
+     "ops": 29198.71494140625
+    },
+    "setting": "P"
+   },
+   {
+    "chosen": 10.0,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.001204427083333333,
+     "objective": 0.03155381944444444,
+     "old_knowledge": 0.8078125,
+     "ops": 29198.71494140625
+    },
+    "setting": "lam"
+   },
+   {
+    "chosen": 0.1,
+    "pass": 3,
+    "score": {
+     "noise_capture": 0.001204427083333333,
+     "objective": 0.03155381944444444,
+     "old_knowledge": 0.8078125,
+     "ops": 29198.71494140625
+    },
+    "setting": "theta"
+   },
+   {
+    "chosen": 0.7,
+    "pass": 3,
+    "score": {
+     "noise_capture": 0.001204427083333333,
+     "objective": 0.03155381944444444,
+     "old_knowledge": 0.8078125,
+     "ops": 29198.71494140625
+    },
+    "setting": "tau"
+   },
+   {
+    "chosen": 0.5,
+    "pass": 3,
+    "score": {
+     "noise_capture": 0.001204427083333333,
+     "objective": 0.03155381944444444,
+     "old_knowledge": 0.8078125,
+     "ops": 29198.71494140625
+    },
+    "setting": "P"
+   },
+   {
+    "chosen": 10.0,
+    "pass": 3,
+    "score": {
+     "noise_capture": 0.001204427083333333,
+     "objective": 0.03155381944444444,
+     "old_knowledge": 0.8078125,
+     "ops": 29198.71494140625
+    },
+    "setting": "lam"
+   }
+  ],
+  "slow": [
+   {
+    "chosen": 0.1,
+    "pass": 1,
+    "score": {
+     "noise_capture": 3.255208333333426e-05,
+     "objective": 0.022330729166666667,
+     "old_knowledge": 0.7338541666666666,
+     "ops": 10905.600000000002
+    },
+    "setting": "theta"
+   },
+   {
+    "chosen": 0.7,
+    "pass": 1,
+    "score": {
+     "noise_capture": -0.00016276041666666506,
+     "objective": 0.022330729166666667,
+     "old_knowledge": 0.8305121527777779,
+     "ops": 10905.600000000002
+    },
+    "setting": "tau"
+   },
+   {
+    "chosen": 0.003,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.0019531250000000004,
+     "objective": 0.018684895833333333,
+     "old_knowledge": 0.873263888888889,
+     "ops": 10905.600000000002
+    },
+    "setting": "eta"
+   },
+   {
+    "chosen": 0.1,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.0019531250000000004,
+     "objective": 0.018684895833333333,
+     "old_knowledge": 0.873263888888889,
+     "ops": 10905.600000000002
+    },
+    "setting": "theta"
+   },
+   {
+    "chosen": 0.7,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.0019531250000000004,
+     "objective": 0.018684895833333333,
+     "old_knowledge": 0.873263888888889,
+     "ops": 10905.600000000002
+    },
+    "setting": "tau"
+   },
+   {
+    "chosen": 0.003,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.0019531250000000004,
+     "objective": 0.018684895833333333,
+     "old_knowledge": 0.873263888888889,
+     "ops": 10905.600000000002
+    },
+    "setting": "eta"
+   }
+  ],
+  "surprise-fifo": [
+   {
+    "chosen": 0.1,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.0012695312500000011,
+     "objective": 0.01755642361111111,
+     "old_knowledge": 0.7315104166666666,
+     "ops": 21662.40650390625
+    },
+    "setting": "theta"
+   },
+   {
+    "chosen": 0.7,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.004101562500000001,
+     "objective": 0.018771701388888888,
+     "old_knowledge": 0.831640625,
+     "ops": 21621.197607421876
+    },
+    "setting": "tau"
+   },
+   {
+    "chosen": 0.003,
+    "pass": 1,
+    "score": {
+     "noise_capture": -0.005371093749999998,
+     "objective": 0.01844618055555556,
+     "old_knowledge": 0.8723958333333333,
+     "ops": 21213.286201171875
+    },
+    "setting": "eta"
+   },
+   {
+    "chosen": 0.3,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.012174479166666667,
+     "objective": 0.023307291666666667,
+     "old_knowledge": 0.8522569444444444,
+     "ops": 19432.175244140624
+    },
+    "setting": "theta"
+   },
+   {
+    "chosen": 0.7,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.012174479166666667,
+     "objective": 0.023307291666666667,
+     "old_knowledge": 0.8522569444444444,
+     "ops": 19432.175244140624
+    },
+    "setting": "tau"
+   },
+   {
+    "chosen": 0.003,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.012174479166666667,
+     "objective": 0.023307291666666667,
+     "old_knowledge": 0.8522569444444444,
+     "ops": 19432.175244140624
+    },
+    "setting": "eta"
+   },
+   {
+    "chosen": 0.3,
+    "pass": 3,
+    "score": {
+     "noise_capture": 0.012174479166666667,
+     "objective": 0.023307291666666667,
+     "old_knowledge": 0.8522569444444444,
+     "ops": 19432.175244140624
+    },
+    "setting": "theta"
+   },
+   {
+    "chosen": 0.7,
+    "pass": 3,
+    "score": {
+     "noise_capture": 0.012174479166666667,
+     "objective": 0.023307291666666667,
+     "old_knowledge": 0.8522569444444444,
+     "ops": 19432.175244140624
+    },
+    "setting": "tau"
+   },
+   {
+    "chosen": 0.003,
+    "pass": 3,
+    "score": {
+     "noise_capture": 0.012174479166666667,
+     "objective": 0.023307291666666667,
+     "old_knowledge": 0.8522569444444444,
+     "ops": 19432.175244140624
+    },
+    "setting": "eta"
+   }
+  ],
+  "titans": [
+   {
+    "chosen": 1,
+    "pass": 1,
+    "score": {
+     "noise_capture": -0.0003580729166666657,
+     "objective": 0.02157118055555556,
+     "old_knowledge": 0.3788194444444445,
+     "ops": 31514.0
+    },
+    "setting": "layers"
+   },
+   {
+    "chosen": 0.0,
+    "pass": 1,
+    "score": {
+     "noise_capture": -0.0029947916666666664,
+     "objective": 0.022157118055555557,
+     "old_knowledge": 0.38689236111111114,
+     "ops": 31514.0
+    },
+    "setting": "alpha"
+   },
+   {
+    "chosen": 0.5,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.008430989583333335,
+     "objective": 0.018815104166666666,
+     "old_knowledge": 0.7731336805555556,
+     "ops": 31514.0
+    },
+    "setting": "beta"
+   },
+   {
+    "chosen": 0.003,
+    "pass": 1,
+    "score": {
+     "noise_capture": -0.0011393229166666672,
+     "objective": 0.013324652777777776,
+     "old_knowledge": 0.8664496527777776,
+     "ops": 31514.0
+    },
+    "setting": "lr"
+   },
+   {
+    "chosen": 2,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.016861979166666666,
+     "objective": 0.015842013888888888,
+     "old_knowledge": 0.8545572916666666,
+     "ops": 31312.400000000005
+    },
+    "setting": "layers"
+   },
+   {
+    "chosen": 0.0,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.016861979166666666,
+     "objective": 0.015842013888888888,
+     "old_knowledge": 0.8545572916666666,
+     "ops": 31312.400000000005
+    },
+    "setting": "alpha"
+   },
+   {
+    "chosen": 0.5,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.016861979166666666,
+     "objective": 0.015842013888888888,
+     "old_knowledge": 0.8545572916666666,
+     "ops": 31312.400000000005
+    },
+    "setting": "beta"
+   },
+   {
+    "chosen": 0.003,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.016861979166666666,
+     "objective": 0.015842013888888888,
+     "old_knowledge": 0.8545572916666666,
+     "ops": 31312.400000000005
+    },
+    "setting": "lr"
+   },
+   {
+    "chosen": 2,
+    "pass": 3,
+    "score": {
+     "noise_capture": 0.016861979166666666,
+     "objective": 0.015842013888888888,
+     "old_knowledge": 0.8545572916666666,
+     "ops": 31312.400000000005
+    },
+    "setting": "layers"
+   },
+   {
+    "chosen": 0.0,
+    "pass": 3,
+    "score": {
+     "noise_capture": 0.016861979166666666,
+     "objective": 0.015842013888888888,
+     "old_knowledge": 0.8545572916666666,
+     "ops": 31312.400000000005
+    },
+    "setting": "alpha"
+   },
+   {
+    "chosen": 0.5,
+    "pass": 3,
+    "score": {
+     "noise_capture": 0.016861979166666666,
+     "objective": 0.015842013888888888,
+     "old_knowledge": 0.8545572916666666,
+     "ops": 31312.400000000005
+    },
+    "setting": "beta"
+   },
+   {
+    "chosen": 0.003,
+    "pass": 3,
+    "score": {
+     "noise_capture": 0.016861979166666666,
+     "objective": 0.015842013888888888,
+     "old_knowledge": 0.8545572916666666,
+     "ops": 31312.400000000005
+    },
+    "setting": "lr"
+   }
+  ],
+  "titans-m0": [
+   {
+    "chosen": 1,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.005501302083333335,
+     "objective": 0.014474826388888886,
+     "old_knowledge": 0.5731336805555556,
+     "ops": 62938.4
+    },
+    "setting": "layers"
+   },
+   {
+    "chosen": 0.0,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.007031250000000001,
+     "objective": 0.020616319444444444,
+     "old_knowledge": 0.8305989583333332,
+     "ops": 62938.4
+    },
+    "setting": "alpha"
+   },
+   {
+    "chosen": 0.003,
+    "pass": 1,
+    "score": {
+     "noise_capture": 0.014225260416666668,
+     "objective": 0.013823784722222222,
+     "old_knowledge": 0.8774739583333334,
+     "ops": 62938.4
+    },
+    "setting": "lr"
+   },
+   {
+    "chosen": 1,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.014225260416666668,
+     "objective": 0.013823784722222222,
+     "old_knowledge": 0.8774739583333334,
+     "ops": 62938.4
+    },
+    "setting": "layers"
+   },
+   {
+    "chosen": 0.0,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.014225260416666668,
+     "objective": 0.013823784722222222,
+     "old_knowledge": 0.8774739583333334,
+     "ops": 62938.4
+    },
+    "setting": "alpha"
+   },
+   {
+    "chosen": 0.003,
+    "pass": 2,
+    "score": {
+     "noise_capture": 0.014225260416666668,
+     "objective": 0.013823784722222222,
+     "old_knowledge": 0.8774739583333334,
+     "ops": 62938.4
+    },
+    "setting": "lr"
+   }
+  ]
+ },
+ "selected": {
+  "count": {
+   "E": 64,
+   "S": 2,
+   "delta": 0.02,
+   "h_b": 3,
+   "h_f": 4,
+   "h_n": 2,
+   "h_r": 1,
+   "kappa": 0.4,
+   "m": 4,
+   "rho": 8,
+   "tau": 0.7,
+   "tau_e": 0.9,
+   "tau_g": 0.4,
+   "tau_s": 0.6,
+   "theta": 0.5
+  },
+  "count-sketch": {
+   "E": 64,
+   "S": 2,
+   "delta": 0.02,
+   "h_b": 3,
+   "h_f": 4,
+   "h_n": 2,
+   "h_r": 1,
+   "kappa": 0.4,
+   "m": 4,
+   "rho": 4,
+   "tau": 0.7,
+   "tau_e": 0.9,
+   "tau_g": 0.4,
+   "tau_s": 0.6,
+   "theta": 0.5
+  },
+  "fifo-replay": {
+   "eta": 0.003,
+   "r": 4,
+   "tau": 0.7,
+   "theta": 0.1
+  },
+  "frozen": {
+   "tau": 0.7,
+   "theta": 0.5
+  },
+  "life": {
+   "E": 64,
+   "S": 2,
+   "delta": 0.02,
+   "h_b": 1,
+   "h_f": 4,
+   "h_n": 2,
+   "h_r": 1,
+   "kappa": 0.4,
+   "m": 4,
+   "rho": 8,
+   "tau": 0.7,
+   "tau_e": 0.9,
+   "tau_g": 0.4,
+   "tau_s": 0.6,
+   "theta": 0.5
+  },
+  "life-cuegroup": {
+   "E": 64,
+   "S": 2,
+   "delta": 0.02,
+   "h_b": 1,
+   "h_f": 4,
+   "h_n": 2,
+   "h_r": 1,
+   "kappa": 0.4,
+   "m": 4,
+   "rho": 8,
+   "tau": 0.7,
+   "tau_e": 0.9,
+   "tau_g": 0.6,
+   "tau_s": 0.6,
+   "theta": 0.5
+  },
+  "life-oracle": {
+   "E": 64,
+   "S": 2,
+   "delta": 0.02,
+   "h_b": 1,
+   "h_f": 4,
+   "h_n": 2,
+   "h_r": 1,
+   "kappa": 0.4,
+   "m": 4,
+   "rho": 8,
+   "tau": 0.7,
+   "tau_e": 0.9,
+   "tau_g": 0.4,
+   "tau_s": 0.6,
+   "theta": 0.5
+  },
+  "life-selfcount": {
+   "E": 64,
+   "S": 2,
+   "delta": 0.02,
+   "h_b": 1,
+   "h_f": 4,
+   "h_n": 2,
+   "h_r": 1,
+   "kappa": 0.4,
+   "m": 4,
+   "rho": 8,
+   "tau": 0.7,
+   "tau_e": 0.9,
+   "tau_g": 0.4,
+   "tau_s": 0.6,
+   "theta": 0.5
+  },
+  "life-sketch": {
+   "E": 64,
+   "S": 2,
+   "delta": 0.02,
+   "h_b": 1,
+   "h_f": 4,
+   "h_n": 2,
+   "h_r": 1,
+   "kappa": 0.4,
+   "m": 4,
+   "rho": 4,
+   "tau": 0.7,
+   "tau_e": 0.9,
+   "tau_g": 0.4,
+   "tau_s": 0.6,
+   "theta": 0.5
+  },
+  "omega": {
+   "alpha": 0.0,
+   "c": 64,
+   "layers": 2,
+   "lr": 0.01
+  },
+  "reservoir-replay": {
+   "eta": 0.003,
+   "r": 1,
+   "tau": 0.7,
+   "theta": 0.1
+  },
+  "sleep-grow": {
+   "P": 0.5,
+   "lam": 10.0,
+   "rank": 2,
+   "tau": 0.7,
+   "theta": 0.1
+  },
+  "sleep-periodic": {
+   "P": 0.5,
+   "lam": 10.0,
+   "tau": 0.7,
+   "theta": 0.1
+  },
+  "slow": {
+   "eta": 0.003,
+   "tau": 0.7,
+   "theta": 0.1
+  },
+  "surprise-fifo": {
+   "eta": 0.003,
+   "tau": 0.7,
+   "theta": 0.3
+  },
+  "titans": {
+   "alpha": 0.0,
+   "beta": 0.5,
+   "layers": 2,
+   "lr": 0.003
+  },
+  "titans-m0": {
+   "alpha": 0.0,
+   "layers": 1,
+   "lr": 0.003
+  }
+ },
+ "table": {
+  "count": {
+   "by_gap": {
+    "128": {
+     "noise_capture": -0.0016276041666666667,
+     "objective": 0.3998480902777778,
+     "old_knowledge": 0.7970920138888888,
+     "ops": 21578.6
+    },
+    "2048": {
+     "noise_capture": 0.0030924479166666665,
+     "objective": 0.0537109375,
+     "old_knowledge": 0.6968315972222222,
+     "ops": 19276.81171875
+    },
+    "32768": {
+     "noise_capture": -0.01953125,
+     "objective": 0.021809895833333332,
+     "old_knowledge": 0.6970486111111109,
+     "ops": 19064.016796875003
+    },
+    "512": {
+     "noise_capture": 0.06298828125,
+     "objective": 0.08875868055555555,
+     "old_knowledge": 0.6820746527777778,
+     "ops": 20098.85
+    },
+    "8192": {
+     "noise_capture": 0.001953125,
+     "objective": 0.027018229166666668,
+     "old_knowledge": 0.7296006944444444,
+     "ops": 19112.41015625
+    }
+   },
+   "long_gaps": {
+    "noise_capture": -0.004828559027777778,
+    "objective": 0.0341796875,
+    "old_knowledge": 0.7078269675925926,
+    "ops": 19151.079557291665
+   },
+   "scores": {
+    "noise_capture": 0.009375000000000003,
+    "objective": 0.11822916666666668,
+    "old_knowledge": 0.7205295138888889,
+    "ops": 19826.137734375
+   },
+   "within_limits": false
+  },
+  "count-sketch": {
+   "by_gap": {
+    "128": {
+     "noise_capture": 0.021158854166666668,
+     "objective": 0.2702907986111111,
+     "old_knowledge": 0.8804253472222223,
+     "ops": 14448.66640625
+    },
+    "2048": {
+     "noise_capture": 0.02294921875,
+     "objective": 0.02777777777777778,
+     "old_knowledge": 0.7645399305555556,
+     "ops": 13662.900000000001
+    },
+    "32768": {
+     "noise_capture": -0.0009765625,
+     "objective": 0.022677951388888888,
+     "old_knowledge": 0.6627604166666667,
+     "ops": 14559.935009765624
+    },
+    "512": {
+     "noise_capture": -0.0068359375,
+     "objective": 0.09375,
+     "old_knowledge": 0.8543836805555556,
+     "ops": 12776.739453125
+    },
+    "8192": {
+     "noise_capture": 0.020833333333333332,
+     "objective": 0.05056423611111111,
+     "old_knowledge": 0.6788194444444445,
+     "ops": 14303.62421875
+    }
+   },
+   "long_gaps": {
+    "noise_capture": 0.014268663194444442,
+    "objective": 0.033673321759259266,
+    "old_knowledge": 0.7020399305555557,
+    "ops": 14175.486409505209
+   },
+   "scores": {
+    "noise_capture": 0.01142578125,
+    "objective": 0.09301215277777779,
+    "old_knowledge": 0.7681857638888889,
+    "ops": 13950.373017578127
+   },
+   "within_limits": false
+  },
+  "fifo-replay": {
+   "by_gap": {
+    "128": {
+     "noise_capture": 0.048014322916666664,
+     "objective": 0.026041666666666668,
+     "old_knowledge": 0.8815104166666667,
+     "ops": 44563.2375
+    },
+    "2048": {
+     "noise_capture": 0.0013020833333333335,
+     "objective": 0.016818576388888888,
+     "old_knowledge": 0.8400607638888888,
+     "ops": 45174.15234375
+    },
+    "32768": {
+     "noise_capture": -0.060221354166666664,
+     "objective": 0.013129340277777778,
+     "old_knowledge": 0.8344184027777778,
+     "ops": 45213.25092773438
+    },
+    "512": {
+     "noise_capture": -0.00390625,
+     "objective": 0.019314236111111112,
+     "old_knowledge": 0.8858506944444444,
+     "ops": 45042.496875
+    },
+    "8192": {
+     "noise_capture": 0.010579427083333334,
+     "objective": 0.016059027777777776,
+     "old_knowledge": 0.8190104166666665,
+     "ops": 45205.669335937506
+    }
+   },
+   "long_gaps": {
+    "noise_capture": -0.016113281249999997,
+    "objective": 0.015335648148148147,
+    "old_knowledge": 0.8311631944444445,
+    "ops": 45197.690869140635
+   },
+   "scores": {
+    "noise_capture": -0.0008463541666666665,
+    "objective": 0.018272569444444445,
+    "old_knowledge": 0.8521701388888887,
+    "ops": 45039.76139648438
+   },
+   "within_limits": true
+  },
+  "frozen": {
+   "by_gap": {
+    "128": {
+     "noise_capture": 0.056477864583333336,
+     "objective": 0.024305555555555556,
+     "old_knowledge": 0.8990885416666667,
+     "ops": 5376.0
+    },
+    "2048": {
+     "noise_capture": 0.010579427083333334,
+     "objective": 0.024305555555555556,
+     "old_knowledge": 0.8990885416666667,
+     "ops": 5376.0
+    },
+    "32768": {
+     "noise_capture": -0.0224609375,
+     "objective": 0.024305555555555556,
+     "old_knowledge": 0.8990885416666667,
+     "ops": 5376.0
+    },
+    "512": {
+     "noise_capture": -0.013346354166666666,
+     "objective": 0.024305555555555556,
+     "old_knowledge": 0.8990885416666667,
+     "ops": 5376.0
+    },
+    "8192": {
+     "noise_capture": 0.00830078125,
+     "objective": 0.024305555555555556,
+     "old_knowledge": 0.8990885416666667,
+     "ops": 5376.0
+    }
+   },
+   "long_gaps": {
+    "noise_capture": -0.0011935763888888892,
+    "objective": 0.024305555555555556,
+    "old_knowledge": 0.8990885416666666,
+    "ops": 5376.0
+   },
+   "scores": {
+    "noise_capture": 0.00791015625,
+    "objective": 0.02430555555555556,
+    "old_knowledge": 0.8990885416666666,
+    "ops": 5376.0
+   },
+   "within_limits": true
+  },
+  "life": {
+   "by_gap": {
+    "128": {
+     "noise_capture": 0.016438802083333332,
+     "objective": 0.375,
+     "old_knowledge": 0.9034288194444444,
+     "ops": 19242.775
+    },
+    "2048": {
+     "noise_capture": 0.025065104166666668,
+     "objective": 0.1277126736111111,
+     "old_knowledge": 0.8990885416666667,
+     "ops": 18210.56015625
+    },
+    "32768": {
+     "noise_capture": 0.013346354166666666,
+     "objective": 0.013888888888888888,
+     "old_knowledge": 0.8348524305555556,
+     "ops": 17847.556494140626
+    },
+    "512": {
+     "noise_capture": 0.029622395833333332,
+     "objective": 0.14930555555555555,
+     "old_knowledge": 0.820095486111111,
+     "ops": 19005.315625
+    },
+    "8192": {
+     "noise_capture": 0.003743489583333333,
+     "objective": 0.03993055555555556,
+     "old_knowledge": 0.8786892361111112,
+     "ops": 18011.033398437503
+    }
+   },
+   "long_gaps": {
+    "noise_capture": 0.014051649305555554,
+    "objective": 0.060510706018518524,
+    "old_knowledge": 0.8708767361111112,
+    "ops": 18023.05001627604
+   },
+   "scores": {
+    "noise_capture": 0.017643229166666666,
+    "objective": 0.1411675347222222,
+    "old_knowledge": 0.8672309027777777,
+    "ops": 18463.448134765626
+   },
+   "within_limits": true
+  },
+  "life-cuegroup": {
+   "by_gap": {
+    "128": {
+     "noise_capture": 0.01904296875,
+     "objective": 0.375,
+     "old_knowledge": 0.9103732638888888,
+     "ops": 20664.2125
+    },
+    "2048": {
+     "noise_capture": 0.0022786458333333335,
+     "objective": 0.008680555555555556,
+     "old_knowledge": 0.8758680555555556,
+     "ops": 18767.671875
+    },
+    "32768": {
+     "noise_capture": -0.016764322916666668,
+     "objective": 0.026475694444444444,
+     "old_knowledge": 0.7673611111111112,
+     "ops": 18771.297412109376
+    },
+    "512": {
+     "noise_capture": -0.013509114583333334,
+     "objective": 0.17708333333333331,
+     "old_knowledge": 0.880859375,
+     "ops": 19228.909375
+    },
+    "8192": {
+     "noise_capture": 0.02490234375,
+     "objective": 0.018771701388888888,
+     "old_knowledge": 0.8719618055555556,
+     "ops": 18357.326367187503
+    }
+   },
+   "long_gaps": {
+    "noise_capture": 0.003472222222222222,
+    "objective": 0.017975983796296297,
+    "old_knowledge": 0.8383969907407408,
+    "ops": 18632.098551432293
+   },
+   "scores": {
+    "noise_capture": 0.0031901041666666666,
+    "objective": 0.12120225694444442,
+    "old_knowledge": 0.8612847222222223,
+    "ops": 19157.883505859376
+   },
+   "within_limits": true
+  },
+  "life-oracle": {
+   "by_gap": {
+    "128": {
+     "noise_capture": 0.0126953125,
+     "objective": 0.6506076388888888,
+     "old_knowledge": 0.7894965277777779,
+     "ops": 0.0
+    },
+    "2048": {
+     "noise_capture": -0.00016276041666666696,
+     "objective": 0.6318359375,
+     "old_knowledge": 0.79296875,
+     "ops": 0.0
+    },
+    "32768": {
+     "noise_capture": 0.030598958333333332,
+     "objective": 0.6059027777777778,
+     "old_knowledge": 0.8096788194444444,
+     "ops": 0.0
+    },
+    "512": {
+     "noise_capture": -0.005045572916666664,
+     "objective": 0.6280381944444444,
+     "old_knowledge": 0.8122829861111112,
+     "ops": 0.0
+    },
+    "8192": {
+     "noise_capture": 0.00146484375,
+     "objective": 0.5799696180555556,
+     "old_knowledge": 0.8157552083333333,
+     "ops": 0.0
+    }
+   },
+   "long_gaps": {
+    "noise_capture": 0.010633680555555554,
+    "objective": 0.6059027777777778,
+    "old_knowledge": 0.8061342592592592,
+    "ops": 0.0
+   },
+   "scores": {
+    "noise_capture": 0.007910156249999998,
+    "objective": 0.6192708333333333,
+    "old_knowledge": 0.8040364583333334,
+    "ops": 0.0
+   },
+   "within_limits": false
+  },
+  "life-selfcount": {
+   "by_gap": {
+    "128": {
+     "noise_capture": 0.119140625,
+     "objective": 0.375,
+     "old_knowledge": 0.9016927083333335,
+     "ops": 18982.5
+    },
+    "2048": {
+     "noise_capture": 0.005696614583333334,
+     "objective": 0.08680555555555555,
+     "old_knowledge": 0.8641493055555556,
+     "ops": 17554.48046875
+    },
+    "32768": {
+     "noise_capture": -0.013997395833333334,
+     "objective": 0.03396267361111111,
+     "old_knowledge": 0.8582899305555556,
+     "ops": 17407.54287109375
+    },
+    "512": {
+     "noise_capture": 0.01806640625,
+     "objective": 0.22916666666666669,
+     "old_knowledge": 0.8467881944444444,
+     "ops": 18368.70625
+    },
+    "8192": {
+     "noise_capture": 0.009440104166666666,
+     "objective": 0.022569444444444444,
+     "old_knowledge": 0.884765625,
+     "ops": 17478.126953125
+    }
+   },
+   "long_gaps": {
+    "noise_capture": 0.00037977430555555534,
+    "objective": 0.047779224537037035,
+    "old_knowledge": 0.8690682870370369,
+    "ops": 17480.05009765625
+   },
+   "scores": {
+    "noise_capture": 0.027669270833333332,
+    "objective": 0.14950086805555557,
+    "old_knowledge": 0.8711371527777778,
+    "ops": 17958.27130859375
+   },
+   "within_limits": true
+  },
+  "life-sketch": {
+   "by_gap": {
+    "128": {
+     "noise_capture": 0.056803385416666664,
+     "objective": 0.296875,
+     "old_knowledge": 0.8990885416666667,
+     "ops": 13516.978906249999
+    },
+    "2048": {
+     "noise_capture": 0.0029296875000000004,
+     "objective": 0.05479600694444445,
+     "old_knowledge": 0.9038628472222223,
+     "ops": 12596.960693359375
+    },
+    "32768": {
+     "noise_capture": 0.004231770833333333,
+     "objective": 0.03645833333333333,
+     "old_knowledge": 0.8604600694444444,
+     "ops": 13436.48388671875
+    },
+    "512": {
+     "noise_capture": -0.0185546875,
+     "objective": 0.13020833333333331,
+     "old_knowledge": 0.9016927083333333,
+     "ops": 12452.7990234375
+    },
+    "8192": {
+     "noise_capture": 0.006347656249999999,
+     "objective": 0.029513888888888888,
+     "old_knowledge": 0.8871527777777777,
+     "ops": 13146.2408203125
+    }
+   },
+   "long_gaps": {
+    "noise_capture": 0.004503038194444444,
+    "objective": 0.04025607638888889,
+    "old_knowledge": 0.8838252314814814,
+    "ops": 13059.89513346354
+   },
+   "scores": {
+    "noise_capture": 0.010351562499999998,
+    "objective": 0.1095703125,
+    "old_knowledge": 0.8904513888888888,
+    "ops": 13029.892666015625
+   },
+   "within_limits": true
+  },
+  "omega": {
+   "by_gap": {
+    "128": {
+     "noise_capture": 0.03369140625,
+     "objective": 0.025282118055555552,
+     "old_knowledge": 0.7990451388888888,
+     "ops": 1616954.15
+    },
+    "2048": {
+     "noise_capture": 0.018880208333333332,
+     "objective": 0.026041666666666668,
+     "old_knowledge": 0.8641493055555556,
+     "ops": 1659192.696875
+    },
+    "32768": {
+     "noise_capture": -0.004231770833333333,
+     "objective": 0.013020833333333332,
+     "old_knowledge": 0.8786892361111112,
+     "ops": 1661832.6060546874
+    },
+    "512": {
+     "noise_capture": -0.019205729166666664,
+     "objective": 0.0341796875,
+     "old_knowledge": 0.8663194444444444,
+     "ops": 1650744.9875
+    },
+    "8192": {
+     "noise_capture": -0.00048828125,
+     "objective": 0.019097222222222224,
+     "old_knowledge": 0.8960503472222221,
+     "ops": 1661304.62421875
+    }
+   },
+   "long_gaps": {
+    "noise_capture": 0.004720052083333332,
+    "objective": 0.019386574074074073,
+    "old_knowledge": 0.8796296296296297,
+    "ops": 1660776.6423828125
+   },
+   "scores": {
+    "noise_capture": 0.005729166666666665,
+    "objective": 0.023524305555555555,
+    "old_knowledge": 0.8608506944444445,
+    "ops": 1650005.8129296876
+   },
+   "within_limits": true
+  },
+  "reservoir-replay": {
+   "by_gap": {
+    "128": {
+     "noise_capture": 0.10807291666666667,
+     "objective": 0.2725694444444444,
+     "old_knowledge": 0.898220486111111,
+     "ops": 27974.4375
+    },
+    "2048": {
+     "noise_capture": 0.006998697916666666,
+     "objective": 0.0166015625,
+     "old_knowledge": 0.8684895833333335,
+     "ops": 28585.352343749997
+    },
+    "32768": {
+     "noise_capture": -0.07307942708333334,
+     "objective": 0.02777777777777778,
+     "old_knowledge": 0.8079427083333333,
+     "ops": 28624.450927734375
+    },
+    "512": {
+     "noise_capture": 0.011881510416666668,
+     "objective": 0.1408420138888889,
+     "old_knowledge": 0.880859375,
+     "ops": 28453.696875
+    },
+    "8192": {
+     "noise_capture": 0.023763020833333332,
+     "objective": 0.0322265625,
+     "old_knowledge": 0.7827690972222222,
+     "ops": 28616.8693359375
+    }
+   },
+   "long_gaps": {
+    "noise_capture": -0.014105902777777781,
+    "objective": 0.025535300925925927,
+    "old_knowledge": 0.8197337962962963,
+    "ops": 28608.890869140625
+   },
+   "scores": {
+    "noise_capture": 0.015527343749999997,
+    "objective": 0.09800347222222223,
+    "old_knowledge": 0.84765625,
+    "ops": 28450.961396484374
+   },
+   "within_limits": false
+  },
+  "sleep-grow": {
+   "by_gap": {
+    "128": {
+     "noise_capture": 0.080078125,
+     "objective": 0.019314236111111112,
+     "old_knowledge": 0.8407118055555556,
+     "ops": 30329.925000000003
+    },
+    "2048": {
+     "noise_capture": -0.00341796875,
+     "objective": 0.019314236111111112,
+     "old_knowledge": 0.7973090277777777,
+     "ops": 30642.4828125
+    },
+    "32768": {
+     "noise_capture": -0.0712890625,
+     "objective": 0.020290798611111112,
+     "old_knowledge": 0.8111979166666667,
+     "ops": 30688.60869140625
+    },
+    "512": {
+     "noise_capture": 0.050944010416666664,
+     "objective": 0.014105902777777778,
+     "old_knowledge": 0.8036024305555556,
+     "ops": 30640.228125
+    },
+    "8192": {
+     "noise_capture": 0.0009765625,
+     "objective": 0.0185546875,
+     "old_knowledge": 0.78515625,
+     "ops": 30686.230078125
+    }
+   },
+   "long_gaps": {
+    "noise_capture": -0.024576822916666668,
+    "objective": 0.019386574074074073,
+    "old_knowledge": 0.7978877314814815,
+    "ops": 30672.440527343748
+   },
+   "scores": {
+    "noise_capture": 0.011458333333333334,
+    "objective": 0.01831597222222222,
+    "old_knowledge": 0.8075954861111111,
+    "ops": 30597.494941406254
+   },
+   "within_limits": false
+  },
+  "sleep-periodic": {
+   "by_gap": {
+    "128": {
+     "noise_capture": 0.055826822916666664,
+     "objective": 0.0703125,
+     "old_knowledge": 0.8079427083333334,
+     "ops": 28947.525
+    },
+    "2048": {
+     "noise_capture": -0.0026041666666666665,
+     "objective": 0.02300347222222222,
+     "old_knowledge": 0.7916666666666667,
+     "ops": 29240.8828125
+    },
+    "32768": {
+     "noise_capture": -0.07438151041666667,
+     "objective": 0.025390625,
+     "old_knowledge": 0.8309461805555556,
+     "ops": 29284.30869140625
+    },
+    "512": {
+     "noise_capture": 0.014973958333333336,
+     "objective": 0.025716145833333332,
+     "old_knowledge": 0.8057725694444445,
+     "ops": 29238.628125
+    },
+    "8192": {
+     "noise_capture": 0.01220703125,
+     "objective": 0.013346354166666666,
+     "old_knowledge": 0.802734375,
+     "ops": 29282.230078125
+    }
+   },
+   "long_gaps": {
+    "noise_capture": -0.021592881944444448,
+    "objective": 0.02058015046296296,
+    "old_knowledge": 0.8084490740740741,
+    "ops": 29269.140527343752
+   },
+   "scores": {
+    "noise_capture": 0.001204427083333333,
+    "objective": 0.03155381944444444,
+    "old_knowledge": 0.8078125,
+    "ops": 29198.71494140625
+   },
+   "within_limits": false
+  },
+  "slow": {
+   "by_gap": {
+    "128": {
+     "noise_capture": 0.056477864583333336,
+     "objective": 0.022569444444444444,
+     "old_knowledge": 0.900390625,
+     "ops": 10905.6
+    },
+    "2048": {
+     "noise_capture": 0.004720052083333333,
+     "objective": 0.018337673611111112,
+     "old_knowledge": 0.8865017361111112,
+     "ops": 10905.6
+    },
+    "32768": {
+     "noise_capture": -0.0546875,
+     "objective": 0.015082465277777778,
+     "old_knowledge": 0.8294270833333333,
+     "ops": 10905.6
+    },
+    "512": {
+     "noise_capture": -0.009602864583333332,
+     "objective": 0.022569444444444444,
+     "old_knowledge": 0.8982204861111112,
+     "ops": 10905.6
+    },
+    "8192": {
+     "noise_capture": 0.012858072916666668,
+     "objective": 0.014865451388888888,
+     "old_knowledge": 0.8517795138888888,
+     "ops": 10905.6
+    }
+   },
+   "long_gaps": {
+    "noise_capture": -0.012369791666666664,
+    "objective": 0.01609519675925926,
+    "old_knowledge": 0.8559027777777778,
+    "ops": 10905.6
+   },
+   "scores": {
+    "noise_capture": 0.0019531250000000004,
+    "objective": 0.018684895833333333,
+    "old_knowledge": 0.873263888888889,
+    "ops": 10905.600000000002
+   },
+   "within_limits": true
+  },
+  "surprise-fifo": {
+   "by_gap": {
+    "128": {
+     "noise_capture": 0.08675130208333333,
+     "objective": 0.0478515625,
+     "old_knowledge": 0.8860677083333334,
+     "ops": 18960.6375
+    },
+    "2048": {
+     "noise_capture": 0.005859375,
+     "objective": 0.019097222222222224,
+     "old_knowledge": 0.8639322916666667,
+     "ops": 19502.11171875
+    },
+    "32768": {
+     "noise_capture": -0.0380859375,
+     "objective": 0.012152777777777778,
+     "old_knowledge": 0.779296875,
+     "ops": 19755.337939453122
+    },
+    "512": {
+     "noise_capture": -0.010416666666666666,
+     "objective": 0.022569444444444444,
+     "old_knowledge": 0.8969184027777779,
+     "ops": 19332.28125
+    },
+    "8192": {
+     "noise_capture": 0.016764322916666668,
+     "objective": 0.014865451388888888,
+     "old_knowledge": 0.8350694444444444,
+     "ops": 19610.5078125
+    }
+   },
+   "long_gaps": {
+    "noise_capture": -0.005154079861111111,
+    "objective": 0.01537181712962963,
+    "old_knowledge": 0.8260995370370371,
+    "ops": 19622.652490234377
+   },
+   "scores": {
+    "noise_capture": 0.012174479166666667,
+    "objective": 0.023307291666666667,
+    "old_knowledge": 0.8522569444444444,
+    "ops": 19432.175244140624
+   },
+   "within_limits": true
+  },
+  "titans": {
+   "by_gap": {
+    "128": {
+     "noise_capture": 0.037109375,
+     "objective": 0.021375868055555556,
+     "old_knowledge": 0.7612847222222222,
+     "ops": 31312.4
+    },
+    "2048": {
+     "noise_capture": 0.03466796875,
+     "objective": 0.015625,
+     "old_knowledge": 0.8734809027777778,
+     "ops": 31312.4
+    },
+    "32768": {
+     "noise_capture": -0.04703776041666667,
+     "objective": 0.009548611111111112,
+     "old_knowledge": 0.8949652777777777,
+     "ops": 31312.4
+    },
+    "512": {
+     "noise_capture": 0.05061848958333333,
+     "objective": 0.026475694444444444,
+     "old_knowledge": 0.884765625,
+     "ops": 31312.4
+    },
+    "8192": {
+     "noise_capture": 0.008951822916666668,
+     "objective": 0.006184895833333333,
+     "old_knowledge": 0.8582899305555556,
+     "ops": 31312.4
+    }
+   },
+   "long_gaps": {
+    "noise_capture": -0.0011393229166666685,
+    "objective": 0.010452835648148149,
+    "old_knowledge": 0.8755787037037036,
+    "ops": 31312.399999999998
+   },
+   "scores": {
+    "noise_capture": 0.016861979166666666,
+    "objective": 0.015842013888888888,
+    "old_knowledge": 0.8545572916666666,
+    "ops": 31312.400000000005
+   },
+   "within_limits": true
+  },
+  "titans-m0": {
+   "by_gap": {
+    "128": {
+     "noise_capture": 0.028645833333333336,
+     "objective": 0.030490451388888888,
+     "old_knowledge": 0.8411458333333335,
+     "ops": 62938.4
+    },
+    "2048": {
+     "noise_capture": 0.031412760416666664,
+     "objective": 0.013888888888888888,
+     "old_knowledge": 0.8708767361111112,
+     "ops": 62938.4
+    },
+    "32768": {
+     "noise_capture": -0.05631510416666667,
+     "objective": 0.009114583333333332,
+     "old_knowledge": 0.896701388888889,
+     "ops": 62938.4
+    },
+    "512": {
+     "noise_capture": 0.06038411458333333,
+     "objective": 0.006944444444444444,
+     "old_knowledge": 0.8817274305555556,
+     "ops": 62938.4
+    },
+    "8192": {
+     "noise_capture": 0.006998697916666666,
+     "objective": 0.008680555555555556,
+     "old_knowledge": 0.8969184027777778,
+     "ops": 62938.4
+    }
+   },
+   "long_gaps": {
+    "noise_capture": -0.005967881944444445,
+    "objective": 0.010561342592592593,
+    "old_knowledge": 0.8881655092592594,
+    "ops": 62938.4
+   },
+   "scores": {
+    "noise_capture": 0.014225260416666668,
+    "objective": 0.013823784722222222,
+    "old_knowledge": 0.8774739583333334,
+    "ops": 62938.4
+   },
+   "within_limits": true
+  }
+ }
+}

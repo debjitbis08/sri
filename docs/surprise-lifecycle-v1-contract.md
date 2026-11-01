@@ -303,7 +303,7 @@ Gates 1, 2, 3 and 5 pass. The posterior is 4 of 40 families, against the 0.11 ex
 
 ## Changes from the pilot
 
-None yet.
+The [pilot](surprise-lifecycle-v1-pilot.md) (2026-11-01) passes gate 6, keeps `degraded` as primary, and shows `life` learning no rules, for design reasons it describes. Nothing has been changed in response yet, so this contract cannot be frozen as written.
 
 ## Before freezing
 
@@ -388,7 +388,7 @@ K traces, S shadows, Z sketch entries, W MLP weights, c window, D_c = 96, D_o = 
 *Estimates, not measurements.*
 
 - **Construction.** Encoders: seeds 299 and 298 exist; 380–389 about 70 s each on the GTX 1650 (`/data/venvs/sri-cuda`). Key pool under a minute of CPU per seed and condition.
-- **Pilot.** At most 1,500 configurations × 17 arms × 2 seeds × 5 gaps as a hard ceiling; coordinate descent should use a small part of it. Expect 1–4 CPU-hours on 11 workers, rejected settings counted.
+- **Pilot.** At most 1,500 configurations × 17 arms × 2 seeds × 5 gaps as a hard ceiling; coordinate descent should use a small part of it. Expected 1–4 CPU-hours on 11 workers, rejected settings counted; measured about 9.6.
 - **Confirmation.** 17 arms × 10 seeds × 5 gaps × 2 values of q, mean stream about 87,000 events, roughly 5–30 s per run. About 10–30 minutes wall. Other B, `clean` and probes add about the same.
 - **Deterministic and timed output kept apart.** `reports/surprise-lifecycle-v1-{pilot,confirm,analysis}` and separate `-runtime` files, per [computation reporting](computation-reporting.md), with executed runs, events, configurations scored, shadows proposed, and each phase above. `timing` measures one thread, warm-up, 15 repeats, median and spread.
 - **Persistence.** Tasks durable (`experiments/durable.py`); rerunning resumes. Pools written atomically under gitignored `runs/`.

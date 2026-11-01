@@ -1,0 +1,22 @@
+{
+ "children_peak_rss_kb": 461956,
+ "command": "/home/debjit/code/sri/experiments/surprise_lifecycle.py pilot",
+ "contract_sha256": "fc87596cbdecdfe8151890c80628b65afe0801a371e7355c9cc1a892464a5bf1",
+ "cpu": "x86_64",
+ "dirty": true,
+ "dtype": "float32",
+ "mechanisms_sha256": "1cfd01768bdfa5aeb0f26e1db151ec03ca23209dceb797ab6e5a0bc705415b3e",
+ "numpy": "2.5.4",
+ "parent_peak_rss_kb": 375496,
+ "python": "3.12.3",
+ "revision": "f54953260e74ab934303d0fdc3b1c0e046ca2818",
+ "runs": 2610,
+ "scope": "nondeterministic timing",
+ "source_sha256": "f9217d96e0dd482f26fc6b01437db40649071159371c314e63f840375b86d061",
+ "stage": "pilot",
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "wall_s": 5533.0889945229865,
+ "worker_cpu_s": 34671.642482101,
+ "workers": 11
+}
