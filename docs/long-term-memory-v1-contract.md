@@ -73,7 +73,7 @@ As arbitrary pairings Option A, with a third phase:
 
 | phase | updates | trains |
 |---|---|---|
-| blocks 1–3 | 6,200 in total | curriculum, no rehearsal |
+| blocks 1–3 | 6,000 in total | curriculum, no rehearsal |
 | block 4 | 2,000 | context plus pair set **A** |
 | block 5 | 2,000 | context plus pair set **B** |
 | block 6 | 2,000 | context only, the delay |
@@ -94,11 +94,11 @@ On independent renderings, with memory's state unchanged. Nine candidates in see
 
 - **Retained A:** combined recall of set A, after B and the delay.
 - **Retained B:** combined recall of set B, after the delay.
-- **Answer transfer:** the only inherited transfer measures memory can affect, combined: the mean of matching on withheld counts for Chinese and for Devanagari digits, `chinese_withheld_matching` and `devanagari_withheld_matching`.
+- **Answer transfer, at the end of block 3, not block 6:** the only inherited transfer measures memory can affect, combined: the mean of matching on withheld counts for Chinese and for Devanagari digits, `chinese_withheld_matching` and `devanagari_withheld_matching`. Read at block 3 because the readers' own matching is near chance by block 6 (see *Changes from the host runs*).
 
 **Invariance checks, not endpoints.** Coordinate transfer (a) reads host codes, and never uses matching scores, so it cannot see memory. The comparison measures and the taps measures do not pass through memory's term. All must equal plain `sparse48` exactly, and a difference is a bug.
 
-**Reported beside them.** `sparse48` alone on all three. Combined matching on paired and withheld counts for all three scripts. Recall of A and B at the end of blocks 4 and 5, and curves. Memory alone, readers silenced. **Unknown symbols:** on a third set never taught, the share of queries where memory's term changes the readers' choice, a measure of confident error. Combined recall of A by batch age and by load. Cost: bytes, operations, GPU time per update.
+**Reported beside them.** `sparse48` alone on all three. Answer transfer at blocks 4–6 too. **Lost from correct:** of the queries readers answer correctly, the share the combined answer gets wrong, at every block, for a harm reading that a low base rate does not hide as easily. Whether memory raises relational matching above readers at block 6. Combined matching on paired and withheld counts for all three scripts. Recall of A and B at the end of blocks 4 and 5, and curves. Memory alone, readers silenced. **Unknown symbols:** on a third set never taught, the share of queries where memory's term changes the readers' choice, a measure of confident error. Combined recall of A by batch age and by load. Cost: bytes, operations, GPU time per update.
 
 **Checked once per host run.** Host weights' hash at each block's end, recorded in the cache, which all variants share.
 
@@ -181,6 +181,23 @@ First review, before any build, all correct and fixed above:
 - Secondary comparisons had no runs. They are now six enumerated ablations on all confirmation seeds, and pilot comparisons are exploratory.
 - Adaptive selection could not run on a single live host. A trajectory cache replays it offline, the search is a defined sequential sweep, and the key-source preference names its metric and keeps eligibility.
 
+## Changes from the host runs
+
+Host runs on seeds 392 and 393 and gates 2026-11-01, before any memory variant was compared (`reports/long-term-memory-v1-gates.json`). Gates 1–5 pass: host weights are bitwise identical with and without the hook, 12,000 updates are all on the clock, and `flat-store` retains 0.99 of A and 0.95–0.97 of B at block 6.
+
+| reading, seeds 392, 393 | block 3 | block 4 | block 5 | block 6 |
+|---|---|---|---|---|
+| `sparse48` recall of A | 0.09, 0.14 | 0.20, 0.39 | 0.11, 0.19 | 0.09, 0.09 |
+| `sparse48` recall of B | 0.10, 0.09 | 0.11, 0.14 | 0.34, 0.46 | 0.20, 0.19 |
+| `sparse48` matching, withheld, Chinese | 0.25, 0.03 | 0.00, 0.20 | 0.00, 0.00 | 0.02, 0.13 |
+| `sparse48` matching, withheld, Devanagari digits | 0.47, 0.40 | 0.03, 0.02 | 0.12, 0.02 | 0.25, 0.25 |
+
+- **Answer transfer moves to block 3.** Once forms stop being trained, the readers' own form-to-collection matching falls to about chance (0.11), so a memory could barely be shown to harm it at block 6, and the endpoint would be near vacuous. Block 3 is where readers still have something to lose. **This reading therefore cannot detect harm from pairs written in blocks 4–5,** which is what `lost from correct` at later blocks is for, though its base is small. Few withheld items per script make it noisy; contrasts remain paired on identical items.
+- **Frozen keys take `slow` values.** The frozen encoder reads counts at 0.72 by prototype, below gate 2's 0.80. It separates symbols perfectly. So `frozen` means frozen keys, with values from the slow encoder.
+- **`mixed`'s relation to `sparse48` on these readings is noisy on two seeds** (answer transfer at block 3 differs either way), so no conclusion about it is drawn here.
+
+Host cost: 318 s wall per full run, 340 MB of cache at about 46 items per update, against estimates of 321 s and 640 MB; 3 concurrent on the GTX 1650.
+
 ## Changes from implementation review
 
 Second review, of the code, before any real host run was kept. All correct and fixed:
@@ -244,8 +261,8 @@ P weights in M, d = 32, code width 16, B batch matching items, 9 candidates, F p
 
 - **Construction.** Encoders 12 × about 70 s on the GTX 1650. Symbol material as arbitrary pairings, under a minute per seed.
 - **Theoretical.** Host O(updates × batch × active weights). Each variant O(updates × B × 9 × P) added, O(P) stored. Readings O(N × E × 9) forward passes per point.
-- **Host and cache.** 2 pilot and 10 confirmation host runs, 12,200 updates each; 321 s alone per run for a comparable arm in the forgetting study, so about 6 minutes each. References: `mixed` as one further host run per seed. **Cache,** workspace: about 1,300 bytes per matching item, 16 live and 16 `slow` floats for the query and each of 9 candidates, plus 9 logits. Taken at about 40 items per update, an estimate to be measured, that is about 640 MB per seed, under gitignored `runs/`.
-- **Selection.** 14 configurations × 2 seeds, each 12,200 cached updates on CPU, with readings at block ends, on 11 workers. About 1–2 CPU-hours.
+- **Host and cache.** 2 pilot and 10 confirmation host runs, 12,000 updates each; 321 s alone per run for a comparable arm in the forgetting study, so about 6 minutes each. References: `mixed` as one further host run per seed. **Cache,** workspace: about 1,300 bytes per matching item, 16 live and 16 `slow` floats for the query and each of 9 candidates, plus 9 logits. Taken at about 40 items per update, an estimate to be measured, that is about 640 MB per seed, under gitignored `runs/`.
+- **Selection.** 14 configurations × 2 seeds, each 12,000 cached updates on CPU, with readings at block ends, on 11 workers. About 1–2 CPU-hours.
 - **Confirmation.** Candidate and 6 ablations, 10 seeds: 70 replays, under 6 CPU-hours. `flat-store` is cheap. Load probes at N = 18 and 90, candidate and `flat-store`, on 3 seeds, need 6 more host runs, and are exploratory.
 - **Deterministic and timed output kept apart.** `reports/long-term-memory-v1-{gates,pilot,confirm,analysis}` and separate `-runtime` files, per [computation reporting](computation-reporting.md).
 - **Persistence.** Durable tasks; checkpoints written atomically at block ends, since these runs are long.

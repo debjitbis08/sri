@@ -33,6 +33,7 @@ save_json, save_npz, cache_dir = H.save_json, H.save_npz, H.cache_dir
 WORKERS = int(os.environ.get('NSY_WORKERS', 11))
 TRANSFER = ('chinese/withheld', 'devanagari_digits/withheld')
 ELIGIBLE, NEAR = .03, .03
+TRANSFER_BLOCK = '3'   # by block 6 the readers' own matching is at chance, so a loss could not show there
 COUNT_IDENTITY_MIN = .80
 STORE_CEILING = .80
 START = dict(form='mlp', projections='learned', key='frozen', eta=.01, beta=.9, C=16, p=.05)
@@ -71,8 +72,11 @@ def read_set(ev, name, cfg, mem):
     q, c = torch.from_numpy(ev[eval_name(name, f"q_{cfg['key']}")]), torch.from_numpy(ev[eval_name(name, f"c_{cfg['value']}")])
     with torch.no_grad():
         term = mem.term(q, c)
-    return {'readers': alone, 'combined': ltm.accuracy(logits + term, counts, truth), 'memory': ltm.accuracy(term, counts, truth),
-            'changed': float(((logits + term).argmax(1) != logits.argmax(1)).float().mean())}
+    both = logits + term
+    right = counts.gather(1, logits.argmax(1, keepdim=True))[:, 0] == truth
+    stays = counts.gather(1, both.argmax(1, keepdim=True))[:, 0] == truth
+    return {'readers': alone, 'combined': ltm.accuracy(both, counts, truth), 'memory': ltm.accuracy(term, counts, truth), 'changed': float((both.argmax(1) != logits.argmax(1)).float().mean()),
+            'lost_from_correct': float((right & ~stays).float().sum() / max(int(right.sum()), 1))}
 
 
 def match_names():
@@ -174,8 +178,9 @@ def flat_read(seed, b):
 
 def mixed_reads(seed):
     """The `mixed` reference: its own host and readers, no memory term."""
-    r = readings(load_cache(seed, 'mixed', 'light')['eval'][6], None, None)
-    return {'A': r['A']['readers'], 'B': r['B']['readers'], 'answer_transfer': r['answer_transfer_readers']}
+    c = load_cache(seed, 'mixed', 'light')['eval']
+    r = readings(c[6], None, None)
+    return {'A': r['A']['readers'], 'B': r['B']['readers'], 'answer_transfer': readings(c[int(TRANSFER_BLOCK)], None, None)['answer_transfer_readers']}
 
 
 # ---------------------------------------------------------------- gates
@@ -267,8 +272,8 @@ def score(cfg, seeds, results):
     rows = [results[replay_key(cfg, s)]['reads']['6'] for s in seeds]
     a = [r['A']['combined'] for r in rows]
     b = [r['B']['combined'] for r in rows]
-    t = float(np.mean([r['answer_transfer'] for r in rows]))
-    t0 = float(np.mean([readings(load_cache(s)['eval'][6], None, None)['answer_transfer_readers'] for s in seeds]))
+    t = float(np.mean([results[replay_key(cfg, s)]['reads'][TRANSFER_BLOCK]['answer_transfer'] for s in seeds]))
+    t0 = float(np.mean([readings(load_cache(s)['eval'][int(TRANSFER_BLOCK)], None, None)['answer_transfer_readers'] for s in seeds]))
     return {'retained_A': float(np.mean(a)), 'retained_B': float(np.mean(b)), 'answer_transfer': t, 'sparse48_transfer': t0, 'objective': float(np.mean(a + b)), 'eligible': t >= t0 - ELIGIBLE}
 
 
@@ -380,13 +385,14 @@ def analyse():
     rng = nc.stream('ltm_bootstrap')
 
     def r(cfg, s, field):
-        x = res[replay_key(cfg, s)]['reads']['6']
-        return x['answer_transfer'] if field == 'answer_transfer' else x[field]['combined']
+        x = res[replay_key(cfg, s)]['reads']
+        return x[TRANSFER_BLOCK]['answer_transfer'] if field == 'answer_transfer' else x['6'][field]['combined']
     seeds = CONFIRM_SEEDS
     base = {s: readings(load_cache(s)['eval'][6], None, None) for s in seeds}
+    base3 = {s: readings(load_cache(s)['eval'][int(TRANSFER_BLOCK)], None, None) for s in seeds}
     gA = boot([r(c, s, 'A') - base[s]['A']['readers'] for s in seeds], rng)
     gB = boot([r(c, s, 'B') - base[s]['B']['readers'] for s in seeds], rng)
-    tr = boot([r(c, s, 'answer_transfer') - base[s]['answer_transfer_readers'] for s in seeds], rng)
+    tr = boot([r(c, s, 'answer_transfer') - base3[s]['answer_transfer_readers'] for s in seeds], rng)
     near = boot([r(c, s, 'A') - flat_read(s, 6)['A'] for s in seeds], rng)
     retains = gA[0] >= .15 and gA[1] > 0 and gB[0] >= .15 and gB[1] > 0
     verdict = 'holds' if tr[1] >= -.05 else 'lost' if tr[0] <= -.05 and tr[2] < 0 else 'inconclusive'
