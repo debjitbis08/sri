@@ -26,7 +26,7 @@ q = 0.2, 64 KiB, `degraded` stream, audited on clean renderings with `degraded` 
 | `frozen` | 0.00 at every gap | 0.05 at every gap | 0.90 | 0.01 | 5,376 |
 | `sleep-grow` | at most 0.01 | 0.03, 0.02, 0.03, 0.03, 0.03 | **0.81** | 0.01 | 30,597 |
 
-Bold old knowledge is below the provisional limit of 0.85. Chance is 0.03. `frozen`'s binding recall is above chance because a known family's rule sometimes gives the right outcome.
+Bold old knowledge is below the provisional limit of 0.85. Chance is 0.03; with so few cues and seeds, values up to about 0.05 are not distinguished from it here.
 
 ## What this shows
 
