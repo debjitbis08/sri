@@ -90,19 +90,24 @@ def encoder_file(seed):
 
 def host_provenance(arm, seed, mode):
     """What a host run's output depends on: this module, the host's modules, the encoder for a full run, the software and device."""
-    out = {'host_module': nc.sha256(__file__), 'sources': {m.__name__: nc.sha256(m.__file__) for m in HOST_SOURCES}, 'torch': torch.__version__, 'device': os.environ.get('NFI_DEVICE', 'cpu'), 'task': [arm, seed, mode], 'N': N, 'L': L}
+    out = {'host_module': nc.sha256(__file__), 'sources': {m.__name__: nc.sha256(m.__file__) for m in HOST_SOURCES}, 'task': [arm, seed, mode], 'N': N, 'L': L}
     if mode == 'full':
         out['encoder'] = nc.sha256(encoder_file(seed))
     return out
 
 
-def host_valid(arm, seed, mode):
-    """A finished host run is reused only if what it depends on is unchanged and its files are as written."""
+def host_env():
+    return {'torch': torch.__version__, 'device': os.environ.get('NFI_DEVICE', 'cpu')}
+
+
+def host_valid(arm, seed, mode, same_env=True):
+    """A finished host run is reused only if what it depends on is unchanged and its files are as written. Reruns also need the same software and
+    device; readers of the cache, which run under another environment, pass same_env=False."""
     p = info_path(arm, seed, mode)
     if not p.exists():
         return False
     info = json.load(open(p))
-    if info.get('provenance') != host_provenance(arm, seed, mode):
+    if info.get('provenance') != host_provenance(arm, seed, mode) or (same_env and info.get('env') != host_env()):
         return False
     d = cache_dir(arm, seed, mode)
     return all((d / f).exists() and nc.sha256(d / f) == h for f, h in info.get('files', {}).items())
@@ -331,7 +336,7 @@ def run_host(task):
             flat[f'{tag}_counts'] = np.array([sets[tag][c] for c in cps], np.int8)
         save_npz(out_dir / 'flat.npz', **flat)
     files = {f.name: nc.sha256(f) for f in sorted(out_dir.glob('*'))} if out_dir.exists() else {}
-    info = {'hashes': hashes, **sizes, 'provenance': host_provenance(arm, seed, mode), 'files': files}
+    info = {'hashes': hashes, **sizes, 'provenance': host_provenance(arm, seed, mode), 'env': host_env(), 'files': files}
     save_json(info_path(arm, seed, mode), info)
     timing = {'wall_s': time.perf_counter() - t0, 'cpu_s': time.process_time() - c0, 'peak_rss_kb': resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
               'cache_bytes': sum(f.stat().st_size for f in out_dir.glob('*')) if out_dir.exists() else 0, **({'gpu_peak_bytes': torch.cuda.max_memory_allocated()} if DEV.ACTIVE else {})}

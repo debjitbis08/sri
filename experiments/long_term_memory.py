@@ -110,7 +110,7 @@ def replay_key(cfg, seed):
 
 def cache_digest(seed):
     info = json.load(open(H.info_path('sparse48', seed, 'full')))
-    return hashlib.sha256(json.dumps({'files': info['files'], 'hashes': info['hashes'], 'provenance': info['provenance']}, sort_keys=True).encode()).hexdigest()
+    return hashlib.sha256(json.dumps({'files': info['files'], 'hashes': info['hashes'], 'provenance': info['provenance'], 'env': info['env']}, sort_keys=True).encode()).hexdigest()
 
 
 def replay_provenance(cfg, seed):
@@ -189,7 +189,7 @@ def gate_seeds(seeds, name, plain_required):
     out = {}
     expected = H.D.STEPS * 3 + 3 * H.L
     for seed in seeds:
-        missing = [t for t in (('sparse48', seed, 'full'), ('mixed', seed, 'light')) if not H.host_valid(*t)]
+        missing = [t for t in (('sparse48', seed, 'full'), ('mixed', seed, 'light')) if not H.host_valid(*t, same_env=False)]
         if missing:
             raise SystemExit(f'host runs missing or stale: {missing}')
         info = json.load(open(H.info_path('sparse48', seed, 'full')))
