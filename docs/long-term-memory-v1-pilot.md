@@ -61,6 +61,17 @@ So at block 6, against the rule's +0.15: A gains +0.05 to +0.13 and misses it; B
 
 **7. No relational rescue.** I had hoped memory might hold form-to-collection matching as the host forgets it. Paired matching reads 0.08–0.10 combined against 0.08 alone at block 6.
 
+**8. Where pairs are held (`experiments/long_term_memory_where.py`).** Frozen keys and values, query by query, means of both seeds, the budget's `mlp` then the width-1,024 `k-sparse`. "Memory right" is memory's term alone. Chance is 0.11 per source.
+
+| reading | readers right | memory right | right by memory only | right by readers only | right by both, against chance overlap | combined keeps memory-only answers |
+|---|---|---|---|---|---|---|
+| A, block 4 | 0.29, 0.30 | 0.49, 0.48 | 0.33, 0.32 | 0.13, 0.14 | 0.16, 0.16 against 0.14 | 0.80, 0.81 |
+| B, block 5 | 0.40, 0.40 | 0.51, 0.53 | 0.30, 0.29 | 0.19, 0.16 | 0.21, 0.24 against 0.21 | 0.74, 0.74 |
+| A, block 6 | 0.09, 0.09 | 0.17, 0.32 | 0.16, 0.30 | 0.08, 0.07 | 0.01, 0.02 against 0.01–0.03 | 0.37, 0.42 |
+| B, block 6 | 0.20, 0.19 | 0.50, 0.53 | 0.42, 0.44 | 0.12, 0.10 | 0.08, 0.09 against 0.10 | 0.50, 0.43 |
+
+Pairs do reach memory, and by block 6 what remains is mostly there. The readers hold them only while being taught. Overlap is what independence would give, so memory is **not** specializing in what readers get wrong, despite the residual loss. By block 6 the combined answer drops about half of memory's correct answers, since memory's term and the readers' logits are about the same scale and the readers are wrong with confidence. Memory's answers agree across a symbol's five renderings only 0.60–0.68 of the time, so a pair is not held crisply, though the frozen encoder separates symbols perfectly. This does not show where inside the network a pair is held. The selected candidate, with `live` keys, held nothing measurable.
+
 ## What the pilot leaves open
 
 - **Bytes.** A width-1,024 memory, with its charged copies, is about 800 KB, against `flat-store`'s 23 KB and 0.99. A network pays heavily here for what it does.
