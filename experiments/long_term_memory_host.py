@@ -368,7 +368,7 @@ def prepare():
 
 def run_hosts(tasks):
     t0 = time.perf_counter()
-    assert not (torch.cuda.is_available() and torch.cuda.is_initialized()), 'CUDA must not be initialised before the pool forks: fit encoders in their own process'
+    assert not torch.cuda.is_initialized(), 'CUDA must not be initialised before the pool forks: fit encoders in their own process'  # is_available() itself would break the fork
     prepare()
     todo = [t for t in tasks if not host_valid(*t)]
     with mp.get_context('fork').Pool(min(HOST_WORKERS, max(len(todo), 1))) as pool:
