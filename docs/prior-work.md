@@ -1594,6 +1594,14 @@ read: Titans Eqs. 11–15, ATLAS Eq. 9 and its memorization note.
   so selection there is learned, within a window fixed by recency. **[read]** The
   authors state that no persistent learning typically carries over once the memory
   is cleared. Difference from our use: constants replace learned controls.
+  [Proceedings version](https://raw.githubusercontent.com/mlresearch/v306/main/assets/behrouz26b/behrouz26b.pdf)
+  **[read: pp. 5-6, Appendix G]**: the same rule is Eq. 5 there, and OmegaNet's update
+  is `M_t = alpha_t M_{t-1} - grad sum gamma_i ||M(phi(k_i)) - v_i||^2` with phi a
+  polynomial kernel. So `omega` in the lifecycle contract is this update with
+  gamma = 1, phi the identity and constant alpha and rate; it lacks the gates and the
+  kernel, and ATLAS's Muon optimizer. Appendix G: with c = 1 and gamma = 1 plus momentum
+  this is the Titans memory; with a linear memory, gamma = 1 and c the whole context it
+  is least squares, which the authors expect to suffer from having no pruning.
 - [Anderson and Schooler, 1991](https://www.psychologicalscience.org/journals/psychological-science/j.1467-9280.1991.tb00174.x/)
   **[abstract/search record]**: memory availability relates to frequency, recency
   and pattern of exposure, and environmental need falls as a power of the retention

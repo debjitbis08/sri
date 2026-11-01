@@ -116,7 +116,7 @@ The slot cap shown is `life`'s; `life-sketch` has half that or less (5 at 16 KiB
 | `fifo-replay` | FIFO of all events with outcomes; r replay steps per event; lookups | bounded recent window on the store |
 | `reservoir-replay` | as above, uniform sample of all events (Vitter's Algorithm R) | ordinary bounded replay |
 | `titans-m0`, `titans` | MLP M, `M_t = (1 − α)M_{t−1} + S_t`, `S_t = βS_{t−1} − θ_M∇‖M(c) − o‖²`; β = 0 in `-m0` | inspired by [Titans](https://arxiv.org/html/2501.00663v1) Eqs. 12–14 |
-| `omega` | MLP M, one gradient step per event on the last c events, γ = 1 | inspired by [ATLAS](https://arxiv.org/pdf/2505.23735) Eq. 9 |
+| `omega` | MLP M, one gradient step per event on the last c events, γ = 1 | ATLAS's Omega update ([arXiv](https://arxiv.org/pdf/2505.23735) Eq. 9, [proceedings](https://raw.githubusercontent.com/mlresearch/v306/main/assets/behrouz26b/behrouz26b.pdf) Eq. 5), with gates off and no kernel |
 | `sleep-periodic` | FIFO of all events with outcomes answers lookups. Every P events, ridge-fit the store's residuals into R, penalized toward the current R, with no selection; then clear the store | scheduled, unselective consolidation, inspired by [Sleep](https://arxiv.org/abs/2606.03979) §3.2–3.3 |
 
 MLP width is whatever fills the total budget, counting weights, momentum and window. These three are **inspired by, not tests of,** the published systems. Their α, β, θ_M and γ are constants rather than functions of the input, there is no attention or outer-loop training, and ATLAS's feature mapping and optimizer are left out. A loss here does not count against those papers. Omega's input-dependent γ can prune inside the window, which a constant γ cannot.
