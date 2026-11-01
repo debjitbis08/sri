@@ -1,0 +1,88 @@
+{
+ "children_peak_rss_kb": 3322188,
+ "command": "/home/debjit/code/sri/experiments/long_term_memory.py hosts",
+ "contract_sha256": "c010f7d285258904e32214c9cd43f3a6ea1fa78444711a40f310710537b6a76f",
+ "cpu": "x86_64",
+ "cublas_workspace_config": ":4096:8",
+ "cuda": "13.0",
+ "cudnn": 92400,
+ "deterministic_algorithms": true,
+ "device": "cuda",
+ "dirty": false,
+ "dtype": "float32",
+ "executed": [
+  [
+   "mixed",
+   392,
+   "light"
+  ],
+  [
+   "sparse48",
+   393,
+   "full"
+  ],
+  [
+   "sparse48",
+   392,
+   "full"
+  ],
+  [
+   "mixed",
+   393,
+   "light"
+  ],
+  [
+   "sparse48",
+   392,
+   "plain"
+  ]
+ ],
+ "gpu": "NVIDIA GeForce GTX 1650",
+ "host_workers": 3,
+ "numpy": "2.5.4",
+ "parent_peak_rss_kb": 1614940,
+ "python": "3.12.3",
+ "reused": [],
+ "revision": "bf4b204c1febcc6e59e4877458042f05ec8e6dfd",
+ "scope": "nondeterministic timing",
+ "stage": "hosts",
+ "timing": {
+  "('mixed', 392, 'light')": {
+   "cache_bytes": 4121544,
+   "cpu_s": 255.669165847,
+   "gpu_peak_bytes": 143675904,
+   "peak_rss_kb": 2460528,
+   "wall_s": 256.23997981799766
+  },
+  "('mixed', 393, 'light')": {
+   "cache_bytes": 4121544,
+   "cpu_s": 220.22729320699997,
+   "gpu_peak_bytes": 143675904,
+   "peak_rss_kb": 2470984,
+   "wall_s": 220.2471238230064
+  },
+  "('sparse48', 392, 'full')": {
+   "cache_bytes": 340772402,
+   "cpu_s": 317.292296651,
+   "gpu_peak_bytes": 146001408,
+   "peak_rss_kb": 3322188,
+   "wall_s": 318.01786082499893
+  },
+  "('sparse48', 392, 'plain')": {
+   "cache_bytes": 0,
+   "cpu_s": 200.96952058599993,
+   "gpu_peak_bytes": 146001408,
+   "peak_rss_kb": 3315124,
+   "wall_s": 200.94924391398672
+  },
+  "('sparse48', 393, 'full')": {
+   "cache_bytes": 338404565,
+   "cpu_s": 316.02938737,
+   "gpu_peak_bytes": 146001408,
+   "peak_rss_kb": 3315124,
+   "wall_s": 316.78794174001087
+  }
+ },
+ "torch": "2.14.1+cu130",
+ "wall_s": 546.1832499430166
+}
