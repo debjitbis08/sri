@@ -274,6 +274,21 @@ class Lifecycle(unittest.TestCase):
         self.assertTrue(a.alive[supported].all())
         self.assertEqual(int(a.alive.sum()), a.cap)
 
+    def test_validated_support_gives_group_size_no_protection(self):
+        a = life({'h_b': 99, 'h_r': 99, 'tau_e': .5, 'S': 2}, support='validated')
+        o = self.b.outcome()
+        for _ in range(3):
+            a.step(self.b.cue(), o)                  # unrelated cues, one outcome: a residual group
+        idx = np.flatnonzero(a.alive)
+        self.assertGreater(max(a.groups[int(a.res[i])].episodes for i in idx), 0)
+        self.assertEqual(max(a._support(int(i)) for i in idx), 0)
+        c = self.b.cue()
+        x = self.b.outcome()
+        a.step(c, x)
+        a.step(c, x)                                 # a prediction that came true
+        i = int(np.flatnonzero(a.alive & (a.age == a.t))[0])
+        self.assertEqual(a._support(i), 1)
+
     def test_deleting_a_group_deletes_its_counts(self):
         a = life({'h_b': 99, 'h_n': 99})
         c, o = self.b.cue(), self.b.outcome()

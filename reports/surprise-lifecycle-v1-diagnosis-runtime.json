@@ -1,0 +1,21 @@
+{
+ "children_peak_rss_kb": 444876,
+ "command": "/home/debjit/code/sri/experiments/surprise_lifecycle_diagnosis.py diagnosis",
+ "contract_sha256": "dfb90f0dfc4093639ad88e3173cb0e10108f8d149c0f861e808f438594f043a7",
+ "cpu": "x86_64",
+ "dirty": true,
+ "dtype": "float32",
+ "mechanisms_sha256": "ae3838be504fc3a45988d1414fa7df7c250fbebdbee00794b07d7f80804611c0",
+ "numpy": "2.5.4",
+ "parent_peak_rss_kb": 355616,
+ "python": "3.12.3",
+ "revision": "f0b4f092c244f534520aad6cae0910f97e015244",
+ "runs": 76,
+ "scope": "nondeterministic timing",
+ "source_sha256": "f9217d96e0dd482f26fc6b01437db40649071159371c314e63f840375b86d061",
+ "stage": "diagnosis",
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "wall_s": 39.56542223098222,
+ "workers": 11
+}

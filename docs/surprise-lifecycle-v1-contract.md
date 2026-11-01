@@ -303,7 +303,7 @@ Gates 1, 2, 3 and 5 pass. The posterior is 4 of 40 families, against the 0.11 ex
 
 ## Changes from the pilot
 
-The [pilot](surprise-lifecycle-v1-pilot.md) (2026-11-01) passes gate 6, keeps `degraded` as primary, and shows `life` learning no rules, for design reasons it describes. Nothing has been changed in response yet, so this contract cannot be frozen as written.
+The [pilot](surprise-lifecycle-v1-pilot.md) (2026-11-01) passes gate 6, keeps `degraded` as primary, and shows `life` learning no rules. Its post hoc diagnosis finds that all three long gaps exceed how long m traces can coexist at the primary cell, so `earns-role` is effectively unreachable there as specified. This version is kept as a failed design and is not frozen; a revision would be a new contract.
 
 ## Before freezing
 

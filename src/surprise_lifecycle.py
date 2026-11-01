@@ -562,10 +562,10 @@ class Life(ReaderArm):
     """The mechanism in the order the contract gives it. Traces live in fixed arrays; a group's cue and outcome are computed from its
     members, so nothing beyond the charged counters is stored for it."""
 
-    def __init__(self, R, sc, so, cfg, B_kib, name='life', sketch=False, group_by='residual', validate=True, self_count=False, seed_rng=None):
+    def __init__(self, R, sc, so, cfg, B_kib, name='life', sketch=False, group_by='residual', validate=True, self_count=False, seed_rng=None, support='episodes'):
         super().__init__(R, sc, so, cfg['tau'], cfg['theta'], name)
         self.cfg, self.B_kib = cfg, B_kib
-        self.group_by, self.validate, self.self_count = group_by, validate, self_count
+        self.group_by, self.validate, self.self_count, self.support = group_by, validate, self_count, support
         a = allocation(B_kib, cfg['S'], sketch)
         self.pool, self.slot_cap, self.Z = a['pool'], a['slot_cap'], a['sketch']
         self.cap = a['traces']
@@ -929,6 +929,12 @@ class Life(ReaderArm):
             self.log['evicted'] += 1
 
     def _support(self, i):
+        if self.support == 'validated':
+            # the post hoc variant: only predictions that came true protect a trace, so joining a group buys nothing
+            same, res = self.groups.get(int(self.same[i])), self.groups.get(int(self.res[i]))
+            hits = same.hits if same is not None and same.misses == 0 else 0
+            wins = next((s.wins for s in self.shadows if res is not None and s.group == res.id), 0)
+            return max(hits, wins)
         out = 0
         for gid in (int(self.same[i]), int(self.res[i])):
             g = self.groups.get(gid)
