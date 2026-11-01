@@ -181,6 +181,21 @@ First review, before any build, all correct and fixed above:
 - Secondary comparisons had no runs. They are now six enumerated ablations on all confirmation seeds, and pilot comparisons are exploratory.
 - Adaptive selection could not run on a single live host. A trajectory cache replays it offline, the search is a defined sequential sweep, and the key-source preference names its metric and keeps eligibility.
 
+## Changes from implementation review
+
+Second review, of the code, before any real host run was kept. All correct and fixed:
+
+- Encoder training could initialize CUDA before the host pool forked. Encoders now fit in their own stage, and the pool refuses if CUDA is initialized.
+- Empty batches stopped memory's clock, so chunks and momentum froze in block 6. Every host update now ticks memory, with a zero gradient if it has no items. So memory has no new writes in block 6 but momentum can still move it, and a partial chunk still applies. Block 6's context has no image-to-image items, so it tests retention under drift and no interference; set B is the interference test.
+- Gates did not stop anything. Selection and confirmation now refuse without a passing report tied to the same memory code and caches, with a gate that every host update is on the clock. Confirmation seeds get their own gate report, without gate 1's rerun.
+- The `frozen` fallback to `slow` values was not implemented. Keys and values now have separate sources, and gate 2's decision is persisted and used.
+- Cached results could outlive their inputs. Replays and host runs are now reused only with matching provenance: code, contract for replays, encoder, cache digest.
+- `mixed` was run but never compared. It is now in selection's report and the analysis.
+- The audit's hash omitted momentum, the accumulated gradient and the clock. It now covers all of them.
+- Timing was inside scientific files. It is now apart, and reports count executed and reused work.
+
+Host and replay are now separate modules, so changing replay does not invalidate host runs.
+
 ## Changes from the pilot
 
 None yet.
@@ -238,4 +253,10 @@ P weights in M, d = 32, code width 16, B batch matching items, 9 candidates, F p
 
 ## Reproduction
 
-To be written with the implementation: `src/long_term_memory.py`, `experiments/long_term_memory.py`, `tests/test_long_term_memory.py`.
+```
+NFI_DEVICE=cuda /data/venvs/sri-cuda/bin/python -m experiments.long_term_memory encoders
+NFI_DEVICE=cuda /data/venvs/sri-cuda/bin/python -m experiments.long_term_memory hosts
+.venv/bin/python -m experiments.long_term_memory gates
+NSY_WORKERS=11 .venv/bin/python -m experiments.long_term_memory pilot
+```
+Confirmation adds `confirm-encoders`, `confirm-hosts`, `confirm-gates`, `confirm` and `analyse`, which refuse until this file's status says frozen. Tests: `.venv/bin/python -m unittest tests.test_long_term_memory`. Code: `src/long_term_memory.py`, `experiments/long_term_memory_host.py`, `experiments/long_term_memory.py`.

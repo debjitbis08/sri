@@ -115,13 +115,69 @@ class Behaviour(unittest.TestCase):
         g = torch.autograd.grad(loss, m.M[2])[0]
         self.assertEqual(int((g.abs().sum(1) > 0).sum()), keep)
 
-    def test_reading_leaves_state_alone(self):
+    def test_reading_leaves_state_alone_after_a_partial_chunk(self):
         q, C, lg, t = self.batch()
-        m = ltm.Memory('mlp', 16, 16, eta=.1, C=1)
+        m = ltm.Memory('mlp', 16, 16, eta=.1, C=4)
         m.update(q, C, lg, t)
         h = m.state_hash()
         m.combined(q, C, lg)
         self.assertEqual(h, m.state_hash())
+
+    def test_state_hash_sees_every_component(self):
+        q, C, lg, t = self.batch()
+        m = ltm.Memory('linear', 16, 16, eta=.1, C=4)
+        m.update(q, C, lg, t)
+        h = m.state_hash()
+        m.t += 1
+        self.assertNotEqual(h, m.state_hash())
+        m.t -= 1
+        m.S[0] = m.S[0] + 1
+        self.assertNotEqual(h, m.state_hash())
+        m.S[0] = m.S[0] - 1
+        m.acc[0] += 1
+        self.assertNotEqual(h, m.state_hash())
+
+    def test_a_partial_chunk_completes_during_a_delay(self):
+        q, C, lg, t = self.batch()
+        m = ltm.Memory('linear', 16, 16, eta=.1, beta=0., C=4)
+        s0 = m.s.clone()
+        m.update(q, C, lg, t)
+        m.tick(); m.tick()
+        self.assertTrue((m.s == s0).all())
+        m.tick()
+        self.assertFalse((m.s == s0).all())
+        self.assertEqual(m.t, 4)
+
+    def test_momentum_runs_on_during_a_delay(self):
+        q, C, lg, t = self.batch()
+        m = ltm.Memory('linear', 16, 16, eta=.1, beta=.9, C=1)
+        m.update(q, C, lg, t)
+        before = m.s.clone()
+        m.tick()
+        self.assertFalse((m.s == before).all())
+
+    def test_chunk_with_a_delay_equals_scaled_gradient(self):
+        q, C, lg, t = self.batch()
+        a, b = ltm.Memory('linear', 16, 16, eta=.1, beta=0., C=2, seed=3), ltm.Memory('linear', 16, 16, eta=.1, beta=0., C=1, seed=3)
+        a.update(q, C, lg, t); a.tick()
+        b.update(q, C, lg, t)
+        self.assertAlmostEqual(float(a.s), float(b.s) , places=5)
+
+    def test_train_block_ticks_every_host_update(self):
+        n = np.array([2, 0, 0, 1, 0])
+        g = np.random.default_rng(0)
+        tr = {'n': n, 'target': np.array([0, 1, 2], np.int8), 'logits': np.zeros((3, 9), np.float32), 'q_live': g.standard_normal((3, 16)).astype(np.float32), 't_live': g.standard_normal((3, 16)).astype(np.float32), 'c_live': g.standard_normal((2, 9, 16)).astype(np.float32)}
+        m = ltm.Memory('linear', 16, 16, C=2)
+        ltm.train_block(m, tr, 'live', 'live')
+        self.assertEqual(m.t, 5)
+
+    def test_train_block_keeps_keys_and_values_apart(self):
+        n = np.array([1])
+        g = np.random.default_rng(0)
+        tr = {'n': n, 'target': np.array([0], np.int8), 'logits': np.zeros((1, 9), np.float32), 'q_frozen': g.standard_normal((1, 32)).astype(np.float32), 't_slow': g.standard_normal((1, 16)).astype(np.float32), 'c_slow': g.standard_normal((1, 9, 16)).astype(np.float32)}
+        m = ltm.Memory('linear', 32, 16, C=1)
+        ltm.train_block(m, tr, 'frozen', 'slow')
+        self.assertEqual(m.t, 1)
 
     def test_accuracy_uses_candidate_counts(self):
         s = torch.tensor([[0., 5., 0.], [9., 0., 0.]])

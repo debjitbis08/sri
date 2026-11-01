@@ -5,6 +5,7 @@ Everything here runs on cached arrays, in its own process, so nothing in the hos
 """
 import math
 
+import numpy as np
 import torch
 import torch.nn.functional as F
 
@@ -69,33 +70,62 @@ class Memory:
         return self.s * ((self.recall(q @ self.W_K)[:, None] * (C @ self.W_V)).sum(-1))
 
     def update(self, q, C, reader_logits, target):
-        """One host update's items. The reader's logits are constants; every C updates, S = beta^C S - eta C g, on g the clipped mean gradient."""
+        """One host update's items. The reader's logits are constants."""
         loss = F.cross_entropy(reader_logits + self.term(q, C), target)
         grads = torch.autograd.grad(loss, self.params)
         for a, g in zip(self.acc, grads):
             a += g
-        self.t += 1
-        if self.t % self.C == 0:
-            mean = [a / self.C for a in self.acc]
-            norm = torch.sqrt(sum((m * m).sum() for m in mean))
-            scale = min(1., CLIP / (float(norm) + 1e-12))
-            with torch.no_grad():
-                for i, (th, m) in enumerate(zip(self.params, mean)):
-                    self.S[i] = self.beta ** self.C * self.S[i] - self.eta * self.C * scale * m
-                    th += self.S[i]
-                    self.acc[i] = torch.zeros_like(th)
+        self._advance()
         return float(loss.detach())
+
+    def tick(self):
+        """A host update with no items for memory: a zero gradient, so chunks complete and momentum runs on the host's clock."""
+        self._advance()
+
+    def _advance(self):
+        """Every C host updates, S = beta^C S - eta C g, on g the clipped mean gradient over those C updates."""
+        self.t += 1
+        if self.t % self.C:
+            return
+        mean = [a / self.C for a in self.acc]
+        norm = torch.sqrt(sum((m * m).sum() for m in mean))
+        scale = min(1., CLIP / (float(norm) + 1e-12))
+        with torch.no_grad():
+            for i, (th, m) in enumerate(zip(self.params, mean)):
+                self.S[i] = self.beta ** self.C * self.S[i] - self.eta * self.C * scale * m
+                th += self.S[i]
+                self.acc[i] = torch.zeros_like(th)
 
     @torch.no_grad()
     def combined(self, q, C, reader_logits):
         return reader_logits + self.term(q, C)
 
     def state_hash(self):
+        """Every persistent component: weights, projections, momentum, the accumulated gradient and the clock."""
         import hashlib
         h = hashlib.sha256()
-        for t in [*self.params, self.W_K, self.W_V]:
+        for t in [*self.params, self.W_K, self.W_V, *self.S, *self.acc]:
             h.update(t.detach().numpy().tobytes())
+        h.update(str(self.t).encode())
         return h.hexdigest()
+
+
+def train_block(mem, tr, key, value, limit=None):
+    """A cached block, on the host's clock: every host update ticks memory, whether or not it has items. Returns the mean of the last losses."""
+    n = tr['n']
+    offs = np.r_[0, np.cumsum(n)]
+    cu, ls = 0, []
+    for u, m in enumerate(n[:limit]):
+        if not m:
+            mem.tick()
+            continue
+        a, z = offs[u], offs[u + 1]
+        tg = tr['target'][a:z].astype(np.int64)
+        C = np.repeat(tr[f'c_{value}'][cu][None], m, 0)
+        C[np.arange(m), tg] = tr[f't_{value}'][a:z]
+        ls.append(mem.update(torch.from_numpy(tr[f'q_{key}'][a:z]), torch.from_numpy(C), torch.from_numpy(tr['logits'][a:z]), torch.from_numpy(tg)))
+        cu += 1
+    return float(np.mean(ls[-200:])) if ls else None
 
 
 @torch.no_grad()
