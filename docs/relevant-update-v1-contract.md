@@ -1,12 +1,12 @@
 # Relevant update v1: contract
 
-Status: **draft, 2026-11-01. Nothing built or run; not frozen.** Stage 1 is specified to be frozen on its own. Stage 2 is a plan until stage 1's result is known, and stage 3 is only named. Values marked *provisional* may change once, on pilot seeds, before confirmation seeds exist, and every change is recorded under *Changes from the pilot*.
+Status: **draft, revised 2026-11-01 after external review. Nothing built or run; not frozen.** Stage 1 is specified to be frozen on its own. Stage 2 is a plan until stage 1's result is known, and stage 3 is only named. Values marked *provisional* may change once, on pilot seeds, before confirmation seeds exist, and every change is recorded under *Changes from the pilot*.
 
 ## Question
 
 The bet: memory should update against **several relevant experiences together**, which takes a good update rule and useful experience selection. We have neither yet. So this tests them apart, before any stream:
 
-1. **Stage 1, update rule.** Handed a known-good set of k experiences, which rule learns shared structure, at what cost to what is already known, and how much does contamination hurt it? Does updating on them *together* beat taking the same experiences *in turn*?
+1. **Stage 1, update rule.** Handed a known-good set of k experiences, it asks two distinct questions. **Which method acquires and preserves knowledge best,** and how much does contamination hurt it? And separately, **does processing experiences jointly help at comparable work,** with the same examples, exposures and step size?
 2. **Stage 2, selection.** Given the current surprising event and a pool of past experiences, which rule chooses the set? That is, how should the gates γᵢ of the Omega rule be set?
 3. **Stage 3, the pair in a stream**, against replay and recent windows, at gaps where traces can coexist.
 
@@ -48,20 +48,34 @@ Each takes the set and the current memory. Every rule has a k = 1 form. Rules se
 |---|---|---|---|
 | `rank-one` | `R ← R + ē ĉᵀ/‖ĉ‖²` | none | **baseline**: v1's update |
 | `ridge` | `R ← R + argmin_Δ Σ‖eᵢ − cᵢΔ‖² + λ‖Δ‖²` | none | least squares on a window; ATLAS Appendix G's linear case |
-| `ridge-rehearse` | as `ridge`, plus r old events at weight w with residual targets, chosen at random | r × 512 bytes | experience replay |
-| `ridge-interfered` | as above, but those r are the buffer's B events most damaged by a tentative `ridge` update | B × 512 bytes | inspired by maximally interfered retrieval |
-| `ridge-orthogonal` | as `ridge`, with Δ's cue side projected away from the top q principal directions of old cues | q × 384 bytes | low-rank form inspired by orthogonal weight modification |
+| `ridge-rehearse` | as `ridge`, plus a fixed buffer of r old events at weight w (below) | r × 512 bytes | experience replay |
+| `ridge-interfered` | as `ridge-rehearse`, but using only the r events of a fixed buffer of B that a tentative `ridge` update damages most (below) | B × 512 bytes | inspired by maximally interfered retrieval |
+| `ridge-orthogonal` | as `ridge`, then `Δ ← (I − UUᵀ)Δ`, with U a fixed basis of q old cue directions (below) | q × 384 bytes | low-rank form inspired by orthogonal weight modification |
 | `expert` | keep (ĉ, ē); add `ē` to the reader's answer when `cos(c, ĉ) ≥ τ_x`, newest ties winning. R unchanged | 512 bytes per update | local gated memory, a soft slot |
-| `omega` | MLP M. On each experience's arrival, one gradient step on the set's experiences so far, γ = 1, as `M_t = α M_{t−1} − η∇Σ‖M(c) − o‖²` | MLP fills the budget | Omega update, proceedings Eq. 5, gates off, no kernel |
-| `titans`, `titans-m0` | MLP M, one gradient step per experience, with momentum or without | MLP fills the budget | Titans Eqs. 12–14, constants for its functions |
+| `omega` | MLP M. On the arrival of a set's j-th experience, one step: `M_t = (1 − α) M_{t−1} − η ∇ (1/j) Σ_{i≤j} ‖M(cᵢ) − oᵢ‖²`, γ = 1 | MLP fills the budget | Omega update, proceedings Eq. 5, gates off, no kernel, loss averaged rather than summed |
+| `titans`, `titans-m0` | MLP M, for each experience `M_t = (1 − α) M_{t−1} + S_t`, `S_t = β S_{t−1} − η ∇‖M(c) − o‖²`; β = 0 in `-m0` | MLP fills the budget, S included | Titans Eqs. 12–14, constants for its functions |
 
-`rank-one` and `ridge` update from the reader's residual, ignoring slots. **Not included:** a polynomial kernel φ on the reader, since a degree-2 expansion of a 96-wide cue needs about 600 KB of weights, far beyond the budget; Muon, until gradient descent has been shown to be the limit; learned gates, which need outer-loop training with no sensory target defined yet. So `omega` is not a test of OmegaNet or ATLAS, and neither arm of Titans tests Titans.
+`rank-one` and `ridge` update from the reader's residual, ignoring slots. α is decay, so 0 keeps everything. Momentum S persists across experiences and sets within a trial, as it would in a stream, and is zeroed at a trial's start. **Not included:** a polynomial kernel φ on the reader, since a degree-2 expansion of a 96-wide cue needs about 600 KB of weights, far beyond the budget; Muon, until gradient descent has been shown to be the limit; learned gates, which need outer-loop training with no sensory target defined yet. So `omega` is not a test of OmegaNet or ATLAS, and neither arm of Titans tests Titans.
 
-**Together against in turn.** The rule applied once to a set of k, against the same rule applied k times to the same k experiences, one at a time, using its k = 1 form. Same examples, same order, same settings. This is the direct test of "together".
+**Memory construction for the protective rules.** All are built once per seed and condition from the old-knowledge fit events, are fixed for a trial and across trials, and never take in new experiences. So they protect old knowledge only. Damage among new rules is unprotected, and reported through retention.
+
+- **Fixed buffer** (`ridge-rehearse` r events; `ridge-interfered` B events): equal numbers per known rule, drawn once from the 3,072 rule fit events. Known bindings are slots and need no rehearsal. r < 8 does not occur.
+- **`ridge-rehearse`:** `Δ = argmin Σ_set ‖eᵢ − cᵢΔ‖² + w Σ_buffer ‖(oᵦ − cᵦR) − cᵦΔ‖² + λ‖Δ‖²`, under the current R, so a buffer event pulls Δ towards keeping or restoring its own answer.
+- **`ridge-interfered`:** a tentative Δ₀ from `ridge`. Damage for a buffer event is `‖oᵦ − cᵦ(R + Δ₀)‖² − ‖oᵦ − cᵦR‖²`. The r largest enter the fit above in place of the fixed sample, with ties to the lower index.
+- **`ridge-orthogonal`:** U is the top q eigenvectors of the uncentred second-moment matrix of the 3,072 cues, by a direct symmetric eigendecomposition of the 96 × 96 matrix, once, O(n·D_c² + D_c³). Only U is kept, never the matrix, and it is not refreshed. Since cue keys are correlated, a new rule's family direction may lie partly inside U, which would cost acquisition; rule generalization measures this.
+
+**The two "together" comparisons.** Comparison A is the natural one, between algorithms as they would be used. Comparison B alone addresses whether joint processing helps.
+
+- **A, natural:** a rule once on a set of k, against its k = 1 form k times on the same experiences in the same order: `ridge` against `ridge-turn`, `omega` against `titans-m0`, and likewise for the chosen rule. Exposures and work differ: `omega` makes k(k + 1)/2 exposures against k. So a gain may come from more work, and it is reported with its work.
+- **B, matched: the same examples, exposures and total step size.**
+  - **Neural: `omega` against `omega-seq`.** Where `omega` takes one step on the mean of j experiences at rate η, `omega-seq` takes j single-experience steps at rate η/j, on those same j experiences. So every prefix contributes the same exposures and the same total rate, with decay applied the same total amount. The only difference is whether gradients are evaluated at one state or sequentially. **[derived]** As η → 0 the two coincide, so any difference is a finite-step effect.
+  - **Linear: `ridge` against `ridge-cycled`.** `ridge-cycled` passes over the set k times, each time solving each experience's single-example ridge step in turn, at the same λ. It uses k² example solves against the dual's k² inner products and k³ solve, so its work is of the same order, and it needs the set held throughout. **[derived]** With λ → 0 and enough passes this is Kaczmarz, converging to the same minimum-norm fit, so a gap measures what k passes leave undone.
+
+Comparison B runs for these two families whichever rule is chosen, since it does not depend on the choice. `rank-one` and `expert` have no matched form and enter comparison A only.
 
 ### Budgets
 
-Shared and outside the budget: encoder; reader or equivalent 12,288 bytes; known slots 12,288 bytes. Each rule's additional persistent state must fit in **64 KiB** at the largest load, or that setting is rejected before selection. `expert` at L = 32 uses 16 KiB. The set itself is temporary workspace in stage 1, at most 8 × 512 bytes, reported apart; stage 2 charges it as the pool. MLP width fills 64 KiB + 24,576 bytes, counting weights and momentum; for `omega` the window also, at k = 8.
+Shared and outside the budget: encoder; reader or equivalent 12,288 bytes; known slots 12,288 bytes. Each rule's additional persistent state must fit in **64 KiB**, or that setting is rejected before selection. `expert` together uses L × 512 bytes, 16 KiB at L = 32. In turn it uses L × k × 512: 131,072 bytes at L = 32 with k = 8, over budget, and 65,536 bytes at L = 32 with k = 4 and at L = 16 with k = 8, which fit exactly. It has no eviction or merging, so the one over-budget cell is **infeasible and reported as such**. A `ridge-rehearse` buffer of r = 128 and `ridge-interfered` at B = 128 use exactly 64 KiB. The set itself is temporary workspace in stage 1, at most 8 × 512 bytes, reported apart; stage 2 charges it as the pool. MLP width fills 64 KiB + 24,576 bytes, counting weights and momentum; for `omega` the window also, at k = 8.
 
 ### Readings
 
@@ -84,15 +98,16 @@ Audit after the trial's last update, unless stated, on `clean` audit renderings 
 | `ridge` and its variants | λ 0.01, 0.1, 1, 10 |
 | `ridge-rehearse` | r 8, 32, 128; w 0.25, 1, 4 |
 | `ridge-interfered` | B 128; r 8, 32; w 0.25, 1, 4 |
+| `ridge-turn`, `ridge-cycled`, `omega-seq` | their partner's frozen setting, never searched |
 | `ridge-orthogonal` | q 4, 8, 16, 32, 64 |
 | `expert` | τ_x 0.3, 0.4, 0.5, 0.6, 0.7 |
-| `omega`, `titans`, `titans-m0` | layers 1, 2; α 0, 0.0001, 0.001; η 0.001, 0.003, 0.01, 0.03, 0.1; `titans` β 0.5, 0.9 |
+| `omega`, `titans`, `titans-m0` | layers 1, 2; decay α 0, 0.0001, 0.001; η 0.001, 0.003, 0.01, 0.03, 0.1; `titans` β 0.5, 0.9 |
 
 One setting per rule, frozen across k, p, L and condition. Grids may extend once if a choice lies on an edge, recorded. `rank-one` has none.
 
 ### Selection and decision rule
 
-**Choice, pilot seeds, primary cell.** Among rule-settings with old knowledge ≥ 0.85 *(provisional)*, the highest rule generalization, ties to fewer operations. If none, the smallest shortfall on old knowledge, marked. The **chosen rule** is the single best setting across all rules other than `rank-one`.
+**Choice, pilot seeds, primary cell.** Among rule-settings with old knowledge ≥ 0.85 *(provisional)*, the highest rule generalization, ties to fewer operations. If none, the smallest shortfall on old knowledge, marked. The **chosen rule** is the single best setting across all rules other than `rank-one` and the controls `ridge-turn`, `ridge-cycled` and `omega-seq`, none of which can be chosen. Selection never looks at comparison B.
 
 **Gain.** Confirmation seeds 382–391, fresh encoders, settings frozen. Paired by seed; percentile bootstrap over seeds, 10,000 resamples, fixed generator; 95% two-sided, bounds at 2.5% and 97.5%.
 
@@ -102,25 +117,26 @@ The **bar** is absolute: mean rule generalization ≥ 0.70 and old knowledge ≥
 
 | outcome, first that applies | condition | next |
 |---|---|---|
-| `update-found` | chosen rule beats `rank-one` and meets the bar | stage 2 with this rule and its p\* as the target |
-| `rank-one-enough` | `rank-one` meets the bar, and the chosen rule does not beat it | stage 2 with `rank-one` |
-| `improved-below-bar` | chosen rule beats `rank-one` but misses the bar | report; stage 2 only with a stated reason |
+| `update-found` | chosen rule meets the bar and beats `rank-one` | stage 2 with this rule and its p\* as the target |
+| `bar-reached-superiority-unestablished` | chosen rule meets the bar, without beating `rank-one` | stage 2: reaching the bar is what stage 2 needs. Use `rank-one` if it also meets the bar, being cheaper, else the chosen rule. No claim that the chosen rule is better |
+| `rank-one-enough` | only `rank-one` meets the bar | stage 2 with `rank-one` |
+| `improved-below-bar` | chosen rule beats `rank-one`, and neither meets the bar | report; stage 2 only with a stated reason |
 | `no-rule-reaches-bar` | none of the above | perfect sets do not make these rules good enough on frozen keys. Selection cannot fix that, so stage 2 is not run; the next test is on real host codes. This does not establish a limit of all updates |
 
 **Secondary, same bootstrap, each reading better, equivalent or inconclusive** (better: mean gain at least the margin, interval excludes 0; equivalent: interval within ±margin; margin 0.05):
 
-- **Together:** chosen rule on a set of 4 against the same rule on the same 4 in turn; and the same at k = 8. Rule generalization and old knowledge.
+- **Joint processing, comparison B, the answer to the second question:** `omega` against `omega-seq`, and `ridge` against `ridge-cycled`, at k = 4 and k = 8, on rule generalization and old knowledge. Reported with exposures and operations.
+- **Natural algorithms, comparison A:** chosen rule, `ridge` and `omega`, each against its in-turn partner at k = 4 and k = 8. Reported with exposures and operations, and never read as joint processing helping by itself.
 - **More evidence:** chosen rule at k = 4 against k = 1. This is expected to help and is not the together test.
-- **Omega against the delta rule:** `omega` against `titans-m0` at k = 4, the same contrast on a neural memory.
 - **Protection:** `ridge-rehearse` and `ridge-orthogonal` against `ridge`, on old knowledge.
 
-**Expectations, recorded before any run.** `ridge` beats `rank-one`, since a rank-one direction with mean cue over few items keeps item noise. `expert` protects old knowledge best, and is broadest at low τ_x. Together beats in turn only modestly on a linear reader with exact ridge fits, more clearly for `omega` against `titans-m0`. `same-outcome` contamination hurts more than `unrelated`. `no-rule-reaches-bar` on `degraded` with only 4 examples is plausible: v1's residual fit on 8 reached about 0.55 there.
+**Expectations, recorded before any run.** `ridge` beats `rank-one`, since a rank-one direction with mean cue over few items keeps item noise. `expert` protects old knowledge best, and is broadest at low τ_x. In comparison A, `omega` beats `titans-m0`, largely through extra work. In comparison B, differences are small: at the small steps selection is likely to pick, `omega` and `omega-seq` nearly coincide. So a real benefit of joint processing may not be there to find, and that would be a useful result for the bet. `same-outcome` contamination hurts more than `unrelated`. `no-rule-reaches-bar` on `degraded` with only 4 examples is plausible: v1's residual fit on 8 reached about 0.55 there.
 
 ### Gates
 
 On pilot seeds, before selection. Failure stops stage 1 until the design changes, and is recorded.
 
-1. **Ceiling.** R fit offline on all rules, 384 events each, reaches rule generalization ≥ 0.85 at L = 16 on `clean`, and also at L = 4 and L = 32, recording `degraded`. Without this the bar means nothing at that load.
+1. **Joint ceiling.** One R fit offline on old and new rules together, 384 events per rule, with known bindings as slots, audited on **both** rule generalization and old knowledge, at L = 4, 16 and 32, on both conditions. On `clean`, both must reach ≥ 0.85 at L = 16, or the study stops. A load failing that is descriptive only. On `degraded`, if the L = 16 ceiling on either reading is within 0.10 of the bar, that part of the bar becomes the ceiling minus 0.10, before any rule is compared and recorded here. Otherwise the bar could ask for what the map cannot hold.
 2. **Start.** Old knowledge at the start reproduces v1's level, at least 0.85 on the mean of the pilot seeds at `degraded`, else the bar is revised before any rule is compared.
 3. **Keys only.** Tests check that rules receive only keys, and that contaminant labels and outcome tables cannot reach them.
 4. **Sets.** Tests check that k, p and kinds are as specified, that a contaminant never comes from a family in the trial other than for `same-family`, and that draws match across rules.
@@ -149,6 +165,18 @@ On pilot seeds, before selection. Failure stops stage 1 until the design changes
 
 **Stage 3,** a stream at gaps with (m − 1)·g inside a trace's measured lifetime, against replay and windows at matched bytes, is a later contract. Long gaps return only after that, with an account of what holds evidence between events.
 
+## Changes from external review
+
+First review, before any build, all correct and fixed above:
+
+- `α` was ambiguous: the equation read as retention while its grid read as decay. It is now decay, `(1 − α)`, in both rules, and momentum's persistence is defined.
+- The "together" contrast mixed joint processing with extra exposures and gradient scale. It is now split into a natural comparison A and a matched comparison B, and the loss is averaged.
+- A chosen rule could meet the bar and still read `no-rule-reaches-bar`. `bar-reached-superiority-unestablished` closes that, and licenses stage 2.
+- The ceiling gate checked acquisition only. It now fits old and new jointly, audits both and can lower the bar.
+- The protective rules' memory is now specified: fixed, built once, with damage score and basis algorithm given.
+- `expert` in turn was over budget at L = 32, k = 8. That cell is now declared infeasible.
+- Update costs were incomplete and are now complete.
+
 ## Changes from the pilot
 
 None yet.
@@ -158,6 +186,7 @@ None yet.
 - Full text, not abstracts, of orthogonal weight modification, GEM and A-GEM, and maximally interfered retrieval, and Sleep's gradient-based selection sources.
 - The rest of the ATLAS proceedings on how γ is produced, which pages 5–6 and Appendix G do not specify.
 - Whether the bar and the old-knowledge limit are attainable, from the gates and pilot.
+- Whether the fixed buffers should also take in new rules; here they protect old knowledge only.
 
 ## Prior work
 
@@ -184,14 +213,17 @@ Per update: k experiences, D_c = 96, D_o = 32, r rehearsal events, q directions,
 
 | rule | work per update | persistent | what limits scale |
 |---|---|---|---|
-| `rank-one` | k(D_c + D_o) | none | none in itself; interference grows with rules |
-| `ridge` | k²D_c + k³ by the dual, D_c·D_o to apply | none | k cubed; small for small sets |
-| `ridge-rehearse` | (k + r)²D_c + (k + r)³ | r(D_c + D_o) | rehearsal grows with what must be kept safe |
-| `ridge-interfered` | as above, plus B·D_c·D_o to rank | B(D_c + D_o) | buffer |
-| `ridge-orthogonal` | as `ridge` + q·D_c·D_o; refreshing directions q²D_c | q·D_c | q; subspace fills as rules grow |
-| `expert` | k(D_c + D_o) to fit, X·D_c per read | X(D_c + D_o) | **linear in rules**, like slots |
-| `omega` | ≈ k²W over k arrivals | W | k² |
-| `titans` | ≈ 2kW | W or 2W | none in itself; capacity unknown |
+| `rank-one` | k·D_c·D_o residuals, k(D_c + D_o) means, D_c·D_o apply | none | none in itself; interference grows with rules |
+| `ridge` | k·D_c·D_o residuals, k²D_c + k³ by the dual, k·D_c·D_o to form Δ, D_c·D_o apply | none | k cubed; small for small sets |
+| `ridge-turn` | k × `ridge` at k = 1 | none | as `rank-one` |
+| `ridge-cycled` | k² × `ridge` at k = 1 | none, but holds the set | passes |
+| `ridge-rehearse` | as `ridge` at k + r | r(D_c + D_o) | rehearsal grows with what must be kept safe |
+| `ridge-interfered` | a tentative `ridge`, 2B·D_c·D_o to rank, then `ridge` at k + r | B(D_c + D_o) | buffer |
+| `ridge-orthogonal` | as `ridge` + 2q·D_c·D_o to project; once at construction n·D_c² + D_c³ | q·D_c | q; a fixed subspace does not protect later rules |
+| `expert` | k·D_c·D_o residuals, k(D_c + D_o) means; X·D_c added per read | X(D_c + D_o) | **linear in rules**, like slots |
+| `omega` | k(k + 1)/2 · 2W exposures | W | k² |
+| `omega-seq` | the same exposures, as single steps | W | k² |
+| `titans` | k · 2W | W or 2W | none in itself; capacity unknown |
 
 - **Facts.** The reader's size is fixed, so any rule writing into R has a capacity limit in rules; `expert` trades that for linear growth. Stage 1 measures this through L = 4, 16, 32 **[probes]**.
 - **What would not survive scale-up.** A family glyph handing the rule its feature; 32 outcomes decoded through an evaluator's table; 36 rule families; rules with one fixed outcome. A rule whose outcome depends on an item leaves no shared residual, so neither this test nor `cue-and-error` covers it.
@@ -201,7 +233,7 @@ Per update: k experiences, D_c = 96, D_o = 32, r rehearsal events, q directions,
 *Estimates, not measurements.*
 
 - **Construction.** Encoders for 12 seeds, about 70 s each on the GTX 1650. Key pool under a minute per seed and condition. Old knowledge: ridge O(n·D_c² + D_c³) once per seed and condition; MLP O(epochs × n × W) once per architecture, seed and condition.
-- **Stage 1 pilot.** 17 cells (p = 0 at four k; 12 contaminated; in turn) × 8 trials × 16 updates at the primary load, about 2,200 updates per setting, seed and condition. 89 linear settings at about a second each and 120 neural ones at a few seconds. Expected under 30 CPU-minutes, with rejected settings counted. v1's estimate was about 3× low.
+- **Stage 1 pilot.** 18 cells (p = 0 at four k; 12 contaminated; in turn at k = 4 and 8) × 8 trials × 16 updates at the primary load, about 2,300 updates per setting, seed and condition. 89 linear settings at about a second each and 120 neural ones at a few seconds. Expected under 30 CPU-minutes, with rejected settings counted. v1's estimate was about 3× low.
 - **Stage 1 confirmation.** Chosen rule, `rank-one` and the others at frozen settings, 10 seeds, all cells, both conditions, three loads: under an hour of CPU.
 - **Deterministic and timed output kept apart.** `reports/relevant-update-v1-{gates,pilot,confirm,analysis}` and separate `-runtime` files, per [computation reporting](computation-reporting.md). Peak workspace: pool 7.9 MB per seed, one set, the audit cues.
 - **Persistence.** Tasks durable (`experiments/durable.py`); rerunning resumes. Pools written atomically under gitignored `runs/`.
