@@ -1681,3 +1681,13 @@ Search date 2026-11-01, for the [relevant update draft](relevant-update-v1-contr
 - [von Oswald et al., 2022](https://arxiv.org/abs/2212.07677) **[abstract]**: linear self-attention can implement gradient descent on a regression loss. ATLAS Appendix G attributes a recursive least-squares memory to them; the abstract does not describe one, so this is **secondary**.
 
 **[derived]** Omega's window, Titans' single step and least squares on a whole context are one family in ATLAS Appendix G, varying c and optimizer. So an update-rule test can vary them inside one rule, with γ the published slot for experience selection.
+
+### Long-term memory: a network beside sparse relations
+
+Reading date 2026-11-01, for the [long-term memory draft](long-term-memory-v1-contract.md).
+
+- [Nested Learning and Hope, Behrouz et al., 2025](https://arxiv.org/abs/2512.24695) **[abstract; §7 through a page reader, not the full paper]**: memory as a chain of blocks with a spectrum of update frequencies. Block l updates every C(l) steps, gradients summed over the chunk (Eq. 71), with blocks nested, sequential or independent and aggregated (Eqs. 72-74). §7.1 argues that forgetting in one block is mitigated because older knowledge persists in lower-frequency blocks. No forgetting numbers were in the part read. Difference: Transformers on language tasks, and blocks in one gradient flow; ours is detached and trained on residuals. **[hypothesis]** A low update frequency may slow interference in a long-term network.
+- **[derived]** Detaching memory and training it on the readers' errors leaves the host's weights bitwise unchanged, which removes the transfer cost seen with dense units inside the host, and leaves only the combined answer at risk.
+- **[familiar; read before use]** Momentum encoders (MoCo) for stable keys; sparse distributed activation and k-winners for limiting interference.
+
+No match found in these few searches for a neural memory trained on sparse readers' residuals beside a relational core. Not a novelty claim.
