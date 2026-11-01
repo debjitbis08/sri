@@ -1751,3 +1751,48 @@ Reading date 2026-11-01, for the [long-term memory draft](long-term-memory-v1-co
 - **[familiar; read before use]** Momentum encoders (MoCo) for stable keys; sparse distributed activation and k-winners for limiting interference.
 
 No match found in these few searches for a neural memory trained on sparse readers' residuals beside a relational core. Not a novelty claim.
+
+### Interference protection after the long-term-memory pilot
+
+Reading date 2026-11-01. Revisited primary sources for retaining A while
+learning B: Sleep §§2.2, 3.2–3.3; Hope §7.1; and the OGD proceedings abstract.
+No new experiment is frozen by these notes.
+
+- **[read]** [Sleep](https://arxiv.org/html/2606.03979v1#S3.S2)
+  allocates a new low-rank expert to avoid interference with previously
+  consolidated knowledge. Knowledge seeding updates expanded parameters;
+  fast experts are subsequently reset. Preallocated masked capacity is an
+  implementation option. **[derived]** This is protection and allocation,
+  not merely a larger fully plastic MLP. It consumes capacity and does not
+  establish indefinite retention at fixed bytes. Protected weights also need
+  a preserved input representation and retrieval path.
+- **[read]** [Hope §7.1](https://arxiv.org/html/2512.24695v1#S7.SS1)
+  uses multiple memory blocks with distinct frequencies and knowledge transfer;
+  its retention argument depends on knowledge surviving in other blocks.
+  **[derived]** Sweeping C for one memory does not test that mechanism. Sleep
+  §2.2 notes that multiple timescales can still forget when blocks update,
+  motivating additional consolidation.
+- **[abstract]** [Orthogonal Gradient Descent, Farajtabar et al. 2020](https://proceedings.mlr.press/v108/farajtabar20a.html)
+  projects new-task gradients into directions intended to preserve old-task
+  outputs without retaining old raw examples. **[derived]** This is a direct
+  alternative to parameter isolation; retained gradient-subspace state must
+  count toward memory. **[open]** Read the full algorithm and approximation
+  limits before specifying it for this nonlinear network.
+- **[derived from implementation]** Top-k activation does not reserve disjoint
+  parameters for earlier associations: units can be reused, and learned
+  key/value projections and output bias/scale remain shared. Zero explicit
+  decay does not constrain B's gradient to preserve A. **[hypothesis]** Compare
+  protected allocation and constrained updates on old recall during new
+  acquisition, with replay as a reference, rather than another width/frequency
+  sweep. This targets interference directly.
+
+### Interference in a long-term network
+
+Search date 2026-11-01, after the [long-term memory pilot](long-term-memory-v1-pilot.md), where pairs in a network fell from 0.52-0.59 to 0.16-0.23 after a second set. Search records and abstracts only, unless stated; read before use.
+
+- **Sparse local memory.** [Bricken et al., 2023, SDMLP](https://arxiv.org/abs/2303.11934) **[search record]**: Top-K activation, no bias terms, L2 normalization and non-negativity give continual learning with no task labels, boundaries or replay; momentum optimizers go stale with high sparsity; ablation finds each component necessary. [Shen, Dasgupta and Navlakha, 2021](https://arxiv.org/abs/2107.07617) **[search record]**: fly circuit: sparse high-dimensional random expansion, then only synapses from active neurons to the associated output change, without backpropagation. [Lan and Mahmood, 2023](https://arxiv.org/abs/2310.01365) **[search record]**: sparse gradients matter beside sparse representations. **[derived]** Our `k-sparse` had biases, signed tanh units, no normalization, momentum 0.9 and moving learned projections, so it was not a test of these. Translation memory's one-step associative memory, a random sparse expansion with local writes, kept 0.907 of old words at 1,024 units, 41 active, and lost 0.02 on batch 1 over the schedule, on frozen keys: project evidence for this family.
+- **Gating to non-overlapping units.** [Masse, Grant and Freedman, 2018](https://arxiv.org/abs/1802.01569) **[search record]**: mostly non-overlapping units per task; gating alone only partly helps across 100 tasks; with synaptic stabilization, little forgetting. [Iyer et al., 2021](https://arxiv.org/abs/2201.00042) **[abstract]**: active dendrites and sparsity route by context. Difference: context signals are given or inferred at task level. **[hypothesis]** A frozen key could serve as context per item.
+- **Protecting allocated units.** [Serra et al., 2018, HAT](https://arxiv.org/abs/1801.01423) **[abstract]**: learned hard masks conditioned on previous tasks' masks. Task-based. **[familiar]** PackNet, SupSup. Difference: task identity and boundaries; a stream has neither.
+- **Importance of weights.** [Kirkpatrick et al., 2016, EWC](https://arxiv.org/abs/1612.00796) **[abstract]**: slows learning on weights important for earlier tasks. **[familiar]** Synaptic intelligence and memory aware synapses estimate importance online, and task-free variants exist. Bricken et al. report combining SDMLP with EWC on CIFAR-10.
+- **Multi-timescale synapses.** [Benna and Fusi, 2016](https://www.nature.com/articles/nn.4401) **[search record]**: synapses with several internal variables store many memories over long timescales, capacity roughly linear in synapses. **[hypothesis]** Hope's low-frequency blocks are a coarser relative.
+- **Replay.** [Shin et al., 2017](https://arxiv.org/abs/1705.08690) **[abstract]**: a generator interleaves synthetic past data, storing none. Retention remedies found bounded rehearsal effective here, on marked pairs.
