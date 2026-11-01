@@ -2,6 +2,8 @@
 
 Status: **pilot, 2026-11-01. Not evidence for any contrast**: settings were chosen on these seeds, and some rules and grids were added after seeing the first results (recorded in the [contract](relevant-update-v1-contract.md#changes-from-the-pilot)). `reports/relevant-update-v1-selection.json`; `experiments/relevant_update.py pilot`.
 
+**This study does not test the user's proposal** (user correction, 2026-11-01). The proposal is that memory buffers similar experiences and matches them with new ones so that a **sparse network** gets trained, with success read on the sparse network. This study has no sparse network, and its leading rule, `expert`, answers from its own store: it tests storage of non-generalizable knowledge. Its findings are about that setting only, and it should not be frozen or confirmed as a test of combining experiences.
+
 **Reading if this held on fresh seeds: `improved-below-bar`.** The chosen rule, `expert`, beats `rank-one` by a wide margin but sits just under the bar at 4 experiences, 0.68 against 0.70. Comparison B finds no benefit from joint processing as such.
 
 ## Primary cell
@@ -40,7 +42,7 @@ Immediate is rule generalization right after a rule's own update. `rank-one` has
 - `omega` against `omega-seq`: 0.07 and 0.07 at k = 4; 0.11 and 0.11 at k = 8; old knowledge within 0.01. As derived, they coincide at the small steps selected.
 - `ridge` against `ridge-cycled`: at λ ≤ 0.1, 0.43 against 0.43 at k = 4 and 0.50 against 0.49 at k = 8. At larger λ they diverge, since repeating steps regularizes less overall: λ 1 at k = 4, `ridge` 0.38/0.82 and `ridge-cycled` 0.44/0.66; λ 10, 0.05/0.99 and 0.31/0.90. These trace a similar tradeoff rather than one being better, so the contract's single-setting comparison is not a fair match, and comparison across λ replaces it.
 
-**Comparison A, natural: `expert` gains from taking a set at once.** 0.68/0.88 at k = 4 against 0.56/0.79 in turn, and 0.84/0.87 against 0.70/0.71 at k = 8, with lower breadth, and needing 1 expert per rule against k. The likely reason, not tested: averaging cues cancels item noise and leaves the family, so a mean cue is a better key. In a shared map, the same averaging gave no gain (`rank-one` 0.42 at both). So on this pilot, what helps is **forming a prototype from several experiences**, rather than taking gradients together.
+**Comparison A, natural: `expert` gains from taking a set at once.** 0.68/0.88 at k = 4 against 0.56/0.79 in turn, and 0.84/0.87 against 0.70/0.71 at k = 8, with lower breadth, and needing 1 expert per rule against k. The likely reason, not tested: averaging cues cancels item noise and leaves the family, so a mean cue is a better key. In a shared map, the same averaging gave no gain (`rank-one` 0.42 at both). That comparison is only about a store on frozen keys. It does not bear on whether matched experiences train a sparse network better, which was not tested here, so no conclusion about joint processing or pooling carries over to that.
 
 ## Contamination: what selection must deliver
 

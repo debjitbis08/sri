@@ -2,6 +2,8 @@
 
 Status: **draft, revised 2026-11-01 after external review. Nothing built or run; not frozen.** Stage 1 is specified to be frozen on its own. Stage 2 is a plan until stage 1's result is known, and stage 3 is only named. Values marked *provisional* may change once, on pilot seeds, before confirmation seeds exist, and every change is recorded under *Changes from the pilot*.
 
+**This study does not test the user's proposal** (user correction, 2026-11-01). The proposal is that memory buffers similar experiences and matches them with new ones so that a **sparse network** gets trained, with success read on the sparse network. This study has no sparse network, and its leading rule, `expert`, answers from its own store: it tests storage of non-generalizable knowledge. Its findings are about that setting only, and it should not be frozen or confirmed as a test of combining experiences.
+
 ## Question
 
 The bet: memory should update against **several relevant experiences together**, which takes a good update rule and useful experience selection. We have neither yet. So this tests them apart, before any stream:
