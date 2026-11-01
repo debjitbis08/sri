@@ -1,0 +1,22 @@
+{
+ "children_peak_rss_kb": 967972,
+ "command": "/home/debjit/code/sri/experiments/long_term_memory_diagnosis.py diagnosis",
+ "contract_sha256": "ff5423d3796a50e47173de478de84f00440ffaa532d1cd9696cfb560cf958f0b",
+ "cpu": "x86_64",
+ "device": "cpu",
+ "dirty": true,
+ "dtype": "float32",
+ "host_workers": 3,
+ "mechanisms_sha256": "c5cfd3caacb57b2eb2298bb552b057902b8cd5d3934318805e4ee02706bbf931",
+ "numpy": "2.5.4",
+ "parent_peak_rss_kb": 354220,
+ "python": "3.12.3",
+ "revision": "0f34dc108f18387279c8d15757de6bb7b5b0dfec",
+ "scope": "nondeterministic timing",
+ "source_sha256": "bbdc365c26dc2da45cf6bf1847ec72ec10f5c95066045623898f18ae3876442e",
+ "stage": "diagnosis",
+ "tasks": 168,
+ "torch": "2.14.1+cpu",
+ "wall_s": 154.3463797350123,
+ "workers": 11
+}

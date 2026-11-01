@@ -215,7 +215,7 @@ Host and replay are now separate modules, so changing replay does not invalidate
 
 ## Changes from the pilot
 
-None yet.
+The [pilot](long-term-memory-v1-pilot.md) (2026-11-01) reads `no-retention-shown` in shape. Its diagnosis finds gate 2's fallback to `slow` values removed the best source, interference is the main remaining loss, the additive answer decays as readers drift, and memory answers confidently on unknown symbols. No design change has been made in response, so this version cannot be frozen as written.
 
 ## Prior work
 
