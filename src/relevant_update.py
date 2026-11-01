@@ -100,6 +100,24 @@ class RidgeRehearse(Ridge):
         return len(self.bc) * ENTRY
 
 
+class RidgeKeep(RidgeRehearse):
+    """As `ridge-rehearse`, but every new set is kept too and all of it is refit on each update, under the current R. Its bytes grow with what it has seen."""
+
+    def __init__(self, base, cfg):
+        super().__init__(base, cfg)
+        self.kc, self.ko = np.zeros((0, D_C), np.float32), np.zeros((0, D_O), np.float32)
+
+    def update(self, C, O):
+        self.kc, self.ko = np.vstack([self.kc, C]), np.vstack([self.ko, O])
+        sw = np.sqrt(self.cfg['w'])
+        E = self.residual(self.kc, self.ko)
+        Eb = self.residual(self.bc, self.bo)
+        self.apply(self.solve(np.vstack([self.kc, sw * self.bc]), np.vstack([E, sw * Eb])))
+
+    def extra_bytes(self, L, k=None):
+        return (len(self.bc) + len(self.kc)) * ENTRY
+
+
 class RidgeInterfered(RidgeRehearse):
     """Of a fixed buffer of B old events, the r a tentative `ridge` update damages most enter the fit; ties to the lower index."""
 

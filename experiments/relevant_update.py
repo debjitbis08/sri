@@ -57,10 +57,10 @@ OLD_LIMIT, RULE_BAR = .85, .70   # provisional
 LAM = (.01, .1, 1., 10.)
 NEURAL = dict(layers=(1, 2), alpha=(0., .0001, .001), eta=(.001, .003, .01, .03, .1))
 GRIDS = {'rank-one': {}, 'ridge': dict(lam=LAM), 'ridge-rehearse': dict(lam=LAM, r=(8, 32, 128), w=(.25, 1., 4.)), 'ridge-interfered': dict(lam=LAM, B=(128,), r=(8, 32), w=(.25, 1., 4.)),
-         'ridge-orthogonal': dict(lam=LAM, q=(4, 8, 16, 32, 64)), 'expert': dict(tau_x=(.3, .4, .5, .6, .7)), 'omega': NEURAL, 'titans-m0': NEURAL, 'titans': {**NEURAL, 'beta': (.5, .9)}}
+         'ridge-orthogonal': dict(lam=LAM, q=(4, 8, 16, 32, 64)), 'expert': dict(tau_x=(.3, .35, .375, .4, .425, .45, .475, .5, .6, .7)), 'ridge-keep': dict(lam=LAM, r=(8, 32), w=(.25, 1., 4.)), 'omega': NEURAL, 'titans-m0': NEURAL, 'titans': {**NEURAL, 'beta': (.5, .9)}}
 CONTROLS = {'ridge-cycled': 'ridge', 'omega-seq': 'omega'}
 TURN_PARTNER = {'omega': 'titans-m0'}
-LINEAR = {'rank-one': ru.RankOne, 'ridge': ru.Ridge, 'ridge-cycled': ru.RidgeCycled, 'ridge-rehearse': ru.RidgeRehearse, 'ridge-interfered': ru.RidgeInterfered, 'ridge-orthogonal': ru.RidgeOrthogonal, 'expert': ru.Expert}
+LINEAR = {'ridge-keep': ru.RidgeKeep, 'rank-one': ru.RankOne, 'ridge': ru.Ridge, 'ridge-cycled': ru.RidgeCycled, 'ridge-rehearse': ru.RidgeRehearse, 'ridge-interfered': ru.RidgeInterfered, 'ridge-orthogonal': ru.RidgeOrthogonal, 'expert': ru.Expert}
 NEURAL_RULES = {'omega': ru.Omega, 'omega-seq': ru.OmegaSeq, 'titans': ru.Titans, 'titans-m0': ru.Titans}
 
 
@@ -309,10 +309,14 @@ def full_cells(name, cfg, seeds):
                             out.append((name, j, s, cond, L, k, p, kind, False))
                     if not (name == 'expert' and L * k * ru.ENTRY > BUDGET):
                         out.append((name, j, s, cond, L, k, 0., None, True))
+    if name == 'ridge-keep':
+        out = [t for t in out if (cfg['r'] + t[4] * t[5]) * ru.ENTRY <= BUDGET]
     return out
 
 
 def ok_budget(name, cfg, w):
+    if name == 'ridge-keep':
+        return (cfg['r'] + PRIMARY_L * PRIMARY_K) * ru.ENTRY <= BUDGET
     rule = make_rule(name, cfg, w['seed'], w['cond'], w) if name in LINEAR else None
     return rule is None or rule.extra_bytes(max(LOADS)) <= BUDGET
 
@@ -344,14 +348,18 @@ def pilot():
         sel[ctrl] = {'cfg': sel[partner]['cfg'], 'score': None, 'within_limit': None, 'settings': 0}
     print('full cells', flush=True)
     full = [t for name in sel for t in full_cells(name, sel[name]['cfg'], seeds)]
-    results.update(run_all(full))
+    # comparison B across the shared lambdas: repeated steps at one lambda regularize less overall, so a single setting does not match them
+    sweep = [t for lam in LAM for name in ('ridge', 'ridge-cycled') for k in (4, 8) for s in seeds for t in [(name, json.dumps({'lam': lam}, sort_keys=True), s, PRIMARY_COND, PRIMARY_L, k, 0., None, False)]]
+    results.update(run_all(full + sweep))
+    linear_b = {f'lam{lam}-k{k}': {name: {r: float(np.mean([results[cell_key((name, json.dumps({'lam': lam}, sort_keys=True), s, PRIMARY_COND, PRIMARY_L, k, 0., None, False))][0][r] for s in seeds])) for r in ('rule_generalization', 'old_knowledge', 'immediate')} for name in ('ridge', 'ridge-cycled')} for lam in LAM for k in (4, 8)}
     table = {name: {'by_cell': {cell_key(t): results[cell_key(t)][0] for t in full_cells(name, sel[name]['cfg'], seeds)}, 'cfg': sel[name]['cfg'], 'primary': (sel[name]['score'] or score(name, sel[name]['cfg'], seeds, {**results})), 'within_limit': sel[name]['within_limit'], 'settings': sel[name]['settings']} for name in sel}
-    save_json(f'{REPORT}-selection.json', {'chosen': chosen, 'selected': {n: sel[n]['cfg'] for n in sel}, 'table': table})
+    save_json(f'{REPORT}-selection.json', {'chosen': chosen, 'selected': {n: sel[n]['cfg'] for n in sel}, 'table': table, 'linear_b': linear_b})
     save_json(f'{REPORT}-pilot-runtime.json', runtime({'wall_s': time.perf_counter() - t0, 'cells': len(results), 'worker_cpu_s': sum(rt.get('cpu_s', 0) for _, rt in results.values())}))
     for name in sel:
         s = table[name]['primary']
         print(name, sel[name]['cfg'], {k: round(s[k], 3) for k in ('rule_generalization', 'old_knowledge', 'breadth', 'immediate', 'ops_per_update')}, table[name]['within_limit'])
     print('chosen', chosen)
+    print('linear B', json.dumps({k: {n: [round(x, 2) for x in v.values()] for n, v in d.items()} for k, d in linear_b.items()}))
 
 
 # ---------------------------------------------------------------- confirmation

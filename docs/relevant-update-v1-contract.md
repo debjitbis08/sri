@@ -100,9 +100,10 @@ Audit after the trial's last update, unless stated, on `clean` audit renderings 
 | `ridge` and its variants | λ 0.01, 0.1, 1, 10 |
 | `ridge-rehearse` | r 8, 32, 128; w 0.25, 1, 4 |
 | `ridge-interfered` | B 128; r 8, 32; w 0.25, 1, 4 |
+| `ridge-keep` | r 8, 32; w 0.25, 1, 4 |
 | `ridge-turn`, `ridge-cycled`, `omega-seq` | their partner's frozen setting, never searched |
 | `ridge-orthogonal` | q 4, 8, 16, 32, 64 |
-| `expert` | τ_x 0.3, 0.4, 0.5, 0.6, 0.7 |
+| `expert` | τ_x 0.3, 0.35, 0.375, 0.4, 0.425, 0.45, 0.475, 0.5, 0.6, 0.7 |
 | `omega`, `titans`, `titans-m0` | layers 1, 2; decay α 0, 0.0001, 0.001; η 0.001, 0.003, 0.01, 0.03, 0.1; `titans` β 0.5, 0.9 |
 
 One setting per rule, frozen across k, p, L and condition. Grids may extend once if a choice lies on an edge, recorded. `rank-one` has none.
@@ -196,14 +197,20 @@ First review, before any build, all correct and fixed above:
 
 ## Changes from the pilot
 
-None yet.
+From the [pilot](relevant-update-v1-pilot.md) on seeds 380 and 381, before confirmation seeds exist:
+
+- **`ridge-keep` added**, as `ridge-rehearse` but keeping every new set and refitting all of it per update, the global least-squares case. Rules were being lost to interference among new rules, which nothing protected. λ as `ridge`; r 8, 32; w 0.25, 1, 4. Bytes (r + kept) × 512; cells over budget are infeasible, so L = 32 and L = 16 with k = 8 are not run.
+- **`expert`'s grid refined** to τ_x 0.3, 0.35, 0.375, 0.4, 0.425, 0.45, 0.475, 0.5, 0.6, 0.7, since the choice lay between coarse values.
+- **Linear comparison B is read across all of `ridge`'s λ,** not at one: a single λ does not match repeated steps, which regularize less overall.
+- **The bar is unchanged,** though the pilot's chosen rule read 0.68 against 0.70. Moving it after seeing that would make it no bar at all.
+- **Naming:** `expert` is close to a nearest-prototype classifier with a rejection threshold. It changes no shared weights, so a pass by `expert` is reported as such, and not as a better update to shared knowledge.
 
 ## Before freezing
 
 - Full text, not abstracts, of orthogonal weight modification, GEM and A-GEM, and maximally interfered retrieval, and Sleep's gradient-based selection sources.
 - The rest of the ATLAS proceedings on how γ is produced, which pages 5–6 and Appendix G do not specify.
 - Whether the bar and the old-knowledge limit are attainable, from the gates and pilot.
-- Whether the fixed buffers should also take in new rules; here they protect old knowledge only.
+- Prototypical networks and nearest-class-mean classifiers, since `expert` is close to them.
 
 ## Prior work
 

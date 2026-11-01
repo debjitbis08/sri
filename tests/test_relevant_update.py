@@ -89,6 +89,22 @@ class Rules(unittest.TestCase):
         loss = lambda r: float(((base['rule_C'] @ r.R - base['rule_O']) ** 2).sum())
         self.assertLess(loss(reh), loss(plain))
 
+    def test_keep_retains_an_earlier_rule_better_than_ridge(self):
+        rng = np.random.default_rng(4)
+        fams = [unit(rng.standard_normal(sl.D_C)) for _ in range(6)]
+        fams = [unit(.8 * fams[0] + .6 * f) for f in fams]        # correlated families, as real keys are
+        outs = unit(rng.standard_normal((6, sl.D_O))).astype(np.float32)
+        plain, keep = ru.Ridge(self.base, {'lam': .01}), ru.RidgeKeep(self.base, {'lam': .01, 'r': 8, 'w': .25})
+        for f, o in zip(fams, outs):
+            C = self.b.family_cues(f, 4)
+            O = np.tile(o, (4, 1))
+            plain.update(C, O)
+            keep.update(C, O)
+        test = self.b.family_cues(fams[0], 32)
+        score = lambda r: float((sl.unit(test @ r.R) @ outs[0]).mean())
+        self.assertGreater(score(keep), score(plain))
+        self.assertEqual(keep.extra_bytes(6), (8 + 24) * 512)
+
     def test_interfered_picks_the_most_damaged(self):
         r = ru.RidgeInterfered(self.base, {'lam': .1, 'B': 16, 'r': 8, 'w': 1.})
         self.assertEqual(len(r.bc), 16)
