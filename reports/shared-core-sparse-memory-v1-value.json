@@ -1,0 +1,413 @@
+{
+ "results": {
+  "392": {
+   "A": {
+    "oracle_address_accumulated": {
+     "cosine": {
+      "accuracy": 0.5911111111111111,
+      "within_one": 0.8977777777777778
+     },
+     "cosine_centred": {
+      "accuracy": 0.27111111111111114,
+      "within_one": 0.6888888888888889
+     },
+     "count_prototypes_no_candidates": {
+      "accuracy": 1.0,
+      "within_one": 1.0
+     },
+     "euclidean": {
+      "accuracy": 0.6577777777777778,
+      "within_one": 0.9333333333333333
+     },
+     "head": {
+      "accuracy": 0.4488888888888889,
+      "within_one": 0.8666666666666667
+     }
+    },
+    "perfect_contents": {
+     "cosine": {
+      "accuracy": 0.5911111111111111,
+      "within_one": 0.8977777777777778
+     },
+     "cosine_centred": {
+      "accuracy": 0.2577777777777778,
+      "within_one": 0.68
+     },
+     "count_prototypes_no_candidates": {
+      "accuracy": 1.0,
+      "within_one": 1.0
+     },
+     "euclidean": {
+      "accuracy": 0.6577777777777778,
+      "within_one": 0.9333333333333333
+     },
+     "head": {
+      "accuracy": 0.4444444444444444,
+      "within_one": 0.8666666666666667
+     }
+    },
+    "store_on_core_keys_accumulated": {
+     "cosine": {
+      "accuracy": 0.18666666666666668,
+      "within_one": 0.40444444444444444
+     },
+     "cosine_centred": {
+      "accuracy": 0.12444444444444444,
+      "within_one": 0.3333333333333333
+     },
+     "count_prototypes_no_candidates": {
+      "accuracy": 0.2311111111111111,
+      "within_one": 0.4311111111111111
+     },
+     "euclidean": {
+      "accuracy": 0.17777777777777778,
+      "within_one": 0.4177777777777778
+     },
+     "head": {
+      "accuracy": 0.12444444444444444,
+      "within_one": 0.3511111111111111
+     }
+    },
+    "store_on_core_keys_label": 0.2311111111111111,
+    "store_on_frozen_keys_accumulated": {
+     "cosine": {
+      "accuracy": 0.5911111111111111,
+      "within_one": 0.8977777777777778
+     },
+     "cosine_centred": {
+      "accuracy": 0.27111111111111114,
+      "within_one": 0.6888888888888889
+     },
+     "count_prototypes_no_candidates": {
+      "accuracy": 1.0,
+      "within_one": 1.0
+     },
+     "euclidean": {
+      "accuracy": 0.6577777777777778,
+      "within_one": 0.9333333333333333
+     },
+     "head": {
+      "accuracy": 0.4488888888888889,
+      "within_one": 0.8666666666666667
+     }
+    },
+    "store_on_frozen_keys_label": 1.0
+   },
+   "B": {
+    "oracle_address_accumulated": {
+     "cosine": {
+      "accuracy": 0.5688888888888889,
+      "within_one": 0.9155555555555556
+     },
+     "cosine_centred": {
+      "accuracy": 0.21333333333333335,
+      "within_one": 0.6088888888888889
+     },
+     "count_prototypes_no_candidates": {
+      "accuracy": 1.0,
+      "within_one": 1.0
+     },
+     "euclidean": {
+      "accuracy": 0.6177777777777778,
+      "within_one": 0.92
+     },
+     "head": {
+      "accuracy": 0.4533333333333333,
+      "within_one": 0.8444444444444444
+     }
+    },
+    "perfect_contents": {
+     "cosine": {
+      "accuracy": 0.5688888888888889,
+      "within_one": 0.9155555555555556
+     },
+     "cosine_centred": {
+      "accuracy": 0.21777777777777776,
+      "within_one": 0.6133333333333333
+     },
+     "count_prototypes_no_candidates": {
+      "accuracy": 1.0,
+      "within_one": 1.0
+     },
+     "euclidean": {
+      "accuracy": 0.6177777777777778,
+      "within_one": 0.92
+     },
+     "head": {
+      "accuracy": 0.4533333333333333,
+      "within_one": 0.8444444444444444
+     }
+    },
+    "store_on_core_keys_accumulated": {
+     "cosine": {
+      "accuracy": 0.1688888888888889,
+      "within_one": 0.40444444444444444
+     },
+     "cosine_centred": {
+      "accuracy": 0.09333333333333334,
+      "within_one": 0.30666666666666664
+     },
+     "count_prototypes_no_candidates": {
+      "accuracy": 0.26222222222222225,
+      "within_one": 0.41333333333333333
+     },
+     "euclidean": {
+      "accuracy": 0.17333333333333334,
+      "within_one": 0.4088888888888889
+     },
+     "head": {
+      "accuracy": 0.1288888888888889,
+      "within_one": 0.3511111111111111
+     }
+    },
+    "store_on_core_keys_label": 0.26222222222222225,
+    "store_on_frozen_keys_accumulated": {
+     "cosine": {
+      "accuracy": 0.5688888888888889,
+      "within_one": 0.9155555555555556
+     },
+     "cosine_centred": {
+      "accuracy": 0.21333333333333335,
+      "within_one": 0.6088888888888889
+     },
+     "count_prototypes_no_candidates": {
+      "accuracy": 1.0,
+      "within_one": 1.0
+     },
+     "euclidean": {
+      "accuracy": 0.6177777777777778,
+      "within_one": 0.92
+     },
+     "head": {
+      "accuracy": 0.4533333333333333,
+      "within_one": 0.8444444444444444
+     }
+    },
+    "store_on_frozen_keys_label": 1.0
+   },
+   "distinct_exposures_per_symbol_min": 638,
+   "exposures": 64000,
+   "single_collection_to_count": {
+    "accuracy": 0.6111111111111112,
+    "by_count": [
+     0.8666666666666667,
+     0.6666666666666666,
+     0.7,
+     0.6333333333333333,
+     0.6666666666666666,
+     0.5666666666666667,
+     0.6666666666666666,
+     0.43333333333333335,
+     0.3
+    ],
+    "within_one": 0.9
+   },
+   "unique_symbols": 90
+  },
+  "393": {
+   "A": {
+    "oracle_address_accumulated": {
+     "cosine": {
+      "accuracy": 0.5955555555555555,
+      "within_one": 0.9644444444444444
+     },
+     "cosine_centred": {
+      "accuracy": 0.3511111111111111,
+      "within_one": 0.8044444444444444
+     },
+     "count_prototypes_no_candidates": {
+      "accuracy": 1.0,
+      "within_one": 1.0
+     },
+     "euclidean": {
+      "accuracy": 0.7422222222222222,
+      "within_one": 0.9555555555555556
+     },
+     "head": {
+      "accuracy": 0.5866666666666667,
+      "within_one": 0.8311111111111111
+     }
+    },
+    "perfect_contents": {
+     "cosine": {
+      "accuracy": 0.6,
+      "within_one": 0.9644444444444444
+     },
+     "cosine_centred": {
+      "accuracy": 0.36,
+      "within_one": 0.8222222222222222
+     },
+     "count_prototypes_no_candidates": {
+      "accuracy": 1.0,
+      "within_one": 1.0
+     },
+     "euclidean": {
+      "accuracy": 0.7422222222222222,
+      "within_one": 0.9555555555555556
+     },
+     "head": {
+      "accuracy": 0.5866666666666667,
+      "within_one": 0.8311111111111111
+     }
+    },
+    "store_on_core_keys_accumulated": {
+     "cosine": {
+      "accuracy": 0.26666666666666666,
+      "within_one": 0.47555555555555556
+     },
+     "cosine_centred": {
+      "accuracy": 0.19111111111111112,
+      "within_one": 0.4222222222222222
+     },
+     "count_prototypes_no_candidates": {
+      "accuracy": 0.3333333333333333,
+      "within_one": 0.47555555555555556
+     },
+     "euclidean": {
+      "accuracy": 0.27111111111111114,
+      "within_one": 0.4533333333333333
+     },
+     "head": {
+      "accuracy": 0.2222222222222222,
+      "within_one": 0.4177777777777778
+     }
+    },
+    "store_on_core_keys_label": 0.3333333333333333,
+    "store_on_frozen_keys_accumulated": {
+     "cosine": {
+      "accuracy": 0.5955555555555555,
+      "within_one": 0.9644444444444444
+     },
+     "cosine_centred": {
+      "accuracy": 0.3511111111111111,
+      "within_one": 0.8044444444444444
+     },
+     "count_prototypes_no_candidates": {
+      "accuracy": 1.0,
+      "within_one": 1.0
+     },
+     "euclidean": {
+      "accuracy": 0.7422222222222222,
+      "within_one": 0.9555555555555556
+     },
+     "head": {
+      "accuracy": 0.5866666666666667,
+      "within_one": 0.8311111111111111
+     }
+    },
+    "store_on_frozen_keys_label": 1.0
+   },
+   "B": {
+    "oracle_address_accumulated": {
+     "cosine": {
+      "accuracy": 0.6133333333333333,
+      "within_one": 0.9466666666666667
+     },
+     "cosine_centred": {
+      "accuracy": 0.3466666666666667,
+      "within_one": 0.7911111111111111
+     },
+     "count_prototypes_no_candidates": {
+      "accuracy": 1.0,
+      "within_one": 1.0
+     },
+     "euclidean": {
+      "accuracy": 0.7511111111111111,
+      "within_one": 0.9511111111111111
+     },
+     "head": {
+      "accuracy": 0.6355555555555555,
+      "within_one": 0.8266666666666667
+     }
+    },
+    "perfect_contents": {
+     "cosine": {
+      "accuracy": 0.6088888888888889,
+      "within_one": 0.9466666666666667
+     },
+     "cosine_centred": {
+      "accuracy": 0.3377777777777778,
+      "within_one": 0.7955555555555556
+     },
+     "count_prototypes_no_candidates": {
+      "accuracy": 1.0,
+      "within_one": 1.0
+     },
+     "euclidean": {
+      "accuracy": 0.76,
+      "within_one": 0.9511111111111111
+     },
+     "head": {
+      "accuracy": 0.6355555555555555,
+      "within_one": 0.8266666666666667
+     }
+    },
+    "store_on_core_keys_accumulated": {
+     "cosine": {
+      "accuracy": 0.15555555555555556,
+      "within_one": 0.37777777777777777
+     },
+     "cosine_centred": {
+      "accuracy": 0.14222222222222222,
+      "within_one": 0.3422222222222222
+     },
+     "count_prototypes_no_candidates": {
+      "accuracy": 0.24888888888888888,
+      "within_one": 0.39555555555555555
+     },
+     "euclidean": {
+      "accuracy": 0.18666666666666668,
+      "within_one": 0.38222222222222224
+     },
+     "head": {
+      "accuracy": 0.16,
+      "within_one": 0.3466666666666667
+     }
+    },
+    "store_on_core_keys_label": 0.24888888888888888,
+    "store_on_frozen_keys_accumulated": {
+     "cosine": {
+      "accuracy": 0.6133333333333333,
+      "within_one": 0.9466666666666667
+     },
+     "cosine_centred": {
+      "accuracy": 0.3466666666666667,
+      "within_one": 0.7911111111111111
+     },
+     "count_prototypes_no_candidates": {
+      "accuracy": 0.9955555555555555,
+      "within_one": 1.0
+     },
+     "euclidean": {
+      "accuracy": 0.7511111111111111,
+      "within_one": 0.9511111111111111
+     },
+     "head": {
+      "accuracy": 0.6355555555555555,
+      "within_one": 0.8266666666666667
+     }
+    },
+    "store_on_frozen_keys_label": 0.9955555555555555
+   },
+   "distinct_exposures_per_symbol_min": 651,
+   "exposures": 64000,
+   "single_collection_to_count": {
+    "accuracy": 0.662962962962963,
+    "by_count": [
+     0.7666666666666667,
+     0.8,
+     0.7333333333333333,
+     0.6,
+     0.4,
+     0.7,
+     0.6666666666666666,
+     0.7333333333333333,
+     0.5666666666666667
+    ],
+    "within_one": 0.9592592592592593
+   },
+   "unique_symbols": 90
+  }
+ },
+ "status": "exploratory diagnostic on pilot seeds; hosts frozen at block 3, so live values are block-3 codes"
+}

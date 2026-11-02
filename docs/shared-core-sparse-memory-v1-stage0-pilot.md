@@ -43,7 +43,7 @@ Reconstruction now trains, and at λ 100 identity is 0.26–0.32, far below the 
 Other readings:
 
 - **Still a line.** On new symbols the top direction holds 0.95–0.99 of the variance in `sparse48` and the `wide32` arms at λ ≤ 1, against 0.14–0.15 on the frozen encoder. Its cosine with the collections' top direction is 0.95–1.00 at λ ≤ 1, so it is the count direction. The widest of these is `split-recon-bg` at λ 0.1, seed 392, at 0.77; at λ 100 the share is still 0.69–0.95.
-- **The shared encoder is limiting, not just the projection.** Identity before projection never exceeds 0.38 in any configuration, so no projection from it could read the bar by cosine.
+- **The encoder output is weak as well as the projection.** Cosine identity before projection never exceeds 0.38 in any configuration. A learned projection can change the metric and suppress nuisance directions, so this does not show identity is absent there. It shows that the tested representations and readers fail.
 - **The added part of `split-recon-bg`** reads 0.34, 0.29 at λ 0.1, above its read part at 0.20, 0.14, but holds 3–4% of the code's variance, so the whole reads 0.25.
 - **Readers do not spread.** At λ ≤ 1, live units of both readers together use 4–9 of 32 coordinates in the `wide32` arms, and 3–6 of 16 in `sparse48` and `split-recon-bg`.
 - **Pixels are a poor identity cue.** In the key encoder's selection, raw pixel cosine read 0.09 on 120 validation symbols, from one stored rendering. This is the contract's stated failure mode for pixel reconstruction.

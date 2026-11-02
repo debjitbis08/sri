@@ -511,8 +511,9 @@ The paired contrast with the locked address, on the same per-seed mean, reads be
 0.05. If `sense-only` is equivalent or better, then within one sense the core is not needed for these pairs.
 
 **Cross-sense reach.** Primary for the core's reason to exist: taps queries on the fixture. **Reach** is shown for an
-address if the lower 95% bound of its score is above chance, 0.11, and its paired interval against `sense-only`
-excludes zero in its favour. Same-sense reads are reported beside it. A claim that the core earns its place in the
+address if the lower 95% bound of its score is above chance, 0.11. Beating `sense-only` is not part of the test on the locked route: it has no tap
+encoder and abstains, so that comparison is vacuous. `core` and `conjunctive` are read side by side, on English and on taps. On the locked route a tap query reads only the core part,
+so success shows access through the shared relational code, and does not show that concatenation produces cross-sense matching. A claim that the core earns its place in the
 address needs reach, on `core` or `conjunctive`.
 
 **Unknown symbols.** On the unwritten third set: coverage, the share of queries answered,
@@ -677,6 +678,10 @@ is the question not already answered here. For stage 1, disjoint writes needing 
 on good keys are not discoveries. The empirical questions are collisions at load, dilution and the core's
 contribution. No novelty claim is made.
 
+**If a shared core is tried again.** Pixel reconstruction rewards recovering appearance, while addressing needs symbols kept apart across renderings. Contrastive learning on identity-preserving
+augmentations, as in [SimCLR](https://proceedings.mlr.press/v119/chen20j.html) **[external review; not read]**, is closer to that. Pairing separate renderings by known symbol would be supervision and must be declared. That is a separate experiment,
+not another λ sweep. The review also pointed to the [Tolman–Eichenbaum Machine](https://pmc.ncbi.nlm.nih.gov/articles/PMC7707106/) as direction, not prediction, since its learned binding differs from concatenation.
+
 **Cheaper alternatives.** The explicit store, frozen encoder and `random-features` are included. Replay
 and protected expert expansion are outside this comparison; neither is claimed inferior.
 
@@ -760,6 +765,7 @@ implementation, not represented as existing.
 
 ## Before freezing
 
+1. Run the value diagnostic: an oracle address returning the right symbol's accumulated live value through the actual decoder, beside perfect contents, to separate address failure from value and decoding failure.
 1. Run the stage 1 and fixture pilots on the locked route, then select settings and set the stage 1 bars. On this route `sense-only` and `frozen-encoder` are one run, and `perception` is not used.
 2. Record the cross-sense fixture's pilot reading of `conjunctive`, with its fallback.
 3. Read adaptive resonance theory and Kanerva's sparse distributed memory, and record them in [prior work](prior-work.md), with the other [familiar] items.
