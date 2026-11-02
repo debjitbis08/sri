@@ -332,11 +332,138 @@ def fit_robust(task):
     return f'{seed}/{name}', {**robust_reads(lambda b: model(b), seed), 'checkpoint': {'file': str(LM_path.relative_to(X.ROOT)), 'sha256': nc.sha256(LM_path)}}, timing(t0, c0)
 
 
+# ---------------------------------------------------------------- fan-in and two-stage reading
+
+SHORTLISTS = (1, 3, 5, 10, 20)
+# arm: (how the encoder trains, fan-in per operand or None for dense, RigL)
+FANIN = {'through-k4-rigl': ('through', 4, True), 'through-k8-rigl': ('through', 8, True), 'through-k16-rigl': ('through', 16, True), 'through-k8-fixed': ('through', 8, False),
+         'joint-dense': ('joint', None, False), 'joint-k8-rigl': ('joint', 8, True), 'on-top-dense': ('on-top', None, False), 'on-top-k8-rigl': ('on-top', 8, True)}
+
+
+class WideComparator(Comparator):
+    """The same reader: sparse first layer of 48 units, dense second layer, score; each first-layer unit reads k coordinates per operand."""
+
+    def __init__(self, d, k, rigl_on, seed):
+        nn.Module.__init__(self)
+        self.d, self.sparse = d, bool(k and rigl_on)
+        with torch.random.fork_rng(devices=[]):
+            torch.manual_seed(int(nc.stream('sr_comparator', seed, d, str(k), str(rigl_on)).integers(2 ** 62)))
+            first = nn.Linear(2 * d, STRUCT if k else HIDDEN)
+            if k:
+                FI.CODE = d
+                FI.reader_mask(first, d // k, nc.stream('sr_mask', seed, 'a', k), nc.stream('sr_mask', seed, 'b', k))
+                first.register_buffer('swaps', torch.zeros((), dtype=torch.long))
+            self.first = first
+            self.rest = nn.Sequential(nn.ReLU(), nn.Linear(STRUCT if k else HIDDEN, HIDDEN), nn.ReLU(), nn.Linear(HIDDEN, 1))
+
+
+@torch.no_grad()
+def two_stage(comp, proto, q, truth, counts=None):
+    """Cosine shortlists K stored symbols, the comparator picks among them. K = all stored is comparator alone. Passes through the comparator per query = K."""
+    u_q, u_p = F.normalize(q, dim=-1), F.normalize(proto, dim=-1)
+    order = (u_q @ u_p.T).argsort(1, descending=True)
+    out = {'cosine_alone': float((order[:, 0].cpu().numpy() == truth).mean())}
+    for K in (*SHORTLISTS, len(proto)):
+        top = order[:, :K]
+        a = q[:, None].expand(-1, K, -1).reshape(-1, q.shape[-1])
+        b = proto[top.reshape(-1)]
+        s = torch.cat([comp(a[i:i + 8192], b[i:i + 8192]) for i in range(0, len(a), 8192)]).reshape(len(q), K)
+        pick = top[torch.arange(len(q)), s.argmax(1)].cpu().numpy()
+        out[f'K{K}'] = float((pick == truth).mean())
+    return out
+
+
+@torch.no_grad()
+def fanin_reads(code, comp, seed, fonts):
+    train, ev, counts = S0.test_material(seed)
+    t, q = S0.split_codes(code, train, ev)
+    out = {'shape': shape(t[:S0.LOADS[0]]), 'readers': reader_use_k(comp, t[:S0.LOADS[0]].reshape(-1, t.shape[-1]))}
+    for L in S0.LOADS:
+        out[str(L)] = two_stage(comp, t[:L].mean(1), q[:L].reshape(L * q.shape[1], -1), np.repeat(np.arange(L), q.shape[1]))
+    ftrain, fsame, fcross = fonts
+    ft, fq = S0.split_codes(code, ftrain, fsame)
+    _, fx = S0.split_codes(code, ftrain[:1], fcross)
+    truth = np.repeat(np.arange(len(ftrain)), fx.shape[1])
+    out['same_font'] = two_stage(comp, ft.mean(1), fq.reshape(-1, fq.shape[-1]), truth)
+    out['other_font'] = two_stage(comp, ft.mean(1), fx.reshape(-1, fx.shape[-1]), truth)
+    return out
+
+
+@torch.no_grad()
+def reader_use_k(comp, codes):
+    if not hasattr(comp.first, 'mask'):
+        return None
+    rng = np.random.default_rng(0)
+    i, j = rng.integers(len(codes), size=(2, 2000))
+    act = (comp.first(torch.cat([codes[i], codes[j]], 1)) > 0).any(0)
+    m = comp.first.mask[act][:, :2 * comp.d]
+    reads = (m[:, :comp.d] + m[:, comp.d:]).sum(0)
+    return {'live_units': int(act.sum()), 'distinct_coordinates': int((reads > 0).sum()), 'of': comp.d, 'top4_share': float(reads.sort(descending=True).values[:4].sum() / reads.sum())}
+
+
+def font_cache(seed):
+    path = RUNS / 'fonts' / f'seed{seed}.npz'
+    if not path.exists():
+        import io
+        a, b, c, _ = font_material(seed)
+        buf = io.BytesIO()
+        np.savez_compressed(buf, train=a, same=b, cross=c)
+        DUR.atomic_write(path, buf.getvalue())
+    z = np.load(path)
+    return z['train'], z['same'], z['cross']
+
+
+def fit_fanin(task):
+    seed, name = task
+    t0, c0 = time.perf_counter(), time.process_time()
+    S0.set_up_task('sparse48')
+    how, k, rigl_on = FANIN[name]
+    bg = S0.background_images(seed)
+    n_cls, n_r = bg.shape[:2]
+    rng = nc.stream('sr_fanin', seed, name)
+    model = TK.build('base', 32, 40_000 + seed)
+    if how == 'on-top':
+        model.load_state_dict(torch.load(RUNS / 'encoders' / f'full-seed{seed}.pt', map_location='cpu'))
+    comp = WideComparator(32, k, rigl_on, seed)
+    comp = comp.to(DEV.NAME) if DEV.ACTIVE else comp
+    params = list(comp.parameters()) + ([] if how == 'on-top' else list(model.parameters()))
+    opt = torch.optim.Adam(params, TK.LR)
+    partner = pair_labels()
+    end, scale = FI.END_FRACTION * MACHINE_STEPS, np.sqrt(32)
+    losses = []
+    for step in range(1, MACHINE_STEPS + 1):
+        base = torch.from_numpy(np.ascontiguousarray(bg[rng.integers(n_cls, size=CLASSES), rng.integers(n_r, size=CLASSES)], dtype=np.float32))
+        x = torch.stack([augment_with(base, rng, AUGMENTS['full']), augment_with(base, rng, AUGMENTS['full'])], 1).reshape(-1, 28, 28)
+        rigl(comp, step, end, opt, 'before')
+        if how == 'on-top':
+            with torch.no_grad():
+                z = model(x)
+        else:
+            z = model(x)
+        loss = info_nce(comp.matrix(z * scale, z * scale), partner)
+        if how == 'joint':
+            loss = loss + info_nce(z @ z.T / T, partner)
+        opt.zero_grad(); loss.backward()
+        torch.nn.utils.clip_grad_norm_(params, 5.)
+        opt.step()
+        rigl(comp, step, end, opt, 'after')
+        losses.append(float(loss.detach()))
+    model.eval().requires_grad_(False)
+    with torch.no_grad():
+        out = fanin_reads(lambda b: model(b) * scale, comp, seed, font_cache(seed))
+    out.update({'loss_last_200': float(np.mean(losses[-200:])), 'comparator_parameters': sum(p.numel() for p in comp.parameters())})
+    return f'{seed}/{name}', out, timing(t0, c0)
+
+
 def main(stage):
     t0 = time.perf_counter()
     for s in S0.SEEDS:
         S0.test_material(s)
-    if stage == 'robust':
+    if stage == 'fanin':
+        for s_ in S0.SEEDS:
+            font_cache(s_)
+        res = S0.pool_map(DUR.durable(fit_fanin, RUNS / 'done-fanin', '{0}-{1}'), [(s, n) for s in S0.SEEDS for n in FANIN])
+    elif stage == 'robust':
         res = S0.pool_map(DUR.durable(fit_robust, RUNS / 'done-robust', '{0}-{1}'), [(s, n) for s in S0.SEEDS for n in ('pixels', 'untrained', 'frozen-renderings', *AUGMENTS)])
     elif stage == 'features':
         res = S0.pool_map(DUR.durable(fit_head, RUNS / 'done-features', '{0}-{1}-{2}'), [(s, f, h) for s in S0.SEEDS for f in FEATURES for h in HEADS])

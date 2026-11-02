@@ -39,7 +39,7 @@ The frozen encoder's architecture, 32-d, unit output, 8,000 steps on background 
 
 - **Identity without labels is reachable.** Contrastive learning on augmentations of single images, in batches of random images, reads 0.94–0.96. It clears the 0.80 bar, and also reads 0.89–0.90 at 180 symbols.
 - **The relation at sense level is right, and learned matching is not what helps.** Plain cosine beats every comparator. The dense comparator is also unstable: on seed 392 with two renderings it failed outright, at chance loss, with every similarity at 1.00.
-- **Sparse readers collapse the code, as feared.** Live units read 1–4 of 32 coordinates, and the top direction holds 0.88–0.93 of the variance. That fan-in limit suits the core's nearly one-dimensional job, and it damages identity. This is one sparse design on two seeds, so it does not rule out all sparsity at the sense level.
+- **This sparse design collapses the code.** The comparator here is the core's reader shape, 48 sparse first-layer units and a dense second layer, but with only one reader and one relation, and one coordinate per operand. Live units read 1–4 of 32 coordinates, and the top direction holds 0.88–0.93 of the variance. [Reading more of the code removes this](#fan-in-and-two-stage-reading).
 
 ## How hard the task is
 
@@ -58,6 +58,30 @@ Every pool symbol is drawn in one font. Its renderings vary only in rotation, sc
 - **A new font costs much, and all learned encoders still read far above chance.** The frozen encoder falls about 0.27, and unlabelled ones about 0.25–0.30. The stored address in the frozen encoder has about 1.00 within a font and 0.72–0.74 across fonts, which is a fairer statement of what "identifies symbols" has meant here.
 - **Unlabelled augmentation is about 0.1 below rendering pairs across fonts.** Neither was shown a second font of the same symbol. The background symbols are also one font each.
 
+## Fan-in and two-stage reading
+
+The user's two proposals, after the above: read much more of the input than one coordinate, and use cosine as a cheap first stage. Same reader shape, augmentation source, 8,000 steps. Cosine shortlists K stored symbols, and the comparator picks among them, K passes per query. K 1 is cosine alone; K equal to all is the comparator alone.
+
+The encoder trains through the comparator alone, jointly with cosine, or not at all (comparator on top of a finished unlabelled encoder).
+
+| Arm | Cosine alone, 90 | Comparator alone, 90 | Cosine alone, other font | Comparator alone, other font | Top direction | Coordinates read |
+|---|---|---|---|---|---|---|
+| Through, one coordinate, RigL (earlier) | 0.16, 0.18 | 0.08, 0.06 | | | 0.90, 0.93 | 4, 1 |
+| Through, k 4, RigL | 0.63, 0.68 | 0.68, 0.71 | 0.32, 0.43 | 0.31, 0.41 | 0.46, 0.45 | 32, 32 |
+| Through, k 8, RigL | 0.68, 0.68 | 0.68, 0.69 | 0.33, 0.38 | 0.31, 0.39 | 0.42, 0.48 | 32, 32 |
+| Through, k 16, RigL | 0.74, 0.67 | 0.73, 0.66 | 0.37, 0.38 | 0.31, 0.36 | 0.41, 0.49 | 32, 32 |
+| Through, k 8, fixed masks | 0.67, 0.70 | 0.72, 0.72 | 0.33, 0.40 | 0.34, 0.41 | 0.40, 0.45 | 32, 32 |
+| Joint, dense | 0.92, 0.90 | 0.91, 0.89 | 0.61, 0.66 | 0.51, 0.60 | 0.13, 0.16 | |
+| Joint, k 8, RigL | 0.90, 0.92 | 0.88, 0.88 | 0.58, 0.62 | 0.52, 0.57 | 0.13, 0.17 | 32, 32 |
+| On top, dense | 0.94, 0.91 | 0.92, 0.89 | 0.59, 0.66 | 0.56, 0.62 | 0.10, 0.13 | |
+| On top, k 8, RigL | 0.94, 0.91 | 0.91, 0.88 | 0.59, 0.66 | 0.54, 0.61 | 0.10, 0.13 | 32, 32 |
+
+- **Reading more removes the collapse.** At k 4 every live unit stays alive, all 32 coordinates are read, and identity rises from 0.16–0.18 to about 0.65. Beyond k 4, more fan-in changes little within noise, and RigL does not beat fixed masks here. A sparse reader then does as well as a dense one, 0.74, 0.72 trained the same way.
+- **Training through a comparator is still much weaker than contrastive cosine:** 0.63–0.74 against 0.91–0.96, with the code on fewer directions.
+- **A sparse reader can share an encoder without harming it.** Joint with k 8 keeps 0.90, 0.92 and a top direction of 0.13, 0.17. This is the shape the design would want, a contrastive code with sparse readers attached.
+- **The second stage adds nothing to identity on a good code, and takes a little away.** On the finished encoder, other-font identity goes from 0.59, 0.66 to about 0.54–0.56, 0.61–0.62, and it helps by about 0.04 only on the weak codes at k 4. The comparator has seen no second font, and its negatives are random images rather than near neighbours, so this is not a fair test of what a reranker could do.
+- **Cosine does work as a cheap first stage.** A shortlist of 5 gives the comparator's accuracy to within 0.01 at 90 symbols, for 5 passes per query instead of 90.
+
 ## What this does not establish
 
 - **Memory on this encoder.** Step 3, using the winner as the address with A read after B, has not run.
@@ -71,4 +95,4 @@ The closest methods are Siamese networks, relation networks, and contrastive lea
 
 ## Computation
 
-GTX 1650, three workers, one thread each, float32. Step 1: 95 s wall, 266 s aggregate CPU, 18 fits. Step 2: 291 s wall, 810 s, 10 fits; about 100 s per unlabelled fit, 60 s otherwise, as run. Font test: 140 s wall, 388 s, 12 tasks, 6 of them fits. GPU peak 122 MB at most. Encoder 209,760 parameters, 839,040 bytes, comparator a further 8,385 or 6,321 parameters. A comparator read is a pass through it per stored symbol, against one dot product for cosine.
+GTX 1650, three workers, one thread each, float32. Step 1: 95 s wall, 266 s aggregate CPU, 18 fits. Step 2: 291 s wall, 810 s, 10 fits; about 100 s per unlabelled fit, 60 s otherwise, as run. Font test: 140 s wall, 388 s, 12 tasks, 6 of them fits. Fan-in: 540 s wall, 1,488 s, 16 fits, about 105 s each, or 78 s on a finished encoder. GPU peak 122 MB at most. Encoder 209,760 parameters, 839,040 bytes, comparator a further 8,385 or 6,321 parameters. A comparator read is a pass through it per stored symbol, against one dot product for cosine.
