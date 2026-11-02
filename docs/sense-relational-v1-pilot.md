@@ -97,7 +97,7 @@ Among candidates the unlabelled keys read 0.58–0.66, against 0.59–0.66.
 
 - **Memory holds on keys trained with no symbol knowledge,** and A loses at most 0.04 across B.
 - **It takes about eight times the units.** Renderings of one symbol spread more in this code, with same-symbol similarity about 0.83 against 0.96. So at τ 0.85 a symbol's renderings often allocate separate units, about 10 per symbol. Lower τ merges symbols, and A drops to 0.68–0.92 at τ 0.7–0.75. An explicit store on these keys reads 0.91–0.98, so the keys are good and this cost comes from the threshold rule.
-- **Across fonts, memory reads 0.45, 0.48, abstaining on 0.40, 0.37 of queries;** in the same font, 0.85, 0.80. The rendering-pairs encoder reads 0.53, 0.49, abstaining on 0.33, 0.39. An explicit prototype reads these at 0.59–0.66 and 0.72–0.74, so the threshold costs a further 0.1–0.2 across fonts.
+- **Across fonts, memory reads 0.45, 0.48, abstaining on 0.40, 0.37 of queries;** in the same font, 0.85, 0.80. The rendering-pairs encoder reads 0.53, 0.49, abstaining on 0.33, 0.39. An explicit prototype reads these at 0.59–0.66 and 0.72–0.74, so the threshold costs a further 0.14–0.25 across fonts.
 
 **With the encoder still learning,** from augmentations with no symbol knowledge, at τ 0.85, A then B, memory level at the end of block 6:
 
@@ -112,7 +112,7 @@ Cosine with the starting code ends at 0.83–0.85 at rate 0.001, and 0.66–0.71
 
 - **At normal drift, this is the first run with no symbol knowledge and learning keys, and it holds.** With eight traces every 2,000 updates A falls 0.03, 0.02 across block 5, and block 6 changes nothing. Answers among candidates are A 0.59, 0.68 and B 0.60, 0.67.
 - **At H 1024 the same run fills:** B reads 0.71, 0.73.
-- **At ten times the rate, 2,048 units fill before B arrives,** and A holds at 0.88–0.94 while B reads about half. No rebuild loses both.
+- **At ten times the rate, 2,048 units fill before B arrives,** and A holds at 0.87–0.94 while B reads about half. No rebuild loses both.
 - **So unit growth is now the main limit.** About 1,500 units, with eight traces each, comes to about 9.4 MB of traces and 300 KB of addresses and contents, for 90 facts. Merging duplicates has not been tried, and this result makes it the next thing to test.
 
 ## What this does not establish
@@ -127,4 +127,4 @@ The closest methods are Siamese networks, relation networks, and contrastive lea
 
 ## Computation
 
-GTX 1650, three workers, one thread each, float32. Step 1: 95 s wall, 266 s aggregate CPU, 18 fits. Step 2: 291 s wall, 810 s, 10 fits; about 100 s per unlabelled fit, 60 s otherwise, as run. Font test: 140 s wall, 388 s, 12 tasks, 6 of them fits. Fan-in: 540 s wall, 1,488 s, 16 fits, about 105 s each, or 78 s on a finished encoder. Memory: frozen grid on CPU, six workers, 88 s wall, 871 s aggregate CPU, 240 tasks in all; with learning keys on the GPU, 169 s wall, 484 s, 8 tasks. GPU peak 122 MB at most. Encoder 209,760 parameters, 839,040 bytes, comparator a further 8,385 or 6,321 parameters. A comparator read is a pass through it per stored symbol, against one dot product for cosine.
+GTX 1650, three workers, one thread each, float32. Step 1: 95 s wall, 266 s aggregate CPU, 18 fits. Step 2: 291 s wall, 810 s, 10 fits; about 100 s per unlabelled fit, 60 s otherwise, as run. Font test: 140 s wall, 388 s, 12 tasks, 6 of them fits. Fan-in: 540 s wall, 1,488 s, 16 fits, about 105 s each, or 78 s on a finished encoder. Memory: frozen grid on CPU, six workers, 88 s wall, 871 s aggregate CPU, 120 tasks in all; with learning keys on the GPU, 169 s wall, 484 s, 8 tasks. GPU peak 122 MB at most. Encoder 209,760 parameters, 839,040 bytes, comparator a further 8,385 or 6,321 parameters. A comparator read is a pass through it per stored symbol, against one dot product for cosine.
