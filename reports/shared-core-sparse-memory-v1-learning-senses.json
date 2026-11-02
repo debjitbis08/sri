@@ -1,0 +1,3674 @@
+{
+ "results": {
+  "392/0.001/128": {
+   "H": 128,
+   "drift": {
+    "4": {
+     "identity_90": 1.0,
+     "other_symbol_similarity": 0.07506583631038666,
+     "query_cosine_with_start": 0.9535288214683533,
+     "same_symbol_similarity": 0.9618712663650513
+    },
+    "5": {
+     "identity_90": 1.0,
+     "other_symbol_similarity": 0.06940320879220963,
+     "query_cosine_with_start": 0.915998101234436,
+     "same_symbol_similarity": 0.961898148059845
+    },
+    "6": {
+     "identity_90": 0.995555579662323,
+     "other_symbol_similarity": 0.06789397448301315,
+     "query_cosine_with_start": 0.870053231716156,
+     "same_symbol_similarity": 0.9626685976982117
+    }
+   },
+   "loss_first_200": 0.2485005309432745,
+   "loss_last_200": 0.19963868893682957,
+   "lr": 0.001,
+   "reads": {
+    "4": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5555555555555556,
+       "coverage": 1.0,
+       "euclidean": 0.6311111111111111,
+       "prototype": 0.9555555555555556
+      },
+      "forced": 0,
+      "units": 54,
+      "unknown_coverage": 0.09333333333333334
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.5511111111111111,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.6266666666666667,
+       "prototype": 0.9511111111111111
+      },
+      "forced": 0,
+      "units": 98,
+      "unknown_coverage": 0.06666666666666667
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.5733333333333334,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.6444444444444445,
+       "prototype": 0.9555555555555556
+      },
+      "forced": 173,
+      "units": 128,
+      "unknown_coverage": 0.13333333333333333
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.5555555555555556,
+       "coverage": 1.0,
+       "euclidean": 0.6266666666666667,
+       "prototype": 0.9555555555555556
+      },
+      "forced": 0,
+      "units": 98,
+      "unknown_coverage": 0.08888888888888889
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.5644444444444444,
+       "coverage": 1.0,
+       "euclidean": 0.6444444444444445,
+       "prototype": 0.9688888888888889
+      },
+      "forced": 2,
+      "units": 128,
+      "unknown_coverage": 0.10666666666666667
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.5733333333333334,
+       "coverage": 1.0,
+       "euclidean": 0.6444444444444445,
+       "prototype": 0.9777777777777777
+      },
+      "forced": 0,
+      "units": 119,
+      "unknown_coverage": 0.09777777777777778
+     }
+    },
+    "5": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5644444444444444,
+       "coverage": 1.0,
+       "euclidean": 0.6355555555555555,
+       "prototype": 0.9555555555555556
+      },
+      "B": {
+       "cosine": 0.5288888888888889,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.5644444444444444,
+       "prototype": 0.88
+      },
+      "forced": 0,
+      "units": 108,
+      "unknown_coverage": 0.14666666666666667
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.52,
+       "coverage": 0.9777777777777777,
+       "euclidean": 0.5866666666666667,
+       "prototype": 0.8666666666666667
+      },
+      "B": {
+       "cosine": 0.37777777777777777,
+       "coverage": 0.9244444444444444,
+       "euclidean": 0.4,
+       "prototype": 0.6088888888888889
+      },
+      "forced": 2626,
+      "units": 128,
+      "unknown_coverage": 0.12444444444444444
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.38222222222222224,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.4266666666666667,
+       "prototype": 0.5733333333333334
+      },
+      "B": {
+       "cosine": 0.022222222222222223,
+       "coverage": 0.14222222222222222,
+       "euclidean": 0.02666666666666667,
+       "prototype": 0.0044444444444444444
+      },
+      "forced": 26455,
+      "units": 128,
+      "unknown_coverage": 0.1111111111111111
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.5422222222222223,
+       "coverage": 1.0,
+       "euclidean": 0.5955555555555555,
+       "prototype": 0.8844444444444445
+      },
+      "B": {
+       "cosine": 0.36444444444444446,
+       "coverage": 0.8266666666666667,
+       "euclidean": 0.37333333333333335,
+       "prototype": 0.5333333333333333
+      },
+      "forced": 3806,
+      "units": 128,
+      "unknown_coverage": 0.12444444444444444
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.43555555555555553,
+       "coverage": 1.0,
+       "euclidean": 0.47555555555555556,
+       "prototype": 0.5777777777777777
+      },
+      "B": {
+       "cosine": 0.035555555555555556,
+       "coverage": 0.16444444444444445,
+       "euclidean": 0.02666666666666667,
+       "prototype": 0.02666666666666667
+      },
+      "forced": 24565,
+      "units": 128,
+      "unknown_coverage": 0.1111111111111111
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.5333333333333333,
+       "coverage": 1.0,
+       "euclidean": 0.5866666666666667,
+       "prototype": 0.8844444444444445
+      },
+      "B": {
+       "cosine": 0.26222222222222225,
+       "coverage": 0.88,
+       "euclidean": 0.26666666666666666,
+       "prototype": 0.41333333333333333
+      },
+      "forced": 7285,
+      "units": 128,
+      "unknown_coverage": 0.10222222222222223
+     }
+    },
+    "6": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5644444444444444,
+       "coverage": 1.0,
+       "euclidean": 0.6355555555555555,
+       "prototype": 0.9555555555555556
+      },
+      "B": {
+       "cosine": 0.5288888888888889,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.5644444444444444,
+       "prototype": 0.88
+      },
+      "forced": 0,
+      "units": 108,
+      "unknown_coverage": 0.14666666666666667
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.4711111111111111,
+       "coverage": 0.92,
+       "euclidean": 0.5466666666666666,
+       "prototype": 0.8088888888888889
+      },
+      "B": {
+       "cosine": 0.38222222222222224,
+       "coverage": 0.8755555555555555,
+       "euclidean": 0.38666666666666666,
+       "prototype": 0.5644444444444444
+      },
+      "forced": 2626,
+      "units": 128,
+      "unknown_coverage": 0.08888888888888889
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.39555555555555555,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.4444444444444444,
+       "prototype": 0.5911111111111111
+      },
+      "B": {
+       "cosine": 0.03111111111111111,
+       "coverage": 0.1288888888888889,
+       "euclidean": 0.03111111111111111,
+       "prototype": 0.0044444444444444444
+      },
+      "forced": 26455,
+      "units": 128,
+      "unknown_coverage": 0.1111111111111111
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.5466666666666666,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.6,
+       "prototype": 0.9022222222222223
+      },
+      "B": {
+       "cosine": 0.3466666666666667,
+       "coverage": 0.7955555555555556,
+       "euclidean": 0.36,
+       "prototype": 0.5422222222222223
+      },
+      "forced": 3806,
+      "units": 128,
+      "unknown_coverage": 0.11555555555555555
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.4488888888888889,
+       "coverage": 1.0,
+       "euclidean": 0.48,
+       "prototype": 0.6044444444444445
+      },
+      "B": {
+       "cosine": 0.022222222222222223,
+       "coverage": 0.1511111111111111,
+       "euclidean": 0.022222222222222223,
+       "prototype": 0.02666666666666667
+      },
+      "forced": 24565,
+      "units": 128,
+      "unknown_coverage": 0.10666666666666667
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.5244444444444445,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.5822222222222222,
+       "prototype": 0.8844444444444445
+      },
+      "B": {
+       "cosine": 0.27555555555555555,
+       "coverage": 0.88,
+       "euclidean": 0.26222222222222225,
+       "prototype": 0.4088888888888889
+      },
+      "forced": 7285,
+      "units": 128,
+      "unknown_coverage": 0.10666666666666667
+     }
+    }
+   },
+   "seed": 392
+  },
+  "392/0.001/2048": {
+   "H": 2048,
+   "drift": {
+    "4": {
+     "identity_90": 1.0,
+     "other_symbol_similarity": 0.07506583631038666,
+     "query_cosine_with_start": 0.9535288214683533,
+     "same_symbol_similarity": 0.9618712663650513
+    },
+    "5": {
+     "identity_90": 1.0,
+     "other_symbol_similarity": 0.06940320879220963,
+     "query_cosine_with_start": 0.915998101234436,
+     "same_symbol_similarity": 0.961898148059845
+    },
+    "6": {
+     "identity_90": 0.995555579662323,
+     "other_symbol_similarity": 0.06789397448301315,
+     "query_cosine_with_start": 0.870053231716156,
+     "same_symbol_similarity": 0.9626685976982117
+    }
+   },
+   "loss_first_200": 0.2485005309432745,
+   "loss_last_200": 0.19963868893682957,
+   "lr": 0.001,
+   "reads": {
+    "4": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5555555555555556,
+       "coverage": 1.0,
+       "euclidean": 0.6311111111111111,
+       "prototype": 0.9555555555555556
+      },
+      "forced": 0,
+      "units": 54,
+      "unknown_coverage": 0.09333333333333334
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.5511111111111111,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.6266666666666667,
+       "prototype": 0.9511111111111111
+      },
+      "forced": 0,
+      "units": 98,
+      "unknown_coverage": 0.06666666666666667
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.5733333333333334,
+       "coverage": 1.0,
+       "euclidean": 0.6355555555555555,
+       "prototype": 0.9688888888888889
+      },
+      "forced": 0,
+      "units": 183,
+      "unknown_coverage": 0.13777777777777778
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.5555555555555556,
+       "coverage": 1.0,
+       "euclidean": 0.6266666666666667,
+       "prototype": 0.9555555555555556
+      },
+      "forced": 0,
+      "units": 98,
+      "unknown_coverage": 0.08888888888888889
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.5644444444444444,
+       "coverage": 1.0,
+       "euclidean": 0.64,
+       "prototype": 0.9688888888888889
+      },
+      "forced": 0,
+      "units": 130,
+      "unknown_coverage": 0.10666666666666667
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.5733333333333334,
+       "coverage": 1.0,
+       "euclidean": 0.6444444444444445,
+       "prototype": 0.9777777777777777
+      },
+      "forced": 0,
+      "units": 119,
+      "unknown_coverage": 0.09777777777777778
+     }
+    },
+    "5": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5644444444444444,
+       "coverage": 1.0,
+       "euclidean": 0.6355555555555555,
+       "prototype": 0.9555555555555556
+      },
+      "B": {
+       "cosine": 0.5288888888888889,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.5644444444444444,
+       "prototype": 0.88
+      },
+      "forced": 0,
+      "units": 108,
+      "unknown_coverage": 0.14666666666666667
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.5555555555555556,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.6266666666666667,
+       "prototype": 0.9466666666666667
+      },
+      "B": {
+       "cosine": 0.5777777777777777,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.6,
+       "prototype": 0.9733333333333334
+      },
+      "forced": 0,
+      "units": 202,
+      "unknown_coverage": 0.12444444444444444
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.5866666666666667,
+       "coverage": 1.0,
+       "euclidean": 0.6444444444444445,
+       "prototype": 0.9733333333333334
+      },
+      "B": {
+       "cosine": 0.5955555555555555,
+       "coverage": 1.0,
+       "euclidean": 0.6177777777777778,
+       "prototype": 0.9511111111111111
+      },
+      "forced": 0,
+      "units": 384,
+      "unknown_coverage": 0.14666666666666667
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.56,
+       "coverage": 1.0,
+       "euclidean": 0.6266666666666667,
+       "prototype": 0.9555555555555556
+      },
+      "B": {
+       "cosine": 0.5688888888888889,
+       "coverage": 1.0,
+       "euclidean": 0.6044444444444445,
+       "prototype": 0.9644444444444444
+      },
+      "forced": 0,
+      "units": 202,
+      "unknown_coverage": 0.12444444444444444
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.5777777777777777,
+       "coverage": 1.0,
+       "euclidean": 0.6266666666666667,
+       "prototype": 0.9644444444444444
+      },
+      "B": {
+       "cosine": 0.56,
+       "coverage": 1.0,
+       "euclidean": 0.6088888888888889,
+       "prototype": 0.9733333333333334
+      },
+      "forced": 0,
+      "units": 283,
+      "unknown_coverage": 0.1288888888888889
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.5822222222222222,
+       "coverage": 1.0,
+       "euclidean": 0.6488888888888888,
+       "prototype": 0.9777777777777777
+      },
+      "B": {
+       "cosine": 0.5688888888888889,
+       "coverage": 1.0,
+       "euclidean": 0.6044444444444445,
+       "prototype": 0.9777777777777777
+      },
+      "forced": 0,
+      "units": 270,
+      "unknown_coverage": 0.1288888888888889
+     }
+    },
+    "6": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5644444444444444,
+       "coverage": 1.0,
+       "euclidean": 0.6355555555555555,
+       "prototype": 0.9555555555555556
+      },
+      "B": {
+       "cosine": 0.5288888888888889,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.5644444444444444,
+       "prototype": 0.88
+      },
+      "forced": 0,
+      "units": 108,
+      "unknown_coverage": 0.14666666666666667
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.52,
+       "coverage": 0.9244444444444444,
+       "euclidean": 0.5911111111111111,
+       "prototype": 0.8755555555555555
+      },
+      "B": {
+       "cosine": 0.5511111111111111,
+       "coverage": 0.9555555555555556,
+       "euclidean": 0.5822222222222222,
+       "prototype": 0.9333333333333333
+      },
+      "forced": 0,
+      "units": 202,
+      "unknown_coverage": 0.09333333333333334
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.5866666666666667,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.6444444444444445,
+       "prototype": 0.96
+      },
+      "B": {
+       "cosine": 0.5955555555555555,
+       "coverage": 1.0,
+       "euclidean": 0.6088888888888889,
+       "prototype": 0.9688888888888889
+      },
+      "forced": 0,
+      "units": 384,
+      "unknown_coverage": 0.16444444444444445
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.56,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.6266666666666667,
+       "prototype": 0.9555555555555556
+      },
+      "B": {
+       "cosine": 0.5688888888888889,
+       "coverage": 1.0,
+       "euclidean": 0.6,
+       "prototype": 0.9688888888888889
+      },
+      "forced": 0,
+      "units": 202,
+      "unknown_coverage": 0.12444444444444444
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.5822222222222222,
+       "coverage": 1.0,
+       "euclidean": 0.6311111111111111,
+       "prototype": 0.9644444444444444
+      },
+      "B": {
+       "cosine": 0.5733333333333334,
+       "coverage": 1.0,
+       "euclidean": 0.6133333333333333,
+       "prototype": 0.9777777777777777
+      },
+      "forced": 0,
+      "units": 283,
+      "unknown_coverage": 0.13777777777777778
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.5822222222222222,
+       "coverage": 1.0,
+       "euclidean": 0.6488888888888888,
+       "prototype": 0.9777777777777777
+      },
+      "B": {
+       "cosine": 0.5644444444444444,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.6044444444444445,
+       "prototype": 0.9733333333333334
+      },
+      "forced": 0,
+      "units": 270,
+      "unknown_coverage": 0.13333333333333333
+     }
+    }
+   },
+   "seed": 392
+  },
+  "392/0.001/512": {
+   "H": 512,
+   "drift": {
+    "4": {
+     "identity_90": 1.0,
+     "other_symbol_similarity": 0.07506583631038666,
+     "query_cosine_with_start": 0.9535288214683533,
+     "same_symbol_similarity": 0.9618712663650513
+    },
+    "5": {
+     "identity_90": 1.0,
+     "other_symbol_similarity": 0.06940320879220963,
+     "query_cosine_with_start": 0.915998101234436,
+     "same_symbol_similarity": 0.961898148059845
+    },
+    "6": {
+     "identity_90": 0.995555579662323,
+     "other_symbol_similarity": 0.06789397448301315,
+     "query_cosine_with_start": 0.870053231716156,
+     "same_symbol_similarity": 0.9626685976982117
+    }
+   },
+   "loss_first_200": 0.2485005309432745,
+   "loss_last_200": 0.19963868893682957,
+   "lr": 0.001,
+   "reads": {
+    "4": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5555555555555556,
+       "coverage": 1.0,
+       "euclidean": 0.6311111111111111,
+       "prototype": 0.9555555555555556
+      },
+      "forced": 0,
+      "units": 54,
+      "unknown_coverage": 0.09333333333333334
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.5511111111111111,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.6266666666666667,
+       "prototype": 0.9511111111111111
+      },
+      "forced": 0,
+      "units": 98,
+      "unknown_coverage": 0.06666666666666667
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.5733333333333334,
+       "coverage": 1.0,
+       "euclidean": 0.6355555555555555,
+       "prototype": 0.9688888888888889
+      },
+      "forced": 0,
+      "units": 183,
+      "unknown_coverage": 0.13777777777777778
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.5555555555555556,
+       "coverage": 1.0,
+       "euclidean": 0.6266666666666667,
+       "prototype": 0.9555555555555556
+      },
+      "forced": 0,
+      "units": 98,
+      "unknown_coverage": 0.08888888888888889
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.5644444444444444,
+       "coverage": 1.0,
+       "euclidean": 0.64,
+       "prototype": 0.9688888888888889
+      },
+      "forced": 0,
+      "units": 130,
+      "unknown_coverage": 0.10666666666666667
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.5733333333333334,
+       "coverage": 1.0,
+       "euclidean": 0.6444444444444445,
+       "prototype": 0.9777777777777777
+      },
+      "forced": 0,
+      "units": 119,
+      "unknown_coverage": 0.09777777777777778
+     }
+    },
+    "5": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5644444444444444,
+       "coverage": 1.0,
+       "euclidean": 0.6355555555555555,
+       "prototype": 0.9555555555555556
+      },
+      "B": {
+       "cosine": 0.5288888888888889,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.5644444444444444,
+       "prototype": 0.88
+      },
+      "forced": 0,
+      "units": 108,
+      "unknown_coverage": 0.14666666666666667
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.5555555555555556,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.6266666666666667,
+       "prototype": 0.9466666666666667
+      },
+      "B": {
+       "cosine": 0.5777777777777777,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.6,
+       "prototype": 0.9733333333333334
+      },
+      "forced": 0,
+      "units": 202,
+      "unknown_coverage": 0.12444444444444444
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.5866666666666667,
+       "coverage": 1.0,
+       "euclidean": 0.6444444444444445,
+       "prototype": 0.9733333333333334
+      },
+      "B": {
+       "cosine": 0.5955555555555555,
+       "coverage": 1.0,
+       "euclidean": 0.6177777777777778,
+       "prototype": 0.9511111111111111
+      },
+      "forced": 0,
+      "units": 384,
+      "unknown_coverage": 0.14666666666666667
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.56,
+       "coverage": 1.0,
+       "euclidean": 0.6266666666666667,
+       "prototype": 0.9555555555555556
+      },
+      "B": {
+       "cosine": 0.5688888888888889,
+       "coverage": 1.0,
+       "euclidean": 0.6044444444444445,
+       "prototype": 0.9644444444444444
+      },
+      "forced": 0,
+      "units": 202,
+      "unknown_coverage": 0.12444444444444444
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.5777777777777777,
+       "coverage": 1.0,
+       "euclidean": 0.6266666666666667,
+       "prototype": 0.9644444444444444
+      },
+      "B": {
+       "cosine": 0.56,
+       "coverage": 1.0,
+       "euclidean": 0.6088888888888889,
+       "prototype": 0.9733333333333334
+      },
+      "forced": 0,
+      "units": 283,
+      "unknown_coverage": 0.1288888888888889
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.5822222222222222,
+       "coverage": 1.0,
+       "euclidean": 0.6488888888888888,
+       "prototype": 0.9777777777777777
+      },
+      "B": {
+       "cosine": 0.5688888888888889,
+       "coverage": 1.0,
+       "euclidean": 0.6044444444444445,
+       "prototype": 0.9777777777777777
+      },
+      "forced": 0,
+      "units": 270,
+      "unknown_coverage": 0.1288888888888889
+     }
+    },
+    "6": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5644444444444444,
+       "coverage": 1.0,
+       "euclidean": 0.6355555555555555,
+       "prototype": 0.9555555555555556
+      },
+      "B": {
+       "cosine": 0.5288888888888889,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.5644444444444444,
+       "prototype": 0.88
+      },
+      "forced": 0,
+      "units": 108,
+      "unknown_coverage": 0.14666666666666667
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.52,
+       "coverage": 0.9244444444444444,
+       "euclidean": 0.5911111111111111,
+       "prototype": 0.8755555555555555
+      },
+      "B": {
+       "cosine": 0.5511111111111111,
+       "coverage": 0.9555555555555556,
+       "euclidean": 0.5822222222222222,
+       "prototype": 0.9333333333333333
+      },
+      "forced": 0,
+      "units": 202,
+      "unknown_coverage": 0.09333333333333334
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.5866666666666667,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.6444444444444445,
+       "prototype": 0.96
+      },
+      "B": {
+       "cosine": 0.5955555555555555,
+       "coverage": 1.0,
+       "euclidean": 0.6088888888888889,
+       "prototype": 0.9688888888888889
+      },
+      "forced": 0,
+      "units": 384,
+      "unknown_coverage": 0.16444444444444445
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.56,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.6266666666666667,
+       "prototype": 0.9555555555555556
+      },
+      "B": {
+       "cosine": 0.5688888888888889,
+       "coverage": 1.0,
+       "euclidean": 0.6,
+       "prototype": 0.9688888888888889
+      },
+      "forced": 0,
+      "units": 202,
+      "unknown_coverage": 0.12444444444444444
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.5822222222222222,
+       "coverage": 1.0,
+       "euclidean": 0.6311111111111111,
+       "prototype": 0.9644444444444444
+      },
+      "B": {
+       "cosine": 0.5733333333333334,
+       "coverage": 1.0,
+       "euclidean": 0.6133333333333333,
+       "prototype": 0.9777777777777777
+      },
+      "forced": 0,
+      "units": 283,
+      "unknown_coverage": 0.13777777777777778
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.5822222222222222,
+       "coverage": 1.0,
+       "euclidean": 0.6488888888888888,
+       "prototype": 0.9777777777777777
+      },
+      "B": {
+       "cosine": 0.5644444444444444,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.6044444444444445,
+       "prototype": 0.9733333333333334
+      },
+      "forced": 0,
+      "units": 270,
+      "unknown_coverage": 0.13333333333333333
+     }
+    }
+   },
+   "seed": 392
+  },
+  "392/0.01/128": {
+   "H": 128,
+   "drift": {
+    "4": {
+     "identity_90": 1.0,
+     "other_symbol_similarity": 0.053873639553785324,
+     "query_cosine_with_start": 0.7940065264701843,
+     "same_symbol_similarity": 0.9580265283584595
+    },
+    "5": {
+     "identity_90": 0.995555579662323,
+     "other_symbol_similarity": 0.07386808097362518,
+     "query_cosine_with_start": 0.7344849705696106,
+     "same_symbol_similarity": 0.9584181904792786
+    },
+    "6": {
+     "identity_90": 0.9977778196334839,
+     "other_symbol_similarity": 0.050719551742076874,
+     "query_cosine_with_start": 0.6878649592399597,
+     "same_symbol_similarity": 0.9580385684967041
+    }
+   },
+   "loss_first_200": 0.6803823736310005,
+   "loss_last_200": 0.1895678638294339,
+   "lr": 0.01,
+   "reads": {
+    "4": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5555555555555556,
+       "coverage": 1.0,
+       "euclidean": 0.6311111111111111,
+       "prototype": 0.9555555555555556
+      },
+      "forced": 0,
+      "units": 54,
+      "unknown_coverage": 0.09333333333333334
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.5111111111111111,
+       "coverage": 0.9333333333333333,
+       "euclidean": 0.5733333333333334,
+       "prototype": 0.8622222222222222
+      },
+      "forced": 1895,
+      "units": 128,
+      "unknown_coverage": 0.06666666666666667
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.5155555555555555,
+       "coverage": 0.9333333333333333,
+       "euclidean": 0.56,
+       "prototype": 0.8133333333333334
+      },
+      "forced": 3561,
+      "units": 128,
+      "unknown_coverage": 0.08444444444444445
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.5422222222222223,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.6044444444444445,
+       "prototype": 0.8755555555555555
+      },
+      "forced": 1895,
+      "units": 128,
+      "unknown_coverage": 0.10666666666666667
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.5555555555555556,
+       "coverage": 1.0,
+       "euclidean": 0.6266666666666667,
+       "prototype": 0.9422222222222222
+      },
+      "forced": 2125,
+      "units": 128,
+      "unknown_coverage": 0.1111111111111111
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.5688888888888889,
+       "coverage": 1.0,
+       "euclidean": 0.6355555555555555,
+       "prototype": 0.9733333333333334
+      },
+      "forced": 1727,
+      "units": 128,
+      "unknown_coverage": 0.10222222222222223
+     }
+    },
+    "5": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5644444444444444,
+       "coverage": 1.0,
+       "euclidean": 0.6355555555555555,
+       "prototype": 0.9555555555555556
+      },
+      "B": {
+       "cosine": 0.5288888888888889,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.5644444444444444,
+       "prototype": 0.88
+      },
+      "forced": 0,
+      "units": 108,
+      "unknown_coverage": 0.14666666666666667
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.27111111111111114,
+       "coverage": 0.56,
+       "euclidean": 0.29777777777777775,
+       "prototype": 0.43555555555555553
+      },
+      "B": {
+       "cosine": 0.28888888888888886,
+       "coverage": 0.7466666666666667,
+       "euclidean": 0.27111111111111114,
+       "prototype": 0.38222222222222224
+      },
+      "forced": 8688,
+      "units": 128,
+      "unknown_coverage": 0.07555555555555556
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.35555555555555557,
+       "coverage": 0.9288888888888889,
+       "euclidean": 0.36,
+       "prototype": 0.4266666666666667
+      },
+      "B": {
+       "cosine": 0.022222222222222223,
+       "coverage": 0.1288888888888889,
+       "euclidean": 0.017777777777777778,
+       "prototype": 0.022222222222222223
+      },
+      "forced": 31130,
+      "units": 128,
+      "unknown_coverage": 0.08
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.5244444444444445,
+       "coverage": 0.9733333333333334,
+       "euclidean": 0.5777777777777777,
+       "prototype": 0.7911111111111111
+      },
+      "B": {
+       "cosine": 0.26666666666666666,
+       "coverage": 0.7244444444444444,
+       "euclidean": 0.27555555555555555,
+       "prototype": 0.4266666666666667
+      },
+      "forced": 6189,
+      "units": 128,
+      "unknown_coverage": 0.11555555555555555
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.38222222222222224,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.4088888888888889,
+       "prototype": 0.5155555555555555
+      },
+      "B": {
+       "cosine": 0.017777777777777778,
+       "coverage": 0.16,
+       "euclidean": 0.035555555555555556,
+       "prototype": 0.0
+      },
+      "forced": 28443,
+      "units": 128,
+      "unknown_coverage": 0.1111111111111111
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.5511111111111111,
+       "coverage": 0.9822222222222222,
+       "euclidean": 0.5777777777777777,
+       "prototype": 0.8311111111111111
+      },
+      "B": {
+       "cosine": 0.26666666666666666,
+       "coverage": 0.8977777777777778,
+       "euclidean": 0.26222222222222225,
+       "prototype": 0.29333333333333333
+      },
+      "forced": 14630,
+      "units": 128,
+      "unknown_coverage": 0.1288888888888889
+     }
+    },
+    "6": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5644444444444444,
+       "coverage": 1.0,
+       "euclidean": 0.6355555555555555,
+       "prototype": 0.9555555555555556
+      },
+      "B": {
+       "cosine": 0.5288888888888889,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.5644444444444444,
+       "prototype": 0.88
+      },
+      "forced": 0,
+      "units": 108,
+      "unknown_coverage": 0.14666666666666667
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.14222222222222222,
+       "coverage": 0.28888888888888886,
+       "euclidean": 0.16,
+       "prototype": 0.2222222222222222
+      },
+      "B": {
+       "cosine": 0.22666666666666666,
+       "coverage": 0.5244444444444445,
+       "euclidean": 0.19555555555555557,
+       "prototype": 0.29777777777777775
+      },
+      "forced": 8688,
+      "units": 128,
+      "unknown_coverage": 0.02666666666666667
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.3244444444444444,
+       "coverage": 0.9288888888888889,
+       "euclidean": 0.36,
+       "prototype": 0.4222222222222222
+      },
+      "B": {
+       "cosine": 0.022222222222222223,
+       "coverage": 0.10222222222222223,
+       "euclidean": 0.013333333333333334,
+       "prototype": 0.008888888888888889
+      },
+      "forced": 31130,
+      "units": 128,
+      "unknown_coverage": 0.08
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.5111111111111111,
+       "coverage": 0.9733333333333334,
+       "euclidean": 0.56,
+       "prototype": 0.7777777777777778
+      },
+      "B": {
+       "cosine": 0.2577777777777778,
+       "coverage": 0.6888888888888889,
+       "euclidean": 0.26222222222222225,
+       "prototype": 0.4311111111111111
+      },
+      "forced": 6189,
+      "units": 128,
+      "unknown_coverage": 0.09777777777777778
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.3511111111111111,
+       "coverage": 0.9866666666666667,
+       "euclidean": 0.3688888888888889,
+       "prototype": 0.49777777777777776
+      },
+      "B": {
+       "cosine": 0.0044444444444444444,
+       "coverage": 0.12,
+       "euclidean": 0.02666666666666667,
+       "prototype": 0.0044444444444444444
+      },
+      "forced": 28443,
+      "units": 128,
+      "unknown_coverage": 0.09777777777777778
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.5422222222222223,
+       "coverage": 0.9644444444444444,
+       "euclidean": 0.5733333333333334,
+       "prototype": 0.8266666666666667
+      },
+      "B": {
+       "cosine": 0.24444444444444444,
+       "coverage": 0.88,
+       "euclidean": 0.25333333333333335,
+       "prototype": 0.29333333333333333
+      },
+      "forced": 14630,
+      "units": 128,
+      "unknown_coverage": 0.11555555555555555
+     }
+    }
+   },
+   "seed": 392
+  },
+  "392/0.01/2048": {
+   "H": 2048,
+   "drift": {
+    "4": {
+     "identity_90": 1.0,
+     "other_symbol_similarity": 0.053873639553785324,
+     "query_cosine_with_start": 0.7940065264701843,
+     "same_symbol_similarity": 0.9580265283584595
+    },
+    "5": {
+     "identity_90": 0.995555579662323,
+     "other_symbol_similarity": 0.07386808097362518,
+     "query_cosine_with_start": 0.7344849705696106,
+     "same_symbol_similarity": 0.9584181904792786
+    },
+    "6": {
+     "identity_90": 0.9977778196334839,
+     "other_symbol_similarity": 0.050719551742076874,
+     "query_cosine_with_start": 0.6878649592399597,
+     "same_symbol_similarity": 0.9580385684967041
+    }
+   },
+   "loss_first_200": 0.6803823736310005,
+   "loss_last_200": 0.1895678638294339,
+   "lr": 0.01,
+   "reads": {
+    "4": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5555555555555556,
+       "coverage": 1.0,
+       "euclidean": 0.6311111111111111,
+       "prototype": 0.9555555555555556
+      },
+      "forced": 0,
+      "units": 54,
+      "unknown_coverage": 0.09333333333333334
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.5777777777777777,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.6533333333333333,
+       "prototype": 0.9866666666666667
+      },
+      "forced": 0,
+      "units": 688,
+      "unknown_coverage": 0.09777777777777778
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.5733333333333334,
+       "coverage": 1.0,
+       "euclidean": 0.64,
+       "prototype": 0.9733333333333334
+      },
+      "forced": 0,
+      "units": 715,
+      "unknown_coverage": 0.14222222222222222
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.5866666666666667,
+       "coverage": 1.0,
+       "euclidean": 0.6444444444444445,
+       "prototype": 0.9288888888888889
+      },
+      "forced": 0,
+      "units": 688,
+      "unknown_coverage": 0.13777777777777778
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.6,
+       "coverage": 1.0,
+       "euclidean": 0.6622222222222223,
+       "prototype": 0.9866666666666667
+      },
+      "forced": 0,
+      "units": 721,
+      "unknown_coverage": 0.13333333333333333
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.5777777777777777,
+       "coverage": 1.0,
+       "euclidean": 0.6577777777777778,
+       "prototype": 0.9955555555555555
+      },
+      "forced": 0,
+      "units": 725,
+      "unknown_coverage": 0.1288888888888889
+     }
+    },
+    "5": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5644444444444444,
+       "coverage": 1.0,
+       "euclidean": 0.6355555555555555,
+       "prototype": 0.9555555555555556
+      },
+      "B": {
+       "cosine": 0.5288888888888889,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.5644444444444444,
+       "prototype": 0.88
+      },
+      "forced": 0,
+      "units": 108,
+      "unknown_coverage": 0.14666666666666667
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.4533333333333333,
+       "coverage": 0.7644444444444445,
+       "euclidean": 0.49333333333333335,
+       "prototype": 0.7466666666666667
+      },
+      "B": {
+       "cosine": 0.5333333333333333,
+       "coverage": 0.9688888888888889,
+       "euclidean": 0.5688888888888889,
+       "prototype": 0.8977777777777778
+      },
+      "forced": 0,
+      "units": 915,
+      "unknown_coverage": 0.14666666666666667
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.56,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.6488888888888888,
+       "prototype": 0.9688888888888889
+      },
+      "B": {
+       "cosine": 0.52,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.5644444444444444,
+       "prototype": 0.8888888888888888
+      },
+      "forced": 0,
+      "units": 1064,
+      "unknown_coverage": 0.22666666666666666
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.5911111111111111,
+       "coverage": 1.0,
+       "euclidean": 0.6222222222222222,
+       "prototype": 0.96
+      },
+      "B": {
+       "cosine": 0.5511111111111111,
+       "coverage": 1.0,
+       "euclidean": 0.6044444444444445,
+       "prototype": 0.9466666666666667
+      },
+      "forced": 0,
+      "units": 899,
+      "unknown_coverage": 0.17777777777777778
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.5911111111111111,
+       "coverage": 1.0,
+       "euclidean": 0.6533333333333333,
+       "prototype": 0.9777777777777777
+      },
+      "B": {
+       "cosine": 0.5422222222222223,
+       "coverage": 1.0,
+       "euclidean": 0.6088888888888889,
+       "prototype": 0.9377777777777778
+      },
+      "forced": 0,
+      "units": 1039,
+      "unknown_coverage": 0.18666666666666668
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.5866666666666667,
+       "coverage": 1.0,
+       "euclidean": 0.6711111111111111,
+       "prototype": 0.9911111111111112
+      },
+      "B": {
+       "cosine": 0.56,
+       "coverage": 1.0,
+       "euclidean": 0.5911111111111111,
+       "prototype": 0.9511111111111111
+      },
+      "forced": 0,
+      "units": 1037,
+      "unknown_coverage": 0.17333333333333334
+     }
+    },
+    "6": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5644444444444444,
+       "coverage": 1.0,
+       "euclidean": 0.6355555555555555,
+       "prototype": 0.9555555555555556
+      },
+      "B": {
+       "cosine": 0.5288888888888889,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.5644444444444444,
+       "prototype": 0.88
+      },
+      "forced": 0,
+      "units": 108,
+      "unknown_coverage": 0.14666666666666667
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.28444444444444444,
+       "coverage": 0.4622222222222222,
+       "euclidean": 0.31555555555555553,
+       "prototype": 0.4622222222222222
+      },
+      "B": {
+       "cosine": 0.5111111111111111,
+       "coverage": 0.9244444444444444,
+       "euclidean": 0.5333333333333333,
+       "prototype": 0.8533333333333334
+      },
+      "forced": 0,
+      "units": 915,
+      "unknown_coverage": 0.057777777777777775
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.5733333333333334,
+       "coverage": 1.0,
+       "euclidean": 0.6533333333333333,
+       "prototype": 0.96
+      },
+      "B": {
+       "cosine": 0.5288888888888889,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.5733333333333334,
+       "prototype": 0.9111111111111111
+      },
+      "forced": 0,
+      "units": 1064,
+      "unknown_coverage": 0.16
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.6133333333333333,
+       "coverage": 1.0,
+       "euclidean": 0.64,
+       "prototype": 0.9733333333333334
+      },
+      "B": {
+       "cosine": 0.5644444444444444,
+       "coverage": 0.9733333333333334,
+       "euclidean": 0.5955555555555555,
+       "prototype": 0.9511111111111111
+      },
+      "forced": 0,
+      "units": 899,
+      "unknown_coverage": 0.15555555555555556
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.5911111111111111,
+       "coverage": 1.0,
+       "euclidean": 0.6533333333333333,
+       "prototype": 0.9866666666666667
+      },
+      "B": {
+       "cosine": 0.5466666666666666,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.5955555555555555,
+       "prototype": 0.9288888888888889
+      },
+      "forced": 0,
+      "units": 1039,
+      "unknown_coverage": 0.1511111111111111
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.5911111111111111,
+       "coverage": 1.0,
+       "euclidean": 0.64,
+       "prototype": 0.9911111111111112
+      },
+      "B": {
+       "cosine": 0.5733333333333334,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.5955555555555555,
+       "prototype": 0.96
+      },
+      "forced": 0,
+      "units": 1037,
+      "unknown_coverage": 0.14222222222222222
+     }
+    }
+   },
+   "seed": 392
+  },
+  "392/0.01/512": {
+   "H": 512,
+   "drift": {
+    "4": {
+     "identity_90": 1.0,
+     "other_symbol_similarity": 0.053873639553785324,
+     "query_cosine_with_start": 0.7940065264701843,
+     "same_symbol_similarity": 0.9580265283584595
+    },
+    "5": {
+     "identity_90": 0.995555579662323,
+     "other_symbol_similarity": 0.07386808097362518,
+     "query_cosine_with_start": 0.7344849705696106,
+     "same_symbol_similarity": 0.9584181904792786
+    },
+    "6": {
+     "identity_90": 0.9977778196334839,
+     "other_symbol_similarity": 0.050719551742076874,
+     "query_cosine_with_start": 0.6878649592399597,
+     "same_symbol_similarity": 0.9580385684967041
+    }
+   },
+   "loss_first_200": 0.6803823736310005,
+   "loss_last_200": 0.1895678638294339,
+   "lr": 0.01,
+   "reads": {
+    "4": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5555555555555556,
+       "coverage": 1.0,
+       "euclidean": 0.6311111111111111,
+       "prototype": 0.9555555555555556
+      },
+      "forced": 0,
+      "units": 54,
+      "unknown_coverage": 0.09333333333333334
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.5555555555555556,
+       "coverage": 0.9733333333333334,
+       "euclidean": 0.6355555555555555,
+       "prototype": 0.9644444444444444
+      },
+      "forced": 362,
+      "units": 512,
+      "unknown_coverage": 0.09777777777777778
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.5822222222222222,
+       "coverage": 1.0,
+       "euclidean": 0.6311111111111111,
+       "prototype": 0.9644444444444444
+      },
+      "forced": 376,
+      "units": 512,
+      "unknown_coverage": 0.12
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.5777777777777777,
+       "coverage": 1.0,
+       "euclidean": 0.6355555555555555,
+       "prototype": 0.9244444444444444
+      },
+      "forced": 362,
+      "units": 512,
+      "unknown_coverage": 0.11555555555555555
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.5911111111111111,
+       "coverage": 1.0,
+       "euclidean": 0.6533333333333333,
+       "prototype": 0.9822222222222222
+      },
+      "forced": 336,
+      "units": 512,
+      "unknown_coverage": 0.11555555555555555
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.5688888888888889,
+       "coverage": 1.0,
+       "euclidean": 0.64,
+       "prototype": 0.9777777777777777
+      },
+      "forced": 313,
+      "units": 512,
+      "unknown_coverage": 0.10666666666666667
+     }
+    },
+    "5": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5644444444444444,
+       "coverage": 1.0,
+       "euclidean": 0.6355555555555555,
+       "prototype": 0.9555555555555556
+      },
+      "B": {
+       "cosine": 0.5288888888888889,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.5644444444444444,
+       "prototype": 0.88
+      },
+      "forced": 0,
+      "units": 108,
+      "unknown_coverage": 0.14666666666666667
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.3466666666666667,
+       "coverage": 0.6622222222222223,
+       "euclidean": 0.41333333333333333,
+       "prototype": 0.5511111111111111
+      },
+      "B": {
+       "cosine": 0.38222222222222224,
+       "coverage": 0.8977777777777778,
+       "euclidean": 0.39111111111111113,
+       "prototype": 0.6533333333333333
+      },
+      "forced": 2532,
+      "units": 512,
+      "unknown_coverage": 0.08888888888888889
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.43555555555555553,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.4444444444444444,
+       "prototype": 0.6755555555555556
+      },
+      "B": {
+       "cosine": 0.035555555555555556,
+       "coverage": 0.1511111111111111,
+       "euclidean": 0.035555555555555556,
+       "prototype": 0.02666666666666667
+      },
+      "forced": 21408,
+      "units": 512,
+      "unknown_coverage": 0.13777777777777778
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.5777777777777777,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.6088888888888889,
+       "prototype": 0.9244444444444444
+      },
+      "B": {
+       "cosine": 0.41333333333333333,
+       "coverage": 0.8177777777777778,
+       "euclidean": 0.4533333333333333,
+       "prototype": 0.7111111111111111
+      },
+      "forced": 1557,
+      "units": 512,
+      "unknown_coverage": 0.14222222222222222
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.49333333333333335,
+       "coverage": 1.0,
+       "euclidean": 0.5688888888888889,
+       "prototype": 0.76
+      },
+      "B": {
+       "cosine": 0.035555555555555556,
+       "coverage": 0.19111111111111112,
+       "euclidean": 0.05333333333333334,
+       "prototype": 0.06666666666666667
+      },
+      "forced": 20467,
+      "units": 512,
+      "unknown_coverage": 0.11555555555555555
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.5555555555555556,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.6311111111111111,
+       "prototype": 0.96
+      },
+      "B": {
+       "cosine": 0.4266666666666667,
+       "coverage": 0.9555555555555556,
+       "euclidean": 0.4311111111111111,
+       "prototype": 0.6
+      },
+      "forced": 6845,
+      "units": 512,
+      "unknown_coverage": 0.14222222222222222
+     }
+    },
+    "6": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5644444444444444,
+       "coverage": 1.0,
+       "euclidean": 0.6355555555555555,
+       "prototype": 0.9555555555555556
+      },
+      "B": {
+       "cosine": 0.5288888888888889,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.5644444444444444,
+       "prototype": 0.88
+      },
+      "forced": 0,
+      "units": 108,
+      "unknown_coverage": 0.14666666666666667
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.21777777777777776,
+       "coverage": 0.38666666666666666,
+       "euclidean": 0.2577777777777778,
+       "prototype": 0.3244444444444444
+      },
+      "B": {
+       "cosine": 0.28888888888888886,
+       "coverage": 0.6711111111111111,
+       "euclidean": 0.27111111111111114,
+       "prototype": 0.49333333333333335
+      },
+      "forced": 2532,
+      "units": 512,
+      "unknown_coverage": 0.04
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.49333333333333335,
+       "coverage": 1.0,
+       "euclidean": 0.5022222222222222,
+       "prototype": 0.7244444444444444
+      },
+      "B": {
+       "cosine": 0.017777777777777778,
+       "coverage": 0.11555555555555555,
+       "euclidean": 0.022222222222222223,
+       "prototype": 0.008888888888888889
+      },
+      "forced": 21408,
+      "units": 512,
+      "unknown_coverage": 0.1111111111111111
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.5955555555555555,
+       "coverage": 1.0,
+       "euclidean": 0.6311111111111111,
+       "prototype": 0.9377777777777778
+      },
+      "B": {
+       "cosine": 0.37777777777777777,
+       "coverage": 0.7688888888888888,
+       "euclidean": 0.4222222222222222,
+       "prototype": 0.6711111111111111
+      },
+      "forced": 1557,
+      "units": 512,
+      "unknown_coverage": 0.14222222222222222
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.4888888888888889,
+       "coverage": 1.0,
+       "euclidean": 0.5244444444444445,
+       "prototype": 0.7244444444444444
+      },
+      "B": {
+       "cosine": 0.035555555555555556,
+       "coverage": 0.1688888888888889,
+       "euclidean": 0.044444444444444446,
+       "prototype": 0.07111111111111111
+      },
+      "forced": 20467,
+      "units": 512,
+      "unknown_coverage": 0.12
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.5733333333333334,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.6444444444444445,
+       "prototype": 0.9777777777777777
+      },
+      "B": {
+       "cosine": 0.4177777777777778,
+       "coverage": 0.9244444444444444,
+       "euclidean": 0.4311111111111111,
+       "prototype": 0.5866666666666667
+      },
+      "forced": 6845,
+      "units": 512,
+      "unknown_coverage": 0.13777777777777778
+     }
+    }
+   },
+   "seed": 392
+  },
+  "393/0.001/128": {
+   "H": 128,
+   "drift": {
+    "4": {
+     "identity_90": 0.995555579662323,
+     "other_symbol_similarity": 0.07303334772586823,
+     "query_cosine_with_start": 0.9363366365432739,
+     "same_symbol_similarity": 0.9596906304359436
+    },
+    "5": {
+     "identity_90": 0.9977778196334839,
+     "other_symbol_similarity": 0.09908881038427353,
+     "query_cosine_with_start": 0.9032837748527527,
+     "same_symbol_similarity": 0.9593218564987183
+    },
+    "6": {
+     "identity_90": 0.991111159324646,
+     "other_symbol_similarity": 0.06689639389514923,
+     "query_cosine_with_start": 0.8885664343833923,
+     "same_symbol_similarity": 0.9581453204154968
+    }
+   },
+   "loss_first_200": 0.2431838509440422,
+   "loss_last_200": 0.18531157314777374,
+   "lr": 0.001,
+   "reads": {
+    "4": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5777777777777777,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.6933333333333334,
+       "prototype": 0.9511111111111111
+      },
+      "forced": 0,
+      "units": 76,
+      "unknown_coverage": 0.044444444444444446
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.5822222222222222,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.7244444444444444,
+       "prototype": 0.9688888888888889
+      },
+      "forced": 66,
+      "units": 128,
+      "unknown_coverage": 0.06222222222222222
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.5733333333333334,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.7155555555555555,
+       "prototype": 0.9733333333333334
+      },
+      "forced": 826,
+      "units": 128,
+      "unknown_coverage": 0.06222222222222222
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.5866666666666667,
+       "coverage": 1.0,
+       "euclidean": 0.7333333333333333,
+       "prototype": 0.9777777777777777
+      },
+      "forced": 66,
+      "units": 128,
+      "unknown_coverage": 0.057777777777777775
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.5777777777777777,
+       "coverage": 1.0,
+       "euclidean": 0.7155555555555555,
+       "prototype": 0.9688888888888889
+      },
+      "forced": 265,
+      "units": 128,
+      "unknown_coverage": 0.057777777777777775
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.5688888888888889,
+       "coverage": 1.0,
+       "euclidean": 0.7111111111111111,
+       "prototype": 0.96
+      },
+      "forced": 242,
+      "units": 128,
+      "unknown_coverage": 0.057777777777777775
+     }
+    },
+    "5": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5377777777777778,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.64,
+       "prototype": 0.9066666666666666
+      },
+      "B": {
+       "cosine": 0.5511111111111111,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.6177777777777778,
+       "prototype": 0.8844444444444445
+      },
+      "forced": 219,
+      "units": 128,
+      "unknown_coverage": 0.10666666666666667
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.38666666666666666,
+       "coverage": 0.8577777777777778,
+       "euclidean": 0.49777777777777776,
+       "prototype": 0.6488888888888888
+      },
+      "B": {
+       "cosine": 0.18222222222222223,
+       "coverage": 0.7066666666666667,
+       "euclidean": 0.18222222222222223,
+       "prototype": 0.29333333333333333
+      },
+      "forced": 13604,
+      "units": 128,
+      "unknown_coverage": 0.07555555555555556
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.3377777777777778,
+       "coverage": 0.9733333333333334,
+       "euclidean": 0.4,
+       "prototype": 0.4711111111111111
+      },
+      "B": {
+       "cosine": 0.017777777777777778,
+       "coverage": 0.14666666666666667,
+       "euclidean": 0.008888888888888889,
+       "prototype": 0.03111111111111111
+      },
+      "forced": 27560,
+      "units": 128,
+      "unknown_coverage": 0.09333333333333334
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.4577777777777778,
+       "coverage": 1.0,
+       "euclidean": 0.5555555555555556,
+       "prototype": 0.7822222222222223
+      },
+      "B": {
+       "cosine": 0.02666666666666667,
+       "coverage": 0.19111111111111112,
+       "euclidean": 0.022222222222222223,
+       "prototype": 0.044444444444444446
+      },
+      "forced": 12117,
+      "units": 128,
+      "unknown_coverage": 0.06222222222222222
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.3288888888888889,
+       "coverage": 1.0,
+       "euclidean": 0.38666666666666666,
+       "prototype": 0.5377777777777778
+      },
+      "B": {
+       "cosine": 0.017777777777777778,
+       "coverage": 0.1688888888888889,
+       "euclidean": 0.008888888888888889,
+       "prototype": 0.03111111111111111
+      },
+      "forced": 26065,
+      "units": 128,
+      "unknown_coverage": 0.08888888888888889
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.4711111111111111,
+       "coverage": 0.9333333333333333,
+       "euclidean": 0.5288888888888889,
+       "prototype": 0.7333333333333333
+      },
+      "B": {
+       "cosine": 0.1511111111111111,
+       "coverage": 0.7866666666666666,
+       "euclidean": 0.13333333333333333,
+       "prototype": 0.27555555555555555
+      },
+      "forced": 15013,
+      "units": 128,
+      "unknown_coverage": 0.10222222222222223
+     }
+    },
+    "6": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5377777777777778,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.64,
+       "prototype": 0.9066666666666666
+      },
+      "B": {
+       "cosine": 0.5511111111111111,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.6177777777777778,
+       "prototype": 0.8844444444444445
+      },
+      "forced": 219,
+      "units": 128,
+      "unknown_coverage": 0.10666666666666667
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.38222222222222224,
+       "coverage": 0.8133333333333334,
+       "euclidean": 0.48,
+       "prototype": 0.6044444444444445
+      },
+      "B": {
+       "cosine": 0.1688888888888889,
+       "coverage": 0.6711111111111111,
+       "euclidean": 0.18666666666666668,
+       "prototype": 0.28444444444444444
+      },
+      "forced": 13604,
+      "units": 128,
+      "unknown_coverage": 0.035555555555555556
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.36444444444444446,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.40444444444444444,
+       "prototype": 0.5022222222222222
+      },
+      "B": {
+       "cosine": 0.013333333333333334,
+       "coverage": 0.12444444444444444,
+       "euclidean": 0.0044444444444444444,
+       "prototype": 0.02666666666666667
+      },
+      "forced": 27560,
+      "units": 128,
+      "unknown_coverage": 0.06222222222222222
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.47555555555555556,
+       "coverage": 1.0,
+       "euclidean": 0.5688888888888889,
+       "prototype": 0.7866666666666666
+      },
+      "B": {
+       "cosine": 0.02666666666666667,
+       "coverage": 0.1511111111111111,
+       "euclidean": 0.017777777777777778,
+       "prototype": 0.035555555555555556
+      },
+      "forced": 12117,
+      "units": 128,
+      "unknown_coverage": 0.04888888888888889
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.3466666666666667,
+       "coverage": 1.0,
+       "euclidean": 0.38222222222222224,
+       "prototype": 0.5244444444444445
+      },
+      "B": {
+       "cosine": 0.022222222222222223,
+       "coverage": 0.1511111111111111,
+       "euclidean": 0.013333333333333334,
+       "prototype": 0.022222222222222223
+      },
+      "forced": 26065,
+      "units": 128,
+      "unknown_coverage": 0.057777777777777775
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.4711111111111111,
+       "coverage": 0.9377777777777778,
+       "euclidean": 0.5244444444444445,
+       "prototype": 0.7333333333333333
+      },
+      "B": {
+       "cosine": 0.14666666666666667,
+       "coverage": 0.7688888888888888,
+       "euclidean": 0.1288888888888889,
+       "prototype": 0.27555555555555555
+      },
+      "forced": 15013,
+      "units": 128,
+      "unknown_coverage": 0.06222222222222222
+     }
+    }
+   },
+   "seed": 393
+  },
+  "393/0.001/2048": {
+   "H": 2048,
+   "drift": {
+    "4": {
+     "identity_90": 0.995555579662323,
+     "other_symbol_similarity": 0.07303334772586823,
+     "query_cosine_with_start": 0.9363366365432739,
+     "same_symbol_similarity": 0.9596906304359436
+    },
+    "5": {
+     "identity_90": 0.9977778196334839,
+     "other_symbol_similarity": 0.09908881038427353,
+     "query_cosine_with_start": 0.9032837748527527,
+     "same_symbol_similarity": 0.9593218564987183
+    },
+    "6": {
+     "identity_90": 0.991111159324646,
+     "other_symbol_similarity": 0.06689639389514923,
+     "query_cosine_with_start": 0.8885664343833923,
+     "same_symbol_similarity": 0.9581453204154968
+    }
+   },
+   "loss_first_200": 0.2431838509440422,
+   "loss_last_200": 0.18531157314777374,
+   "lr": 0.001,
+   "reads": {
+    "4": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5777777777777777,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.6933333333333334,
+       "prototype": 0.9511111111111111
+      },
+      "forced": 0,
+      "units": 76,
+      "unknown_coverage": 0.044444444444444446
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.5822222222222222,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.7244444444444444,
+       "prototype": 0.9688888888888889
+      },
+      "forced": 0,
+      "units": 162,
+      "unknown_coverage": 0.07555555555555556
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.5822222222222222,
+       "coverage": 1.0,
+       "euclidean": 0.7288888888888889,
+       "prototype": 0.9777777777777777
+      },
+      "forced": 0,
+      "units": 287,
+      "unknown_coverage": 0.07555555555555556
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.5866666666666667,
+       "coverage": 1.0,
+       "euclidean": 0.7333333333333333,
+       "prototype": 0.9777777777777777
+      },
+      "forced": 0,
+      "units": 162,
+      "unknown_coverage": 0.06222222222222222
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.5688888888888889,
+       "coverage": 1.0,
+       "euclidean": 0.7155555555555555,
+       "prototype": 0.9733333333333334
+      },
+      "forced": 0,
+      "units": 235,
+      "unknown_coverage": 0.06222222222222222
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.5733333333333334,
+       "coverage": 1.0,
+       "euclidean": 0.7111111111111111,
+       "prototype": 0.9733333333333334
+      },
+      "forced": 0,
+      "units": 227,
+      "unknown_coverage": 0.057777777777777775
+     }
+    },
+    "5": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5333333333333333,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.6488888888888888,
+       "prototype": 0.9022222222222223
+      },
+      "B": {
+       "cosine": 0.5466666666666666,
+       "coverage": 1.0,
+       "euclidean": 0.6311111111111111,
+       "prototype": 0.9111111111111111
+      },
+      "forced": 0,
+      "units": 149,
+      "unknown_coverage": 0.10222222222222223
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.5111111111111111,
+       "coverage": 0.9466666666666667,
+       "euclidean": 0.6488888888888888,
+       "prototype": 0.88
+      },
+      "B": {
+       "cosine": 0.5733333333333334,
+       "coverage": 1.0,
+       "euclidean": 0.68,
+       "prototype": 0.9466666666666667
+      },
+      "forced": 0,
+      "units": 301,
+      "unknown_coverage": 0.14666666666666667
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.5733333333333334,
+       "coverage": 1.0,
+       "euclidean": 0.6933333333333334,
+       "prototype": 0.9377777777777778
+      },
+      "B": {
+       "cosine": 0.5822222222222222,
+       "coverage": 1.0,
+       "euclidean": 0.6622222222222223,
+       "prototype": 0.9466666666666667
+      },
+      "forced": 0,
+      "units": 543,
+      "unknown_coverage": 0.20444444444444446
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.5511111111111111,
+       "coverage": 1.0,
+       "euclidean": 0.7022222222222222,
+       "prototype": 0.9333333333333333
+      },
+      "B": {
+       "cosine": 0.56,
+       "coverage": 1.0,
+       "euclidean": 0.68,
+       "prototype": 0.9333333333333333
+      },
+      "forced": 0,
+      "units": 303,
+      "unknown_coverage": 0.15555555555555556
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.5555555555555556,
+       "coverage": 1.0,
+       "euclidean": 0.6711111111111111,
+       "prototype": 0.92
+      },
+      "B": {
+       "cosine": 0.56,
+       "coverage": 1.0,
+       "euclidean": 0.6622222222222223,
+       "prototype": 0.92
+      },
+      "forced": 0,
+      "units": 437,
+      "unknown_coverage": 0.17777777777777778
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.5422222222222223,
+       "coverage": 1.0,
+       "euclidean": 0.6666666666666666,
+       "prototype": 0.9511111111111111
+      },
+      "B": {
+       "cosine": 0.5911111111111111,
+       "coverage": 1.0,
+       "euclidean": 0.6844444444444444,
+       "prototype": 0.9466666666666667
+      },
+      "forced": 0,
+      "units": 412,
+      "unknown_coverage": 0.16444444444444445
+     }
+    },
+    "6": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5333333333333333,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.6488888888888888,
+       "prototype": 0.9022222222222223
+      },
+      "B": {
+       "cosine": 0.5466666666666666,
+       "coverage": 1.0,
+       "euclidean": 0.6311111111111111,
+       "prototype": 0.9111111111111111
+      },
+      "forced": 0,
+      "units": 149,
+      "unknown_coverage": 0.10222222222222223
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.48444444444444446,
+       "coverage": 0.8888888888888888,
+       "euclidean": 0.6177777777777778,
+       "prototype": 0.8222222222222222
+      },
+      "B": {
+       "cosine": 0.5688888888888889,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.68,
+       "prototype": 0.9377777777777778
+      },
+      "forced": 0,
+      "units": 301,
+      "unknown_coverage": 0.09777777777777778
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.5688888888888889,
+       "coverage": 1.0,
+       "euclidean": 0.6933333333333334,
+       "prototype": 0.92
+      },
+      "B": {
+       "cosine": 0.5733333333333334,
+       "coverage": 1.0,
+       "euclidean": 0.6666666666666666,
+       "prototype": 0.9422222222222222
+      },
+      "forced": 0,
+      "units": 543,
+      "unknown_coverage": 0.2
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.5466666666666666,
+       "coverage": 1.0,
+       "euclidean": 0.6977777777777778,
+       "prototype": 0.9333333333333333
+      },
+      "B": {
+       "cosine": 0.56,
+       "coverage": 1.0,
+       "euclidean": 0.6711111111111111,
+       "prototype": 0.9288888888888889
+      },
+      "forced": 0,
+      "units": 303,
+      "unknown_coverage": 0.1288888888888889
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.5511111111111111,
+       "coverage": 1.0,
+       "euclidean": 0.6755555555555556,
+       "prototype": 0.9244444444444444
+      },
+      "B": {
+       "cosine": 0.56,
+       "coverage": 1.0,
+       "euclidean": 0.6577777777777778,
+       "prototype": 0.9111111111111111
+      },
+      "forced": 0,
+      "units": 437,
+      "unknown_coverage": 0.1688888888888889
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.5288888888888889,
+       "coverage": 1.0,
+       "euclidean": 0.6577777777777778,
+       "prototype": 0.9422222222222222
+      },
+      "B": {
+       "cosine": 0.5866666666666667,
+       "coverage": 1.0,
+       "euclidean": 0.6844444444444444,
+       "prototype": 0.9466666666666667
+      },
+      "forced": 0,
+      "units": 412,
+      "unknown_coverage": 0.16
+     }
+    }
+   },
+   "seed": 393
+  },
+  "393/0.001/512": {
+   "H": 512,
+   "drift": {
+    "4": {
+     "identity_90": 0.995555579662323,
+     "other_symbol_similarity": 0.07303334772586823,
+     "query_cosine_with_start": 0.9363366365432739,
+     "same_symbol_similarity": 0.9596906304359436
+    },
+    "5": {
+     "identity_90": 0.9977778196334839,
+     "other_symbol_similarity": 0.09908881038427353,
+     "query_cosine_with_start": 0.9032837748527527,
+     "same_symbol_similarity": 0.9593218564987183
+    },
+    "6": {
+     "identity_90": 0.991111159324646,
+     "other_symbol_similarity": 0.06689639389514923,
+     "query_cosine_with_start": 0.8885664343833923,
+     "same_symbol_similarity": 0.9581453204154968
+    }
+   },
+   "loss_first_200": 0.2431838509440422,
+   "loss_last_200": 0.18531157314777374,
+   "lr": 0.001,
+   "reads": {
+    "4": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5777777777777777,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.6933333333333334,
+       "prototype": 0.9511111111111111
+      },
+      "forced": 0,
+      "units": 76,
+      "unknown_coverage": 0.044444444444444446
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.5822222222222222,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.7244444444444444,
+       "prototype": 0.9688888888888889
+      },
+      "forced": 0,
+      "units": 162,
+      "unknown_coverage": 0.07555555555555556
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.5822222222222222,
+       "coverage": 1.0,
+       "euclidean": 0.7288888888888889,
+       "prototype": 0.9777777777777777
+      },
+      "forced": 0,
+      "units": 287,
+      "unknown_coverage": 0.07555555555555556
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.5866666666666667,
+       "coverage": 1.0,
+       "euclidean": 0.7333333333333333,
+       "prototype": 0.9777777777777777
+      },
+      "forced": 0,
+      "units": 162,
+      "unknown_coverage": 0.06222222222222222
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.5688888888888889,
+       "coverage": 1.0,
+       "euclidean": 0.7155555555555555,
+       "prototype": 0.9733333333333334
+      },
+      "forced": 0,
+      "units": 235,
+      "unknown_coverage": 0.06222222222222222
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.5733333333333334,
+       "coverage": 1.0,
+       "euclidean": 0.7111111111111111,
+       "prototype": 0.9733333333333334
+      },
+      "forced": 0,
+      "units": 227,
+      "unknown_coverage": 0.057777777777777775
+     }
+    },
+    "5": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5333333333333333,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.6488888888888888,
+       "prototype": 0.9022222222222223
+      },
+      "B": {
+       "cosine": 0.5466666666666666,
+       "coverage": 1.0,
+       "euclidean": 0.6311111111111111,
+       "prototype": 0.9111111111111111
+      },
+      "forced": 0,
+      "units": 149,
+      "unknown_coverage": 0.10222222222222223
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.5111111111111111,
+       "coverage": 0.9466666666666667,
+       "euclidean": 0.6488888888888888,
+       "prototype": 0.88
+      },
+      "B": {
+       "cosine": 0.5733333333333334,
+       "coverage": 1.0,
+       "euclidean": 0.68,
+       "prototype": 0.9466666666666667
+      },
+      "forced": 0,
+      "units": 301,
+      "unknown_coverage": 0.14666666666666667
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.5733333333333334,
+       "coverage": 1.0,
+       "euclidean": 0.6933333333333334,
+       "prototype": 0.9377777777777778
+      },
+      "B": {
+       "cosine": 0.5733333333333334,
+       "coverage": 1.0,
+       "euclidean": 0.6622222222222223,
+       "prototype": 0.9466666666666667
+      },
+      "forced": 53,
+      "units": 512,
+      "unknown_coverage": 0.20444444444444446
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.5511111111111111,
+       "coverage": 1.0,
+       "euclidean": 0.7022222222222222,
+       "prototype": 0.9333333333333333
+      },
+      "B": {
+       "cosine": 0.56,
+       "coverage": 1.0,
+       "euclidean": 0.68,
+       "prototype": 0.9333333333333333
+      },
+      "forced": 0,
+      "units": 303,
+      "unknown_coverage": 0.15555555555555556
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.5555555555555556,
+       "coverage": 1.0,
+       "euclidean": 0.6711111111111111,
+       "prototype": 0.92
+      },
+      "B": {
+       "cosine": 0.56,
+       "coverage": 1.0,
+       "euclidean": 0.6622222222222223,
+       "prototype": 0.92
+      },
+      "forced": 0,
+      "units": 437,
+      "unknown_coverage": 0.17777777777777778
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.5422222222222223,
+       "coverage": 1.0,
+       "euclidean": 0.6666666666666666,
+       "prototype": 0.9511111111111111
+      },
+      "B": {
+       "cosine": 0.5911111111111111,
+       "coverage": 1.0,
+       "euclidean": 0.6844444444444444,
+       "prototype": 0.9466666666666667
+      },
+      "forced": 0,
+      "units": 412,
+      "unknown_coverage": 0.16444444444444445
+     }
+    },
+    "6": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5333333333333333,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.6488888888888888,
+       "prototype": 0.9022222222222223
+      },
+      "B": {
+       "cosine": 0.5466666666666666,
+       "coverage": 1.0,
+       "euclidean": 0.6311111111111111,
+       "prototype": 0.9111111111111111
+      },
+      "forced": 0,
+      "units": 149,
+      "unknown_coverage": 0.10222222222222223
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.48444444444444446,
+       "coverage": 0.8888888888888888,
+       "euclidean": 0.6177777777777778,
+       "prototype": 0.8222222222222222
+      },
+      "B": {
+       "cosine": 0.5688888888888889,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.68,
+       "prototype": 0.9377777777777778
+      },
+      "forced": 0,
+      "units": 301,
+      "unknown_coverage": 0.09777777777777778
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.5688888888888889,
+       "coverage": 1.0,
+       "euclidean": 0.6933333333333334,
+       "prototype": 0.92
+      },
+      "B": {
+       "cosine": 0.5733333333333334,
+       "coverage": 1.0,
+       "euclidean": 0.6666666666666666,
+       "prototype": 0.9422222222222222
+      },
+      "forced": 53,
+      "units": 512,
+      "unknown_coverage": 0.17777777777777778
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.5466666666666666,
+       "coverage": 1.0,
+       "euclidean": 0.6977777777777778,
+       "prototype": 0.9333333333333333
+      },
+      "B": {
+       "cosine": 0.56,
+       "coverage": 1.0,
+       "euclidean": 0.6711111111111111,
+       "prototype": 0.9288888888888889
+      },
+      "forced": 0,
+      "units": 303,
+      "unknown_coverage": 0.1288888888888889
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.5511111111111111,
+       "coverage": 1.0,
+       "euclidean": 0.6755555555555556,
+       "prototype": 0.9244444444444444
+      },
+      "B": {
+       "cosine": 0.56,
+       "coverage": 1.0,
+       "euclidean": 0.6577777777777778,
+       "prototype": 0.9111111111111111
+      },
+      "forced": 0,
+      "units": 437,
+      "unknown_coverage": 0.1688888888888889
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.5288888888888889,
+       "coverage": 1.0,
+       "euclidean": 0.6577777777777778,
+       "prototype": 0.9422222222222222
+      },
+      "B": {
+       "cosine": 0.5866666666666667,
+       "coverage": 1.0,
+       "euclidean": 0.6844444444444444,
+       "prototype": 0.9466666666666667
+      },
+      "forced": 0,
+      "units": 412,
+      "unknown_coverage": 0.16
+     }
+    }
+   },
+   "seed": 393
+  },
+  "393/0.01/128": {
+   "H": 128,
+   "drift": {
+    "4": {
+     "identity_90": 0.9888889193534851,
+     "other_symbol_similarity": 0.06786554306745529,
+     "query_cosine_with_start": 0.8136271238327026,
+     "same_symbol_similarity": 0.9529063701629639
+    },
+    "5": {
+     "identity_90": 0.9977778196334839,
+     "other_symbol_similarity": 0.0786731094121933,
+     "query_cosine_with_start": 0.7608466148376465,
+     "same_symbol_similarity": 0.9559390544891357
+    },
+    "6": {
+     "identity_90": 0.995555579662323,
+     "other_symbol_similarity": 0.07524213939905167,
+     "query_cosine_with_start": 0.7322308421134949,
+     "same_symbol_similarity": 0.9586533308029175
+    }
+   },
+   "loss_first_200": 0.6865802678465843,
+   "loss_last_200": 0.21021770305931567,
+   "lr": 0.01,
+   "reads": {
+    "4": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5777777777777777,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.6933333333333334,
+       "prototype": 0.9511111111111111
+      },
+      "forced": 0,
+      "units": 76,
+      "unknown_coverage": 0.044444444444444446
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.5244444444444445,
+       "coverage": 0.9333333333333333,
+       "euclidean": 0.6444444444444445,
+       "prototype": 0.8933333333333333
+      },
+      "forced": 2779,
+      "units": 128,
+      "unknown_coverage": 0.06222222222222222
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.5066666666666667,
+       "coverage": 0.9244444444444444,
+       "euclidean": 0.6133333333333333,
+       "prototype": 0.8311111111111111
+      },
+      "forced": 4664,
+      "units": 128,
+      "unknown_coverage": 0.07555555555555556
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.5155555555555555,
+       "coverage": 0.96,
+       "euclidean": 0.6266666666666667,
+       "prototype": 0.8222222222222222
+      },
+      "forced": 2779,
+      "units": 128,
+      "unknown_coverage": 0.06222222222222222
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.5555555555555556,
+       "coverage": 0.9733333333333334,
+       "euclidean": 0.6755555555555556,
+       "prototype": 0.9244444444444444
+      },
+      "forced": 3126,
+      "units": 128,
+      "unknown_coverage": 0.04888888888888889
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.5822222222222222,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.6933333333333334,
+       "prototype": 0.9333333333333333
+      },
+      "forced": 2484,
+      "units": 128,
+      "unknown_coverage": 0.07111111111111111
+     }
+    },
+    "5": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5377777777777778,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.64,
+       "prototype": 0.9066666666666666
+      },
+      "B": {
+       "cosine": 0.5511111111111111,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.6177777777777778,
+       "prototype": 0.8844444444444445
+      },
+      "forced": 219,
+      "units": 128,
+      "unknown_coverage": 0.10666666666666667
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.3111111111111111,
+       "coverage": 0.68,
+       "euclidean": 0.40444444444444444,
+       "prototype": 0.5244444444444445
+      },
+      "B": {
+       "cosine": 0.13777777777777778,
+       "coverage": 0.6222222222222222,
+       "euclidean": 0.15555555555555556,
+       "prototype": 0.2222222222222222
+      },
+      "forced": 15023,
+      "units": 128,
+      "unknown_coverage": 0.057777777777777775
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.3377777777777778,
+       "coverage": 0.92,
+       "euclidean": 0.38222222222222224,
+       "prototype": 0.4177777777777778
+      },
+      "B": {
+       "cosine": 0.017777777777777778,
+       "coverage": 0.16,
+       "euclidean": 0.0044444444444444444,
+       "prototype": 0.017777777777777778
+      },
+      "forced": 32240,
+      "units": 128,
+      "unknown_coverage": 0.06666666666666667
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.4222222222222222,
+       "coverage": 0.9288888888888889,
+       "euclidean": 0.5111111111111111,
+       "prototype": 0.68
+      },
+      "B": {
+       "cosine": 0.1511111111111111,
+       "coverage": 0.4622222222222222,
+       "euclidean": 0.18666666666666668,
+       "prototype": 0.24444444444444444
+      },
+      "forced": 14740,
+      "units": 128,
+      "unknown_coverage": 0.07111111111111111
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.3511111111111111,
+       "coverage": 0.96,
+       "euclidean": 0.4088888888888889,
+       "prototype": 0.5155555555555555
+      },
+      "B": {
+       "cosine": 0.03111111111111111,
+       "coverage": 0.1688888888888889,
+       "euclidean": 0.008888888888888889,
+       "prototype": 0.04888888888888889
+      },
+      "forced": 29733,
+      "units": 128,
+      "unknown_coverage": 0.035555555555555556
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.5155555555555555,
+       "coverage": 0.9688888888888889,
+       "euclidean": 0.6177777777777778,
+       "prototype": 0.8355555555555556
+      },
+      "B": {
+       "cosine": 0.17333333333333334,
+       "coverage": 0.7066666666666667,
+       "euclidean": 0.13333333333333333,
+       "prototype": 0.19555555555555557
+      },
+      "forced": 20004,
+      "units": 128,
+      "unknown_coverage": 0.07111111111111111
+     }
+    },
+    "6": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5377777777777778,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.64,
+       "prototype": 0.9066666666666666
+      },
+      "B": {
+       "cosine": 0.5511111111111111,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.6177777777777778,
+       "prototype": 0.8844444444444445
+      },
+      "forced": 219,
+      "units": 128,
+      "unknown_coverage": 0.10666666666666667
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.23555555555555555,
+       "coverage": 0.5155555555555555,
+       "euclidean": 0.30666666666666664,
+       "prototype": 0.37777777777777777
+      },
+      "B": {
+       "cosine": 0.12,
+       "coverage": 0.5111111111111111,
+       "euclidean": 0.12,
+       "prototype": 0.18666666666666668
+      },
+      "forced": 15023,
+      "units": 128,
+      "unknown_coverage": 0.057777777777777775
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.36444444444444446,
+       "coverage": 0.9511111111111111,
+       "euclidean": 0.37333333333333335,
+       "prototype": 0.4177777777777778
+      },
+      "B": {
+       "cosine": 0.013333333333333334,
+       "coverage": 0.16444444444444445,
+       "euclidean": 0.0,
+       "prototype": 0.02666666666666667
+      },
+      "forced": 32240,
+      "units": 128,
+      "unknown_coverage": 0.08
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.4177777777777778,
+       "coverage": 0.9422222222222222,
+       "euclidean": 0.5288888888888889,
+       "prototype": 0.6888888888888889
+      },
+      "B": {
+       "cosine": 0.1511111111111111,
+       "coverage": 0.48444444444444446,
+       "euclidean": 0.18666666666666668,
+       "prototype": 0.25333333333333335
+      },
+      "forced": 14740,
+      "units": 128,
+      "unknown_coverage": 0.07111111111111111
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.36444444444444446,
+       "coverage": 0.9733333333333334,
+       "euclidean": 0.41333333333333333,
+       "prototype": 0.5155555555555555
+      },
+      "B": {
+       "cosine": 0.03111111111111111,
+       "coverage": 0.19555555555555557,
+       "euclidean": 0.008888888888888889,
+       "prototype": 0.06222222222222222
+      },
+      "forced": 29733,
+      "units": 128,
+      "unknown_coverage": 0.06222222222222222
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.5022222222222222,
+       "coverage": 0.9822222222222222,
+       "euclidean": 0.6222222222222222,
+       "prototype": 0.84
+      },
+      "B": {
+       "cosine": 0.16444444444444445,
+       "coverage": 0.72,
+       "euclidean": 0.13333333333333333,
+       "prototype": 0.2
+      },
+      "forced": 20004,
+      "units": 128,
+      "unknown_coverage": 0.08888888888888889
+     }
+    }
+   },
+   "seed": 393
+  },
+  "393/0.01/2048": {
+   "H": 2048,
+   "drift": {
+    "4": {
+     "identity_90": 0.9888889193534851,
+     "other_symbol_similarity": 0.06786554306745529,
+     "query_cosine_with_start": 0.8136271238327026,
+     "same_symbol_similarity": 0.9529063701629639
+    },
+    "5": {
+     "identity_90": 0.9977778196334839,
+     "other_symbol_similarity": 0.0786731094121933,
+     "query_cosine_with_start": 0.7608466148376465,
+     "same_symbol_similarity": 0.9559390544891357
+    },
+    "6": {
+     "identity_90": 0.995555579662323,
+     "other_symbol_similarity": 0.07524213939905167,
+     "query_cosine_with_start": 0.7322308421134949,
+     "same_symbol_similarity": 0.9586533308029175
+    }
+   },
+   "loss_first_200": 0.6865802678465843,
+   "loss_last_200": 0.21021770305931567,
+   "lr": 0.01,
+   "reads": {
+    "4": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5777777777777777,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.6933333333333334,
+       "prototype": 0.9511111111111111
+      },
+      "forced": 0,
+      "units": 76,
+      "unknown_coverage": 0.044444444444444446
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.5466666666666666,
+       "coverage": 0.9822222222222222,
+       "euclidean": 0.6977777777777778,
+       "prototype": 0.9377777777777778
+      },
+      "forced": 0,
+      "units": 871,
+      "unknown_coverage": 0.10222222222222223
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.5777777777777777,
+       "coverage": 1.0,
+       "euclidean": 0.7111111111111111,
+       "prototype": 0.9688888888888889
+      },
+      "forced": 0,
+      "units": 941,
+      "unknown_coverage": 0.1288888888888889
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.6,
+       "coverage": 1.0,
+       "euclidean": 0.7288888888888889,
+       "prototype": 0.9644444444444444
+      },
+      "forced": 0,
+      "units": 871,
+      "unknown_coverage": 0.12
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.56,
+       "coverage": 1.0,
+       "euclidean": 0.7288888888888889,
+       "prototype": 0.96
+      },
+      "forced": 0,
+      "units": 921,
+      "unknown_coverage": 0.10222222222222223
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.6,
+       "coverage": 1.0,
+       "euclidean": 0.7377777777777778,
+       "prototype": 0.9644444444444444
+      },
+      "forced": 0,
+      "units": 933,
+      "unknown_coverage": 0.09333333333333334
+     }
+    },
+    "5": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5333333333333333,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.6488888888888888,
+       "prototype": 0.9022222222222223
+      },
+      "B": {
+       "cosine": 0.5466666666666666,
+       "coverage": 1.0,
+       "euclidean": 0.6311111111111111,
+       "prototype": 0.9111111111111111
+      },
+      "forced": 0,
+      "units": 149,
+      "unknown_coverage": 0.10222222222222223
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.4444444444444444,
+       "coverage": 0.8711111111111111,
+       "euclidean": 0.5466666666666666,
+       "prototype": 0.7466666666666667
+      },
+      "B": {
+       "cosine": 0.5777777777777777,
+       "coverage": 1.0,
+       "euclidean": 0.6977777777777778,
+       "prototype": 0.9511111111111111
+      },
+      "forced": 0,
+      "units": 1160,
+      "unknown_coverage": 0.12
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.5555555555555556,
+       "coverage": 1.0,
+       "euclidean": 0.6622222222222223,
+       "prototype": 0.92
+      },
+      "B": {
+       "cosine": 0.6,
+       "coverage": 1.0,
+       "euclidean": 0.72,
+       "prototype": 0.9511111111111111
+      },
+      "forced": 0,
+      "units": 1386,
+      "unknown_coverage": 0.18666666666666668
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.5822222222222222,
+       "coverage": 1.0,
+       "euclidean": 0.6977777777777778,
+       "prototype": 0.9688888888888889
+      },
+      "B": {
+       "cosine": 0.6088888888888889,
+       "coverage": 1.0,
+       "euclidean": 0.7377777777777778,
+       "prototype": 0.9777777777777777
+      },
+      "forced": 0,
+      "units": 1147,
+      "unknown_coverage": 0.2
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.5688888888888889,
+       "coverage": 1.0,
+       "euclidean": 0.7111111111111111,
+       "prototype": 0.9244444444444444
+      },
+      "B": {
+       "cosine": 0.6,
+       "coverage": 1.0,
+       "euclidean": 0.7288888888888889,
+       "prototype": 0.9822222222222222
+      },
+      "forced": 0,
+      "units": 1341,
+      "unknown_coverage": 0.17777777777777778
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.5911111111111111,
+       "coverage": 1.0,
+       "euclidean": 0.6977777777777778,
+       "prototype": 0.9466666666666667
+      },
+      "B": {
+       "cosine": 0.6088888888888889,
+       "coverage": 1.0,
+       "euclidean": 0.72,
+       "prototype": 0.9688888888888889
+      },
+      "forced": 0,
+      "units": 1340,
+      "unknown_coverage": 0.1688888888888889
+     }
+    },
+    "6": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5333333333333333,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.6488888888888888,
+       "prototype": 0.9022222222222223
+      },
+      "B": {
+       "cosine": 0.5466666666666666,
+       "coverage": 1.0,
+       "euclidean": 0.6311111111111111,
+       "prototype": 0.9111111111111111
+      },
+      "forced": 0,
+      "units": 149,
+      "unknown_coverage": 0.10222222222222223
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.3466666666666667,
+       "coverage": 0.6622222222222223,
+       "euclidean": 0.4266666666666667,
+       "prototype": 0.5555555555555556
+      },
+      "B": {
+       "cosine": 0.56,
+       "coverage": 1.0,
+       "euclidean": 0.6533333333333333,
+       "prototype": 0.9066666666666666
+      },
+      "forced": 0,
+      "units": 1160,
+      "unknown_coverage": 0.08888888888888889
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.5511111111111111,
+       "coverage": 1.0,
+       "euclidean": 0.6355555555555555,
+       "prototype": 0.9066666666666666
+      },
+      "B": {
+       "cosine": 0.5866666666666667,
+       "coverage": 1.0,
+       "euclidean": 0.6933333333333334,
+       "prototype": 0.9288888888888889
+      },
+      "forced": 0,
+      "units": 1386,
+      "unknown_coverage": 0.23555555555555555
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.5911111111111111,
+       "coverage": 1.0,
+       "euclidean": 0.6977777777777778,
+       "prototype": 0.9422222222222222
+      },
+      "B": {
+       "cosine": 0.6088888888888889,
+       "coverage": 1.0,
+       "euclidean": 0.7377777777777778,
+       "prototype": 0.9733333333333334
+      },
+      "forced": 0,
+      "units": 1147,
+      "unknown_coverage": 0.19111111111111112
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.5733333333333334,
+       "coverage": 1.0,
+       "euclidean": 0.7022222222222222,
+       "prototype": 0.9288888888888889
+      },
+      "B": {
+       "cosine": 0.6088888888888889,
+       "coverage": 1.0,
+       "euclidean": 0.72,
+       "prototype": 0.9822222222222222
+      },
+      "forced": 0,
+      "units": 1341,
+      "unknown_coverage": 0.21333333333333335
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.5866666666666667,
+       "coverage": 1.0,
+       "euclidean": 0.7022222222222222,
+       "prototype": 0.9644444444444444
+      },
+      "B": {
+       "cosine": 0.6133333333333333,
+       "coverage": 1.0,
+       "euclidean": 0.7244444444444444,
+       "prototype": 0.9555555555555556
+      },
+      "forced": 0,
+      "units": 1340,
+      "unknown_coverage": 0.18222222222222223
+     }
+    }
+   },
+   "seed": 393
+  },
+  "393/0.01/512": {
+   "H": 512,
+   "drift": {
+    "4": {
+     "identity_90": 0.9888889193534851,
+     "other_symbol_similarity": 0.06786554306745529,
+     "query_cosine_with_start": 0.8136271238327026,
+     "same_symbol_similarity": 0.9529063701629639
+    },
+    "5": {
+     "identity_90": 0.9977778196334839,
+     "other_symbol_similarity": 0.0786731094121933,
+     "query_cosine_with_start": 0.7608466148376465,
+     "same_symbol_similarity": 0.9559390544891357
+    },
+    "6": {
+     "identity_90": 0.995555579662323,
+     "other_symbol_similarity": 0.07524213939905167,
+     "query_cosine_with_start": 0.7322308421134949,
+     "same_symbol_similarity": 0.9586533308029175
+    }
+   },
+   "loss_first_200": 0.6865802678465843,
+   "loss_last_200": 0.21021770305931567,
+   "lr": 0.01,
+   "reads": {
+    "4": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5777777777777777,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.6933333333333334,
+       "prototype": 0.9511111111111111
+      },
+      "forced": 0,
+      "units": 76,
+      "unknown_coverage": 0.044444444444444446
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.56,
+       "coverage": 0.9644444444444444,
+       "euclidean": 0.7066666666666667,
+       "prototype": 0.9288888888888889
+      },
+      "forced": 762,
+      "units": 512,
+      "unknown_coverage": 0.07111111111111111
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.5777777777777777,
+       "coverage": 1.0,
+       "euclidean": 0.7155555555555555,
+       "prototype": 0.96
+      },
+      "forced": 831,
+      "units": 512,
+      "unknown_coverage": 0.12
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.5822222222222222,
+       "coverage": 1.0,
+       "euclidean": 0.7288888888888889,
+       "prototype": 0.9333333333333333
+      },
+      "forced": 762,
+      "units": 512,
+      "unknown_coverage": 0.10222222222222223
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.5822222222222222,
+       "coverage": 1.0,
+       "euclidean": 0.7244444444444444,
+       "prototype": 0.9866666666666667
+      },
+      "forced": 724,
+      "units": 512,
+      "unknown_coverage": 0.08888888888888889
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.5866666666666667,
+       "coverage": 1.0,
+       "euclidean": 0.7288888888888889,
+       "prototype": 0.9644444444444444
+      },
+      "forced": 706,
+      "units": 512,
+      "unknown_coverage": 0.08
+     }
+    },
+    "5": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5333333333333333,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.6488888888888888,
+       "prototype": 0.9022222222222223
+      },
+      "B": {
+       "cosine": 0.5466666666666666,
+       "coverage": 1.0,
+       "euclidean": 0.6311111111111111,
+       "prototype": 0.9111111111111111
+      },
+      "forced": 0,
+      "units": 149,
+      "unknown_coverage": 0.10222222222222223
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.4177777777777778,
+       "coverage": 0.84,
+       "euclidean": 0.5155555555555555,
+       "prototype": 0.7155555555555555
+      },
+      "B": {
+       "cosine": 0.4266666666666667,
+       "coverage": 0.8666666666666667,
+       "euclidean": 0.4888888888888889,
+       "prototype": 0.6355555555555555
+      },
+      "forced": 5747,
+      "units": 512,
+      "unknown_coverage": 0.07111111111111111
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.38666666666666666,
+       "coverage": 0.9955555555555555,
+       "euclidean": 0.4888888888888889,
+       "prototype": 0.6888888888888889
+      },
+      "B": {
+       "cosine": 0.04888888888888889,
+       "coverage": 0.18666666666666668,
+       "euclidean": 0.03111111111111111,
+       "prototype": 0.03111111111111111
+      },
+      "forced": 23259,
+      "units": 512,
+      "unknown_coverage": 0.07111111111111111
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.5466666666666666,
+       "coverage": 1.0,
+       "euclidean": 0.6711111111111111,
+       "prototype": 0.9155555555555556
+      },
+      "B": {
+       "cosine": 0.3466666666666667,
+       "coverage": 0.7466666666666667,
+       "euclidean": 0.4177777777777778,
+       "prototype": 0.5777777777777777
+      },
+      "forced": 3833,
+      "units": 512,
+      "unknown_coverage": 0.11555555555555555
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.4444444444444444,
+       "coverage": 1.0,
+       "euclidean": 0.5377777777777778,
+       "prototype": 0.6577777777777778
+      },
+      "B": {
+       "cosine": 0.035555555555555556,
+       "coverage": 0.2088888888888889,
+       "euclidean": 0.044444444444444446,
+       "prototype": 0.04888888888888889
+      },
+      "forced": 22477,
+      "units": 512,
+      "unknown_coverage": 0.06666666666666667
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.5644444444444444,
+       "coverage": 1.0,
+       "euclidean": 0.6933333333333334,
+       "prototype": 0.92
+      },
+      "B": {
+       "cosine": 0.43555555555555553,
+       "coverage": 0.8933333333333333,
+       "euclidean": 0.4088888888888889,
+       "prototype": 0.6266666666666667
+      },
+      "forced": 9394,
+      "units": 512,
+      "unknown_coverage": 0.1511111111111111
+     }
+    },
+    "6": {
+     "frozen": {
+      "A": {
+       "cosine": 0.5333333333333333,
+       "coverage": 0.9911111111111112,
+       "euclidean": 0.6488888888888888,
+       "prototype": 0.9022222222222223
+      },
+      "B": {
+       "cosine": 0.5466666666666666,
+       "coverage": 1.0,
+       "euclidean": 0.6311111111111111,
+       "prototype": 0.9111111111111111
+      },
+      "forced": 0,
+      "units": 149,
+      "unknown_coverage": 0.10222222222222223
+     },
+     "no-rebuild": {
+      "A": {
+       "cosine": 0.3333333333333333,
+       "coverage": 0.6488888888888888,
+       "euclidean": 0.4222222222222222,
+       "prototype": 0.5466666666666666
+      },
+      "B": {
+       "cosine": 0.4311111111111111,
+       "coverage": 0.8177777777777778,
+       "euclidean": 0.48444444444444446,
+       "prototype": 0.6266666666666667
+      },
+      "forced": 5747,
+      "units": 512,
+      "unknown_coverage": 0.06666666666666667
+     },
+     "rebuild-1-every-250": {
+      "A": {
+       "cosine": 0.4311111111111111,
+       "coverage": 1.0,
+       "euclidean": 0.5244444444444445,
+       "prototype": 0.6533333333333333
+      },
+      "B": {
+       "cosine": 0.044444444444444446,
+       "coverage": 0.19111111111111112,
+       "euclidean": 0.03111111111111111,
+       "prototype": 0.044444444444444446
+      },
+      "forced": 23259,
+      "units": 512,
+      "unknown_coverage": 0.11555555555555555
+     },
+     "rebuild-8-every-2000": {
+      "A": {
+       "cosine": 0.5777777777777777,
+       "coverage": 1.0,
+       "euclidean": 0.6844444444444444,
+       "prototype": 0.9022222222222223
+      },
+      "B": {
+       "cosine": 0.3333333333333333,
+       "coverage": 0.7466666666666667,
+       "euclidean": 0.39111111111111113,
+       "prototype": 0.5555555555555556
+      },
+      "forced": 3833,
+      "units": 512,
+      "unknown_coverage": 0.12444444444444444
+     },
+     "rebuild-8-every-250": {
+      "A": {
+       "cosine": 0.4177777777777778,
+       "coverage": 1.0,
+       "euclidean": 0.5288888888888889,
+       "prototype": 0.6622222222222223
+      },
+      "B": {
+       "cosine": 0.04888888888888889,
+       "coverage": 0.22666666666666666,
+       "euclidean": 0.06222222222222222,
+       "prototype": 0.07111111111111111
+      },
+      "forced": 22477,
+      "units": 512,
+      "unknown_coverage": 0.10666666666666667
+     },
+     "rebuild-all-every-250": {
+      "A": {
+       "cosine": 0.5688888888888889,
+       "coverage": 1.0,
+       "euclidean": 0.6933333333333334,
+       "prototype": 0.9422222222222222
+      },
+      "B": {
+       "cosine": 0.4444444444444444,
+       "coverage": 0.9155555555555556,
+       "euclidean": 0.4222222222222222,
+       "prototype": 0.6355555555555555
+      },
+      "forced": 9394,
+      "units": 512,
+      "unknown_coverage": 0.14666666666666667
+     }
+    }
+   },
+   "seed": 393
+  }
+ },
+ "setting": {
+  "H": [
+   128,
+   512,
+   2048
+  ],
+  "k": 1,
+  "tau": 0.85
+ },
+ "status": "exploratory, pilot seeds, A then B; encoder keeps its labelled background training, so this tests drift and not identity without labels; values and reading on block-3 host codes"
+}
