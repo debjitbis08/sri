@@ -262,6 +262,12 @@ Merging doubles the second set here, and unseen symbols are still answered far t
 
 Writes and reads cost O(h d) per item. A merge pass costs O(h² d) time and O(h²) temporary space, brute force; about 1 s per task here over all events at H ≤ 2,048, and an approximate neighbour search would be needed at much larger h. Storage is h(d + m + 2) floats plus up to eight stored images per unit, so traces dominate: 784 bytes each, about 6 KB per unit against 200 bytes. With everything moving, an experience stores two images, and no contents need storing. So traces, not addresses, are the thing to shrink next. Units are capped at H. Reads degrade at H 256, about 2.8 units per symbol, and fail at H 128, about 1.4.
 
+## Decision after this pilot: no stored images
+
+The user's decision (2026-11-02): image storage goes completely. Images may return only for rehearsal, which is a different mechanism.
+
+Nothing here trained on the stored images. Cue images only rebuilt addresses and chose traces, and value images supplied what a read returns. Together they were about 98% of the 5.1 MB of the selected rule. So every rebuilding result in this pilot depends on something the design no longer allows, and every arm in Everything moving, including frozen keys and no rebuilding, depends on stored value images. They remain measurements of what stored inputs can do, not baselines for image-free memory. Merging itself sums statistics and needs no images; rebuilding, trace selection, the distinction test and current meaning all need a new source.
+
 ## Prior work
 
 **[familiar; read before use]**, none read for this pilot, so this needs doing before any contract. Vigilance allocation is leader clustering and adaptive resonance. Merging by reciprocal nearest neighbours is agglomerative clustering (nearest-neighbour chains); threshold merging of summary statistics resembles BIRCH; a per-unit radius resembles restricted Coulomb energy networks. Chaining and order dependence are their known failure modes. This pilot claims nothing new about them.
