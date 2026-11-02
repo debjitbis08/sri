@@ -64,6 +64,6 @@ Worst loss is 0.03, and none on first traces. These facts need no concept and no
 
 ## Computation
 
-Host runs, GTX 1650, two workers: 239 s wall, 413 s aggregate worker CPU, 12,000 updates each, 84 MB GPU peak. Reads, GPU, one process: 53 s wall, 30 s parent CPU, for both seeds and including about 25 s of data preparation; not an inference benchmark.
+Host runs, GTX 1650, two workers: 239 s wall, 413 s aggregate worker CPU, 12,000 updates each, 84 MB GPU peak. Reads, GPU, one process: 53 s wall, 30 s parent CPU, for both seeds and including data preparation; not an inference benchmark.
 
 Storage at one byte per pixel, per unit: 784 bytes for one trace and 6,272 for eight, as against 68 bytes in the host-code memory's 16-d contents. At 118 units that is about 93 KB or 740 KB, beside the same addresses. A meaningful read costs 1 or 8 host forward passes, which is the new cost on a CPU. A sensory read costs none. Compact traces were not tried: a frozen-encoder code cannot go through the host, since the host reads pixels.
