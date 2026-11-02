@@ -1,6 +1,6 @@
 # Consolidation alongside address rebuilding: pilot (seeds 392 and 393)
 
-Status: **pilot, 2026-11-02. Not evidence for any contrast, and not a contract.** Two seeds. Merge thresholds, the content gate, per-unit radius and its floor were all chosen during the study, the radius after seeing the probe. Runner `experiments/sense_consolidation.py`; merge in `src/sparse_local_memory.py`; reports `reports/sense-consolidation-v1-*.json`. Follows [step 3 of the sense-level pilot](sense-relational-v1-pilot.md), where unit growth became the main limit.
+Status: **pilot, 2026-11-02. Not evidence for any contrast, and not a contract.** Two seeds. Merge thresholds, the content gate, per-unit radius and its floor were all chosen during the study, the radius after seeing the probe. Runners `experiments/sense_consolidation.py`, `experiments/sense_consolidation_evidence.py`; merge in `src/sparse_local_memory.py`; reports `reports/sense-consolidation-v1-*.json`. Follows [step 3 of the sense-level pilot](sense-relational-v1-pilot.md), where unit growth became the main limit.
 
 ## Question
 
@@ -89,6 +89,59 @@ Rebuild only reproduces the earlier run's figures, units and forced writes exact
 - **The radius itself costs rejection under fast drift.** Rebuild only with a radius, with no merging, lifts the second set to 0.68–0.84 but answers 0.62 of unseen queries, with memory full and many forced writes.
 - **Forced writes still occur** (3,243–5,303), because memory fills before the first merge at the end of block 4.
 
+## Evidence for "the same thing"
+
+The user's framing (2026-11-02, offered tentatively): consolidation compresses the varied appearances of a thing while preserving distinctions from other things. That separates two label-free tests, added after the results above, with thresholds chosen during the study. Runner `experiments/sense_consolidation_evidence.py`. Rebuilding, radius and content gate as above.
+
+- **Compression evidence.** `shared φ`: each unit gives the other at least φ of its traces, counting each trace's nearest other unit. `cover φ`: each address answers at least φ of the other's traces at τ 0.85. Both also need addresses at 0.6 or above.
+- **Distinction test (`distinct`).** A merged unit's radius would cover its own traces. The merge is refused if that radius would take in a trace of another unit with a different content.
+- **Reference set (`others`).** Refuse a merge that takes in more than 1% of 256 background images, and raise each radius to reject 99% of them.
+
+All six reference arms reproduce the earlier run's block-6 reads exactly. Normal rate, H 2048, both orders and seeds, end of block 6, ordered by units:
+
+| Arm | First set | Second set | Worst first-set loss | Units | Wrong-symbol merges | Unseen answered |
+|---|---|---|---|---|---|---|
+| Rebuild only | 0.87–0.93 | 0.91–0.94 | 0.04 | 1,448–1,678 | none | 0.13 |
+| Address 0.9 | 0.82–0.88 | 0.87–0.92 | 0.07 | 872–898 | 2.6% | 0.12 |
+| Cover 0.5 | 0.82–0.87 | 0.85–0.88 | 0.07 | 737–748 | 2.6% | 0.13 |
+| Shared 0.5 | 0.80–0.87 | 0.85–0.90 | 0.08 | 660–703 | 1.7% | 0.17 |
+| Cover 0.25, distinct | 0.81–0.85 | 0.84–0.87 | 0.08 | 635–684 | 1.3% | 0.13 |
+| Cover 0.25 | 0.78–0.84 | 0.81–0.86 | 0.08 | 530–556 | 2.8% | 0.13 |
+| Address 0.85 | 0.78–0.86 | 0.81–0.84 | 0.07 | 489–511 | 3.0% | 0.14 |
+| Address 0.8, distinct | 0.76–0.83 | 0.81–0.83 | 0.08 | 412–454 | 1.9% | 0.16 |
+| Shared 0.25, distinct | 0.75–0.80 | 0.80–0.86 | 0.10 | 357–399 | 2.1% | 0.19 |
+| Address 0.7, distinct | 0.76–0.80 | 0.77–0.84 | 0.12 | 311–342 | 2.9% | 0.20 |
+| Address 0.8 | 0.68–0.80 | 0.70–0.81 | 0.15 | 285–306 | 4.1% | 0.19 |
+| Shared 0.25 | 0.53–0.74 | 0.58–0.78 | 0.24 | 122–158 | 7.2% | 0.31 |
+
+- **Preserving distinctions does more than the evidence for sameness.** The distinction test cuts wrong merges by about half to two-thirds in every comparison. It also rescues the most compressive rule: shared 0.25 reaches 122–158 units but reads poorly, and with the test it holds 0.75–0.86 at 357–399.
+- **The frontier moves, modestly.** Against address 0.8, address 0.7 with the test takes about 10% more units and reads 0.03 and 0.05 higher on average. Against address 0.85, shared 0.25 with the test takes about a quarter fewer units, reading 0.03 lower and 0.01 higher.
+- **No arm meets the 0.05 loss bar at this rate.** The best are at 0.07.
+- **Wrong merges do not account for the remaining loss.** Cover 0.25 with the test has only 1.3% wrong merges and still loses 0.08 at worst. Coverage is part of it, at 0.93 of queries against 0.98. **[hypothesis]** Capping a merged unit at eight traces discards the variation it should cover, shrinking its radius and bending its address. Not tested.
+- **The reference set adds nothing here.** Address 0.8 answers unseen symbols at 0.19 with and without it, with a further 200 KB of images not counted in the MB columns. **[derived]** A query is answered if any unit accepts it, so 1% per unit is a loose limit over about 300 units; rejecting unseen symbols this way needs a far stricter per-unit limit than 256 images can measure.
+
+Where capacity is short, normal rate, H 512, merging every 2,000 updates:
+
+| Arm | First set | Second set | Worst loss | Units | Forced writes | Unseen answered |
+|---|---|---|---|---|---|---|
+| Rebuild only, every 500 | 0.43–0.60 | 0.02–0.03 | 0.44 | 512 | 28,036–30,579 | 0.07 |
+| Address 0.8 | 0.64–0.80 | 0.64–0.77 | 0.16 | 248–250 | 2,179–2,934 | 0.17 |
+| Address 0.7, distinct | 0.71–0.81 | 0.70–0.80 | 0.10 | 252–279 | 2,178–2,920 | 0.19 |
+| Shared 0.25, distinct | 0.73–0.81 | 0.71–0.79 | 0.12 | 275–286 | 2,208–3,263 | 0.18 |
+
+The worst read rises from 0.64 to 0.70–0.71 at about the same units.
+
+At ten times the rate, H 2048:
+
+| Arm | First set | Second set | Worst loss | Units | Unseen answered |
+|---|---|---|---|---|---|
+| Rebuild only | 0.81–0.91 | 0.46–0.63 | 0.04 | 2,048 | 0.16 |
+| Address 0.9 | 0.78–0.86 | 0.79–0.88 | 0.10 | 750–839 | 0.35 |
+| **Address 0.8, distinct** | **0.81–0.86** | **0.76–0.83** | **0.04** | 877–1,175 | 0.39 |
+| Cover 0.25, distinct | 0.80–0.89 | 0.79–0.88 | 0.05 | 1,075–1,358 | 0.39 |
+
+**Under fast drift, the distinction test meets the bar while keeping the second set,** which no earlier arm did. It compresses less, since drift gives it more to refuse, and it still answers unseen symbols far too often.
+
 ## What this does not establish
 
 - **Reaching one unit per symbol.** The best real settings leave about three to ten units per symbol, against one in the reference.
@@ -96,7 +149,8 @@ Rebuild only reproduces the earlier run's figures, units and forced writes exact
 - **Everything moving at once.** Values and reading stay on block-3 host codes.
 - **Learning from a stream.** Encoder updates sample a curated set, and augmentations are hand-designed.
 - **Across fonts and in the core.** Neither was tested here.
-- **What "the same thing" should mean.** Address proximity and content agreement are weak evidence of it here: same-symbol units overlap other symbols' pairs at these thresholds. Other evidence, such as units answering the same later queries, is untried.
+- **Later evidence.** Evidence here comes from kept traces at merge time, not from new queries as they arrive.
+- **Varied appearances beyond one font.** Compression was not tested across fonts, the harder form of the user's framing.
 
 ## Scaling
 
@@ -110,4 +164,4 @@ Writes and reads cost O(h d) per item. A merge pass costs O(h² d) time and O(h�
 
 ## Computation
 
-Probe: CPU, six workers, 49 s wall, 456 s aggregate CPU, 64 tasks. Learning: GTX 1650, three workers, one thread each, float32, 313 s wall, 1,380 s aggregate CPU, 8 tasks of 19 arms sharing one encoder path, GPU peak 87 MB, peak RSS 1.6 GB per process. Rebuild, merge and radius take 0.3–1.9 s per merging arm per task. Selection in this pilot was by inspection across all of the above, with no cost beyond it.
+Probe: CPU, six workers, 49 s wall, 456 s aggregate CPU, 64 tasks. Learning: GTX 1650, three workers, one thread each, float32, 313 s wall, 1,380 s aggregate CPU, 8 tasks of 19 arms sharing one encoder path, GPU peak 87 MB, peak RSS 1.6 GB per process. Rebuild, merge and radius take 0.3–1.9 s per merging arm per task. Evidence: same hardware and workers, 735 s wall, 6,216 s aggregate CPU, 8 tasks of 26 arms, GPU peak 87 MB, peak RSS 2.0 GB per process; merge evidence and tests take 0.6–6.0 s per merging arm per task, the slowest being cover with the distinction test and reference set. Those tests add O(t h d) per pass for t kept traces. Selection in this pilot was by inspection across all of the above, with no cost beyond it.

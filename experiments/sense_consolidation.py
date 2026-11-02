@@ -39,6 +39,7 @@ PROBE_CONTENT = (None, .5, .8, .9, .95)
 ORACLE_ADDRESS = (None, .6, .75, .8, .85, .9)
 READ_TAUS = (.85, .8, .75, .7, .6, .5)
 LRS = (1e-3, 1e-2)
+PREPARE = None  # run before a tick, with the encoder as it is then; used by the evidence stage
 FLOOR = 0.5  # the lowest read threshold in the probe's sweep; set after seeing it
 TRACE_BYTES = 784  # one stored 28 x 28 image, as one byte per pixel
 
@@ -173,6 +174,11 @@ class Arm(LS.Arm):
         main = np.array([np.bincount(tr[tu == i] // R).argmax() for i in range(h)])  # scoring only
         labels = self.mem.consolidate(self.merge, self.gate)
         errors = merge_errors(main, counts, labels)
+        return self.settle(labels, tu, tr, errors)
+
+    def settle(self, labels, tu, tr, errors):
+        """Traces follow their units, capped at keep, taken in turn from each merged unit."""
+        h = len(labels)
         rank = np.zeros(len(tu), np.int64)
         taken = np.zeros(h, np.int64)
         for t, u in enumerate(tu):
@@ -270,6 +276,8 @@ def learn(task):
                 if due:
                     with torch.no_grad():
                         table = np_(enc(model, cue))
+                        if PREPARE:
+                            PREPARE(model, enc, seed)
                     for a in due:
                         a.tick(start_cues if a.frozen else table, c['counts'])
         read_point(b, first if b == 4 else 'AB')

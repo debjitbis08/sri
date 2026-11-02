@@ -62,23 +62,27 @@ class Memory:
             lower = lower[(near[near[lower]] == lower) & (lower < near[lower]) & (S[lower, near[lower]] >= tau_address)]
             if not len(lower):
                 break
-            upper = near[lower]
-            self.c[lower] += self.c[upper]
-            self.u[lower] += self.u[upper]
-            self.n[lower] += self.n[upper]
-            self.a[lower] = self.c[lower] / np.maximum(np.linalg.norm(self.c[lower], axis=1, keepdims=True), 1e-12)
-            step = np.arange(h)
-            step[upper] = lower
-            keep = np.ones(h, bool)
-            keep[upper] = False
-            new = np.cumsum(keep) - 1
-            labels = new[step[labels]]
-            m = int(keep.sum())
-            for x in (self.c, self.a, self.u, self.n):
-                x[:m] = x[:h][keep]
-                x[m:h] = 0
-            self.h = m
+            labels = self.merge_pairs(lower, near[lower])[labels]
         return labels
+
+    def merge_pairs(self, lower, upper):
+        """Each upper unit joins its lower unit, by adding statistics; survivors move to the front. Returns the map from each unit before to its unit now."""
+        h = self.h
+        self.c[lower] += self.c[upper]
+        self.u[lower] += self.u[upper]
+        self.n[lower] += self.n[upper]
+        self.a[lower] = self.c[lower] / np.maximum(np.linalg.norm(self.c[lower], axis=1, keepdims=True), 1e-12)
+        step = np.arange(h)
+        step[upper] = lower
+        keep = np.ones(h, bool)
+        keep[upper] = False
+        new = np.cumsum(keep) - 1
+        m = int(keep.sum())
+        for x in (self.c, self.a, self.u, self.n):
+            x[:m] = x[:h][keep]
+            x[m:h] = 0
+        self.h = m
+        return new[step]
 
     def read(self, Z, part=None):
         """Z (q, d') unit vectors -> contents (q, m) and answered (q,). part: a slice of the address the query is compared with, renormalized; the query then carries only that part."""
