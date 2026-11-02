@@ -6,6 +6,7 @@ Stages (argv[2]):
   hosts    every configuration x pilot seed, sparse48 first; sparse48 must reproduce the long-term memory host's block-3 state
   read     the stage 0 readings on those checkpoints, and the frozen-encoder reference
   lock     the contract's lock table, from the pilot means
+  strong   exploratory, after the pilot: the background arms at larger lambda, since the pilot's term barely trained; hosts and readings
 
 Usage: NFI_DEVICE=cuda NSY_WORKERS=6 /data/venvs/sri-cuda/bin/python -m experiments.shared_core_stage0 pilot hosts
        (rerun the same command to resume after an interruption: experiments/durable.py)
@@ -53,6 +54,7 @@ BACKGROUND = X.ROOT / 'runs' / 'translation-memory-v1-stable-keys' / 'material'
 WORKERS = int(os.environ.get('SC0_WORKERS', 3))
 SEEDS = (392,) if SMOKE else (392, 393)
 LAMBDAS = (.1, 1.)
+STRONG_LAMBDAS = (10., 100.)
 BG_PER_UPDATE = 64
 LOADS, TRAIN_RENDERS, EVAL_RENDERS = ((18, 36), 8, 2) if SMOKE else ((90, 180), 64, 5)
 ADDRESS_BAR, MARGIN = .80, .05
@@ -499,6 +501,20 @@ def read():
                                                           'aggregate_worker_cpu_seconds': float(sum(t['cpu_seconds'] for _, _, t in res))}))
 
 
+def strong():
+    t0 = time.perf_counter()
+    prepare()
+    for seed in SEEDS:
+        test_material(seed)
+    tasks = [(f'{a}-l{l:g}', s) for a in ('wide32-recon-bg', 'split-recon-bg') for l in STRONG_LAMBDAS for s in SEEDS]
+    fits = pool_map(DUR.durable(fit_host, RUNS / 'done-hosts', '{0}-seed{1}'), tasks)
+    res = pool_map(DUR.durable(read_host, RUNS / 'done-read', '{0}-seed{1}'), tasks)
+    save_json(f'{REPORT}-strong.json', {'status': 'exploratory, chosen after seeing the pilot; not part of the lock table', 'lambdas': STRONG_LAMBDAS, 'results': {k: r for k, r, _ in res},
+                                        'hosts': {k: {x: r[x] for x in ('hash', 'parameters', 'reconstruction_trailing_200', 'exposures')} for k, r, _ in fits}})
+    save_json(f'{REPORT}-strong-runtime.json', runtime({'phase': 'exploratory host fits and readings', 'wall_seconds': time.perf_counter() - t0, 'fits': {k: t for k, _, t in fits}, 'reads': {k: t for k, _, t in res},
+                                                        'aggregate_worker_cpu_seconds': float(sum(t['cpu_seconds'] for _, _, t in fits + res))}))
+
+
 # ---------------------------------------------------------------- lock
 
 def lock_table(res, seeds=SEEDS):
@@ -551,4 +567,4 @@ def runtime(extra):
 
 if __name__ == '__main__':
     stage = sys.argv[2] if len(sys.argv) > 2 else 'hosts'
-    {'hosts': hosts, 'read': read, 'lock': lock}[stage]()
+    {'hosts': hosts, 'read': read, 'lock': lock, 'strong': strong}[stage]()
