@@ -3,7 +3,7 @@
 Status: **draft, revised 2026-11-02 after the [stage 0 pilot](shared-core-sparse-memory-v1-stage0-pilot.md). Not frozen. No further
 implementation or run is authorized by this document. The pilot's lock: `conjunctive` route, host `sparse48`, sensory source the
 frozen encoder, stage 0 candidate `split-recon-bg` at λ 0.1. The [small stage 1 pilot](shared-core-sparse-memory-v1-stage1-pilot.md) found no cross-sense reach on any address, and
-the core lowers within-sense memory, so stage 1 confirmation should not run on this design.** Numerical choices are proposed pilot settings. The previous premise, a core pretrained only on relations, failed on
+the core lowers within-sense memory, so stage 1 confirmation should not run on this design. The [moving host pilot](shared-core-sparse-memory-v1-moving-host-pilot.md) found memory does not forget but host-coded values go stale.** Numerical choices are proposed pilot settings. The previous premise, a core pretrained only on relations, failed on
 existing codes and is withdrawn; see *Why the first design changed*. Open items
 are listed under *Before freezing*.
 
@@ -363,7 +363,7 @@ similarity distribution, so it is selected per address, on pilot seeds.
 
 **Decoder.** Two levels, read separately. **Memory level:** the content's nearest count prototype, nine mean codes of training collections, charged: did the
 right value come back? **Answer level:** Euclidean distance to the candidates' codes. Cosine and the host's matching head are diagnostics. The [value diagnostic](shared-core-sparse-memory-v1-stage1-pilot.md#value-diagnostic) gives the reason:
-with an oracle address, the memory level reads 1.00, and the answer level averages 0.69, since a single candidate collection reads its own count at only 0.61, 0.66. So the answer level caps
+with an oracle address, the memory level reads 1.00, and the answer level averages 0.69, since a single candidate collection reads its own count at only 0.61, 0.66, mostly through a [shift between training and evaluation renderings](shared-core-sparse-memory-v1-moving-host-pilot.md#correction-to-the-value-diagnostic). So the answer level caps
 what any memory can show. The decoder floor applies to the answer level; acquisition and old loss are read at the memory level, as the pilot's selection did. Prototypes need one stored vector per answer, so this does not scale to a large answer space.
 
 Learning addresses mixes content interference with rerouting, so both are read separately
@@ -807,6 +807,11 @@ Before the stage 0 pilot, 2026-11-02, with no pilot result seen:
 - The lock rule now resolves λ and the tie between `split-recon-bg` and `wide32-recon-bg`.
 - The stress condition defines a frozen sensory source, and it, the probes and the load probes are assigned to seeds 404–406.
 - CPU reporting is stated by resource target. The Kanerva reference was corrected and the background set is 1,987 symbols.
+
+After the moving host pilot, 2026-11-02:
+
+- With the host learning, answers from stored host-coded values fall to 0.28–0.36 by block 6, and block 6 itself has no writes, so this is drift. Values that hold still lose at most 0.04.
+- The answer-level cap is mostly a rendering shift, which corrects the value diagnostic.
 
 After the value diagnostic and small stage 1 pilot, 2026-11-02:
 

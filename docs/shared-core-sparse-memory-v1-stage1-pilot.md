@@ -22,7 +22,7 @@ Hosts frozen at block 3, the real 64,000-write stream, set A and set B, four rea
 | Accumulated value, explicit store on frozen keys | 1.00 | 0.62–0.75 | 0.57–0.61 | 0.45–0.64 |
 | Accumulated value, explicit store on the core's code | 0.23–0.33 | 0.17–0.27 | 0.16–0.27 | 0.12–0.22 |
 
-Accumulating values costs nothing against perfect contents, and frozen keys lose nothing against an oracle. The whole gap to 1.00 comes from candidates: a single evaluation collection reads its own count at 0.61, 0.66 (within one count: 0.90, 0.96). Answers on these codes therefore cap at about 0.70 whatever the memory does.
+Accumulating values costs nothing against perfect contents, and frozen keys lose nothing against an oracle. The whole gap to 1.00 comes from candidates: a single evaluation collection reads its own count at 0.61, 0.66 (within one count: 0.90, 0.96). Answers among these candidates therefore cap at about 0.70 whatever the memory does. **Corrected in the [moving host pilot](shared-core-sparse-memory-v1-moving-host-pilot.md#correction-to-the-value-diagnostic):** most of this gap is a systematic shift between training and evaluation renderings rather than noise, and 1.00 means the right stored value returned.
 
 This corrects the stage 0 report. Over these reads cosine averages 0.59, below the floor of 0.60, which its 450-query reading had cleared at 0.61. Euclidean averages 0.69. The contract now reads memory by nearest count prototype, with Euclidean among candidates as the answer level. Prototype decoding has its own scale limit: it needs a stored prototype per answer.
 
