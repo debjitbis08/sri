@@ -1731,6 +1731,18 @@ read]**, from the [Google Research post](https://research.google/blog/the-sleep-
   [notes](continuous-sensory-memory-notes.md), and should be a matched-resources
   comparator in any test of whether a middle level earns its place.
 
+**Sleep against merging units (2026-11-02, §§2.2–3.4 reread).** **[read]** Sleep's
+consolidation moves knowledge between time scales: it adds a low-rank expert to the
+slower block, freezes all else, distills from samples the teacher generates, not raw
+data, then resets the sender's experts. Capacity grows at each sleep. **[derived]** It
+never asks whether two stored things are the same. The
+[consolidation pilot](sense-consolidation-v1-pilot.md) asks only that, in one store,
+at fixed capacity, keeping raw traces. So the two are complementary, and the word
+covers both. **[hypothesis]** Merging could prepare a store for transfer to a long-term
+network, which this project has not combined. Generated cues in place of stored traces
+would cut the pilot's main storage cost, but `consolidate-random` above warns that
+uninformative cues transfer poorly.
+
 ### Relevant update: several experiences together
 
 Search date 2026-11-01, for the [relevant update draft](relevant-update-v1-contract.md). Sources: arXiv pages of the works below; ATLAS proceedings pp. 5-6 and Appendix G, recorded above.

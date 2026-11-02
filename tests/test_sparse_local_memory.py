@@ -65,5 +65,60 @@ class Fixtures(unittest.TestCase):
         self.assertTrue(np.array_equal(a, m.a) and np.array_equal(n, m.n))
 
 
+def _unit(*x):
+    x = np.array(x, np.float32)
+    return x / np.linalg.norm(x)
+
+
+def _memory_with_two_close_and_one_far():
+    mem = Memory(5, 1, 0.99999, 3, 2)
+    mem.write(_unit(1, 0.02, 0), np.array([1, 0], np.float32))
+    mem.write(_unit(1, -0.02, 0), np.array([1, 0], np.float32))
+    mem.write(_unit(0, 0, 1), np.array([0, 1], np.float32))
+    assert mem.h == 3
+    return mem
+
+
+class Consolidate(unittest.TestCase):
+    def test_consolidate_merges_close_units_as_one_unit_taking_both_writes(self):
+        mem = _memory_with_two_close_and_one_far()
+        c = mem.c[0] + mem.c[1]
+        labels = mem.consolidate(0.9)
+        assert labels.tolist() == [0, 0, 1] and mem.h == 2
+        assert mem.n[:2].tolist() == [2, 1] and mem.u[0].tolist() == [2, 0]
+        assert np.allclose(mem.c[0], c) and np.allclose(mem.a[0], c / np.linalg.norm(c))
+        assert np.allclose(mem.a[1], [0, 0, 1])
+        assert not mem.a[2:].any() and not mem.n[2:].any()
+
+    def test_consolidate_below_threshold_changes_nothing(self):
+        mem = _memory_with_two_close_and_one_far()
+        a = mem.a.copy()
+        assert mem.consolidate(0.999999).tolist() == [0, 1, 2]
+        assert mem.h == 3 and np.array_equal(mem.a, a)
+
+    def test_consolidate_content_gate_keeps_close_units_with_different_contents_apart(self):
+        mem = Memory(5, 1, 0.99999, 3, 2)
+        mem.write(_unit(1, 0.02, 0), np.array([1, 0], np.float32))
+        mem.write(_unit(1, -0.02, 0), np.array([0, 1], np.float32))
+        assert mem.consolidate(0.9, 0.5).tolist() == [0, 1] and mem.h == 2
+        assert mem.consolidate(0.9).tolist() == [0, 0] and mem.h == 1
+
+    def test_consolidate_repeats_passes_until_settled(self):
+        mem = Memory(5, 1, 0.9999, 2, 1)
+        for t in (0.0, 0.03, 0.06, 0.09):
+            mem.write(np.array([np.cos(t), np.sin(t)], np.float32), np.ones(1, np.float32))
+        assert mem.h == 4
+        assert mem.consolidate(0.99).tolist() == [0, 0, 0, 0]
+        assert mem.h == 1 and mem.n[0] == 4
+
+    def test_write_and_read_work_after_consolidating(self):
+        mem = _memory_with_two_close_and_one_far()
+        mem.consolidate(0.9)
+        assert mem.write(_unit(1, 1, 1), np.array([1, 1], np.float32)).tolist() == [2]
+        content, ok = mem.read(_unit(1, 0, 0)[None])
+        assert ok[0] and np.allclose(content[0], [1, 0])
+
+
+
 if __name__ == '__main__':
     unittest.main()

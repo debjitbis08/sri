@@ -1,0 +1,23 @@
+{
+ "aggregate_worker_cpu_seconds": 455.91756517999994,
+ "children_peak_rss_kb": 703080,
+ "command": "/home/debjit/code/sri/experiments/sense_consolidation.py pilot probe",
+ "contract_sha256": "e94933660a9c50b03e9b24099b64f977ec3cba1e788405f84facb1bcca8c839a",
+ "cpu": "x86_64",
+ "device": "cpu",
+ "dirty": true,
+ "dtype": "float32",
+ "numpy": "2.5.4",
+ "parent_peak_rss_kb": 703080,
+ "phase": "CPU probe",
+ "python": "3.12.3",
+ "revision": "d742513fe0c6882d3bf12a91d663be63197a240b",
+ "rss_convention": "ru_maxrss in KiB, per process; children is the largest single child",
+ "runner_sha256": "4b5573ad3b7ecddb231f836a02d6b0f6ae51c992aefbb175d5cf4e6391e40bbd",
+ "scope": "nondeterministic timing",
+ "tasks": 64,
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cu130",
+ "wall_seconds": 49.20080613699986,
+ "workers": 6
+}

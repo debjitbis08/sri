@@ -43,6 +43,43 @@ class Memory:
         self.n[I] += 1
         return I
 
+    def consolidate(self, tau_address, tau_content=None):
+        """Merge units that now represent the same thing, by reciprocal nearest neighbours in passes, with no labels. A pair merges when each is the other's nearest eligible unit, their
+        addresses reach tau_address and, if given, their mean contents reach tau_content. Merged statistics are sums, so a merged address and content are what one unit taking both units'
+        writes would hold. Survivors are compacted to the front. Returns labels: labels[old unit] = its unit now. Each pass costs O(h^2 d) time and O(h^2) temporary space."""
+        start = self.h
+        labels = np.arange(start)
+        while self.h > 1:
+            h = self.h
+            S = self.a[:h] @ self.a[:h].T
+            if tau_content is not None:
+                val = self.u[:h] / np.maximum(self.n[:h, None], 1)
+                val = val / np.maximum(np.linalg.norm(val, axis=1, keepdims=True), 1e-12)
+                S[val @ val.T < tau_content] = -np.inf
+            np.fill_diagonal(S, -np.inf)
+            near = S.argmax(1)
+            lower = np.arange(h)
+            lower = lower[(near[near[lower]] == lower) & (lower < near[lower]) & (S[lower, near[lower]] >= tau_address)]
+            if not len(lower):
+                break
+            upper = near[lower]
+            self.c[lower] += self.c[upper]
+            self.u[lower] += self.u[upper]
+            self.n[lower] += self.n[upper]
+            self.a[lower] = self.c[lower] / np.maximum(np.linalg.norm(self.c[lower], axis=1, keepdims=True), 1e-12)
+            step = np.arange(h)
+            step[upper] = lower
+            keep = np.ones(h, bool)
+            keep[upper] = False
+            new = np.cumsum(keep) - 1
+            labels = new[step[labels]]
+            m = int(keep.sum())
+            for x in (self.c, self.a, self.u, self.n):
+                x[:m] = x[:h][keep]
+                x[m:h] = 0
+            self.h = m
+        return labels
+
     def read(self, Z, part=None):
         """Z (q, d') unit vectors -> contents (q, m) and answered (q,). part: a slice of the address the query is compared with, renormalized; the query then carries only that part."""
         a = self.a[:self.h]
