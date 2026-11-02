@@ -1,8 +1,8 @@
 # Shared-core sparse memory v1: draft contract
 
-Status: **draft, revised 2026-11-02 after review. Not frozen. The stage 0 pilot is
-authorized by the user (2026-11-02); no other implementation or run is authorized by this
-document.** Numerical choices are proposed pilot settings. The previous premise, a core pretrained only on relations, failed on
+Status: **draft, revised 2026-11-02 after the [stage 0 pilot](shared-core-sparse-memory-v1-stage0-pilot.md). Not frozen. No further
+implementation or run is authorized by this document. The pilot's lock: `conjunctive` route, host `sparse48`, sensory source the
+frozen encoder, stage 0 candidate `split-recon-bg` at λ 0.1.** Numerical choices are proposed pilot settings. The previous premise, a core pretrained only on relations, failed on
 existing codes and is withdrawn; see *Why the first design changed*. Open items
 are listed under *Before freezing*.
 
@@ -311,7 +311,8 @@ pairs. Grid k in {1, 4}, τ in {0.5, 0.7, 0.85}, H = 128, which nine facts canno
 mean of the tap and same-sense reads, ties to the higher τ and then the smaller k.
 
 **A sensory source with no taps.** The frozen encoder reads only images. If it is the sensory source, a tap query has no sensory code:
-`sense-only` and `sensory` abstain, which counts as wrong, and `conjunctive` uses a zero sensory part. If the source is the host's encoder, tap
+`sense-only` and `sensory` abstain, which counts as wrong, and `conjunctive` reads the core part alone: dot(core(z), core part of a_i, normalized) ≥ τ. A zero sensory part would
+hold the similarity below every τ in the grid [derived], so this fallback is what lets the address be tested at all, and the locked route uses this source. If the source is the host's encoder, tap
 codes come through the host's sequence encoder and are compared directly.
 
 **Predictions [derived].**
@@ -320,11 +321,10 @@ codes come through the host's sequence encoder and are compared directly.
   so they should abstain or read at chance.
 - `core` can, if forms and taps of a count land together. Count is what `sparse48`'s code holds, so this may
   work on the same code that fails symbol identity.
-- **`conjunctive` may fail by construction.** With its two parts normalized and joined, a query from another
-  sense matches at about half the core's similarity, so at most about 0.5, below τ of 0.7 or 0.85. If so, it
-  keeps within-sense identity and loses the reason for including the core. Lower τ here is not a fix, since it
-  merges symbols. A read that falls back to the core when the sensory part abstains is the obvious revision, to be
-  recorded here if the pilot shows this.
+- **`conjunctive` without its fallback fails by construction.** With its two parts normalized and joined, a query from another
+  sense matches at about half the core's similarity, so at most about 0.5, at or below every τ. Lower τ is not a fix, since it
+  merges symbols. So the read falls back to the core part when a query has no sensory code, as defined above. A
+  query with a sensory code from a different encoder has no such guard, and the fixture reads that on a host-encoder source only.
 
 ### Mechanism
 
@@ -360,10 +360,10 @@ Dead units cannot occur, since units exist only once written. Utilization is the
 fraction, reported. τ sets how far a unit generalizes, and it depends on the address code's
 similarity distribution, so it is selected per address, on pilot seeds.
 
-**Decoder.** `decode(content, candidates)` is the host's matching head on the content
-and candidates' codes, reading through the output module rather than a new head, with
-cosine against candidates as a diagnostic. Both go through stage 0's value ceiling. If
-the head cannot read retrieved contents, revise here before selecting memory.
+**Decoder.** `decode(content, candidates)` is cosine against the candidates' codes, with the host's matching head as a
+diagnostic. This was revised after the stage 0 pilot, where on `sparse48` the head's value ceiling read 0.52, 0.61, below the
+decoder floor, and cosine read 0.60, 0.62. Cosine clears the floor by 0.01 on two seeds, and the study stops at `decoder-limited` if the
+stage 1 pilot's value ceiling falls below it.
 
 Learning addresses mixes content interference with rerouting, so both are read separately
 under *Mechanisms*. `fixed-random` stays as a reference for what learning buys.
@@ -760,11 +760,10 @@ implementation, not represented as existing.
 
 ## Before freezing
 
-1. Run the stage 0 pilot. If no arm addresses, the route is `conjunctive`; any revision of the arms is recorded here before the lock.
-2. Set the stage 0 and stage 1 bars from the pilot, and confirm the matching head can read retrieved contents.
-3. Record the cross-sense fixture's pilot reading of `conjunctive`.
-4. Read adaptive resonance theory and Kanerva's sparse distributed memory, and record them in [prior work](prior-work.md), with the other [familiar] items.
-5. Recheck seeds and lock host checkpoints, data and code hashes.
+1. Run the stage 1 and fixture pilots on the locked route, then select settings and set the stage 1 bars. On this route `sense-only` and `frozen-encoder` are one run, and `perception` is not used.
+2. Record the cross-sense fixture's pilot reading of `conjunctive`, with its fallback.
+3. Read adaptive resonance theory and Kanerva's sparse distributed memory, and record them in [prior work](prior-work.md), with the other [familiar] items.
+4. Recheck seeds and lock host checkpoints, data and code hashes.
 
 ## Changes from external review
 
@@ -795,5 +794,11 @@ Before the stage 0 pilot, 2026-11-02, with no pilot result seen:
 - The lock rule now resolves λ and the tie between `split-recon-bg` and `wide32-recon-bg`.
 - The stress condition defines a frozen sensory source, and it, the probes and the load probes are assigned to seeds 404–406.
 - CPU reporting is stated by resource target. The Kanerva reference was corrected and the background set is 1,987 symbols.
+
+After the stage 0 pilot, 2026-11-02:
+
+- No arm addressed, so the route is `conjunctive`. An exploratory check at λ 10 and 100 did not change this: identity 0.18–0.32. The bar of 0.80 stays as provisional, since no arm came near enough to test it.
+- The decoder is now cosine, with the head as a diagnostic.
+- `conjunctive` reads the core part alone on a query with no sensory code.
 
 The figures under *Why the first design changed* come from existing caches.
