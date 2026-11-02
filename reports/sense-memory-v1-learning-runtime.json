@@ -1,0 +1,77 @@
+{
+ "aggregate_worker_cpu_seconds": 484.176276725,
+ "children_peak_rss_kb": 1602192,
+ "command": "/home/debjit/code/sri/experiments/sense_memory.py pilot learning",
+ "contract_sha256": "e94933660a9c50b03e9b24099b64f977ec3cba1e788405f84facb1bcca8c839a",
+ "cpu": "x86_64",
+ "cublas_workspace_config": ":4096:8",
+ "cuda": "13.0",
+ "cudnn": 92400,
+ "deterministic_algorithms": true,
+ "device": "cuda",
+ "dirty": true,
+ "dtype": "float32",
+ "gpu": "NVIDIA GeForce GTX 1650",
+ "numpy": "2.5.4",
+ "parent_peak_rss_kb": 780716,
+ "phase": "encoder training with memory writes",
+ "python": "3.12.3",
+ "revision": "93cc740a0cc7c68275fda639e5832cad9aea3031",
+ "rss_convention": "ru_maxrss in KiB, per process; children is the largest single child",
+ "runner_sha256": "4b5573ad3b7ecddb231f836a02d6b0f6ae51c992aefbb175d5cf4e6391e40bbd",
+ "scope": "nondeterministic timing",
+ "tasks": {
+  "392/0.001/1024": {
+   "cpu_seconds": 63.868413042,
+   "gpu_peak_allocated_bytes": 87038464,
+   "peak_rss_kb": 1602192,
+   "wall_seconds": 59.661016524012666
+  },
+  "392/0.001/2048": {
+   "cpu_seconds": 62.925582139,
+   "gpu_peak_allocated_bytes": 87038464,
+   "peak_rss_kb": 1600012,
+   "wall_seconds": 59.4248779330228
+  },
+  "392/0.01/1024": {
+   "cpu_seconds": 62.445347389,
+   "gpu_peak_allocated_bytes": 87038464,
+   "peak_rss_kb": 1597688,
+   "wall_seconds": 59.23045685401303
+  },
+  "392/0.01/2048": {
+   "cpu_seconds": 63.069990321,
+   "gpu_peak_allocated_bytes": 87038464,
+   "peak_rss_kb": 1580936,
+   "wall_seconds": 59.37373932701303
+  },
+  "393/0.001/1024": {
+   "cpu_seconds": 63.492303268,
+   "gpu_peak_allocated_bytes": 87038464,
+   "peak_rss_kb": 1575636,
+   "wall_seconds": 59.556324406003114
+  },
+  "393/0.001/2048": {
+   "cpu_seconds": 63.365746979,
+   "gpu_peak_allocated_bytes": 87038464,
+   "peak_rss_kb": 1578000,
+   "wall_seconds": 59.385158918012166
+  },
+  "393/0.01/1024": {
+   "cpu_seconds": 52.995074286999994,
+   "gpu_peak_allocated_bytes": 87038464,
+   "peak_rss_kb": 1576768,
+   "wall_seconds": 48.98769498700858
+  },
+  "393/0.01/2048": {
+   "cpu_seconds": 52.0138193,
+   "gpu_peak_allocated_bytes": 87038464,
+   "peak_rss_kb": 1578544,
+   "wall_seconds": 48.88867223399575
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cu130",
+ "wall_seconds": 168.6964515139989,
+ "workers": 3
+}

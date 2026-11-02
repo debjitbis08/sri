@@ -1,0 +1,23 @@
+{
+ "aggregate_worker_cpu_seconds": 871.086230935,
+ "children_peak_rss_kb": 744428,
+ "command": "/home/debjit/code/sri/experiments/sense_memory.py pilot grid",
+ "contract_sha256": "e94933660a9c50b03e9b24099b64f977ec3cba1e788405f84facb1bcca8c839a",
+ "cpu": "x86_64",
+ "device": "cpu",
+ "dirty": true,
+ "dtype": "float32",
+ "numpy": "2.5.4",
+ "parent_peak_rss_kb": 744428,
+ "phase": "CPU grid",
+ "python": "3.12.3",
+ "revision": "93cc740a0cc7c68275fda639e5832cad9aea3031",
+ "rss_convention": "ru_maxrss in KiB, per process; children is the largest single child",
+ "runner_sha256": "4b5573ad3b7ecddb231f836a02d6b0f6ae51c992aefbb175d5cf4e6391e40bbd",
+ "scope": "nondeterministic timing",
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cu130",
+ "wall_seconds": 88.256374012999,
+ "workers": 6,
+ "writes": 15360000
+}
