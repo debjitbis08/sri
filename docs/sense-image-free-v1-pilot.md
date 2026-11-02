@@ -134,6 +134,71 @@ A unit answers when a query's cosine with its address reaches the unit's thresho
 
 The separation is good but not clean, with AUC 0.97 in both. At threshold 0.85, 0.95–0.97 of known queries and 0.14–0.20 of unseen ones are answered; at 0.75, all known and 0.48–0.49 unseen; at 0.7, 0.58–0.71 unseen. Widening by drift, a first-set unit reaches about 0.68 by block 6 at the normal rate, and transport about 0.76, which accounts for the rejection seen above. On a shift, block 5 alone takes the widening rule to its floor of 0.5. This read-only measure does not cover a moving encoder.
 
+## Windows: one version, no image held, transport separate from thresholds
+
+A follow-up after external review, same seeds, `experiments/sense_image_free_windows.py`. Its settings were chosen before its results, and it still informs selection, so it is exploratory too.
+
+- **One version.** Memory reads and writes use a published copy of each network while the working copy trains. Every 250 updates, inputs passing over 16 updates go through the published copy and a candidate. A map then moves all stored codes, and the candidate is published.
+- **No image held.** Only running totals of code pairs are kept. Stored images remain only in the reference arms.
+- **Separate rules.** Thresholds are fixed, widened by drift, or background: each unit's running 0.999 quantile of similarity to stream inputs memory is not being taught. This last rule was proposed after the first run.
+- **Matched false acceptance.** All thresholds shift until 0.13 of unseen queries are answered, the stored-image rate. This uses the unseen queries, so it scores arms and is not a mechanism.
+
+**Gate, partly failed.** Stored-image arms reproduce the earlier run exactly in the B-then-A order (8 of 16 comparisons). In the A-then-B order, keys and units match but the full-length hosts have different state hashes, and reads differ by up to 0.04. The earlier code still reproduces its hash at full length. In a shortened 120-update run, this code and the earlier code gave identical hashes, with or without saving every window. The cause of the full-length difference was not found. All arms in this run share these hosts, so comparisons within the run are unaffected.
+
+Normal rate, stationary stream. Raw reads as above; the last column pools both sets at matched false acceptance, as range and mean.
+
+Counts:
+
+| Arm | First set | Second set | Worst loss | KB | Unseen | At unseen 0.13 |
+|---|---|---|---|---|---|---|
+| Images, rebuild | 0.57–0.75 | 0.60–0.72 | 0.06 | 18,429 | 0.13 | 0.56–0.76 (0.65) |
+| Images, cover | 0.58–0.71 | 0.58–0.69 | 0.11 | 5,088 | 0.14 | 0.57–0.72 (0.64) |
+| Frozen keys | 0.63–0.70 | 0.61–0.71 | 0.06 | 192 | 0.17 | 0.60–0.71 (0.66) |
+| Fixed, no transport | 0.42–0.59 | 0.60–0.71 | 0.22 | 285 | 0.07 | 0.51–0.74 (0.64) |
+| Transport, fixed | 0.37–0.42 | 0.56–0.64 | 0.36 | 223 | 0.07 | 0.45–0.72 (0.59) |
+| Widen | 0.53–0.67 | 0.49–0.61 | 0.16 | 133 | 0.93 | 0.43–0.64 (0.53) |
+| Transport, widen | 0.58–0.68 | 0.57–0.70 | 0.10 | 167 | 0.92 | 0.33–0.64 (0.51) |
+| Background | 0.56–0.67 | 0.59–0.67 | 0.12 | 131 | 0.60 | 0.42–0.55 (0.49) |
+| Transport, background | 0.55–0.66 | 0.58–0.68 | 0.12 | 127 | 0.54 | 0.35–0.57 (0.49) |
+| Transport, fixed, merge 0.8 | 0.50–0.63 | 0.52–0.68 | 0.19 | 125 | 0.62 | 0.21–0.48 (0.34) |
+| Transport, fixed, stale values | 0.13–0.22 | 0.30–0.40 | 0.37 | 223 | 0.07 | 0.16–0.43 (0.30) |
+
+Symbols:
+
+| Arm | First set | Second set | Worst loss | KB | Unseen | At unseen 0.13 |
+|---|---|---|---|---|---|---|
+| Images, rebuild | 0.61–0.71 | 0.55–0.72 | 0.04 | 18,429 | 0.13 | 0.55–0.71 (0.64) |
+| Images, cover | 0.60–0.70 | 0.55–0.69 | 0.05 | 5,856 | 0.15 | 0.55–0.67 (0.62) |
+| Frozen keys | 0.57–0.69 | 0.61–0.73 | 0.14 | 253 | 0.17 | 0.57–0.71 (0.64) |
+| Fixed, no transport | 0.43–0.52 | 0.62–0.68 | 0.35 | 375 | 0.07 | 0.52–0.73 (0.61) |
+| Transport, fixed | 0.30–0.43 | 0.51–0.62 | 0.37 | 293 | 0.07 | 0.37–0.69 (0.57) |
+| Transport, fixed, stale values | 0.33–0.48 | 0.53–0.64 | 0.33 | 293 | 0.07 | 0.41–0.72 (0.58) |
+| Transport, widen | 0.57–0.71 | 0.63–0.72 | 0.14 | 219 | 0.92 | 0.39–0.57 (0.50) |
+| Background | 0.57–0.66 | 0.62–0.73 | 0.18 | 172 | 0.60 | 0.46–0.61 (0.51) |
+| Transport, fixed, merge 0.8 | 0.50–0.56 | 0.60–0.71 | 0.25 | 196 | 0.52 | 0.27–0.40 (0.32) |
+
+Matched, per seed and order, first/second (392 AB, 392 BA, 393 AB, 393 BA): on counts, frozen keys 0.62/0.60, 0.62/0.67, 0.69/0.70, 0.69/0.71; images rebuild 0.62/0.60, 0.56/0.59, 0.76/0.68, 0.70/0.72; transport fixed 0.46/0.61, 0.45/0.64, 0.50/0.71, 0.67/0.72.
+
+- **The first run's result rested largely on looser thresholds.** Keys transport there read like stored images and answered more unseen symbols. At matched false acceptance, its widening and its transport both lose.
+- **Linear transport of addresses adds nothing here, and costs.** At matched false acceptance it reads 0.59 on counts against 0.64 with no transport, and 0.57 against 0.61 on symbols, mostly in the first set (0.52 against 0.58, 0.48 against 0.55). Chaining 24 maps may accumulate error, as the translation draft warned. This was not tested separately.
+- **Most key movement does not accumulate.** Median movement is about 0.30 radians per window, summing to about 2.5 per block, while net movement over the first run's blocks was about 0.43. So maps may be fitting jitter. This reading is an inference from those two measures.
+- **Simple threshold calibration does most of the work on a stationary stream.** With no correction, and thresholds shifted to the stored images' false acceptance, reads are 0.58 first, 0.69 second on counts, against 0.66 and 0.65 with images. That shift used unseen queries, so a live way to set it remains untested. A first-set gap of about 0.08 remains.
+- **Value maps from live inputs remain the strongest positive result for counts.** Matched reads are 0.59 against 0.30 for stale values, about the same as the oracle. On symbols they add nothing, again.
+- **The background threshold fails as tested.** Median thresholds fall to about 0.67 and unseen answers rise to 0.54–0.60, with matched reads of 0.49–0.51. It may be mismeasuring, since the stream's images are not memory's symbols.
+- **Merging without traces costs much at matched false acceptance:** 0.34 and 0.32. Covering both members' balls makes units too wide.
+- **Frozen keys, with the live value map on counts, is the best image-free arm:** 192 KB, loss 0.06, matched 0.66, and it needs no key correction at all. That is an encoder that does not learn.
+
+**Ten times the rate, stationary, matched, first and second means:** frozen keys 0.65, 0.67 on counts; fixed 0.45, 0.43; transport fixed 0.31, 0.59; images rebuild 0.63, 0.26; images cover 0.32, 0.21. So at this acceptance stored images also fail, the merged reference most. On symbols: frozen keys 0.48, 0.63; fixed 0.36, 0.49; transport fixed 0.25, 0.54; images rebuild 0.65, 0.36; images cover 0.29, 0.16.
+
+**Stream shift, normal rate, matched, first and second means:** on counts, frozen keys 0.65, 0.67; images rebuild 0.44, 0.45; fixed 0.02, 0.39; transport fixed 0.05, 0.36. On symbols, frozen keys 0.36, 0.47 (their values still move); images rebuild 0.33, 0.30; fixed 0.00, 0.30; transport fixed 0.01, 0.27.
+
+- **Short windows do not rescue transport under a shift.** Raw first-set reads are 0.03–0.15 on counts. Moving-address arms stay far below re-encoding.
+- **The overcorrection was real, and it was not the main failure.** Stale values no longer beat the oracle on the second set: 0.36–0.45 against 0.32–0.46.
+
+**Storage, named separately.** No image-free arm holds an image. For transport fixed on counts and symbols at H 2048: compact payload 223–293 KB; arrays this implementation allocates 0.70–0.83 MB; working copies of the networks, published and candidate, about 1.7 MB for keys and 1.9 MB for the host; running totals about 34 KB. That totals about 4.4 MB at peak, against 5.1–18.4 MB for stored images, whose arms also use no copy. With frozen keys, the key copies go. The stored-image figure grows with experiences; this one grows only with units, up to H.
+
+**Computation.** Hosts with weights every window: 446 s wall, 890 s aggregate CPU, 139 MB on disk. Learning: GTX 1650, three workers, 1,664 s wall, 13,028 s aggregate CPU, 16 tasks of 30 arms, GPU peak 92 MB, peak RSS 2.9 GB per process. Host-hash diagnostics took a further few minutes of one process each.
+
 ## What this does not establish
 
 - **What transport alone contributes.** Keys transport moves addresses and widens thresholds together, and arms were not compared at matched false acceptance.
