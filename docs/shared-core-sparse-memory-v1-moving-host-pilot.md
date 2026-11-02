@@ -25,7 +25,7 @@ Answers among candidates, Euclidean, abstentions wrong:
 | Host's moving average, half-life 2,000, both | 0.30, 0.37 | 0.20, 0.23 | 0.21, 0.18 | 0.37, 0.39 | 0.24, 0.25 |
 | Frozen encoder, both | 0.48, 0.47 | 0.48, 0.46 | 0.48, 0.46 | 0.43, 0.43 | 0.43, 0.43 |
 
-For comparison, at block 6 the readers alone hold A at 0.09, 0.09 and B at 0.20, 0.19. Perfect contents on the current codes read 0.61–0.89 at every checkpoint, so reading itself has not broken.
+For comparison, at block 6 the readers alone hold A at 0.09, 0.09 and B at 0.20, 0.19. Perfect contents on the current codes read 0.59–0.89 at every checkpoint, so reading itself has not broken.
 
 Memory level, nearest prototype of training collections from the same checkpoint. The cache has no training collections in block 6, so the moving case has no reading there:
 
@@ -47,8 +47,8 @@ So goal 3, keeping this working while the host learns, is **not met** for host-c
 
 The [value diagnostic](shared-core-sparse-memory-v1-stage1-pilot.md#value-diagnostic) said answers are limited by reading single candidates, and implied rendering noise. Most of that gap is a systematic shift. Training collections use `radius` rendering and evaluation collections use `area` rendering, and the host places `area` collections lower on the count line at high counts. On the line at block 3, the shift between their prototypes is 1.6–3.5 at counts 6–9, against neighbouring gaps of about 3 and a within-count spread of 0.5–1.0. Nearest training prototype for each evaluation prototype is correct on 6 and 7 of nine counts.
 
-So the memory level's 1.00 means the right stored value returned, against prototypes from the same training rendering as the values. It is not a claim about reading new renderings. Against evaluation-collection prototypes the frozen reference reads 0.60–0.64. The cap of about 0.70 at the answer level applies to these `area` candidates. Whether candidates from the training rendering lift it is untested.
+So the memory level's 1.00 means the right stored value returned, against prototypes from the same training rendering as the values. It is not a claim about reading new renderings. Against evaluation-collection prototypes the frozen reference reads 0.56–0.67. The cap of about 0.70 at the answer level applies to these `area` candidates. Whether candidates from the training rendering lift it is untested.
 
 ## Computation
 
-CPU, one process, float32: 20.5 s wall, 21.4 s CPU, for both seeds, about 512,000 writes across six memories, loading cached codes included. No new host fit. The cached host's cost is in the long-term memory reports. Memory bytes as in the stage 1 pilot, 32-d contents add 16 floats per unit for frozen-encoder values.
+CPU, one process, float32: 20.5 s wall, 21.4 s CPU, for both seeds, about 640,000 writes across six memories per seed, loading cached codes included. No new host fit. The cached host's cost is in the long-term memory reports. Memory bytes as in the stage 1 pilot, 32-d contents add 16 floats per unit for frozen-encoder values.
