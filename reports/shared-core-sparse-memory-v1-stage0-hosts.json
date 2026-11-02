@@ -1,0 +1,354 @@
+{
+ "sparse48/seed392": {
+  "exposures": {},
+  "hash": "ff3fd12a57a54074572c7a436c60e0a46a8c24cb89d028dc46df4e1b3a981199",
+  "parameters": {
+   "decoder": 0,
+   "host": 371114
+  },
+  "reconstruction_trailing_200": {},
+  "updates": 6000
+ },
+ "sparse48/seed393": {
+  "exposures": {},
+  "hash": "af9dc368ec74593e58c2ee54f3ae30611d068018a163682cfbd64dca01f250d1",
+  "parameters": {
+   "decoder": 0,
+   "host": 371114
+  },
+  "reconstruction_trailing_200": {},
+  "updates": 6000
+ },
+ "split-recon-bg-l0.1/seed392": {
+  "exposures": {
+   "background_images": 384000,
+   "curriculum_images": 1205287
+  },
+  "hash": "3820df3d4db51d0a1ca60c25eddca6d5b7f2d9398271fced0b464c15529c8796",
+  "parameters": {
+   "decoder": 211265,
+   "host": 373194
+  },
+  "reconstruction_trailing_200": {
+   "block1": {
+    "background": 0.0389538187533617,
+    "curriculum": 0.022320143077522517
+   },
+   "block2": {
+    "background": 0.03607418553903699,
+    "curriculum": 0.026014043847098947
+   },
+   "block3": {
+    "background": 0.03416498930193484,
+    "curriculum": 0.024880156302824617
+   }
+  },
+  "updates": 6000
+ },
+ "split-recon-bg-l0.1/seed393": {
+  "exposures": {
+   "background_images": 384000,
+   "curriculum_images": 1202208
+  },
+  "hash": "d8afede75bfb38aef4919e5de72d2e269ead089c4678b4c890375456e06e2c60",
+  "parameters": {
+   "decoder": 211265,
+   "host": 373194
+  },
+  "reconstruction_trailing_200": {
+   "block1": {
+    "background": 0.04125718645751476,
+    "curriculum": 0.022219260996207593
+   },
+   "block2": {
+    "background": 0.039413661677390334,
+    "curriculum": 0.026995569681748748
+   },
+   "block3": {
+    "background": 0.03464901572093368,
+    "curriculum": 0.023858385719358922
+   }
+  },
+  "updates": 6000
+ },
+ "split-recon-bg-l1/seed392": {
+  "exposures": {
+   "background_images": 384000,
+   "curriculum_images": 1205287
+  },
+  "hash": "67b32e63a14c8741c7a0d64dfc248213033569bea428ac0db7ce3c5f8bf3db2d",
+  "parameters": {
+   "decoder": 211265,
+   "host": 373194
+  },
+  "reconstruction_trailing_200": {
+   "block1": {
+    "background": 0.040488896574825045,
+    "curriculum": 0.022242828188464046
+   },
+   "block2": {
+    "background": 0.03693518716841936,
+    "curriculum": 0.026460757311433554
+   },
+   "block3": {
+    "background": 0.03389436428435147,
+    "curriculum": 0.024466725336387753
+   }
+  },
+  "updates": 6000
+ },
+ "split-recon-bg-l1/seed393": {
+  "exposures": {
+   "background_images": 384000,
+   "curriculum_images": 1202208
+  },
+  "hash": "db2b5649e04e1ec3f71b2a179027ab68d43fba16e0ee7b755cb6513e4a259e54",
+  "parameters": {
+   "decoder": 211265,
+   "host": 373194
+  },
+  "reconstruction_trailing_200": {
+   "block1": {
+    "background": 0.04184369001537561,
+    "curriculum": 0.022471002088859677
+   },
+   "block2": {
+    "background": 0.03883328560739756,
+    "curriculum": 0.026087695015594364
+   },
+   "block3": {
+    "background": 0.03456222244538367,
+    "curriculum": 0.023831774881109595
+   }
+  },
+  "updates": 6000
+ },
+ "wide32-recon-bg-l0.1/seed392": {
+  "exposures": {
+   "background_images": 384000,
+   "curriculum_images": 1205287
+  },
+  "hash": "a9d4536b93cb12d45b3af80e6526c8fb7d05dcf87feb213b342b0745efbbc73a",
+  "parameters": {
+   "decoder": 211265,
+   "host": 377306
+  },
+  "reconstruction_trailing_200": {
+   "block1": {
+    "background": 0.04375796902924776,
+    "curriculum": 0.024311008751392364
+   },
+   "block2": {
+    "background": 0.040691347159445286,
+    "curriculum": 0.027814908577129246
+   },
+   "block3": {
+    "background": 0.03785932732746005,
+    "curriculum": 0.028792885821312664
+   }
+  },
+  "updates": 6000
+ },
+ "wide32-recon-bg-l0.1/seed393": {
+  "exposures": {
+   "background_images": 384000,
+   "curriculum_images": 1202208
+  },
+  "hash": "31d49e5aea5dfd133c1ff5edc70977ff140c8bf2fb00e51111b530b51f1324cf",
+  "parameters": {
+   "decoder": 211265,
+   "host": 377306
+  },
+  "reconstruction_trailing_200": {
+   "block1": {
+    "background": 0.042319605182856324,
+    "curriculum": 0.02343865574337542
+   },
+   "block2": {
+    "background": 0.040895938519388435,
+    "curriculum": 0.027677271515130997
+   },
+   "block3": {
+    "background": 0.03892825078219175,
+    "curriculum": 0.028127410737797617
+   }
+  },
+  "updates": 6000
+ },
+ "wide32-recon-bg-l1/seed392": {
+  "exposures": {
+   "background_images": 384000,
+   "curriculum_images": 1205287
+  },
+  "hash": "1a83aeb7b967a9da0badcb20a28eb938a18b8a12b3b2a663958ff4997ba43f91",
+  "parameters": {
+   "decoder": 211265,
+   "host": 377306
+  },
+  "reconstruction_trailing_200": {
+   "block1": {
+    "background": 0.04234822131693363,
+    "curriculum": 0.02319610744714737
+   },
+   "block2": {
+    "background": 0.03850993789732456,
+    "curriculum": 0.026805946063250305
+   },
+   "block3": {
+    "background": 0.03806696008890867,
+    "curriculum": 0.029148250008001923
+   }
+  },
+  "updates": 6000
+ },
+ "wide32-recon-bg-l1/seed393": {
+  "exposures": {
+   "background_images": 384000,
+   "curriculum_images": 1202208
+  },
+  "hash": "e14ba4fd35cf52532dcffc767ee10f19dbfb3ef8a8ee0bc12bd235465e6baa23",
+  "parameters": {
+   "decoder": 211265,
+   "host": 377306
+  },
+  "reconstruction_trailing_200": {
+   "block1": {
+    "background": 0.04138206299394369,
+    "curriculum": 0.022500903531908988
+   },
+   "block2": {
+    "background": 0.03995286589488387,
+    "curriculum": 0.027281748009845615
+   },
+   "block3": {
+    "background": 0.03656104240566492,
+    "curriculum": 0.026525622187182307
+   }
+  },
+  "updates": 6000
+ },
+ "wide32-recon-l0.1/seed392": {
+  "exposures": {
+   "background_images": 0,
+   "curriculum_images": 1205287
+  },
+  "hash": "184f2d6f5673fbc193ca103777bca354a76a82ab9005e117c706e2bfd55f4327",
+  "parameters": {
+   "decoder": 211265,
+   "host": 377306
+  },
+  "reconstruction_trailing_200": {
+   "block1": {
+    "background": null,
+    "curriculum": 0.024301736168563366
+   },
+   "block2": {
+    "background": null,
+    "curriculum": 0.028046478712931276
+   },
+   "block3": {
+    "background": null,
+    "curriculum": 0.027472441466525197
+   }
+  },
+  "updates": 6000
+ },
+ "wide32-recon-l0.1/seed393": {
+  "exposures": {
+   "background_images": 0,
+   "curriculum_images": 1202208
+  },
+  "hash": "139407a9fc3beeba8ec561c6f243ef81708fc3cd5183cf0e145fa66b4d604f23",
+  "parameters": {
+   "decoder": 211265,
+   "host": 377306
+  },
+  "reconstruction_trailing_200": {
+   "block1": {
+    "background": null,
+    "curriculum": 0.022986035281792282
+   },
+   "block2": {
+    "background": null,
+    "curriculum": 0.027634137505665422
+   },
+   "block3": {
+    "background": null,
+    "curriculum": 0.02725705166347325
+   }
+  },
+  "updates": 6000
+ },
+ "wide32-recon-l1/seed392": {
+  "exposures": {
+   "background_images": 0,
+   "curriculum_images": 1205287
+  },
+  "hash": "525e79911e47f4f26b2798857fc45cb54a33021a18e2c0dc588e5ad6dc5f2e4f",
+  "parameters": {
+   "decoder": 211265,
+   "host": 377306
+  },
+  "reconstruction_trailing_200": {
+   "block1": {
+    "background": null,
+    "curriculum": 0.021721391640603542
+   },
+   "block2": {
+    "background": null,
+    "curriculum": 0.02733206848613918
+   },
+   "block3": {
+    "background": null,
+    "curriculum": 0.027273283116519453
+   }
+  },
+  "updates": 6000
+ },
+ "wide32-recon-l1/seed393": {
+  "exposures": {
+   "background_images": 0,
+   "curriculum_images": 1202208
+  },
+  "hash": "75faeaa0979871a728ba1184d4ef4eba6fb7136f39d5750eee3c64ceebcfe7d3",
+  "parameters": {
+   "decoder": 211265,
+   "host": 377306
+  },
+  "reconstruction_trailing_200": {
+   "block1": {
+    "background": null,
+    "curriculum": 0.022389724645763637
+   },
+   "block2": {
+    "background": null,
+    "curriculum": 0.02698477200232446
+   },
+   "block3": {
+    "background": null,
+    "curriculum": 0.025920199472457172
+   }
+  },
+  "updates": 6000
+ },
+ "wide32/seed392": {
+  "exposures": {},
+  "hash": "b63b1ecb26c8bd8fb4bf62c9d0c27c9a7f5acdde68c00022bb723c8d976c37ac",
+  "parameters": {
+   "decoder": 0,
+   "host": 377306
+  },
+  "reconstruction_trailing_200": {},
+  "updates": 6000
+ },
+ "wide32/seed393": {
+  "exposures": {},
+  "hash": "9f91e9cd9229f55a82700892336efc6daaa4a6be2574d5471fe4e21fdd9997c5",
+  "parameters": {
+   "decoder": 0,
+   "host": 377306
+  },
+  "reconstruction_trailing_200": {},
+  "updates": 6000
+ }
+}

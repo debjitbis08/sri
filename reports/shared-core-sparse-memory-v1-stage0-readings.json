@@ -1,0 +1,3152 @@
+{
+ "bar": 0.8,
+ "eval_renderings": 5,
+ "loads": [
+  90,
+  180
+ ],
+ "results": {
+  "frozen-encoder/seed392": {
+   "address": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.9977778196334839,
+     "identity_centred": 0.9977778196334839,
+     "other_symbol_similarity": 0.05894218385219574,
+     "same_symbol_similarity": 0.9589264988899231,
+     "store": 0.9977778196334839,
+     "store_centred": 0.9977778196334839
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 1.0,
+     "identity_centred": 1.0,
+     "other_symbol_similarity": 0.06408656388521194,
+     "same_symbol_similarity": 0.9603914618492126,
+     "store": 1.0,
+     "store_centred": 1.0
+    }
+   },
+   "persistent_bytes": 839040,
+   "shape": {
+    "collections_participation_ratio": 3.315670643762207,
+    "collections_top_correlation_with_count": 0.9350465101532158,
+    "collections_top_share": 0.523608108670495,
+    "symbol_variance_share_first_half": 0.5204608457827609,
+    "symbols_participation_ratio": 12.707876295061343,
+    "symbols_top_correlation_with_count_on_collections": 0.016970672181773824,
+    "symbols_top_share": 0.1413598161273488,
+    "top_directions_cosine": 0.041265599945174654
+   },
+   "value_ceiling": {
+    "cosine": 0.4711111111111111,
+    "count_prototypes": 0.6148148148148148
+   }
+  },
+  "frozen-encoder/seed393": {
+   "address": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.9933333396911621,
+     "identity_centred": 0.9933333396911621,
+     "other_symbol_similarity": 0.04590221494436264,
+     "same_symbol_similarity": 0.9560791850090027,
+     "store": 0.9933333396911621,
+     "store_centred": 0.9933333396911621
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.9977778196334839,
+     "identity_centred": 0.9977778196334839,
+     "other_symbol_similarity": 0.05611562728881836,
+     "same_symbol_similarity": 0.9571775794029236,
+     "store": 0.9977778196334839,
+     "store_centred": 0.9977778196334839
+    }
+   },
+   "persistent_bytes": 839040,
+   "shape": {
+    "collections_participation_ratio": 3.9024228470869464,
+    "collections_top_correlation_with_count": 0.869040075638125,
+    "collections_top_share": 0.4695442851325881,
+    "symbol_variance_share_first_half": 0.506339522819021,
+    "symbols_participation_ratio": 13.34838969257397,
+    "symbols_top_correlation_with_count_on_collections": 0.5003644540207819,
+    "symbols_top_share": 0.15034265007310726,
+    "top_directions_cosine": 0.11893416858829775
+   },
+   "value_ceiling": {
+    "cosine": 0.4955555555555556,
+    "count_prototypes": 0.6296296296296297
+   }
+  },
+  "sparse48/seed392": {
+   "address": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.08666666597127914,
+     "identity_centred": 0.10222222656011581,
+     "other_symbol_similarity": 0.2820380926132202,
+     "same_symbol_similarity": 0.8160629868507385,
+     "store": 0.15555556118488312,
+     "store_centred": 0.19555556774139404
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.15111111104488373,
+     "identity_centred": 0.14888888597488403,
+     "other_symbol_similarity": 0.2449650913476944,
+     "same_symbol_similarity": 0.8251144886016846,
+     "store": 0.24666666984558105,
+     "store_centred": 0.25555557012557983
+    }
+   },
+   "address_before_projection": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.16777777671813965,
+     "identity_centred": 0.20222222805023193,
+     "other_symbol_similarity": 0.45921963453292847,
+     "same_symbol_similarity": 0.8718133568763733,
+     "store": 0.23777778446674347,
+     "store_centred": 0.2988888919353485
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.2644444406032562,
+     "identity_centred": 0.30666667222976685,
+     "other_symbol_similarity": 0.4309060275554657,
+     "same_symbol_similarity": 0.8796219229698181,
+     "store": 0.35111111402511597,
+     "store_centred": 0.3911111354827881
+    }
+   },
+   "coordinate_organization": {
+    "all_coordinates": 0.7847993827160494,
+    "coordinates_read": 0.8250000000000001
+   },
+   "matching": {
+    "chinese/paired": {
+     "all": 0.1380952380952381,
+     "even": 0.13333333333333333,
+     "odd": 0.14285714285714285
+    },
+    "chinese/withheld": {
+     "all": 0.25,
+     "even": 0.3,
+     "odd": 0.2
+    },
+    "devanagari_digits/paired": {
+     "all": 0.3761904761904762,
+     "even": 0.37142857142857144,
+     "odd": 0.38095238095238093
+    },
+    "devanagari_digits/withheld": {
+     "all": 0.4666666666666667,
+     "even": 0.5666666666666667,
+     "odd": 0.36666666666666664
+    },
+    "english/paired": {
+     "all": 0.06666666666666667,
+     "even": 0.05185185185185185,
+     "odd": 0.08148148148148149
+    }
+   },
+   "readers": {
+    "P": {
+     "live_units": 17,
+     "reads": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      8,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      25,
+      0
+     ]
+    },
+    "coordinates_read": [
+     0,
+     6,
+     8,
+     9,
+     13,
+     14
+    ],
+    "g": {
+     "live_units": 39,
+     "reads": [
+      6,
+      0,
+      0,
+      0,
+      0,
+      0,
+      16,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      2,
+      53,
+      0
+     ]
+    }
+   },
+   "shape": {
+    "collections_participation_ratio": 1.0014445430710517,
+    "collections_top_correlation_with_count": 0.9543906203751937,
+    "collections_top_share": 0.999278342628931,
+    "symbol_variance_share_first_half": 0.2786430124902155,
+    "symbols_participation_ratio": 1.0155685596904735,
+    "symbols_top_correlation_with_count_on_collections": 0.9543891712350406,
+    "symbols_top_share": 0.9922848692284181,
+    "top_directions_cosine": 0.9999668162513614
+   },
+   "transfer8": {
+    "chinese_to_taps_withheld": 0.2,
+    "chinese_withheld_matching": 0.25,
+    "comparison_chinese": 0.6444444444444444,
+    "comparison_devanagari": 0.8393518518518519,
+    "comparison_english": 0.4462962962962963,
+    "devanagari_withheld_matching": 0.4666666666666667,
+    "taps_to_chinese_withheld": 0.016666666666666666,
+    "taps_to_devanagari_withheld": 0.7833333333333333
+   },
+   "transfer8_mean": 0.45584490740740735,
+   "value_ceiling": {
+    "cosine": 0.6022222222222222,
+    "count_prototypes": 0.6111111111111112,
+    "head": 0.5177777777777778
+   }
+  },
+  "sparse48/seed393": {
+   "address": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.14888888597488403,
+     "identity_centred": 0.11888889223337173,
+     "other_symbol_similarity": 0.27372345328330994,
+     "same_symbol_similarity": 0.8203856945037842,
+     "store": 0.24000000953674316,
+     "store_centred": 0.2155555635690689
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.18888889253139496,
+     "identity_centred": 0.18888889253139496,
+     "other_symbol_similarity": 0.3116128146648407,
+     "same_symbol_similarity": 0.8514301180839539,
+     "store": 0.2911111116409302,
+     "store_centred": 0.2644444406032562
+    }
+   },
+   "address_before_projection": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.20666667819023132,
+     "identity_centred": 0.22777777910232544,
+     "other_symbol_similarity": 0.341055691242218,
+     "same_symbol_similarity": 0.8653315305709839,
+     "store": 0.2922222316265106,
+     "store_centred": 0.31333333253860474
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.2711111307144165,
+     "identity_centred": 0.29555556178092957,
+     "other_symbol_similarity": 0.3758772909641266,
+     "same_symbol_similarity": 0.8769579529762268,
+     "store": 0.3333333432674408,
+     "store_centred": 0.36444446444511414
+    }
+   },
+   "coordinate_organization": {
+    "all_coordinates": 0.8162037037037037,
+    "coordinates_read": 0.8109567901234568
+   },
+   "matching": {
+    "chinese/paired": {
+     "all": 0.1523809523809524,
+     "even": 0.1619047619047619,
+     "odd": 0.14285714285714285
+    },
+    "chinese/withheld": {
+     "all": 0.03333333333333333,
+     "even": 0.0,
+     "odd": 0.06666666666666667
+    },
+    "devanagari_digits/paired": {
+     "all": 0.5761904761904761,
+     "even": 0.5619047619047619,
+     "odd": 0.5904761904761905
+    },
+    "devanagari_digits/withheld": {
+     "all": 0.4,
+     "even": 0.4,
+     "odd": 0.4
+    },
+    "english/paired": {
+     "all": 0.09259259259259259,
+     "even": 0.0962962962962963,
+     "odd": 0.08888888888888889
+    }
+   },
+   "readers": {
+    "P": {
+     "live_units": 27,
+     "reads": [
+      0,
+      0,
+      0,
+      54,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    "coordinates_read": [
+     2,
+     3,
+     7,
+     10
+    ],
+    "g": {
+     "live_units": 45,
+     "reads": [
+      0,
+      0,
+      2,
+      62,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      25,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   },
+   "shape": {
+    "collections_participation_ratio": 1.001176796060853,
+    "collections_top_correlation_with_count": 0.9767363669512755,
+    "collections_top_share": 0.9994120296351394,
+    "symbol_variance_share_first_half": 0.6080821557780194,
+    "symbols_participation_ratio": 1.0180725032409768,
+    "symbols_top_correlation_with_count_on_collections": 0.9766976746753331,
+    "symbols_top_share": 0.9910554761553387,
+    "top_directions_cosine": 0.9992666760560625
+   },
+   "transfer8": {
+    "chinese_to_taps_withheld": 0.2,
+    "chinese_withheld_matching": 0.03333333333333333,
+    "comparison_chinese": 0.6300925925925926,
+    "comparison_devanagari": 0.8069444444444445,
+    "comparison_english": 0.48148148148148145,
+    "devanagari_withheld_matching": 0.4,
+    "taps_to_chinese_withheld": 0.03333333333333333,
+    "taps_to_devanagari_withheld": 0.65
+   },
+   "transfer8_mean": 0.4043981481481482,
+   "value_ceiling": {
+    "cosine": 0.6177777777777778,
+    "count_prototypes": 0.6555555555555556,
+    "head": 0.6088888888888889
+   }
+  },
+  "split-recon-bg-l0.1/seed392": {
+   "address": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.16111111640930176,
+     "identity_centred": 0.1666666716337204,
+     "other_symbol_similarity": 0.24363283812999725,
+     "same_symbol_similarity": 0.8416067361831665,
+     "store": 0.24888889491558075,
+     "store_centred": 0.25333333015441895
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.25111111998558044,
+     "identity_centred": 0.25555557012557983,
+     "other_symbol_similarity": 0.1961166113615036,
+     "same_symbol_similarity": 0.8519998788833618,
+     "store": 0.3422222435474396,
+     "store_centred": 0.3400000035762787
+    }
+   },
+   "address_added_part": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.2177777886390686,
+     "identity_centred": 0.20777778327465057,
+     "other_symbol_similarity": 0.21743230521678925,
+     "same_symbol_similarity": 0.8097842931747437,
+     "store": 0.3122222423553467,
+     "store_centred": 0.3033333420753479
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.3377777934074402,
+     "identity_centred": 0.3377777934074402,
+     "other_symbol_similarity": 0.18843145668506622,
+     "same_symbol_similarity": 0.8155210018157959,
+     "store": 0.41777777671813965,
+     "store_centred": 0.42222222685813904
+    }
+   },
+   "address_before_projection": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.2133333384990692,
+     "identity_centred": 0.23111110925674438,
+     "other_symbol_similarity": 0.36588624119758606,
+     "same_symbol_similarity": 0.868394136428833,
+     "store": 0.30000001192092896,
+     "store_centred": 0.3155555725097656
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.3355555534362793,
+     "identity_centred": 0.35111111402511597,
+     "other_symbol_similarity": 0.3260934352874756,
+     "same_symbol_similarity": 0.8763917684555054,
+     "store": 0.40666666626930237,
+     "store_centred": 0.42000001668930054
+    }
+   },
+   "address_read_part": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.12333333492279053,
+     "identity_centred": 0.11888889223337173,
+     "other_symbol_similarity": 0.2399640530347824,
+     "same_symbol_similarity": 0.8393564820289612,
+     "store": 0.198888897895813,
+     "store_centred": 0.20555555820465088
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.20222222805023193,
+     "identity_centred": 0.20666667819023132,
+     "other_symbol_similarity": 0.18986496329307556,
+     "same_symbol_similarity": 0.8483471870422363,
+     "store": 0.29777777194976807,
+     "store_centred": 0.30000001192092896
+    }
+   },
+   "coordinate_organization": {
+    "all_coordinates": 0.6533275462962963,
+    "coordinates_read": 0.7878600823045269
+   },
+   "matching": {
+    "chinese/paired": {
+     "all": 0.18571428571428572,
+     "even": 0.17142857142857143,
+     "odd": 0.2
+    },
+    "chinese/withheld": {
+     "all": 0.13333333333333333,
+     "even": 0.16666666666666666,
+     "odd": 0.1
+    },
+    "devanagari_digits/paired": {
+     "all": 0.3619047619047619,
+     "even": 0.3523809523809524,
+     "odd": 0.37142857142857144
+    },
+    "devanagari_digits/withheld": {
+     "all": 0.38333333333333336,
+     "even": 0.36666666666666664,
+     "odd": 0.4
+    },
+    "english/paired": {
+     "all": 0.06666666666666667,
+     "even": 0.06666666666666667,
+     "odd": 0.06666666666666667
+    }
+   },
+   "readers": {
+    "P": {
+     "live_units": 18,
+     "reads": [
+      0,
+      0,
+      0,
+      0,
+      5,
+      0,
+      31,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    "coordinates_read": [
+     1,
+     2,
+     4,
+     6,
+     10,
+     14
+    ],
+    "g": {
+     "live_units": 41,
+     "reads": [
+      0,
+      3,
+      3,
+      0,
+      3,
+      0,
+      70,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      1,
+      0
+     ]
+    }
+   },
+   "reconstruction_new_symbols": {
+    "mean_image_mse": 0.04299100860953331,
+    "mse": 0.03328622132539749,
+    "value_range": [
+     0.0,
+     1.0
+    ]
+   },
+   "shape": {
+    "collections_participation_ratio": 1.086549838440078,
+    "collections_top_correlation_with_count": 0.9574210256730652,
+    "collections_top_share": 0.9586677160571303,
+    "symbol_variance_share_first_half": 0.9576886486265446,
+    "symbols_participation_ratio": 1.5806733964164437,
+    "symbols_top_correlation_with_count_on_collections": 0.9581634261974423,
+    "symbols_top_share": 0.7734705663679797,
+    "top_directions_cosine": 0.9459563961544823
+   },
+   "transfer8": {
+    "chinese_to_taps_withheld": 0.0,
+    "chinese_withheld_matching": 0.13333333333333333,
+    "comparison_chinese": 0.7324074074074074,
+    "comparison_devanagari": 0.8101851851851852,
+    "comparison_english": 0.4601851851851852,
+    "devanagari_withheld_matching": 0.38333333333333336,
+    "taps_to_chinese_withheld": 0.0,
+    "taps_to_devanagari_withheld": 0.9
+   },
+   "transfer8_mean": 0.42743055555555554,
+   "value_ceiling": {
+    "cosine": 0.45111111111111113,
+    "count_prototypes": 0.48518518518518516,
+    "head": 0.5377777777777778
+   }
+  },
+  "split-recon-bg-l0.1/seed393": {
+   "address": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.17888888716697693,
+     "identity_centred": 0.1688888967037201,
+     "other_symbol_similarity": 0.40457671880722046,
+     "same_symbol_similarity": 0.8769238591194153,
+     "store": 0.2622222304344177,
+     "store_centred": 0.2600000202655792
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.24888889491558075,
+     "identity_centred": 0.2266666740179062,
+     "other_symbol_similarity": 0.4603983461856842,
+     "same_symbol_similarity": 0.9044941067695618,
+     "store": 0.3333333432674408,
+     "store_centred": 0.3177777826786041
+    }
+   },
+   "address_added_part": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.22111111879348755,
+     "identity_centred": 0.20777778327465057,
+     "other_symbol_similarity": 0.5712954998016357,
+     "same_symbol_similarity": 0.8899179697036743,
+     "store": 0.31111112236976624,
+     "store_centred": 0.2866666615009308
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.29333335161209106,
+     "identity_centred": 0.29777777194976807,
+     "other_symbol_similarity": 0.6050353646278381,
+     "same_symbol_similarity": 0.9054720401763916,
+     "store": 0.3866666853427887,
+     "store_centred": 0.3777777850627899
+    }
+   },
+   "address_before_projection": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.22333334386348724,
+     "identity_centred": 0.22555555403232574,
+     "other_symbol_similarity": 0.5483080148696899,
+     "same_symbol_similarity": 0.9161195158958435,
+     "store": 0.3033333420753479,
+     "store_centred": 0.30666667222976685
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.29555556178092957,
+     "identity_centred": 0.29333335161209106,
+     "other_symbol_similarity": 0.5832433700561523,
+     "same_symbol_similarity": 0.9257810115814209,
+     "store": 0.3777777850627899,
+     "store_centred": 0.3733333349227905
+    }
+   },
+   "address_read_part": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.12444444745779037,
+     "identity_centred": 0.12444444745779037,
+     "other_symbol_similarity": 0.3875458538532257,
+     "same_symbol_similarity": 0.8700043559074402,
+     "store": 0.2199999988079071,
+     "store_centred": 0.21666666865348816
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.13555556535720825,
+     "identity_centred": 0.1688888967037201,
+     "other_symbol_similarity": 0.44334548711776733,
+     "same_symbol_similarity": 0.9008091688156128,
+     "store": 0.23111110925674438,
+     "store_centred": 0.2711111307144165
+    }
+   },
+   "coordinate_organization": {
+    "all_coordinates": 0.6954571759259259,
+    "coordinates_read": 0.7841563786008231
+   },
+   "matching": {
+    "chinese/paired": {
+     "all": 0.14761904761904762,
+     "even": 0.1619047619047619,
+     "odd": 0.13333333333333333
+    },
+    "chinese/withheld": {
+     "all": 0.0,
+     "even": 0.0,
+     "odd": 0.0
+    },
+    "devanagari_digits/paired": {
+     "all": 0.5571428571428572,
+     "even": 0.5523809523809524,
+     "odd": 0.5619047619047619
+    },
+    "devanagari_digits/withheld": {
+     "all": 0.31666666666666665,
+     "even": 0.3,
+     "odd": 0.3333333333333333
+    },
+    "english/paired": {
+     "all": 0.09259259259259259,
+     "even": 0.1111111111111111,
+     "odd": 0.07407407407407407
+    }
+   },
+   "readers": {
+    "P": {
+     "live_units": 26,
+     "reads": [
+      0,
+      0,
+      0,
+      44,
+      0,
+      4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      4,
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    "coordinates_read": [
+     3,
+     5,
+     11
+    ],
+    "g": {
+     "live_units": 46,
+     "reads": [
+      0,
+      0,
+      0,
+      81,
+      0,
+      7,
+      0,
+      0,
+      0,
+      0,
+      0,
+      4,
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   },
+   "reconstruction_new_symbols": {
+    "mean_image_mse": 0.04331863299012184,
+    "mse": 0.03397366404533386,
+    "value_range": [
+     0.0,
+     1.0
+    ]
+   },
+   "shape": {
+    "collections_participation_ratio": 1.0153914154286896,
+    "collections_top_correlation_with_count": 0.9728556813360962,
+    "collections_top_share": 0.9923717127185686,
+    "symbol_variance_share_first_half": 0.9741662616209517,
+    "symbols_participation_ratio": 1.03460363068218,
+    "symbols_top_correlation_with_count_on_collections": 0.9712199971251215,
+    "symbols_top_share": 0.9830557119594675,
+    "top_directions_cosine": 0.9875581137878351
+   },
+   "transfer8": {
+    "chinese_to_taps_withheld": 0.06666666666666667,
+    "chinese_withheld_matching": 0.0,
+    "comparison_chinese": 0.7222222222222222,
+    "comparison_devanagari": 0.8175925925925926,
+    "comparison_english": 0.5092592592592593,
+    "devanagari_withheld_matching": 0.31666666666666665,
+    "taps_to_chinese_withheld": 0.016666666666666666,
+    "taps_to_devanagari_withheld": 0.6166666666666667
+   },
+   "transfer8_mean": 0.38321759259259264,
+   "value_ceiling": {
+    "cosine": 0.5777777777777777,
+    "count_prototypes": 0.6777777777777778,
+    "head": 0.64
+   }
+  },
+  "split-recon-bg-l1/seed392": {
+   "address": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.1599999964237213,
+     "identity_centred": 0.1388888955116272,
+     "other_symbol_similarity": 0.20888331532478333,
+     "same_symbol_similarity": 0.829521119594574,
+     "store": 0.25555557012557983,
+     "store_centred": 0.2222222238779068
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.24444444477558136,
+     "identity_centred": 0.2222222238779068,
+     "other_symbol_similarity": 0.20382831990718842,
+     "same_symbol_similarity": 0.8562193512916565,
+     "store": 0.3155555725097656,
+     "store_centred": 0.29777777194976807
+    }
+   },
+   "address_added_part": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.1300000101327896,
+     "identity_centred": 0.12888889014720917,
+     "other_symbol_similarity": 0.3507891893386841,
+     "same_symbol_similarity": 0.8210043907165527,
+     "store": 0.22333334386348724,
+     "store_centred": 0.2244444489479065
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.21111111342906952,
+     "identity_centred": 0.20444445312023163,
+     "other_symbol_similarity": 0.33944761753082275,
+     "same_symbol_similarity": 0.8306940793991089,
+     "store": 0.29555556178092957,
+     "store_centred": 0.2755555510520935
+    }
+   },
+   "address_before_projection": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.20000000298023224,
+     "identity_centred": 0.19555556774139404,
+     "other_symbol_similarity": 0.332693874835968,
+     "same_symbol_similarity": 0.8567996025085449,
+     "store": 0.28333333134651184,
+     "store_centred": 0.27666667103767395
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.29777777194976807,
+     "identity_centred": 0.30222222208976746,
+     "other_symbol_similarity": 0.32031452655792236,
+     "same_symbol_similarity": 0.8686457276344299,
+     "store": 0.36444446444511414,
+     "store_centred": 0.36666667461395264
+    }
+   },
+   "address_read_part": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.11777777969837189,
+     "identity_centred": 0.1111111119389534,
+     "other_symbol_similarity": 0.1714879423379898,
+     "same_symbol_similarity": 0.8202764987945557,
+     "store": 0.20777778327465057,
+     "store_centred": 0.21444444358348846
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.19555556774139404,
+     "identity_centred": 0.162222221493721,
+     "other_symbol_similarity": 0.1716657131910324,
+     "same_symbol_similarity": 0.8510537147521973,
+     "store": 0.2644444406032562,
+     "store_centred": 0.23777778446674347
+    }
+   },
+   "coordinate_organization": {
+    "all_coordinates": 0.7082079475308642,
+    "coordinates_read": 0.8434413580246914
+   },
+   "matching": {
+    "chinese/paired": {
+     "all": 0.21428571428571427,
+     "even": 0.2,
+     "odd": 0.22857142857142856
+    },
+    "chinese/withheld": {
+     "all": 0.1,
+     "even": 0.1,
+     "odd": 0.1
+    },
+    "devanagari_digits/paired": {
+     "all": 0.44761904761904764,
+     "even": 0.41904761904761906,
+     "odd": 0.47619047619047616
+    },
+    "devanagari_digits/withheld": {
+     "all": 0.4166666666666667,
+     "even": 0.4666666666666667,
+     "odd": 0.36666666666666664
+    },
+    "english/paired": {
+     "all": 0.06666666666666667,
+     "even": 0.08148148148148149,
+     "odd": 0.05185185185185185
+    }
+   },
+   "readers": {
+    "P": {
+     "live_units": 17,
+     "reads": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      19,
+      0,
+      0,
+      2,
+      13,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    "coordinates_read": [
+     0,
+     5,
+     8,
+     9
+    ],
+    "g": {
+     "live_units": 39,
+     "reads": [
+      2,
+      0,
+      0,
+      0,
+      0,
+      63,
+      0,
+      0,
+      0,
+      13,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   },
+   "reconstruction_new_symbols": {
+    "mean_image_mse": 0.04299100860953331,
+    "mse": 0.034122079610824585,
+    "value_range": [
+     0.0,
+     1.0
+    ]
+   },
+   "shape": {
+    "collections_participation_ratio": 1.0179805892408114,
+    "collections_top_correlation_with_count": 0.9556043404158451,
+    "collections_top_share": 0.9911108586191402,
+    "symbol_variance_share_first_half": 0.9444018909632215,
+    "symbols_participation_ratio": 1.109169704936381,
+    "symbols_top_correlation_with_count_on_collections": 0.9555361917871931,
+    "symbols_top_share": 0.9489409573060394,
+    "top_directions_cosine": 0.9984672372953749
+   },
+   "transfer8": {
+    "chinese_to_taps_withheld": 0.05,
+    "chinese_withheld_matching": 0.1,
+    "comparison_chinese": 0.7347222222222222,
+    "comparison_devanagari": 0.8175925925925926,
+    "comparison_english": 0.47870370370370374,
+    "devanagari_withheld_matching": 0.4166666666666667,
+    "taps_to_chinese_withheld": 0.016666666666666666,
+    "taps_to_devanagari_withheld": 0.9166666666666666
+   },
+   "transfer8_mean": 0.44137731481481485,
+   "value_ceiling": {
+    "cosine": 0.5555555555555556,
+    "count_prototypes": 0.5407407407407407,
+    "head": 0.52
+   }
+  },
+  "split-recon-bg-l1/seed393": {
+   "address": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.1599999964237213,
+     "identity_centred": 0.12888889014720917,
+     "other_symbol_similarity": 0.43463650345802307,
+     "same_symbol_similarity": 0.8919455409049988,
+     "store": 0.2600000202655792,
+     "store_centred": 0.22111111879348755
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.24222223460674286,
+     "identity_centred": 0.19333334267139435,
+     "other_symbol_similarity": 0.4754756987094879,
+     "same_symbol_similarity": 0.9033945798873901,
+     "store": 0.3377777934074402,
+     "store_centred": 0.2866666615009308
+    }
+   },
+   "address_added_part": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.1388888955116272,
+     "identity_centred": 0.14222222566604614,
+     "other_symbol_similarity": 0.6082325577735901,
+     "same_symbol_similarity": 0.8651688694953918,
+     "store": 0.24111111462116241,
+     "store_centred": 0.23111110925674438
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.2177777886390686,
+     "identity_centred": 0.2177777886390686,
+     "other_symbol_similarity": 0.6253183484077454,
+     "same_symbol_similarity": 0.8734428286552429,
+     "store": 0.31333333253860474,
+     "store_centred": 0.3155555725097656
+    }
+   },
+   "address_before_projection": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.2177777886390686,
+     "identity_centred": 0.20444445312023163,
+     "other_symbol_similarity": 0.5141454935073853,
+     "same_symbol_similarity": 0.915147066116333,
+     "store": 0.3077777922153473,
+     "store_centred": 0.2911111116409302
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.31111112236976624,
+     "identity_centred": 0.2844444513320923,
+     "other_symbol_similarity": 0.5488181114196777,
+     "same_symbol_similarity": 0.9229315519332886,
+     "store": 0.3888888955116272,
+     "store_centred": 0.35555556416511536
+    }
+   },
+   "address_read_part": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.11555555462837219,
+     "identity_centred": 0.09000000357627869,
+     "other_symbol_similarity": 0.41747918725013733,
+     "same_symbol_similarity": 0.8890274167060852,
+     "store": 0.23333333432674408,
+     "store_centred": 0.17777778208255768
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.18888889253139496,
+     "identity_centred": 0.14444445073604584,
+     "other_symbol_similarity": 0.46006548404693604,
+     "same_symbol_similarity": 0.9033109545707703,
+     "store": 0.2600000202655792,
+     "store_centred": 0.2266666740179062
+    }
+   },
+   "coordinate_organization": {
+    "all_coordinates": 0.6571277006172839,
+    "coordinates_read": 0.7860493827160494
+   },
+   "matching": {
+    "chinese/paired": {
+     "all": 0.09523809523809523,
+     "even": 0.08571428571428572,
+     "odd": 0.10476190476190476
+    },
+    "chinese/withheld": {
+     "all": 0.06666666666666667,
+     "even": 0.0,
+     "odd": 0.13333333333333333
+    },
+    "devanagari_digits/paired": {
+     "all": 0.6523809523809524,
+     "even": 0.6476190476190476,
+     "odd": 0.6571428571428571
+    },
+    "devanagari_digits/withheld": {
+     "all": 0.3333333333333333,
+     "even": 0.23333333333333334,
+     "odd": 0.43333333333333335
+    },
+    "english/paired": {
+     "all": 0.09259259259259259,
+     "even": 0.1259259259259259,
+     "odd": 0.05925925925925926
+    }
+   },
+   "readers": {
+    "P": {
+     "live_units": 25,
+     "reads": [
+      0,
+      0,
+      0,
+      39,
+      0,
+      3,
+      0,
+      0,
+      0,
+      0,
+      0,
+      5,
+      0,
+      0,
+      0,
+      3
+     ]
+    },
+    "coordinates_read": [
+     0,
+     3,
+     5,
+     11,
+     15
+    ],
+    "g": {
+     "live_units": 45,
+     "reads": [
+      2,
+      0,
+      0,
+      80,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      6
+     ]
+    }
+   },
+   "reconstruction_new_symbols": {
+    "mean_image_mse": 0.04331863299012184,
+    "mse": 0.03538227081298828,
+    "value_range": [
+     0.0,
+     1.0
+    ]
+   },
+   "shape": {
+    "collections_participation_ratio": 1.010228633915571,
+    "collections_top_correlation_with_count": 0.978834797618691,
+    "collections_top_share": 0.9949189710205053,
+    "symbol_variance_share_first_half": 0.9848113936008025,
+    "symbols_participation_ratio": 1.0641458415430394,
+    "symbols_top_correlation_with_count_on_collections": 0.9788033167391716,
+    "symbols_top_share": 0.9691276171081631,
+    "top_directions_cosine": 0.9986548590233053
+   },
+   "transfer8": {
+    "chinese_to_taps_withheld": 0.26666666666666666,
+    "chinese_withheld_matching": 0.06666666666666667,
+    "comparison_chinese": 0.5990740740740741,
+    "comparison_devanagari": 0.8018518518518518,
+    "comparison_english": 0.4643518518518518,
+    "devanagari_withheld_matching": 0.3333333333333333,
+    "taps_to_chinese_withheld": 0.08333333333333333,
+    "taps_to_devanagari_withheld": 0.7166666666666667
+   },
+   "transfer8_mean": 0.4164930555555556,
+   "value_ceiling": {
+    "cosine": 0.6488888888888888,
+    "count_prototypes": 0.674074074074074,
+    "head": 0.7911111111111111
+   }
+  },
+  "wide32-recon-bg-l0.1/seed392": {
+   "address": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.09111111611127853,
+     "identity_centred": 0.07666666805744171,
+     "other_symbol_similarity": 0.29216325283050537,
+     "same_symbol_similarity": 0.8189807534217834,
+     "store": 0.20555555820465088,
+     "store_centred": 0.20333333313465118
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.13555556535720825,
+     "identity_centred": 0.11555555462837219,
+     "other_symbol_similarity": 0.2552766799926758,
+     "same_symbol_similarity": 0.8392763733863831,
+     "store": 0.23111110925674438,
+     "store_centred": 0.22888889908790588
+    }
+   },
+   "address_before_projection": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.1366666704416275,
+     "identity_centred": 0.12777778506278992,
+     "other_symbol_similarity": 0.49971553683280945,
+     "same_symbol_similarity": 0.862395167350769,
+     "store": 0.23555555939674377,
+     "store_centred": 0.23111110925674438
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.20666667819023132,
+     "identity_centred": 0.19777777791023254,
+     "other_symbol_similarity": 0.46917685866355896,
+     "same_symbol_similarity": 0.8730497360229492,
+     "store": 0.2866666615009308,
+     "store_centred": 0.2844444513320923
+    }
+   },
+   "coordinate_organization": {
+    "all_coordinates": 0.7516493055555555,
+    "coordinates_read": 0.8173868312757202
+   },
+   "matching": {
+    "chinese/paired": {
+     "all": 0.2,
+     "even": 0.17142857142857143,
+     "odd": 0.22857142857142856
+    },
+    "chinese/withheld": {
+     "all": 0.08333333333333333,
+     "even": 0.03333333333333333,
+     "odd": 0.13333333333333333
+    },
+    "devanagari_digits/paired": {
+     "all": 0.20952380952380953,
+     "even": 0.19047619047619047,
+     "odd": 0.22857142857142856
+    },
+    "devanagari_digits/withheld": {
+     "all": 0.2833333333333333,
+     "even": 0.3,
+     "odd": 0.26666666666666666
+    },
+    "english/paired": {
+     "all": 0.07407407407407407,
+     "even": 0.06666666666666667,
+     "odd": 0.08148148148148149
+    }
+   },
+   "readers": {
+    "P": {
+     "live_units": 18,
+     "reads": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      14,
+      0,
+      0,
+      6,
+      0,
+      5,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      11
+     ]
+    },
+    "coordinates_read": [
+     16,
+     19,
+     21,
+     22,
+     24,
+     31
+    ],
+    "g": {
+     "live_units": 43,
+     "reads": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      3,
+      0,
+      0,
+      77,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      5
+     ]
+    }
+   },
+   "reconstruction_new_symbols": {
+    "mean_image_mse": 0.04299100860953331,
+    "mse": 0.03887827694416046,
+    "value_range": [
+     0.0,
+     1.0
+    ]
+   },
+   "shape": {
+    "collections_participation_ratio": 1.0085264602933939,
+    "collections_top_correlation_with_count": 0.931824319267071,
+    "collections_top_share": 0.9957588070217823,
+    "symbol_variance_share_first_half": 0.25510097916750774,
+    "symbols_participation_ratio": 1.0364146581124138,
+    "symbols_top_correlation_with_count_on_collections": 0.9317036433276441,
+    "symbols_top_share": 0.9821985794724817,
+    "top_directions_cosine": 0.9987313394277435
+   },
+   "transfer8": {
+    "chinese_to_taps_withheld": 0.15,
+    "chinese_withheld_matching": 0.08333333333333333,
+    "comparison_chinese": 0.7546296296296297,
+    "comparison_devanagari": 0.8041666666666667,
+    "comparison_english": 0.41064814814814815,
+    "devanagari_withheld_matching": 0.2833333333333333,
+    "taps_to_chinese_withheld": 0.05,
+    "taps_to_devanagari_withheld": 0.5666666666666667
+   },
+   "transfer8_mean": 0.38784722222222223,
+   "value_ceiling": {
+    "cosine": 0.5244444444444445,
+    "count_prototypes": 0.4148148148148148,
+    "head": 0.4177777777777778
+   }
+  },
+  "wide32-recon-bg-l0.1/seed393": {
+   "address": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.11888889223337173,
+     "identity_centred": 0.10777778178453445,
+     "other_symbol_similarity": 0.5670408606529236,
+     "same_symbol_similarity": 0.9026640057563782,
+     "store": 0.23222222924232483,
+     "store_centred": 0.22777777910232544
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.19555556774139404,
+     "identity_centred": 0.162222221493721,
+     "other_symbol_similarity": 0.6114684343338013,
+     "same_symbol_similarity": 0.9163396954536438,
+     "store": 0.2844444513320923,
+     "store_centred": 0.23111110925674438
+    }
+   },
+   "address_before_projection": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.20777778327465057,
+     "identity_centred": 0.21111111342906952,
+     "other_symbol_similarity": 0.5968125462532043,
+     "same_symbol_similarity": 0.9248600006103516,
+     "store": 0.30888888239860535,
+     "store_centred": 0.29666668176651
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.2777777910232544,
+     "identity_centred": 0.2888889014720917,
+     "other_symbol_similarity": 0.6352540850639343,
+     "same_symbol_similarity": 0.9351354241371155,
+     "store": 0.35555556416511536,
+     "store_centred": 0.35777777433395386
+    }
+   },
+   "coordinate_organization": {
+    "all_coordinates": 0.751292438271605,
+    "coordinates_read": 0.8359876543209875
+   },
+   "matching": {
+    "chinese/paired": {
+     "all": 0.1761904761904762,
+     "even": 0.1619047619047619,
+     "odd": 0.19047619047619047
+    },
+    "chinese/withheld": {
+     "all": 0.08333333333333333,
+     "even": 0.03333333333333333,
+     "odd": 0.13333333333333333
+    },
+    "devanagari_digits/paired": {
+     "all": 0.5476190476190477,
+     "even": 0.5619047619047619,
+     "odd": 0.5333333333333333
+    },
+    "devanagari_digits/withheld": {
+     "all": 0.2833333333333333,
+     "even": 0.3,
+     "odd": 0.26666666666666666
+    },
+    "english/paired": {
+     "all": 0.08148148148148149,
+     "even": 0.1037037037037037,
+     "odd": 0.05925925925925926
+    }
+   },
+   "readers": {
+    "P": {
+     "live_units": 21,
+     "reads": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      18,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      24,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    "coordinates_read": [
+     6,
+     8,
+     25,
+     29,
+     31
+    ],
+    "g": {
+     "live_units": 39,
+     "reads": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      4,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      69,
+      0,
+      0,
+      0,
+      1,
+      0,
+      3
+     ]
+    }
+   },
+   "reconstruction_new_symbols": {
+    "mean_image_mse": 0.04331863299012184,
+    "mse": 0.03980664536356926,
+    "value_range": [
+     0.0,
+     1.0
+    ]
+   },
+   "shape": {
+    "collections_participation_ratio": 1.0011426525789129,
+    "collections_top_correlation_with_count": 0.9791198700983461,
+    "collections_top_share": 0.9994290919261279,
+    "symbol_variance_share_first_half": 0.33133968772912314,
+    "symbols_participation_ratio": 1.015323658431348,
+    "symbols_top_correlation_with_count_on_collections": 0.9791533406879077,
+    "symbols_top_share": 0.9924125590142109,
+    "top_directions_cosine": 0.99953228869413
+   },
+   "transfer8": {
+    "chinese_to_taps_withheld": 0.2,
+    "chinese_withheld_matching": 0.08333333333333333,
+    "comparison_chinese": 0.7222222222222222,
+    "comparison_devanagari": 0.8046296296296296,
+    "comparison_english": 0.45231481481481484,
+    "devanagari_withheld_matching": 0.2833333333333333,
+    "taps_to_chinese_withheld": 0.06666666666666667,
+    "taps_to_devanagari_withheld": 0.5833333333333334
+   },
+   "transfer8_mean": 0.39947916666666666,
+   "value_ceiling": {
+    "cosine": 0.66,
+    "count_prototypes": 0.6592592592592592,
+    "head": 0.6577777777777778
+   }
+  },
+  "wide32-recon-bg-l1/seed392": {
+   "address": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.10444444417953491,
+     "identity_centred": 0.11444444954395294,
+     "other_symbol_similarity": 0.18163448572158813,
+     "same_symbol_similarity": 0.7596051096916199,
+     "store": 0.21444444358348846,
+     "store_centred": 0.20666667819023132
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.18000000715255737,
+     "identity_centred": 0.19777777791023254,
+     "other_symbol_similarity": 0.17632971704006195,
+     "same_symbol_similarity": 0.8257158398628235,
+     "store": 0.2711111307144165,
+     "store_centred": 0.2688888907432556
+    }
+   },
+   "address_before_projection": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.1577777862548828,
+     "identity_centred": 0.14888888597488403,
+     "other_symbol_similarity": 0.5127891302108765,
+     "same_symbol_similarity": 0.8875468969345093,
+     "store": 0.25555557012557983,
+     "store_centred": 0.2477777898311615
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.23777778446674347,
+     "identity_centred": 0.23555555939674377,
+     "other_symbol_similarity": 0.49208390712738037,
+     "same_symbol_similarity": 0.9053430557250977,
+     "store": 0.3288888931274414,
+     "store_centred": 0.3177777826786041
+    }
+   },
+   "coordinate_organization": {
+    "all_coordinates": 0.7574556327160494,
+    "coordinates_read": 0.7320644718792867
+   },
+   "matching": {
+    "chinese/paired": {
+     "all": 0.1523809523809524,
+     "even": 0.14285714285714285,
+     "odd": 0.1619047619047619
+    },
+    "chinese/withheld": {
+     "all": 0.23333333333333334,
+     "even": 0.26666666666666666,
+     "odd": 0.2
+    },
+    "devanagari_digits/paired": {
+     "all": 0.3904761904761905,
+     "even": 0.4095238095238095,
+     "odd": 0.37142857142857144
+    },
+    "devanagari_digits/withheld": {
+     "all": 0.43333333333333335,
+     "even": 0.4,
+     "odd": 0.4666666666666667
+    },
+    "english/paired": {
+     "all": 0.06296296296296296,
+     "even": 0.08888888888888889,
+     "odd": 0.037037037037037035
+    }
+   },
+   "readers": {
+    "P": {
+     "live_units": 19,
+     "reads": [
+      0,
+      0,
+      0,
+      0,
+      5,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      31,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    "coordinates_read": [
+     0,
+     4,
+     10,
+     11,
+     19,
+     22,
+     25,
+     26,
+     28
+    ],
+    "g": {
+     "live_units": 39,
+     "reads": [
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      63,
+      0,
+      0,
+      1,
+      0,
+      0,
+      2,
+      1,
+      0,
+      7,
+      0,
+      0,
+      0
+     ]
+    }
+   },
+   "reconstruction_new_symbols": {
+    "mean_image_mse": 0.04299100860953331,
+    "mse": 0.03897719457745552,
+    "value_range": [
+     0.0,
+     1.0
+    ]
+   },
+   "shape": {
+    "collections_participation_ratio": 1.0023730656425094,
+    "collections_top_correlation_with_count": 0.9416879094882813,
+    "collections_top_share": 0.9988152008562445,
+    "symbol_variance_share_first_half": 0.19743033255034845,
+    "symbols_participation_ratio": 1.0153655114601958,
+    "symbols_top_correlation_with_count_on_collections": 0.9417047112028425,
+    "symbols_top_share": 0.992393582271545,
+    "top_directions_cosine": 0.999823287706344
+   },
+   "transfer8": {
+    "chinese_to_taps_withheld": 0.2,
+    "chinese_withheld_matching": 0.23333333333333334,
+    "comparison_chinese": 0.7495370370370371,
+    "comparison_devanagari": 0.8064814814814816,
+    "comparison_english": 0.46851851851851856,
+    "devanagari_withheld_matching": 0.43333333333333335,
+    "taps_to_chinese_withheld": 0.03333333333333333,
+    "taps_to_devanagari_withheld": 0.8333333333333334
+   },
+   "transfer8_mean": 0.4697337962962963,
+   "value_ceiling": {
+    "cosine": 0.52,
+    "count_prototypes": 0.45185185185185184,
+    "head": 0.5466666666666666
+   }
+  },
+  "wide32-recon-bg-l1/seed393": {
+   "address": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.1344444453716278,
+     "identity_centred": 0.12888889014720917,
+     "other_symbol_similarity": 0.46729302406311035,
+     "same_symbol_similarity": 0.9042212963104248,
+     "store": 0.21888889372348785,
+     "store_centred": 0.21444444358348846
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.20222222805023193,
+     "identity_centred": 0.18888889253139496,
+     "other_symbol_similarity": 0.546511709690094,
+     "same_symbol_similarity": 0.9014286398887634,
+     "store": 0.29333335161209106,
+     "store_centred": 0.2644444406032562
+    }
+   },
+   "address_before_projection": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.2266666740179062,
+     "identity_centred": 0.24444444477558136,
+     "other_symbol_similarity": 0.5440221428871155,
+     "same_symbol_similarity": 0.9110878109931946,
+     "store": 0.3122222423553467,
+     "store_centred": 0.32333335280418396
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.3199999928474426,
+     "identity_centred": 0.3422222435474396,
+     "other_symbol_similarity": 0.599705696105957,
+     "same_symbol_similarity": 0.9125871062278748,
+     "store": 0.3888888955116272,
+     "store_centred": 0.41111111640930176
+    }
+   },
+   "coordinate_organization": {
+    "all_coordinates": 0.7529996141975309,
+    "coordinates_read": 0.746141975308642
+   },
+   "matching": {
+    "chinese/paired": {
+     "all": 0.0761904761904762,
+     "even": 0.0761904761904762,
+     "odd": 0.0761904761904762
+    },
+    "chinese/withheld": {
+     "all": 0.06666666666666667,
+     "even": 0.03333333333333333,
+     "odd": 0.1
+    },
+    "devanagari_digits/paired": {
+     "all": 0.680952380952381,
+     "even": 0.7047619047619048,
+     "odd": 0.6571428571428571
+    },
+    "devanagari_digits/withheld": {
+     "all": 0.45,
+     "even": 0.43333333333333335,
+     "odd": 0.4666666666666667
+    },
+    "english/paired": {
+     "all": 0.08148148148148149,
+     "even": 0.0962962962962963,
+     "odd": 0.06666666666666667
+    }
+   },
+   "readers": {
+    "P": {
+     "live_units": 20,
+     "reads": [
+      0,
+      24,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      16,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    "coordinates_read": [
+     1,
+     10,
+     16,
+     18
+    ],
+    "g": {
+     "live_units": 38,
+     "reads": [
+      0,
+      54,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      18,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   },
+   "reconstruction_new_symbols": {
+    "mean_image_mse": 0.04331863299012184,
+    "mse": 0.03496991842985153,
+    "value_range": [
+     0.0,
+     1.0
+    ]
+   },
+   "shape": {
+    "collections_participation_ratio": 1.0088478198811823,
+    "collections_top_correlation_with_count": 0.9769011274821738,
+    "collections_top_share": 0.9955979041318302,
+    "symbol_variance_share_first_half": 0.7087637917839175,
+    "symbols_participation_ratio": 1.0699257069357755,
+    "symbols_top_correlation_with_count_on_collections": 0.9767154589558871,
+    "symbols_top_share": 0.9662766247635161,
+    "top_directions_cosine": 0.9946179092291685
+   },
+   "transfer8": {
+    "chinese_to_taps_withheld": 0.13333333333333333,
+    "chinese_withheld_matching": 0.06666666666666667,
+    "comparison_chinese": 0.6643518518518517,
+    "comparison_devanagari": 0.813425925925926,
+    "comparison_english": 0.5060185185185185,
+    "devanagari_withheld_matching": 0.45,
+    "taps_to_chinese_withheld": 0.11666666666666667,
+    "taps_to_devanagari_withheld": 0.8833333333333333
+   },
+   "transfer8_mean": 0.454224537037037,
+   "value_ceiling": {
+    "cosine": 0.6355555555555555,
+    "count_prototypes": 0.6259259259259259,
+    "head": 0.7955555555555556
+   }
+  },
+  "wide32-recon-l0.1/seed392": {
+   "address": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.0833333358168602,
+     "identity_centred": 0.10555555671453476,
+     "other_symbol_similarity": 0.23812562227249146,
+     "same_symbol_similarity": 0.7738734483718872,
+     "store": 0.162222221493721,
+     "store_centred": 0.18111111223697662
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.12000000476837158,
+     "identity_centred": 0.1577777862548828,
+     "other_symbol_similarity": 0.21177493035793304,
+     "same_symbol_similarity": 0.7901760935783386,
+     "store": 0.20222222805023193,
+     "store_centred": 0.22888889908790588
+    }
+   },
+   "address_before_projection": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.1577777862548828,
+     "identity_centred": 0.15888889133930206,
+     "other_symbol_similarity": 0.49590688943862915,
+     "same_symbol_similarity": 0.8551379442214966,
+     "store": 0.2455555647611618,
+     "store_centred": 0.27222222089767456
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.20000000298023224,
+     "identity_centred": 0.23555555939674377,
+     "other_symbol_similarity": 0.4648951590061188,
+     "same_symbol_similarity": 0.8631486296653748,
+     "store": 0.30000001192092896,
+     "store_centred": 0.31111112236976624
+    }
+   },
+   "coordinate_organization": {
+    "all_coordinates": 0.7412229938271605,
+    "coordinates_read": 0.6542592592592592
+   },
+   "matching": {
+    "chinese/paired": {
+     "all": 0.21904761904761905,
+     "even": 0.20952380952380953,
+     "odd": 0.22857142857142856
+    },
+    "chinese/withheld": {
+     "all": 0.25,
+     "even": 0.3333333333333333,
+     "odd": 0.16666666666666666
+    },
+    "devanagari_digits/paired": {
+     "all": 0.2761904761904762,
+     "even": 0.2571428571428571,
+     "odd": 0.29523809523809524
+    },
+    "devanagari_digits/withheld": {
+     "all": 0.23333333333333334,
+     "even": 0.2,
+     "odd": 0.26666666666666666
+    },
+    "english/paired": {
+     "all": 0.05925925925925926,
+     "even": 0.07407407407407407,
+     "odd": 0.044444444444444446
+    }
+   },
+   "readers": {
+    "P": {
+     "live_units": 18,
+     "reads": [
+      0,
+      0,
+      32,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    "coordinates_read": [
+     2,
+     4,
+     16,
+     19,
+     21
+    ],
+    "g": {
+     "live_units": 39,
+     "reads": [
+      0,
+      0,
+      72,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      5,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   },
+   "reconstruction_new_symbols": {
+    "mean_image_mse": 0.04299100860953331,
+    "mse": 0.03764316067099571,
+    "value_range": [
+     0.0,
+     1.0
+    ]
+   },
+   "shape": {
+    "collections_participation_ratio": 1.0019239970827312,
+    "collections_top_correlation_with_count": 0.9233878768479955,
+    "collections_top_share": 0.999039125748068,
+    "symbol_variance_share_first_half": 0.7671094219236048,
+    "symbols_participation_ratio": 1.021091269645459,
+    "symbols_top_correlation_with_count_on_collections": 0.9234784755946059,
+    "symbols_top_share": 0.9895970236314805,
+    "top_directions_cosine": 0.9993406024740583
+   },
+   "transfer8": {
+    "chinese_to_taps_withheld": 0.18333333333333332,
+    "chinese_withheld_matching": 0.25,
+    "comparison_chinese": 0.7703703703703704,
+    "comparison_devanagari": 0.8273148148148147,
+    "comparison_english": 0.4449074074074075,
+    "devanagari_withheld_matching": 0.23333333333333334,
+    "taps_to_chinese_withheld": 0.1,
+    "taps_to_devanagari_withheld": 0.7666666666666667
+   },
+   "transfer8_mean": 0.44699074074074074,
+   "value_ceiling": {
+    "cosine": 0.5155555555555555,
+    "count_prototypes": 0.45185185185185184,
+    "head": 0.48444444444444446
+   }
+  },
+  "wide32-recon-l0.1/seed393": {
+   "address": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.12444444745779037,
+     "identity_centred": 0.1344444453716278,
+     "other_symbol_similarity": 0.5157576203346252,
+     "same_symbol_similarity": 0.9170551300048828,
+     "store": 0.21222223341464996,
+     "store_centred": 0.23333333432674408
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.18666666746139526,
+     "identity_centred": 0.20222222805023193,
+     "other_symbol_similarity": 0.5741360783576965,
+     "same_symbol_similarity": 0.9222381114959717,
+     "store": 0.273333340883255,
+     "store_centred": 0.29555556178092957
+    }
+   },
+   "address_before_projection": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.23000000417232513,
+     "identity_centred": 0.24666666984558105,
+     "other_symbol_similarity": 0.5417433381080627,
+     "same_symbol_similarity": 0.9242863059043884,
+     "store": 0.3144444525241852,
+     "store_centred": 0.3377777934074402
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.3288888931274414,
+     "identity_centred": 0.3222222328186035,
+     "other_symbol_similarity": 0.5828452706336975,
+     "same_symbol_similarity": 0.9298595786094666,
+     "store": 0.40666666626930237,
+     "store_centred": 0.41111111640930176
+    }
+   },
+   "coordinate_organization": {
+    "all_coordinates": 0.7292824074074074,
+    "coordinates_read": 0.6920781893004117
+   },
+   "matching": {
+    "chinese/paired": {
+     "all": 0.1380952380952381,
+     "even": 0.17142857142857143,
+     "odd": 0.10476190476190476
+    },
+    "chinese/withheld": {
+     "all": 0.016666666666666666,
+     "even": 0.03333333333333333,
+     "odd": 0.0
+    },
+    "devanagari_digits/paired": {
+     "all": 0.5857142857142857,
+     "even": 0.6095238095238096,
+     "odd": 0.5619047619047619
+    },
+    "devanagari_digits/withheld": {
+     "all": 0.3,
+     "even": 0.3333333333333333,
+     "odd": 0.26666666666666666
+    },
+    "english/paired": {
+     "all": 0.12222222222222222,
+     "even": 0.14814814814814814,
+     "odd": 0.0962962962962963
+    }
+   },
+   "readers": {
+    "P": {
+     "live_units": 20,
+     "reads": [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      37,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    "coordinates_read": [
+     0,
+     3,
+     7,
+     10,
+     24,
+     25
+    ],
+    "g": {
+     "live_units": 39,
+     "reads": [
+      4,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      4,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      67,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   },
+   "reconstruction_new_symbols": {
+    "mean_image_mse": 0.04331863299012184,
+    "mse": 0.04224886745214462,
+    "value_range": [
+     0.0,
+     1.0
+    ]
+   },
+   "shape": {
+    "collections_participation_ratio": 1.01508591027122,
+    "collections_top_correlation_with_count": 0.9762245401054589,
+    "collections_top_share": 0.9925147817267491,
+    "symbol_variance_share_first_half": 0.3856379606445684,
+    "symbols_participation_ratio": 1.111283556325117,
+    "symbols_top_correlation_with_count_on_collections": 0.9757438085264651,
+    "symbols_top_share": 0.9472711970921038,
+    "top_directions_cosine": 0.9958756988647267
+   },
+   "transfer8": {
+    "chinese_to_taps_withheld": 0.05,
+    "chinese_withheld_matching": 0.016666666666666666,
+    "comparison_chinese": 0.6319444444444444,
+    "comparison_devanagari": 0.8064814814814815,
+    "comparison_english": 0.4837962962962962,
+    "devanagari_withheld_matching": 0.3,
+    "taps_to_chinese_withheld": 0.016666666666666666,
+    "taps_to_devanagari_withheld": 0.6166666666666667
+   },
+   "transfer8_mean": 0.36527777777777776,
+   "value_ceiling": {
+    "cosine": 0.5644444444444444,
+    "count_prototypes": 0.6333333333333333,
+    "head": 0.5666666666666667
+   }
+  },
+  "wide32-recon-l1/seed392": {
+   "address": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.10444444417953491,
+     "identity_centred": 0.11555555462837219,
+     "other_symbol_similarity": 0.21375589072704315,
+     "same_symbol_similarity": 0.8310071229934692,
+     "store": 0.19555556774139404,
+     "store_centred": 0.1877777874469757
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.17777778208255768,
+     "identity_centred": 0.18000000715255737,
+     "other_symbol_similarity": 0.19738714396953583,
+     "same_symbol_similarity": 0.8686959147453308,
+     "store": 0.25555557012557983,
+     "store_centred": 0.273333340883255
+    }
+   },
+   "address_before_projection": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.185555562376976,
+     "identity_centred": 0.19777777791023254,
+     "other_symbol_similarity": 0.3793652355670929,
+     "same_symbol_similarity": 0.8574329018592834,
+     "store": 0.2622222304344177,
+     "store_centred": 0.2755555510520935
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.30000001192092896,
+     "identity_centred": 0.30888888239860535,
+     "other_symbol_similarity": 0.36026889085769653,
+     "same_symbol_similarity": 0.879387378692627,
+     "store": 0.371111124753952,
+     "store_centred": 0.40666666626930237
+    }
+   },
+   "coordinate_organization": {
+    "all_coordinates": 0.7308159722222222,
+    "coordinates_read": 0.7809413580246914
+   },
+   "matching": {
+    "chinese/paired": {
+     "all": 0.1619047619047619,
+     "even": 0.18095238095238095,
+     "odd": 0.14285714285714285
+    },
+    "chinese/withheld": {
+     "all": 0.05,
+     "even": 0.03333333333333333,
+     "odd": 0.06666666666666667
+    },
+    "devanagari_digits/paired": {
+     "all": 0.47619047619047616,
+     "even": 0.47619047619047616,
+     "odd": 0.47619047619047616
+    },
+    "devanagari_digits/withheld": {
+     "all": 0.38333333333333336,
+     "even": 0.4,
+     "odd": 0.36666666666666664
+    },
+    "english/paired": {
+     "all": 0.05555555555555555,
+     "even": 0.05185185185185185,
+     "odd": 0.05925925925925926
+    }
+   },
+   "readers": {
+    "P": {
+     "live_units": 21,
+     "reads": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      39,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0
+     ]
+    },
+    "coordinates_read": [
+     2,
+     9,
+     19,
+     29
+    ],
+    "g": {
+     "live_units": 41,
+     "reads": [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      77,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      3,
+      0,
+      0
+     ]
+    }
+   },
+   "reconstruction_new_symbols": {
+    "mean_image_mse": 0.04299100860953331,
+    "mse": 0.042368944734334946,
+    "value_range": [
+     0.0,
+     1.0
+    ]
+   },
+   "shape": {
+    "collections_participation_ratio": 1.00382887149155,
+    "collections_top_correlation_with_count": 0.9466293151165267,
+    "collections_top_share": 0.9980900414408663,
+    "symbol_variance_share_first_half": 0.40958433828890983,
+    "symbols_participation_ratio": 1.0342010578659737,
+    "symbols_top_correlation_with_count_on_collections": 0.9464684630905523,
+    "symbols_top_share": 0.983251464623021,
+    "top_directions_cosine": 0.9992181458392386
+   },
+   "transfer8": {
+    "chinese_to_taps_withheld": 0.0,
+    "chinese_withheld_matching": 0.05,
+    "comparison_chinese": 0.6166666666666667,
+    "comparison_devanagari": 0.8189814814814815,
+    "comparison_english": 0.5101851851851851,
+    "devanagari_withheld_matching": 0.38333333333333336,
+    "taps_to_chinese_withheld": 0.0,
+    "taps_to_devanagari_withheld": 0.8833333333333333
+   },
+   "transfer8_mean": 0.4078125,
+   "value_ceiling": {
+    "cosine": 0.5688888888888889,
+    "count_prototypes": 0.5407407407407407,
+    "head": 0.5422222222222223
+   }
+  },
+  "wide32-recon-l1/seed393": {
+   "address": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.15000000596046448,
+     "identity_centred": 0.12111111730337143,
+     "other_symbol_similarity": 0.3642261028289795,
+     "same_symbol_similarity": 0.8978965282440186,
+     "store": 0.2244444489479065,
+     "store_centred": 0.20555555820465088
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.2222222238779068,
+     "identity_centred": 0.2244444489479065,
+     "other_symbol_similarity": 0.4013717770576477,
+     "same_symbol_similarity": 0.9031673669815063,
+     "store": 0.31111112236976624,
+     "store_centred": 0.29333335161209106
+    }
+   },
+   "address_before_projection": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.2755555510520935,
+     "identity_centred": 0.25777778029441833,
+     "other_symbol_similarity": 0.4245414435863495,
+     "same_symbol_similarity": 0.9128327369689941,
+     "store": 0.35555556416511536,
+     "store_centred": 0.33444446325302124
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.35777777433395386,
+     "identity_centred": 0.36666667461395264,
+     "other_symbol_similarity": 0.4620085060596466,
+     "same_symbol_similarity": 0.9194443225860596,
+     "store": 0.42222222685813904,
+     "store_centred": 0.41333335638046265
+    }
+   },
+   "coordinate_organization": {
+    "all_coordinates": 0.6890046296296296,
+    "coordinates_read": 0.6883101851851853
+   },
+   "matching": {
+    "chinese/paired": {
+     "all": 0.08571428571428572,
+     "even": 0.09523809523809523,
+     "odd": 0.0761904761904762
+    },
+    "chinese/withheld": {
+     "all": 0.03333333333333333,
+     "even": 0.06666666666666667,
+     "odd": 0.0
+    },
+    "devanagari_digits/paired": {
+     "all": 0.7380952380952381,
+     "even": 0.7428571428571429,
+     "odd": 0.7333333333333333
+    },
+    "devanagari_digits/withheld": {
+     "all": 0.26666666666666666,
+     "even": 0.23333333333333334,
+     "odd": 0.3
+    },
+    "english/paired": {
+     "all": 0.0962962962962963,
+     "even": 0.11851851851851852,
+     "odd": 0.07407407407407407
+    }
+   },
+   "readers": {
+    "P": {
+     "live_units": 19,
+     "reads": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      38,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    "coordinates_read": [
+     7,
+     11,
+     17,
+     21,
+     25,
+     27,
+     29,
+     31
+    ],
+    "g": {
+     "live_units": 43,
+     "reads": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      3,
+      0,
+      0,
+      0,
+      7,
+      0,
+      0,
+      0,
+      55,
+      0,
+      3,
+      0,
+      11,
+      0,
+      4
+     ]
+    }
+   },
+   "reconstruction_new_symbols": {
+    "mean_image_mse": 0.04331863299012184,
+    "mse": 0.04040791839361191,
+    "value_range": [
+     0.0,
+     1.0
+    ]
+   },
+   "shape": {
+    "collections_participation_ratio": 1.0086823889771268,
+    "collections_top_correlation_with_count": 0.9768211913225782,
+    "collections_top_share": 0.9956796192034455,
+    "symbol_variance_share_first_half": 0.2601030859295724,
+    "symbols_participation_ratio": 1.0687445081062081,
+    "symbols_top_correlation_with_count_on_collections": 0.9759929504848031,
+    "symbols_top_share": 0.9668428401891732,
+    "top_directions_cosine": 0.9924890291033365
+   },
+   "transfer8": {
+    "chinese_to_taps_withheld": 0.05,
+    "chinese_withheld_matching": 0.03333333333333333,
+    "comparison_chinese": 0.5291666666666668,
+    "comparison_devanagari": 0.8111111111111111,
+    "comparison_english": 0.46388888888888896,
+    "devanagari_withheld_matching": 0.26666666666666666,
+    "taps_to_chinese_withheld": 0.05,
+    "taps_to_devanagari_withheld": 0.75
+   },
+   "transfer8_mean": 0.3692708333333334,
+   "value_ceiling": {
+    "cosine": 0.58,
+    "count_prototypes": 0.5814814814814815,
+    "head": 0.5977777777777777
+   }
+  },
+  "wide32/seed392": {
+   "address": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.13333334028720856,
+     "identity_centred": 0.12666666507720947,
+     "other_symbol_similarity": 0.11058074980974197,
+     "same_symbol_similarity": 0.7742233872413635,
+     "store": 0.23777778446674347,
+     "store_centred": 0.22888889908790588
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.23111110925674438,
+     "identity_centred": 0.2266666740179062,
+     "other_symbol_similarity": 0.10237731039524078,
+     "same_symbol_similarity": 0.8038862347602844,
+     "store": 0.30666667222976685,
+     "store_centred": 0.30888888239860535
+    }
+   },
+   "address_before_projection": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.2266666740179062,
+     "identity_centred": 0.2266666740179062,
+     "other_symbol_similarity": 0.1941843181848526,
+     "same_symbol_similarity": 0.8137789368629456,
+     "store": 0.32777777314186096,
+     "store_centred": 0.32777777314186096
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.3422222435474396,
+     "identity_centred": 0.35111111402511597,
+     "other_symbol_similarity": 0.1825386881828308,
+     "same_symbol_similarity": 0.8320730328559875,
+     "store": 0.40444445610046387,
+     "store_centred": 0.41333335638046265
+    }
+   },
+   "coordinate_organization": {
+    "all_coordinates": 0.6762827932098765,
+    "coordinates_read": 0.7343033509700176
+   },
+   "matching": {
+    "chinese/paired": {
+     "all": 0.10476190476190476,
+     "even": 0.11428571428571428,
+     "odd": 0.09523809523809523
+    },
+    "chinese/withheld": {
+     "all": 0.15,
+     "even": 0.16666666666666666,
+     "odd": 0.13333333333333333
+    },
+    "devanagari_digits/paired": {
+     "all": 0.3238095238095238,
+     "even": 0.3238095238095238,
+     "odd": 0.3238095238095238
+    },
+    "devanagari_digits/withheld": {
+     "all": 0.21666666666666667,
+     "even": 0.2,
+     "odd": 0.23333333333333334
+    },
+    "english/paired": {
+     "all": 0.08888888888888889,
+     "even": 0.08148148148148149,
+     "odd": 0.0962962962962963
+    }
+   },
+   "readers": {
+    "P": {
+     "live_units": 21,
+     "reads": [
+      11,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      25,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      4,
+      1,
+      0,
+      0
+     ]
+    },
+    "coordinates_read": [
+     0,
+     7,
+     13,
+     19,
+     24,
+     28,
+     29
+    ],
+    "g": {
+     "live_units": 38,
+     "reads": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      66,
+      0,
+      0,
+      0,
+      0,
+      9,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    }
+   },
+   "shape": {
+    "collections_participation_ratio": 1.0028078617050904,
+    "collections_top_correlation_with_count": 0.9622758479261135,
+    "collections_top_share": 0.9985984778955792,
+    "symbol_variance_share_first_half": 0.2667604460835155,
+    "symbols_participation_ratio": 1.0300846596975253,
+    "symbols_top_correlation_with_count_on_collections": 0.9621851395531273,
+    "symbols_top_share": 0.9852249999564063,
+    "top_directions_cosine": 0.9972614631701257
+   },
+   "transfer8": {
+    "chinese_to_taps_withheld": 0.03333333333333333,
+    "chinese_withheld_matching": 0.15,
+    "comparison_chinese": 0.6000000000000001,
+    "comparison_devanagari": 0.8143518518518519,
+    "comparison_english": 0.46851851851851856,
+    "devanagari_withheld_matching": 0.21666666666666667,
+    "taps_to_chinese_withheld": 0.0,
+    "taps_to_devanagari_withheld": 0.9
+   },
+   "transfer8_mean": 0.3978587962962963,
+   "value_ceiling": {
+    "cosine": 0.52,
+    "count_prototypes": 0.4740740740740741,
+    "head": 0.6288888888888889
+   }
+  },
+  "wide32/seed393": {
+   "address": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.18222223222255707,
+     "identity_centred": 0.1577777862548828,
+     "other_symbol_similarity": 0.5454378724098206,
+     "same_symbol_similarity": 0.914310872554779,
+     "store": 0.27888888120651245,
+     "store_centred": 0.25777778029441833
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.23555555939674377,
+     "identity_centred": 0.24666666984558105,
+     "other_symbol_similarity": 0.5694572925567627,
+     "same_symbol_similarity": 0.9085038304328918,
+     "store": 0.29777777194976807,
+     "store_centred": 0.3355555534362793
+    }
+   },
+   "address_before_projection": {
+    "180": {
+     "chance_identity": 0.005555555555555556,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.2588889002799988,
+     "identity_centred": 0.23666667938232422,
+     "other_symbol_similarity": 0.5941588282585144,
+     "same_symbol_similarity": 0.9308892488479614,
+     "store": 0.3499999940395355,
+     "store_centred": 0.31333333253860474
+    },
+    "90": {
+     "chance_identity": 0.011111111111111112,
+     "chance_store": 0.1111111111111111,
+     "identity": 0.3444444537162781,
+     "identity_centred": 0.3266666829586029,
+     "other_symbol_similarity": 0.6113313436508179,
+     "same_symbol_similarity": 0.9320223331451416,
+     "store": 0.3933333456516266,
+     "store_centred": 0.40666666626930237
+    }
+   },
+   "coordinate_organization": {
+    "all_coordinates": 0.7417438271604938,
+    "coordinates_read": 0.7222839506172839
+   },
+   "matching": {
+    "chinese/paired": {
+     "all": 0.1380952380952381,
+     "even": 0.14285714285714285,
+     "odd": 0.13333333333333333
+    },
+    "chinese/withheld": {
+     "all": 0.03333333333333333,
+     "even": 0.03333333333333333,
+     "odd": 0.03333333333333333
+    },
+    "devanagari_digits/paired": {
+     "all": 0.5238095238095238,
+     "even": 0.49523809523809526,
+     "odd": 0.5523809523809524
+    },
+    "devanagari_digits/withheld": {
+     "all": 0.3,
+     "even": 0.26666666666666666,
+     "odd": 0.3333333333333333
+    },
+    "english/paired": {
+     "all": 0.07777777777777778,
+     "even": 0.0962962962962963,
+     "odd": 0.05925925925925926
+    }
+   },
+   "readers": {
+    "P": {
+     "live_units": 22,
+     "reads": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      40,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      3,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    },
+    "coordinates_read": [
+     12,
+     23,
+     26,
+     27,
+     30
+    ],
+    "g": {
+     "live_units": 38,
+     "reads": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      53,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      21,
+      1,
+      0,
+      0,
+      1,
+      0
+     ]
+    }
+   },
+   "shape": {
+    "collections_participation_ratio": 1.0022622776474617,
+    "collections_top_correlation_with_count": 0.9754070893190981,
+    "collections_top_share": 0.9988704692631962,
+    "symbol_variance_share_first_half": 0.6423719282062513,
+    "symbols_participation_ratio": 1.0128967794426846,
+    "symbols_top_correlation_with_count_on_collections": 0.9751401208351825,
+    "symbols_top_share": 0.9936054077777525,
+    "top_directions_cosine": 0.9973763215220076
+   },
+   "transfer8": {
+    "chinese_to_taps_withheld": 0.3333333333333333,
+    "chinese_withheld_matching": 0.03333333333333333,
+    "comparison_chinese": 0.5472222222222222,
+    "comparison_devanagari": 0.8162037037037037,
+    "comparison_english": 0.48935185185185187,
+    "devanagari_withheld_matching": 0.3,
+    "taps_to_chinese_withheld": 0.06666666666666667,
+    "taps_to_devanagari_withheld": 0.6333333333333333
+   },
+   "transfer8_mean": 0.4024305555555555,
+   "value_ceiling": {
+    "cosine": 0.6355555555555555,
+    "count_prototypes": 0.6074074074074074,
+    "head": 0.6333333333333333
+   }
+  }
+ },
+ "train_renderings": 64
+}

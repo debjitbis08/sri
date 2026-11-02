@@ -1,0 +1,125 @@
+{
+ "aggregate_worker_cpu_seconds": 2704.114273991,
+ "children_peak_rss_kb": 2592516,
+ "command": "/home/debjit/code/sri/experiments/shared_core_stage0.py pilot hosts",
+ "contract_sha256": "9cb6a923d1a0e78be63ff7e2acbad6ccf9c2fde903869ae88a342cb00dd1f899",
+ "cpu": "x86_64",
+ "cublas_workspace_config": ":4096:8",
+ "cuda": "13.0",
+ "cudnn": 92400,
+ "deterministic_algorithms": true,
+ "device": "cuda",
+ "dirty": true,
+ "dtype": "float32",
+ "fits": {
+  "sparse48/seed392": {
+   "cpu_seconds": 112.425044645,
+   "gpu_peak_allocated_bytes": 84162560,
+   "peak_rss_kb": 2398104,
+   "wall_seconds": 112.61906264501158
+  },
+  "sparse48/seed393": {
+   "cpu_seconds": 112.628090736,
+   "gpu_peak_allocated_bytes": 84325888,
+   "peak_rss_kb": 2398088,
+   "wall_seconds": 112.68447096200543
+  },
+  "split-recon-bg-l0.1/seed392": {
+   "cpu_seconds": 200.865128357,
+   "gpu_peak_allocated_bytes": 125716992,
+   "peak_rss_kb": 2591896,
+   "wall_seconds": 200.92412472399883
+  },
+  "split-recon-bg-l0.1/seed393": {
+   "cpu_seconds": 201.131121405,
+   "gpu_peak_allocated_bytes": 125497344,
+   "peak_rss_kb": 2592032,
+   "wall_seconds": 201.18600570500712
+  },
+  "split-recon-bg-l1/seed392": {
+   "cpu_seconds": 163.696618148,
+   "gpu_peak_allocated_bytes": 125716992,
+   "peak_rss_kb": 2591884,
+   "wall_seconds": 163.67258515700814
+  },
+  "split-recon-bg-l1/seed393": {
+   "cpu_seconds": 163.32937247799998,
+   "gpu_peak_allocated_bytes": 125497344,
+   "peak_rss_kb": 2592224,
+   "wall_seconds": 163.32462035500794
+  },
+  "wide32-recon-bg-l0.1/seed392": {
+   "cpu_seconds": 198.82213811100002,
+   "gpu_peak_allocated_bytes": 126062592,
+   "peak_rss_kb": 2592516,
+   "wall_seconds": 198.85263706799014
+  },
+  "wide32-recon-bg-l0.1/seed393": {
+   "cpu_seconds": 198.943053618,
+   "gpu_peak_allocated_bytes": 125839360,
+   "peak_rss_kb": 2592272,
+   "wall_seconds": 199.02043730800506
+  },
+  "wide32-recon-bg-l1/seed392": {
+   "cpu_seconds": 199.479123878,
+   "gpu_peak_allocated_bytes": 126062592,
+   "peak_rss_kb": 2592064,
+   "wall_seconds": 199.52952022402314
+  },
+  "wide32-recon-bg-l1/seed393": {
+   "cpu_seconds": 199.931896247,
+   "gpu_peak_allocated_bytes": 125839360,
+   "peak_rss_kb": 2591480,
+   "wall_seconds": 199.97140810001292
+  },
+  "wide32-recon-l0.1/seed392": {
+   "cpu_seconds": 158.448741722,
+   "gpu_peak_allocated_bytes": 126062592,
+   "peak_rss_kb": 2495828,
+   "wall_seconds": 158.5762714969751
+  },
+  "wide32-recon-l0.1/seed393": {
+   "cpu_seconds": 172.060587001,
+   "gpu_peak_allocated_bytes": 125839360,
+   "peak_rss_kb": 2395656,
+   "wall_seconds": 172.16635049300385
+  },
+  "wide32-recon-l1/seed392": {
+   "cpu_seconds": 172.274957307,
+   "gpu_peak_allocated_bytes": 126062592,
+   "peak_rss_kb": 2396764,
+   "wall_seconds": 172.31948780399398
+  },
+  "wide32-recon-l1/seed393": {
+   "cpu_seconds": 172.398368162,
+   "gpu_peak_allocated_bytes": 125839360,
+   "peak_rss_kb": 2396736,
+   "wall_seconds": 172.4594426859985
+  },
+  "wide32/seed392": {
+   "cpu_seconds": 138.700467882,
+   "gpu_peak_allocated_bytes": 84381184,
+   "peak_rss_kb": 2388048,
+   "wall_seconds": 138.88048486600746
+  },
+  "wide32/seed393": {
+   "cpu_seconds": 138.979564294,
+   "gpu_peak_allocated_bytes": 84545024,
+   "peak_rss_kb": 2389108,
+   "wall_seconds": 139.0967941529816
+  }
+ },
+ "gpu": "NVIDIA GeForce GTX 1650",
+ "numpy": "2.5.4",
+ "parent_peak_rss_kb": 1608688,
+ "phase": "host fits, including rejected configurations; selection cost",
+ "python": "3.12.3",
+ "revision": "a600980aab22a2642aeafab59a88773c72bd5b10",
+ "rss_convention": "ru_maxrss in KiB, per process; children is the largest single child",
+ "runner_sha256": "33826f33c4aa4465567a48e2d59644000b6c714c4cbfe50ea49e4b35ea9ef1a6",
+ "scope": "nondeterministic timing",
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cu130",
+ "wall_seconds": 1020.4691543960071,
+ "workers": 3
+}
