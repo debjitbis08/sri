@@ -1,0 +1,165 @@
+{
+ "aggregate_worker_cpu_seconds": 3192.201419846,
+ "children_peak_rss_kb": 2730084,
+ "command": "/home/debjit/code/sri/experiments/sense_consolidation_moving.py pilot learning",
+ "contract_sha256": "e94933660a9c50b03e9b24099b64f977ec3cba1e788405f84facb1bcca8c839a",
+ "cpu": "x86_64",
+ "cublas_workspace_config": ":4096:8",
+ "cuda": "13.0",
+ "cudnn": 92400,
+ "deterministic_algorithms": true,
+ "device": "cuda",
+ "dirty": true,
+ "dtype": "float32",
+ "gpu": "NVIDIA GeForce GTX 1650",
+ "numpy": "2.5.4",
+ "parent_peak_rss_kb": 1579640,
+ "phase": "encoder training with memory writes, reads through hosts",
+ "python": "3.12.3",
+ "revision": "a84ebdb805efa18678d88cc1b1b9a72761616f50",
+ "rss_convention": "ru_maxrss in KiB, per process; children is the largest single child",
+ "runner_sha256": "4b5573ad3b7ecddb231f836a02d6b0f6ae51c992aefbb175d5cf4e6391e40bbd",
+ "scope": "nondeterministic timing",
+ "tasks": {
+  "392/0.001/AB": {
+   "cpu_seconds": 180.946483285,
+   "gpu_peak_allocated_bytes": 89556480,
+   "peak_rss_kb": 2534428,
+   "tick_seconds": {
+    "address-0.7-distinct": 2.6219246979999298,
+    "address-0.7-distinct-H512": 2.2164833810002165,
+    "address-0.8-distinct": 1.694995019000089,
+    "cover-0.25-distinct": 4.706472448999193,
+    "cover-0.25-distinct-H512": 2.2000144560006447,
+    "frozen-keys": 0.0,
+    "neither": 0.0,
+    "rebuild": 0.020006071999887354,
+    "rebuild-H512": 0.007746819000203686
+   },
+   "wall_seconds": 90.6708153720001
+  },
+  "392/0.001/BA": {
+   "cpu_seconds": 181.906302126,
+   "gpu_peak_allocated_bytes": 89556480,
+   "peak_rss_kb": 2515504,
+   "tick_seconds": {
+    "address-0.7-distinct": 4.028564998000547,
+    "address-0.7-distinct-H512": 1.5143652189999557,
+    "address-0.8-distinct": 2.727194668001175,
+    "cover-0.25-distinct": 7.0711125420002645,
+    "cover-0.25-distinct-H512": 2.4434922800001004,
+    "frozen-keys": 0.0,
+    "neither": 0.0,
+    "rebuild": 0.023731552999379346,
+    "rebuild-H512": 0.012039539999932458
+   },
+   "wall_seconds": 91.8633038830003
+  },
+  "392/0.01/AB": {
+   "cpu_seconds": 509.595908798,
+   "gpu_peak_allocated_bytes": 89556480,
+   "peak_rss_kb": 2730084,
+   "tick_seconds": {
+    "address-0.7-distinct": 11.436627477000911,
+    "address-0.7-distinct-H512": 1.1618563049996737,
+    "address-0.8-distinct": 8.135974033999446,
+    "cover-0.25-distinct": 42.74042969200036,
+    "cover-0.25-distinct-H512": 1.2643271729984917,
+    "frozen-keys": 0.0,
+    "neither": 0.0,
+    "rebuild": 0.016070897000645346,
+    "rebuild-H512": 0.004791132999343972
+   },
+   "wall_seconds": 139.38327229100014
+  },
+  "392/0.01/BA": {
+   "cpu_seconds": 987.170920457,
+   "gpu_peak_allocated_bytes": 89556480,
+   "peak_rss_kb": 2729548,
+   "tick_seconds": {
+    "address-0.7-distinct": 29.587343986000633,
+    "address-0.7-distinct-H512": 1.916222388001188,
+    "address-0.8-distinct": 23.054481887000293,
+    "cover-0.25-distinct": 96.79323395899974,
+    "cover-0.25-distinct-H512": 5.454322255999614,
+    "frozen-keys": 0.0,
+    "neither": 0.0,
+    "rebuild": 0.018048163999083044,
+    "rebuild-H512": 0.008910441000807623
+   },
+   "wall_seconds": 235.39356044299984
+  },
+  "393/0.001/AB": {
+   "cpu_seconds": 160.10563443,
+   "gpu_peak_allocated_bytes": 89556480,
+   "peak_rss_kb": 2500000,
+   "tick_seconds": {
+    "address-0.7-distinct": 1.55231900400031,
+    "address-0.7-distinct-H512": 1.2567532890006987,
+    "address-0.8-distinct": 1.3634183669992126,
+    "cover-0.25-distinct": 4.7321422080003686,
+    "cover-0.25-distinct-H512": 1.4407549020006627,
+    "frozen-keys": 0.0,
+    "neither": 0.0,
+    "rebuild": 0.022495989000162808,
+    "rebuild-H512": 0.009472712000388128
+   },
+   "wall_seconds": 92.63597781299995
+  },
+  "393/0.001/BA": {
+   "cpu_seconds": 183.720411727,
+   "gpu_peak_allocated_bytes": 89556480,
+   "peak_rss_kb": 2488480,
+   "tick_seconds": {
+    "address-0.7-distinct": 2.0182278450010926,
+    "address-0.7-distinct-H512": 1.0666143449998344,
+    "address-0.8-distinct": 1.529536499000642,
+    "cover-0.25-distinct": 5.381047834999663,
+    "cover-0.25-distinct-H512": 1.1799005309994754,
+    "frozen-keys": 0.0,
+    "neither": 0.0,
+    "rebuild": 0.016816950001157238,
+    "rebuild-H512": 0.006622826999773679
+   },
+   "wall_seconds": 94.40325586400013
+  },
+  "393/0.01/AB": {
+   "cpu_seconds": 458.307581011,
+   "gpu_peak_allocated_bytes": 89556480,
+   "peak_rss_kb": 2660404,
+   "tick_seconds": {
+    "address-0.7-distinct": 13.574300463001236,
+    "address-0.7-distinct-H512": 2.2766625720005322,
+    "address-0.8-distinct": 7.738840776998586,
+    "cover-0.25-distinct": 41.73406237800009,
+    "cover-0.25-distinct-H512": 2.163076490000094,
+    "frozen-keys": 0.0,
+    "neither": 0.0,
+    "rebuild": 0.02046367900129553,
+    "rebuild-H512": 0.006569335999301984
+   },
+   "wall_seconds": 150.02003099600006
+  },
+  "393/0.01/BA": {
+   "cpu_seconds": 530.448178012,
+   "gpu_peak_allocated_bytes": 89556480,
+   "peak_rss_kb": 2705644,
+   "tick_seconds": {
+    "address-0.7-distinct": 12.580547318999379,
+    "address-0.7-distinct-H512": 1.2977675009997256,
+    "address-0.8-distinct": 8.693534226000338,
+    "cover-0.25-distinct": 47.996876336999776,
+    "cover-0.25-distinct-H512": 2.4686818599993785,
+    "frozen-keys": 0.0,
+    "neither": 0.0,
+    "rebuild": 0.016601536000052874,
+    "rebuild-H512": 0.00489709299927199
+   },
+   "wall_seconds": 153.6422580440003
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cu130",
+ "wall_seconds": 420.2055624229997,
+ "workers": 3
+}

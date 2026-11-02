@@ -1,6 +1,6 @@
 # Consolidation alongside address rebuilding: pilot (seeds 392 and 393)
 
-Status: **pilot, 2026-11-02. Not evidence for any contrast, and not a contract.** Two seeds. Merge thresholds, the content gate, per-unit radius and its floor were all chosen during the study, the radius after seeing the probe. Runners `experiments/sense_consolidation.py`, `experiments/sense_consolidation_evidence.py`, `experiments/sense_consolidation_traces.py`; merge in `src/sparse_local_memory.py`; reports `reports/sense-consolidation-v1-*.json`. Follows [step 3 of the sense-level pilot](sense-relational-v1-pilot.md), where unit growth became the main limit.
+Status: **pilot, 2026-11-02. Not evidence for any contrast, and not a contract.** Two seeds. Merge thresholds, the content gate, per-unit radius and its floor were all chosen during the study, the radius after seeing the probe. Runners `experiments/sense_consolidation.py`, `experiments/sense_consolidation_evidence.py`, `experiments/sense_consolidation_traces.py`, `experiments/sense_consolidation_moving.py`; merge in `src/sparse_local_memory.py`; reports `reports/sense-consolidation-v1-*.json`. Follows [step 3 of the sense-level pilot](sense-relational-v1-pilot.md), where unit growth became the main limit.
 
 ## Question
 
@@ -201,12 +201,58 @@ No policy meets the bar here. The best is `cover 0.25, distinct` with all traces
 
 Trace choice matters less here, and rejection gets worse as coverage rises. At H 512 and this rate, every arm answers 0.60 or more of unseen queries. Fast drift's rejection problem remains open.
 
+## Everything moving
+
+Can consolidation hold with keys, addresses and meaning all changing together, in both orders? Runner `experiments/sense_consolidation_moving.py`.
+
+- **Keys:** the unlabelled encoder keeps learning, as above.
+- **Host:** `sparse48` keeps learning through blocks 4–6, taught the pairs in the same order as memory. B-then-A hosts were trained for this. Host and key encoder are separate networks.
+- **Values:** each kept experience is a cue image and a value image, and the value is the mean code of those images through the host at that block's end. Value images are unseen `new-radius` renderings, unless stated.
+- **Distinction test:** compares those current codes, so it too moves with the host. Spread traces throughout, up to eight per unit.
+
+Gates: block-3 hosts match in both orders, `rebuild` reproduces the earlier units and forced writes exactly, and candidate codes through the A-then-B host match the cached run to within 5e-6. Reads of 225 queries have a standard error of about 0.03, so the 0.05 bar cannot be resolved finely on single reads.
+
+Answers among nine candidates, Euclidean, abstentions wrong, end of block 6. Each cell is seeds 392, 393. Perfect contents on current codes read 0.63–0.81 (A then B: first set 0.67, 0.72, second set 0.64, 0.81; B then A: first set 0.63, 0.75, second set 0.66, 0.68), and chance is 0.11.
+
+**Normal rate:**
+
+| Arm | First set, A then B | B then A | Second set, A then B | B then A | Worst loss | Units | MB | Unseen answered |
+|---|---|---|---|---|---|---|---|---|
+| Frozen keys, no merge | 0.60, 0.75 | 0.60, 0.72 | 0.59, 0.69 | 0.56, 0.69 | 0.03 | 936–948 | 11.9 | 0.17 |
+| Learning keys, neither | 0.41, 0.65 | 0.44, 0.58 | 0.56, 0.67 | 0.55, 0.68 | 0.16 | 1,444–1,674 | 18.4 | 0.08 |
+| Rebuild only | 0.64, 0.74 | 0.57, 0.69 | 0.59, 0.72 | 0.60, 0.72 | 0.06 | 1,448–1,678 | 18.4 | 0.13 |
+| **Cover 0.25, distinct** | **0.65, 0.69** | **0.58, 0.67** | **0.57, 0.68** | **0.58, 0.68** | **0.05** | 627–671 | 5.1 | 0.14 |
+| Address 0.8, distinct | 0.63, 0.67 | 0.56, 0.64 | 0.59, 0.67 | 0.59, 0.70 | 0.10 | 423–489 | 3.9 | 0.18 |
+| Address 0.7, distinct | 0.63, 0.64 | 0.58, 0.62 | 0.60, 0.64 | 0.59, 0.67 | 0.10 | 311–389 | 3.3 | 0.22 |
+| Rebuild only, H 512 | 0.59, 0.70 | 0.58, 0.71 | 0.03, 0.02 | 0.03, 0.02 | 0.06 | 512 | 6.5 | 0.07 |
+| Cover 0.25, distinct, H 512 | 0.56, 0.71 | 0.53, 0.63 | 0.47, 0.64 | 0.56, 0.57 | 0.07 | 385–415 | 3.8 | 0.17 |
+| Address 0.7, distinct, H 512 | 0.57, 0.64 | 0.59, 0.57 | 0.56, 0.58 | 0.56, 0.69 | 0.09 | 247–291 | 2.8 | 0.22 |
+
+- **It holds with everything moving, in both orders.** Compressed memory reads about the same as uncompressed: 0.65 and 0.63 on average against 0.66 and 0.66, at about 40% of the units and 28% of the bytes.
+- **The rule misses the bar by 0.003, within read noise.** Its 0.053 is one seed in one order; the other three are +0.013 or lower. Rebuild only misses by more, at 0.062, so merging is not what costs here.
+- **Meaning stays current.** The same traces kept as stale block-3 copies read 0.10–0.21, or about nothing for the second set at H 512 with rebuild only. Read through a block-3 copy of the host, merged memory reads 0.51–0.64 and rebuild only 0.54–0.68. So the current host reads about as well or better, with no frozen copy to keep.
+- **Forgetting from no rebuild is large.** With no rebuild or merge, the first set falls by up to 0.16.
+- **Capacity still matters.** At H 512, merging holds the second set at 0.47–0.69, where rebuild only reads 0.02–0.03. The lowest read, 0.47, is on seed 392.
+
+**At the memory level the bar is not met,** by any arm, including frozen keys. With unseen images, nearest training-collection prototype, worst losses are 0.13 for frozen keys, 0.17 for this rule and 0.22 for rebuild only, with reads of 0.56–0.72. Unseen images are read less well by the host, and [the unseen trace pilot](shared-core-sparse-memory-v1-unseen-traces-pilot.md) found that gap too. With training images, the rule reads 0.81–0.90 with a loss of 0.09, against 0.80–0.93 and 0.04 for rebuild only, so merging has some cost there that answers among candidates hide.
+
+**At ten times the rate,** H 2048, unseen images, A-then-B and B-then-A means:
+
+| Arm | First set | Second set | Worst loss | Units | Unseen answered |
+|---|---|---|---|---|---|
+| Learning keys, neither | 0.24 | 0.16 | 0.35 | 2,048 | 0.05 |
+| Rebuild only | 0.64 | 0.30 | 0.06 | 2,048 | 0.16 |
+| Cover 0.25, distinct | 0.63 | 0.60 | 0.07 | 1,063–1,382 | 0.43 |
+
+Merging doubles the second set here, and unseen symbols are still answered far too often. At H 512 and this rate, merging reads 0.35–0.54 for the second set, and unseen symbols are answered at 0.63–0.64.
+
 ## What this does not establish
 
 - **Reaching one unit per symbol.** The best real settings leave about three to ten units per symbol, against one in the reference. The setting that meets the bar leaves about seven.
 - **That the bar is met.** Spread's 0.049 comes from choosing among many arms on two seeds.
 - **Richer values.** The content gate rests on nine distinct values, and a sensory trace value would behave differently.
-- **Everything moving at once.** Values and reading stay on block-3 host codes.
+- **One trunk.** Key encoder and host are separate networks that learn separately. Hosts train offline on the same pairs, and values are only re-encoded at block ends.
+- **Everything moving, outside the last section.** Other sections keep values and reading on block-3 host codes.
 - **Learning from a stream.** Encoder updates sample a curated set, and augmentations are hand-designed.
 - **Across fonts and in the core.** Neither was tested here.
 - **Later evidence.** Evidence here comes from kept traces at merge time, not from new queries as they arrive.
@@ -214,7 +260,7 @@ Trace choice matters less here, and rejection gets worse as coverage rises. At H
 
 ## Scaling
 
-Writes and reads cost O(h d) per item. A merge pass costs O(h² d) time and O(h²) temporary space, brute force; about 1 s per task here over all events at H ≤ 2,048, and an approximate neighbour search would be needed at much larger h. Storage is h(d + m + 2) floats plus up to eight stored images per unit, so traces dominate: 784 bytes each, about 6 KB per unit against 200 bytes. So traces, not addresses, are the thing to shrink next. Units are capped at H. Reads degrade at H 256, about 2.8 units per symbol, and fail at H 128, about 1.4.
+Writes and reads cost O(h d) per item. A merge pass costs O(h² d) time and O(h²) temporary space, brute force; about 1 s per task here over all events at H ≤ 2,048, and an approximate neighbour search would be needed at much larger h. Storage is h(d + m + 2) floats plus up to eight stored images per unit, so traces dominate: 784 bytes each, about 6 KB per unit against 200 bytes. With everything moving, an experience stores two images, and no contents need storing. So traces, not addresses, are the thing to shrink next. Units are capped at H. Reads degrade at H 256, about 2.8 units per symbol, and fail at H 128, about 1.4.
 
 ## Prior work
 
@@ -224,4 +270,4 @@ Writes and reads cost O(h d) per item. A merge pass costs O(h² d) time and O(h�
 
 ## Computation
 
-Probe: CPU, six workers, 49 s wall, 456 s aggregate CPU, 64 tasks. Learning: GTX 1650, three workers, one thread each, float32, 313 s wall, 1,380 s aggregate CPU, 8 tasks of 19 arms sharing one encoder path, GPU peak 87 MB, peak RSS 1.6 GB per process. Rebuild, merge and radius take 0.3–1.9 s per merging arm per task. Evidence: same hardware and workers, 735 s wall, 6,216 s aggregate CPU, 8 tasks of 26 arms, GPU peak 87 MB, peak RSS 2.0 GB per process; merge evidence and tests take 0.6–6.0 s per merging arm per task, the slowest being cover with the distinction test and reference set. Those tests add O(t h d) per pass for t kept traces. Trace selection: same hardware and workers, 1,711 s wall, 17,461 s aggregate CPU, 8 tasks of 32 arms, GPU peak 87 MB, peak RSS 2.1 GB per process; rebuild, merge and radius take up to 9 s per arm per task at the normal rate and up to 80 s at ten times the rate. Spread selection costs O(k t d) for a unit's t traces. Selection in this pilot was by inspection across all of the above, with no cost beyond it.
+Probe: CPU, six workers, 49 s wall, 456 s aggregate CPU, 64 tasks. Learning: GTX 1650, three workers, one thread each, float32, 313 s wall, 1,380 s aggregate CPU, 8 tasks of 19 arms sharing one encoder path, GPU peak 87 MB, peak RSS 1.6 GB per process. Rebuild, merge and radius take 0.3–1.9 s per merging arm per task. Evidence: same hardware and workers, 735 s wall, 6,216 s aggregate CPU, 8 tasks of 26 arms, GPU peak 87 MB, peak RSS 2.0 GB per process; merge evidence and tests take 0.6–6.0 s per merging arm per task, the slowest being cover with the distinction test and reference set. Those tests add O(t h d) per pass for t kept traces. Trace selection: same hardware and workers, 1,711 s wall, 17,461 s aggregate CPU, 8 tasks of 32 arms, GPU peak 87 MB, peak RSS 2.1 GB per process; rebuild, merge and radius take up to 9 s per arm per task at the normal rate and up to 80 s at ten times the rate. Spread selection costs O(k t d) for a unit's t traces. Everything moving: B-then-A hosts, two workers, 237 s wall, 408 s aggregate CPU, 2 fits of 12,000 updates; learning, three workers, 420 s wall, 3,192 s aggregate CPU, 8 tasks of 9 arms, GPU peak 90 MB, peak RSS 2.7 GB per process. Reading costs up to eight host passes per unit each time values are refreshed, about 3,200 images for the selected rule. Selection in this pilot was by inspection across all of the above, with no cost beyond it.
