@@ -1,0 +1,125 @@
+{
+ "aggregate_worker_cpu_seconds": 16926.860036961,
+ "children_peak_rss_kb": 2934308,
+ "command": "/home/debjit/code/sri/experiments/sense_image_free.py pilot learning",
+ "contract_sha256": "e94933660a9c50b03e9b24099b64f977ec3cba1e788405f84facb1bcca8c839a",
+ "cpu": "x86_64",
+ "cublas_workspace_config": ":4096:8",
+ "cuda": "13.0",
+ "cudnn": 92400,
+ "deterministic_algorithms": true,
+ "device": "cuda",
+ "dirty": true,
+ "dtype": "float32",
+ "gpu": "NVIDIA GeForce GTX 1650",
+ "numpy": "2.5.4",
+ "parent_peak_rss_kb": 1603720,
+ "phase": "key encoder with memory writes on both sets of values, reads through hosts",
+ "python": "3.12.3",
+ "revision": "4b48e964415b679e96e8dba3db659e309ccb0dc7",
+ "rss_convention": "ru_maxrss in KiB, per process; children is the largest single child",
+ "runner_sha256": "4b5573ad3b7ecddb231f836a02d6b0f6ae51c992aefbb175d5cf4e6391e40bbd",
+ "scope": "nondeterministic timing",
+ "tasks": {
+  "392/0.001/AB/shift": {
+   "cpu_seconds": 614.4093168869999,
+   "gpu_peak_allocated_bytes": 90367488,
+   "peak_rss_kb": 2791468,
+   "wall_seconds": 213.4997752449999
+  },
+  "392/0.001/AB/stationary": {
+   "cpu_seconds": 367.024149821,
+   "gpu_peak_allocated_bytes": 90367488,
+   "peak_rss_kb": 2654376,
+   "wall_seconds": 178.57922516199687
+  },
+  "392/0.001/BA/shift": {
+   "cpu_seconds": 782.7391067159999,
+   "gpu_peak_allocated_bytes": 90367488,
+   "peak_rss_kb": 2787976,
+   "wall_seconds": 252.1703274749998
+  },
+  "392/0.001/BA/stationary": {
+   "cpu_seconds": 479.81666518,
+   "gpu_peak_allocated_bytes": 90367488,
+   "peak_rss_kb": 2671640,
+   "wall_seconds": 189.0935595310002
+  },
+  "392/0.01/AB/shift": {
+   "cpu_seconds": 1663.371561272,
+   "gpu_peak_allocated_bytes": 90367488,
+   "peak_rss_kb": 2934308,
+   "wall_seconds": 464.3723269789989
+  },
+  "392/0.01/AB/stationary": {
+   "cpu_seconds": 1226.850655152,
+   "gpu_peak_allocated_bytes": 90367488,
+   "peak_rss_kb": 2855348,
+   "wall_seconds": 374.81638231899706
+  },
+  "392/0.01/BA/shift": {
+   "cpu_seconds": 1899.568913878,
+   "gpu_peak_allocated_bytes": 90367488,
+   "peak_rss_kb": 2897660,
+   "wall_seconds": 501.9182998309989
+  },
+  "392/0.01/BA/stationary": {
+   "cpu_seconds": 1881.458297786,
+   "gpu_peak_allocated_bytes": 90367488,
+   "peak_rss_kb": 2782216,
+   "wall_seconds": 541.8973551290001
+  },
+  "393/0.001/AB/shift": {
+   "cpu_seconds": 552.4055085580001,
+   "gpu_peak_allocated_bytes": 90367488,
+   "peak_rss_kb": 2752632,
+   "wall_seconds": 220.80003548700188
+  },
+  "393/0.001/AB/stationary": {
+   "cpu_seconds": 406.87521410200003,
+   "gpu_peak_allocated_bytes": 90367488,
+   "peak_rss_kb": 2623364,
+   "wall_seconds": 209.44385705999957
+  },
+  "393/0.001/BA/shift": {
+   "cpu_seconds": 692.154752625,
+   "gpu_peak_allocated_bytes": 90367488,
+   "peak_rss_kb": 2756144,
+   "wall_seconds": 234.87534445200072
+  },
+  "393/0.001/BA/stationary": {
+   "cpu_seconds": 415.03093893199997,
+   "gpu_peak_allocated_bytes": 90367488,
+   "peak_rss_kb": 2645136,
+   "wall_seconds": 182.4407299049999
+  },
+  "393/0.01/AB/shift": {
+   "cpu_seconds": 1768.5972808959998,
+   "gpu_peak_allocated_bytes": 90367488,
+   "peak_rss_kb": 2862320,
+   "wall_seconds": 508.60090710799705
+  },
+  "393/0.01/AB/stationary": {
+   "cpu_seconds": 1288.6625690849999,
+   "gpu_peak_allocated_bytes": 90367488,
+   "peak_rss_kb": 2752876,
+   "wall_seconds": 382.99420706800083
+  },
+  "393/0.01/BA/shift": {
+   "cpu_seconds": 1610.782364398,
+   "gpu_peak_allocated_bytes": 90367488,
+   "peak_rss_kb": 2901048,
+   "wall_seconds": 406.6940223210004
+  },
+  "393/0.01/BA/stationary": {
+   "cpu_seconds": 1277.112741673,
+   "gpu_peak_allocated_bytes": 90367488,
+   "peak_rss_kb": 2836520,
+   "wall_seconds": 421.5560734999999
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cu130",
+ "wall_seconds": 1931.640233659,
+ "workers": 3
+}
