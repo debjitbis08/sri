@@ -1,0 +1,22 @@
+{
+ "children_peak_rss_kb": 770304,
+ "command": "/home/debjit/code/sri/experiments/shared_core_refresh.py pilot",
+ "contract_sha256": "f01a4c9652c1af95adac3ccba36cc693219267ac8cb8faba915cf910cc810821",
+ "cpu": "x86_64",
+ "cpu_seconds": 9.634430364,
+ "device": "cpu",
+ "dirty": true,
+ "dtype": "float32",
+ "numpy": "2.5.4",
+ "parent_peak_rss_kb": 770304,
+ "phase": "replay on cached codes",
+ "python": "3.12.3",
+ "revision": "bffa0057da0d3332ec7dd5dc2ff57ceac856f881",
+ "rss_convention": "ru_maxrss in KiB, per process; children is the largest single child",
+ "runner_sha256": "4b5573ad3b7ecddb231f836a02d6b0f6ae51c992aefbb175d5cf4e6391e40bbd",
+ "scope": "nondeterministic timing",
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cu130",
+ "wall_seconds": 9.640820606000489,
+ "workers": 1
+}
