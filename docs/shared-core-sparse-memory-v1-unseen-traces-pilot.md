@@ -37,17 +37,17 @@ Memory level, nearest training-collection prototype, eight traces, and a single 
 
 | Trace source | A | B | Single trace to its count |
 |---|---|---|---|
-| Training images | 0.93, 0.92 | 0.88, 0.88 | 0.99, 1.00 |
-| `new-radius` | 0.63, 0.66 | 0.70, 0.63 | 0.82, 0.77 |
-| `new-area` | 0.52, 0.51 | 0.58, 0.65 | 0.70, 0.73 |
-| `tree` | 0.42, 0.35 | 0.32, 0.30 | 0.28, 0.24 |
-| `tally` | 0.36, 0.11 | 0.29, 0.12 | 0.19, 0.16 |
-| `banana` | 0.18, 0.11 | 0.13, 0.13 | 0.15, 0.14 |
-| `thai_digits`, control | 0.17, 0.22 | 0.13, 0.26 | 0.16, 0.10 |
+| Training images | 0.93, 0.92 | 0.88, 0.88 | 0.98, 1.00 |
+| `new-radius` | 0.63, 0.66 | 0.70, 0.63 | 0.71, 0.77 |
+| `new-area` | 0.52, 0.51 | 0.58, 0.65 | 0.64, 0.73 |
+| `tree` | 0.42, 0.35 | 0.32, 0.30 | 0.22, 0.24 |
+| `tally` | 0.36, 0.11 | 0.29, 0.12 | 0.18, 0.16 |
+| `banana` | 0.18, 0.11 | 0.13, 0.13 | 0.17, 0.14 |
+| `thai_digits`, control | 0.17, 0.22 | 0.13, 0.26 | 0.10, 0.10 |
 
 - **Unseen images of known formats pass.** With eight traces, A and B at block 6 are at or above the frozen copy, and A's change across block 5 is +0.04, +0.03 for `new-radius` and 0.00, +0.05 for `new-area`. So nothing falls across B.
 - **More traces help on unseen images.** One trace reads 0.51–0.68. On training images one trace was enough, because the host reads them almost perfectly.
-- **The earlier memory-level figures were flattered.** The host reads a training image's count at 0.99–1.00, and a fresh one in the same rendering at 0.77–0.82, so it has partly memorized its training images. Memory-level reads on training images overstated what it can do. Among candidates the difference is much smaller, because those are limited by the `area` rendering anyway.
+- **The earlier memory-level figures were flattered.** The host reads a training image's count at 0.98–1.00, and a fresh one in the same rendering at 0.71–0.77, so it has partly memorized its training images. Memory-level reads on training images overstated what it can do. Among candidates the difference is much smaller, because those are limited by the `area` rendering anyway.
 - **Unknown formats give no meaning, which is right.** `tree`, `tally` and `banana` are mostly near chance through the host, and so is the control. `tree` holds a little above chance with one trace, but not with eight. This doesn't lose the fact: a trace can still be read in sensory space. It says the host can only supply a meaning it has learned.
 
 ## What this does not establish
