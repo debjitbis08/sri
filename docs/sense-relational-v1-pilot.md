@@ -117,7 +117,8 @@ Cosine with the starting code ends at 0.83–0.85 at rate 0.001, and 0.66–0.71
 
 ## What this does not establish
 
-- **Learning from a stream.** Training was offline on a fixed background set, with its symbol images curated beforehand, and the encoder was then frozen for reading.
+- **Learning from a stream.** The encoder trained offline on a fixed background set, with its symbol images curated beforehand. In step 3's learning arm it keeps learning, but its updates still sample that set, not what memory is being taught.
+- **Everything moving at once, in both orders.** Step 3's values and reading stay on block-3 host codes, so addresses and values have not moved together. Its learning arm ran A then B only.
 - **The relation to the core.** This encoder is separate from the host. Nothing here tests one trunk serving both, or taps, which have no such encoder yet.
 - **The choice of augmentations.** They were designed knowing how renderings vary. In a real sense this has to come from experience, such as nearby moments in time.
 
