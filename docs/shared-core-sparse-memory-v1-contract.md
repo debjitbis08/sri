@@ -3,7 +3,7 @@
 Status: **draft, revised 2026-11-02 after the [stage 0 pilot](shared-core-sparse-memory-v1-stage0-pilot.md). Not frozen. No further
 implementation or run is authorized by this document. The pilot's lock: `conjunctive` route, host `sparse48`, sensory source the
 frozen encoder, stage 0 candidate `split-recon-bg` at λ 0.1. The [small stage 1 pilot](shared-core-sparse-memory-v1-stage1-pilot.md) found no cross-sense reach on any address, and
-the core lowers within-sense memory, so stage 1 confirmation should not run on this design. The [moving host pilot](shared-core-sparse-memory-v1-moving-host-pilot.md) found memory does not forget but host-coded values go stale, and the [refresh pilot](shared-core-sparse-memory-v1-refresh-pilot.md) found ceilings recover them while block-end rules do not yet.** Numerical choices are proposed pilot settings. The previous premise, a core pretrained only on relations, failed on
+the core lowers within-sense memory, so stage 1 confirmation should not run on this design. The [moving host pilot](shared-core-sparse-memory-v1-moving-host-pilot.md) found memory does not forget but host-coded values go stale, and the [refresh pilot](shared-core-sparse-memory-v1-refresh-pilot.md) found ceilings recover them while block-end rules do not yet. The [sensory trace pilot](shared-core-sparse-memory-v1-traces-pilot.md) then held answers through a learning host, by storing traces and re-encoding them at read time. Values in this draft are therefore out of date, and a new contract should start from traces.** Numerical choices are proposed pilot settings. The previous premise, a core pretrained only on relations, failed on
 existing codes and is withdrawn; see *Why the first design changed*. Open items
 are listed under *Before freezing*.
 
@@ -807,6 +807,10 @@ Before the stage 0 pilot, 2026-11-02, with no pilot result seen:
 - The lock rule now resolves λ and the tie between `split-recon-bg` and `wide32-recon-bg`.
 - The stress condition defines a frozen sensory source, and it, the probes and the load probes are assigned to seeds 404–406.
 - CPU reporting is stated by resource target. The Kanerva reference was corrected and the background set is 1,987 symbols.
+
+After the sensory trace pilot, 2026-11-02:
+
+- Values as sensory traces, re-encoded through the current host when meaning is needed, hold at the ceiling for these candidates with the host learning, and read directly when the fact has no meaning. This replaces the proposal of a concept table, which repeats the code space and readers and needs a meaning.
 
 After the refresh pilot, 2026-11-02:
 

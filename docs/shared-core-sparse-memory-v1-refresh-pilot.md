@@ -58,7 +58,7 @@ So the map does capture drift on the rendering it was fitted to, and it can fail
 
 **Why snapping is limited.** `snap-train` meets the forgetting bar at the memory level: across block 5, A goes 0.66 to 0.66 and 0.56 to 0.54, where `none` loses 0.26 on seed 393. But it starts from only 0.66, 0.56, against 0.97, 0.96 with the true count. Host drift within a block, about 7 RMS in block 4 against neighbouring gaps of about 3, means a value averaged over the block is already nearest the wrong prototype by its end. So refreshing at block ends comes too late, and the value needs placing while it is being written.
 
-**This points to a design question.** `oracle-train` amounts to storing a pointer to a concept with a live prototype, rather than a copy of a code. That would make drift irrelevant to stored facts, and it is why this arm does as well as frozen values. It needs a way to know the concept at write time. The contract says count IDs are not stored, so using one would be a departure, and it would need a stored prototype per concept, which is the same scale limit as the memory-level read.
+**This points to a design question.** `oracle-train` amounts to storing a pointer to a concept with a live prototype, rather than a copy of a code. That would make drift irrelevant to stored facts, and it is why this arm does as well as frozen values. **Withdrawn after discussion: see the [sensory trace pilot](shared-core-sparse-memory-v1-traces-pilot.md).** It needs a way to know the concept at write time. The contract says count IDs are not stored, so using one would be a departure, and it would need a stored prototype per concept, which is the same scale limit as the memory-level read.
 
 ## Computation
 

@@ -1,0 +1,41 @@
+{
+ "aggregate_worker_cpu_seconds": 413.174354936,
+ "children_peak_rss_kb": 2433940,
+ "command": "/home/debjit/code/sri/experiments/shared_core_traces.py pilot hosts",
+ "contract_sha256": "293e81ff0174f231c5e9b6e1b5dec9b1ef1697750f4c51faad083138a3b9924b",
+ "cpu": "x86_64",
+ "cublas_workspace_config": ":4096:8",
+ "cuda": "13.0",
+ "cudnn": 92400,
+ "deterministic_algorithms": true,
+ "device": "cuda",
+ "dirty": true,
+ "dtype": "float32",
+ "fits": {
+  "seed392": {
+   "cpu_seconds": 206.557844625,
+   "gpu_peak_allocated_bytes": 84162560,
+   "peak_rss_kb": 2433772,
+   "wall_seconds": 206.6884487940115
+  },
+  "seed393": {
+   "cpu_seconds": 206.616510311,
+   "gpu_peak_allocated_bytes": 84325888,
+   "peak_rss_kb": 2433772,
+   "wall_seconds": 206.7965893020155
+  }
+ },
+ "gpu": "NVIDIA GeForce GTX 1650",
+ "numpy": "2.5.4",
+ "parent_peak_rss_kb": 1625740,
+ "phase": "host runs, 12,000 updates each",
+ "python": "3.12.3",
+ "revision": "be58b63f08530152167dbad106161bf3e790ec1d",
+ "rss_convention": "ru_maxrss in KiB, per process; children is the largest single child",
+ "runner_sha256": "4b5573ad3b7ecddb231f836a02d6b0f6ae51c992aefbb175d5cf4e6391e40bbd",
+ "scope": "nondeterministic timing",
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cu130",
+ "wall_seconds": 239.36751961399568,
+ "workers": 2
+}
