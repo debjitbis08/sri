@@ -30,17 +30,17 @@ Natural images are the first 5,123 of CIFAR-10, the part fetched before the slow
 
 Medians across families, block 5 unless stated:
 
-| Network and stream | Rate | Movement (radians-like) | Jitter | Net over path | Map, same family | Map, symbols to other symbols | Map, far family to symbols |
+| Network and stream | Rate | Movement (symbols, far families) | Jitter | Net over path | Map, same family | Map, symbols to other symbols | Map, far family to symbols |
 |---|---|---|---|---|---|---|---|
-| Glyph, stationary | normal | 0.33–0.40 | 0.68 | 0.16 | 0.60 | 0.29 | −0.90 |
-| Glyph, stationary | 10× | 0.45–0.57 | 0.67 | 0.17 | 0.69 | 0.40 | −0.62 |
+| Glyph, stationary | normal | 0.36–0.40 | 0.68 | 0.16 | 0.60 | 0.29 | −0.90 |
+| Glyph, stationary | 10× | 0.56–0.57 | 0.67 | 0.17 | 0.69 | 0.40 | −0.62 |
 | Glyph, shift | normal | 0.88–0.90 | 0.16 | 0.34 | 0.78 | 0.61 | −0.14 |
 | Glyph, shift | 10× | 1.01–1.02 | 0.21 | 0.29 | 0.79 | 0.66 | −0.29 |
-| Glyph, natural | normal | 1.14–1.27 | 0.14 | 0.39 | 0.93 | 0.82 | 0.46 |
-| Glyph, natural | 10× | 1.20–1.26 | 0.16 | 0.35 | 0.94 | 0.87 | 0.58 |
-| From scratch, natural | normal | 0.28–0.39 | 0.42 | 0.19 | 0.87 | 0.86 | 0.69 |
-| From scratch, natural | 10× | 0.52–0.55 | 0.61 | 0.16 | 0.90 | 0.88 | 0.72 |
-| Host | own teaching | 0.52–0.68 | 0.22 | 0.38 | 0.55 | 0.40 | 0.04 |
+| Glyph, natural | normal | 1.14–1.18 | 0.14 | 0.39 | 0.93 | 0.82 | 0.46 |
+| Glyph, natural | 10× | 1.20–1.25 | 0.16 | 0.35 | 0.94 | 0.87 | 0.58 |
+| From scratch, natural | normal | 0.38–0.39 | 0.42 | 0.19 | 0.87 | 0.86 | 0.69 |
+| From scratch, natural | 10× | 0.52–0.53 | 0.61 | 0.16 | 0.90 | 0.88 | 0.72 |
+| Host | own teaching | 0.57–0.68 | 0.22 | 0.38 | 0.55 | 0.40 | 0.04 |
 
 Jitter at normal rate, block 5, by family and by run. Family range is the mean per family; run values are medians across families:
 
@@ -90,7 +90,7 @@ An average's jitter is about 0 and its net over path rises from about 0.16 to ab
 |---|---|---|---|---|
 | Key movement is mostly non-accumulating on a stationary stream | Yes, broadly (0.39–0.73) | From scratch somewhat lower; **not the host** (0.22) | **No:** 0.10–0.24 under a change | Wide (0.27–0.82) |
 | A real change is accumulating movement | Yes (0.10–0.24) | Two streams on one network | By definition, once | Tight |
-| Linear map, same kind of input | Works, 0.40–0.96 | Varies: higher from scratch | Higher after a change | Not separated |
+| Linear map, same kind of input | Works, medians 0.52–0.95 | Varies: higher from scratch | Higher after a change | Not separated |
 | Linear map, far inputs | **Fails, often negative:** specific to the inputs fitted | From scratch carries further, still not from natural images or noise | Better after a change | Not separated |
 | Slow directions read on other families | Yes, about 2× on far families | Yes | Weaker after a change | Not separated |
 | Slow directions keep identity | Measured on symbols and MNIST only | Differs | Only useful after a change | Not separated |
