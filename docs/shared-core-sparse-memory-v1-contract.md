@@ -808,6 +808,10 @@ Before the stage 0 pilot, 2026-11-02, with no pilot result seen:
 - The stress condition defines a frozen sensory source, and it, the probes and the load probes are assigned to seeds 404–406.
 - CPU reporting is stated by resource target. The Kanerva reference was corrected and the background set is 1,987 symbols.
 
+After the [sense-level relational pilot](sense-relational-v1-pilot.md), 2026-11-02:
+
+- An unlabelled contrastive encoder identifies these symbols at 0.91–0.96. Learned comparators and sparse readers did worse at the sense level. Every pool symbol is one font, so the frozen encoder's 1.00 falls to 0.72–0.74 across fonts.
+
 After the learning senses pilot, 2026-11-02:
 
 - With a sensory encoder that keeps learning, addresses go stale, and rebuilding them from cue traces holds A and B as well as a frozen encoder, given room. Units grow several times over, and H 128 fails. Merging duplicates is untested.

@@ -1,0 +1,293 @@
+{
+ "results": {
+  "392/frozen-renderings": {
+   "180": {
+    "identity": 0.9977778196334839,
+    "other_symbol_similarity": 0.05894218385219574,
+    "same_symbol_similarity": 0.9589264988899231,
+    "store": 0.9977778196334839
+   },
+   "90": {
+    "identity": 1.0,
+    "other_symbol_similarity": 0.06408656388521194,
+    "same_symbol_similarity": 0.9603914618492126,
+    "store": 1.0
+   },
+   "fonts": {
+    "other_font": 0.7222222685813904,
+    "other_font_other_symbol_similarity": 0.05381368473172188,
+    "other_font_same_symbol_similarity": 0.8074591755867004,
+    "same_font": 1.0,
+    "symbols": 90,
+    "symbols_with_a_second_font": 497
+   }
+  },
+  "392/full": {
+   "180": {
+    "identity": 0.8688889145851135,
+    "other_symbol_similarity": 0.04082624614238739,
+    "same_symbol_similarity": 0.8094905614852905,
+    "store": 0.8922222256660461
+   },
+   "90": {
+    "identity": 0.9422222375869751,
+    "other_symbol_similarity": 0.04157540574669838,
+    "same_symbol_similarity": 0.8148166537284851,
+    "store": 0.944444477558136
+   },
+   "checkpoint": {
+    "file": "runs/sense-relational-v1/encoders/full-seed392.pt",
+    "sha256": "de3651ecb80efb443daed0d6c74da2232db73861cf6772d5860a4b0a62c3c64e"
+   },
+   "fonts": {
+    "other_font": 0.5888888835906982,
+    "other_font_other_symbol_similarity": 0.050153911113739014,
+    "other_font_same_symbol_similarity": 0.6506361961364746,
+    "same_font": 0.8955555558204651,
+    "symbols": 90,
+    "symbols_with_a_second_font": 497
+   }
+  },
+  "392/no-rotation-scale": {
+   "180": {
+    "identity": 0.8277778029441833,
+    "other_symbol_similarity": 0.0656275674700737,
+    "same_symbol_similarity": 0.7972253561019897,
+    "store": 0.8544444441795349
+   },
+   "90": {
+    "identity": 0.8911111354827881,
+    "other_symbol_similarity": 0.06507080793380737,
+    "same_symbol_similarity": 0.801061749458313,
+    "store": 0.9133333563804626
+   },
+   "checkpoint": {
+    "file": "runs/sense-relational-v1/encoders/no-rotation-scale-seed392.pt",
+    "sha256": "13b5e31fc438ea4f889cd91c1784ff7ec792b71b595e847e5e32725318bebf5e"
+   },
+   "fonts": {
+    "other_font": 0.6244444847106934,
+    "other_font_other_symbol_similarity": 0.07641743123531342,
+    "other_font_same_symbol_similarity": 0.6607481241226196,
+    "same_font": 0.8577777743339539,
+    "symbols": 90,
+    "symbols_with_a_second_font": 497
+   }
+  },
+  "392/pixels": {
+   "180": {
+    "identity": 0.10222222656011581,
+    "other_symbol_similarity": 0.4753299653530121,
+    "same_symbol_similarity": 0.5448794960975647,
+    "store": 0.2133333384990692
+   },
+   "90": {
+    "identity": 0.14000000059604645,
+    "other_symbol_similarity": 0.47196558117866516,
+    "same_symbol_similarity": 0.5496127009391785,
+    "store": 0.23333333432674408
+   },
+   "fonts": {
+    "other_font": 0.13777777552604675,
+    "other_font_other_symbol_similarity": 0.484851211309433,
+    "other_font_same_symbol_similarity": 0.5461664199829102,
+    "same_font": 0.162222221493721,
+    "symbols": 90,
+    "symbols_with_a_second_font": 497
+   }
+  },
+  "392/shift-only": {
+   "180": {
+    "identity": 0.7666667103767395,
+    "other_symbol_similarity": 0.03732505813241005,
+    "same_symbol_similarity": 0.6976485252380371,
+    "store": 0.801111102104187
+   },
+   "90": {
+    "identity": 0.8400000333786011,
+    "other_symbol_similarity": 0.033637385815382004,
+    "same_symbol_similarity": 0.7008770108222961,
+    "store": 0.8577777743339539
+   },
+   "checkpoint": {
+    "file": "runs/sense-relational-v1/encoders/shift-only-seed392.pt",
+    "sha256": "28a0d0088285e1de0c22b8b0fe97efd90f23b8e1aad6f825dcd69dd963f71ba3"
+   },
+   "fonts": {
+    "other_font": 0.5888888835906982,
+    "other_font_other_symbol_similarity": 0.0511738546192646,
+    "other_font_same_symbol_similarity": 0.5721275806427002,
+    "same_font": 0.8266667127609253,
+    "symbols": 90,
+    "symbols_with_a_second_font": 497
+   }
+  },
+  "392/untrained": {
+   "180": {
+    "identity": 0.07111111283302307,
+    "other_symbol_similarity": 0.9911468625068665,
+    "same_symbol_similarity": 0.9933100342750549,
+    "store": 0.15111111104488373
+   },
+   "90": {
+    "identity": 0.12000000476837158,
+    "other_symbol_similarity": 0.990953266620636,
+    "same_symbol_similarity": 0.993382453918457,
+    "store": 0.2133333384990692
+   },
+   "fonts": {
+    "other_font": 0.09111111611127853,
+    "other_font_other_symbol_similarity": 0.9908974766731262,
+    "other_font_same_symbol_similarity": 0.9927354454994202,
+    "same_font": 0.12888889014720917,
+    "symbols": 90,
+    "symbols_with_a_second_font": 497
+   }
+  },
+  "393/frozen-renderings": {
+   "180": {
+    "identity": 0.9933333396911621,
+    "other_symbol_similarity": 0.04590221494436264,
+    "same_symbol_similarity": 0.9560791850090027,
+    "store": 0.9933333396911621
+   },
+   "90": {
+    "identity": 0.9977778196334839,
+    "other_symbol_similarity": 0.05611562728881836,
+    "same_symbol_similarity": 0.9571775794029236,
+    "store": 0.9977778196334839
+   },
+   "fonts": {
+    "other_font": 0.742222249507904,
+    "other_font_other_symbol_similarity": 0.07412157207727432,
+    "other_font_same_symbol_similarity": 0.8171961903572083,
+    "same_font": 0.9844444394111633,
+    "symbols": 90,
+    "symbols_with_a_second_font": 497
+   }
+  },
+  "393/full": {
+   "180": {
+    "identity": 0.8755555748939514,
+    "other_symbol_similarity": 0.039155296981334686,
+    "same_symbol_similarity": 0.8127089142799377,
+    "store": 0.8844444751739502
+   },
+   "90": {
+    "identity": 0.9133333563804626,
+    "other_symbol_similarity": 0.0340733602643013,
+    "same_symbol_similarity": 0.8182332515716553,
+    "store": 0.9222222566604614
+   },
+   "checkpoint": {
+    "file": "runs/sense-relational-v1/encoders/full-seed393.pt",
+    "sha256": "87aa8cb054f69cd125d787b2de6c83e30a40248b545094423718cf68f36ed8e5"
+   },
+   "fonts": {
+    "other_font": 0.6577777862548828,
+    "other_font_other_symbol_similarity": 0.042015768587589264,
+    "other_font_same_symbol_similarity": 0.6871020793914795,
+    "same_font": 0.9044444561004639,
+    "symbols": 90,
+    "symbols_with_a_second_font": 497
+   }
+  },
+  "393/no-rotation-scale": {
+   "180": {
+    "identity": 0.8888888955116272,
+    "other_symbol_similarity": 0.034321028739213943,
+    "same_symbol_similarity": 0.8010640740394592,
+    "store": 0.9033333659172058
+   },
+   "90": {
+    "identity": 0.9222222566604614,
+    "other_symbol_similarity": 0.04891275614500046,
+    "same_symbol_similarity": 0.8053958415985107,
+    "store": 0.9288889169692993
+   },
+   "checkpoint": {
+    "file": "runs/sense-relational-v1/encoders/no-rotation-scale-seed393.pt",
+    "sha256": "bde68bcdf921b2dcc95bb3b92350e218ebb4878babcf313b640dbce5c7379a1d"
+   },
+   "fonts": {
+    "other_font": 0.695555567741394,
+    "other_font_other_symbol_similarity": 0.03818804398179054,
+    "other_font_same_symbol_similarity": 0.6781529784202576,
+    "same_font": 0.9155555963516235,
+    "symbols": 90,
+    "symbols_with_a_second_font": 497
+   }
+  },
+  "393/pixels": {
+   "180": {
+    "identity": 0.12666666507720947,
+    "other_symbol_similarity": 0.48890402913093567,
+    "same_symbol_similarity": 0.5568654537200928,
+    "store": 0.21888889372348785
+   },
+   "90": {
+    "identity": 0.17555555701255798,
+    "other_symbol_similarity": 0.4957011342048645,
+    "same_symbol_similarity": 0.5718366503715515,
+    "store": 0.25333333015441895
+   },
+   "fonts": {
+    "other_font": 0.1066666692495346,
+    "other_font_other_symbol_similarity": 0.4927322268486023,
+    "other_font_same_symbol_similarity": 0.5519158840179443,
+    "same_font": 0.14000000059604645,
+    "symbols": 90,
+    "symbols_with_a_second_font": 497
+   }
+  },
+  "393/shift-only": {
+   "180": {
+    "identity": 0.7388889193534851,
+    "other_symbol_similarity": 0.048227861523628235,
+    "same_symbol_similarity": 0.6760498285293579,
+    "store": 0.7655555605888367
+   },
+   "90": {
+    "identity": 0.8199999928474426,
+    "other_symbol_similarity": 0.06011245399713516,
+    "same_symbol_similarity": 0.6856274604797363,
+    "store": 0.8422222137451172
+   },
+   "checkpoint": {
+    "file": "runs/sense-relational-v1/encoders/shift-only-seed393.pt",
+    "sha256": "379dd7fb1e22130bd4b014f02139d616d96f73d04e374ae37c50e1159d05e3af"
+   },
+   "fonts": {
+    "other_font": 0.5822222232818604,
+    "other_font_other_symbol_similarity": 0.0534432977437973,
+    "other_font_same_symbol_similarity": 0.5725825428962708,
+    "same_font": 0.8266667127609253,
+    "symbols": 90,
+    "symbols_with_a_second_font": 497
+   }
+  },
+  "393/untrained": {
+   "180": {
+    "identity": 0.0788888931274414,
+    "other_symbol_similarity": 0.993496835231781,
+    "same_symbol_similarity": 0.9949057698249817,
+    "store": 0.18222223222255707
+   },
+   "90": {
+    "identity": 0.12666666507720947,
+    "other_symbol_similarity": 0.9933315515518188,
+    "same_symbol_similarity": 0.994956910610199,
+    "store": 0.20000000298023224
+   },
+   "fonts": {
+    "other_font": 0.08444444835186005,
+    "other_font_other_symbol_similarity": 0.9933454394340515,
+    "other_font_same_symbol_similarity": 0.9945727586746216,
+    "same_font": 0.12888889014720917,
+    "symbols": 90,
+    "symbols_with_a_second_font": 497
+   }
+  }
+ },
+ "status": "exploratory, pilot seeds"
+}

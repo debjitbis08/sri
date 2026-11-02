@@ -1,0 +1,137 @@
+{
+ "aggregate_worker_cpu_seconds": 266.226646762,
+ "children_peak_rss_kb": 1617460,
+ "command": "/home/debjit/code/sri/experiments/sense_relational.py pilot features",
+ "contract_sha256": "4e9f85883e349a50580cce03782021aaeb42f5f874274c43c5b71dd754293b17",
+ "cpu": "x86_64",
+ "cublas_workspace_config": ":4096:8",
+ "cuda": "13.0",
+ "cudnn": 92400,
+ "deterministic_algorithms": true,
+ "device": "cuda",
+ "dirty": true,
+ "dtype": "float32",
+ "gpu": "NVIDIA GeForce GTX 1650",
+ "numpy": "2.5.4",
+ "parent_peak_rss_kb": 790804,
+ "phase": "features",
+ "python": "3.12.3",
+ "revision": "f643181ad8d70c9789bc3e2b98ad457e4079180d",
+ "rss_convention": "ru_maxrss in KiB, per process; children is the largest single child",
+ "runner_sha256": "4b5573ad3b7ecddb231f836a02d6b0f6ae51c992aefbb175d5cf4e6391e40bbd",
+ "scope": "nondeterministic timing",
+ "tasks": {
+  "392/host-code/comparator": {
+   "cpu_seconds": 15.022490823,
+   "gpu_peak_allocated_bytes": 101534208,
+   "peak_rss_kb": 1555404,
+   "wall_seconds": 15.057015300000785
+  },
+  "392/host-code/linear": {
+   "cpu_seconds": 14.408489864,
+   "gpu_peak_allocated_bytes": 89689600,
+   "peak_rss_kb": 1574792,
+   "wall_seconds": 14.447403359023156
+  },
+  "392/host-code/mlp": {
+   "cpu_seconds": 14.978323871,
+   "gpu_peak_allocated_bytes": 89781760,
+   "peak_rss_kb": 1588376,
+   "wall_seconds": 15.007151474012062
+  },
+  "392/host-encoder/comparator": {
+   "cpu_seconds": 15.776016818,
+   "gpu_peak_allocated_bytes": 179111936,
+   "peak_rss_kb": 1592400,
+   "wall_seconds": 16.08184605499264
+  },
+  "392/host-encoder/linear": {
+   "cpu_seconds": 15.768551572,
+   "gpu_peak_allocated_bytes": 100890624,
+   "peak_rss_kb": 1605036,
+   "wall_seconds": 15.939170387980994
+  },
+  "392/host-encoder/mlp": {
+   "cpu_seconds": 15.196701157,
+   "gpu_peak_allocated_bytes": 101056512,
+   "peak_rss_kb": 1617460,
+   "wall_seconds": 15.538135516981129
+  },
+  "392/untrained-encoder/comparator": {
+   "cpu_seconds": 15.144914291,
+   "gpu_peak_allocated_bytes": 178542080,
+   "peak_rss_kb": 1555804,
+   "wall_seconds": 15.17388873899472
+  },
+  "392/untrained-encoder/linear": {
+   "cpu_seconds": 14.656771351,
+   "gpu_peak_allocated_bytes": 100320768,
+   "peak_rss_kb": 1575132,
+   "wall_seconds": 14.6842834840063
+  },
+  "392/untrained-encoder/mlp": {
+   "cpu_seconds": 15.156667403,
+   "gpu_peak_allocated_bytes": 100486656,
+   "peak_rss_kb": 1588644,
+   "wall_seconds": 15.197013828001218
+  },
+  "393/host-code/comparator": {
+   "cpu_seconds": 14.973479408000001,
+   "gpu_peak_allocated_bytes": 101534208,
+   "peak_rss_kb": 1555416,
+   "wall_seconds": 15.005393172992626
+  },
+  "393/host-code/linear": {
+   "cpu_seconds": 13.727711542,
+   "gpu_peak_allocated_bytes": 89689600,
+   "peak_rss_kb": 1574968,
+   "wall_seconds": 13.755739685992012
+  },
+  "393/host-code/mlp": {
+   "cpu_seconds": 14.833144632000002,
+   "gpu_peak_allocated_bytes": 89781760,
+   "peak_rss_kb": 1588248,
+   "wall_seconds": 14.863594212016324
+  },
+  "393/host-encoder/comparator": {
+   "cpu_seconds": 14.889205474999999,
+   "gpu_peak_allocated_bytes": 179111936,
+   "peak_rss_kb": 1555396,
+   "wall_seconds": 14.90837493201252
+  },
+  "393/host-encoder/linear": {
+   "cpu_seconds": 14.266052027999999,
+   "gpu_peak_allocated_bytes": 100890624,
+   "peak_rss_kb": 1575044,
+   "wall_seconds": 14.29361013599555
+  },
+  "393/host-encoder/mlp": {
+   "cpu_seconds": 14.850721151,
+   "gpu_peak_allocated_bytes": 101056512,
+   "peak_rss_kb": 1588704,
+   "wall_seconds": 14.912078811001265
+  },
+  "393/untrained-encoder/comparator": {
+   "cpu_seconds": 14.554895011000001,
+   "gpu_peak_allocated_bytes": 178542080,
+   "peak_rss_kb": 1555928,
+   "wall_seconds": 14.597177858988289
+  },
+  "393/untrained-encoder/linear": {
+   "cpu_seconds": 13.431848056,
+   "gpu_peak_allocated_bytes": 100320768,
+   "peak_rss_kb": 1574912,
+   "wall_seconds": 13.459860066010151
+  },
+  "393/untrained-encoder/mlp": {
+   "cpu_seconds": 14.590662308999999,
+   "gpu_peak_allocated_bytes": 100486656,
+   "peak_rss_kb": 1588568,
+   "wall_seconds": 14.619846949004568
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cu130",
+ "wall_seconds": 94.89571057001012,
+ "workers": 3
+}

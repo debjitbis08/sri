@@ -1,0 +1,389 @@
+{
+ "results": {
+  "392/host-code/comparator": {
+   "180": {
+    "identity": 0.11777777969837189,
+    "identity_comparator": 0.15222222222222223,
+    "other_symbol_similarity": -0.0016773592215031385,
+    "same_symbol_similarity": 0.7255856990814209,
+    "store": 0.2177777886390686,
+    "store_comparator": 0.2411111111111111
+   },
+   "90": {
+    "identity": 0.18666666746139526,
+    "identity_comparator": 0.24,
+    "other_symbol_similarity": 0.0021174009889364243,
+    "same_symbol_similarity": 0.7537674903869629,
+    "store": 0.2888889014720917,
+    "store_comparator": 0.3422222222222222
+   },
+   "final_loss": 3.7365217208862305,
+   "parameters": 6337,
+   "shape": {
+    "participation_ratio": 1.0596986380996474,
+    "top_share": 0.9711481805404261
+   }
+  },
+  "392/host-code/linear": {
+   "180": {
+    "identity": 0.2177777886390686,
+    "other_symbol_similarity": 0.562425971031189,
+    "same_symbol_similarity": 0.9097262024879456,
+    "store": 0.2988888919353485
+   },
+   "90": {
+    "identity": 0.30444446206092834,
+    "other_symbol_similarity": 0.5444946885108948,
+    "same_symbol_similarity": 0.9127958416938782,
+    "store": 0.397777795791626
+   },
+   "final_loss": 3.6602439880371094,
+   "parameters": 544,
+   "shape": {
+    "participation_ratio": 2.823832754293793,
+    "top_share": 0.5312323168024731
+   }
+  },
+  "392/host-code/mlp": {
+   "180": {
+    "identity": 0.2522222399711609,
+    "other_symbol_similarity": 0.46337786316871643,
+    "same_symbol_similarity": 0.8730894327163696,
+    "store": 0.3222222328186035
+   },
+   "90": {
+    "identity": 0.3955555558204651,
+    "other_symbol_similarity": 0.4493294656276703,
+    "same_symbol_similarity": 0.8801833391189575,
+    "store": 0.47111111879348755
+   },
+   "final_loss": 3.507873296737671,
+   "parameters": 6304,
+   "shape": {
+    "participation_ratio": 5.6488958797891335,
+    "top_share": 0.299261096199765
+   }
+  },
+  "392/host-encoder/comparator": {
+   "180": {
+    "identity": 0.1966666728258133,
+    "identity_comparator": 0.30444444444444446,
+    "other_symbol_similarity": 0.006134525872766972,
+    "same_symbol_similarity": 0.7151657342910767,
+    "store": 0.28111112117767334,
+    "store_comparator": 0.39222222222222225
+   },
+   "90": {
+    "identity": 0.3155555725097656,
+    "identity_comparator": 0.4177777777777778,
+    "other_symbol_similarity": 0.00893363542854786,
+    "same_symbol_similarity": 0.7327865362167358,
+    "store": 0.40444445610046387,
+    "store_comparator": 0.5111111111111111
+   },
+   "final_loss": 2.9619200229644775,
+   "parameters": 12481,
+   "shape": {
+    "participation_ratio": 1.9142656789070938,
+    "top_share": 0.7041432438889728
+   }
+  },
+  "392/host-encoder/linear": {
+   "180": {
+    "identity": 0.32333335280418396,
+    "other_symbol_similarity": 0.3496304452419281,
+    "same_symbol_similarity": 0.8835082054138184,
+    "store": 0.38777777552604675
+   },
+   "90": {
+    "identity": 0.4444444477558136,
+    "other_symbol_similarity": 0.3439777195453644,
+    "same_symbol_similarity": 0.8857252597808838,
+    "store": 0.5266667008399963
+   },
+   "final_loss": 3.461184501647949,
+   "parameters": 2080,
+   "shape": {
+    "participation_ratio": 4.206298145594321,
+    "top_share": 0.3818558703387975
+   }
+  },
+  "392/host-encoder/mlp": {
+   "180": {
+    "identity": 0.4588888883590698,
+    "other_symbol_similarity": 0.15465688705444336,
+    "same_symbol_similarity": 0.8592438697814941,
+    "store": 0.5077778100967407
+   },
+   "90": {
+    "identity": 0.6022222638130188,
+    "other_symbol_similarity": 0.1549421101808548,
+    "same_symbol_similarity": 0.8619056940078735,
+    "store": 0.6711111068725586
+   },
+   "final_loss": 2.505617618560791,
+   "parameters": 12448,
+   "shape": {
+    "participation_ratio": 5.560409447508979,
+    "top_share": 0.34561788176296404
+   }
+  },
+  "392/untrained-encoder/comparator": {
+   "180": {
+    "identity": 0.08444444835186005,
+    "identity_comparator": 0.11444444444444445,
+    "other_symbol_similarity": 0.00790652446448803,
+    "same_symbol_similarity": 0.298611581325531,
+    "store": 0.16777777671813965,
+    "store_comparator": 0.21
+   },
+   "90": {
+    "identity": 0.14222222566604614,
+    "identity_comparator": 0.17555555555555555,
+    "other_symbol_similarity": 0.006102269981056452,
+    "same_symbol_similarity": 0.3054599463939667,
+    "store": 0.24000000953674316,
+    "store_comparator": 0.2644444444444444
+   },
+   "final_loss": 3.998532295227051,
+   "parameters": 12481,
+   "shape": {
+    "participation_ratio": 19.08100740497906,
+    "top_share": 0.13682668379113594
+   }
+  },
+  "392/untrained-encoder/linear": {
+   "180": {
+    "identity": 0.11222222447395325,
+    "other_symbol_similarity": 0.7800849676132202,
+    "same_symbol_similarity": 0.9190336465835571,
+    "store": 0.20222222805023193
+   },
+   "90": {
+    "identity": 0.19111111760139465,
+    "other_symbol_similarity": 0.7730147242546082,
+    "same_symbol_similarity": 0.9229668974876404,
+    "store": 0.29333335161209106
+   },
+   "final_loss": 4.33636474609375,
+   "parameters": 2080,
+   "shape": {
+    "participation_ratio": 2.7244928685101764,
+    "top_share": 0.5902017742286814
+   }
+  },
+  "392/untrained-encoder/mlp": {
+   "180": {
+    "identity": 0.2755555510520935,
+    "other_symbol_similarity": 0.4023057222366333,
+    "same_symbol_similarity": 0.825240433216095,
+    "store": 0.35333335399627686
+   },
+   "90": {
+    "identity": 0.3844444453716278,
+    "other_symbol_similarity": 0.39711514115333557,
+    "same_symbol_similarity": 0.8244202136993408,
+    "store": 0.4333333373069763
+   },
+   "final_loss": 3.267688751220703,
+   "parameters": 12448,
+   "shape": {
+    "participation_ratio": 5.6421602950037695,
+    "top_share": 0.3430079448000422
+   }
+  },
+  "393/host-code/comparator": {
+   "180": {
+    "identity": 0.12888889014720917,
+    "identity_comparator": 0.15777777777777777,
+    "other_symbol_similarity": 0.004251104313880205,
+    "same_symbol_similarity": 0.7514022588729858,
+    "store": 0.23333333432674408,
+    "store_comparator": 0.2577777777777778
+   },
+   "90": {
+    "identity": 0.18444444239139557,
+    "identity_comparator": 0.2311111111111111,
+    "other_symbol_similarity": -0.005260167643427849,
+    "same_symbol_similarity": 0.7266268134117126,
+    "store": 0.2844444513320923,
+    "store_comparator": 0.3488888888888889
+   },
+   "final_loss": 3.1804990768432617,
+   "parameters": 6337,
+   "shape": {
+    "participation_ratio": 1.0244347290294185,
+    "top_share": 0.9879618196667171
+   }
+  },
+  "393/host-code/linear": {
+   "180": {
+    "identity": 0.2433333396911621,
+    "other_symbol_similarity": 0.44030892848968506,
+    "same_symbol_similarity": 0.9193439483642578,
+    "store": 0.3177777826786041
+   },
+   "90": {
+    "identity": 0.3377777934074402,
+    "other_symbol_similarity": 0.44560980796813965,
+    "same_symbol_similarity": 0.9202395677566528,
+    "store": 0.41111111640930176
+   },
+   "final_loss": 3.3755805492401123,
+   "parameters": 544,
+   "shape": {
+    "participation_ratio": 1.917099248982605,
+    "top_share": 0.7034903404301245
+   }
+  },
+  "393/host-code/mlp": {
+   "180": {
+    "identity": 0.31111112236976624,
+    "other_symbol_similarity": 0.26820823550224304,
+    "same_symbol_similarity": 0.90083247423172,
+    "store": 0.4055555760860443
+   },
+   "90": {
+    "identity": 0.40888890624046326,
+    "other_symbol_similarity": 0.2775575816631317,
+    "same_symbol_similarity": 0.9011719822883606,
+    "store": 0.47555556893348694
+   },
+   "final_loss": 3.2069101333618164,
+   "parameters": 6304,
+   "shape": {
+    "participation_ratio": 2.9873252981493494,
+    "top_share": 0.5349548099016586
+   }
+  },
+  "393/host-encoder/comparator": {
+   "180": {
+    "identity": 0.22333334386348724,
+    "identity_comparator": 0.32555555555555554,
+    "other_symbol_similarity": 0.004133165813982487,
+    "same_symbol_similarity": 0.7638744711875916,
+    "store": 0.3122222423553467,
+    "store_comparator": 0.4077777777777778
+   },
+   "90": {
+    "identity": 0.2800000011920929,
+    "identity_comparator": 0.4088888888888889,
+    "other_symbol_similarity": -0.0039038604591041803,
+    "same_symbol_similarity": 0.7500884532928467,
+    "store": 0.35777777433395386,
+    "store_comparator": 0.4711111111111111
+   },
+   "final_loss": 2.4910407066345215,
+   "parameters": 12481,
+   "shape": {
+    "participation_ratio": 1.3205404896167334,
+    "top_share": 0.867053893019734
+   }
+  },
+  "393/host-encoder/linear": {
+   "180": {
+    "identity": 0.425555557012558,
+    "other_symbol_similarity": 0.1725311279296875,
+    "same_symbol_similarity": 0.8714637756347656,
+    "store": 0.5022222399711609
+   },
+   "90": {
+    "identity": 0.5488889217376709,
+    "other_symbol_similarity": 0.18337392807006836,
+    "same_symbol_similarity": 0.8729220032691956,
+    "store": 0.6066666841506958
+   },
+   "final_loss": 3.000582695007324,
+   "parameters": 2080,
+   "shape": {
+    "participation_ratio": 4.037414946715955,
+    "top_share": 0.42150917864726717
+   }
+  },
+  "393/host-encoder/mlp": {
+   "180": {
+    "identity": 0.5099999904632568,
+    "other_symbol_similarity": 0.08746959269046783,
+    "same_symbol_similarity": 0.8481035828590393,
+    "store": 0.5833333730697632
+   },
+   "90": {
+    "identity": 0.6200000047683716,
+    "other_symbol_similarity": 0.09698187559843063,
+    "same_symbol_similarity": 0.8480575680732727,
+    "store": 0.6733333468437195
+   },
+   "final_loss": 2.669384479522705,
+   "parameters": 12448,
+   "shape": {
+    "participation_ratio": 5.313820094215087,
+    "top_share": 0.34849287496252335
+   }
+  },
+  "393/untrained-encoder/comparator": {
+   "180": {
+    "identity": 0.07222222536802292,
+    "identity_comparator": 0.08666666666666667,
+    "other_symbol_similarity": 0.008719155564904213,
+    "same_symbol_similarity": 0.27736207842826843,
+    "store": 0.16111111640930176,
+    "store_comparator": 0.19
+   },
+   "90": {
+    "identity": 0.11555555462837219,
+    "identity_comparator": 0.13777777777777778,
+    "other_symbol_similarity": 0.009336127899587154,
+    "same_symbol_similarity": 0.3088068664073944,
+    "store": 0.20888888835906982,
+    "store_comparator": 0.23777777777777778
+   },
+   "final_loss": 4.3266448974609375,
+   "parameters": 12481,
+   "shape": {
+    "participation_ratio": 17.63239471735816,
+    "top_share": 0.14203224588505506
+   }
+  },
+  "393/untrained-encoder/linear": {
+   "180": {
+    "identity": 0.08888889104127884,
+    "other_symbol_similarity": 0.7866774201393127,
+    "same_symbol_similarity": 0.9081618189811707,
+    "store": 0.1899999976158142
+   },
+   "90": {
+    "identity": 0.14222222566604614,
+    "other_symbol_similarity": 0.7742751836776733,
+    "same_symbol_similarity": 0.9096751809120178,
+    "store": 0.22888889908790588
+   },
+   "final_loss": 4.417121410369873,
+   "parameters": 2080,
+   "shape": {
+    "participation_ratio": 2.8271136707762627,
+    "top_share": 0.5764514277967991
+   }
+  },
+  "393/untrained-encoder/mlp": {
+   "180": {
+    "identity": 0.3288888931274414,
+    "other_symbol_similarity": 0.3811463415622711,
+    "same_symbol_similarity": 0.8251927495002747,
+    "store": 0.39888888597488403
+   },
+   "90": {
+    "identity": 0.42222222685813904,
+    "other_symbol_similarity": 0.3813082277774811,
+    "same_symbol_similarity": 0.8290038108825684,
+    "store": 0.4977777898311615
+   },
+   "final_loss": 3.15059494972229,
+   "parameters": 12448,
+   "shape": {
+    "participation_ratio": 4.870894844450728,
+    "top_share": 0.39081601953183703
+   }
+  }
+ },
+ "status": "exploratory, pilot seeds"
+}
