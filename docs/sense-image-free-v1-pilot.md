@@ -1,4 +1,4 @@
-# Memory with no stored images: pilot (seeds 392 and 393)
+# Memory with no long-term image store: pilot (seeds 392 and 393)
 
 Status: **pilot, 2026-11-02. Not evidence for any contrast, and not a contract.** Two seeds. The arms, the map's use, the radius rule and the change of symbol values below were chosen during the study, some after a smoke run, and no setting was confirmed on other seeds.
 
@@ -8,7 +8,9 @@ By the user's decision, memory stores no images ([consolidation pilot](sense-con
 
 ## Design
 
-A unit holds an address, a value code, a count and an angular radius. Each map comes from inputs passing during the block, which are then discarded, and from copies of the networks as they were at the block's start.
+A unit holds an address, a value code, a count and an angular radius. Each map comes from inputs passing during the block and from copies of the networks as they were at the block's start.
+
+**Images are not fully gone (corrected after external review).** Units store no images, but the correction buffers images: up to 4,000 key probes within each block (about 3.1 MB at a byte per pixel), re-encoded through both encoders at the block's end and then discarded, and a fixed set of 2,048 background probes held for the whole run (about 1.6 MB). So this removes the per-memory store, and not images from upkeep.
 
 **Values, two sets:**
 
@@ -82,7 +84,7 @@ Keys transport per seed and order, first/second set, unseen answered (images reb
 | Counts | 0.57/0.64, 0.39 (0.64/0.59, 0.14) | 0.65/0.67, 0.42 (0.57/0.60, 0.15) | 0.77/0.75, 0.22 (0.74/0.72, 0.12) | 0.66/0.73, 0.24 (0.69/0.72, 0.12) |
 | Symbols | 0.78/0.68, 0.39 (0.71/0.72, 0.14) | 0.72/0.72, 0.42 (0.70/0.70, 0.15) | 0.66/0.64, 0.22 (0.62/0.55, 0.12) | 0.62/0.64, 0.24 (0.61/0.55, 0.12) |
 
-- **Answers hold with no stored images.** Keys transport reads as well as stored images on both sets of values, at about 2% of the bytes.
+- **Answers to known items hold with no per-memory images.** Keys transport reads as well as stored images on both sets of values, at about 2% of the reported memory payload, excluding network copies and probe buffers. It also answers more unseen symbols, so this is not comparable memory behaviour.
 - **Rejection does not hold.** Unseen symbols are answered at 0.32 against 0.13. Without widening, rejection is good but the first set falls, with the worst loss at 0.16–0.22. This is now the main failure on a stationary stream.
 - **For the host, drift is mostly a change of coordinates, and live inputs can follow it.** Stale reads 0.13–0.24 and the live map 0.60–0.77, about the same as the oracle. Counts recur in the host's stream, which favours this. Background images are erratic (0.35–0.72).
 - **One-off values on a stationary stream need no correction.** Stale values read as well as any map, 0.64–0.74. This reflects how little the key encoder changes on its own kind of input, not a general result.
@@ -115,14 +117,27 @@ Normal rate, from block 5:
 | Keys transport | 0.34–0.57, 0.40–0.56 | 0.28 | 0.21–0.28, 0.18–0.24 | 0.59 | 0.79 |
 
 - **The design fails here, and the stationary result does not generalize to it.** Median key movement in block 5 rises from about 0.38 to 1.01 radians at the normal rate, and the linear map leaves 0.60 on held-out probes.
-- **On counts, distinctions survive and the live map cannot follow them.** Re-encoding from images reads 0.53–0.73 and frozen keys 0.59–0.73, against 0.34–0.57. So the gap is in keeping codes current, not in information.
+- **On counts, useful distinctions remain available, and the live map does not follow them.** Re-encoding from images reads 0.53–0.73 and frozen keys 0.59–0.73, against 0.34–0.57. That shows those distinctions are still there, not that no information was lost.
 - **On symbols, information is also lost.** The encoder itself identifies targets worse: fresh single target codes fall from 0.51–0.61 to 0.37–0.46, and even re-encoding from images loses 0.27.
 - **Maps may overcorrect.** With shifting symbols, stale values read the second set better than the oracle map: 0.45–0.58 against 0.24–0.27. A value written late in a block is already near the block's end state, yet receives the whole block's map. This is a likely cause, and it would also affect addresses, but it was not tested separately.
 
 At ten times the rate with a shift, image-free arms with learning keys read at most 0.50 on counts and 0.33 on symbols. Frozen keys hold counts at 0.59–0.73, and the image arms degrade too (second set 0.12–0.57).
 
+### What rejection rests on
+
+A unit answers when a query's cosine with its address reaches the unit's threshold. Nothing else marks a symbol as unknown. On frozen keys, with memory holding both sets, a query's best similarity (seeds 392, 393; 5th, 50th, 95th percentiles):
+
+| Queries | 392 | 393 |
+|---|---|---|
+| Known symbols, new renderings | 0.85, 0.94, 0.98 | 0.86, 0.94, 0.98 |
+| Unseen symbols | 0.56, 0.75, 0.90 | 0.56, 0.74, 0.89 |
+
+The separation is good but not clean, with AUC 0.97 in both. At threshold 0.85, 0.95–0.97 of known queries and 0.14–0.20 of unseen ones are answered; at 0.75, all known and 0.48–0.49 unseen; at 0.7, 0.58–0.71 unseen. Widening by drift, a first-set unit reaches about 0.68 by block 6 at the normal rate, and transport about 0.76, which accounts for the rejection seen above. On a shift, block 5 alone takes the widening rule to its floor of 0.5. This read-only measure does not cover a moving encoder.
+
 ## What this does not establish
 
+- **What transport alone contributes.** Keys transport moves addresses and widens thresholds together, and arms were not compared at matched false acceptance.
+- **Linear transport under fast change.** Addresses and values are written throughout a block and all receive the start-to-end map, so stored aggregates mix versions. This defect should be fixed before concluding anything about maps.
 - **That a map is the right correction.** Linear per-block maps were the only ones tested. The local shift from the read-only check was left out because it was unstable there.
 - **A moving host for one-off values.** The symbols set uses the key encoder's code. The host does not identify symbols, so the moving-host question remains open for anything but counts.
 - **The ceilings as bounds.** Memory averages several value images, so symbol reads exceed the single-code reference, 0.51–0.64.
@@ -132,7 +147,7 @@ At ten times the rate with a shift, image-free arms with learning keys read at m
 
 ## Scaling
 
-Memory costs h(32 + m + 3) floats: about 200 bytes per unit for counts and 270 for symbols, against up to eight pairs of 784-byte images. Correction keeps a copy of the key encoder (0.84 MB) and of the host's image path (about 0.9 MB) for one block. This is more than this memory at this size, but constant in facts and the networks already exist at that size. Fitting a d × d map on p probes costs O(p d² + d³) per block and per value space, and moving h units costs O(h d²). Writes and reads stay O(h d); a merge pass stays O(h² d), or O(p h d) more for the merge test on p proposed pairs. No image is re-encoded, so upkeep no longer grows with stored experiences.
+Memory costs h(32 + m + 3) floats: about 200 bytes per unit for counts and 270 for symbols, against up to eight pairs of 784-byte images. Correction keeps a copy of the key encoder (0.84 MB) and of the host's image path (about 0.9 MB) for one block. This is more than this memory at this size, but constant in facts and the networks already exist at that size. Fitting a d × d map on p probes costs O(p d² + d³) per block and per value space, and moving h units costs O(h d²). Writes and reads stay O(h d); a merge pass stays O(h² d), or O(p h d) more for the merge test on p proposed pairs. Probes are re-encoded at each block's end, a fixed number, so upkeep no longer grows with stored experiences. The reported bytes estimate a compact unit, not the arrays this implementation allocates (which keep both the address and its running sum, at the full H).
 
 ## Prior work
 
