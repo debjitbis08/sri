@@ -2,7 +2,8 @@
 
 Status: **draft, revised 2026-11-02 after the [stage 0 pilot](shared-core-sparse-memory-v1-stage0-pilot.md). Not frozen. No further
 implementation or run is authorized by this document. The pilot's lock: `conjunctive` route, host `sparse48`, sensory source the
-frozen encoder, stage 0 candidate `split-recon-bg` at λ 0.1.** Numerical choices are proposed pilot settings. The previous premise, a core pretrained only on relations, failed on
+frozen encoder, stage 0 candidate `split-recon-bg` at λ 0.1. The [small stage 1 pilot](shared-core-sparse-memory-v1-stage1-pilot.md) found no cross-sense reach on any address, and
+the core lowers within-sense memory, so stage 1 confirmation should not run on this design.** Numerical choices are proposed pilot settings. The previous premise, a core pretrained only on relations, failed on
 existing codes and is withdrawn; see *Why the first design changed*. Open items
 are listed under *Before freezing*.
 
@@ -296,12 +297,12 @@ does not depend on relational context, and a symbol appears in one sense, so `se
 **Why the core stays in the address.** A sense's code reaches only what that sense wrote; the core is what
 senses share. Teach an association from one sense, and query it from another, with no write from the second.
 
-Cues are counts, since these are what exist in several senses. Teach each written form of a count, in English,
+Cues are counts, since these are what exist in several senses. Teach each written form of a count, in Devanagari,
 an arbitrary target from a seeded **derangement** of the nine counts, so that answering with the query's own count
 scores zero rather than chance. Write 64 training renderings per count, one pass in a seeded order, 576 writes, each
 with a fresh training collection of the target count as v. Query with `D.TAPS[('eval', n)]` and, separately, with
-English evaluation renderings; candidates as in the primary reading. English is the script all hosts train on with every count
-paired, so a failure here is not a failure of transfer to withheld counts. This holds only nine facts, so it tests
+that script's evaluation renderings; candidates as in the primary reading. Devanagari is taught last. English, taught first with no rehearsal, reads 0.21, 0.22 on an oracle store at
+block 3 and cannot test anything, and Devanagari includes withheld counts, as block 3's material does. This holds only nine facts, so it tests
 reach and not load. Writes for this fixture use a separate empty memory.
 
 Read on every route, with these addresses: the host's `core` code alone, `conjunctive`, `sense-only` and `sensory`.
@@ -360,10 +361,10 @@ Dead units cannot occur, since units exist only once written. Utilization is the
 fraction, reported. τ sets how far a unit generalizes, and it depends on the address code's
 similarity distribution, so it is selected per address, on pilot seeds.
 
-**Decoder.** `decode(content, candidates)` is cosine against the candidates' codes, with the host's matching head as a
-diagnostic. This was revised after the stage 0 pilot, where on `sparse48` the head's value ceiling read 0.52, 0.61, below the
-decoder floor, and cosine read 0.60, 0.62. Cosine clears the floor by 0.01 on two seeds, and the study stops at `decoder-limited` if the
-stage 1 pilot's value ceiling falls below it.
+**Decoder.** Two levels, read separately. **Memory level:** the content's nearest count prototype, nine mean codes of training collections, charged: did the
+right value come back? **Answer level:** Euclidean distance to the candidates' codes. Cosine and the host's matching head are diagnostics. The [value diagnostic](shared-core-sparse-memory-v1-stage1-pilot.md#value-diagnostic) gives the reason:
+with an oracle address, the memory level reads 1.00, and the answer level averages 0.69, since a single candidate collection reads its own count at only 0.61, 0.66. So the answer level caps
+what any memory can show. The decoder floor applies to the answer level; acquisition and old loss are read at the memory level, as the pilot's selection did. Prototypes need one stored vector per answer, so this does not scale to a large answer space.
 
 Learning addresses mixes content interference with rerouting, so both are read separately
 under *Mechanisms*. `fixed-random` stays as a reference for what learning buys.
@@ -765,9 +766,8 @@ implementation, not represented as existing.
 
 ## Before freezing
 
-1. Run the value diagnostic: an oracle address returning the right symbol's accumulated live value through the actual decoder, beside perfect contents, to separate address failure from value and decoding failure.
-1. Run the stage 1 and fixture pilots on the locked route, then select settings and set the stage 1 bars. On this route `sense-only` and `frozen-encoder` are one run, and `perception` is not used.
-2. Record the cross-sense fixture's pilot reading of `conjunctive`, with its fallback.
+1. Decide whether this design continues. On the pilot, no address reaches across senses, for a reason in the code's geometry, so stage 1 confirmation would not answer the core's question. Options are in the [pilot report](shared-core-sparse-memory-v1-stage1-pilot.md): memory read through the reader's head, or a separately contracted invariant objective. Within-sense memory on the frozen encoder needs no core.
+2. If it continues: add the trainable comparators and probes to the pilot, then set the stage 1 bars.
 3. Read adaptive resonance theory and Kanerva's sparse distributed memory, and record them in [prior work](prior-work.md), with the other [familiar] items.
 4. Recheck seeds and lock host checkpoints, data and code hashes.
 
@@ -791,6 +791,13 @@ Review of this draft, 2026-11-01, all checked and fixed above:
 Found while fixing these: per-script gates at ten seeds cannot pass for an unchanged arm, so stage 0 uses the mean of eight at
 20 seeds, with script guards.
 
+Review of the stage 0 pilot, 2026-11-02, checked and acted on:
+
+- The report claimed no projection could reach the bar from a pre-projection cosine reading. A learned projection can change the metric, so the claim was softened.
+- Value decoding should be checked before memory. The diagnostic ran first, and it reversed the decoder revision made after stage 0.
+- Beating `sense-only` on taps is vacuous when it has no tap encoder, and a tap read on the fallback shows only access through the core part. The reach test and its wording were changed.
+- Conjunctive against sensory and the fixture ran as a small pilot before any confirmation.
+
 ## Changes from pilot
 
 Before the stage 0 pilot, 2026-11-02, with no pilot result seen:
@@ -800,6 +807,12 @@ Before the stage 0 pilot, 2026-11-02, with no pilot result seen:
 - The lock rule now resolves λ and the tie between `split-recon-bg` and `wide32-recon-bg`.
 - The stress condition defines a frozen sensory source, and it, the probes and the load probes are assigned to seeds 404–406.
 - CPU reporting is stated by resource target. The Kanerva reference was corrected and the background set is 1,987 symbols.
+
+After the value diagnostic and small stage 1 pilot, 2026-11-02:
+
+- The decoder has a memory level and an answer level, replacing cosine.
+- The fixture uses Devanagari, replacing English, after an oracle store showed English cannot test anything at block 3.
+- No address shows reach. `W_K` as whitening does not help on these reads.
 
 After the stage 0 pilot, 2026-11-02:
 

@@ -1,0 +1,127 @@
+{
+ "results": {
+  "392": {
+   "chinese": {
+    "forms": {
+     "cosine": 0.4888888888888889,
+     "cosine_within_one": 0.725925925925926,
+     "head": 0.35185185185185186,
+     "similarity_mean_all": 0.5719452500343323,
+     "similarity_right": 0.9291383028030396
+    },
+    "taps": {
+     "cosine": 0.1111111111111111,
+     "cosine_within_one": 0.2222222222222222,
+     "head": 0.11481481481481481,
+     "similarity_mean_all": 0.01828816719353199,
+     "similarity_right": 0.1893097460269928
+    }
+   },
+   "devanagari_digits": {
+    "forms": {
+     "cosine": 0.6703703703703704,
+     "cosine_within_one": 0.7925925925925926,
+     "head": 0.662962962962963,
+     "similarity_mean_all": 0.11489842087030411,
+     "similarity_right": 0.935578465461731
+    },
+    "taps": {
+     "cosine": 0.2962962962962963,
+     "cosine_within_one": 0.6370370370370371,
+     "head": 0.44074074074074077,
+     "similarity_mean_all": 0.01289165485650301,
+     "similarity_right": 0.5700790286064148
+    }
+   },
+   "english": {
+    "forms": {
+     "cosine": 0.21481481481481482,
+     "cosine_within_one": 0.3851851851851852,
+     "head": 0.1259259259259259,
+     "similarity_mean_all": 0.8640711307525635,
+     "similarity_right": 0.8748679757118225
+    },
+    "taps": {
+     "cosine": 0.0,
+     "cosine_within_one": 0.0,
+     "head": 0.0,
+     "similarity_mean_all": 0.023038359358906746,
+     "similarity_right": 0.010247492231428623
+    }
+   },
+   "withheld": {
+    "chinese": [
+     3,
+     8
+    ],
+    "devanagari_digits": [
+     2,
+     6
+    ],
+    "english": []
+   }
+  },
+  "393": {
+   "chinese": {
+    "forms": {
+     "cosine": 0.5259259259259259,
+     "cosine_within_one": 0.7592592592592593,
+     "head": 0.37777777777777777,
+     "similarity_mean_all": 0.5692427754402161,
+     "similarity_right": 0.8761141896247864
+    },
+    "taps": {
+     "cosine": 0.1111111111111111,
+     "cosine_within_one": 0.3296296296296296,
+     "head": 0.14074074074074075,
+     "similarity_mean_all": 0.03213680535554886,
+     "similarity_right": 0.20213352143764496
+    }
+   },
+   "devanagari_digits": {
+    "forms": {
+     "cosine": 0.7962962962962963,
+     "cosine_within_one": 0.9185185185185185,
+     "head": 0.6888888888888889,
+     "similarity_mean_all": 0.03740174323320389,
+     "similarity_right": 0.96339350938797
+    },
+    "taps": {
+     "cosine": 0.2222222222222222,
+     "cosine_within_one": 0.5592592592592592,
+     "head": 0.674074074074074,
+     "similarity_mean_all": -0.00467934925109148,
+     "similarity_right": 0.4016767740249634
+    }
+   },
+   "english": {
+    "forms": {
+     "cosine": 0.2222222222222222,
+     "cosine_within_one": 0.42592592592592593,
+     "head": 0.14074074074074075,
+     "similarity_mean_all": 0.832073986530304,
+     "similarity_right": 0.834754228591919
+    },
+    "taps": {
+     "cosine": 0.1111111111111111,
+     "cosine_within_one": 0.3333333333333333,
+     "head": 0.0,
+     "similarity_mean_all": 0.028937093913555145,
+     "similarity_right": 0.027336854487657547
+    }
+   },
+   "withheld": {
+    "chinese": [
+     3,
+     7
+    ],
+    "devanagari_digits": [
+     4,
+     8
+    ],
+    "english": []
+   }
+  }
+ },
+ "status": "diagnostic: an oracle store of form prototypes per script"
+}

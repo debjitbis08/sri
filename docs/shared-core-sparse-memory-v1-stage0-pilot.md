@@ -52,7 +52,7 @@ Expectations recorded before the run: `wide32` alone did not reach 0.80, as expe
 
 ## Consequences for stage 1
 
-- **Value ceiling, `sparse48`.** Matching head 0.52, 0.61, mean 0.56, below the decoder floor of 0.60. Cosine 0.60, 0.62, mean 0.61. Count prototypes 0.61, 0.66. By the contract's rule the head is `decoder-limited`, so the draft now decodes by cosine. This clears the floor by 0.01 on two seeds, so it is not a comfortable margin, and `acquires`' floor of 0.50 leaves little room below it.
+- **Value ceiling, `sparse48`.** Matching head 0.52, 0.61, mean 0.56, below the decoder floor of 0.60. Cosine 0.60, 0.62, mean 0.61. Count prototypes 0.61, 0.66. By the contract's rule the head is `decoder-limited`. The draft first moved to cosine, and the later [value diagnostic](shared-core-sparse-memory-v1-stage1-pilot.md#value-diagnostic) replaced that: over more reads cosine averages 0.59, and the limit is reading candidates.
 - **Frozen encoder has no taps.** With a zero sensory part, a tap query's similarity is at most half the core's, so below every τ in the grid, and `conjunctive` could not answer a tap at all. The draft now reads the core part alone when a query has no sensory code.
 - **Two addresses coincide.** On this route `sense-only` and `frozen-encoder` are the same address, so one run serves both.
 - **`perception` is not needed on this route.**
