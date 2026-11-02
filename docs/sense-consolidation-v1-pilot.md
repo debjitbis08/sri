@@ -1,6 +1,6 @@
 # Consolidation alongside address rebuilding: pilot (seeds 392 and 393)
 
-Status: **pilot, 2026-11-02. Not evidence for any contrast, and not a contract.** Two seeds. Merge thresholds, the content gate, per-unit radius and its floor were all chosen during the study, the radius after seeing the probe. Runners `experiments/sense_consolidation.py`, `experiments/sense_consolidation_evidence.py`; merge in `src/sparse_local_memory.py`; reports `reports/sense-consolidation-v1-*.json`. Follows [step 3 of the sense-level pilot](sense-relational-v1-pilot.md), where unit growth became the main limit.
+Status: **pilot, 2026-11-02. Not evidence for any contrast, and not a contract.** Two seeds. Merge thresholds, the content gate, per-unit radius and its floor were all chosen during the study, the radius after seeing the probe. Runners `experiments/sense_consolidation.py`, `experiments/sense_consolidation_evidence.py`, `experiments/sense_consolidation_traces.py`; merge in `src/sparse_local_memory.py`; reports `reports/sense-consolidation-v1-*.json`. Follows [step 3 of the sense-level pilot](sense-relational-v1-pilot.md), where unit growth became the main limit.
 
 ## Question
 
@@ -117,7 +117,7 @@ All six reference arms reproduce the earlier run's block-6 reads exactly. Normal
 - **Preserving distinctions does more than the evidence for sameness.** The distinction test cuts wrong merges by about half to two-thirds in every comparison. It also rescues the most compressive rule: shared 0.25 reaches 122–158 units but reads poorly, and with the test it holds 0.75–0.86 at 357–399.
 - **The frontier moves, modestly.** Against address 0.8, address 0.7 with the test takes about 10% more units and reads 0.03 and 0.05 higher on average. Against address 0.85, shared 0.25 with the test takes about a quarter fewer units, reading 0.03 lower and 0.01 higher.
 - **No arm meets the 0.05 loss bar at this rate.** The best are at 0.07.
-- **Wrong merges do not account for the remaining loss.** Cover 0.25 with the test has only 1.3% wrong merges and still loses 0.08 at worst. Coverage is part of it, at 0.93 of queries against 0.98. **[hypothesis]** Capping a merged unit at eight traces discards the variation it should cover, shrinking its radius and bending its address. Not tested.
+- **Wrong merges do not account for the remaining loss.** Cover 0.25 with the test has only 1.3% wrong merges and still loses 0.08 at worst. Coverage is part of it, at 0.93 of queries against 0.98. [Trace selection](#trace-selection) below tests the eight-trace cap as the cause.
 - **The reference set adds nothing here.** Address 0.8 answers unseen symbols at 0.19 with and without it, with a further 200 KB of images not counted in the MB columns. **[derived]** A query is answered if any unit accepts it, so 1% per unit is a loose limit over about 300 units; rejecting unseen symbols this way needs a far stricter per-unit limit than 256 images can measure.
 
 Where capacity is short, normal rate, H 512, merging every 2,000 updates:
@@ -142,9 +142,69 @@ At ten times the rate, H 2048:
 
 **Under fast drift, the distinction test meets the bar while keeping the second set,** which no earlier arm did. It compresses less, since drift gives it more to refuse, and it still answers unseen symbols far too often.
 
+## Trace selection
+
+Does the eight-trace cap cause the remaining loss? Each policy ran under the same merge rules, chosen during the study. Runner `experiments/sense_consolidation_traces.py`.
+
+- **Turns:** the rule so far, eight taken in turn from each merged unit.
+- **Spread:** eight distinct images chosen by farthest-point selection when units merge. A full unit takes no new traces.
+- **Intake:** as spread, but a unit may hold 16 between merges, so new appearances can enter.
+- **All:** every distinct trace of a unit. A ceiling, not a proposal. Radius from the lowest similarity.
+- **All, 5th percentile:** the same, with the radius tolerating outliers.
+
+Turns reproduce the evidence run's reads exactly in blocks 4–6. Normal rate, H 2048, rule `cover 0.25, distinct`, both orders and seeds, end of block 6. MB counts traces at the end; peak traces is the most held just before any merge:
+
+| Traces | First set, mean | Second set, mean | Worst loss | Units | Unseen answered | MB | Peak traces |
+|---|---|---|---|---|---|---|---|
+| Rebuild only, no merge | 0.90 | 0.93 | 0.04 | 1,448–1,678 | 0.13 | 9.4 | 12,108 at the end |
+| Turns | 0.83 | 0.86 | 0.08 | 635–684 | 0.13 | 4.2 | 9,144 |
+| **Spread** | **0.86** | **0.88** | **0.049** | 610–645 | 0.15 | 2.6 | 7,937 |
+| Intake | 0.87 | 0.89 | 0.07 | 621–633 | 0.17 | 2.8 | 13,034 |
+| All, 5th percentile | 0.85 | 0.88 | 0.049 | 618–664 | 0.14 | 5.8 | 8,217 |
+| All | 0.88 | 0.90 | 0.04 | 632–668 | 0.21 | 5.8 | 8,235 |
+
+- **The cap was a main cause.** Keeping all traces meets the 0.05 bar and comes within 0.024 of rebuilding alone, on both sets, at about 40% of the units.
+- **Choosing traces well recovers over half of that with no more than eight per unit.** Spread gains 0.028 and 0.023 of the ceiling's 0.045 and 0.042. It also meets the bar, narrowly, at 0.049, with 27% of the bytes of rebuilding alone. This setting and its margin come from looking at two seeds, so it needs confirming.
+- **Trace bytes fall for a second reason.** Spread drops repeated images: units end with about five distinct traces on average, not eight.
+- **Coverage trades against rejection.** With all traces and the lowest similarity, unseen symbols are answered at 0.21 and more at other rules (0.27, 0.32). The 5th percentile restores 0.14, but gives back the reads.
+- **Intake is not justified as built.** It reads a little better than spread and misses the bar, and its peak exceeds keeping everything, because repeated images fill its buffer.
+- **Rebuilding alone needs no more than eight traces.** Keeping all of them leaves it at 0.90 and 0.92 at this rate.
+
+Across rules at this rate and capacity:
+
+| Rule | Turns: reads, loss, units | Spread: reads, loss, units, unseen | All: reads, loss, units, unseen |
+|---|---|---|---|
+| Address 0.8, distinct | 0.80, 0.82; 0.08; 412–454 | 0.84, 0.86; 0.08; 392–458; 0.18 | 0.87, 0.89; 0.07; 483–518; 0.27 |
+| Address 0.7, distinct | 0.77, 0.81; 0.12; 311–342 | 0.83, 0.85; 0.13; 315–355; 0.21 | 0.86, 0.89; 0.05; 419–452; 0.32 |
+
+With fewer units the reads rise, but address rules still miss the bar with eight traces.
+
+**Where capacity is short,** normal rate, H 512, `address 0.7, distinct`, means of first and second sets:
+
+| Traces | Reads | Worst read | Worst loss | Units | Forced writes | Unseen answered | MB |
+|---|---|---|---|---|---|---|---|
+| Turns | 0.76, 0.77 | 0.70 | 0.10 | 252–279 | 2,178–2,920 | 0.19 | 1.7 |
+| Spread | 0.80, 0.80 | 0.76 | 0.08 | 265–297 | 2,013–2,841 | 0.22 | 1.5 |
+| All | 0.84, 0.87 | 0.82 | 0.07 | 357–361 | 2,176–3,352 | 0.41 | 5.8 |
+
+No policy meets the bar here. The best is `cover 0.25, distinct` with all traces at the 5th percentile, at 0.053.
+
+**At ten times the rate,** H 2048, `cover 0.25, distinct`:
+
+| Traces | Reads | Worst loss | Units | Unseen answered |
+|---|---|---|---|---|
+| Rebuild only, no merge | 0.86, 0.55 | 0.04 | 2,048 | 0.16 |
+| Rebuild only, all traces | 0.87, 0.69 | 0.04 | 2,048 | 0.17 |
+| Turns | 0.85, 0.83 | 0.05 | 1,075–1,358 | 0.39 |
+| Spread | 0.86, 0.85 | 0.06 | 1,071–1,337 | 0.44 |
+| All | 0.88, 0.87 | 0.04 | 1,321–1,503 | 0.55 |
+
+Trace choice matters less here, and rejection gets worse as coverage rises. At H 512 and this rate, every arm answers 0.60 or more of unseen queries. Fast drift's rejection problem remains open.
+
 ## What this does not establish
 
-- **Reaching one unit per symbol.** The best real settings leave about three to ten units per symbol, against one in the reference.
+- **Reaching one unit per symbol.** The best real settings leave about three to ten units per symbol, against one in the reference. The setting that meets the bar leaves about seven.
+- **That the bar is met.** Spread's 0.049 comes from choosing among many arms on two seeds.
 - **Richer values.** The content gate rests on nine distinct values, and a sensory trace value would behave differently.
 - **Everything moving at once.** Values and reading stay on block-3 host codes.
 - **Learning from a stream.** Encoder updates sample a curated set, and augmentations are hand-designed.
@@ -164,4 +224,4 @@ Writes and reads cost O(h d) per item. A merge pass costs O(h² d) time and O(h�
 
 ## Computation
 
-Probe: CPU, six workers, 49 s wall, 456 s aggregate CPU, 64 tasks. Learning: GTX 1650, three workers, one thread each, float32, 313 s wall, 1,380 s aggregate CPU, 8 tasks of 19 arms sharing one encoder path, GPU peak 87 MB, peak RSS 1.6 GB per process. Rebuild, merge and radius take 0.3–1.9 s per merging arm per task. Evidence: same hardware and workers, 735 s wall, 6,216 s aggregate CPU, 8 tasks of 26 arms, GPU peak 87 MB, peak RSS 2.0 GB per process; merge evidence and tests take 0.6–6.0 s per merging arm per task, the slowest being cover with the distinction test and reference set. Those tests add O(t h d) per pass for t kept traces. Selection in this pilot was by inspection across all of the above, with no cost beyond it.
+Probe: CPU, six workers, 49 s wall, 456 s aggregate CPU, 64 tasks. Learning: GTX 1650, three workers, one thread each, float32, 313 s wall, 1,380 s aggregate CPU, 8 tasks of 19 arms sharing one encoder path, GPU peak 87 MB, peak RSS 1.6 GB per process. Rebuild, merge and radius take 0.3–1.9 s per merging arm per task. Evidence: same hardware and workers, 735 s wall, 6,216 s aggregate CPU, 8 tasks of 26 arms, GPU peak 87 MB, peak RSS 2.0 GB per process; merge evidence and tests take 0.6–6.0 s per merging arm per task, the slowest being cover with the distinction test and reference set. Those tests add O(t h d) per pass for t kept traces. Trace selection: same hardware and workers, 1,711 s wall, 17,461 s aggregate CPU, 8 tasks of 32 arms, GPU peak 87 MB, peak RSS 2.1 GB per process; rebuild, merge and radius take up to 9 s per arm per task at the normal rate and up to 80 s at ten times the rate. Spread selection costs O(k t d) for a unit's t traces. Selection in this pilot was by inspection across all of the above, with no cost beyond it.
