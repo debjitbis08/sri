@@ -119,7 +119,7 @@ Normal rate, from block 5:
 - **On symbols, information is also lost.** The encoder itself identifies targets worse: fresh single target codes fall from 0.51–0.61 to 0.37–0.46, and even re-encoding from images loses 0.27.
 - **Maps may overcorrect.** With shifting symbols, stale values read the second set better than the oracle map: 0.45–0.58 against 0.24–0.27. A value written late in a block is already near the block's end state, yet receives the whole block's map. This is a likely cause, and it would also affect addresses, but it was not tested separately.
 
-At ten times the rate with a shift, every image-free arm reads below 0.45 on counts and below 0.20 on symbols, and the image arms degrade too.
+At ten times the rate with a shift, image-free arms with learning keys read at most 0.50 on counts and 0.33 on symbols. Frozen keys hold counts at 0.59–0.73, and the image arms degrade too (second set 0.12–0.57).
 
 ## What this does not establish
 
@@ -128,7 +128,7 @@ At ten times the rate with a shift, every image-free arm reads below 0.45 on cou
 - **The ceilings as bounds.** Memory averages several value images, so symbol reads exceed the single-code reference, 0.51–0.64.
 - **Shift as a test in general.** It is one shift, once, at one point, without any recovery time beyond block 6.
 - **Richer images.** All inputs are simple images at 28 × 28.
-- **The reference's fairness.** Image arms re-encode at block ends with an old map's overcorrection absent, so the comparison favours them under fast change.
+- **A fair test of maps under fast change.** Image arms re-encode exactly at block ends, while a map gives every write the whole block's movement, so the comparison favours images.
 
 ## Scaling
 
