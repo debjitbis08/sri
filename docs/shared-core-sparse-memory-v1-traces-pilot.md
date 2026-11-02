@@ -56,7 +56,7 @@ Worst loss is 0.03, and none on first traces. These facts need no concept and no
 
 ## What this does not establish
 
-- **Traces here are training images.** The host has trained on these collection renderings. A trace of something it has not seen has not been tested. This matters more for the claim than any other caveat here.
+- **Traces here are training images.** The host has trained on these collection renderings. Tested in the [unseen trace pilot](shared-core-sparse-memory-v1-unseen-traces-pilot.md): answers hold on unseen images of known formats with eight traces, memory-level figures here are flattered, and formats the host never learned give no meaning.
 - **Senses are frozen.** Keys, and the sensory read, are on the frozen encoder. No memory unit is frozen, but a sensory encoder that kept learning would bring staleness back to the keys. The host's own encoder identifies symbols only 0.26–0.27.
 - **How it decides which read to use.** Nothing here chooses between the sensory read and the host read. Each was read separately.
 - **The cap remains.** Answers reach the ceiling for `area` candidates; the rendering shift still limits it.

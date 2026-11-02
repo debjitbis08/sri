@@ -808,6 +808,10 @@ Before the stage 0 pilot, 2026-11-02, with no pilot result seen:
 - The stress condition defines a frozen sensory source, and it, the probes and the load probes are assigned to seeds 404–406.
 - CPU reporting is stated by resource target. The Kanerva reference was corrected and the background set is 1,987 symbols.
 
+After the unseen trace pilot, 2026-11-02:
+
+- Unseen images of known formats hold among candidates with eight traces. Formats the host never learned read near chance, so meaning is limited by what the host knows.
+
 After the sensory trace pilot, 2026-11-02:
 
 - Values as sensory traces, re-encoded through the current host when meaning is needed, hold at the ceiling for these candidates with the host learning, and read directly when the fact has no meaning. This replaces the proposal of a concept table, which repeats the code space and readers and needs a meaning.
