@@ -35,7 +35,12 @@ N, EXPOSURES, N_CANDIDATES = 45, 8, 150
 TAU = .85
 INTERVALS = (700, 1300, 3100)
 BETAS = (.999, .9999)
+START = os.environ.get('NM_START', 'glyph')
+BLIND = float(os.environ.get('NM_BLIND', .5))  # a copy whose recent inputs' mean code has more than this squared length is treated as blind to them; .5 set before seeing it, .25 chosen after seeing the collapse figures
 CAPACITY = 8192
+MARGINS = (10, 30)  # how many next-best units a margin is measured against; set for this read, not tuned
+MARGIN_FIXED = (.05, .1, .2)
+MARGIN_ARMS = () if os.environ.get('NM_NO_MARGIN') else ('versions', 'every-700', 'every-1300', 'every-3100')
 
 
 def kind_order(seed, order):
@@ -47,6 +52,11 @@ def kind_order(seed, order):
 def fact_row(kind_index, fact):
     """A kind's facts have their own rows in the scoring table."""
     return kind_index * N + fact
+
+
+def collapse(z):
+    """How much a batch of unit codes piles onto one point: the squared length of their mean, about the mean pairwise cosine. 1 when all are one point, about 1/n when spread. O(n d), with no pairs compared."""
+    return float((z.mean(0) ** 2).sum())
 
 
 def kind_data(kind, seed):
@@ -66,7 +76,7 @@ def learn(task):
     t0, c0 = time.perf_counter(), time.process_time()
     torch.set_num_threads(FI.THREADS)
     S0.set_up_task('sparse48')
-    model = SM.encoder('unlabelled', seed)
+    model = NM.build('small', 'scratch', seed) if START == 'scratch' else SM.encoder('unlabelled', seed)
     opt = torch.optim.Adam(model.parameters(), NM.LR)
     frozen = copy.deepcopy(model).requires_grad_(False).eval()
     averages = {f'ema-{b}': copy.deepcopy(model).requires_grad_(False).eval() for b in BETAS}
@@ -86,7 +96,10 @@ def learn(task):
     width = {**{e: NM.KEY for e in nets}, **{k: v[1] for k, v in fx.items()}}
     facts = len(KINDS) * N
     mems = {e: NM.Tagged(CAPACITY, TAU, width[e], width[e], facts) for e in coders}
-    version_arms = {'versions': [], **{f'every-{k}': [] for k in INTERVALS}}
+    version_arms = {'versions': [], **{f'every-{k}': [] for k in INTERVALS}, 'gated-versions': [], **{f'gated-{k}': [] for k in INTERVALS}}
+    is_gated = lambda arm: arm.startswith('gated')
+    last_base = [None]
+    gate_events = {arm: {'reforks': 0, 'refused_writes': 0} for arm in version_arms if is_gated(arm)}
     held, cache = [], {}
 
     def code(e, x, key=None):
@@ -116,7 +129,15 @@ def learn(task):
             z, v = code(e, cues), code(e, targets)
             for i in range(len(rows)):
                 mems[e].write_tagged(z[i], v[i], rows[i])
-        for versions in version_arms.values():
+        for arm, versions in version_arms.items():
+            if is_gated(arm):
+                live = last_base[0]
+                if collapse(NM.unit(versions[-1]['code'](live))) > BLIND:  # blind to what is passing: try a fresh copy, and refuse the write if the encoder is blind too
+                    if collapse(NM.unit(coders['working'](live))) > BLIND:
+                        gate_events[arm]['refused_writes'] += len(rows)
+                        continue
+                    fork(versions)
+                    gate_events[arm]['reforks'] += 1
             ver = versions[-1]
             z, v = NM.unit(ver['code'](cues)), NM.unit(ver['code'](targets))
             for i in range(len(rows)):
@@ -136,6 +157,35 @@ def learn(task):
         val = mem.u[:h] / mem.n[:h, None]
         return score(mem.tags[:h][i].argmax(1) == rows, s, (val[i] @ Zc.T).argmax(1) == truth, su)
 
+    def margin_scores(tag_ok, val_ok, margin, unseen_margin, best=None, unseen_best=None):
+        out = {'auc': NM.auc(margin, unseen_margin), 'answer-all': {'address': float(tag_ok.mean()), 'value': float(val_ok.mean())}}
+        for name, thr in {'matched-0.13': NM.matched_threshold(unseen_margin, .13), **{f'fixed-{m}': m for m in MARGIN_FIXED}}.items():
+            ok = margin >= thr
+            out[name] = {'threshold': float(thr), 'coverage': float(ok.mean()), 'unseen': float((unseen_margin >= thr).mean()), 'address': float((ok & tag_ok).mean()), 'value': float((ok & val_ok).mean())}
+        return out
+
+    def read_margins(mems_and_codes, Zqs, Zus, Zcs, rows, truth):
+        """Read one arm by margin, the copy with the widest margin answering. mems_and_codes: its memories, one per copy. Also how well raw similarity separates known from unseen, for comparison."""
+        out = {}
+        raw = [m.nearest(Z) for m, Z in zip(mems_and_codes, Zqs)]
+        raw_u = [m.nearest(Z) for m, Z in zip(mems_and_codes, Zus)]
+        out['auc_raw'] = NM.auc(np.max(np.stack([r[1] for r in raw]), 0), np.max(np.stack([r[1] for r in raw_u]), 0))
+        for k in MARGINS:
+            near = [NM.margin_of(Z @ m.a[:m.h].T, k) for m, Z in zip(mems_and_codes, Zqs)]
+            near_u = [NM.margin_of(Z @ m.a[:m.h].T, k) for m, Z in zip(mems_and_codes, Zus)]
+            margins = np.stack([n[2] for n in near])
+            w = margins.argmax(0)
+            at = np.arange(len(rows))
+            unit_i = np.stack([n[0] for n in near])[w, at]
+            tag_ok, val_ok = np.zeros(len(rows), bool), np.zeros(len(rows), bool)
+            for c, (m, Zc) in enumerate(zip(mems_and_codes, Zcs)):
+                here = w == c
+                if here.any():
+                    tag_ok[here] = m.tags[:m.h][unit_i[here]].argmax(1) == rows[here]
+                    val_ok[here] = ((m.u[:m.h] / m.n[:m.h, None])[unit_i[here]] @ Zc.T).argmax(1) == truth[here]
+            out[f'margin-{k}'] = margin_scores(tag_ok, val_ok, margins[w, at], np.max(np.stack([n[2] for n in near_u]), 0))
+        return out
+
     def read_all(taught):
         out = {}
         truth = np.arange(N)
@@ -145,12 +195,21 @@ def learn(task):
             for v in NM.VIEWS:
                 name = f'{kind}-{v}'
                 for e, mem in mems.items():
-                    out[f'{e}|{name}'] = {**read_one(mem, code(e, q[kind][v], name), code(e, qu[kind][v], name + '-u'), code(e, cand, kind + '-c'), rows, truth), 'units': mem.h}
+                    Zq_, Zu_, Zc_ = code(e, q[kind][v], name), code(e, qu[kind][v], name + '-u'), code(e, cand, kind + '-c')
+                    out[f'{e}|{name}'] = {**read_one(mem, Zq_, Zu_, Zc_, rows, truth), 'units': mem.h, **(read_margins([mem], [Zq_], [Zu_], [Zc_], rows, truth) if MARGIN_ARMS else {})}
                 for arm, all_versions in version_arms.items():
                     versions = [x for x in all_versions if x['mem'].h]
+                    versions_u = versions
+                    blind_seen = [collapse(NM.unit(x['code'](q[kind][v]))) for x in versions]
+                    if is_gated(arm):  # a copy answers only inputs it can tell apart; a whole batch is the recent inputs
+                        versions = [x for x, c in zip(versions, blind_seen) if c <= BLIND]
+                        versions_u = [x for x in versions_u if collapse(NM.unit(x['code'](qu[kind][v]))) <= BLIND]
+                    if not versions:
+                        out[f'{arm}|{name}'] = {**score(np.zeros(N, bool), np.full(N, -2.), np.zeros(N, bool), np.full(N, -2.)), 'units': 0, 'copies': 0, 'answered_by': 0}
+                        continue
                     near = [x['mem'].nearest(NM.unit(x['code'](q[kind][v]))) for x in versions]
                     w, i, s = MX.pick_answer(np.stack([n[1] for n in near]), np.stack([n[0] for n in near]))
-                    su = np.max(np.stack([x['mem'].nearest(NM.unit(x['code'](qu[kind][v])))[1] for x in versions]), 0)
+                    su = np.max(np.stack([x['mem'].nearest(NM.unit(x['code'](qu[kind][v])))[1] for x in versions_u]), 0) if versions_u else np.full(N, -2.)
                     tag_ok, val_ok = np.zeros(N, bool), np.zeros(N, bool)
                     for k, x in enumerate(versions):
                         at = w == k
@@ -158,7 +217,10 @@ def learn(task):
                             m = x['mem']
                             tag_ok[at] = m.tags[:m.h][i[at]].argmax(1) == rows[at]
                             val_ok[at] = ((m.u[:m.h] / m.n[:m.h, None])[i[at]] @ NM.unit(x['code'](cand)).T).argmax(1) == truth[at]
-                    out[f'{arm}|{name}'] = {**score(tag_ok, s, val_ok, su), 'units': sum(x['mem'].h for x in versions), 'copies': len(versions)}
+                    out[f'{arm}|{name}'] = {**score(tag_ok, s, val_ok, su), 'units': sum(x['mem'].h for x in all_versions), 'copies': len([x for x in all_versions if x['mem'].h]), 'answered_by': len(versions), 'collapse_by_copy': blind_seen}
+                    if not is_gated(arm) and arm in MARGIN_ARMS:
+                        Zqs_, Zus_, Zcs_ = [NM.unit(x['code'](q[kind][v])) for x in versions], [NM.unit(x['code'](qu[kind][v])) for x in versions], [NM.unit(x['code'](cand)) for x in versions]
+                        out[f'{arm}|{name}'].update(read_margins([x['mem'] for x in versions], Zqs_, Zus_, Zcs_, rows, truth))
         return out
 
     def rebuild_reads(taught):
@@ -186,9 +248,11 @@ def learn(task):
         for k in INTERVALS:
             if u_all % k == 0:
                 fork(version_arms[f'every-{k}'])
+                fork(version_arms[f'gated-{k}'])
         t = time.perf_counter()
         pool = data[kind]['pool']
         base = torch.from_numpy(np.ascontiguousarray(pool[rng.integers(len(pool), size=TK.CLASSES)], dtype=np.float32))
+        last_base[0] = base.detach().cpu().numpy()  # live inputs; replaced at the next update, never stored
         x = torch.stack([NM.stream_views(base, rng, 'strong'), NM.stream_views(base, rng, 'strong')], 1).reshape(-1, 28, 28)
         z = model(x)
         loss = SRL.info_nce(z @ z.T / NM.T, partner)
@@ -202,6 +266,7 @@ def learn(task):
         for _ in range(PRELUDE):
             train_step(kind)
         fork(version_arms['versions'])
+        fork(version_arms['gated-versions'])
         plan = NM.plan_writes(wrng, np.arange(N), EXPOSURES, BLOCK)
         for u in range(BLOCK):
             train_step(kind)
@@ -217,7 +282,7 @@ def learn(task):
         train_step(kinds[-1])
     with torch.no_grad():
         reads['end'] = {**read_all(taught), **rebuild_reads(taught)}
-    res = {'reads': reads, 'kinds': kinds, 'seed': seed, 'order': order, 'updates': u_all, 'train_wall_seconds': train_wall, 'write_wall_seconds': write_wall}
+    res = {'gate_events': gate_events, 'reads': reads, 'kinds': kinds, 'seed': seed, 'order': order, 'updates': u_all, 'train_wall_seconds': train_wall, 'write_wall_seconds': write_wall}
     return f'{seed}/{order}', res, S0.timing(t0, c0)
 
 

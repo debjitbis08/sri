@@ -380,6 +380,18 @@ class Tagged(Memory):
         return i, S[np.arange(len(Z)), i]
 
 
+def margin_of(S, k):
+    """S (q, h) similarities to units. Best unit, its similarity, and how far it stands above the mean of the next k units. A code that cannot tell inputs apart gives every unit nearly the same similarity, so a small margin. Local scaling, as in CSLS (Conneau et al. 2018), here on one's own memory."""
+    q, h = S.shape
+    i = S.argmax(1)
+    best = S[np.arange(q), i]
+    if h < 2:
+        return i, best, np.zeros(q, np.float32)
+    k = min(k, h - 1)
+    top = -np.partition(-S, k, axis=1)[:, :k + 1]  # the k + 1 largest
+    return i, best, best - (top.sum(1) - best) / k
+
+
 def taus_for(encoder):
     """Pixels are wide, so one write threshold only."""
     return (TAU_MAIN,) if encoder == 'pixels' else WRITE_TAUS

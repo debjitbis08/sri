@@ -199,7 +199,34 @@ class Mixed(unittest.TestCase):
                     self.assertEqual(stream, taught)
 
 
+class Margin(unittest.TestCase):
+    def test_a_blind_code_has_no_margin_and_a_discriminating_one_does(self):
+        from experiments.natural_memory import margin_of
+        blind = np.array([[.97, .97, .96, .97]], np.float32)
+        sharp = np.array([[.95, .10, .20, .05]], np.float32)
+        self.assertLess(margin_of(blind, 3)[2][0], .02)
+        self.assertGreater(margin_of(sharp, 3)[2][0], .7)
+
+    def test_the_margin_is_best_minus_the_mean_of_the_next_k(self):
+        from experiments.natural_memory import margin_of
+        i, best, m = margin_of(np.array([[.1, .9, .5, .3]], np.float32), 2)
+        self.assertEqual(int(i[0]), 1)
+        self.assertAlmostEqual(float(best[0]), .9, places=5)
+        self.assertAlmostEqual(float(m[0]), .9 - .4, places=5)
+
+    def test_one_unit_gives_no_margin(self):
+        from experiments.natural_memory import margin_of
+        self.assertEqual(float(margin_of(np.array([[.5]], np.float32), 10)[2][0]), 0.)
+
+
 class Sequence(unittest.TestCase):
+    def test_collapse_tells_one_point_from_spread_codes(self):
+        from experiments.natural_memory_sequence import collapse
+        one = np.tile(np.array([[1., 0., 0., 0.]], np.float32), (64, 1))
+        self.assertAlmostEqual(collapse(one), 1., places=5)
+        spread = unit(np.random.default_rng(9).normal(size=(64, 32)).astype(np.float32))
+        self.assertLess(collapse(spread), .1)
+
     def test_the_reverse_order_reverses_the_seeds_kinds(self):
         from experiments.natural_memory_sequence import KINDS, kind_order
         f, r = kind_order(392, 'forward'), kind_order(392, 'reverse')
