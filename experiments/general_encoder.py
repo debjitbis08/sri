@@ -4,6 +4,7 @@ Stages (argv[2]):
   stability label-free kind centres through frozen DINOv2: read every set after every later kind
   transfer  layers of already-trained networks read on kinds they never saw; no training
   memory    step 1: six kinds in one memory through one frozen encoder; no training; the sequence pilot's facts and draws
+            with GE_DOMAIN=1: one centre per domain (natural, rendered) against one per kind, and two encoders routed by domain
   heldout   step 2: trains on CIFAR-100 with categories held out, then asks what carries over to them (needs `general_encoder_fetch`)
   diet      step 3: one architecture trained on each diet of images, read on kinds outside that diet
 
@@ -43,6 +44,7 @@ MATCHED = .13
 FORM, MEMBER_QUANTILE = 512, .01  # inputs that form a kind centre before it freezes; the share of its own members a centre may fail to claim
 GALLERY = 300
 WITH_DINO = bool(os.environ.get('GE_DINO'))
+DOMAIN_TEST = bool(os.environ.get('GE_DOMAIN'))
 
 # CIFAR-100's coarse labels. People are left out of both sides.
 COARSE = ('aquatic_mammals', 'fish', 'flowers', 'food_containers', 'fruit_and_vegetables', 'household_electrical_devices', 'household_furniture', 'insects', 'large_carnivores', 'large_man-made_outdoor_things', 'large_natural_outdoor_scenes', 'large_omnivores_and_herbivores', 'medium_mammals', 'non-insect_invertebrates', 'people', 'reptiles', 'small_mammals', 'trees', 'vehicles_1', 'vehicles_2')
@@ -132,8 +134,18 @@ def coarse_noise(n, rng, size=28, cell=4):
     return grid.repeat(cell, 1).repeat(cell, 2)
 
 
+def domain_of(kind):
+    return 'natural' if kind == 'natural' else 'rendered'
+
+
 def memory_arms():
-    """Net, layer, centring. Layers and centrings vary on the natural-trained deep network; the others are read by their key."""
+    """Net, layer, centring. Layers and centrings vary on the natural-trained deep network; the others are read by their key.
+    With DOMAIN_TEST, only the arms of the domain test: `domain` centres each input on the mean of its domain, the rendered centre weighting the five rendered kinds equally;
+    `routed` writes and reads each domain in its own memory, natural images through the natural-trained deep network (stage 4), rendered ones through the glyph-trained small network."""
+    if DOMAIN_TEST:
+        arms = [('dinov2-s', lay, c) for lay in ('cls', 'patch') for c in ('none', 'kind', 'domain')] if WITH_DINO else []
+        arms += [('natural-deep', 'stage4', c) for c in ('none', 'kind', 'domain')] + [('glyph-small', 'key', c) for c in ('none', 'kind', 'domain')]
+        return arms + [('routed', 'split', c) for c in ('none', 'domain')]
     arms = [('natural-deep', lay, c) for lay in ('key', 'stage4', 'stage3') for c in CENTRINGS]
     arms += [(net, 'key', c) for net in ('natural-small', 'glyph-small') for c in CENTRINGS]
     arms += [('untrained-deep', 'key', 'none'), ('pixels', 'code', 'none'), ('pca', 'code', 'none')]
@@ -260,7 +272,8 @@ def memory_task(task):
     fx = {k: NM.fixed_codes(k, 'small', seed) for k in ('pixels', 'pca')}
     layers_of = lambda net: sorted({a[1] for a in arms if a[0] == net})
     features = lambda net, x: {'code': fx[net][0](x)} if net in fx else run_layers(nets[net], x, keep=layers_of(net))
-    all_nets = sorted({a[0] for a in arms})
+    all_nets = sorted({a[0] for a in arms} - {'routed'})
+    route = lambda arm, kind: (('natural-deep', 'stage4') if kind == 'natural' else ('glyph-small', 'key')) + (arm[2],) if arm[0] == 'routed' else arm
 
     crng = nc.stream('ge_centres', seed)
     mean_of = lambda net, x: {lay: f.mean(0) for lay, f in features(net, x).items()}
@@ -268,6 +281,7 @@ def memory_task(task):
     samples = {k: sample(data[k]['pool']) for k in kinds}  # stand-ins for inputs passing at the time; discarded; only the mean is kept
     centre_kind = {net: {k: mean_of(net, samples[k]) for k in kinds} for net in all_nets}
     centre_natural = {net: centre_kind[net]['natural'] for net in all_nets}
+    centre_domain = {net: {'natural': centre_natural[net], 'rendered': {lay: np.mean([centre_kind[net][k][lay] for k in kinds if k != 'natural'], 0) for lay in centre_natural[net]}} for net in all_nets}
 
     def centre(arm, kind, f, batch_mean=False):
         net, lay, how = arm
@@ -277,11 +291,16 @@ def memory_task(task):
             return centred(f, centre_natural[net][lay])
         if how == 'recent' and batch_mean:
             return centred(f, f.mean(0))
+        if how == 'domain':
+            return centred(f, centre_domain[net][domain_of(kind)][lay])
         return centred(f, centre_kind[net][kind][lay])
 
     facts = len(SEQ.KINDS) * N
-    width = {a: run_layers(nets[a[0]], np.zeros((1, 28, 28), np.float32), keep=(a[1],))[a[1]].shape[1] if a[0] in nets else fx[a[0]][1] for a in arms}
-    mems = {(a, tau): NM.Tagged(SEQ.CAPACITY, tau, width[a], width[a], facts) for a in arms for tau in (TAUS if a[0] != 'pixels' else (TAUS[0],))}
+    width_of = lambda a: run_layers(nets[a[0]], np.zeros((1, 28, 28), np.float32), keep=(a[1],))[a[1]].shape[1] if a[0] in nets else fx[a[0]][1]
+    tagged = lambda a, tau: NM.Tagged(SEQ.CAPACITY, tau, width_of(a), width_of(a), facts)
+    # a routed arm keeps one memory per domain, each with the full capacity; units stay far below it here
+    mems = {(a, tau): {d: tagged(route(a, d), tau) for d in ('natural', 'rendered')} if a[0] == 'routed' else tagged(a, tau) for a in arms for tau in (TAUS if a[0] != 'pixels' else (TAUS[0],))}
+    mem_of = lambda m, kind: m[domain_of(kind)] if isinstance(m, dict) else m
 
     write_wall = 0.
     for kind in kinds:
@@ -297,6 +316,7 @@ def memory_task(task):
         cues, targets, rows = np.concatenate(cues), np.concatenate(targets), np.concatenate(rows)
         fc, ft = {n: features(n, cues) for n in all_nets}, {n: features(n, targets) for n in all_nets}
         for (arm, tau), mem in mems.items():
+            arm, mem = route(arm, kind), mem_of(mem, kind)
             net, lay, _ = arm
             z, v = centre(arm, kind, fc[net][lay]), centre(arm, kind, ft[net][lay])
             for i in range(len(rows)):
@@ -312,14 +332,15 @@ def memory_task(task):
         fcand = {n: features(n, data[kind]['targets']) for n in all_nets}
         for view in NM.VIEWS:
             fq, fu = {n: features(n, q[kind][view]) for n in all_nets}, {n: features(n, qu[kind][view]) for n in all_nets}
-            for (arm, tau), mem in mems.items():
+            for (name, tau), mem in mems.items():
+                arm, mem = route(name, kind), mem_of(mem, kind)
                 net, lay, _ = arm
                 Z, Zu, Zc = centre(arm, kind, fq[net][lay], True), centre(arm, kind, fu[net][lay], True), centre(arm, kind, fcand[net][lay], True)
                 h = mem.h
                 i, s = mem.nearest(Z)
                 iu, su = mem.nearest(Zu)
                 val = mem.u[:h] / mem.n[:h, None]
-                reads[f'{arm_name(arm)}|{tau}|{kind}-{view}'] = {**score(mem.tags[:h][i].argmax(1) == rows, s, (val[i] @ Zc.T).argmax(1) == truth, su, tau), 'units': h, 'payload_bytes': mem.payload_bytes(),
+                reads[f'{arm_name(name)}|{tau}|{kind}-{view}'] = {**score(mem.tags[:h][i].argmax(1) == rows, s, (val[i] @ Zc.T).argmax(1) == truth, su, tau), 'units': h, 'payload_bytes': mem.payload_bytes(),
                                                                   'resemblance': resemblance(mem.tags[:h][iu].argmax(1), su, tau, index[kind], labels[kind][1], cue_labels)}
     return f'{seed}/{order}', {'reads': reads, 'kinds': kinds, 'seed': seed, 'order': order, 'write_wall_seconds': write_wall}, S0.timing(t0, c0)
 
@@ -329,7 +350,10 @@ def memory():
     S0.prepare()
     NM.data()
     res = S0.pool_map(DUR.durable(memory_task, RUNS / 'done-memory', '{0}-{1}'), [(s, o) for s in SEEDS for o in SEQ.ORDERS])
-    S0.save_json(f'{REPORT}-memory.json', {'status': 'exploratory, pilot seeds, an order of kinds and its reverse; no training; one memory through one frozen encoder; no image held', 'arms': memory_arms(), 'taus': TAUS, 'results': {k: r for k, r, _ in res}})
+    status = 'exploratory, pilot seeds, an order of kinds and its reverse; no training; one memory through one frozen encoder; no image held'
+    if DOMAIN_TEST:
+        status += '; domain test: one centre per domain against one per kind, and two encoders routed by domain into a memory each'
+    S0.save_json(f'{REPORT}-memory.json', {'status': status, 'arms': memory_arms(), 'taus': TAUS, 'results': {k: r for k, r, _ in res}})
     S0.save_json(f'{REPORT}-memory-runtime.json', S0.runtime({'phase': 'writes and reads through frozen encoders', 'wall_seconds': time.perf_counter() - t0, 'tasks': {k: t for k, _, t in res}, 'aggregate_worker_cpu_seconds': float(sum(t['cpu_seconds'] for _, _, t in res))}))
 
 

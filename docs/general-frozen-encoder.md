@@ -156,6 +156,43 @@ Kind centres found, of six kinds: 4, 2, 2, 3 on the patch mean; 4, 2, 2, 4 on th
 
 Compute: two workers, 1,809 s wall, 3,554 s aggregate CPU, peak RSS 2.1 GB, GPU peak 340 MB. Gate: `told` matches step 1 in all 288 comparisons. The quantile and the 512 inputs were set before running and not tuned.
 
+## Do glyphs need their own system? One centre per domain
+
+User's question, 2026-11-03: pile-up appeared only on the rendered kinds (MNIST, tree, Thai digits, banana, Chinese numerals, all white strokes on black), so is glyph reading a separate system, taught apart from objects? Per kind, the glyph-trained small network reads glyphs with no centre (0.46–0.67 mild) and natural images poorly (0.19), the reverse of natural-trained encoders; DINOv2 centred by kind reads glyph categories better than it. This test separates two designs, with no training, on step 1's facts, draws and memory (`GE_DOMAIN=1`, seeds 392 and 393, both orders):
+
+- **domain:** one centre per domain, natural and rendered, the rendered one weighting its five kinds equally; told the domain. What label-free centres would give if they merged exactly the rendered kinds.
+- **routed:** two encoders, each domain in its own memory: natural images through our natural-trained network (stage 4), rendered ones through the glyph-trained small network. Told the domain.
+
+Matched reads on mild views, per kind, means over four runs; then the mean over kinds, and over the five rendered kinds, as ranges over runs. Write threshold 0.85.
+
+| Encoder, centring | Natural | MNIST | Tree | Thai | Banana | Chinese | All six | Rendered | Rendered, strong | Rendered unseen at τ, mild | Rendered same category, mild |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| DINOv2 patch, none | 1.00 | 0.04 | 0.00 | 0.01 | 0.00 | 0.03 | 0.17–0.19 | 0.01–0.03 | 0.00–0.01 | 0.98–1.00 | 0.27–0.36 |
+| DINOv2 patch, kind | 1.00 | 0.92 | 0.32 | 0.65 | 0.25 | 0.47 | **0.59–0.63** | **0.50–0.55** | **0.23–0.28** | 0.25–0.27 | **0.76–0.80** |
+| DINOv2 patch, domain | 1.00 | 0.59 | 0.24 | 0.57 | 0.16 | 0.49 | 0.48–0.53 | 0.37–0.44 | 0.15–0.20 | 0.46–0.52 | 0.73–0.76 |
+| Natural deep stage 4, kind | 1.00 | 0.80 | 0.57 | 0.61 | 0.27 | 0.25 | 0.56–0.61 | 0.48–0.53 | 0.20–0.23 | 0.32–0.36 | 0.60–0.66 |
+| Natural deep stage 4, domain | 1.00 | 0.41 | 0.32 | 0.40 | 0.20 | 0.23 | 0.41–0.46 | 0.29–0.35 | 0.12–0.21 | 0.53–0.56 | 0.59–0.64 |
+| Glyph small, none | 0.19 | 0.67 | 0.46 | 0.59 | 0.47 | 0.50 | 0.46–0.50 | 0.52–0.56 | 0.07–0.08 | 0.30–0.36 | 0.59–0.62 |
+| Glyph small, kind | 0.39 | 0.79 | 0.53 | 0.59 | 0.52 | 0.59 | 0.54–0.60 | **0.56–0.64** | 0.08–0.11 | **0.23–0.28** | 0.59–0.64 |
+| Glyph small, domain | 0.39 | 0.72 | 0.30 | 0.57 | 0.43 | 0.51 | 0.41–0.54 | 0.44–0.55 | 0.05–0.09 | 0.36–0.40 | 0.58–0.61 |
+| Routed, none | 0.71 | 0.67 | 0.46 | 0.59 | 0.47 | 0.50 | 0.53–0.59 | 0.52–0.56 | 0.07–0.08 | 0.30–0.36 | 0.59–0.62 |
+| Routed, domain | 1.00 | 0.72 | 0.30 | 0.57 | 0.43 | 0.51 | 0.54–0.63 | 0.44–0.55 | 0.05–0.09 | 0.36–0.40 | 0.58–0.61 |
+
+DINOv2's class token reads as its patch mean, slightly lower. At the plain threshold, routed with a domain centre reads 0.66–0.69 on mild, level with stage 4 by kind (0.67–0.69) and above DINOv2 by kind (0.59–0.66).
+
+- **One rendered centre is not enough for instances.** For every encoder it reads rendered kinds about 0.1 lower than a centre per kind, and answers about twice as many unseen inputs. MNIST loses most (0.92 to 0.59 through DINOv2): each rendered kind still has its own offset from the shared one. It recovers most of what no centre loses, though: 0.37–0.44 against 0.01–0.03.
+- **For categories one rendered centre nearly suffices.** Unseen rendered images reach a stored fact of their category 0.73–0.76 through DINOv2, against 0.76–0.80 with a centre per kind.
+- **A glyph-trained encoder needs no centre on glyphs.** 0.52–0.56 with none, 0.56–0.64 with one per kind; a domain centre slightly lowers it. So a separate glyph system removes the pile-up on its own domain, which supports the user's view.
+- **But here it is the weaker reader.** On strong views it reads rendered kinds at 0.05–0.11 against DINOv2's 0.23–0.28, and categories at 0.58–0.64 against 0.76–0.80. Routing the two encoders matches the single best encoders on mild views, and falls well short on strong ones (0.21–0.24 over all six, against 0.33–0.36). The glyph network is small and was trained without labels; this compares these networks, not the two designs at scale.
+
+**So.** Glyphs are a domain of their own to these encoders: a network trained on them reads them with no centre, and a general encoder needs at least a glyph centre. Neither design wins outright. A general encoder with a centre per kind reads best and most robustly; one glyph centre costs about 0.1 on instances but little on categories; a separate small glyph encoder needs no centre but is fragile to strong views. A larger glyph-trained encoder, or a glyph reader taught on top of the general encoder, is what would decide it.
+
+For label-free centres this sets a target: merging the rendered kinds into one centre would cost about 0.1 against per-kind centres, far less than the natural centre swallowing them (0.43 in the stability test, against 0.48–0.53 here).
+
+Compute: GTX 1650, two workers, 1,597 s wall, 3,126 s aggregate CPU, peak RSS 2.5 GB; most of it encoding through DINOv2 at 224 × 224. No training. Gate: the 768 reads shared with the DINOv2 run equal it exactly. Run: `GE_DOMAIN=1 GE_DINO=1 GE_TAG=-domain NFI_DEVICE=cuda SC0_WORKERS=2 OPENBLAS_NUM_THREADS=1 /data/venvs/sri-cuda/bin/python -m experiments.general_encoder pilot memory`; tables `python3 -m experiments.general_encoder_domain reports/general-encoder-v1-domain-memory.json.gz`; report `reports/general-encoder-v1-domain-memory.json.gz`.
+
+Prior work, familiar, read before use: reading in people uses the visual word form area, which forms in object-recognition cortex only with learning to read (Dehaene and Cohen 2007, neuronal recycling); modern OCR such as TrOCR (Li et al. 2021) starts from an image-pretrained transformer and is then trained on text. Both are shared early vision with a reader taught on top, the design not yet tested here.
+
 ## Step 2: does anything carry over to categories never seen? (not run)
 
 Tests the animal example directly. Quarter-width ResNet-18 in colour, 40,000 updates, on CIFAR-100 with categories held out of training, seeds 392 and 393:

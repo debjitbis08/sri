@@ -135,6 +135,17 @@ class Arms(unittest.TestCase):
         for c in CENTRINGS:
             self.assertIn(f'natural-deep/key/{c}', names)
 
+    def test_domain_test_has_its_arms_and_routes_rendered_kinds_together(self):
+        from unittest import mock
+        import experiments.general_encoder as GE
+        with mock.patch.object(GE, 'DOMAIN_TEST', True), mock.patch.object(GE, 'WITH_DINO', True):
+            names = [arm_name(a) for a in GE.memory_arms()]
+        self.assertEqual(len(names), len(set(names)))
+        for n in ('dinov2-s/patch/domain', 'dinov2-s/patch/kind', 'glyph-small/key/none', 'routed/split/domain'):
+            self.assertIn(n, names)
+        self.assertEqual({GE.domain_of(k) for k in GE.DIGIT_KINDS}, {'rendered'})
+        self.assertEqual(GE.domain_of('natural'), 'natural')
+
 
 if __name__ == '__main__':
     unittest.main()
