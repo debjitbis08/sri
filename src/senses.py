@@ -231,3 +231,93 @@ class Gate:
 
     def parameters(self):
         return sum(p.numel() for p in self.layer.parameters())
+
+
+class KeptMemory:
+    """Memory over a growing set of centres that keeps what it holds when sight adapts (docs/sense-stable-v1-pilot.md).
+
+    - Each fact is written under one centre, for key and value alike; units are partitioned by centre, so a write merges only with units in its own coordinates.
+    - A read codes the query on every centre, scores each centre's units in that centre's coordinates, and takes the best unit; the value is decoded on the
+      winning unit's centre.
+    - With frozen_gate, each centre keeps the gate it opened with, so an unchanged query's score against an unchanged unit never changes when centres open
+      or the gate is refitted. Without it, every centre uses the current gate.
+    make_memory() returns a memory with write(z, v) or write_tagged(z, v, row), and arrays a, u, n and count h (src.sparse_local_memory.Memory, or a tagged one).
+    Read cost: O(k d) to code a query on k centres plus O(h d) to score h units once; state: k centres, k gates when frozen, and the units."""
+
+    def __init__(self, models, make_memory, frozen_gate=True):
+        self.models, self.make_memory, self.frozen_gate = tuple(models), make_memory, frozen_gate
+        self.centres, self.parts, self.gates, self.gate = [], [], [], None
+
+    def open_centre(self, centre, gate):
+        """centre: {model: raw centre vector}; gate: the gate refitted when this centre opened (it becomes the current gate too)."""
+        self.centres.append({n: np.asarray(centre[n], np.float32) for n in self.models})
+        self.parts.append(self.make_memory())
+        self.gates.append(gate)
+        self.gate = gate
+        return len(self.centres) - 1
+
+    def refit(self, gate):
+        """A new current gate. Frozen centres keep theirs."""
+        self.gate = gate
+
+    def _parts(self, codes, j):
+        return [centred(codes[n], self.centres[j][n][None]) for n in self.models]
+
+    def _weights(self, g, codes):
+        if g is None:
+            return None
+        w = g([unit(codes[n]) for n in self.models])
+        return [w[:, i] for i in range(len(self.models))]
+
+    def key(self, codes, j):
+        return join(self._parts(codes, j))
+
+    def write(self, cue, target, centre_ids, rows=None):
+        """cue, target: {model: raw codes}; centre_ids: the centre of each fact (picked by its cue), used for both sides."""
+        centre_ids = np.asarray(centre_ids)
+        for j in np.unique(centre_ids):
+            m = centre_ids == j
+            z = self.key({n: cue[n][m] for n in self.models}, j)
+            v = self.key({n: target[n][m] for n in self.models}, j)
+            mem = self.parts[j]
+            for i, (zi, vi) in enumerate(zip(z, v)):
+                if rows is None:
+                    mem.write(zi, vi)
+                else:
+                    mem.write_tagged(zi, vi, np.asarray(rows)[m][i])
+
+    def scores(self, codes):
+        """(q, h) scores against every unit, with the centre and index of each column."""
+        blocks, cen, idx = [], [], []
+        for j, mem in enumerate(self.parts):
+            if not mem.h:
+                continue
+            g = self.gates[j] if self.frozen_gate else self.gate
+            blocks.append(join(self._parts(codes, j), self._weights(g, codes)) @ mem.a[:mem.h].T)
+            cen.append(np.full(mem.h, j))
+            idx.append(np.arange(mem.h))
+        return np.concatenate(blocks, 1), np.concatenate(cen), np.concatenate(idx)
+
+    def read(self, codes):
+        """Best unit per query: its centre, index within the centre, score, and value (mean content)."""
+        S, cen, idx = self.scores(codes)
+        b = S.argmax(1)
+        c, i = cen[b], idx[b]
+        value = np.stack([self.parts[cc].u[ii] / self.parts[cc].n[ii] for cc, ii in zip(c, i)])
+        return {'centre': c, 'unit': i, 'score': S[np.arange(len(b)), b], 'value': value, 'column': b}
+
+    def decode(self, read, candidates):
+        """Index of the candidate each value matches best, with candidates coded on each read's winning centre."""
+        Zc = {c: self.key(candidates, c) for c in np.unique(read['centre'])}
+        return np.array([int((read['value'][r] @ Zc[c].T).argmax()) for r, c in enumerate(read['centre'])])
+
+    def state_bytes(self):
+        """Occupied and allocated bytes: every unit array (address sum c, address a, content sum u: float32; count n: int64), centres, and gates."""
+        occ = alloc = 0
+        for mem in self.parts:
+            per = mem.c.itemsize * (mem.c.shape[1] + mem.a.shape[1]) + mem.u.itemsize * mem.u.shape[1] + mem.n.itemsize
+            occ += mem.h * per
+            alloc += mem.H * per
+        cb = 4 * sum(sum(len(c[n]) for n in self.models) for c in self.centres)
+        gb = 4 * sum(g.parameters() for g in (self.gates if self.frozen_gate else [self.gate]) if g is not None)
+        return {'units_occupied': occ, 'units_allocated': alloc, 'centres': cb, 'gates': gb}

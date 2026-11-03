@@ -57,7 +57,7 @@ Comparing pre at stage s with post at stage s−1 is **drift**: sight changed, a
 | `kept` | 0 | 0.17 | 44 | 5 | 0 | 0.20 | 0 |
 | `kept+frozen` | 0 | 0.22 | 48 | 6 | 2 | 0.20 | 0 |
 
-Later facts never changed an old unit's score: no write merged into a unit holding an older fact. In 48 of 5,400 reads a new unit outscored the old correct one, all on strong views.
+Later facts never changed an old unit's score, because in these streams no write merged into a unit holding an older fact. In 48 of 5,400 reads a different unit won, all on strong views. That does not mean 48 lost answers: value decoding flipped in 6 of those reads and acceptance at τ in 2.
 
 **End of the run against just after teaching.** Mean over the kinds taught before the last, as a range over runs, and the worst single kind:
 
@@ -82,14 +82,15 @@ Later facts never changed an old unit's score: no write merged into a unit holdi
 ## What this shows
 
 - **Keeping each fact's centre and freezing a gate per centre removes drift completely.** Over 5,400 query reads, no score, unit choice, value decoding or acceptance changed when centres opened or the gate refitted, and nothing changed for unseen inputs either. The invariant holds exactly, not approximately.
+- **The invariant covers unchanged units only.** A later write that merges into an existing unit changes that unit. These streams never did that to a unit holding an older fact, so they don't test it. `tests/test_kept_memory.py` shows the case directly.
 - **Each fix alone is not enough.**
   - Keeping centres alone halves the drift.
   - The current gate still moves query weights, so 72 value decodings still flip.
-- **The remaining loss is interference, and it is small.** New facts' units outscore an old correct unit in 48 of 5,400 reads, all on strong views. That costs up to 0.04 on a single kind's strong reads and nothing on mild reads.
+- **The remaining loss is interference, and it is small.** A different unit wins in 48 of 5,400 reads, all on strong views. Of those, 6 value decodings and 2 acceptances flip. That costs up to 0.04 on a single kind's strong reads and nothing on mild reads.
 - **Recall improves too.** Final mild reads are 0.70–0.77 against 0.67–0.76, and 0.70–0.78 at τ against 0.67–0.74, because no fact is lost to drift.
 - **The cost is slightly more false answers and slower reads.**
   - Searching every centre's coordinates lets unseen inputs find a match a little more often: 0.13–0.15 at τ against 0.11–0.13 mild, 0.06 against 0.03–0.05 strong.
-  - Reads take 0.35–0.53 ms per query against 0.14–0.16 ms. That is still small beside encoding, at 0.075 s per input for both models.
+  - Batch-one retrieval takes 1.36–1.50 ms against 1.09–1.16 ms for the single memory, on one CPU thread at the pilot's sizes (`experiments/sense_stable_bench.py`). That is still small beside encoding, at 0.075 s per input for both models.
 
 ## What this does not establish
 
@@ -97,7 +98,7 @@ Later facts never changed an old unit's score: no write merged into a unit holdi
 - **Fresh seeds, or streams where kinds interleave.** The shift rule still assumes each kind arrives for a while at a time, and in seed 393 it still forms one mixed centre at the start.
 - **That the stored state stays bounded.**
   - Every centre and gate snapshot is kept forever.
-  - The kept gate codes grow by about 3.1 MB per centre and make up most of the 24–27 MB of state in these runs. The units take about 6 MB.
+  - The kept gate codes grow by 3 MB per centre, 18–21 MB in these runs. That is more than the occupied units, at 8.5–8.9 MB.
 
 ## Prior work
 
@@ -114,8 +115,26 @@ For a query, with k centres, h units in total, d the joined width and a gate of 
 - scoring every unit once in its own centre's coordinates costs O(h d);
 - so a read costs O(h d + k d), not O(k h d).
 
-Value decoding codes candidates on one centre, the winner's. Stored state grows as O(k) for centres and gate snapshots (k × (768 floats + 770 parameters)), plus the kept gate codes (2 × 512 × 768 floats per centre unless capped), plus O(h d) for units.
+Value decoding codes candidates on one centre, the winner's. Stored state grows as:
+- O(k) for centres and gate snapshots: k × (768 floats + 770 parameters);
+- the kept gate codes: 2 × 512 × 768 floats per centre unless capped;
+- O(h d) for units: each holds an address sum, an address and a content sum (768 float32 each) and an int64 count, 9,224 bytes.
+
+Partitions that reserve capacity per centre allocate k times a partition's capacity.
 
 ## Computation
 
-GTX 1650, two workers. 2,907 s wall, 5,752 s aggregate CPU, peak RSS 2.7 GB. No model was trained. The gates have 770 parameters, with 300 steps per refit and 6–7 refits per run, as in the adapt pilot. Read latency per query, excluding encoding: `online` 0.14–0.16 ms, `kept` and `kept+frozen` 0.35–0.53 ms. Stored state per run is 23.7–27.0 MB, the same for all three arms because the units total about the same.
+GTX 1650, two workers. 2,907 s wall, 5,752 s aggregate CPU, peak RSS 2.7 GB. No model was trained. The gates have 770 parameters, with 300 steps per refit and 6–7 refits per run, as in the adapt pilot.
+
+**State per run**, from the unit counts, at 9,224 bytes per unit (scoring tags excluded as diagnostics):
+
+| | Single memory (`online`) | `kept+frozen` |
+|---|---|---|
+| Units occupied | 8.5–8.9 MB | 8.5–8.9 MB |
+| Units allocated | 72 MB (8,192 units) | 108–126 MB (2,048 per centre, 6–7 centres) |
+| Centres and gate snapshots | 3 kB | 36–42 kB |
+| Kept gate codes | 18–21 MB | 18–21 MB |
+
+An earlier version of this section gave 24–27 MB of state. That figure counted only the address and content per unit, undercounted the count field, and left out allocated capacity.
+
+**Read latency.** In the pilot, reads averaged 0.35–0.53 ms per query for the kept arms and 0.14–0.16 ms for `online`. Those figures are amortized over batches and include the evaluation diagnostics. Isolated batch-one retrieval on synthetic codes of the same sizes, one CPU thread, median of 2,000 reads (`experiments/sense_stable_bench.py`), takes 1.36–1.50 ms for `kept+frozen` against 1.09–1.16 ms for a single memory.

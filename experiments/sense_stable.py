@@ -78,10 +78,7 @@ def stable_task(task):
     D = SN.get('dinov2-s').dim
     facts = len(SEQ.KINDS) * N
     single = NM.Tagged(SEQ.CAPACITY, TAU, 2 * D, 2 * D, facts)
-    parts_mem = {arm: [] for arm in ('kept', 'kept+frozen')}  # per centre
-
-    def centre_parts(f, j):
-        return [SN.centred(f[n], online.centre_array(n)[j][None]) for n in E]
+    kept = {arm: SN.KeptMemory(E, lambda: NM.Tagged(PER_CENTRE, TAU, 2 * D, 2 * D, facts), frozen_gate=arm == 'kept+frozen') for arm in ('kept', 'kept+frozen')}
 
     def own_parts(f):
         a = online.assign(f)
@@ -110,28 +107,14 @@ def stable_task(task):
             row = trow[i]
             own = np.where(trow[None] == rows_k[:, None], S, -np.inf).max(1) if rows_k is not None else None
         else:
-            mems = parts_mem[arm]
-            blocks, cen_of, unit_of, trows = [], [], [], []
-            for j, mem in enumerate(mems):
-                if not mem.h:
-                    continue
-                g = gate['snap'][j] if arm == 'kept+frozen' else gate['now']
-                Z = SN.join(centre_parts(f, j), gate_weights(g, f))
-                blocks.append(Z @ mem.a[:mem.h].T)
-                cen_of.append(np.full(mem.h, j))
-                unit_of.append(np.arange(mem.h))
-                trows.append(mem.tags[:mem.h].argmax(1))
-            S, cen_of, unit_of, trow = np.concatenate(blocks, 1), np.concatenate(cen_of), np.concatenate(unit_of), np.concatenate(trows)
-            b = S.argmax(1)
-            s = S[np.arange(nq), b]
-            cen, i = cen_of[b], unit_of[b]
-            ok = None
-            if fcand is not None:
-                val = np.stack([mems[c].u[u] / mems[c].n[u] for c, u in zip(cen, i)])
-                Zc = {c: SN.join(centre_parts(fcand, c)) for c in np.unique(cen)}
-                ok = np.array([(val[r] @ Zc[cen[r]].T).argmax() == r for r in range(nq)])
+            km = kept[arm]
+            r = km.read(f)
+            S, cols_c, cols_i = km.scores(f)
+            trow = np.concatenate([km.parts[j].tags[:km.parts[j].h].argmax(1) for j in range(len(km.parts)) if km.parts[j].h])
+            cen, i, s = r['centre'], r['unit'], r['score']
+            ok = km.decode(r, fcand) == np.arange(nq) if fcand is not None else None
             own = np.where(trow[None] == rows_k[:, None], S, -np.inf).max(1) if rows_k is not None else None
-            row = trow[b]
+            row = trow[r['column']]
         read_seconds[arm] += time.perf_counter() - t
         read_queries[arm] += nq
         return {'centre': cen, 'unit': i, 'score': s, 'row': row, 'value_ok': ok, 'own': own}  # a unit is identified by (centre, unit)
@@ -171,9 +154,10 @@ def stable_task(task):
                 kept_codes.append({n: np.stack([f1[n], f2[n]]) for n in E})
                 forming_imgs = []
                 froze.append(j)
-                gate['snap'].append(refit_gate())
-                for arm in parts_mem:
-                    parts_mem[arm].append(NM.Tagged(PER_CENTRE, TAU, 2 * D, 2 * D, facts))
+                g = refit_gate()
+                gate['snap'].append(g)
+                for km in kept.values():
+                    km.open_centre({n: online.centre_array(n)[j] for n in E}, g)
         del passing
         stages.append({'kind': kind, 'centres': len(online.centres), 'froze': froze, 'thresholds': list(online.thresholds)})
         if taught:
@@ -193,25 +177,20 @@ def stable_task(task):
         for i in range(len(rows)):
             single.write_tagged(z[i], v[i], rows[i])
         a = online.assign(fc)  # the cue picks the centre for cue and target
-        for j in np.unique(a):
-            m = a == j
-            zj, vj = SN.join(centre_parts({n: fc[n][m] for n in E}, j)), SN.join(centre_parts({n: ft[n][m] for n in E}, j))
-            for arm in parts_mem:
-                for zi, vi, ri in zip(zj, vj, rows[m]):
-                    parts_mem[arm][j].write_tagged(zi, vi, ri)
+        for km in kept.values():
+            km.write(fc, ft, a, rows)
         taught.append(kind)
         if kind not in cache:
             cache[kind] = {'cand': sense(data[kind]['targets']), **{f'q-{v}': sense(q[kind][v]) for v in NM.VIEWS}, **{f'u-{v}': sense(qu[kind][v]) for v in NM.VIEWS}}
         read_all(f'{s_i + 1}:{kind}:post')
 
-    forced = {'online': single.forced, **{arm: int(sum(m.forced for m in parts_mem[arm])) for arm in parts_mem}}
-    units = {'online': single.h, **{arm: [m.h for m in parts_mem[arm]] for arm in parts_mem}}
+    forced = {'online': single.forced, **{arm: int(sum(m.forced for m in km.parts)) for arm, km in kept.items()}}
+    units = {'online': single.h, **{arm: [m.h for m in km.parts] for arm, km in kept.items()}}
     kept_bytes = int(sum(sum(a.nbytes for a in k.values()) for k in kept_codes))
-    gate_bytes = 4 * gate['now'].parameters()
+    per_unit = 4 * (2 * D + 2 * D + 2 * D) + 8  # address sum, address, content sum (float32); count (int64); scoring tags excluded
     centre_bytes = 4 * len(online.centres) * sum(SN.get(n).dim for n in E)
-    state = {'online': {'units': single.bytes_used(), 'centres': centre_bytes, 'gates': gate_bytes, 'kept_codes': kept_bytes},
-             'kept': {'units': int(sum(m.bytes_used() for m in parts_mem['kept'])), 'centres': centre_bytes, 'gates': gate_bytes, 'kept_codes': kept_bytes},
-             'kept+frozen': {'units': int(sum(m.bytes_used() for m in parts_mem['kept+frozen'])), 'centres': centre_bytes, 'gates': gate_bytes * len(gate['snap']), 'kept_codes': kept_bytes}}
+    state = {'online': {'units_occupied': single.h * per_unit, 'units_allocated': single.H * per_unit, 'centres': centre_bytes, 'gates': 4 * gate['now'].parameters(), 'kept_codes': kept_bytes},
+             **{arm: {**km.state_bytes(), 'kept_codes': kept_bytes} for arm, km in kept.items()}}
     latency = {arm: read_seconds[arm] / max(read_queries[arm], 1) for arm in ARMS}
     res = {'reads': reads, 'kinds': kinds, 'seed': seed, 'order': order, 'stages': stages, 'shift_log': online.log, 'gate_refits': refits,
            'forced_writes': forced, 'units': units, 'state_bytes': state}
