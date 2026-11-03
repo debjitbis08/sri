@@ -1,0 +1,57 @@
+{
+ "children_peak_rss_kb": 2420816,
+ "command": "/home/debjit/code/sri/experiments/sense_growth.py pilot codes",
+ "contract_sha256": "e94933660a9c50b03e9b24099b64f977ec3cba1e788405f84facb1bcca8c839a",
+ "cpu": "x86_64",
+ "cublas_workspace_config": ":4096:8",
+ "cuda": "13.0",
+ "cudnn": 92400,
+ "deterministic_algorithms": true,
+ "device": "cuda",
+ "dirty": true,
+ "dtype": "float32",
+ "gpu": "NVIDIA GeForce GTX 1650",
+ "numpy": "2.5.4",
+ "parent_peak_rss_kb": 2420816,
+ "phase": "DINOv2 codes of each kind's pool",
+ "python": "3.12.3",
+ "revision": "4aeb382276c5d0bf931c273d05a3071740094f14",
+ "rss_convention": "ru_maxrss in KiB, per process; children is the largest single child",
+ "runner_sha256": "4b5573ad3b7ecddb231f836a02d6b0f6ae51c992aefbb175d5cf4e6391e40bbd",
+ "scope": "nondeterministic timing",
+ "senses": {
+  "dinov2-s": {
+   "cost": {
+    "inputs": 54000,
+    "key_bytes": 1536,
+    "parameters": 22056576,
+    "seconds": 1127.3878039490082,
+    "seconds_per_input": 0.020877551924981634
+   },
+   "dim": 384,
+   "inputs": "grey (n, h, w) float32 in [0, 1]; colour (n, 3, h, w) also accepted by DINOv2",
+   "layer": "patch",
+   "licence": {
+    "checked": "2026-11-03",
+    "code": "Apache-2.0",
+    "notes": "Covers the general DINOv2 backbones, including dinov2_vits14_pretrain.pth. Other models in that repository differ: XRay-DINO and Cell-DINO weights are under the FAIR Noncommercial Research License and must not be registered without a separate check. Redistributing the weights would carry Apache-2.0 notice duties; we do not redistribute them (fetched outside the repository).",
+    "sources": [
+     "https://github.com/facebookresearch/dinov2 README: \"DINOv2 code and model weights are released under the Apache License 2.0.\""
+    ],
+    "status": "clear",
+    "weights": "Apache-2.0"
+   },
+   "module": "experiments.dinov2_frozen",
+   "name": "dinov2-s",
+   "options": {},
+   "path": "/data/external-downloads/dinov2/dinov2_vits14_pretrain.pth",
+   "reference": "Oquab et al. 2023, arXiv 2304.07193; ViT-S/14, mean of patch tokens after the final norm",
+   "sense": "sight",
+   "sha256": "b938bf1bc15cd2ec0feacfe3a1bb553fe8ea9ca46a7e1d8d00217f29aef60cd9"
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cu130",
+ "wall_seconds": 1158.092515078999,
+ "workers": 3
+}

@@ -1,0 +1,22 @@
+{
+ "children_peak_rss_kb": 1166844,
+ "command": "/home/debjit/code/sri/experiments/sense_growth.py pilot main",
+ "contract_sha256": "e94933660a9c50b03e9b24099b64f977ec3cba1e788405f84facb1bcca8c839a",
+ "cpu": "x86_64",
+ "cpu_seconds": 46.078213823999995,
+ "device": "cpu",
+ "dirty": true,
+ "dtype": "float32",
+ "numpy": "2.5.4",
+ "parent_peak_rss_kb": 1166844,
+ "phase": "growth rules on stress streams",
+ "python": "3.12.3",
+ "revision": "4aeb382276c5d0bf931c273d05a3071740094f14",
+ "rss_convention": "ru_maxrss in KiB, per process; children is the largest single child",
+ "runner_sha256": "4b5573ad3b7ecddb231f836a02d6b0f6ae51c992aefbb175d5cf4e6391e40bbd",
+ "scope": "nondeterministic timing",
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cu130",
+ "wall_seconds": 40.45864680899831,
+ "workers": 3
+}

@@ -89,6 +89,12 @@ Recommended order: 1 and 2, then 3 to 5 (one experiment), 7, 8, 9, 10. Step 11 i
 
    **Drift fix, pilot, 2026-11-04** ([results](sense-stable-v1-pilot.md)). Each fact keeps the centre it was written under, for key and value. Units are partitioned by centre, every centre is searched, and each centre keeps its own frozen gate. Together these remove drift exactly: 0 of 5,400 query reads changed in score, unit, value decoding or acceptance when centres opened or the gate refitted. Mild reads no longer degrade at all. What remains is interference from new units: a different unit wins in 48 of 5,400 reads on strong views, with 6 value decodings and 2 acceptances flipped, up to −0.04 on a single kind. The invariant covers unchanged units; a write merging into an old unit was not exercised. The costs are slightly more unseen inputs answered (0.13–0.15 against 0.11–0.13 mild) and batch-one retrieval of 1.36–1.50 ms against 1.09–1.16 ms. Occupied units take 8.5–8.9 MB in both designs, and allocation is 108–126 MB against 72 MB. Kept gate codes add 3 MB per centre. External review (2026-11-04) accepted the fix and recommended moving to step 8. The invariant is now a regression test (`tests/test_kept_memory.py`, `src.senses.KeptMemory`).
 
+   **When to open a centre, pilot, 2026-11-04** ([results](sense-growth-v1-pilot.md)). No rule tested is safe on all four stress streams.
+   - **A windowed shift rule** suits kinds that arrive in runs: no false centre in 51,200 familiar inputs. It fails on interleaved and gradual streams.
+   - **A pile-up trigger** handles gradual change, but over-splits overlapping kinds.
+
+   Documented as open; per external review it does not delay step 8.
+
 6. **Upgrading a sense in production (lightweight, not on the path to integration).** When a sense model is replaced or added while memory holds facts written through the old one, old keys cannot be re-encoded, because no images are stored. Candidate designs, cheapest first:
    - **run both models for a while:** the old model stays as one more part of the key, new facts are written through the new model, and the old model is retired once few facts depend on it;
    - **re-write facts when they are recalled:** when an input matches an old fact, the live input is encoded through the new model and that code is added to the fact's key, so facts in use move over and unused ones fade;
