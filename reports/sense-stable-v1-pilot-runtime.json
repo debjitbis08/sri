@@ -1,0 +1,325 @@
+{
+ "aggregate_worker_cpu_seconds": 5752.22260618,
+ "children_peak_rss_kb": 2677092,
+ "command": "/home/debjit/code/sri/experiments/sense_stable.py pilot",
+ "contract_sha256": "e94933660a9c50b03e9b24099b64f977ec3cba1e788405f84facb1bcca8c839a",
+ "cpu": "x86_64",
+ "cublas_workspace_config": ":4096:8",
+ "cuda": "13.0",
+ "cudnn": 92400,
+ "deterministic_algorithms": true,
+ "device": "cuda",
+ "dirty": true,
+ "dtype": "float32",
+ "gpu": "NVIDIA GeForce GTX 1650",
+ "numpy": "2.5.4",
+ "parent_peak_rss_kb": 1789180,
+ "phase": "two frozen sight models, online centres and gates, three memory designs, reads before and after each kind",
+ "python": "3.12.3",
+ "revision": "700ea276b0a748e11fcb9ce1edf1ef60a9f93dc8",
+ "rss_convention": "ru_maxrss in KiB, per process; children is the largest single child",
+ "runner_sha256": "4b5573ad3b7ecddb231f836a02d6b0f6ae51c992aefbb175d5cf4e6391e40bbd",
+ "scope": "nondeterministic timing",
+ "tasks": {
+  "392/forward": {
+   "cpu_seconds": 1388.424365457,
+   "gpu_peak_allocated_bytes": 978136064,
+   "peak_rss_kb": 2662940,
+   "read_seconds_per_query": {
+    "kept": 0.00042572355664167755,
+    "kept+frozen": 0.0004242632115737824,
+    "online": 0.00015452243486283862
+   },
+   "senses": {
+    "dinov2-s": {
+     "cost": {
+      "inputs": 18588,
+      "key_bytes": 1536,
+      "parameters": 22056576,
+      "seconds": 365.0015702578821,
+      "seconds_per_input": 0.01963640898740489
+     },
+     "dim": 384,
+     "inputs": "grey (n, h, w) float32 in [0, 1]; colour (n, 3, h, w) also accepted by DINOv2",
+     "layer": "patch",
+     "licence": {
+      "checked": "2026-11-03",
+      "code": "Apache-2.0",
+      "notes": "Covers the general DINOv2 backbones, including dinov2_vits14_pretrain.pth. Other models in that repository differ: XRay-DINO and Cell-DINO weights are under the FAIR Noncommercial Research License and must not be registered without a separate check. Redistributing the weights would carry Apache-2.0 notice duties; we do not redistribute them (fetched outside the repository).",
+      "sources": [
+       "https://github.com/facebookresearch/dinov2 README: \"DINOv2 code and model weights are released under the Apache License 2.0.\""
+      ],
+      "status": "clear",
+      "weights": "Apache-2.0"
+     },
+     "module": "experiments.dinov2_frozen",
+     "name": "dinov2-s",
+     "options": {},
+     "path": "/data/external-downloads/dinov2/dinov2_vits14_pretrain.pth",
+     "reference": "Oquab et al. 2023, arXiv 2304.07193; ViT-S/14, mean of patch tokens after the final norm",
+     "sense": "sight",
+     "sha256": "b938bf1bc15cd2ec0feacfe3a1bb553fe8ea9ca46a7e1d8d00217f29aef60cd9"
+    },
+    "trocr-s": {
+     "cost": {
+      "inputs": 18588,
+      "key_bytes": 1536,
+      "parameters": 21812352,
+      "seconds": 997.1247971040139,
+      "seconds_per_input": 0.053643468748870986
+     },
+     "dim": 384,
+     "inputs": "grey (n, h, w) float32 in [0, 1]; colour (n, 3, h, w) also accepted by DINOv2",
+     "layer": "cls",
+     "licence": {
+      "checked": "2026-11-03",
+      "code": "MIT (microsoft/unilm root LICENSE, which trocr/README.md points to)",
+      "notes": "The checkpoint carries no licence. MIT covers the repository source tree; whether it extends to checkpoints hosted on Hugging Face and Azure blob storage is not stated. Fine for this research, as an assumption; before distribution or product use, get a statement from Microsoft or replace this model.",
+      "sources": [
+       "https://huggingface.co/microsoft/trocr-small-stage1 (revision d94c4048159050bb51e4105bad0a45dbfd5f3a02): no license field or section",
+       "https://github.com/microsoft/unilm/tree/master/trocr README: code under the repository LICENSE (MIT); no terms for the checkpoints"
+      ],
+      "status": "unclear",
+      "weights": "none stated"
+     },
+     "module": "experiments.trocr_frozen",
+     "name": "trocr-s",
+     "options": {
+      "invert": true
+     },
+     "path": "/data/external-downloads/trocr/pytorch_model.bin",
+     "reference": "Li et al. 2021, arXiv 2109.10282; stage 1 encoder, class token after the final norm, inputs inverted",
+     "sense": "sight",
+     "sha256": "35ee4bee78f7686e15e5eaf9de5b0788ae28c53fa756883afd3405924f6c49c5"
+    }
+   },
+   "wall_seconds": 1388.1691585110093
+  },
+  "392/reverse": {
+   "cpu_seconds": 1397.146922023,
+   "gpu_peak_allocated_bytes": 978136064,
+   "peak_rss_kb": 2651048,
+   "read_seconds_per_query": {
+    "kept": 0.0003528827083272641,
+    "kept+frozen": 0.0003561392615845335,
+    "online": 0.0001390275068101969
+   },
+   "senses": {
+    "dinov2-s": {
+     "cost": {
+      "inputs": 18588,
+      "key_bytes": 1536,
+      "parameters": 22056576,
+      "seconds": 378.29413437606127,
+      "seconds_per_input": 0.020351524336994904
+     },
+     "dim": 384,
+     "inputs": "grey (n, h, w) float32 in [0, 1]; colour (n, 3, h, w) also accepted by DINOv2",
+     "layer": "patch",
+     "licence": {
+      "checked": "2026-11-03",
+      "code": "Apache-2.0",
+      "notes": "Covers the general DINOv2 backbones, including dinov2_vits14_pretrain.pth. Other models in that repository differ: XRay-DINO and Cell-DINO weights are under the FAIR Noncommercial Research License and must not be registered without a separate check. Redistributing the weights would carry Apache-2.0 notice duties; we do not redistribute them (fetched outside the repository).",
+      "sources": [
+       "https://github.com/facebookresearch/dinov2 README: \"DINOv2 code and model weights are released under the Apache License 2.0.\""
+      ],
+      "status": "clear",
+      "weights": "Apache-2.0"
+     },
+     "module": "experiments.dinov2_frozen",
+     "name": "dinov2-s",
+     "options": {},
+     "path": "/data/external-downloads/dinov2/dinov2_vits14_pretrain.pth",
+     "reference": "Oquab et al. 2023, arXiv 2304.07193; ViT-S/14, mean of patch tokens after the final norm",
+     "sense": "sight",
+     "sha256": "b938bf1bc15cd2ec0feacfe3a1bb553fe8ea9ca46a7e1d8d00217f29aef60cd9"
+    },
+    "trocr-s": {
+     "cost": {
+      "inputs": 18588,
+      "key_bytes": 1536,
+      "parameters": 21812352,
+      "seconds": 986.4398753310088,
+      "seconds_per_input": 0.05306863973160151
+     },
+     "dim": 384,
+     "inputs": "grey (n, h, w) float32 in [0, 1]; colour (n, 3, h, w) also accepted by DINOv2",
+     "layer": "cls",
+     "licence": {
+      "checked": "2026-11-03",
+      "code": "MIT (microsoft/unilm root LICENSE, which trocr/README.md points to)",
+      "notes": "The checkpoint carries no licence. MIT covers the repository source tree; whether it extends to checkpoints hosted on Hugging Face and Azure blob storage is not stated. Fine for this research, as an assumption; before distribution or product use, get a statement from Microsoft or replace this model.",
+      "sources": [
+       "https://huggingface.co/microsoft/trocr-small-stage1 (revision d94c4048159050bb51e4105bad0a45dbfd5f3a02): no license field or section",
+       "https://github.com/microsoft/unilm/tree/master/trocr README: code under the repository LICENSE (MIT); no terms for the checkpoints"
+      ],
+      "status": "unclear",
+      "weights": "none stated"
+     },
+     "module": "experiments.trocr_frozen",
+     "name": "trocr-s",
+     "options": {
+      "invert": true
+     },
+     "path": "/data/external-downloads/trocr/pytorch_model.bin",
+     "reference": "Li et al. 2021, arXiv 2109.10282; stage 1 encoder, class token after the final norm, inputs inverted",
+     "sense": "sight",
+     "sha256": "35ee4bee78f7686e15e5eaf9de5b0788ae28c53fa756883afd3405924f6c49c5"
+    }
+   },
+   "wall_seconds": 1397.053541797999
+  },
+  "393/forward": {
+   "cpu_seconds": 1485.270230648,
+   "gpu_peak_allocated_bytes": 978149376,
+   "peak_rss_kb": 2662912,
+   "read_seconds_per_query": {
+    "kept": 0.0005313199387285154,
+    "kept+frozen": 0.0005269826359712349,
+    "online": 0.00016252086883648673
+   },
+   "senses": {
+    "dinov2-s": {
+     "cost": {
+      "inputs": 19612,
+      "key_bytes": 1536,
+      "parameters": 22056576,
+      "seconds": 388.3835639740282,
+      "seconds_per_input": 0.01980336344962412
+     },
+     "dim": 384,
+     "inputs": "grey (n, h, w) float32 in [0, 1]; colour (n, 3, h, w) also accepted by DINOv2",
+     "layer": "patch",
+     "licence": {
+      "checked": "2026-11-03",
+      "code": "Apache-2.0",
+      "notes": "Covers the general DINOv2 backbones, including dinov2_vits14_pretrain.pth. Other models in that repository differ: XRay-DINO and Cell-DINO weights are under the FAIR Noncommercial Research License and must not be registered without a separate check. Redistributing the weights would carry Apache-2.0 notice duties; we do not redistribute them (fetched outside the repository).",
+      "sources": [
+       "https://github.com/facebookresearch/dinov2 README: \"DINOv2 code and model weights are released under the Apache License 2.0.\""
+      ],
+      "status": "clear",
+      "weights": "Apache-2.0"
+     },
+     "module": "experiments.dinov2_frozen",
+     "name": "dinov2-s",
+     "options": {},
+     "path": "/data/external-downloads/dinov2/dinov2_vits14_pretrain.pth",
+     "reference": "Oquab et al. 2023, arXiv 2304.07193; ViT-S/14, mean of patch tokens after the final norm",
+     "sense": "sight",
+     "sha256": "b938bf1bc15cd2ec0feacfe3a1bb553fe8ea9ca46a7e1d8d00217f29aef60cd9"
+    },
+    "trocr-s": {
+     "cost": {
+      "inputs": 19612,
+      "key_bytes": 1536,
+      "parameters": 21812352,
+      "seconds": 1044.4406780039571,
+      "seconds_per_input": 0.05325518447909225
+     },
+     "dim": 384,
+     "inputs": "grey (n, h, w) float32 in [0, 1]; colour (n, 3, h, w) also accepted by DINOv2",
+     "layer": "cls",
+     "licence": {
+      "checked": "2026-11-03",
+      "code": "MIT (microsoft/unilm root LICENSE, which trocr/README.md points to)",
+      "notes": "The checkpoint carries no licence. MIT covers the repository source tree; whether it extends to checkpoints hosted on Hugging Face and Azure blob storage is not stated. Fine for this research, as an assumption; before distribution or product use, get a statement from Microsoft or replace this model.",
+      "sources": [
+       "https://huggingface.co/microsoft/trocr-small-stage1 (revision d94c4048159050bb51e4105bad0a45dbfd5f3a02): no license field or section",
+       "https://github.com/microsoft/unilm/tree/master/trocr README: code under the repository LICENSE (MIT); no terms for the checkpoints"
+      ],
+      "status": "unclear",
+      "weights": "none stated"
+     },
+     "module": "experiments.trocr_frozen",
+     "name": "trocr-s",
+     "options": {
+      "invert": true
+     },
+     "path": "/data/external-downloads/trocr/pytorch_model.bin",
+     "reference": "Li et al. 2021, arXiv 2109.10282; stage 1 encoder, class token after the final norm, inputs inverted",
+     "sense": "sight",
+     "sha256": "35ee4bee78f7686e15e5eaf9de5b0788ae28c53fa756883afd3405924f6c49c5"
+    }
+   },
+   "wall_seconds": 1484.9609753459954
+  },
+  "393/reverse": {
+   "cpu_seconds": 1481.381088052,
+   "gpu_peak_allocated_bytes": 978149376,
+   "peak_rss_kb": 2677092,
+   "read_seconds_per_query": {
+    "kept": 0.000419872022854336,
+    "kept+frozen": 0.00041928604088618023,
+    "online": 0.000146203424990318
+   },
+   "senses": {
+    "dinov2-s": {
+     "cost": {
+      "inputs": 19612,
+      "key_bytes": 1536,
+      "parameters": 22056576,
+      "seconds": 405.78192161695915,
+      "seconds_per_input": 0.02069049161824185
+     },
+     "dim": 384,
+     "inputs": "grey (n, h, w) float32 in [0, 1]; colour (n, 3, h, w) also accepted by DINOv2",
+     "layer": "patch",
+     "licence": {
+      "checked": "2026-11-03",
+      "code": "Apache-2.0",
+      "notes": "Covers the general DINOv2 backbones, including dinov2_vits14_pretrain.pth. Other models in that repository differ: XRay-DINO and Cell-DINO weights are under the FAIR Noncommercial Research License and must not be registered without a separate check. Redistributing the weights would carry Apache-2.0 notice duties; we do not redistribute them (fetched outside the repository).",
+      "sources": [
+       "https://github.com/facebookresearch/dinov2 README: \"DINOv2 code and model weights are released under the Apache License 2.0.\""
+      ],
+      "status": "clear",
+      "weights": "Apache-2.0"
+     },
+     "module": "experiments.dinov2_frozen",
+     "name": "dinov2-s",
+     "options": {},
+     "path": "/data/external-downloads/dinov2/dinov2_vits14_pretrain.pth",
+     "reference": "Oquab et al. 2023, arXiv 2304.07193; ViT-S/14, mean of patch tokens after the final norm",
+     "sense": "sight",
+     "sha256": "b938bf1bc15cd2ec0feacfe3a1bb553fe8ea9ca46a7e1d8d00217f29aef60cd9"
+    },
+    "trocr-s": {
+     "cost": {
+      "inputs": 19612,
+      "key_bytes": 1536,
+      "parameters": 21812352,
+      "seconds": 1024.3715074350475,
+      "seconds_per_input": 0.052231873721958366
+     },
+     "dim": 384,
+     "inputs": "grey (n, h, w) float32 in [0, 1]; colour (n, 3, h, w) also accepted by DINOv2",
+     "layer": "cls",
+     "licence": {
+      "checked": "2026-11-03",
+      "code": "MIT (microsoft/unilm root LICENSE, which trocr/README.md points to)",
+      "notes": "The checkpoint carries no licence. MIT covers the repository source tree; whether it extends to checkpoints hosted on Hugging Face and Azure blob storage is not stated. Fine for this research, as an assumption; before distribution or product use, get a statement from Microsoft or replace this model.",
+      "sources": [
+       "https://huggingface.co/microsoft/trocr-small-stage1 (revision d94c4048159050bb51e4105bad0a45dbfd5f3a02): no license field or section",
+       "https://github.com/microsoft/unilm/tree/master/trocr README: code under the repository LICENSE (MIT); no terms for the checkpoints"
+      ],
+      "status": "unclear",
+      "weights": "none stated"
+     },
+     "module": "experiments.trocr_frozen",
+     "name": "trocr-s",
+     "options": {
+      "invert": true
+     },
+     "path": "/data/external-downloads/trocr/pytorch_model.bin",
+     "reference": "Li et al. 2021, arXiv 2109.10282; stage 1 encoder, class token after the final norm, inputs inverted",
+     "sense": "sight",
+     "sha256": "35ee4bee78f7686e15e5eaf9de5b0788ae28c53fa756883afd3405924f6c49c5"
+    }
+   },
+   "wall_seconds": 1481.0844737010048
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cu130",
+ "wall_seconds": 2906.8900317909865,
+ "workers": 2
+}

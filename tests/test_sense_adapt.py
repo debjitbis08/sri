@@ -23,5 +23,19 @@ class ShiftRule(unittest.TestCase):
         self.assertEqual(c.centre_array('trocr-s').shape, (2, 16))
 
 
+class StableSummary(unittest.TestCase):
+    def test_stage_order_puts_pre_before_post(self):
+        from experiments import sense_stable_summary as SS
+        tags = sorted(['1:a:post', '2:b:pre', '2:b:post', '10:c:pre', '10:c:post'])
+        self.assertEqual(SS.ordered(tags), ['1:a:post', '2:b:pre', '2:b:post', '10:c:pre', '10:c:post'])
+
+    def test_delta_treats_a_missing_own_unit_as_equal_only_when_missing_both_times(self):
+        from experiments import sense_stable_summary as SS
+        inf = float('-inf')
+        self.assertEqual(SS.delta([inf, .5], [inf, .5]), 0.)
+        self.assertEqual(SS.delta([inf, .5], [.4, .5]), float('inf'))
+        self.assertAlmostEqual(SS.delta([.2, .5], [.25, .5]), .05)
+
+
 if __name__ == '__main__':
     unittest.main()
