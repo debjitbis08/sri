@@ -8,6 +8,8 @@ studies are not yet reviewed.
 
 ## Search record and evidence levels
 
+2026-11-03: [general frozen encoder](general-frozen-encoder.md) records Baradad et al. 2021, Asano et al. 2019, Yosinski et al. 2014 and DINOv2 at **[abstract]** level on which training images give general features; a pretrained general encoder is named there as a cheaper alternative to test.
+
 2026-11-03: [reading notes on memory through a learning encoder](natural-memory-prior-work.md) cover MoCo and SDC at **[read]** level, self-healing codes through a summarizing tool, and Expert Gate, Progressive Networks and REMIND at **[abstract]** level, for the [natural-image memory pilot](natural-memory-v1-pilot.md).
 
 On 2026-10-29, [two-module graded expressivity analysis](two-module-graded-expressivity-analysis.md)
