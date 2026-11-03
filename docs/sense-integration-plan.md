@@ -27,13 +27,13 @@ From the [general frozen encoder study](general-frozen-encoder.md), pilot seeds 
 Sight is ready to integrate when a frozen set of established models, behind one interface, meets all of the following:
 
 - it holds memory within sight as well as the copies do, on mild and strong views, with no labels anywhere;
-- it keeps doing so as new kinds arrive and as models are added or replaced;
+- it keeps doing so as new kinds arrive;
 - it gives codes the core and readers can use;
 - it is within a cost budget and under licences we can use.
 
 ## Steps
 
-Recommended order: 1 and 2, then 3 to 6 (one experiment), 7, 8, 9, 10. Step 11 is measured throughout.
+Recommended order: 1 and 2, then 3 to 5 (one experiment), 7, 8, 9, 10. Step 11 is measured throughout. Step 6 is off the path to integration (user, 2026-11-03): good to have, not important now, so only lightweight experiments, run when convenient.
 
 1. **One sense interface.** Every sense model sits behind the same wrapper, which declares:
    - its name, version and weights hash;
@@ -51,12 +51,14 @@ Recommended order: 1 and 2, then 3 to 6 (one experiment), 7, 8, 9, 10. Step 11 i
 3. **No labels anywhere.** Run the joined arms with label-free domain centres (2-means or the stability rule) instead of centres told the domain.
 4. **New kinds after setup.** Fit the gate and centres on some kinds, then let others arrive in the stream, including at least one new domain. This step needs a rule for opening a new domain centre. Earlier, label-free centres merged kinds, so that rule is the open part.
 5. **Stability under adaptation.** When the gate refits or a centre splits, earlier facts must still read as before. Teaching B must not forget A, in both orders.
-6. **Adding or replacing a model mid-stream.** This is the test of flexibility. Keys written before a model existed have no part for it, and keys written through a replaced model hold codes that the new model cannot match. No images are stored, so old keys cannot be re-encoded. Candidate designs:
-   - weight a missing part at zero for old keys;
-   - keep a retired model running for old keys until they fade (copies again, but only on replacement);
-   - learn a map between the old and new codes. The earlier [image-free pilot](sense-image-free-v1-pilot.md) found linear maps weak.
+6. **Upgrading a sense in production (lightweight, not on the path to integration).** When a sense model is replaced or added while memory holds facts written through the old one, old keys cannot be re-encoded, because no images are stored. Candidate designs, cheapest first:
+   - **run both models for a while:** the old model stays as one more part of the key, new facts are written through the new model, and the old model is retired once few facts depend on it;
+   - **re-write facts when they are recalled:** when an input matches an old fact, the live input is encoded through the new model and that code is added to the fact's key, so facts in use move over and unused ones fade;
+   - **learn a map from new codes to old,** fitted on inputs arriving at upgrade time (backward-compatible embeddings, Shen et al. 2020; model stitching). The [image-free pilot](sense-image-free-v1-pilot.md) found linear maps weak, but on one drifting small encoder, not two pretrained models;
+   - keeping a small trace per fact for re-encoding is the usual production answer, and it is ruled out by the no-image rule.
 
-   Test by adding a third model (for example a larger DINOv2 or a CLIP-style image encoder) mid-stream, and by replacing one.
+   Lightweight test: replace DINOv2-S with DINOv2-B partway through the stream, with both models running plus re-writing on recall against a learned map. Measure old memory lost, how long the old model must keep running, and the extra compute. Use pilot seeds only, and spend little time on it.
+
 7. **Strong views by a stronger model, not by tuning.** Close the strong-view gap by swapping in larger or different established models through step 1's interface. This checks the interface and the gap at once.
 8. **Codes the core can use.** Two checks:
    - on categories never seen (step 2 of the general encoder study, reduced), answers should land on near categories;
