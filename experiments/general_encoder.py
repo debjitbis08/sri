@@ -4,6 +4,7 @@ Stages (argv[2]):
   stability label-free kind centres through frozen DINOv2: read every set after every later kind
   transfer  layers of already-trained networks read on kinds they never saw; no training
   memory    step 1: six kinds in one memory through one frozen encoder; no training; the sequence pilot's facts and draws
+  mix       DINOv2 with the TrOCR encoder as a glyph expert: routed (told, label-free gate), joined codes (equal, spread, learned gate), read both by margin
             with GE_DOMAIN=1: one centre per domain (natural, rendered) against one per kind, and two encoders routed by domain
   heldout   step 2: trains on CIFAR-100 with categories held out, then asks what carries over to them (needs `general_encoder_fetch`)
   diet      step 3: one architecture trained on each diet of images, read on kinds outside that diet
@@ -28,6 +29,7 @@ from experiments import sense_image_free as SIF
 from experiments import sense_memory as SM
 from experiments import sense_relational as SRL
 from experiments import shared_core_stage0 as S0
+from experiments import trocr_frozen as TR
 
 nc = S0.nc
 NAME = 'general-encoder-v1' + os.environ.get('GE_TAG', '')
@@ -357,6 +359,249 @@ def memory():
     S0.save_json(f'{REPORT}-memory-runtime.json', S0.runtime({'phase': 'writes and reads through frozen encoders', 'wall_seconds': time.perf_counter() - t0, 'tasks': {k: t for k, _, t in res}, 'aggregate_worker_cpu_seconds': float(sum(t['cpu_seconds'] for _, _, t in res))}))
 
 
+# ---------------------------------------------------------------- mixing two frozen experts: DINOv2 and TrOCR's encoder
+
+MIX_LAYER = {'dinov2-s': 'patch', 'trocr-s': 'cls'}  # each expert's best read in the transfer gate; TrOCR's inputs inverted
+MARGIN_K = 10
+GATE_IMAGES, GATE_STEPS, GATE_BATCH, GATE_LR, GATE_TEMP = 512, 300, 512, 1e-2, .1
+
+
+def two_means(Z, steps=20):
+    """Two clusters of unit codes by cosine, with no labels. Starts from the code farthest from the mean and the code farthest from that one."""
+    c0 = Z[(Z @ unit_mean(Z)).argmin()]
+    C = np.stack([c0, Z[(Z @ c0).argmin()]])
+    for _ in range(steps):
+        a = (Z @ C.T).argmax(1)
+        C = np.stack([unit_mean(Z[a == j]) if (a == j).any() else C[j] for j in range(2)])
+    return C, (Z @ C.T).argmax(1)
+
+
+def unit_mean(Z):
+    m = Z.mean(0)
+    return m / max(np.linalg.norm(m), 1e-12)
+
+
+def pile_up(Z):
+    """Length of the mean of unit codes: near 1 when the codes all point one way, near 0 when spread."""
+    return float(np.linalg.norm(NM.unit(Z).mean(0)))
+
+
+def joined(za, zb, wa=.5, wb=.5):
+    """Two unit codes joined as sqrt(2) [wa za, wb zb]. Keys and values use wa = wb = 0.5, so they have unit length; a query with weights (scalars or one per row) then has dot product wa cos_a + wb cos_b with a key."""
+    w = lambda x: np.asarray(x, np.float32)[..., None] if np.ndim(x) else np.float32(x)
+    return np.sqrt(2.) * np.concatenate([w(wa) * za, w(wb) * zb], -1).astype(np.float32)
+
+
+def train_gate(Ra, Rb, Ca, Cb, seed):
+    """A gate on the raw unit codes of both experts, giving each query its weights for the two. Trained with no labels: a view should match the other view of the same image better than other images, under the weighted similarity
+    w_a cos_a + w_b cos_b of the centred codes (Ca, Cb: (2, n, d), two views). Ra, Rb: raw unit codes of the first view. No balancing term: the domains are uneven, so equal use is not wanted; collapse is read from the weights."""
+    g = torch.Generator(device='cpu').manual_seed(seed)
+    W = torch.nn.Linear(Ra.shape[1] + Rb.shape[1], 2)
+    with torch.no_grad():
+        W.weight.copy_(.01 * torch.randn(W.weight.shape, generator=g, device='cpu'))
+        W.bias.zero_()
+    opt = torch.optim.Adam(W.parameters(), lr=GATE_LR)
+    X = torch.as_tensor(np.concatenate([Ra, Rb], 1))
+    A1, A2, B1, B2 = (torch.as_tensor(c) for c in (Ca[0], Ca[1], Cb[0], Cb[1]))
+    n = len(X)
+    for _ in range(GATE_STEPS):
+        idx = torch.randperm(n, generator=g, device='cpu')[:GATE_BATCH].to(X.device)
+        w = W(X[idx]).softmax(1)
+        S = w[:, :1] * (A1[idx] @ A2[idx].T) + w[:, 1:] * (B1[idx] @ B2[idx].T)
+        t = torch.arange(len(idx), device=X.device)
+        loss = Fn.cross_entropy(S / GATE_TEMP, t)
+        opt.zero_grad()
+        loss.backward()
+        opt.step()
+    W.requires_grad_(False)
+    return lambda ra, rb: W(torch.as_tensor(np.concatenate([ra, rb], 1))).softmax(1).detach().cpu().numpy(), float(loss)
+
+
+def mix_arms():
+    single = [('dinov2-s', 'kind'), ('dinov2-s', 'domain'), ('trocr-s', 'none'), ('trocr-s', 'kind'), ('trocr-s', 'domain')]
+    return [f'{n}/{MIX_LAYER[n]}/{c}' for n, c in single] + ['routed/told', 'routed/gate', 'joined/equal', 'joined/spread', 'joined/learned', 'both/margin']
+
+
+def mix_task(task):
+    """Step 1's facts, draws and memory, as in memory_task, so the DINOv2 arms must read exactly as there. Each image is encoded once per expert."""
+    seed, order = task
+    t0, c0 = time.perf_counter(), time.process_time()
+    torch.set_num_threads(FI.THREADS)
+    S0.set_up_task('sparse48')
+    kinds = SEQ.kind_order(seed, order)
+    data = {k: SEQ.kind_data(k, seed) for k in kinds}
+    index = {k: i for i, k in enumerate(kinds)}
+    wrng = nc.stream('nm_seq_writes', seed, order)
+    qrng = nc.stream('nm_seq_queries', seed)
+    q = {k: {v: NM.view_arrays(data[k]['cues'], qrng, c) for v, c in NM.VIEWS.items()} for k in SEQ.KINDS}
+    qu = {k: {v: NM.view_arrays(data[k]['unseen'], qrng, c) for v, c in NM.VIEWS.items()} for k in SEQ.KINDS}
+    dev = DEV.NAME if DEV.ACTIVE else 'cpu'
+    nets = {'dinov2-s': DINO.layers(DINO.load(dev)), 'trocr-s': TR.layers(TR.load(dev), invert=True)}
+    E = tuple(nets)
+    enc = lambda x: {n: run_layers(nets[n], x, keep=(MIX_LAYER[n],), size=64)[MIX_LAYER[n]] for n in E}
+    enc_s = {n: 0. for n in E}
+
+    crng = nc.stream('ge_centres', seed)
+    sample = lambda pool: np.ascontiguousarray(pool[crng.permutation(len(pool))[:CENTRE_IMAGES]], dtype=np.float32)
+    samples = {k: enc(sample(data[k]['pool'])) for k in kinds}  # stand-ins for passing inputs; only means, two clusters and pile-up are kept
+    ck = {n: {k: samples[k][n].mean(0) for k in kinds} for n in E}
+    cd = {n: {'natural': ck[n]['natural'], 'rendered': np.mean([ck[n][k] for k in kinds if k != 'natural'], 0)} for n in E}
+    pile = {n: {d: pile_up(np.concatenate([samples[k][n] for k in kinds if domain_of(k) == d])) for d in ('natural', 'rendered')} for n in E}
+    spread_w = {d: np.array([1 - pile[n][d] for n in E]) / sum(1 - pile[n][d] for n in E) for d in ('natural', 'rendered')}
+
+    # label-free gate: two clusters of DINOv2 codes; each cluster's centre per expert from its members; the expert that piles up less on a cluster serves it
+    pooled = {n: np.concatenate([samples[k][n] for k in kinds]) for n in E}
+    member_kind = np.concatenate([[k] * len(samples[k]['dinov2-s']) for k in kinds])
+    CL, a = two_means(NM.unit(pooled['dinov2-s']))
+    cc = {n: [pooled[n][a == j].mean(0) for j in range(2)] for n in E}
+    serve = [min(E, key=lambda n: pile_up(pooled[n][a == j])) for j in range(2)]
+    cluster_of = lambda f: (NM.unit(f['dinov2-s']) @ CL.T).argmax(1)
+    gate_info = {'clusters': [{'kinds': {k: int(((a == j) & (member_kind == k)).sum()) for k in kinds}, 'served_by': serve[j], 'pile_up': {n: pile_up(pooled[n][a == j]) for n in E}} for j in range(2)],
+                 'pile_up_by_domain': pile, 'spread_weights': {d: dict(zip(E, map(float, w))) for d, w in spread_w.items()}}
+    del samples, pooled
+
+    def code(n, kind, f, how):
+        if how == 'none':
+            return NM.unit(f)
+        return centred(f, (ck[n][kind] if how == 'kind' else cd[n][domain_of(kind)]))
+
+    # learned gate, trained before any fact, on stream images of every kind, two views each
+    grng = nc.stream('ge_mix_gate', seed)
+    g_imgs = {k: np.ascontiguousarray(data[k]['pool'][grng.permutation(len(data[k]['pool']))[:GATE_IMAGES]], dtype=np.float32) for k in kinds}
+    v1 = {k: enc(NM.view_arrays(g_imgs[k], grng, NM.VIEWS['mild'])) for k in kinds}
+    v2 = {k: enc(NM.view_arrays(g_imgs[k], grng, NM.VIEWS['strong'])) for k in kinds}
+    cat = lambda f: np.concatenate([f(k) for k in kinds])
+    Cg = {n: np.stack([cat(lambda k: code(n, k, v1[k][n], 'domain')), cat(lambda k: code(n, k, v2[k][n], 'domain'))]) for n in E}
+    gate_fn, gate_loss = train_gate(cat(lambda k: NM.unit(v1[k]['dinov2-s'])), cat(lambda k: NM.unit(v1[k]['trocr-s'])), Cg['dinov2-s'], Cg['trocr-s'], seed)
+    gate_info['learned'] = {'final_loss': gate_loss, 'trocr_weight_on_training_views': {k: float(gate_fn(NM.unit(v1[k]['dinov2-s']), NM.unit(v1[k]['trocr-s']))[:, 1].mean()) for k in kinds}}
+    del v1, v2, Cg
+
+    facts = len(SEQ.KINDS) * N
+    D = 384
+    mems = {}
+    for tau in TAUS:
+        for n, c in [('dinov2-s', 'kind'), ('dinov2-s', 'domain'), ('trocr-s', 'none'), ('trocr-s', 'kind'), ('trocr-s', 'domain')]:
+            mems[(f'{n}/{c}', tau)] = NM.Tagged(SEQ.CAPACITY, tau, D, D, facts)
+        for name in ('routed/told', 'routed/gate'):
+            mems[(name, tau)] = [NM.Tagged(SEQ.CAPACITY, tau, D, D, facts) for _ in range(2)]
+        mems[('joined', tau)] = NM.Tagged(SEQ.CAPACITY, tau, 2 * D, 2 * D, facts)
+
+    write_wall = 0.
+    for kind in kinds:
+        t = time.perf_counter()
+        plan = NM.plan_writes(wrng, np.arange(N), SEQ.EXPOSURES, SEQ.BLOCK)
+        cues, targets, rows = [], [], []
+        for batch in plan:
+            if not len(batch):
+                continue
+            cues.append(NM.view_arrays(data[kind]['cues'][batch], wrng, NM.VIEWS['mild']))
+            targets.append(NM.view_arrays(data[kind]['targets'][batch], wrng, NM.VIEWS['mild']))
+            rows.append(SEQ.fact_row(index[kind], batch))
+        cues, targets, rows = np.concatenate(cues), np.concatenate(targets), np.concatenate(rows)
+        fc, ft = enc(cues), enc(targets)
+        dom = 0 if kind == 'natural' else 1
+        cl = cluster_of(fc)
+        for tau in TAUS:
+            wr = []
+            for n, c in [('dinov2-s', 'kind'), ('dinov2-s', 'domain'), ('trocr-s', 'none'), ('trocr-s', 'kind'), ('trocr-s', 'domain')]:
+                wr.append((mems[(f'{n}/{c}', tau)], code(n, kind, fc[n], c), code(n, kind, ft[n], c)))
+            told = E[dom]
+            wr.append((mems[('routed/told', tau)][dom], code(told, kind, fc[told], 'domain'), code(told, kind, ft[told], 'domain')))
+            wr.append((mems[('joined', tau)], joined(code(E[0], kind, fc[E[0]], 'domain'), code(E[1], kind, fc[E[1]], 'domain')), joined(code(E[0], kind, ft[E[0]], 'domain'), code(E[1], kind, ft[E[1]], 'domain'))))
+            for mem, z, v in wr:
+                for i in range(len(rows)):
+                    mem.write_tagged(z[i], v[i], rows[i])
+            for i in range(len(rows)):  # the cue's cluster chooses memory, expert and centre for cue and target together
+                j = cl[i]
+                n = serve[j]
+                mems[('routed/gate', tau)][j].write_tagged(centred(fc[n][i:i + 1], cc[n][j])[0], centred(ft[n][i:i + 1], cc[n][j])[0], rows[i])
+        write_wall += time.perf_counter() - t
+
+    reads, usage = {}, {}
+    truth = np.arange(N)
+    labels = {k: kind_labels(k, seed) for k in kinds}
+    cue_labels = np.stack([labels[k][0] for k in kinds])
+
+    def one(mem, Z):
+        i, s = mem.nearest(Z)
+        return i, s, mem.tags[:mem.h][i].argmax(1), (mem.u[:mem.h] / mem.n[:mem.h, None])[i]
+
+    def record(key, kind, tau, rows, got, gotu, Zc_for, units, extra=None):
+        """got, gotu: (unit rows, similarity, value read) for cues and unseen; Zc_for: candidate codes matching each cue's value space."""
+        _, s, trow, val = got
+        val_ok = np.einsum('qd,qcd->qc', val, Zc_for).argmax(1) == truth if Zc_for.ndim == 3 else (val @ Zc_for.T).argmax(1) == truth
+        reads[key] = {**score(trow == rows, s, val_ok, gotu[1], tau), 'units': units, 'resemblance': resemblance(gotu[2], gotu[1], tau, index[kind], labels[kind][1], cue_labels), **(extra or {})}
+
+    for kind in kinds:
+        rows = SEQ.fact_row(index[kind], truth)
+        fcand = enc(data[kind]['targets'])
+        dom = 0 if kind == 'natural' else 1
+        for view in NM.VIEWS:
+            fq, fu = enc(q[kind][view]), enc(qu[kind][view])
+            for tau in TAUS:
+                tag = lambda name: f'{name}|{tau}|{kind}-{view}'
+                for n, c in [('dinov2-s', 'kind'), ('dinov2-s', 'domain'), ('trocr-s', 'none'), ('trocr-s', 'kind'), ('trocr-s', 'domain')]:
+                    mem = mems[(f'{n}/{c}', tau)]
+                    record(tag(f'{n}/{MIX_LAYER[n]}/{c}'), kind, tau, rows, one(mem, code(n, kind, fq[n], c)), one(mem, code(n, kind, fu[n], c)), code(n, kind, fcand[n], c), mem.h)
+                told = E[dom]
+                mem = mems[('routed/told', tau)][dom]
+                record(tag('routed/told'), kind, tau, rows, one(mem, code(told, kind, fq[told], 'domain')), one(mem, code(told, kind, fu[told], 'domain')), code(told, kind, fcand[told], 'domain'), sum(m.h for m in mems[('routed/told', tau)]))
+
+                # label-free gate: each query and unseen input picks its cluster; candidates are coded as the cue's value was
+                def routed_gate(f):
+                    cl = cluster_of(f)
+                    out = [np.zeros(len(cl), np.int64), np.zeros(len(cl), np.float32), np.zeros(len(cl), np.int64), np.zeros((len(cl), D), np.float32)]
+                    for j in range(2):
+                        m = cl == j
+                        if m.any():
+                            n = serve[j]
+                            r = one(mems[('routed/gate', tau)][j], centred(f[n][m], cc[n][j]))
+                            for o, x in zip(out, r):
+                                o[m] = x
+                    return out, cl
+                got, clq = routed_gate(fq)
+                gotu, clu = routed_gate(fu)
+                Zc = np.stack([centred(fcand[serve[j]], cc[serve[j]][j]) for j in clq])
+                record(tag('routed/gate'), kind, tau, rows, got, gotu, Zc, sum(m.h for m in mems[('routed/gate', tau)]), {'cluster_share': np.bincount(clq, minlength=2).tolist()})
+
+                mem = mems[('joined', tau)]
+                za = {x: code(E[0], kind, f[E[0]], 'domain') for x, f in (('q', fq), ('u', fu), ('c', fcand))}
+                zb = {x: code(E[1], kind, f[E[1]], 'domain') for x, f in (('q', fq), ('u', fu), ('c', fcand))}
+                Zc = joined(za['c'], zb['c'])
+                sw = spread_w[domain_of(kind)]
+                wq = gate_fn(NM.unit(fq[E[0]]), NM.unit(fq[E[1]]))
+                wu = gate_fn(NM.unit(fu[E[0]]), NM.unit(fu[E[1]]))
+                for name, (aq, bq), (au, bu) in (('joined/equal', (.5, .5), (.5, .5)), ('joined/spread', (sw[0], sw[1]), (sw[0], sw[1])), ('joined/learned', (wq[:, 0], wq[:, 1]), (wu[:, 0], wu[:, 1]))):
+                    record(tag(name), kind, tau, rows, one(mem, joined(za['q'], zb['q'], aq, bq)), one(mem, joined(za['u'], zb['u'], au, bu)), Zc, mem.h,
+                           {'trocr_weight': float(np.mean(bq))})
+
+                # read both by margin: the single-expert memories with domain centres; trust the one whose best stands further above its next units
+                ma, mb = mems[('dinov2-s/domain', tau)], mems[('trocr-s/domain', tau)]
+                def both(fa, fb):
+                    Za, Zb = code(E[0], kind, fa, 'domain'), code(E[1], kind, fb, 'domain')
+                    ia, sa, ga = NM.margin_of(Za @ ma.a[:ma.h].T, MARGIN_K)
+                    ib, sb, gb = NM.margin_of(Zb @ mb.a[:mb.h].T, MARGIN_K)
+                    pick_b = gb > ga
+                    va, vb = (ma.u[:ma.h] / ma.n[:ma.h, None])[ia], (mb.u[:mb.h] / mb.n[:mb.h, None])[ib]
+                    return [np.where(pick_b, ib, ia), np.where(pick_b, sb, sa), np.where(pick_b, mb.tags[:mb.h][ib].argmax(1), ma.tags[:ma.h][ia].argmax(1)), np.where(pick_b[:, None], vb, va)], pick_b
+                got, pb = both(fq[E[0]], fq[E[1]])
+                gotu, _ = both(fu[E[0]], fu[E[1]])
+                Zc = np.where(pb[:, None, None], code(E[1], kind, fcand[E[1]], 'domain')[None], code(E[0], kind, fcand[E[0]], 'domain')[None])
+                record(tag('both/margin'), kind, tau, rows, got, gotu, Zc, ma.h + mb.h, {'trocr_share': float(pb.mean())})
+    return f'{seed}/{order}', {'reads': reads, 'kinds': kinds, 'seed': seed, 'order': order, 'gate': gate_info, 'write_wall_seconds': write_wall}, S0.timing(t0, c0)
+
+
+def mix():
+    t0 = time.perf_counter()
+    S0.prepare()
+    NM.data()
+    res = S0.pool_map(DUR.durable(mix_task, RUNS / 'done-mix', '{0}-{1}'), [(s, o) for s in SEEDS for o in SEQ.ORDERS])
+    S0.save_json(f'{REPORT}-mix.json', {'status': 'exploratory, pilot seeds, an order of kinds and its reverse; no training of experts; DINOv2 (patch mean) and the TrOCR-small stage 1 encoder (class token, inputs inverted), mixed five ways; the learned gate trains a 770-parameter linear layer',
+                                        'arms': mix_arms(), 'taus': TAUS, 'layers': MIX_LAYER, 'gate': {'images_per_kind': GATE_IMAGES, 'steps': GATE_STEPS, 'batch': GATE_BATCH, 'lr': GATE_LR, 'temperature': GATE_TEMP}, 'margin_k': MARGIN_K,
+                                        'results': {k: r for k, r, _ in res}})
+    S0.save_json(f'{REPORT}-mix-runtime.json', S0.runtime({'phase': 'two frozen experts, centres, a learned gate, writes and reads', 'wall_seconds': time.perf_counter() - t0, 'tasks': {k: t for k, _, t in res}, 'aggregate_worker_cpu_seconds': float(sum(t['cpu_seconds'] for _, _, t in res))}))
+
+
 # ---------------------------------------------------------------- label-free kind centres
 
 class KindCentres:
@@ -596,4 +841,4 @@ def diet():
 
 
 if __name__ == '__main__':
-    {'transfer': transfer, 'memory': memory, 'stability': stability, 'heldout': heldout, 'diet': diet}[sys.argv[2]]()
+    {'transfer': transfer, 'memory': memory, 'mix': mix, 'stability': stability, 'heldout': heldout, 'diet': diet}[sys.argv[2]]()

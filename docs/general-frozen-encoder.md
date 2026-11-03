@@ -193,6 +193,53 @@ Compute: GTX 1650, two workers, 1,597 s wall, 3,126 s aggregate CPU, peak RSS 2.
 
 Prior work, familiar, read before use: reading in people uses the visual word form area, which forms in object-recognition cortex only with learning to read (Dehaene and Cohen 2007, neuronal recycling); modern OCR such as TrOCR (Li et al. 2021) starts from an image-pretrained transformer and is then trained on text. Both are shared early vision with a reader taught on top, the design not yet tested here.
 
+## An off-the-shelf glyph expert beside DINOv2
+
+User's direction, 2026-11-03: use something off the shelf for glyphs, small, since glyph recognition itself is not needed; then mix it with DINOv2, MoE-like. The glyph expert is the image encoder of **TrOCR-small, stage 1** (Li et al. 2021), a DeiT-small (21.8 M parameters) pretrained on printed text lines; its decoder is not used. Written in `experiments/trocr_frozen.py` from its shapes, weights loaded as plain tensors, no downloaded code run.
+
+**Gate, seed 392, the transfer reads of the first measurement.** Its class token finds unseen glyphs at 0.88 from one example, 0.98 from 16 and 0.89 across fonts with inputs inverted to dark on light (as is: 0.75, 0.96, 0.82; patch mean 0.48 at best), against DINOv2's 0.84, 0.96, 0.86 (chance 0.011). From strong views it finds 0.11–0.28 of each rendered kind, DINOv2 0.14–0.57. So: class token, every input inverted, chosen on this gate. There is no reference output to match exactly, since the reference code is not run.
+
+**Arms**, on step 1's facts, draws and memory (`pilot mix`), each image encoded once per expert; centres are told the kind or the domain unless said otherwise:
+
+- **single experts:** DINOv2 patch mean by kind and by domain; TrOCR by none, kind and domain;
+- **routed:** natural images to DINOv2, rendered ones to TrOCR, a memory each, domain centres; **told** the domain, or by a **label-free gate**: two clusters of DINOv2 codes over passing inputs, each served by the expert that piles up less on it, with centres from its members;
+- **joined:** one memory over both codes, domain-centred, keys sqrt(2)[½ z_DINO, ½ z_TrOCR], so a query's weights (w, 1 − w) give the similarity w cos_DINO + (1 − w) cos_TrOCR. Stored keys never change; only the query is weighted. **equal** w = ½; **spread** w from how little each expert piles up in the domain; **learned**: a 770-parameter linear gate on both raw codes, trained with no labels for 300 steps so that a mild view matches the strong view of the same stream image (512 per kind) better than other images. No balancing term, since the domains are uneven;
+- **read both by margin:** the two single-expert domain memories; each read trusts the expert whose best unit stands further above its next ten.
+
+Means over the six kinds, and over the five rendered kinds, ranges over two seeds and two orders, write threshold 0.85.
+
+| Arm | Mild: matched, τ | Rendered mild, matched | Strong: matched, τ | Rendered strong, matched | Unseen at τ: mild, strong | Rendered same category, mild | Units |
+|---|---|---|---|---|---|---|---|
+| DINOv2, kind | 0.59–0.63, 0.59–0.66 | 0.50–0.55 | 0.33–0.36, 0.21–0.24 | 0.23–0.28 | 0.21–0.22, 0.09–0.11 | 0.76–0.80 | 674–718 |
+| DINOv2, domain | 0.48–0.53, 0.56–0.60 | 0.37–0.44 | 0.27–0.30, 0.20–0.24 | 0.15–0.20 | 0.38–0.43, 0.15–0.19 | 0.73–0.76 | 448–473 |
+| TrOCR, none | 0.26–0.29, 0.34–0.38 | 0.23–0.26 | 0.04–0.10, 0.10–0.15 | 0.03–0.10 | 0.73–0.80, 0.46–0.52 | 0.70–0.79 | 236–250 |
+| TrOCR, kind | 0.50–0.57, 0.48–0.54 | 0.45–0.53 | 0.12–0.20, 0.09–0.11 | 0.11–0.18 | 0.17–0.20, 0.04–0.07 | 0.80–0.82 | 928–988 |
+| TrOCR, domain | 0.46–0.53, 0.49–0.55 | 0.41–0.49 | 0.11–0.19, 0.09–0.11 | 0.09–0.16 | 0.25–0.28, 0.07–0.10 | 0.80–0.83 | 834–855 |
+| Routed, told or gate | 0.51–0.57, 0.57–0.64 | 0.41–0.49 | 0.21–0.26, 0.13–0.15 | 0.09–0.16 | 0.25–0.28, 0.07–0.10 | 0.80–0.83 | 691–718 |
+| Joined, equal | 0.66–0.72, 0.67–0.73 | 0.60–0.67 | 0.25–0.31, 0.12–0.16 | 0.16–0.24 | 0.19–0.23, 0.06–0.08 | 0.84–0.86 | 768–782 |
+| Joined, spread | 0.65–0.70, 0.67–0.71 | 0.59–0.64 | 0.26–0.31, 0.13–0.16 | 0.15–0.22 | 0.20–0.22, 0.05–0.08 | 0.83–0.86 | 768–782 |
+| **Joined, learned gate** | **0.67–0.71, 0.74–0.80** | **0.61–0.65** | **0.32–0.38**, 0.21–0.23 | **0.23–0.31** | 0.24–0.29, 0.07–0.10 | **0.83–0.86** | 768–782 |
+| Read both by margin | 0.51–0.54, 0.57–0.65 | 0.41–0.44 | 0.23–0.27, 0.20–0.23 | 0.15–0.20 | 0.33–0.36, 0.14–0.17 | 0.83–0.85 | 1,285–1,326 |
+| Copies, one per block, no gate ([pilot](natural-memory-v1-pilot.md)) | 0.63–0.76, 0.72–0.81 | | 0.35–0.40, 0.43–0.46 | | 0.27–0.39, 0.25–0.30 | | 324–371 |
+
+The label-free gate's clusters put every rendered stream image with TrOCR and all but 17–26 of 5,120 natural ones with DINOv2, so it reads exactly as told. Pile-up, the length of the mean unit code: DINOv2 0.56 on natural, 0.88 on rendered; TrOCR 0.84 and 0.74. The learned gate gives TrOCR 0.01 of the weight on natural images and 0.09–0.38 on rendered ones, most on tree and banana, least on Chinese numerals.
+
+- **The off-the-shelf glyph encoder piles up on glyphs too.** Uncentred, TrOCR reads rendered kinds at 0.23–0.26 and answers 0.79–0.82 of unseen ones. Unlike our glyph-trained small network, it still needs a centre. Centred, it reads instances below DINOv2 and is weak on strong views, though its category reads are a little higher (0.80–0.83 against 0.76–0.80).
+- **Switching glyphs to it loses.** Routing, told or label-free, reads 0.51–0.57 against DINOv2's 0.59–0.63 with a centre per kind, and far less on strong views. Reading both and trusting the larger margin does no better.
+- **Mixing the two codes wins.** Joined with equal weights reads 0.66–0.72 on mild views, above either expert with a centre per kind, using only two domain centres. Rendered kinds gain most, 0.60–0.67 against 0.50–0.55, and categories rise to 0.84–0.86.
+- **The learned gate keeps that and restores strong views.** Equal weights cost natural images on strong views (0.69 against DINOv2's 0.80); the gate sends natural images almost wholly to DINOv2 and keeps 0.32–0.38 on strong views, level with DINOv2 by kind.
+- **Against step 1's bar.** The learned gate's 0.67–0.71 mild, 0.74–0.80 at τ, sits inside the copies' 0.63–0.76 and 0.72–0.81, with fewer unseen answered on mild (0.24–0.29 against 0.27–0.39); on strong views it stays short (0.32–0.38 against 0.35–0.40; 0.21–0.23 at τ against 0.43–0.46). It is the first arm in this study within the copies' range on mild views, with two frozen encoders and no copy per stretch of time.
+
+**So.** A glyph expert helps as a second opinion mixed into every read, not as a separate system that glyphs are sent to. That fits shared vision with a specialised reader alongside, not instead. The mixture is soft and per input; the stored keys never move, since only the query is weighted.
+
+**Not shown.** The centres and the gate saw stream images of every kind before any fact, as step 1's centres did; a gate trained on kinds that later arrive new is untested. Domain centres were told the domain; the label-free clusters find the same domains, but joined arms were not run on them. Pilot seeds only; the arms and layers were chosen after the TrOCR gate, not set in advance.
+
+**Prior work, familiar, read before use.** Mixtures of experts with a learned gate (Jacobs, Jordan, Nowlan and Hinton 1991); sparse gating and its collapse (Shazeer et al. 2017; Fedus et al. 2021, Switch Transformer). Here the experts are frozen and only the gate learns, which is closer to late fusion of pretrained embeddings; the learned weighting resembles query-dependent fusion in multi-model retrieval. TrOCR, Li et al. 2021 ([arXiv 2109.10282](https://arxiv.org/abs/2109.10282)), not read beyond its model card.
+
+**Scaling.** Each read runs both experts: TrOCR costs about 2.7 times DINOv2 per image on this GPU (384 × 384 against 224 × 224). The joined code doubles a unit's width, 768. With K experts, joined reads cost K passes; a top-k gate would cut that to k, with keys kept per expert so that the gate can change without moving them. The gate is 770 parameters, trained once in seconds.
+
+Compute: GTX 1650, two workers, 6,592 s wall, 13,124 s aggregate CPU, peak RSS 2.6 GB; GPU-bound, about 43,000 images per task through both experts, most of them the 30,720 stream images that set the centres. The TrOCR gate took 150 s per polarity. Gate: the 96 DINOv2 reads by kind equal the earlier run exactly. Weights: `microsoft/trocr-small-stage1`, revision d94c4048, sha256 35ee4bee…49c5 (full value in `experiments/trocr_frozen.py`). Run: `GE_TAG=-mix NFI_DEVICE=cuda SC0_WORKERS=2 OPENBLAS_NUM_THREADS=1 /data/venvs/sri-cuda/bin/python -m experiments.general_encoder pilot mix`; TrOCR gate `NFI_DEVICE=cuda /data/venvs/sri-cuda/bin/python -m experiments.trocr_frozen`; tables `python3 -m experiments.general_encoder_domain reports/general-encoder-v1-mix-mix.json.gz`; report `reports/general-encoder-v1-mix-mix.json.gz`.
+
 ## Step 2: does anything carry over to categories never seen? (not run)
 
 Tests the animal example directly. Quarter-width ResNet-18 in colour, 40,000 updates, on CIFAR-100 with categories held out of training, seeds 392 and 393:

@@ -147,5 +147,37 @@ class Arms(unittest.TestCase):
         self.assertEqual(GE.domain_of('natural'), 'natural')
 
 
+
+class Mixing(unittest.TestCase):
+    def test_joined_query_weights_the_two_cosines(self):
+        from experiments.general_encoder import joined
+        rng = np.random.default_rng(0)
+        unit = lambda x: x / np.linalg.norm(x, axis=1, keepdims=True)
+        za, zb, ka, kb = (unit(rng.normal(size=(6, 8))).astype(np.float32) for _ in range(4))
+        K = joined(ka, kb)
+        np.testing.assert_allclose(np.linalg.norm(K, axis=1), 1, atol=1e-6)
+        w = rng.random(6).astype(np.float32)
+        np.testing.assert_allclose((joined(za, zb, w, 1 - w) * K).sum(1), w * (za * ka).sum(1) + (1 - w) * (zb * kb).sum(1), atol=1e-5)
+
+    def test_two_means_separates_two_directions_and_pile_up_reads_spread(self):
+        from experiments.general_encoder import pile_up, two_means
+        rng = np.random.default_rng(1)
+        unit = lambda x: x / np.linalg.norm(x, axis=1, keepdims=True)
+        a, b = np.eye(8)[0] * 10, np.eye(8)[1] * 10
+        Z = unit(np.concatenate([rng.normal(size=(40, 8)) + a, rng.normal(size=(40, 8)) + b]))
+        _, lab = two_means(Z)
+        self.assertEqual(len(set(lab[:40])), 1)
+        self.assertEqual(len(set(lab[40:])), 1)
+        self.assertNotEqual(lab[0], lab[40])
+        self.assertGreater(pile_up(Z[:40]), .8)
+        self.assertLess(pile_up(rng.normal(size=(400, 8))), .2)
+
+    def test_mix_arm_names_are_unique(self):
+        from experiments.general_encoder import mix_arms
+        names = mix_arms()
+        self.assertEqual(len(names), len(set(names)))
+        self.assertIn('both/margin', names)
+
+
 if __name__ == '__main__':
     unittest.main()
