@@ -24,11 +24,14 @@ import torch.nn.functional as Fn
 
 @dataclass(frozen=True)
 class Licence:
-    """Licence of a model's code and weights. `verified` stays False until someone has read the terms at the source (plan step 2)."""
+    """Licence of a model's code and weights, as read at the source. Only the weights' licence binds us when the network is written here, as ours are,
+    with no upstream code run or copied. `status`: 'clear' (permissive terms stated for the weights we use), 'unclear' (no terms stated for the weights),
+    'restricted' (terms that limit use) or 'unchecked'. Not legal advice; a lawyer decides before any distribution or product use."""
     code: str = 'unknown'
     weights: str = 'unknown'
-    source: str = ''
-    verified: bool = False
+    sources: tuple = ()
+    status: str = 'unchecked'
+    checked: str = ''  # date the sources were read
     notes: str = ''
 
 
@@ -61,7 +64,7 @@ class SenseModel:
 
     def describe(self):
         return {'name': self.name, 'sense': self.sense, 'module': self.module, 'layer': self.layer, 'dim': self.dim, 'options': dict(self.options),
-                'inputs': self.inputs, 'licence': vars(self.licence), 'reference': self.reference, **self.weights()}
+                'inputs': self.inputs, 'licence': {**vars(self.licence), 'sources': list(self.licence.sources)}, 'reference': self.reference, **self.weights()}
 
     def load(self, device='cpu', chunk=64):
         m = self.impl()
@@ -109,12 +112,29 @@ GREY = 'grey (n, h, w) float32 in [0, 1]; colour (n, 3, h, w) also accepted by D
 
 register(SenseModel(
     'dinov2-s', 'sight', 'experiments.dinov2_frozen', 'patch', 384, inputs=GREY,
-    licence=Licence('Apache-2.0 (believed)', 'Apache-2.0 (believed)', 'https://github.com/facebookresearch/dinov2', notes='not yet checked at the source'),
+    licence=Licence(
+        'Apache-2.0', 'Apache-2.0',
+        ('https://github.com/facebookresearch/dinov2 README: "DINOv2 code and model weights are released under the Apache License 2.0."',),
+        'clear', '2026-11-03',
+        'Covers the general DINOv2 backbones, including dinov2_vits14_pretrain.pth. Other models in that repository differ: XRay-DINO and Cell-DINO weights are under the FAIR '
+        'Noncommercial Research License and must not be registered without a separate check. Redistributing the weights would carry Apache-2.0 notice duties; '
+        'we do not redistribute them (fetched outside the repository).'),
     reference='Oquab et al. 2023, arXiv 2304.07193; ViT-S/14, mean of patch tokens after the final norm'))
 register(SenseModel(
     'trocr-s', 'sight', 'experiments.trocr_frozen', 'cls', 384, options={'invert': True}, inputs=GREY,
-    licence=Licence('MIT (believed, microsoft/unilm)', 'unknown (Hugging Face card microsoft/trocr-small-stage1)', 'https://huggingface.co/microsoft/trocr-small-stage1', notes='not yet checked at the source'),
+    licence=Licence(
+        'MIT (microsoft/unilm root LICENSE, which trocr/README.md points to)', 'none stated',
+        ('https://huggingface.co/microsoft/trocr-small-stage1 (revision d94c4048159050bb51e4105bad0a45dbfd5f3a02): no license field or section',
+         'https://github.com/microsoft/unilm/tree/master/trocr README: code under the repository LICENSE (MIT); no terms for the checkpoints'),
+        'unclear', '2026-11-03',
+        'The checkpoint carries no licence. MIT covers the repository source tree; whether it extends to checkpoints hosted on Hugging Face and Azure blob '
+        'storage is not stated. Fine for this research, as an assumption; before distribution or product use, get a statement from Microsoft or replace this model.'),
     reference='Li et al. 2021, arXiv 2109.10282; stage 1 encoder, class token after the final norm, inputs inverted'))
+
+
+def licences():
+    """Every registered model's licence status, for reports and for a check before use outside research."""
+    return {n: {'status': m.licence.status, 'weights': m.licence.weights, 'checked': m.licence.checked} for n, m in REGISTRY.items()}
 
 
 class Sense:

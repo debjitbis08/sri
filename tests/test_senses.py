@@ -99,7 +99,10 @@ class Interface(unittest.TestCase):
             d = SN.get(name).describe()
             for k in ('name', 'sense', 'layer', 'dim', 'licence', 'path', 'sha256', 'inputs', 'reference'):
                 self.assertIn(k, d)
-            self.assertFalse(d['licence']['verified'])
+            self.assertIn(d['licence']['status'], ('clear', 'unclear', 'restricted'))
+            self.assertTrue(d['licence']['checked'] and d['licence']['sources'])
+        self.assertEqual(SN.licences()['dinov2-s']['status'], 'clear')
+        self.assertEqual(SN.licences()['trocr-s']['status'], 'unclear')
 
     def test_registering_a_different_model_under_a_taken_name_fails(self):
         with self.assertRaises(ValueError):

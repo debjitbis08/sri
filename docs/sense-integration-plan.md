@@ -68,6 +68,17 @@ Recommended order: 1 and 2, then 3 to 5 (one experiment), 7, 8, 9, 10. Step 11 i
 2. **Licence evaluation.** Record the code and weights licence of each model in the wrapper. Check the model card and the repository, and note any use restrictions. This must be finished before any distribution or any decision to depend on a model.
 
    Current models, **not yet verified**: DINOv2 (code and weights believed to be Apache 2.0 since 2023) and TrOCR-small stage 1 (Microsoft unilm, believed MIT; the Hugging Face card should be checked).
+   **Done, 2026-11-03.** I read the sources and recorded them in the registry (`src.senses.licences()`). This is not legal advice. Only the weights' licence binds us, because both networks are written here and no upstream code is run or copied.
+
+   | Model | Weights | Code | Status | Source |
+   |---|---|---|---|---|
+   | DINOv2-S | Apache-2.0 | Apache-2.0 | clear | The DINOv2 README: "DINOv2 code and model weights are released under the Apache License 2.0." |
+   | TrOCR-small stage 1 | none stated | MIT (unilm root LICENSE) | unclear | The Hugging Face card (revision d94c404) has no licence field or section, and the unilm TrOCR README gives no terms for checkpoints. |
+
+   - **DINOv2.** Fine for research and for products. Redistributing the weights would carry Apache-2.0 notice duties. We fetch them outside the repository, so we don't redistribute them. Other models in the same repository differ: XRay-DINO and Cell-DINO weights are under the FAIR Noncommercial Research License, so a model from there needs its own check before it is registered.
+   - **TrOCR.** Usable for this research, on the assumption that MIT covers the checkpoints. That assumption is not stated anywhere. Before any distribution or product use, either get a statement from Microsoft or replace TrOCR with a glyph model whose weights carry a stated permissive licence. TrOCR is also the more expensive model (step 1), so replacing it may pay twice.
+   - **Rule from now on.** No model is registered without a licence status, the sources read and the date checked. The tests enforce this.
+
 3. **No labels anywhere.** Run the joined arms with label-free domain centres (2-means or the stability rule) instead of centres told the domain.
 4. **New kinds after setup.** Fit the gate and centres on some kinds, then let others arrive in the stream, including at least one new domain. This step needs a rule for opening a new domain centre. Earlier, label-free centres merged kinds, so that rule is the open part.
 5. **Stability under adaptation.** When the gate refits or a centre splits, earlier facts must still read as before. Teaching B must not forget A, in both orders.
