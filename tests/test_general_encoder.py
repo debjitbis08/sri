@@ -2,7 +2,7 @@ import unittest
 
 import numpy as np
 
-from experiments.general_encoder import N, resemblance, ANIMALS_HELD, ANIMALS_SEEN, CENTRINGS, COARSE, DIETS, HELDOUT_ARMS, NOT_ANIMALS, arm_name, centred, coarse_noise, dead_leaves, few_shot, memory_arms, nearest_label, score
+from experiments.general_encoder import KindCentres, N, resemblance, ANIMALS_HELD, ANIMALS_SEEN, CENTRINGS, COARSE, DIETS, HELDOUT_ARMS, NOT_ANIMALS, arm_name, centred, coarse_noise, dead_leaves, few_shot, memory_arms, nearest_label, score
 
 
 class Centring(unittest.TestCase):
@@ -63,6 +63,36 @@ class Resemblance(unittest.TestCase):
     def test_no_answers_gives_zero_not_an_error(self):
         got = resemblance(np.array([0]), np.array([.1]), .5, 0, np.array([0]), np.zeros((1, N), np.int64))
         self.assertEqual(got['answered_same_kind'], 0.)
+
+
+class Centres(unittest.TestCase):
+    def kinds(self, rng, n=300):
+        a, b = np.zeros(32, np.float32), np.zeros(32, np.float32)
+        a[0], b[1] = 5., 5.
+        return [x + rng.normal(size=(n, 32)).astype(np.float32) for x in (a, b)]
+
+    def test_two_kinds_arriving_in_turn_give_two_centres_and_are_told_apart(self):
+        rng = np.random.default_rng(4)
+        ka, kb = self.kinds(rng)
+        c = KindCentres(form=100)
+        for z in np.concatenate([ka[:200], kb[:200]]):
+            c.observe(z)
+        self.assertEqual(len(c.centres), 2)
+        self.assertTrue((c.assign(ka[200:]) == 0).all())
+        self.assertTrue((c.assign(kb[200:]) == 1).all())
+
+    def test_more_of_a_known_kind_makes_no_new_centre_and_frozen_centres_do_not_move(self):
+        rng = np.random.default_rng(5)
+        ka, _ = self.kinds(rng)
+        c = KindCentres(form=100)
+        for z in ka[:100]:
+            c.observe(z)
+        before = c.centres[0].copy()
+        for z in ka[100:]:
+            c.observe(z)
+        self.assertEqual(len(c.centres), 1)
+        self.assertLess(len(c.forming), 10)
+        np.testing.assert_array_equal(c.centres[0], before)
 
 
 class Diets(unittest.TestCase):

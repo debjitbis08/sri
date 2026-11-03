@@ -124,6 +124,38 @@ Resemblance is on mild views, means over kinds; chance for the same category wit
 
 Compute: two workers, 1,575 s wall, 3,086 s aggregate CPU, peak RSS 2.5 GB, GPU peak 420 MB, most of it encoding about 40,000 images per task at 224 × 224. Gate: `NFI_DEVICE=cuda /data/venvs/sri-cuda/bin/python -m experiments.dinov2_frozen`, about 3 minutes. Run: `GE_DINO=1 GE_TAG=-dino NFI_DEVICE=cuda SC0_WORKERS=2 ... -m experiments.general_encoder pilot memory`; tables `GE_TAG=-dino ... -m experiments.general_encoder_summary`; report `reports/general-encoder-v1-dino-memory.json.gz`.
 
+## Are addresses stable, with no labels?
+
+The point of a frozen encoder is stable addresses. Through frozen DINOv2 they are stable by construction: an image always gets the same code. What could still move them is the centre each code is read against. So this test finds kind centres with no labels and reads every set after every later kind, in both orders, seeds 392 and 393 (`experiments/general_encoder.py pilot stability`, tables `experiments/general_encoder_stability.py`).
+
+**Rule, set before running:** 1,024 passing inputs of the current kind arrive before its facts are taught, then are discarded. An input joins the nearest frozen centre if it reaches that centre's threshold; otherwise it joins the centre being formed, or starts one. A centre freezes after 512 inputs, keeping as its threshold the similarity that 99% of its own members reach. Writes and reads go to the nearest frozen centre. Labels only score. Compared with `told`, step 1's centre per kind, and `none`.
+
+Mean over all kinds and runs: matched reads just after a kind is taught, then after all six; the change; and at the end, unseen inputs answered at τ and the share of answered unseen images reaching the same category.
+
+| DINOv2 layer, centring | Mild: first, last | Change: mean, worst | Strong: first, last | Change: mean, worst | Unseen at τ: mild, strong | Resemblance: mild, strong |
+|---|---|---|---|---|---|---|
+| Patch mean, told | 0.60, 0.60 | **0.000, 0.00** | 0.35, 0.35 | **0.000, 0.00** | 0.22, 0.10 | 0.80, 0.82 |
+| Patch mean, found | 0.43, 0.43 | −0.004, −0.07 | 0.27, 0.26 | −0.004, −0.04 | 0.41, 0.19 | 0.60, 0.60 |
+| Patch mean, none | 0.18, 0.18 | −0.004, −0.02 | 0.13, 0.13 | −0.002, −0.04 | 0.82, 0.71 | 0.26, 0.23 |
+| Class token, told | 0.56, 0.56 | 0.000, 0.00 | 0.34, 0.34 | 0.000, 0.00 | 0.25, 0.13 | 0.80, 0.79 |
+| Class token, found | 0.37, 0.35 | −0.015, −0.18 | 0.24, 0.23 | −0.010, −0.09 | 0.34, 0.19 | 0.48, 0.51 |
+
+Kind centres found, of six kinds: 4, 2, 2, 3 on the patch mean; 4, 2, 2, 4 on the class token.
+
+- **With a fixed centre per kind, addresses do not move at all.** Reads after five more kinds equal reads just after teaching, in every kind, run and view. `told` also reproduces step 1 exactly.
+- **Found centres keep addresses nearly as stable,** mean change −0.004, but find too few kinds, so reads are lower: 0.43 against 0.60 on mild.
+- **Why too few: a broad kind swallows narrow ones.** Natural images spread widely, so the natural centre's threshold falls to about 0.3 and later rendered kinds pass it. When natural images come first, two centres serve all six kinds. Rendered kinds, white strokes on black, also look alike to DINOv2.
+- **The small losses that remain have a known cause:** a centre formed later can be nearer to an older kind's queries than the centre they were written under, so a query and its stored fact are centred differently. Up to −0.07 on mild for the patch mean, −0.18 for the class token.
+
+**So.** Stable addresses: yes, through frozen DINOv2, if each fact is read against the same centre it was written with. Finding those centres without labels is what fails, in a way that is understood.
+
+**Two fixes, both untested:**
+
+1. **Keep each unit's centre with it.** A read centres its query under each centre and compares it only with units written under that centre, taking the best. Then a new centre can never change an old read. It costs one vector per kind and K comparisons per read, not a network per kind.
+2. **Split a centre when its inputs change.** Compare a batch of passing inputs with the centre's members, not each input with a fixed threshold. A new kind that falls inside a broad one still shifts the batch's mean.
+
+Compute: two workers, 1,809 s wall, 3,554 s aggregate CPU, peak RSS 2.1 GB, GPU peak 340 MB. Gate: `told` matches step 1 in all 288 comparisons. The quantile and the 512 inputs were set before running and not tuned.
+
 ## Step 2: does anything carry over to categories never seen? (not run)
 
 Tests the animal example directly. Quarter-width ResNet-18 in colour, 40,000 updates, on CIFAR-100 with categories held out of training, seeds 392 and 393:

@@ -1,6 +1,7 @@
 """What training images build a general frozen encoder? (docs/general-frozen-encoder.md.)
 
 Stages (argv[2]):
+  stability label-free kind centres through frozen DINOv2: read every set after every later kind
   transfer  layers of already-trained networks read on kinds they never saw; no training
   memory    step 1: six kinds in one memory through one frozen encoder; no training; the sequence pilot's facts and draws
   heldout   step 2: trains on CIFAR-100 with categories held out, then asks what carries over to them (needs `general_encoder_fetch`)
@@ -39,6 +40,7 @@ TAUS = (.85, .7)
 CENTRINGS = ('none', 'natural', 'kind', 'recent')
 CENTRE_IMAGES = 5120
 MATCHED = .13
+FORM, MEMBER_QUANTILE = 512, .01  # inputs that form a kind centre before it freezes; the share of its own members a centre may fail to claim
 GALLERY = 300
 WITH_DINO = bool(os.environ.get('GE_DINO'))
 
@@ -331,6 +333,136 @@ def memory():
     S0.save_json(f'{REPORT}-memory-runtime.json', S0.runtime({'phase': 'writes and reads through frozen encoders', 'wall_seconds': time.perf_counter() - t0, 'tasks': {k: t for k, _, t in res}, 'aggregate_worker_cpu_seconds': float(sum(t['cpu_seconds'] for _, _, t in res))}))
 
 
+# ---------------------------------------------------------------- label-free kind centres
+
+class KindCentres:
+    """Kind centres from passing inputs, with no labels. An input joins the nearest frozen centre whose own threshold it reaches; otherwise it joins the centre being formed, or starts one. A forming centre freezes after FORM inputs, keeping as its threshold the MEMBER_QUANTILE of its members' similarity to it. Assumes a new kind arrives for a while at a time, as in these streams. Raw codes in, unit similarities inside."""
+    def __init__(self, form=FORM, q=MEMBER_QUANTILE):
+        self.form, self.q = form, q
+        self.centres, self.thresholds, self.forming = [], [], []
+
+    def _near(self, z):
+        if not self.centres:
+            return -1, -2.
+        C = np.stack(self.centres)
+        s = NM.unit(C) @ NM.unit(z[None])[0]
+        i = int(s.argmax())
+        return i, float(s[i])
+
+    def observe(self, z):
+        i, s = self._near(z)
+        if i >= 0 and s >= self.thresholds[i]:
+            return i
+        self.forming.append(z)
+        if len(self.forming) >= self.form:
+            members = np.stack(self.forming)
+            c = members.mean(0)
+            self.centres.append(c)
+            self.thresholds.append(float(np.quantile(NM.unit(members) @ NM.unit(c[None])[0], self.q)))
+            self.forming = []
+        return len(self.centres) - 1 if not self.forming else -1
+
+    def assign(self, Z):
+        """Nearest frozen centre of each raw code, whether or not it reaches that centre's threshold."""
+        C = NM.unit(np.stack(self.centres))
+        return (NM.unit(Z) @ C.T).argmax(1)
+
+    def centre(self, Z):
+        """Unit codes, each centred on its own nearest centre."""
+        a = self.assign(Z)
+        return centred(Z, np.stack(self.centres)[a]), a
+
+
+def stability_task(task):
+    seed, order = task
+    t0, c0 = time.perf_counter(), time.process_time()
+    torch.set_num_threads(FI.THREADS)
+    S0.set_up_task('sparse48')
+    kinds = SEQ.kind_order(seed, order)
+    data = {k: SEQ.kind_data(k, seed) for k in kinds}
+    index = {k: i for i, k in enumerate(kinds)}
+    wrng = nc.stream('nm_seq_writes', seed, order)
+    qrng = nc.stream('nm_seq_queries', seed)
+    q = {k: {v: NM.view_arrays(data[k]['cues'], qrng, c) for v, c in NM.VIEWS.items()} for k in SEQ.KINDS}
+    qu = {k: {v: NM.view_arrays(data[k]['unseen'], qrng, c) for v, c in NM.VIEWS.items()} for k in SEQ.KINDS}
+    dino = DINO.layers(DINO.load(DEV.NAME if DEV.ACTIVE else 'cpu'))
+    feats = lambda x: run_layers(dino, x, size=64)
+    crng, prng = nc.stream('ge_centres', seed), nc.stream('ge_passing', seed, order)
+    told = {k: {lay: f.mean(0) for lay, f in feats(np.ascontiguousarray(data[k]['pool'][crng.permutation(len(data[k]['pool']))[:CENTRE_IMAGES]], dtype=np.float32)).items()} for k in kinds}
+    layers_ = ('cls', 'patch')
+    found = {lay: KindCentres() for lay in layers_}
+    arms = [(lay, how) for lay in layers_ for how in ('none', 'told', 'found')]
+    facts = len(SEQ.KINDS) * N
+    mems = {a: NM.Tagged(SEQ.CAPACITY, TAUS[0], DINO.DIM, DINO.DIM, facts) for a in arms}
+    labels = {k: kind_labels(k, seed) for k in kinds}
+    cue_labels = np.stack([labels[k][0] for k in kinds])
+
+    def code(arm, kind, f):
+        lay, how = arm
+        if how == 'none':
+            return NM.unit(f), None
+        if how == 'told':
+            return centred(f, told[kind][lay]), None
+        return found[lay].centre(f)
+
+    cache, reads, centre_log, taught = {}, {}, [], []
+    truth = np.arange(N)
+    for kind in kinds:
+        passing = np.ascontiguousarray(data[kind]['pool'][prng.permutation(len(data[kind]['pool']))[:2 * FORM]], dtype=np.float32)  # inputs passing before teaching; discarded
+        fp = feats(passing)
+        for lay in layers_:
+            for z in fp[lay]:
+                found[lay].observe(z)
+        centre_log.append({lay: {'centres': len(found[lay].centres), 'forming': len(found[lay].forming)} for lay in layers_})
+        plan = NM.plan_writes(wrng, np.arange(N), SEQ.EXPOSURES, SEQ.BLOCK)
+        cues, targets, rows = [], [], []
+        for batch in plan:
+            if len(batch):
+                cues.append(NM.view_arrays(data[kind]['cues'][batch], wrng, NM.VIEWS['mild']))
+                targets.append(NM.view_arrays(data[kind]['targets'][batch], wrng, NM.VIEWS['mild']))
+                rows.append(SEQ.fact_row(index[kind], batch))
+        fc, ft, rows = feats(np.concatenate(cues)), feats(np.concatenate(targets)), np.concatenate(rows)
+        for arm in arms:
+            z, _ = code(arm, kind, fc[arm[0]])
+            v, _ = code(arm, kind, ft[arm[0]])
+            for i in range(len(rows)):
+                mems[arm].write_tagged(z[i], v[i], rows[i])
+        taught.append(kind)
+        stage = {}
+        for k in taught:
+            if k not in cache:
+                cache[k] = {'cand': feats(data[k]['targets']), **{f'q-{v}': feats(q[k][v]) for v in NM.VIEWS}, **{f'u-{v}': feats(qu[k][v]) for v in NM.VIEWS}}
+            rows_k = SEQ.fact_row(index[k], truth)
+            for v in NM.VIEWS:
+                for arm in arms:
+                    lay = arm[0]
+                    mem = mems[arm]
+                    Z, a = code(arm, k, cache[k][f'q-{v}'][lay])
+                    Zu, au = code(arm, k, cache[k][f'u-{v}'][lay])
+                    Zc, _ = code(arm, k, cache[k]['cand'][lay])
+                    h = mem.h
+                    i, sim = mem.nearest(Z)
+                    iu, su = mem.nearest(Zu)
+                    val = mem.u[:h] / mem.n[:h, None]
+                    rec = {**score(mem.tags[:h][i].argmax(1) == rows_k, sim, (val[i] @ Zc.T).argmax(1) == truth, su, TAUS[0]), 'units': h,
+                           'resemblance': resemblance(mem.tags[:h][iu].argmax(1), su, TAUS[0], index[k], labels[k][1], cue_labels)}
+                    if a is not None:
+                        rec['centre_of_queries'] = np.bincount(a, minlength=len(found[lay].centres)).tolist()
+                    stage[f'{lay}/{arm[1]}|{k}-{v}'] = rec
+        reads[f'{len(taught)}:{kind}'] = stage
+    res = {'reads': reads, 'kinds': kinds, 'centres': centre_log, 'thresholds': {lay: found[lay].thresholds for lay in layers_}, 'seed': seed, 'order': order}
+    return f'{seed}/{order}', res, S0.timing(t0, c0)
+
+
+def stability():
+    t0 = time.perf_counter()
+    S0.prepare()
+    NM.data()
+    res = S0.pool_map(DUR.durable(stability_task, RUNS / 'done-stability', '{0}-{1}'), [(s, o) for s in SEEDS for o in SEQ.ORDERS])
+    S0.save_json(f'{REPORT}-stability.json', {'status': 'exploratory, pilot seeds, both orders; frozen DINOv2; kind centres found with no labels from passing inputs; every set read after every later kind', 'form': FORM, 'member_quantile': MEMBER_QUANTILE, 'results': {k: r for k, r, _ in res}})
+    S0.save_json(f'{REPORT}-stability-runtime.json', S0.runtime({'phase': 'frozen DINOv2, label-free centres, writes and repeated reads', 'wall_seconds': time.perf_counter() - t0, 'tasks': {k: t for k, _, t in res}, 'aggregate_worker_cpu_seconds': float(sum(t['cpu_seconds'] for _, _, t in res))}))
+
+
 # ---------------------------------------------------------------- training on a chosen diet, for steps 2 and 3
 
 def fit(next_images, arch, seed, tag, path):
@@ -440,4 +572,4 @@ def diet():
 
 
 if __name__ == '__main__':
-    {'transfer': transfer, 'memory': memory, 'heldout': heldout, 'diet': diet}[sys.argv[2]]()
+    {'transfer': transfer, 'memory': memory, 'stability': stability, 'heldout': heldout, 'diet': diet}[sys.argv[2]]()
