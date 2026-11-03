@@ -37,7 +37,7 @@ def delta(x, y):
     x, y = np.array(x, float), np.array(y, float)
     both_inf = np.isinf(x) & np.isinf(y) & (x == y)
     d = np.where(both_inf, 0., np.abs(np.where(both_inf, 0., x) - np.where(both_inf, 0., y)))
-    return float(np.nan_to_num(d, nan=np.inf).max())
+    return float(np.nan_to_num(d, nan=np.inf, posinf=np.inf).max())
 
 
 def compare(a, b, tau):
