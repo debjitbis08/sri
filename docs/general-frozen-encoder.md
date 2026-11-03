@@ -1,6 +1,6 @@
 # A general frozen encoder for images
 
-Status: **direction and step 1 pilot, 2026-11-03. Not a contract, and not evidence for any contrast.** Two seeds. Centrings were chosen after the risk below was seen. Steps 2 and 3 are scripted and **have not run**.
+Status: **direction and step 1 pilot, with DINOv2, 2026-11-03. Not a contract, and not evidence for any contrast.** Two seeds. Centrings were chosen after the risk below was seen. Steps 2 and 3 are scripted and **have not run**.
 
 ## The direction
 
@@ -94,6 +94,36 @@ A natural diet alone does not give a general encoder for memory, though it comes
 - **Single-query reads.** `recent` assumes a batch of 45 of one kind, and `kind` is told it. A running mean over passing inputs would serve the same purpose when inputs are of one kind for a while, and neither tests a mix.
 - **Colour.** All 28 × 28 grey here.
 
+## Step 1 with DINOv2: does a far broader natural diet remove the pile-up?
+
+User's call, 2026-11-03: at 21 million parameters, DINOv2 ViT-S/14 can stand in for a general encoder trained on far more natural images, 142 million, and test the idea much faster than training our own. Weights from the official backbone file, loaded as plain tensors; the network written in `experiments/dinov2_frozen.py`, so no downloaded code runs. Inputs: our 28 × 28 grey images, resized to 224 and copied to three channels.
+
+**Implementation gate.** Nearest-neighbour class reads on CIFAR-10 test images: 0.93 in colour (class token), 0.84 in grey 28 × 28. Our natural-trained network reads 0.58–0.61 by the same measure. So the implementation works, and the grey, small inputs cost it about 0.09.
+
+Same run as step 1, with a **new measure of resemblance**: when an unseen image gets an answer, does the stored fact it reaches share its kind, and its category (a class of natural image, a count for the rendered kinds)? Old arms read exactly as before, 2,160 of 2,160 reads.
+
+| Encoder, layer, centring | Mild: matched, τ | Strong: matched, τ | Unseen answered at τ: mild, strong | Answered unseen: same kind, same category | Answering all unseen: same category |
+|---|---|---|---|---|---|
+| DINOv2, class token, none | 0.18–0.20, 0.19–0.21 | 0.11–0.15, 0.11–0.12 | 0.81–0.82, 0.69–0.71 | 0.79–0.97, 0.31–0.38 | 0.38–0.46 |
+| DINOv2, class token, kind | 0.54–0.60, 0.56–0.66 | 0.32–0.35, 0.21–0.25 | 0.24–0.26, 0.13–0.14 | 0.83, 0.78–0.81 | 0.70–0.74 |
+| DINOv2, class token, recent | 0.44–0.53, 0.44–0.48 | 0.31–0.37, 0.07–0.12 | 0.10–0.12, 0.01–0.02 | 0.67–0.83, 0.67–0.83 | 0.69–0.73 |
+| **DINOv2, patch mean, kind** | **0.59–0.63, 0.59–0.66** | **0.33–0.36, 0.21–0.24** | 0.21–0.22, 0.09–0.11 | 0.83, 0.79–0.83 | 0.72–0.74 |
+| Our natural deep, stage 4, kind | 0.56–0.61, 0.67–0.69 | 0.33–0.36, 0.30–0.33 | 0.27–0.30, 0.15–0.20 | 0.82–0.83, 0.68–0.78 | 0.57–0.59 |
+| Our natural deep, key, none | 0.17–0.19, 0.18–0.20 | 0.16–0.18, 0.13–0.15 | 0.81–0.83, 0.72–0.80 | 0.53–0.69, 0.18–0.25 | 0.23–0.29 |
+| Glyph small, key, kind | 0.54–0.60, 0.61–0.67 | 0.08–0.10, 0.08–0.10 | 0.29–0.35, 0.18–0.19 | 0.99–1.00, 0.73–0.80 | 0.52–0.56 |
+| PCA | 0.46–0.54, 0.54–0.56 | 0.12–0.13, 0.10–0.13 | 0.33–0.36, 0.17–0.28 | 0.64–0.74, 0.42–0.47 | 0.29–0.32 |
+
+Resemblance is on mild views, means over kinds; chance for the same category within a kind is 0.11.
+
+- **DINOv2 piles up too.** As it comes, it reads new kinds at about 0.00–0.09 and answers almost every unseen input of them, like our network. So the pile-up is not from too narrow a diet. It is in reading a frozen code by plain cosine across kinds: images of one kind are all much nearer each other than to anything else, so the general direction of the kind swamps the differences within it.
+- **Centred by kind, DINOv2 is no better here than our 0.72 M-parameter network:** 0.59–0.63 against 0.56–0.61 on mild, 0.33–0.36 on strong for both. On CIFAR-10 categories it is far better (0.93 against 0.60). So these instance reads are limited by something other than the encoder: rendered kinds contain many near-identical images, and the strong views are severe for small images.
+- **Most answers to unseen images make sense.** Centred, about 0.8 of the unseen inputs answered reach a stored fact of the same kind and category, and 0.70–0.74 when DINOv2 answers all of them, against chance 0.11. So they are mostly resemblance, as the user expected, not arbitrary. Without centring they are mostly arbitrary within a kind, 0.31–0.38. Our network's are less often of the right category, 0.57–0.59 when answering all.
+- **Centring on the batch with DINOv2 answers almost no unseen image at τ,** 0.01–0.02 on strong, and reads correspondingly less.
+
+**So.** A broad natural diet makes an encoder whose answers to the unfamiliar mostly make sense, which supports the direction. The test that this step used, finding one stored image among near-copies, cannot show a better encoder. The pile-up needs a fix in how memory reads a frozen code, a centre per kind or some other normalization, whatever the diet. Step 3's bar should therefore be category-level reads and resemblance, not instance reads.
+
+Compute: two workers, 1,575 s wall, 3,086 s aggregate CPU, peak RSS 2.5 GB, GPU peak 420 MB, most of it encoding about 40,000 images per task at 224 × 224. Gate: `NFI_DEVICE=cuda /data/venvs/sri-cuda/bin/python -m experiments.dinov2_frozen`, about 3 minutes. Run: `GE_DINO=1 GE_TAG=-dino NFI_DEVICE=cuda SC0_WORKERS=2 ... -m experiments.general_encoder pilot memory`; tables `GE_TAG=-dino ... -m experiments.general_encoder_summary`; report `reports/general-encoder-v1-dino-memory.json.gz`.
+
 ## Step 2: does anything carry over to categories never seen? (not run)
 
 Tests the animal example directly. Quarter-width ResNet-18 in colour, 40,000 updates, on CIFAR-100 with categories held out of training, seeds 392 and 393:
@@ -132,7 +162,7 @@ The question the user set. One architecture, deep grey, 40,000 updates, on each 
 | Natural + glyphs, natural + digits | Does a mix add to natural? |
 | All | The broadest here |
 
-**Bar:** on kinds outside the diet, reads as good as within it, and no pile-up without a centre for each kind. Then the best diet goes through step 1.
+**Bar, revised after the DINOv2 run:** on kinds outside the diet, category-level reads and resemblance near those within it. Pile-up without a centre is expected for any diet and is not the bar. Then the best diet goes through step 1.
 
 Run: `NFI_DEVICE=cuda SC0_WORKERS=3 OPENBLAS_NUM_THREADS=1 /data/venvs/sri-cuda/bin/python -m experiments.general_encoder pilot diet`. Estimate: 16 fits, about 6 to 8 hours. The same limits as step 2 apply: tested on pure parts only.
 

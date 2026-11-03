@@ -2,7 +2,7 @@ import unittest
 
 import numpy as np
 
-from experiments.general_encoder import ANIMALS_HELD, ANIMALS_SEEN, CENTRINGS, COARSE, DIETS, HELDOUT_ARMS, NOT_ANIMALS, arm_name, centred, coarse_noise, dead_leaves, few_shot, memory_arms, nearest_label, score
+from experiments.general_encoder import N, resemblance, ANIMALS_HELD, ANIMALS_SEEN, CENTRINGS, COARSE, DIETS, HELDOUT_ARMS, NOT_ANIMALS, arm_name, centred, coarse_noise, dead_leaves, few_shot, memory_arms, nearest_label, score
 
 
 class Centring(unittest.TestCase):
@@ -48,6 +48,21 @@ class Measures(unittest.TestCase):
         noise = rng.normal(size=(120, 16))
         noise /= np.linalg.norm(noise, axis=1, keepdims=True)
         self.assertLess(few_shot(noise, y, 1, rng), .5)
+
+
+class Resemblance(unittest.TestCase):
+    def test_answers_reaching_the_same_kind_and_category_are_counted(self):
+        cue_labels = np.zeros((2, N), np.int64)
+        cue_labels[1, 3] = 7
+        rows = np.array([N + 3, 3, N + 4])  # kind 1 fact 3 (label 7), kind 0, kind 1 fact 4 (label 0)
+        got = resemblance(rows, np.array([.9, .9, .1]), .5, 1, np.array([7, 7, 0]), cue_labels)
+        self.assertEqual(got['answered_same_kind'], .5)
+        self.assertEqual(got['answered_same_class'], .5)
+        self.assertAlmostEqual(got['all_same_class'], 2 / 3)
+
+    def test_no_answers_gives_zero_not_an_error(self):
+        got = resemblance(np.array([0]), np.array([.1]), .5, 0, np.array([0]), np.zeros((1, N), np.int64))
+        self.assertEqual(got['answered_same_kind'], 0.)
 
 
 class Diets(unittest.TestCase):

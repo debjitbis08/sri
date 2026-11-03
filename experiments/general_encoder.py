@@ -17,6 +17,7 @@ import torch
 import torch.nn.functional as Fn
 
 from experiments import device as DEV
+from experiments import dinov2_frozen as DINO
 from experiments import durable as DUR
 from experiments import fan_in_pilot as FI
 from experiments import natural_memory as NM
@@ -39,6 +40,7 @@ CENTRINGS = ('none', 'natural', 'kind', 'recent')
 CENTRE_IMAGES = 5120
 MATCHED = .13
 GALLERY = 300
+WITH_DINO = bool(os.environ.get('GE_DINO'))
 
 # CIFAR-100's coarse labels. People are left out of both sides.
 COARSE = ('aquatic_mammals', 'fish', 'flowers', 'food_containers', 'fruit_and_vegetables', 'household_electrical_devices', 'household_furniture', 'insects', 'large_carnivores', 'large_man-made_outdoor_things', 'large_natural_outdoor_scenes', 'large_omnivores_and_herbivores', 'medium_mammals', 'non-insect_invertebrates', 'people', 'reptiles', 'small_mammals', 'trees', 'vehicles_1', 'vehicles_2')
@@ -57,6 +59,25 @@ def centred(z, c):
     """Subtract a centre, then back to unit length. A code at the centre stays zero, which a read can never match."""
     y = z - c
     return y / np.maximum(np.linalg.norm(y, axis=-1, keepdims=True), 1e-9)
+
+
+def kind_labels(kind, seed):
+    """Category labels of a kind's cues and unseen images: the classes of natural images, the counts of the rendered kinds. The same draw as the sequence pilot's kind_data, so the same images."""
+    rng = nc.stream('nm_kind_facts', seed, kind)
+    y = NM.data()['y_test'] if kind == 'natural' else np.asarray(S0.X.DATA[(kind, 'eval')][1])
+    pick = rng.permutation(len(y))[:2 * N + SEQ.N_CANDIDATES]
+    return y[pick[:N]], y[pick[N:2 * N]]
+
+
+def resemblance(unit_rows, sim, tau, kind_index, unseen_labels, cue_labels):
+    """When an unseen image is answered, is the stored fact it reaches related to it? unit_rows: the fact row of each unseen query's nearest unit. cue_labels: (kinds, N) labels of stored facts. Share of answered queries reaching the same kind, and the same kind and category; and, answering all, the same category."""
+    k, f = unit_rows // N, unit_rows % N
+    same_kind = k == kind_index
+    same_class = same_kind & (cue_labels[k, f] == unseen_labels)
+    ok = sim >= tau
+    answered = max(int(ok.sum()), 1)
+    return {'answered_same_kind': float((ok & same_kind).sum() / answered), 'answered_same_class': float((ok & same_class).sum() / answered), 'all_same_kind': float(same_kind.mean()), 'all_same_class': float(same_class.mean()),
+            'chance_same_class_in_kind': float(np.mean(cue_labels[kind_index][:, None] == unseen_labels[None]))}
 
 
 def score(tag_ok, sim, val_ok, unseen_sim, tau):
@@ -114,6 +135,8 @@ def memory_arms():
     arms = [('natural-deep', lay, c) for lay in ('key', 'stage4', 'stage3') for c in CENTRINGS]
     arms += [(net, 'key', c) for net in ('natural-small', 'glyph-small') for c in CENTRINGS]
     arms += [('untrained-deep', 'key', 'none'), ('pixels', 'code', 'none'), ('pca', 'code', 'none')]
+    if WITH_DINO:
+        arms += [('dinov2-s', lay, c) for lay in ('cls', 'patch') for c in CENTRINGS]
     return arms
 
 
@@ -163,7 +186,8 @@ def load_trained(config, seed, u):
 
 
 def trained_nets(seed):
-    return {'natural-deep': deep_layers(load_trained('deep-grey-strong', seed, 40000)), 'untrained-deep': deep_layers(load_trained('deep-grey-strong', seed, 0)),
+    extra = {'dinov2-s': DINO.layers(DINO.load(DEV.NAME if DEV.ACTIVE else 'cpu'))} if WITH_DINO else {}
+    return {**extra, 'natural-deep': deep_layers(load_trained('deep-grey-strong', seed, 40000)), 'untrained-deep': deep_layers(load_trained('deep-grey-strong', seed, 0)),
             'natural-small': small_layers(load_trained('small-scratch-strong', seed, 40000)), 'glyph-small': small_layers(SM.encoder('unlabelled', seed).eval().requires_grad_(False))}
 
 
@@ -279,6 +303,8 @@ def memory_task(task):
 
     reads = {}
     truth = np.arange(N)
+    labels = {k: kind_labels(k, seed) for k in kinds}
+    cue_labels = np.stack([labels[k][0] for k in kinds])
     for kind in kinds:
         rows = SEQ.fact_row(index[kind], truth)
         fcand = {n: features(n, data[kind]['targets']) for n in all_nets}
@@ -289,9 +315,10 @@ def memory_task(task):
                 Z, Zu, Zc = centre(arm, kind, fq[net][lay], True), centre(arm, kind, fu[net][lay], True), centre(arm, kind, fcand[net][lay], True)
                 h = mem.h
                 i, s = mem.nearest(Z)
-                _, su = mem.nearest(Zu)
+                iu, su = mem.nearest(Zu)
                 val = mem.u[:h] / mem.n[:h, None]
-                reads[f'{arm_name(arm)}|{tau}|{kind}-{view}'] = {**score(mem.tags[:h][i].argmax(1) == rows, s, (val[i] @ Zc.T).argmax(1) == truth, su, tau), 'units': h, 'payload_bytes': mem.payload_bytes()}
+                reads[f'{arm_name(arm)}|{tau}|{kind}-{view}'] = {**score(mem.tags[:h][i].argmax(1) == rows, s, (val[i] @ Zc.T).argmax(1) == truth, su, tau), 'units': h, 'payload_bytes': mem.payload_bytes(),
+                                                                  'resemblance': resemblance(mem.tags[:h][iu].argmax(1), su, tau, index[kind], labels[kind][1], cue_labels)}
     return f'{seed}/{order}', {'reads': reads, 'kinds': kinds, 'seed': seed, 'order': order, 'write_wall_seconds': write_wall}, S0.timing(t0, c0)
 
 

@@ -1,0 +1,53 @@
+{
+ "aggregate_worker_cpu_seconds": 3086.1688977619997,
+ "children_peak_rss_kb": 2585188,
+ "command": "/home/debjit/code/sri/experiments/general_encoder.py pilot memory",
+ "contract_sha256": "e94933660a9c50b03e9b24099b64f977ec3cba1e788405f84facb1bcca8c839a",
+ "cpu": "x86_64",
+ "cublas_workspace_config": ":4096:8",
+ "cuda": "13.0",
+ "cudnn": 92400,
+ "deterministic_algorithms": true,
+ "device": "cuda",
+ "dirty": true,
+ "dtype": "float32",
+ "gpu": "NVIDIA GeForce GTX 1650",
+ "numpy": "2.5.4",
+ "parent_peak_rss_kb": 1761616,
+ "phase": "writes and reads through frozen encoders",
+ "python": "3.12.3",
+ "revision": "aceab272e24fe27aaebdf6847970c19ef2d04c8b",
+ "rss_convention": "ru_maxrss in KiB, per process; children is the largest single child",
+ "runner_sha256": "4b5573ad3b7ecddb231f836a02d6b0f6ae51c992aefbb175d5cf4e6391e40bbd",
+ "scope": "nondeterministic timing",
+ "tasks": {
+  "392/forward": {
+   "cpu_seconds": 772.8891512009999,
+   "gpu_peak_allocated_bytes": 441334272,
+   "peak_rss_kb": 2388288,
+   "wall_seconds": 772.9038351490017
+  },
+  "392/reverse": {
+   "cpu_seconds": 763.518433077,
+   "gpu_peak_allocated_bytes": 441334272,
+   "peak_rss_kb": 2389040,
+   "wall_seconds": 763.4212902389991
+  },
+  "393/forward": {
+   "cpu_seconds": 776.201732493,
+   "gpu_peak_allocated_bytes": 441334272,
+   "peak_rss_kb": 2583524,
+   "wall_seconds": 776.0143109170021
+  },
+  "393/reverse": {
+   "cpu_seconds": 773.559580991,
+   "gpu_peak_allocated_bytes": 441334272,
+   "peak_rss_kb": 2585188,
+   "wall_seconds": 773.3950792079995
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cu130",
+ "wall_seconds": 1575.058961650997,
+ "workers": 2
+}

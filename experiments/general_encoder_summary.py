@@ -3,6 +3,7 @@
 Usage: /data/venvs/sri-cuda/bin/python -m experiments.general_encoder_summary
 """
 import gzip
+import os
 import json
 from pathlib import Path
 
@@ -17,7 +18,7 @@ def load(path):
 
 
 def report():
-    p = Path('reports/general-encoder-v1-memory.json')
+    p = Path(f"reports/general-encoder-v1{os.environ.get('GE_TAG', '')}-memory.json")
     return load(p if p.exists() else str(p) + '.gz')
 
 
