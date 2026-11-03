@@ -82,6 +82,11 @@ Recommended order: 1 and 2, then 3 to 5 (one experiment), 7, 8, 9, 10. Step 11 i
 3. **No labels anywhere.** Run the joined arms with label-free domain centres (2-means or the stability rule) instead of centres told the domain.
 4. **New kinds after setup.** Fit the gate and centres on some kinds, then let others arrive in the stream, including at least one new domain. This step needs a rule for opening a new domain centre. Earlier, label-free centres merged kinds, so that rule is the open part.
 5. **Stability under adaptation.** When the gate refits or a centre splits, earlier facts must still read as before. Teaching B must not forget A, in both orders.
+   **Steps 3 to 5, pilot, 2026-11-03** ([results](sense-adapt-v1-pilot.md)).
+   - **Step 3 holds.** Domain centres found by 2-means read exactly like centres told the domain.
+   - **Step 4 holds on final reads.** Centres opened online by a batch-shift rule, about one per kind with no labels, plus a gate refitted from stored codes, read 0.67–0.76 mild and 0.35–0.40 strong at matched false answers. That is inside the copies' range on both. They also answer fewer unseen inputs: 0.11–0.13 at τ, against 0.24–0.29 for the reference.
+   - **Step 5 does not fully hold.** Single kinds lose up to 0.16 as later kinds arrive, because queries move to later, similar centres and gate refits change their weights. Next: keep each unit's centre with it, and freeze query weights per centre.
+
 6. **Upgrading a sense in production (lightweight, not on the path to integration).** When a sense model is replaced or added while memory holds facts written through the old one, old keys cannot be re-encoded, because no images are stored. Candidate designs, cheapest first:
    - **run both models for a while:** the old model stays as one more part of the key, new facts are written through the new model, and the old model is retired once few facts depend on it;
    - **re-write facts when they are recalled:** when an input matches an old fact, the live input is encoded through the new model and that code is added to the fact's key, so facts in use move over and unused ones fade;
