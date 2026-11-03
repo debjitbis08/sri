@@ -8,6 +8,8 @@ studies are not yet reviewed.
 
 ## Search record and evidence levels
 
+2026-11-03: [reading notes on memory through a learning encoder](natural-memory-prior-work.md) cover MoCo and SDC at **[read]** level, self-healing codes through a summarizing tool, and Expert Gate, Progressive Networks and REMIND at **[abstract]** level, for the [natural-image memory pilot](natural-memory-v1-pilot.md).
+
 On 2026-10-29, [two-module graded expressivity analysis](two-module-graded-expressivity-analysis.md)
 compared reciprocal quadratic modules with linear bottleneck networks, and
 nonlinear block recurrence with ordinary RNNs and deep equilibrium models.

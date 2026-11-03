@@ -1,0 +1,169 @@
+{
+ "aggregate_worker_cpu_seconds": 49334.989407606,
+ "children_peak_rss_kb": 3581460,
+ "command": "/home/debjit/code/sri/experiments/natural_memory.py pilot memory",
+ "contract_sha256": "e94933660a9c50b03e9b24099b64f977ec3cba1e788405f84facb1bcca8c839a",
+ "cpu": "x86_64",
+ "cublas_workspace_config": ":4096:8",
+ "cuda": "13.0",
+ "cudnn": 92400,
+ "deterministic_algorithms": true,
+ "device": "cuda",
+ "dirty": true,
+ "dtype": "float32",
+ "gpu": "NVIDIA GeForce GTX 1650",
+ "last_command_wall_seconds": 12590.171849695005,
+ "numpy": "2.5.4",
+ "parent_peak_rss_kb": 1001112,
+ "phase": "encoder, averages, memory writes and reads",
+ "python": "3.12.3",
+ "revision": "979ed1b8f25ef438ef50229e431d12be7a9cb70b",
+ "rss_convention": "ru_maxrss in KiB, per process; children is the largest single child",
+ "runner_sha256": "4b5573ad3b7ecddb231f836a02d6b0f6ae51c992aefbb175d5cf4e6391e40bbd",
+ "scope": "nondeterministic timing",
+ "tasks": {
+  "deep-colour-strong/392/AB/16000": {
+   "cpu_seconds": 5495.179927895,
+   "gpu_peak_allocated_bytes": 297846784,
+   "peak_rss_kb": 3503216,
+   "resumed": true,
+   "wall_seconds": 5506.5523997260025
+  },
+  "deep-colour-strong/392/AB/4000": {
+   "cpu_seconds": 3831.9800873520003,
+   "gpu_peak_allocated_bytes": 297846784,
+   "peak_rss_kb": 3494244,
+   "resumed": true,
+   "wall_seconds": 3843.8721577090037
+  },
+  "deep-colour-strong/392/BA/16000": {
+   "cpu_seconds": 5271.799230394,
+   "gpu_peak_allocated_bytes": 297846784,
+   "peak_rss_kb": 3564688,
+   "resumed": true,
+   "wall_seconds": 5281.019698527001
+  },
+  "deep-colour-strong/392/BA/4000": {
+   "cpu_seconds": 3753.344506871,
+   "gpu_peak_allocated_bytes": 297846784,
+   "peak_rss_kb": 3495664,
+   "resumed": true,
+   "wall_seconds": 3763.4297287320005
+  },
+  "deep-colour-strong/393/AB/16000": {
+   "cpu_seconds": 5529.5331997,
+   "gpu_peak_allocated_bytes": 297846784,
+   "peak_rss_kb": 3529020,
+   "resumed": true,
+   "wall_seconds": 5536.330814063003
+  },
+  "deep-colour-strong/393/AB/4000": {
+   "cpu_seconds": 3718.5326979670003,
+   "gpu_peak_allocated_bytes": 297846784,
+   "peak_rss_kb": 3543152,
+   "resumed": true,
+   "wall_seconds": 3723.161175096997
+  },
+  "deep-colour-strong/393/BA/16000": {
+   "cpu_seconds": 3543.1698074329997,
+   "gpu_peak_allocated_bytes": 297846784,
+   "peak_rss_kb": 3581460,
+   "resumed": true,
+   "wall_seconds": 3543.4889485480016
+  },
+  "deep-colour-strong/393/BA/4000": {
+   "cpu_seconds": 3657.59359222,
+   "gpu_peak_allocated_bytes": 297846784,
+   "peak_rss_kb": 3579364,
+   "resumed": true,
+   "wall_seconds": 3661.1187323299964
+  },
+  "small-glyph-strong/392/AB/16000": {
+   "cpu_seconds": 1696.7178719019998,
+   "gpu_peak_allocated_bytes": 91712000,
+   "peak_rss_kb": 2085532,
+   "resumed": true,
+   "wall_seconds": 1726.3565578390044
+  },
+  "small-glyph-strong/392/AB/4000": {
+   "cpu_seconds": 1159.020774335,
+   "gpu_peak_allocated_bytes": 91712000,
+   "peak_rss_kb": 2230296,
+   "resumed": true,
+   "wall_seconds": 1186.150278813002
+  },
+  "small-glyph-strong/392/AB/500": {
+   "cpu_seconds": 1010.578263475,
+   "gpu_peak_allocated_bytes": 91712000,
+   "peak_rss_kb": 2219636,
+   "resumed": true,
+   "wall_seconds": 1028.1453055489983
+  },
+  "small-glyph-strong/392/BA/16000": {
+   "cpu_seconds": 1679.34736144,
+   "gpu_peak_allocated_bytes": 91712000,
+   "peak_rss_kb": 1958676,
+   "resumed": true,
+   "wall_seconds": 1707.3989449489964
+  },
+  "small-glyph-strong/392/BA/4000": {
+   "cpu_seconds": 1224.317703786,
+   "gpu_peak_allocated_bytes": 91712000,
+   "peak_rss_kb": 1944464,
+   "resumed": true,
+   "wall_seconds": 1226.8028995659988
+  },
+  "small-glyph-strong/392/BA/500": {
+   "cpu_seconds": 1088.341694575,
+   "gpu_peak_allocated_bytes": 91712000,
+   "peak_rss_kb": 1934512,
+   "resumed": true,
+   "wall_seconds": 1095.2207268150014
+  },
+  "small-glyph-strong/393/AB/16000": {
+   "cpu_seconds": 1503.606813407,
+   "gpu_peak_allocated_bytes": 91712000,
+   "peak_rss_kb": 1967668,
+   "resumed": true,
+   "wall_seconds": 1534.2695633480034
+  },
+  "small-glyph-strong/393/AB/4000": {
+   "cpu_seconds": 1159.790393981,
+   "gpu_peak_allocated_bytes": 91712000,
+   "peak_rss_kb": 1958316,
+   "resumed": true,
+   "wall_seconds": 1186.6897594109978
+  },
+  "small-glyph-strong/393/AB/500": {
+   "cpu_seconds": 1001.6606595430001,
+   "gpu_peak_allocated_bytes": 91712000,
+   "peak_rss_kb": 1990904,
+   "resumed": true,
+   "wall_seconds": 1028.0800224569975
+  },
+  "small-glyph-strong/393/BA/16000": {
+   "cpu_seconds": 1067.6747005319999,
+   "gpu_peak_allocated_bytes": 91712000,
+   "peak_rss_kb": 1971744,
+   "resumed": true,
+   "wall_seconds": 1071.613147352
+  },
+  "small-glyph-strong/393/BA/4000": {
+   "cpu_seconds": 1011.4443333700001,
+   "gpu_peak_allocated_bytes": 91712000,
+   "peak_rss_kb": 2004884,
+   "resumed": true,
+   "wall_seconds": 1047.4095156580006
+  },
+  "small-glyph-strong/393/BA/500": {
+   "cpu_seconds": 931.355787428,
+   "gpu_peak_allocated_bytes": 91712000,
+   "peak_rss_kb": 1953032,
+   "resumed": true,
+   "wall_seconds": 964.8286469070008
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cu130",
+ "workers": 3
+}

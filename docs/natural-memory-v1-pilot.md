@@ -8,9 +8,10 @@ Earlier memory tests stored only glyphs, so a frozen encoder could not lose. If 
 
 ## Answer in short
 
-- **Learning pays, on what is stored.** A frozen glyph encoder finds 0.05 of images from a strong view; after learning from the stream, the same network finds 0.72 and a deep one 0.93–0.95. PCA finds 0.26.
+- **Learning pays, on what is stored.** A frozen glyph encoder finds 0.05–0.06 of images from a strong view; after learning from the stream, the same network finds 0.72 and a deep one 0.93–0.95. PCA finds 0.24–0.29.
 - **No image-free way tested collects that learning for old memories.** With stored images, reads rise as the encoder improves. Slow averages, an established drift compensation and a linear map all stay below simply freezing.
-- **What holds is a frozen copy of the encoder per stretch of time, each with its own memory.** It is the only arm that keeps glyphs and natural images in both orders, and it holds across six kinds on seeds that played no part in setting it up. It costs one network copy and one forward pass per copy, and it answers unseen inputs too often.
+- **What holds is a frozen copy of the encoder per stretch of time, each with its own memory.** It is the only arm that keeps glyphs and natural images in both orders, and it holds across six kinds on seeds that played no part in setting it up. It costs one network copy and one forward pass per copy, and it answers unseen inputs too often, no less often than PCA.
+- **One blind copy can ruin all reads,** and a simple check for blindness removes that, on fresh seeds too.
 - **Stored images do not protect memory across a change of kind.** Re-encoding glyphs through an encoder that moved to natural images destroys them, 0.01–0.04 against 0.61–0.70 for frozen copies.
 - **The earlier recommendation, a slow average, fails here.** It has to learn the new kind to be of use, and while it does it moves more than the working encoder.
 
@@ -171,11 +172,22 @@ A copy that piles recent inputs onto one point cannot tell them apart. So measur
 
 - **It removes the poisoning.** Fresh seeds move from 0.00–0.04 to 0.60–0.73, and to the same level as other intervals.
 - **It helps most without a prelude,** where copies are often blind.
-- **It barely touches false answers at τ when copies are good:** 0.27–0.39 to 0.27–0.37 on the pilot seeds. Unseen answers fall on fresh seeds at the bad interval, from 1.00 to 0.37–0.54.
+- **At this threshold it barely touches false answers at τ when copies are good:** 0.27–0.39 to 0.27–0.37 on the pilot seeds. Unseen answers fall on fresh seeds at the bad interval, from 1.00 to 0.37–0.54.
 
 ### False answers remain
 
-[Results for the tighter gate: see below.]
+The figures above suggested a tighter gate: a kind's own copy collapses it to 0.03–0.34, and other copies have quartiles of 0.32, 0.46 and 0.68–0.70. So a threshold of 0.25 was **chosen after seeing this**, on the pilot seeds, and run on the fresh seeds as a check. Means over kinds, mild then strong:
+
+| Arm | Seeds | Matched: no gate | Matched: gate 0.25 | Unseen at τ: no gate | Unseen at τ: gate 0.25 | Copies read, of all |
+|---|---|---|---|---|---|---|
+| One per block | Pilot | 0.63–0.76, 0.35–0.40 | 0.64–0.76, 0.41–0.42 | 0.27–0.39, 0.25–0.30 | 0.26–0.30, 0.18–0.24 | 1.5–2.0 of 6–7 |
+| | Fresh | 0.52–0.73, 0.29–0.43 | 0.65–0.74, 0.39–0.50 | 0.32–0.69, 0.28–0.67 | 0.25–0.34, 0.12–0.29 | 0.8–1.7 of 6–10 |
+| Every 700 | Pilot | 0.66–0.80, 0.39–0.43 | 0.67–0.80, 0.43–0.47 | 0.37–0.46, 0.31–0.43 | 0.31–0.36, 0.28–0.33 | 5.7–7.2 of 23 |
+| | Fresh | 0.64–0.75, 0.32–0.41 | 0.68–0.77, 0.45–0.52 | 0.47–0.87, 0.45–0.85 | 0.36–0.42, 0.16–0.37 | 3.7–6.7 of 23–24 |
+| Every 3,100 | Pilot | 0.41–0.74, 0.18–0.35 | 0.66–0.79, 0.40–0.43 | 0.38–0.77, 0.37–0.67 | 0.27–0.32, 0.24–0.29 | 2.0–4.0 of 10–11 |
+| | Fresh | 0.00–0.04, 0.00 | 0.63–0.73, 0.36–0.44 | 1.00, 1.00 | 0.28–0.39, 0.14–0.27 | 1.7–2.8 of 10–14 |
+
+The tighter gate holds on the fresh seeds, on reads and on false answers. **False answers at the plain τ are lower and are still too high**: 0.25–0.42 on mild against PCA's 0.29–0.38, so no better than a fixed code. Few copies answer a given batch, though each must still be run on a recent batch to decide that.
 
 A margin read also failed: the distance from the best unit to the mean of the next k, in the manner of CSLS (**[familiar]**; the paper's abstract does not describe it). It separates known from unseen worse than raw similarity, on mild views AUC 0.68–0.83 against 0.83–0.95 across copy arms, and matched reads fall from 0.41–0.80 to 0.15–0.49. A copy holding few units gives anything a wide margin. Rejected as tested.
 
@@ -183,13 +195,35 @@ Raw similarity's AUC of 0.93–0.95 says that the information is there. The fixe
 
 ## Deep network
 
-[In progress at the time of writing; see below.]
+Quarter-width ResNet-18 on colour images, P 4,000 and 16,000, two seeds, both orders; gates pass in all 8 tasks. Load 450, strong views, matched false answers, first set and second set.
+
+| Taught at | Arm | End of teaching | +4,000 | +16,000 |
+|---|---|---|---|---|
+| P 4,000 | Working | 0.54–0.59, 0.73–0.75 | 0.42–0.50, 0.66–0.73 | **0.18–0.24**, 0.45–0.51 |
+| | Frozen at teaching | 0.65–0.68, 0.63–0.71 | same | **0.65–0.68**, 0.63–0.71 |
+| | β 0.999 | 0.66–0.69, 0.80–0.84 | 0.48–0.52, 0.76–0.81 | 0.21–0.26, 0.55–0.60 |
+| | β 0.9999 | 0.00–0.01, 0.05–0.24 | 0.00, 0.02–0.15 | 0.00, 0.00–0.01 |
+| | Stored images, rebuilt | 0.78–0.81, 0.78–0.82 | 0.83–0.84, 0.82–0.85 | **0.86–0.88, 0.86–0.89** |
+| | PCA | 0.23–0.28, 0.23–0.27 | same | same |
+| P 16,000 | Working | 0.82–0.87, 0.83–0.89 | 0.81–0.85, 0.84–0.85 | 0.78–0.86, 0.82–0.88 |
+| | Frozen at teaching | 0.82–0.86, 0.82–0.86 | same | 0.82–0.86, 0.82–0.86 |
+| | β 0.999 | 0.86–0.89, 0.88–0.89 | 0.85–0.89, 0.87–0.90 | 0.84–0.87, 0.86–0.87 |
+| | β 0.9999 | 0.77–0.84, 0.79–0.85 | 0.73–0.83, 0.78–0.86 | 0.50–0.74, 0.71–0.82 |
+| | Stored images, rebuilt | 0.85–0.88, 0.84–0.88 | 0.85–0.89, 0.85–0.89 | 0.89–0.91, 0.89–0.91 |
+
+- **The same pattern, more clearly.** At P 4,000 the working encoder falls to 0.18–0.24, frozen stays at 0.65–0.68, and stored images rise to 0.86–0.88: a gap of about 0.2 that no image-free arm collects.
+- **Once trained, it hardly matters.** At P 16,000 working, frozen and β 0.999 all read about 0.8–0.9. β 0.999 reads as well as anything there, within noise. The working encoder's cue movement over those 20,000 updates is 0.57 rad, and it keeps reads.
+- **β 0.9999 remains worse than either,** moving 1.31 rad against 0.92 at P 4,000.
+- **Against a mild view, PCA still reads 0.95–0.97,** so learning shows on strong views: 0.82–0.86 against 0.23–0.30.
+- **Classes:** with no threshold, addresses read 0.42–0.59 for frozen and 0.47–0.63 for stored images at P 16,000.
+- **Copies were not run on this network.** The glyph encoder has no deep version, so the mixed and sequence stages are small-network only.
 
 ## What this does not establish
 
+- **That copies help a deep network.** They ran on the small network only.
 - **That copies scale.** Six kinds and up to 23 copies. Cost grows with time spent writing, in copies and read passes, and nothing ever merges them. **A real system needs fewer.**
 - **That old memories can gain from later learning without images.** They do not here. A memory stays as good as its copy was at writing. Doing better needs rehearsal, which is the separate mechanism kept for images, or something not tested here.
-- **Rejection.** See above.
+- **Rejection.** False answers stay at 0.25–0.42 on mild views, no better than PCA. See above.
 - **The value of mild-view instance reads.** PCA and pixels do these. Strong views and fresh seeds are the informative figures.
 - **Generality.** Small and quarter-width networks, 28 × 28 grey for most of it; 45–450 facts; CIFAR-10 at only about 50 epochs. Families of rendered digits contain near duplicates, which lowers instance reads there whatever the arm.
 - **Why glyphs top out near 0.7.** That is the value read among 150; address reads are about 0.96–1.00.
@@ -220,9 +254,13 @@ GTX 1650, 12 cores, 15 GB. Several stages shared the GPU, so wall figures are no
 | Six kinds, plain and with margins: 4 tasks each | 1,359; 1,307 | 2,646; 2,530 | 2.7 GB | 130 MB |
 | Six kinds, fresh: 4 tasks | 653 | 1,230 | 2.7 GB | 130 MB |
 | Six kinds, gated: pilot, fresh, no prelude | 3,002; 3,072; 2,153 | 5,931; 6,061; 4,234 | 2.7 GB | 161–178 MB |
+| Six kinds, gate 0.25: pilot, fresh | 2,854; 1,132 | 5,637; 2,201 | 2.7 GB | 178 MB or less |
+| Memory, deep: 8 tasks | 12,600 | 34,801 | 3.5 GB | 284 MB |
 
 Rebuild arms hold images and count as a reference only. Selection cost: these stages are the selection; nothing was confirmed separately except that the sequence ran on fresh seeds.
 
 Fetching: 143 MB from Hugging Face in under a minute; the official server was about 50 times slower.
 
-**Gates.** Working encoders in the memory stage match the encoder stage by state in 12 of 12 tasks, on the small network; transport runs match memory runs on all 864 shared reads; the told arm matches `every-2000` exactly; the margin run reproduces 132 of 132 reads per task of the first sequence run.
+**Gates.** Working encoders in the memory stage match the encoder stage by state in 20 of 20 tasks across both networks; transport runs match memory runs on all 864 shared reads; the told arm matches `every-2000` exactly; the margin run reproduces 132 of 132 reads per task of the first sequence run. Runtime files record the runner's hash at a stage's end, and the runners were extended between stages, so a hash is not always the code a stage started with; those additions only added arms, and the checks above show shared arms unchanged.
+
+Reports: `reports/natural-memory-v1*.json.gz`. Source files: `/data/external-downloads/cifar10-hf`, converted to `runs/external/cifar10/cifar10-full.npz`, neither in git.

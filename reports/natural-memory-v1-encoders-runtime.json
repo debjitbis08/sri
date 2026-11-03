@@ -1,0 +1,137 @@
+{
+ "aggregate_worker_cpu_seconds": 22999.491723279,
+ "children_peak_rss_kb": 2126996,
+ "command": "/home/debjit/code/sri/experiments/natural_memory.py pilot encoders",
+ "contract_sha256": "e94933660a9c50b03e9b24099b64f977ec3cba1e788405f84facb1bcca8c839a",
+ "cpu": "x86_64",
+ "cublas_workspace_config": ":4096:8",
+ "cuda": "13.0",
+ "cudnn": 92400,
+ "deterministic_algorithms": true,
+ "device": "cuda",
+ "dirty": true,
+ "dtype": "float32",
+ "gpu": "NVIDIA GeForce GTX 1650",
+ "numpy": "2.5.4",
+ "parent_peak_rss_kb": 884716,
+ "phase": "encoders on the natural stream, scored at snapshots; fixed baselines",
+ "python": "3.12.3",
+ "revision": "2de3a8034e410fa0f283442c50790a3155fc30b8",
+ "rss_convention": "ru_maxrss in KiB, per process; children is the largest single child",
+ "runner_sha256": "4b5573ad3b7ecddb231f836a02d6b0f6ae51c992aefbb175d5cf4e6391e40bbd",
+ "scope": "nondeterministic timing",
+ "tasks": {
+  "deep-colour-strong/392": {
+   "cpu_seconds": 6196.5379074699995,
+   "gpu_peak_allocated_bytes": 283372544,
+   "peak_rss_kb": 2126996,
+   "wall_seconds": 6417.924258817999
+  },
+  "deep-colour-strong/393": {
+   "cpu_seconds": 3372.293824135,
+   "gpu_peak_allocated_bytes": 283372544,
+   "peak_rss_kb": 1772152,
+   "wall_seconds": 3391.5190325500007
+  },
+  "deep-grey-strong/392": {
+   "cpu_seconds": 5089.623664692,
+   "gpu_peak_allocated_bytes": 202479616,
+   "peak_rss_kb": 1995428,
+   "wall_seconds": 5314.513659812001
+  },
+  "deep-grey-strong/393": {
+   "cpu_seconds": 4936.455059719,
+   "gpu_peak_allocated_bytes": 202479616,
+   "peak_rss_kb": 1995392,
+   "wall_seconds": 5128.451113995005
+  },
+  "pca:deep-colour/392": {
+   "cpu_seconds": 477.331702381,
+   "gpu_peak_allocated_bytes": 0,
+   "peak_rss_kb": 1767824,
+   "wall_seconds": 88.1370769990026
+  },
+  "pca:deep-colour/393": {
+   "cpu_seconds": 420.901848018,
+   "gpu_peak_allocated_bytes": 0,
+   "peak_rss_kb": 1767676,
+   "wall_seconds": 67.64484843800165
+  },
+  "pca:small/392": {
+   "cpu_seconds": 106.981902802,
+   "gpu_peak_allocated_bytes": 0,
+   "peak_rss_kb": 1149280,
+   "wall_seconds": 27.444383890993777
+  },
+  "pca:small/393": {
+   "cpu_seconds": 107.35356763600001,
+   "gpu_peak_allocated_bytes": 0,
+   "peak_rss_kb": 1149632,
+   "wall_seconds": 27.229559931998665
+  },
+  "pixels:deep-colour/392": {
+   "cpu_seconds": 9.471826684,
+   "gpu_peak_allocated_bytes": 0,
+   "peak_rss_kb": 1488476,
+   "wall_seconds": 2.507691349994275
+  },
+  "pixels:deep-colour/393": {
+   "cpu_seconds": 7.523228498,
+   "gpu_peak_allocated_bytes": 0,
+   "peak_rss_kb": 1483172,
+   "wall_seconds": 2.8313429479967454
+  },
+  "pixels:small/392": {
+   "cpu_seconds": 4.380500938,
+   "gpu_peak_allocated_bytes": 0,
+   "peak_rss_kb": 1130064,
+   "wall_seconds": 1.314308863999031
+  },
+  "pixels:small/393": {
+   "cpu_seconds": 4.309780677,
+   "gpu_peak_allocated_bytes": 0,
+   "peak_rss_kb": 1130024,
+   "wall_seconds": 1.3048921270019491
+  },
+  "small-glyph-affine/392": {
+   "cpu_seconds": 323.243605373,
+   "gpu_peak_allocated_bytes": 87639552,
+   "peak_rss_kb": 1911868,
+   "wall_seconds": 314.0337634250027
+  },
+  "small-glyph-affine/393": {
+   "cpu_seconds": 320.27279701,
+   "gpu_peak_allocated_bytes": 87639552,
+   "peak_rss_kb": 1913976,
+   "wall_seconds": 316.2700104780015
+  },
+  "small-glyph-strong/392": {
+   "cpu_seconds": 313.667722115,
+   "gpu_peak_allocated_bytes": 87639552,
+   "peak_rss_kb": 1911932,
+   "wall_seconds": 305.13348234099976
+  },
+  "small-glyph-strong/393": {
+   "cpu_seconds": 417.37185746299997,
+   "gpu_peak_allocated_bytes": 87639552,
+   "peak_rss_kb": 1889260,
+   "wall_seconds": 465.53595771199616
+  },
+  "small-scratch-strong/392": {
+   "cpu_seconds": 431.352356968,
+   "gpu_peak_allocated_bytes": 87639552,
+   "peak_rss_kb": 1888832,
+   "wall_seconds": 481.95689493600366
+  },
+  "small-scratch-strong/393": {
+   "cpu_seconds": 460.4185707,
+   "gpu_peak_allocated_bytes": 87639552,
+   "peak_rss_kb": 1889172,
+   "wall_seconds": 524.1969497239988
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cu130",
+ "wall_seconds": 9414.733508284,
+ "workers": 3
+}
