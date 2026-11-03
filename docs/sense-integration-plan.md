@@ -107,6 +107,13 @@ Recommended order: 1 and 2, then 3 to 5 (one experiment), 7, 8, 9, 10. Step 11 i
 8. **Codes the core can use.** Two checks:
    - on categories never seen (step 2 of the general encoder study, reduced), answers should land on near categories;
    - on the stimuli the core and readers train on (counts and symbols), the joined code should read at least as well as the encoder they use now.
+   **Step 8, pilot, 2026-11-04** ([results](sense-core-v1-pilot.md)). The core, `sparse48`, was trained and read exactly as in the limited-memory study, with frozen DINOv2-S + TrOCR-small blocks feeding a small trained MLP in place of its own image encoder. Compared with that encoder, it reads clearly better on:
+   - the script being taught, Devanagari: paired 0.97 against 0.54, withheld 0.95 against 0.32;
+   - recall across senses on withheld counts: taps → Devanagari 0.99 against 0.73;
+   - composition of dot collections: 0.95 against 0.49.
+
+   Comparison is equal or better. The `existing` arm reproduces the study's `sparse48` exactly, 1,540 of 1,540 measures. Forgetting of earlier scripts is unchanged in every arm, so it is the core's problem. These are four pilot seeds only.
+
 9. **Contract.** Freeze the bar from "When sight counts as ready" after the prior-work review in `literature-review.md`: multi-expert late fusion, normalisation (CSLS, whitening), test-time domain discovery and model-swap compatibility (backward-compatible embeddings). Then run fresh seeds.
 10. **Integration.** Feed the joined sight code to the sparse48 core and readers, and check three things:
     - a relation learned through the new sight, against the current encoder;

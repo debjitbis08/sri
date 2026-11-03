@@ -1,0 +1,172 @@
+{
+ "children_peak_rss_kb": 2573984,
+ "command": "/home/debjit/code/sri/experiments/sense_core.py pilot codes",
+ "contract_sha256": "e94933660a9c50b03e9b24099b64f977ec3cba1e788405f84facb1bcca8c839a",
+ "cpu": "x86_64",
+ "cpu_seconds": 477.660882784,
+ "cublas_workspace_config": ":4096:8",
+ "cuda": "13.0",
+ "cudnn": 92400,
+ "deterministic_algorithms": true,
+ "device": "cuda",
+ "dirty": true,
+ "dtype": "float32",
+ "gpu": "NVIDIA GeForce GTX 1650",
+ "numpy": "2.5.4",
+ "parent_peak_rss_kb": 2573984,
+ "phase": "frozen codes of the core's images",
+ "python": "3.12.3",
+ "revision": "4aeb382276c5d0bf931c273d05a3071740094f14",
+ "rss_convention": "ru_maxrss in KiB, per process; children is the largest single child",
+ "runner_sha256": "4b5573ad3b7ecddb231f836a02d6b0f6ae51c992aefbb175d5cf4e6391e40bbd",
+ "scope": "nondeterministic timing",
+ "senses": {
+  "dinov2-s": {
+   "cost": {
+    "inputs": 13590,
+    "key_bytes": 1536,
+    "parameters": 22056576,
+    "seconds": 126.57785373507068,
+    "seconds_per_input": 0.00931404368911484
+   },
+   "dim": 384,
+   "inputs": "grey (n, h, w) float32 in [0, 1]; colour (n, 3, h, w) also accepted by DINOv2",
+   "layer": "patch",
+   "licence": {
+    "checked": "2026-11-03",
+    "code": "Apache-2.0",
+    "notes": "Covers the general DINOv2 backbones, including dinov2_vits14_pretrain.pth. Other models in that repository differ: XRay-DINO and Cell-DINO weights are under the FAIR Noncommercial Research License and must not be registered without a separate check. Redistributing the weights would carry Apache-2.0 notice duties; we do not redistribute them (fetched outside the repository).",
+    "sources": [
+     "https://github.com/facebookresearch/dinov2 README: \"DINOv2 code and model weights are released under the Apache License 2.0.\""
+    ],
+    "status": "clear",
+    "weights": "Apache-2.0"
+   },
+   "module": "experiments.dinov2_frozen",
+   "name": "dinov2-s",
+   "options": {},
+   "path": "/data/external-downloads/dinov2/dinov2_vits14_pretrain.pth",
+   "reference": "Oquab et al. 2023, arXiv 2304.07193; ViT-S/14, mean of patch tokens after the final norm",
+   "sense": "sight",
+   "sha256": "b938bf1bc15cd2ec0feacfe3a1bb553fe8ea9ca46a7e1d8d00217f29aef60cd9"
+  },
+  "trocr-s": {
+   "cost": {
+    "inputs": 13590,
+    "key_bytes": 1536,
+    "parameters": 21812352,
+    "seconds": 333.2437623529404,
+    "seconds_per_input": 0.024521248149590905
+   },
+   "dim": 384,
+   "inputs": "grey (n, h, w) float32 in [0, 1]; colour (n, 3, h, w) also accepted by DINOv2",
+   "layer": "cls",
+   "licence": {
+    "checked": "2026-11-03",
+    "code": "MIT (microsoft/unilm root LICENSE, which trocr/README.md points to)",
+    "notes": "The checkpoint carries no licence. MIT covers the repository source tree; whether it extends to checkpoints hosted on Hugging Face and Azure blob storage is not stated. Fine for this research, as an assumption; before distribution or product use, get a statement from Microsoft or replace this model.",
+    "sources": [
+     "https://huggingface.co/microsoft/trocr-small-stage1 (revision d94c4048159050bb51e4105bad0a45dbfd5f3a02): no license field or section",
+     "https://github.com/microsoft/unilm/tree/master/trocr README: code under the repository LICENSE (MIT); no terms for the checkpoints"
+    ],
+    "status": "unclear",
+    "weights": "none stated"
+   },
+   "module": "experiments.trocr_frozen",
+   "name": "trocr-s",
+   "options": {
+    "invert": true
+   },
+   "path": "/data/external-downloads/trocr/pytorch_model.bin",
+   "reference": "Li et al. 2021, arXiv 2109.10282; stage 1 encoder, class token after the final norm, inputs inverted",
+   "sense": "sight",
+   "sha256": "35ee4bee78f7686e15e5eaf9de5b0788ae28c53fa756883afd3405924f6c49c5"
+  }
+ },
+ "sources": [
+  [
+   "english/train",
+   0
+  ],
+  [
+   "english/eval",
+   0
+  ],
+  [
+   "chinese/train",
+   0
+  ],
+  [
+   "chinese/eval",
+   0
+  ],
+  [
+   "devanagari_digits/train",
+   0
+  ],
+  [
+   "devanagari_digits/eval",
+   0
+  ],
+  [
+   "thai_digits/train",
+   0
+  ],
+  [
+   "thai_digits/eval",
+   0
+  ],
+  [
+   "dots/train",
+   0
+  ],
+  [
+   "dots/succ/1",
+   0
+  ],
+  [
+   "dots/succ/2",
+   0
+  ],
+  [
+   "dots/succ/3",
+   0
+  ],
+  [
+   "dots/succ/4",
+   0
+  ],
+  [
+   "dots/succ/5",
+   0
+  ],
+  [
+   "dots/succ/6",
+   0
+  ],
+  [
+   "dots/succ/7",
+   0
+  ],
+  [
+   "dots/succ/8",
+   0
+  ],
+  [
+   "dots/succ/9",
+   0
+  ],
+  [
+   "eval-items",
+   12150
+  ],
+  [
+   "eval-captured",
+   1440
+  ]
+ ],
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cu130",
+ "wall_seconds": 497.0478168280097,
+ "workers": 3
+}
