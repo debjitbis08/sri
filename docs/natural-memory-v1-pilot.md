@@ -254,7 +254,7 @@ GTX 1650, 12 cores, 15 GB. Several stages shared the GPU, so wall figures are no
 | Six kinds, plain and with margins: 4 tasks each | 1,359; 1,307 | 2,646; 2,530 | 2.7 GB | 130 MB |
 | Six kinds, fresh: 4 tasks | 653 | 1,230 | 2.7 GB | 130 MB |
 | Six kinds, gated: pilot, fresh, no prelude | 3,002; 3,072; 2,153 | 5,931; 6,061; 4,234 | 2.7 GB | 161–178 MB |
-| Six kinds, gate 0.25: pilot, fresh | 2,854; 1,132 | 5,637; 2,201 | 2.7 GB | 178 MB or less |
+| Six kinds, gate 0.25: pilot, fresh | 2,854; 1,132 | 5,637; 2,201 | 2.7 GB | 185 MB |
 | Memory, deep: 8 tasks | 12,600 | 34,801 | 3.5 GB | 284 MB |
 
 Rebuild arms hold images and count as a reference only. Selection cost: these stages are the selection; nothing was confirmed separately except that the sequence ran on fresh seeds.
