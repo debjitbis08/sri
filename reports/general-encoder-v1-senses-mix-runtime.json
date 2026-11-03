@@ -1,0 +1,277 @@
+{
+ "aggregate_worker_cpu_seconds": 13042.948484897,
+ "children_peak_rss_kb": 2630720,
+ "command": "/home/debjit/code/sri/experiments/general_encoder.py pilot mix",
+ "contract_sha256": "e94933660a9c50b03e9b24099b64f977ec3cba1e788405f84facb1bcca8c839a",
+ "cpu": "x86_64",
+ "cublas_workspace_config": ":4096:8",
+ "cuda": "13.0",
+ "cudnn": 92400,
+ "deterministic_algorithms": true,
+ "device": "cuda",
+ "dirty": true,
+ "dtype": "float32",
+ "gpu": "NVIDIA GeForce GTX 1650",
+ "numpy": "2.5.4",
+ "parent_peak_rss_kb": 1758584,
+ "phase": "two frozen experts, centres, a learned gate, writes and reads",
+ "python": "3.12.3",
+ "revision": "e8eafee53ece4a7d5ea22a09d4a570c2d174691a",
+ "rss_convention": "ru_maxrss in KiB, per process; children is the largest single child",
+ "runner_sha256": "4b5573ad3b7ecddb231f836a02d6b0f6ae51c992aefbb175d5cf4e6391e40bbd",
+ "scope": "nondeterministic timing",
+ "tasks": {
+  "392/forward": {
+   "cpu_seconds": 3256.243321645,
+   "gpu_peak_allocated_bytes": 978069504,
+   "peak_rss_kb": 2431808,
+   "senses": {
+    "dinov2-s": {
+     "cost": {
+      "inputs": 43164,
+      "key_bytes": 1536,
+      "parameters": 22056576,
+      "seconds": 888.6365343559592,
+      "seconds_per_input": 0.020587446352422368
+     },
+     "dim": 384,
+     "inputs": "grey (n, h, w) float32 in [0, 1]; colour (n, 3, h, w) also accepted by DINOv2",
+     "layer": "patch",
+     "licence": {
+      "code": "Apache-2.0 (believed)",
+      "notes": "not yet checked at the source",
+      "source": "https://github.com/facebookresearch/dinov2",
+      "verified": false,
+      "weights": "Apache-2.0 (believed)"
+     },
+     "module": "experiments.dinov2_frozen",
+     "name": "dinov2-s",
+     "options": {},
+     "path": "/data/external-downloads/dinov2/dinov2_vits14_pretrain.pth",
+     "reference": "Oquab et al. 2023, arXiv 2304.07193; ViT-S/14, mean of patch tokens after the final norm",
+     "sense": "sight",
+     "sha256": "b938bf1bc15cd2ec0feacfe3a1bb553fe8ea9ca46a7e1d8d00217f29aef60cd9"
+    },
+    "trocr-s": {
+     "cost": {
+      "inputs": 43164,
+      "key_bytes": 1536,
+      "parameters": 21812352,
+      "seconds": 2326.86328804199,
+      "seconds_per_input": 0.05390749902793972
+     },
+     "dim": 384,
+     "inputs": "grey (n, h, w) float32 in [0, 1]; colour (n, 3, h, w) also accepted by DINOv2",
+     "layer": "cls",
+     "licence": {
+      "code": "MIT (believed, microsoft/unilm)",
+      "notes": "not yet checked at the source",
+      "source": "https://huggingface.co/microsoft/trocr-small-stage1",
+      "verified": false,
+      "weights": "unknown (Hugging Face card microsoft/trocr-small-stage1)"
+     },
+     "module": "experiments.trocr_frozen",
+     "name": "trocr-s",
+     "options": {
+      "invert": true
+     },
+     "path": "/data/external-downloads/trocr/pytorch_model.bin",
+     "reference": "Li et al. 2021, arXiv 2109.10282; stage 1 encoder, class token after the final norm, inputs inverted",
+     "sense": "sight",
+     "sha256": "35ee4bee78f7686e15e5eaf9de5b0788ae28c53fa756883afd3405924f6c49c5"
+    }
+   },
+   "wall_seconds": 3255.5887393289886
+  },
+  "392/reverse": {
+   "cpu_seconds": 3246.810515107,
+   "gpu_peak_allocated_bytes": 978069504,
+   "peak_rss_kb": 2471996,
+   "senses": {
+    "dinov2-s": {
+     "cost": {
+      "inputs": 43164,
+      "key_bytes": 1536,
+      "parameters": 22056576,
+      "seconds": 864.6783152539283,
+      "seconds_per_input": 0.020032395404826438
+     },
+     "dim": 384,
+     "inputs": "grey (n, h, w) float32 in [0, 1]; colour (n, 3, h, w) also accepted by DINOv2",
+     "layer": "patch",
+     "licence": {
+      "code": "Apache-2.0 (believed)",
+      "notes": "not yet checked at the source",
+      "source": "https://github.com/facebookresearch/dinov2",
+      "verified": false,
+      "weights": "Apache-2.0 (believed)"
+     },
+     "module": "experiments.dinov2_frozen",
+     "name": "dinov2-s",
+     "options": {},
+     "path": "/data/external-downloads/dinov2/dinov2_vits14_pretrain.pth",
+     "reference": "Oquab et al. 2023, arXiv 2304.07193; ViT-S/14, mean of patch tokens after the final norm",
+     "sense": "sight",
+     "sha256": "b938bf1bc15cd2ec0feacfe3a1bb553fe8ea9ca46a7e1d8d00217f29aef60cd9"
+    },
+    "trocr-s": {
+     "cost": {
+      "inputs": 43164,
+      "key_bytes": 1536,
+      "parameters": 21812352,
+      "seconds": 2346.108451461987,
+      "seconds_per_input": 0.05435336047312545
+     },
+     "dim": 384,
+     "inputs": "grey (n, h, w) float32 in [0, 1]; colour (n, 3, h, w) also accepted by DINOv2",
+     "layer": "cls",
+     "licence": {
+      "code": "MIT (believed, microsoft/unilm)",
+      "notes": "not yet checked at the source",
+      "source": "https://huggingface.co/microsoft/trocr-small-stage1",
+      "verified": false,
+      "weights": "unknown (Hugging Face card microsoft/trocr-small-stage1)"
+     },
+     "module": "experiments.trocr_frozen",
+     "name": "trocr-s",
+     "options": {
+      "invert": true
+     },
+     "path": "/data/external-downloads/trocr/pytorch_model.bin",
+     "reference": "Li et al. 2021, arXiv 2109.10282; stage 1 encoder, class token after the final norm, inputs inverted",
+     "sense": "sight",
+     "sha256": "35ee4bee78f7686e15e5eaf9de5b0788ae28c53fa756883afd3405924f6c49c5"
+    }
+   },
+   "wall_seconds": 3246.239836839988
+  },
+  "393/forward": {
+   "cpu_seconds": 3271.815562389,
+   "gpu_peak_allocated_bytes": 978069504,
+   "peak_rss_kb": 2614456,
+   "senses": {
+    "dinov2-s": {
+     "cost": {
+      "inputs": 43164,
+      "key_bytes": 1536,
+      "parameters": 22056576,
+      "seconds": 876.4266702600144,
+      "seconds_per_input": 0.02030457488323636
+     },
+     "dim": 384,
+     "inputs": "grey (n, h, w) float32 in [0, 1]; colour (n, 3, h, w) also accepted by DINOv2",
+     "layer": "patch",
+     "licence": {
+      "code": "Apache-2.0 (believed)",
+      "notes": "not yet checked at the source",
+      "source": "https://github.com/facebookresearch/dinov2",
+      "verified": false,
+      "weights": "Apache-2.0 (believed)"
+     },
+     "module": "experiments.dinov2_frozen",
+     "name": "dinov2-s",
+     "options": {},
+     "path": "/data/external-downloads/dinov2/dinov2_vits14_pretrain.pth",
+     "reference": "Oquab et al. 2023, arXiv 2304.07193; ViT-S/14, mean of patch tokens after the final norm",
+     "sense": "sight",
+     "sha256": "b938bf1bc15cd2ec0feacfe3a1bb553fe8ea9ca46a7e1d8d00217f29aef60cd9"
+    },
+    "trocr-s": {
+     "cost": {
+      "inputs": 43164,
+      "key_bytes": 1536,
+      "parameters": 21812352,
+      "seconds": 2353.03195255599,
+      "seconds_per_input": 0.05451376036873297
+     },
+     "dim": 384,
+     "inputs": "grey (n, h, w) float32 in [0, 1]; colour (n, 3, h, w) also accepted by DINOv2",
+     "layer": "cls",
+     "licence": {
+      "code": "MIT (believed, microsoft/unilm)",
+      "notes": "not yet checked at the source",
+      "source": "https://huggingface.co/microsoft/trocr-small-stage1",
+      "verified": false,
+      "weights": "unknown (Hugging Face card microsoft/trocr-small-stage1)"
+     },
+     "module": "experiments.trocr_frozen",
+     "name": "trocr-s",
+     "options": {
+      "invert": true
+     },
+     "path": "/data/external-downloads/trocr/pytorch_model.bin",
+     "reference": "Li et al. 2021, arXiv 2109.10282; stage 1 encoder, class token after the final norm, inputs inverted",
+     "sense": "sight",
+     "sha256": "35ee4bee78f7686e15e5eaf9de5b0788ae28c53fa756883afd3405924f6c49c5"
+    }
+   },
+   "wall_seconds": 3271.034760565002
+  },
+  "393/reverse": {
+   "cpu_seconds": 3268.079085756,
+   "gpu_peak_allocated_bytes": 978069504,
+   "peak_rss_kb": 2630720,
+   "senses": {
+    "dinov2-s": {
+     "cost": {
+      "inputs": 43164,
+      "key_bytes": 1536,
+      "parameters": 22056576,
+      "seconds": 897.5214611130068,
+      "seconds_per_input": 0.020793287487559233
+     },
+     "dim": 384,
+     "inputs": "grey (n, h, w) float32 in [0, 1]; colour (n, 3, h, w) also accepted by DINOv2",
+     "layer": "patch",
+     "licence": {
+      "code": "Apache-2.0 (believed)",
+      "notes": "not yet checked at the source",
+      "source": "https://github.com/facebookresearch/dinov2",
+      "verified": false,
+      "weights": "Apache-2.0 (believed)"
+     },
+     "module": "experiments.dinov2_frozen",
+     "name": "dinov2-s",
+     "options": {},
+     "path": "/data/external-downloads/dinov2/dinov2_vits14_pretrain.pth",
+     "reference": "Oquab et al. 2023, arXiv 2304.07193; ViT-S/14, mean of patch tokens after the final norm",
+     "sense": "sight",
+     "sha256": "b938bf1bc15cd2ec0feacfe3a1bb553fe8ea9ca46a7e1d8d00217f29aef60cd9"
+    },
+    "trocr-s": {
+     "cost": {
+      "inputs": 43164,
+      "key_bytes": 1536,
+      "parameters": 21812352,
+      "seconds": 2328.2355794149626,
+      "seconds_per_input": 0.05393929152569184
+     },
+     "dim": 384,
+     "inputs": "grey (n, h, w) float32 in [0, 1]; colour (n, 3, h, w) also accepted by DINOv2",
+     "layer": "cls",
+     "licence": {
+      "code": "MIT (believed, microsoft/unilm)",
+      "notes": "not yet checked at the source",
+      "source": "https://huggingface.co/microsoft/trocr-small-stage1",
+      "verified": false,
+      "weights": "unknown (Hugging Face card microsoft/trocr-small-stage1)"
+     },
+     "module": "experiments.trocr_frozen",
+     "name": "trocr-s",
+     "options": {
+      "invert": true
+     },
+     "path": "/data/external-downloads/trocr/pytorch_model.bin",
+     "reference": "Li et al. 2021, arXiv 2109.10282; stage 1 encoder, class token after the final norm, inputs inverted",
+     "sense": "sight",
+     "sha256": "35ee4bee78f7686e15e5eaf9de5b0788ae28c53fa756883afd3405924f6c49c5"
+    }
+   },
+   "wall_seconds": 3267.3871374739974
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cu130",
+ "wall_seconds": 6550.810139366004,
+ "workers": 2
+}

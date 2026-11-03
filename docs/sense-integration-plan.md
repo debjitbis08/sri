@@ -45,6 +45,26 @@ Recommended order: 1 and 2, then 3 to 5 (one experiment), 7, 8, 9, 10. Step 11 i
    Memory keeps **each model's code as a separate part of a key.** It reads with per-model query weights (the joined read, which is w·cos_a + (1−w)·cos_b, generalised to n models), with a centre per domain for each model. DINOv2, TrOCR and our small encoders are wrapped first.
 
    *Done when:* the wrapped version reproduces the `pilot mix` results exactly.
+   **Done, 2026-11-03.** The interface is `src/senses.py`, tested in `tests/test_senses.py`. It has four parts:
+   - `SenseModel`, which describes a model and its licence;
+   - a registry holding `dinov2-s` and `trocr-s`;
+   - `Encoder` and `Sense`, which encode inputs and count their cost;
+   - `Joint`, which keeps a key part and centres per model (a missing model gives a zero part), with `join` for n models and `Gate`, the learned query gate, for n models.
+
+   `pilot mix` now encodes through it. Run with `GE_TAG=-senses`, it reproduces the earlier report exactly: 1,056 of 1,056 reads, and the gate diagnostics in all four runs (`reports/general-encoder-v1-senses-mix.json.gz`).
+
+   Adding a model means writing its module (`load`, `layers`, `WEIGHTS`, `SHA256`) and registering a `SenseModel`. Our own small encoders are not wrapped yet, since nothing on the plan's path uses them.
+
+   Cost measured in that run, on a GTX 1650 shared by two workers:
+
+   | Model | Parameters | Seconds per input | Key part |
+   |---|---|---|---|
+   | DINOv2-S | 22.1 M | 0.020 | 1,536 bytes |
+   | TrOCR-small encoder | 21.8 M | 0.054 | 1,536 bytes |
+
+   TrOCR costs 2.7 times as much as DINOv2, because its input is 384 × 384. The joined key is 3,072 bytes, and the gate has 770 parameters.
+
+   Run compute: 6,551 s wall, 13,043 s aggregate CPU, peak RSS 2.6 GB.
 2. **Licence evaluation.** Record the code and weights licence of each model in the wrapper. Check the model card and the repository, and note any use restrictions. This must be finished before any distribution or any decision to depend on a model.
 
    Current models, **not yet verified**: DINOv2 (code and weights believed to be Apache 2.0 since 2023) and TrOCR-small stage 1 (Microsoft unilm, believed MIT; the Hugging Face card should be checked).

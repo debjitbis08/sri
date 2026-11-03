@@ -30,6 +30,7 @@ from experiments import sense_memory as SM
 from experiments import sense_relational as SRL
 from experiments import shared_core_stage0 as S0
 from experiments import trocr_frozen as TR
+from src import senses as SN
 
 nc = S0.nc
 NAME = 'general-encoder-v1' + os.environ.get('GE_TAG', '')
@@ -387,34 +388,14 @@ def pile_up(Z):
 
 
 def joined(za, zb, wa=.5, wb=.5):
-    """Two unit codes joined as sqrt(2) [wa za, wb zb]. Keys and values use wa = wb = 0.5, so they have unit length; a query with weights (scalars or one per row) then has dot product wa cos_a + wb cos_b with a key."""
-    w = lambda x: np.asarray(x, np.float32)[..., None] if np.ndim(x) else np.float32(x)
-    return np.sqrt(2.) * np.concatenate([w(wa) * za, w(wb) * zb], -1).astype(np.float32)
+    """Two unit codes joined as sqrt(2) [wa za, wb zb]; src.senses.join for two models."""
+    return SN.join([za, zb], [wa, wb])
 
 
 def train_gate(Ra, Rb, Ca, Cb, seed):
-    """A gate on the raw unit codes of both experts, giving each query its weights for the two. Trained with no labels: a view should match the other view of the same image better than other images, under the weighted similarity
-    w_a cos_a + w_b cos_b of the centred codes (Ca, Cb: (2, n, d), two views). Ra, Rb: raw unit codes of the first view. No balancing term: the domains are uneven, so equal use is not wanted; collapse is read from the weights."""
-    g = torch.Generator(device='cpu').manual_seed(seed)
-    W = torch.nn.Linear(Ra.shape[1] + Rb.shape[1], 2)
-    with torch.no_grad():
-        W.weight.copy_(.01 * torch.randn(W.weight.shape, generator=g, device='cpu'))
-        W.bias.zero_()
-    opt = torch.optim.Adam(W.parameters(), lr=GATE_LR)
-    X = torch.as_tensor(np.concatenate([Ra, Rb], 1))
-    A1, A2, B1, B2 = (torch.as_tensor(c) for c in (Ca[0], Ca[1], Cb[0], Cb[1]))
-    n = len(X)
-    for _ in range(GATE_STEPS):
-        idx = torch.randperm(n, generator=g, device='cpu')[:GATE_BATCH].to(X.device)
-        w = W(X[idx]).softmax(1)
-        S = w[:, :1] * (A1[idx] @ A2[idx].T) + w[:, 1:] * (B1[idx] @ B2[idx].T)
-        t = torch.arange(len(idx), device=X.device)
-        loss = Fn.cross_entropy(S / GATE_TEMP, t)
-        opt.zero_grad()
-        loss.backward()
-        opt.step()
-    W.requires_grad_(False)
-    return lambda ra, rb: W(torch.as_tensor(np.concatenate([ra, rb], 1))).softmax(1).detach().cpu().numpy(), float(loss)
+    """src.senses.Gate for two models, with this study's settings. Ra, Rb: raw unit codes of the first view; Ca, Cb: (2, n, d) centred codes of two views."""
+    g, loss = SN.Gate.train([Ra, Rb], [Ca, Cb], seed, GATE_STEPS, GATE_BATCH, GATE_LR, GATE_TEMP)
+    return lambda ra, rb: g([ra, rb]), loss
 
 
 def mix_arms():
@@ -436,10 +417,10 @@ def mix_task(task):
     q = {k: {v: NM.view_arrays(data[k]['cues'], qrng, c) for v, c in NM.VIEWS.items()} for k in SEQ.KINDS}
     qu = {k: {v: NM.view_arrays(data[k]['unseen'], qrng, c) for v, c in NM.VIEWS.items()} for k in SEQ.KINDS}
     dev = DEV.NAME if DEV.ACTIVE else 'cpu'
-    nets = {'dinov2-s': DINO.layers(DINO.load(dev)), 'trocr-s': TR.layers(TR.load(dev), invert=True)}
-    E = tuple(nets)
-    enc = lambda x: {n: run_layers(nets[n], x, keep=(MIX_LAYER[n],), size=64)[MIX_LAYER[n]] for n in E}
-    enc_s = {n: 0. for n in E}
+    sense = SN.Sense(('dinov2-s', 'trocr-s'), dev, chunk=64)  # through the sense interface; layers as MIX_LAYER, TrOCR's inputs inverted
+    assert all(SN.get(n).layer == MIX_LAYER[n] for n in sense.names)
+    E = sense.names
+    enc = sense
 
     crng = nc.stream('ge_centres', seed)
     sample = lambda pool: np.ascontiguousarray(pool[crng.permutation(len(pool))[:CENTRE_IMAGES]], dtype=np.float32)
@@ -588,7 +569,7 @@ def mix_task(task):
                 gotu, _ = both(fu[E[0]], fu[E[1]])
                 Zc = np.where(pb[:, None, None], code(E[1], kind, fcand[E[1]], 'domain')[None], code(E[0], kind, fcand[E[0]], 'domain')[None])
                 record(tag('both/margin'), kind, tau, rows, got, gotu, Zc, ma.h + mb.h, {'trocr_share': float(pb.mean())})
-    return f'{seed}/{order}', {'reads': reads, 'kinds': kinds, 'seed': seed, 'order': order, 'gate': gate_info, 'write_wall_seconds': write_wall}, S0.timing(t0, c0)
+    return f'{seed}/{order}', {'reads': reads, 'kinds': kinds, 'seed': seed, 'order': order, 'gate': gate_info, 'write_wall_seconds': write_wall}, {**S0.timing(t0, c0), 'senses': sense.describe()}
 
 
 def mix():
