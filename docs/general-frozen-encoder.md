@@ -1,6 +1,6 @@
 # A general frozen encoder for images
 
-Status: **direction and step 1 pilot, with DINOv2, 2026-11-03. Not a contract, and not evidence for any contrast.** Two seeds. Centrings were chosen after the risk below was seen. Steps 2 and 3 are scripted and **have not run**.
+Status: **direction and step 1 pilot, with DINOv2, 2026-11-03. Not a contract, and not evidence for any contrast.** Two seeds. Centrings were chosen after the risk below was seen. Steps 2 and 3 are scripted and **have not run**. Superseded as a direction on 2026-11-03 by the [sense integration plan](sense-integration-plan.md): frozen established models are acceptable, step 3 is dropped and step 2 is reduced.
 
 ## The direction
 
