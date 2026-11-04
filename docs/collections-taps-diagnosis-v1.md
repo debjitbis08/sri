@@ -104,7 +104,9 @@ Memory's values are unchanged; the interpreter has moved in a direction its trai
 
 This is a diagnosis from checkpoints, not yet a tested cause.
 
-## The smallest discriminating experiment (recommended, not run)
+## The smallest discriminating experiment (superseded)
+
+**Superseded (2026-11-04, user):** training the reverse direction is only an optional diagnostic upper bound, not a proposed fix. The question is why the learned relation fails in reverse. That is answered further, and the experiment replaced, by the [same-relation diagnosis](same-relation-diagnosis-v1.md). The original recommendation is kept below.
 
 The delay checkpoints lack optimizer state, so honest continuations need it. Rerun each seed to the end of the delay, deterministically (about 4 minutes; the reproduction is checked against these checkpoints), and save Adam's state. Then branch relearning (200 updates, seconds each), changing one thing at a time:
 

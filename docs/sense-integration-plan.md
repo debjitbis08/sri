@@ -142,7 +142,10 @@ Recommended order: 1 and 2, then 3 to 5 (one experiment), 7, 8, 9, 10. Step 11 i
     - Collections → taps is never trained: matching always calls the order-sensitive `same` comparator as g(form or taps, collection).
     - Relearning English moves the shared image projection most (0.26–0.40) and contracts the space between counts. Only the trained order stays calibrated; scoring the same pairs in that order recovers most of the loss.
     - Failures sit at 9 dots, plus a hub at 9 in one seed.
-    - Recommended next: branch relearning from a rerun delay state with optimizer state, adding the evaluated direction to the objective, or freezing the image projection, one at a time.
+    - [Same-relation diagnosis](same-relation-diagnosis-v1.md): the learned `same` comparator was never symmetric by construction. Its reverse validity was a by-product of collections and taps of a count overlapping; the violation grows with code distance.
+    - Relearning shrinks the code space threefold, collections more than taps, and rotates the senses' count lines apart. The trained use, taps → collection, survives at 0.94–0.98.
+    - The evaluated read fails through per-candidate offsets (hubs; centring lifts it from 0.49–0.82 to 0.72–0.90) and a smaller loss of pair discrimination (AUROC 0.97–1.00 to 0.90–0.97).
+    - Recommended next (not run): branch relearning from a rerun delay state: as run, with no new forms, and with the shared image projection frozen. Reverse-direction training only as an optional upper bound.
 11. **Cost and scaling.** Measure seconds per input and bytes per key for each model, and their sum. Check them against `cpu-efficiency-design-constraint.md`.
 
     Scaling: n models cost n forward passes per input. Keys grow by the sum of code widths. Centres grow with domains × models, and the gate with models. All of this is linear and independent of time, unlike copies.

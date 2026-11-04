@@ -1,0 +1,565 @@
+{
+ "draws_per_query": 20,
+ "points": [
+  "block3",
+  "delay",
+  "relearn"
+ ],
+ "results": {
+  "seed300": {
+   "block3": {
+    "discrimination_auroc": {
+     "-distance(c,t)": 0.8728888145861912,
+     "g(c,c)": 0.9585798658741046,
+     "g(c,t)": 0.9553535760554793,
+     "g(f,c) trained": 0.5801216182746533,
+     "g(t,c)": 0.9667318472793781,
+     "g(t,t)": 0.9785268556622466
+    },
+    "geometry": {
+     "collection_class_spacing": 25.846221923828125,
+     "english_forms_to_collections_nearest": 0.1111111119389534,
+     "same_count_c_f": 0.8317145109176636,
+     "same_count_c_t": 0.3195142149925232,
+     "same_count_t_f": 0.9110869765281677,
+     "taps_class_spacing": 1.1070901155471802
+    },
+    "ranking": {
+     "c -> t by g(c,t) (evaluated)": {
+      "candidate_centred": 0.893888888888889,
+      "raw": 0.8742592592592593
+     },
+     "c -> t by g(t,c)": {
+      "candidate_centred": 0.8018518518518518,
+      "raw": 0.8861111111111111
+     },
+     "t -> c by g(c,t)": {
+      "candidate_centred": 0.7922222222222223,
+      "raw": 0.8801851851851851
+     },
+     "t -> c by g(t,c) (trained)": {
+      "candidate_centred": 0.9083333333333333,
+      "raw": 0.9170370370370371
+     }
+    },
+    "symmetry": {
+     "correlation": 0.3448377969528252,
+     "different_count_pairs": 0.901411235332489,
+     "farther_half": 1.320763111114502,
+     "mean_abs_difference_over_spread": 0.8097161650657654,
+     "nearer_half_by_code_distance": 0.2986692190170288,
+     "same_count_pairs": 0.07615618407726288,
+     "violation_distance_correlation": 0.9156553812347694
+    }
+   },
+   "delay": {
+    "discrimination_auroc": {
+     "-distance(c,t)": 0.8624643918609968,
+     "g(c,c)": 0.9750644490169181,
+     "g(c,t)": 0.9697731900624905,
+     "g(f,c) trained": 0.6145311957018748,
+     "g(t,c)": 0.9921810070873343,
+     "g(t,t)": 0.9937278730376466
+    },
+    "geometry": {
+     "collection_class_spacing": 31.97566795349121,
+     "english_forms_to_collections_nearest": 0.2222222238779068,
+     "same_count_c_f": 0.7552545070648193,
+     "same_count_c_t": 0.3316534757614136,
+     "same_count_t_f": 0.8968703746795654,
+     "taps_class_spacing": 1.1029220819473267
+    },
+    "ranking": {
+     "c -> t by g(c,t) (evaluated)": {
+      "candidate_centred": 0.9255555555555556,
+      "raw": 0.8755555555555555
+     },
+     "c -> t by g(t,c)": {
+      "candidate_centred": 0.8653703703703702,
+      "raw": 0.955925925925926
+     },
+     "t -> c by g(c,t)": {
+      "candidate_centred": 0.7325925925925927,
+      "raw": 0.9177777777777778
+     },
+     "t -> c by g(t,c) (trained)": {
+      "candidate_centred": 0.9670370370370371,
+      "raw": 0.981851851851852
+     }
+    },
+    "symmetry": {
+     "correlation": 0.34573783276380365,
+     "different_count_pairs": 0.8409249186515808,
+     "farther_half": 1.3288865089416504,
+     "mean_abs_difference_over_spread": 0.7629167437553406,
+     "nearer_half_by_code_distance": 0.196946918964386,
+     "same_count_pairs": 0.1388513594865799,
+     "violation_distance_correlation": 0.9395189772582122
+    }
+   },
+   "relearn": {
+    "discrimination_auroc": {
+     "-distance(c,t)": 0.7696046124828533,
+     "g(c,c)": 0.9459806546258193,
+     "g(c,t)": 0.9381561690291114,
+     "g(f,c) trained": 0.8416602918762384,
+     "g(t,c)": 0.9690481062338058,
+     "g(t,t)": 0.9939626714677641
+    },
+    "geometry": {
+     "collection_class_spacing": 8.639415740966797,
+     "english_forms_to_collections_nearest": 0.6666666865348816,
+     "same_count_c_f": 0.9733738899230957,
+     "same_count_c_t": 0.7397076487541199,
+     "same_count_t_f": 1.460741400718689,
+     "taps_class_spacing": 1.661510705947876
+    },
+    "ranking": {
+     "c -> t by g(c,t) (evaluated)": {
+      "candidate_centred": 0.862037037037037,
+      "raw": 0.8218518518518517
+     },
+     "c -> t by g(t,c)": {
+      "candidate_centred": 0.9418518518518519,
+      "raw": 0.8555555555555555
+     },
+     "t -> c by g(c,t)": {
+      "candidate_centred": 0.8455555555555556,
+      "raw": 0.9098148148148147
+     },
+     "t -> c by g(t,c) (trained)": {
+      "candidate_centred": 0.9642592592592594,
+      "raw": 0.965925925925926
+     }
+    },
+    "symmetry": {
+     "correlation": 0.48141931360589585,
+     "different_count_pairs": 0.8446115851402283,
+     "farther_half": 1.1825283765792847,
+     "mean_abs_difference_over_spread": 0.7689810991287231,
+     "nearer_half_by_code_distance": 0.3554339110851288,
+     "same_count_pairs": 0.1639367938041687,
+     "violation_distance_correlation": 0.7625222455924165
+    }
+   }
+  },
+  "seed301": {
+   "block3": {
+    "discrimination_auroc": {
+     "-distance(c,t)": 0.9328886564548087,
+     "g(c,c)": 0.9396442215363512,
+     "g(c,t)": 0.9442455037341868,
+     "g(f,c) trained": 0.5114393118427069,
+     "g(t,c)": 0.9576937719097699,
+     "g(t,t)": 0.9694028978052126
+    },
+    "geometry": {
+     "collection_class_spacing": 22.13913917541504,
+     "english_forms_to_collections_nearest": 0.1111111119389534,
+     "same_count_c_f": 0.7490020394325256,
+     "same_count_c_t": 0.260832279920578,
+     "same_count_t_f": 0.7543236017227173,
+     "taps_class_spacing": 0.9929907917976379
+    },
+    "ranking": {
+     "c -> t by g(c,t) (evaluated)": {
+      "candidate_centred": 0.9231481481481482,
+      "raw": 0.9157407407407407
+     },
+     "c -> t by g(t,c)": {
+      "candidate_centred": 0.9037037037037037,
+      "raw": 0.9005555555555556
+     },
+     "t -> c by g(c,t)": {
+      "candidate_centred": 0.9512962962962964,
+      "raw": 0.9437037037037037
+     },
+     "t -> c by g(t,c) (trained)": {
+      "candidate_centred": 0.8983333333333333,
+      "raw": 0.9283333333333332
+     }
+    },
+    "symmetry": {
+     "correlation": 0.8034725669013237,
+     "different_count_pairs": 0.5435898303985596,
+     "farther_half": 0.6157138347625732,
+     "mean_abs_difference_over_spread": 0.5039083361625671,
+     "nearer_half_by_code_distance": 0.39210277795791626,
+     "same_count_pairs": 0.186456099152565,
+     "violation_distance_correlation": 0.2764012316876207
+    }
+   },
+   "delay": {
+    "discrimination_auroc": {
+     "-distance(c,t)": 0.9004826912818168,
+     "g(c,c)": 0.9872841163694559,
+     "g(c,t)": 0.989077602499619,
+     "g(f,c) trained": 0.5144694006249048,
+     "g(t,c)": 0.9935251867093431,
+     "g(t,t)": 0.9999355433622923
+    },
+    "geometry": {
+     "collection_class_spacing": 27.01529884338379,
+     "english_forms_to_collections_nearest": 0.1111111119389534,
+     "same_count_c_f": 0.7359447479248047,
+     "same_count_c_t": 0.307181715965271,
+     "same_count_t_f": 0.7905046343803406,
+     "taps_class_spacing": 1.0677919387817383
+    },
+    "ranking": {
+     "c -> t by g(c,t) (evaluated)": {
+      "candidate_centred": 0.899074074074074,
+      "raw": 0.9031481481481481
+     },
+     "c -> t by g(t,c)": {
+      "candidate_centred": 0.9518518518518518,
+      "raw": 0.9405555555555555
+     },
+     "t -> c by g(c,t)": {
+      "candidate_centred": 0.9246296296296298,
+      "raw": 0.9374074074074075
+     },
+     "t -> c by g(t,c) (trained)": {
+      "candidate_centred": 0.975,
+      "raw": 0.9727777777777777
+     }
+    },
+    "symmetry": {
+     "correlation": 0.8010224497638452,
+     "different_count_pairs": 0.5534970760345459,
+     "farther_half": 0.7191715240478516,
+     "mean_abs_difference_over_spread": 0.5012290477752686,
+     "nearer_half_by_code_distance": 0.28328654170036316,
+     "same_count_pairs": 0.08308503031730652,
+     "violation_distance_correlation": 0.6652651074189011
+    }
+   },
+   "relearn": {
+    "discrimination_auroc": {
+     "-distance(c,t)": 0.7473570473251029,
+     "g(c,c)": 0.9196913999390337,
+     "g(c,t)": 0.8965665333028502,
+     "g(f,c) trained": 0.8613403082609359,
+     "g(t,c)": 0.9613911389269928,
+     "g(t,t)": 0.9785272995732358
+    },
+    "geometry": {
+     "collection_class_spacing": 8.587055206298828,
+     "english_forms_to_collections_nearest": 0.4444444477558136,
+     "same_count_c_f": 0.6863433122634888,
+     "same_count_c_t": 0.9270485639572144,
+     "same_count_t_f": 1.2362014055252075,
+     "taps_class_spacing": 1.6297199726104736
+    },
+    "ranking": {
+     "c -> t by g(c,t) (evaluated)": {
+      "candidate_centred": 0.774074074074074,
+      "raw": 0.4888888888888889
+     },
+     "c -> t by g(t,c)": {
+      "candidate_centred": 0.9124074074074073,
+      "raw": 0.7770370370370371
+     },
+     "t -> c by g(c,t)": {
+      "candidate_centred": 0.772962962962963,
+      "raw": 0.7012962962962964
+     },
+     "t -> c by g(t,c) (trained)": {
+      "candidate_centred": 0.9490740740740741,
+      "raw": 0.9374074074074072
+     }
+    },
+    "symmetry": {
+     "correlation": 0.3495382802847116,
+     "different_count_pairs": 1.030416488647461,
+     "farther_half": 1.332768440246582,
+     "mean_abs_difference_over_spread": 0.937846302986145,
+     "nearer_half_by_code_distance": 0.5429242253303528,
+     "same_count_pairs": 0.19728508591651917,
+     "violation_distance_correlation": 0.6086233530379429
+    }
+   }
+  },
+  "seed302": {
+   "block3": {
+    "discrimination_auroc": {
+     "-distance(c,t)": 0.9417251771833562,
+     "g(c,c)": 0.9758878124523701,
+     "g(c,t)": 0.9804566796220089,
+     "g(f,c) trained": 0.5456017280140223,
+     "g(t,c)": 0.9876550868770004,
+     "g(t,t)": 0.9943824074074074
+    },
+    "geometry": {
+     "collection_class_spacing": 20.844629287719727,
+     "english_forms_to_collections_nearest": 0.1111111119389534,
+     "same_count_c_f": 0.9791210293769836,
+     "same_count_c_t": 0.22734524309635162,
+     "same_count_t_f": 0.9870234131813049,
+     "taps_class_spacing": 1.0037422180175781
+    },
+    "ranking": {
+     "c -> t by g(c,t) (evaluated)": {
+      "candidate_centred": 0.919074074074074,
+      "raw": 0.8985185185185186
+     },
+     "c -> t by g(t,c)": {
+      "candidate_centred": 0.9474074074074075,
+      "raw": 0.9512962962962964
+     },
+     "t -> c by g(c,t)": {
+      "candidate_centred": 0.9531481481481482,
+      "raw": 0.9562962962962962
+     },
+     "t -> c by g(t,c) (trained)": {
+      "candidate_centred": 0.9761111111111112,
+      "raw": 0.9781481481481482
+     }
+    },
+    "symmetry": {
+     "correlation": 0.8025803772949132,
+     "different_count_pairs": 0.5412619113922119,
+     "farther_half": 0.6978127360343933,
+     "mean_abs_difference_over_spread": 0.49514710903167725,
+     "nearer_half_by_code_distance": 0.29248151183128357,
+     "same_count_pairs": 0.12622953951358795,
+     "violation_distance_correlation": 0.3714444328369969
+    }
+   },
+   "delay": {
+    "discrimination_auroc": {
+     "-distance(c,t)": 0.9271262440938881,
+     "g(c,c)": 0.9834348746380125,
+     "g(c,t)": 0.9802684499314129,
+     "g(f,c) trained": 0.5800067405883249,
+     "g(t,c)": 0.9901792524005487,
+     "g(t,t)": 0.9996566548544429
+    },
+    "geometry": {
+     "collection_class_spacing": 24.178754806518555,
+     "english_forms_to_collections_nearest": 0.2222222238779068,
+     "same_count_c_f": 0.8520039916038513,
+     "same_count_c_t": 0.2441485971212387,
+     "same_count_t_f": 0.9179606437683105,
+     "taps_class_spacing": 1.0959972143173218
+    },
+    "ranking": {
+     "c -> t by g(c,t) (evaluated)": {
+      "candidate_centred": 0.865925925925926,
+      "raw": 0.8440740740740741
+     },
+     "c -> t by g(t,c)": {
+      "candidate_centred": 0.9359259259259259,
+      "raw": 0.9098148148148147
+     },
+     "t -> c by g(c,t)": {
+      "candidate_centred": 0.7974074074074075,
+      "raw": 0.8764814814814815
+     },
+     "t -> c by g(t,c) (trained)": {
+      "candidate_centred": 0.9577777777777778,
+      "raw": 0.9657407407407408
+     }
+    },
+    "symmetry": {
+     "correlation": 0.8782021042389041,
+     "different_count_pairs": 0.42557743191719055,
+     "farther_half": 0.565862774848938,
+     "mean_abs_difference_over_spread": 0.3905448019504547,
+     "nearer_half_by_code_distance": 0.21522687375545502,
+     "same_count_pairs": 0.11028385907411575,
+     "violation_distance_correlation": 0.5961906641961727
+    }
+   },
+   "relearn": {
+    "discrimination_auroc": {
+     "-distance(c,t)": 0.8493139117512575,
+     "g(c,c)": 0.9552194406340497,
+     "g(c,t)": 0.9305041095107454,
+     "g(f,c) trained": 0.8663214715744552,
+     "g(t,c)": 0.9609427926383173,
+     "g(t,t)": 0.9677863892699283
+    },
+    "geometry": {
+     "collection_class_spacing": 8.236004829406738,
+     "english_forms_to_collections_nearest": 0.6666666865348816,
+     "same_count_c_f": 0.743905246257782,
+     "same_count_c_t": 0.47120925784111023,
+     "same_count_t_f": 0.959542453289032,
+     "taps_class_spacing": 1.4507627487182617
+    },
+    "ranking": {
+     "c -> t by g(c,t) (evaluated)": {
+      "candidate_centred": 0.7161111111111111,
+      "raw": 0.6735185185185185
+     },
+     "c -> t by g(t,c)": {
+      "candidate_centred": 0.9414814814814816,
+      "raw": 0.8664814814814814
+     },
+     "t -> c by g(c,t)": {
+      "candidate_centred": 0.7668518518518519,
+      "raw": 0.8492592592592593
+     },
+     "t -> c by g(t,c) (trained)": {
+      "candidate_centred": 0.9738888888888888,
+      "raw": 0.9777777777777777
+     }
+    },
+    "symmetry": {
+     "correlation": 0.906820688108136,
+     "different_count_pairs": 0.34573590755462646,
+     "farther_half": 0.468782514333725,
+     "mean_abs_difference_over_spread": 0.34350818395614624,
+     "nearer_half_by_code_distance": 0.2182338386774063,
+     "same_count_pairs": 0.32568642497062683,
+     "violation_distance_correlation": 0.3463451520584314
+    }
+   }
+  },
+  "seed303": {
+   "block3": {
+    "discrimination_auroc": {
+     "-distance(c,t)": 0.9266567443987197,
+     "g(c,c)": 0.9903520480871818,
+     "g(c,t)": 0.9936522328913275,
+     "g(f,c) trained": 0.5013742855509831,
+     "g(t,c)": 0.9959787265660722,
+     "g(t,t)": 0.9998524157902758
+    },
+    "geometry": {
+     "collection_class_spacing": 18.07418441772461,
+     "english_forms_to_collections_nearest": 0.1111111119389534,
+     "same_count_c_f": 2.259171485900879,
+     "same_count_c_t": 0.2804264724254608,
+     "same_count_t_f": 2.3054239749908447,
+     "taps_class_spacing": 1.1132115125656128
+    },
+    "ranking": {
+     "c -> t by g(c,t) (evaluated)": {
+      "candidate_centred": 0.8931481481481481,
+      "raw": 0.930925925925926
+     },
+     "c -> t by g(t,c)": {
+      "candidate_centred": 0.9096296296296297,
+      "raw": 0.9518518518518518
+     },
+     "t -> c by g(c,t)": {
+      "candidate_centred": 0.9622222222222223,
+      "raw": 0.9707407407407408
+     },
+     "t -> c by g(t,c) (trained)": {
+      "candidate_centred": 0.9785185185185185,
+      "raw": 0.9831481481481481
+     }
+    },
+    "symmetry": {
+     "correlation": 0.6233410100685123,
+     "different_count_pairs": 0.6774466633796692,
+     "farther_half": 1.0253592729568481,
+     "mean_abs_difference_over_spread": 0.6069079637527466,
+     "nearer_half_by_code_distance": 0.18845681846141815,
+     "same_count_pairs": 0.04259883984923363,
+     "violation_distance_correlation": 0.8682024718253676
+    }
+   },
+   "delay": {
+    "discrimination_auroc": {
+     "-distance(c,t)": 0.9365492283950617,
+     "g(c,c)": 0.9941307174973327,
+     "g(c,t)": 0.99668279797287,
+     "g(f,c) trained": 0.5034379058070416,
+     "g(t,c)": 0.9977825426764213,
+     "g(t,t)": 0.9999995960981558
+    },
+    "geometry": {
+     "collection_class_spacing": 23.800188064575195,
+     "english_forms_to_collections_nearest": 0.1111111119389534,
+     "same_count_c_f": 1.8786391019821167,
+     "same_count_c_t": 0.25196772813796997,
+     "same_count_t_f": 1.8878545761108398,
+     "taps_class_spacing": 1.1132303476333618
+    },
+    "ranking": {
+     "c -> t by g(c,t) (evaluated)": {
+      "candidate_centred": 0.9403703703703704,
+      "raw": 0.9287037037037037
+     },
+     "c -> t by g(t,c)": {
+      "candidate_centred": 0.9122222222222223,
+      "raw": 0.9444444444444445
+     },
+     "t -> c by g(c,t)": {
+      "candidate_centred": 0.9464814814814815,
+      "raw": 0.9618518518518521
+     },
+     "t -> c by g(t,c) (trained)": {
+      "candidate_centred": 0.9299999999999999,
+      "raw": 0.977037037037037
+     }
+    },
+    "symmetry": {
+     "correlation": 0.3773621010737585,
+     "different_count_pairs": 0.8772969245910645,
+     "farther_half": 1.3924397230148315,
+     "mean_abs_difference_over_spread": 0.7866483330726624,
+     "nearer_half_by_code_distance": 0.18085691332817078,
+     "same_count_pairs": 0.061458881944417953,
+     "violation_distance_correlation": 0.9596768386836024
+    }
+   },
+   "relearn": {
+    "discrimination_auroc": {
+     "-distance(c,t)": 0.7542151844231062,
+     "g(c,c)": 0.9803446254381954,
+     "g(c,t)": 0.9677933337143728,
+     "g(f,c) trained": 0.5126406759640298,
+     "g(t,c)": 0.9943541914342325,
+     "g(t,t)": 0.999636684575522
+    },
+    "geometry": {
+     "collection_class_spacing": 7.142575740814209,
+     "english_forms_to_collections_nearest": 0.1111111119389534,
+     "same_count_c_f": 4.983299255371094,
+     "same_count_c_t": 0.7787425518035889,
+     "same_count_t_f": 5.031362056732178,
+     "taps_class_spacing": 1.5549613237380981
+    },
+    "ranking": {
+     "c -> t by g(c,t) (evaluated)": {
+      "candidate_centred": 0.9044444444444444,
+      "raw": 0.7037037037037037
+     },
+     "c -> t by g(t,c)": {
+      "candidate_centred": 0.7379629629629629,
+      "raw": 0.8955555555555555
+     },
+     "t -> c by g(c,t)": {
+      "candidate_centred": 0.8714814814814815,
+      "raw": 0.7822222222222222
+     },
+     "t -> c by g(t,c) (trained)": {
+      "candidate_centred": 0.8488888888888889,
+      "raw": 0.9609259259259259
+     }
+    },
+    "symmetry": {
+     "correlation": -0.09827496517626241,
+     "different_count_pairs": 1.2493634223937988,
+     "farther_half": 1.8010399341583252,
+     "mean_abs_difference_over_spread": 1.1215028762817383,
+     "nearer_half_by_code_distance": 0.4419656991958618,
+     "same_count_pairs": 0.09861881285905838,
+     "violation_distance_correlation": 0.8859796217427863
+    }
+   }
+  }
+ },
+ "seeds": [
+  300,
+  301,
+  302,
+  303
+ ],
+ "status": "diagnostics on existing checkpoints; no training"
+}

@@ -1,0 +1,28 @@
+{
+ "children_peak_rss_kb": 2341652,
+ "command": "/home/debjit/code/sri/experiments/same_relation_diagnosis.py",
+ "contract_sha256": "e94933660a9c50b03e9b24099b64f977ec3cba1e788405f84facb1bcca8c839a",
+ "cpu": "x86_64",
+ "cpu_seconds": 7.915352818,
+ "device": "cpu",
+ "dirty": true,
+ "dtype": "float32",
+ "numpy": "2.5.4",
+ "parent_peak_rss_kb": 1531940,
+ "phase": "same relation diagnosis",
+ "python": "3.12.3",
+ "revision": "f519483813fcfa270c5e2cf752aec1b17dab97e2",
+ "rss_convention": "ru_maxrss in KiB, per process; children is the largest single child",
+ "runner_sha256": "4b5573ad3b7ecddb231f836a02d6b0f6ae51c992aefbb175d5cf4e6391e40bbd",
+ "scope": "nondeterministic timing",
+ "task_wall_seconds": {
+  "seed300": 13.309067947004223,
+  "seed301": 13.308234422001988,
+  "seed302": 13.189957269991282,
+  "seed303": 12.949505345983198
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cu130",
+ "wall_seconds": 40.535462755011395,
+ "workers": 3
+}
