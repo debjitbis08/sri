@@ -90,7 +90,7 @@ Paired differences from `no-replay` on the primary measures. Only measures where
 - **Exposures:**
   - Uniform over units replays some counts twice as often as others (shares 0.07–0.14 per count), and some symbols far more than others (per-fact coefficient of variation 0.86).
   - The buffer is near uniform per count (0.11–0.12), and its per-fact variation is 0.47, from the order of the writes.
-- **With memory present** (stage 1's end-to-end read), every arm is within about 0.05 of `no-replay` at block 3, where taps on set A read 0.70–0.79. Replay does not change how the core interprets memory beyond that.
+- **With memory present** (stage 1's end-to-end read at block 3), dots are unchanged by replay (0.75–0.83 in every arm). Taps are up to 0.10 lower in replay arms: set A 0.70–0.74 against 0.79, and set B 0.74–0.80 against 0.84. So replay shifts slightly how the core reads recalled values across senses.
 
 ## What this shows
 
@@ -101,7 +101,7 @@ Paired differences from `no-replay` on the primary measures. Only measures where
   - On comparison between new symbols, memory replay is 0.07–0.19 lower: worse for set B at every point, and for set A at the delay.
   - Memory stores the experience in a quarter of the units, but at the bytes the buffer is allowed, the buffer still keeps half of all writes, enough to match it.
   - The uneven exposures of uniform-over-units sampling are a candidate cause of the comparison deficit. That is not established.
-- **Self-labelling costs little where the core reads well.** `memory-replay` and `true-count` differ by at most 0.05 on taps and dots on average, and by 0.04–0.08 on comparison.
+- **Self-labelling costs little where the core reads well.** `memory-replay` and `true-count` differ by at most 0.05 on taps and dots on average. On comparison, self-labelling is 0.04–0.08 lower.
 - **Replay costs retention of withheld script transfers.**
   - Every replay arm loses ground on withheld Devanagari and Chinese matching and transfer at the delay and at relearning, by 0.08–0.28 on average, with wide ranges.
   - Memory replay loses most: Devanagari withheld −0.125 already at block 3, and Chinese withheld −0.283 at relearning.
@@ -138,4 +138,3 @@ Paired differences from `no-replay` on the primary measures. Only measures where
   - 99,184 replayed pairs per replay run, 198,368 extra item passes;
   - zero image cache misses.
 
-Seed 303's `true-count` run was the shortest, at 209 s.
