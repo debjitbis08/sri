@@ -1,0 +1,88 @@
+{
+ "aggregate_worker_cpu_seconds": 940.3689505469999,
+ "children_peak_rss_kb": 2535112,
+ "command": "/home/debjit/code/sri/experiments/sense_memory_replay_combined.py pilot",
+ "contract_sha256": "e94933660a9c50b03e9b24099b64f977ec3cba1e788405f84facb1bcca8c839a",
+ "cpu": "x86_64",
+ "device": "cpu",
+ "dirty": true,
+ "dtype": "float32",
+ "numpy": "2.5.4",
+ "parent_peak_rss_kb": 1493856,
+ "phase": "combined reads",
+ "python": "3.12.3",
+ "revision": "6504f0ed109bbb2f6358645693e037ade43dffee",
+ "rss_convention": "ru_maxrss in KiB, per process; children is the largest single child",
+ "runner_sha256": "4b5573ad3b7ecddb231f836a02d6b0f6ae51c992aefbb175d5cf4e6391e40bbd",
+ "scope": "nondeterministic timing",
+ "tasks": {
+  "buffer-replay/seed300": {
+   "cpu_seconds": 67.03831893400002,
+   "wall_seconds": 27.5799622250197
+  },
+  "buffer-replay/seed301": {
+   "cpu_seconds": 55.039316674000005,
+   "wall_seconds": 25.75085282701184
+  },
+  "buffer-replay/seed302": {
+   "cpu_seconds": 60.364115408,
+   "wall_seconds": 26.298846299992874
+  },
+  "buffer-replay/seed303": {
+   "cpu_seconds": 54.816816274999994,
+   "wall_seconds": 26.375812067009974
+  },
+  "memory-replay-true-count/seed300": {
+   "cpu_seconds": 66.046755902,
+   "wall_seconds": 27.185732873011148
+  },
+  "memory-replay-true-count/seed301": {
+   "cpu_seconds": 52.622635196999994,
+   "wall_seconds": 25.715817157994024
+  },
+  "memory-replay-true-count/seed302": {
+   "cpu_seconds": 58.92851387499999,
+   "wall_seconds": 25.17987983301282
+  },
+  "memory-replay-true-count/seed303": {
+   "cpu_seconds": 55.95624928199999,
+   "wall_seconds": 24.86699738999596
+  },
+  "memory-replay/seed300": {
+   "cpu_seconds": 63.92328191699999,
+   "wall_seconds": 26.85153798101237
+  },
+  "memory-replay/seed301": {
+   "cpu_seconds": 54.281828311,
+   "wall_seconds": 25.975981929979753
+  },
+  "memory-replay/seed302": {
+   "cpu_seconds": 61.34642834299999,
+   "wall_seconds": 26.861080720002064
+  },
+  "memory-replay/seed303": {
+   "cpu_seconds": 55.130476681999994,
+   "wall_seconds": 26.80417735001538
+  },
+  "no-replay/seed300": {
+   "cpu_seconds": 64.039372092,
+   "wall_seconds": 28.790716679010075
+  },
+  "no-replay/seed301": {
+   "cpu_seconds": 52.2422614,
+   "wall_seconds": 26.813680529012345
+  },
+  "no-replay/seed302": {
+   "cpu_seconds": 60.745436638,
+   "wall_seconds": 28.754321574990172
+  },
+  "no-replay/seed303": {
+   "cpu_seconds": 57.847143617,
+   "wall_seconds": 27.186888405994978
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cu130",
+ "wall_seconds": 135.75971645201207,
+ "workers": 3
+}

@@ -1,5 +1,6 @@
 """Tables for experiments.sense_memory_replay (docs/sense-memory-replay-v1-design.md).
 Usage: python -m experiments.sense_memory_replay_summary reports/sense-memory-replay-v1-pilot.json[.gz] [reports/sense-core-v1-calibrated.json.gz]
+       python -m experiments.sense_memory_replay_summary reports/sense-memory-replay-v1-combined.json[.gz]   (memory and core together)
 The second report, step 8's calibrated core, is the reference `no-replay` must reproduce.
 """
 import sys
@@ -126,5 +127,31 @@ def main(path, ref=None):
         print(f'\nreference: no-replay equals step 8 joined-mlp-calibrated in {same} of {n} measures')
 
 
+
+
+def combined(path):
+    """Tables for experiments.sense_memory_replay_combined: memory and core together, by arm, set and checkpoint."""
+    d = SS.load(path)
+    R, arms, seeds, points = d['results'], d['arms'], d['seeds'], d['points']
+    reads = (('r3', 'symbol -> taps'), ('r3_taps_to_symbol', 'taps -> symbol'), ('r2', 'symbol -> dots'), ('r4', 'comparison'))
+    for name, label in (('A', 'old (set A, written in block 2)'), ('B', 'new (set B, written in block 3)')):
+        print(f'\n## {label}: retrieval {cell([R[f"{arms[0]}/seed{s}"][points[0]][name]["R0_retrieval"] for s in seeds])} (the same memory in every arm)')
+        for mode in ('end_to_end', 'bypass', 'core_only'):
+            for k, rl in reads:
+                print(f'{mode:11s} {rl:15s} ' + ' | '.join(f'{a}: ' + ' '.join(cell([R[f"{a}/seed{s}"][p][name][mode][k] for s in seeds]) for p in points) for a in arms))
+        for k, rl in reads[:1] + reads[2:]:
+            xs = {a: [(R[f"{a}/seed{s}"][p][name]['retrieved'][k]['end_to_end'] or 0) - (R[f"{a}/seed{s}"][p][name]['retrieved'][k]['bypass'] or 0) for s in seeds for p in points] for a in arms}
+            print(f'retrieved, end to end - bypass, {rl}: ' + ' | '.join(f'{a} {signed(v)}' for a, v in xs.items()))
+    print('\n## the core\'s own cross-sense reading, both directions (no memory)')
+    for k in ('collections_to_taps', 'taps_to_collections'):
+        print(f'{k:22s} ' + ' | '.join(f'{a}: ' + ' '.join(cell([R[f"{a}/seed{s}"][p]['core_own'][k] for s in seeds]) for p in points) for a in arms))
+    print('\n## paired against no-replay, end to end (mean over seeds)')
+    for name in ('A', 'B'):
+        for k, rl in reads:
+            print(f'{name} {rl:15s} ' + ' | '.join(f'{a}: ' + ' '.join(signed([R[f"{a}/seed{s}"][p][name]["end_to_end"][k] - R[f"no-replay/seed{s}"][p][name]["end_to_end"][k] for s in seeds]) for p in points) for a in arms[1:]))
+    for k in ('collections_to_taps', 'taps_to_collections'):
+        print(f'own {k:22s} ' + ' | '.join(f'{a}: ' + ' '.join(signed([R[f"{a}/seed{s}"][p]['core_own'][k] - R[f"no-replay/seed{s}"][p]['core_own'][k] for s in seeds]) for p in points) for a in arms[1:]))
+
+
 if __name__ == '__main__':
-    main(*sys.argv[1:])
+    (combined if 'combined' in sys.argv[1] else main)(*sys.argv[1:])
