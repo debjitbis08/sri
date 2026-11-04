@@ -1,6 +1,6 @@
 {
- "aggregate_worker_cpu_seconds": 1105.2949400349999,
- "children_peak_rss_kb": 3677724,
+ "aggregate_worker_cpu_seconds": 1124.738647312,
+ "children_peak_rss_kb": 3705088,
  "command": "/home/debjit/code/sri/experiments/relearning_margins.py",
  "contract_sha256": "e94933660a9c50b03e9b24099b64f977ec3cba1e788405f84facb1bcca8c839a",
  "cpu": "x86_64",
@@ -13,33 +13,33 @@
  "dtype": "float32",
  "gpu": "NVIDIA GeForce GTX 1650",
  "numpy": "2.5.4",
- "parent_peak_rss_kb": 1583932,
+ "parent_peak_rss_kb": 1620204,
  "phase": "relearning margins",
  "python": "3.12.3",
- "revision": "3e1640360db2ca42f35e8d216ee86d31ad515a50",
+ "revision": "16c2fc44f03fecd8683838aa3d75dac468555fb1",
  "rss_convention": "ru_maxrss in KiB, per process; children is the largest single child",
  "runner_sha256": "4b5573ad3b7ecddb231f836a02d6b0f6ae51c992aefbb175d5cf4e6391e40bbd",
  "scope": "nondeterministic timing",
  "tasks": {
   "seed300": {
-   "cpu_seconds": 300.921238959,
-   "wall_seconds": 265.10701737800264
+   "cpu_seconds": 306.78952202799996,
+   "wall_seconds": 269.35794091099524
   },
   "seed301": {
-   "cpu_seconds": 290.751088869,
-   "wall_seconds": 264.8766037710011
+   "cpu_seconds": 294.165211928,
+   "wall_seconds": 268.7934904489957
   },
   "seed302": {
-   "cpu_seconds": 297.052037762,
-   "wall_seconds": 264.7623296509846
+   "cpu_seconds": 303.508938302,
+   "wall_seconds": 269.1149776529928
   },
   "seed303": {
-   "cpu_seconds": 216.57057444499992,
-   "wall_seconds": 204.4168140880065
+   "cpu_seconds": 220.27497505399998,
+   "wall_seconds": 207.9070582969871
   }
  },
  "threads_per_worker": 1,
  "torch": "2.14.1+cu130",
- "wall_seconds": 498.1648484870093,
+ "wall_seconds": 505.2388576559897,
  "workers": 3
 }

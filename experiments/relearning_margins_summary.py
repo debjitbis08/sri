@@ -15,11 +15,11 @@ import numpy as np
 from experiments import sense_core_summary as SS
 
 READS = ('c->t fresh', 'c->t stored', 't->c', 'seq collections up 1', 'seq collections down 1', 'seq taps up 1', 'comp collections up 2',
-         'comp collections up 3', 'comp taps up 2')
+         'comp collections up 3', 'comp taps up 2', 'memory A symbol->taps', 'memory B symbol->taps')
 
 
 ORDER = ('c->t fresh', 'c->t stored', 't->c', 'seq collections up 1', 'seq collections down 1', 'seq taps up 1', 'comp collections up 2',
-         'comp collections up 3', 'comp taps up 2')  # the layout order of relearning_margins.outputs
+         'comp collections up 3', 'comp taps up 2', 'memory A symbol->taps', 'memory B symbol->taps')  # the layout order of relearning_margins.outputs
 
 
 def counterfactual(path):
@@ -37,9 +37,11 @@ def counterfactual(path):
                 pos = sum(2 * R[s]['reads'][nm]['queries'] for nm in ORDER[:ORDER.index(name)])
                 n = R[s]['reads'][name]['queries']
                 m = traj[:, pos:pos + n] - traj[:, pos + n:pos + 2 * n]
-                assert abs((m[0] > 0).mean() - R[s]['reads'][name]['accuracy'][0]) < 1e-9
+                ok = np.array(R[s]['reads'][name].get('retrieval_ok', [True] * n))  # memory reads: abstentions count wrong
+                assert abs(((m[0] > 0) & ok).mean() - R[s]['reads'][name]['accuracy'][0]) < 1e-9
                 cm = np.cumsum(A[:, ki][..., pos:pos + n].sum((1, 2)) - A[:, ki][..., pos + n:pos + 2 * n].sum((1, 2)), 0)
-                rows.append([(m[0] > 0).mean(), (m[10] > 0).mean(), ((m[10] - cm[9]) > 0).mean(), (m[20] > 0).mean(), ((m[20] - cm[19]) > 0).mean()])
+                acc = lambda x: ((x > 0) & ok).mean()
+                rows.append([acc(m[0]), acc(m[10]), acc(m[10] - cm[9]), acc(m[20]), acc(m[20] - cm[19])])
             r = np.array(rows).mean(0)
             print(f'  {name:24s} at 0 {r[0]:.2f} | at 10 actual {r[1]:.2f}, without {r[2]:.2f} | at 20 actual {r[3]:.2f}, without {r[4]:.2f}')
 

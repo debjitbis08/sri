@@ -15,7 +15,9 @@ Code: `experiments/relearning_margins.py`, with tables from `experiments/relearn
 | Taps → collections | evaluation taps → evaluation collections | g(taps, collection), the trained order | 270 |
 | Sequence and composition | the code predicted 1, 2 or 3 steps ahead → the nine collections | −‖prediction − collection‖² | 150–210 per read |
 
-Sequence and composition cover collections up and down one step, taps up one step, collections up two and three steps, and taps up two steps. The draws are those of stage A's reads, so accuracy at update 0 is identical.
+Sequence and composition cover collections up and down one step, taps up one step, collections up two and three steps, and taps up two steps. Memory-present symbol → taps, sets A and B, was added on a rerun: the values memory actually retrieves for stage 1's queries, scored against stage 1's taps candidates, with abstentions wrong. The rerun reproduced every other output and attribution exactly.
+
+The draws are those of stage A's reads. Accuracy agrees with stage A's to within one or two queries at update 0, which are numerical near-ties. It agrees within 0.04 at 10–20, because restoring θ + Δ after each attribution adds rounding, so the instrumented trajectory departs slightly from stage A's. Every attribution is validated against this run's own trajectory.
 
 **The trajectory.** From the captured pre-relearning state, the original relearning (stage A's `unchanged`) is rerun for 20 updates, instrumented. The captured state equals step 8's delay checkpoint exactly.
 
@@ -95,6 +97,7 @@ The taps encoder and taps projection contribute less than ±1.4 in every row. Th
    - For collections → taps (fresh and stored) and for taps → collections, 89–116% of the lost margin comes from the image side: the image head and the image projection.
    - Within it, form rows' sequence prediction through its candidate collections carries 62–87% of the loss.
    - The largest single cell is that path into the image head: −16.1 of −23.5 on collections → taps, and −13.2 of −24.9 on taps → collections.
+   - The memory-present symbol → taps reads lose margin in the same way. Over updates 0–9, set A's mean lost-decision margin change is −23.1 and set B's −23.3. The image side carries −27.6 and −27.1, and the largest cell is again form-seq via candidates into the image head: −17.2 and −17.0.
    - Correct scores fall and wrong scores rise by similar amounts (collections → taps: −8.7 and +14.8). The image change both weakens the right pairing and strengthens wrong ones.
 2. **The comparator first compensates, then adds a smaller loss.** Over updates 0–9 its change raises the lost collections → taps margins (+3.7). Over 0–19 it lowers them (−3.0 for fresh, −4.0 for stored), mostly through form matching (−3.1 to −4.1). For taps → collections it is negative already in 0–9 (−3.1).
 3. **The image head carries about three times the projection's share.** Earlier write-ups located the contraction in `proj['image']`; the head on the frozen codes moves more.
@@ -120,37 +123,64 @@ The taps encoder and taps projection contribute less than ±1.4 in every row. Th
 
 The counterfactual is linear: it ignores how the trajectory itself would change. A real gradient stop also changes the step sizes of the other paths, because clipping (factor 0.002–0.11 over these updates, set mostly by this gradient) and Adam renormalize.
 
-The [mechanism](relearning-mechanism-v1.md) branch `seq-no-cand`, an actual stop of this path on form rows that is otherwise unchanged, read collections → taps 0.75 / 0.69 at 10 / 20. That is below this counterfactual's 0.85 / 0.75. The decomposition does not explain the gap; reallocation through clipping and Adam is the candidate explanation.
+The [mechanism](relearning-mechanism-v1.md) branch `seq-no-cand`, an actual stop of this path on form rows that is otherwise unchanged, read collections → taps 0.75 / 0.69 at 10 / 20. That is below this counterfactual's 0.85 / 0.75. The decomposition does not account for the gap. Changes in clipping and Adam's state are one possible contributor, untested.
 
-## Proposed intervention, with its prediction (not run)
+## Proposed intervention, with its prediction
+
+Revised 2026-11-04 after review, before the run. Run: [path removal](relearning-path-removal-v1.md).
 
 Of the request's four cases, this is the second: **representation updates dominate, and comparator changes partly compensate.** The single intervention is on the responsible path and loss, not on all image learning.
 
-**Intervention:** for the first 20 relearning updates, remove form rows' sequence-prediction gradient through the candidate collections. That gradient reaches only the image head and the image projection.
-- Hold the step scale as in the original run: compute the clip factor and Adam's second moment from the full gradient, and remove the path from the applied first moment. The removed part is then not replaced by larger steps of the other paths, so the experiment tests the decomposition directly.
-- Everything else is unchanged: the context rows' candidate path, form rows' prediction path, every other loss and the same draws.
-- The reference is stage A's `unchanged`.
-- The plain stop-gradient result from the mechanism branch is a second reference: it measures how much the reallocation costs.
+**Intervention:** for the first 20 relearning updates, remove form rows' sequence-prediction gradient through the candidate collections from the applied update. That gradient reaches only the image head and the image projection.
+- **What "hold the step scale" means here.** On the intervention's own trajectory:
+  - the clip factor and Adam's second moment are computed from the full gradient (all paths, as the unchanged rule would);
+  - Adam's first moment receives the clipped full gradient minus the clipped path gradient.
 
-**Prediction, stated before any run,** at updates 10 and 20, means over seeds:
-- **Collections → taps:** fresh about 0.85 / 0.75 (unchanged 0.51 / 0.25); stored about 0.92 / 0.80.
-- **Taps → collections:** about 0.91 / 0.91.
-- **Memory-present symbol → taps:** close to the stored-values read, which is its interpreter. It is not decomposed here.
-- **Collection sequence and composition:** up 1 about 0.89 / 0.92; up 2 about 0.67 / 0.74; up 3 about 0.59 / 0.69.
-- **Reads this does not protect:** taps two steps up only partly (about 0.76 / 0.74), and collections down one step partly (0.88 / 0.82). Their second mechanism, the predictor path, remains.
-- **English matching:** within about 0.03 of unchanged at 20. This rests on the plain branch (0.21 against 0.23 at 20, 0.30 against 0.29 at 50), not on this decomposition, which did not include English.
+  This does not preserve the original run's values of the clip factor or the denominators, which change with the trajectory. Replaying the original run's recorded denominators would be a different experiment.
+- **Everything else is unchanged:** the context rows' sequence gradients on both sides, form rows' prediction path, every other loss and the same draws.
+- **References:**
+  - stage A's `unchanged`;
+  - the ordinary stop-gradient of the same path on form rows (the [mechanism](relearning-mechanism-v1.md) branch `seq-no-cand`), with clipping and Adam on the resulting gradient.
+- **Also read directly:** English matching and form sequence prediction.
+
+**Approximate expectations from the linear counterfactual,** at updates 10 / 20, means over seeds. They are not causal acceptance thresholds. Subtracting an attributed contribution does not simulate the new trajectory: wrong-candidate identities, later gradients and the optimizer state can all change.
+
+| Read | Unchanged | Expected |
+|---|---|---|
+| Collections → taps, fresh | 0.51 / 0.25 | 0.85 / 0.75 |
+| Collections → taps, stored | 0.54 / 0.26 | 0.92 / 0.80 |
+| Taps → collections | 0.59 / 0.47 | 0.91 / 0.91 |
+| Memory A, symbol → taps | 0.44 / 0.20 | 0.75 / 0.64 |
+| Memory B, symbol → taps | 0.45 / 0.20 | 0.80 / 0.69 |
+| Sequence, collections up 1 | 0.71 / 0.52 | 0.89 / 0.92 |
+| Composition, collections up 2 | 0.46 / 0.44 | 0.67 / 0.74 |
+| Composition, collections up 3 | 0.38 / 0.32 | 0.59 / 0.69 |
+| Composition, taps up 2 | 0.80 / 0.53 | 0.76 / 0.74 |
+| Sequence, collections down 1 | 0.72 / 0.43 | 0.88 / 0.82 |
+
+The memory-present expectations come from the actual retrieval outcomes: a query is correct only if its retrieval answered and the interpreter's margin on the value it retrieved, with stage 1's candidates, is positive. Abstentions stay wrong. They are therefore lower than the stored-values read.
+
+Taps composition and descending collections are only partly protected; their second mechanism, the predictor path, remains.
+
+For English matching and form sequence prediction there is no decomposition-based expectation; the plain branch read English 0.21 against 0.23 at 20.
 
 **How the result would be read:**
-- **The prediction holds** if each listed read is within 0.10 of its predicted value at 10 and at 20. That means the decomposition's account of the early lost decisions is causal, and the remaining loss in the plain stop comes from reallocation.
-- **If the reads fall well short,** effects the linear account omits (the trajectory's own change, and interactions between parts) matter, and they need examining before any intervention is chosen.
-- **Either way, it is not a remedy.** Holding the step scale is a diagnostic device. What follows depends on whether the late phase (comparator recalibration through form matching, and the predictor path) needs its own treatment.
+- **If the decisions attributed to the path are protected** and acquisition is intact, that supports a causal role for the path under this update rule.
+  - It does not show that the whole gap between the ordinary stop-gradient and this arm comes from reallocation through clipping and Adam. That would need a matched comparison.
+- **If they are not protected,** effects the linear account omits matter (the trajectory's own change, interactions between parts), and they need examining first.
+- **Either way, it is not a remedy.** What follows depends also on the late phase: comparator recalibration through form matching, and the predictor path.
+
+**Changes from review:**
+- the step-scale rule is stated exactly;
+- the expectations are approximate, not thresholds;
+- the reallocation claim is withdrawn;
+- the memory-present expectation is computed from retrieval outcomes.
 
 ## What this does not establish
 
 - **Beyond update 20.** The window covers the abrupt early collapse only, not the partial recovery or the late sag of the reverse read.
 - **Why the image head responds more than the projection.** Its larger share may reflect Adam's per-coordinate normalization of a larger, previously quiet parameter set; this was not tested.
 - **English acquisition and form sequence prediction.** They were not among the decomposed reads.
-- **Memory-present reads.** These were not decomposed separately. The stored-values read is their interpreter step, and retrieval is unaffected by training.
 
 ## Computation
 

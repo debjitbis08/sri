@@ -23,6 +23,8 @@ From the captured pre-relearning state per seed, the original relearning (stage 
     path integral        mean of grad o(theta_t + s Delta) . d at the two Gauss-Legendre points s = 1/2 -+ 1/(2 sqrt 3) along the actual step
   computed as Jacobian-vector products (double backward). Validated against the actual change of every output over each update and summed over
   updates 0-9 and 0-19.
+  memory A/B     memory and core together: symbol -> taps on the values memory retrieves for the stage 1 queries, stage 1's candidates; a query whose
+                 retrieval abstains counts as wrong whatever its margin
 Lost decisions: queries with m > 0 at update 0 and m <= 0 at update 10 (20). Reported: their mean attributed change of the correct score, the max wrong
 score and the margin by path and group, against queries that stay correct.
 No new learning policy; no remedy.
@@ -76,6 +78,12 @@ class Fixed:
         tc = np.repeat(np.arange(1, 10), T)
         self.y_tc = torch.from_numpy(np.array([int(np.flatnonzero(dr['rev_order'][i] + 1 == tc[i])[0]) for i in range(len(tc))]))
         self.n_fresh = 9 * E
+        # memory and core together: symbol -> taps on the values memory actually retrieves, with stage 1's candidate draws; abstentions count wrong
+        self.mem = {}
+        for name, st in reads.sets.items():
+            order = st['draws']['order']
+            self.mem[name] = {'value': st['value'], 'ok': np.asarray(st['ok'], bool), 'order': torch.from_numpy(order), 'tj': torch.from_numpy(st['draws']['tj']),
+                              'y': torch.from_numpy(np.array([int(np.flatnonzero(order[i] + 1 == st['counts'][i])[0]) for i in range(len(order))]))}
 
 
 def scores(enc, model, fx):
@@ -107,6 +115,10 @@ def scores(enc, model, fx):
                 prev, cur = cur, model.predict(prev, cur)
             S.append(-(cur[:, None] - collsE).pow(2).sum(-1)); Y.append(torch.full((len(cur),), m - 1))
         out[f'{"seq" if k == 1 else "comp"} {kind} {direction} {k}'] = (torch.cat(S), torch.cat(Y))
+    for name, mm in fx.mem.items():
+        Q = model.split(D.B.Solver(model, 'image').solve(enc['image'].from_codes(mm['value'])))['core_inner']
+        tc = taps[mm['order'], mm['tj']]
+        out[f'memory {name} symbol->taps'] = (P.same_logits(model, Q[:, None].expand_as(tc).reshape(-1, d), tc.reshape(-1, d)).reshape(len(Q), 9), mm['y'])
     return out
 
 
@@ -285,19 +297,22 @@ def instrumented(box, reads):
         checks.append(row)
         o_prev = o_new
         traj.append(o_new.cpu().numpy())
-    return np.stack(traj), {k: np.stack(v) for k, v in att.items()}, checks, layout, groups
+    return np.stack(traj), {k: np.stack(v) for k, v in att.items()}, checks, layout, groups, fx
 
 
-def summarize(traj, att, layout, groups):
+def summarize(traj, att, layout, groups, fx):
     """traj (21, n_out); att[label] (20, paths, groups, n_out)."""
     out = {}
     for name, (pos, n) in layout.items():
         c = traj[:, pos:pos + n]; w = traj[:, pos + n:pos + 2 * n]
         m = c - w
-        r = {'accuracy': [float((m[t] > 0).mean()) for t in range(len(m))], 'queries': n, 'cumulative': {}}
+        ok = fx.mem[name.split()[1]]['ok'] if name.startswith('memory') else np.ones(n, bool)  # retrieval outcomes: abstentions are wrong
+        r = {'accuracy': [float(((m[t] > 0) & ok).mean()) for t in range(len(m))], 'queries': n, 'cumulative': {}}
+        if name.startswith('memory'):
+            r['retrieval_ok'] = ok.tolist()
         for T_ in (10, 20):
             act = {'correct': c[T_] - c[0], 'max_wrong': w[T_] - w[0], 'margin': m[T_] - m[0]}
-            sets = {'lost': (m[0] > 0) & (m[T_] <= 0), 'kept': (m[0] > 0) & (m[T_] > 0), 'all': np.ones(n, bool)}
+            sets = {'lost': ok & (m[0] > 0) & (m[T_] <= 0), 'kept': ok & (m[0] > 0) & (m[T_] > 0), 'all': ok}
             cell = {}
             for label in ('first', 'path'):
                 A = att[label][:T_]
@@ -328,8 +343,8 @@ def task(seed):
     out['capture_seconds'] = time.perf_counter() - t0
     reads = RB.Reads(seed, box['withheld'])
     b0 = time.perf_counter()
-    traj, att, checks, layout, groups = instrumented(box, reads)
-    out.update({'paths': PATHS, 'groups': groups, 'per_update_checks': checks, 'reads': summarize(traj, att, layout, groups),
+    traj, att, checks, layout, groups, fx = instrumented(box, reads)
+    out.update({'paths': PATHS, 'groups': groups, 'per_update_checks': checks, 'reads': summarize(traj, att, layout, groups, fx),
                 'instrumented_seconds': time.perf_counter() - b0})
     np.savez_compressed(RUNS / f'margins-seed{seed}.npz', traj=traj, first=att['first'].astype(np.float32), path=att['path'].astype(np.float32))
     rt = {'wall_seconds': time.perf_counter() - t0, 'cpu_seconds': time.process_time() - c0}
