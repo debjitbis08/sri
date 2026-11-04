@@ -1,6 +1,6 @@
 {
- "aggregate_worker_cpu_seconds": 84.387292898,
- "children_peak_rss_kb": 2374180,
+ "aggregate_worker_cpu_seconds": 87.310971684,
+ "children_peak_rss_kb": 2359580,
  "command": "/home/debjit/code/sri/experiments/sense_memory_core.py pilot read",
  "contract_sha256": "e94933660a9c50b03e9b24099b64f977ec3cba1e788405f84facb1bcca8c839a",
  "cpu": "x86_64",
@@ -8,25 +8,25 @@
  "dirty": true,
  "dtype": "float32",
  "numpy": "2.5.4",
- "parent_peak_rss_kb": 1505012,
+ "parent_peak_rss_kb": 1542900,
  "phase": "stage 1 reads",
  "python": "3.12.3",
- "revision": "823b0b7dd31f20d814546ec70b9841856a6d1ac5",
+ "revision": "6a42bb66b3c026600bde835fbb643d4479401464",
  "rss_convention": "ru_maxrss in KiB, per process; children is the largest single child",
  "runner_sha256": "4b5573ad3b7ecddb231f836a02d6b0f6ae51c992aefbb175d5cf4e6391e40bbd",
  "scope": "nondeterministic timing",
  "tasks": {
   "seed300": {
-   "children_peak_rss_kb": 2373580,
+   "children_peak_rss_kb": 2358912,
    "command": "/home/debjit/code/sri/experiments/sense_memory_core.py pilot read",
    "contract_sha256": "e94933660a9c50b03e9b24099b64f977ec3cba1e788405f84facb1bcca8c839a",
    "cpu": "x86_64",
-   "cpu_seconds": 21.377150995999997,
+   "cpu_seconds": 21.993581441,
    "device": "cpu",
    "dirty": true,
    "dtype": "float32",
    "host_read_seconds_per_value": {
-    "joined-mlp-calibrated": 4.418988893222477e-06
+    "joined-mlp-calibrated": 4.4572800268522564e-06
    },
    "memory_stage": {
     "children_peak_rss_kb": 2582792,
@@ -121,30 +121,30 @@
     "workers": 3
    },
    "numpy": "2.5.4",
-   "parent_peak_rss_kb": 2373580,
+   "parent_peak_rss_kb": 2358912,
    "phase": "read",
    "python": "3.12.3",
-   "revision": "823b0b7dd31f20d814546ec70b9841856a6d1ac5",
+   "revision": "6a42bb66b3c026600bde835fbb643d4479401464",
    "rss_convention": "ru_maxrss in KiB, per process; children is the largest single child",
    "runner_sha256": "4b5573ad3b7ecddb231f836a02d6b0f6ae51c992aefbb175d5cf4e6391e40bbd",
    "scope": "nondeterministic timing",
    "seed": 300,
    "threads_per_worker": 1,
    "torch": "2.14.1+cu130",
-   "wall_seconds": 21.445698218012694,
+   "wall_seconds": 22.005047101993114,
    "workers": 3
   },
   "seed301": {
-   "children_peak_rss_kb": 2374180,
+   "children_peak_rss_kb": 2354532,
    "command": "/home/debjit/code/sri/experiments/sense_memory_core.py pilot read",
    "contract_sha256": "e94933660a9c50b03e9b24099b64f977ec3cba1e788405f84facb1bcca8c839a",
    "cpu": "x86_64",
-   "cpu_seconds": 19.756232645999997,
+   "cpu_seconds": 21.669825475,
    "device": "cpu",
    "dirty": true,
    "dtype": "float32",
    "host_read_seconds_per_value": {
-    "joined-mlp-calibrated": 4.505857747669021e-06
+    "joined-mlp-calibrated": 4.15260444343504e-06
    },
    "memory_stage": {
     "children_peak_rss_kb": 2782096,
@@ -239,30 +239,30 @@
     "workers": 3
    },
    "numpy": "2.5.4",
-   "parent_peak_rss_kb": 2374180,
+   "parent_peak_rss_kb": 2354532,
    "phase": "read",
    "python": "3.12.3",
-   "revision": "823b0b7dd31f20d814546ec70b9841856a6d1ac5",
+   "revision": "6a42bb66b3c026600bde835fbb643d4479401464",
    "rss_convention": "ru_maxrss in KiB, per process; children is the largest single child",
    "runner_sha256": "4b5573ad3b7ecddb231f836a02d6b0f6ae51c992aefbb175d5cf4e6391e40bbd",
    "scope": "nondeterministic timing",
    "seed": 301,
    "threads_per_worker": 1,
    "torch": "2.14.1+cu130",
-   "wall_seconds": 19.838779180980055,
+   "wall_seconds": 21.681265591992997,
    "workers": 3
   },
   "seed302": {
-   "children_peak_rss_kb": 2373200,
+   "children_peak_rss_kb": 2358420,
    "command": "/home/debjit/code/sri/experiments/sense_memory_core.py pilot read",
    "contract_sha256": "e94933660a9c50b03e9b24099b64f977ec3cba1e788405f84facb1bcca8c839a",
    "cpu": "x86_64",
-   "cpu_seconds": 21.624456560000002,
+   "cpu_seconds": 21.643375253,
    "device": "cpu",
    "dirty": true,
    "dtype": "float32",
    "host_read_seconds_per_value": {
-    "joined-mlp-calibrated": 4.8401955670366684e-06
+    "joined-mlp-calibrated": 4.0818933242311085e-06
    },
    "memory_stage": {
     "children_peak_rss_kb": 2782096,
@@ -357,30 +357,30 @@
     "workers": 3
    },
    "numpy": "2.5.4",
-   "parent_peak_rss_kb": 2373200,
+   "parent_peak_rss_kb": 2358420,
    "phase": "read",
    "python": "3.12.3",
-   "revision": "823b0b7dd31f20d814546ec70b9841856a6d1ac5",
+   "revision": "6a42bb66b3c026600bde835fbb643d4479401464",
    "rss_convention": "ru_maxrss in KiB, per process; children is the largest single child",
    "runner_sha256": "4b5573ad3b7ecddb231f836a02d6b0f6ae51c992aefbb175d5cf4e6391e40bbd",
    "scope": "nondeterministic timing",
    "seed": 302,
    "threads_per_worker": 1,
    "torch": "2.14.1+cu130",
-   "wall_seconds": 21.70321611702093,
+   "wall_seconds": 21.651398218993563,
    "workers": 3
   },
   "seed303": {
-   "children_peak_rss_kb": 2373336,
+   "children_peak_rss_kb": 2359580,
    "command": "/home/debjit/code/sri/experiments/sense_memory_core.py pilot read",
    "contract_sha256": "e94933660a9c50b03e9b24099b64f977ec3cba1e788405f84facb1bcca8c839a",
    "cpu": "x86_64",
-   "cpu_seconds": 21.629452696,
+   "cpu_seconds": 22.004189515,
    "device": "cpu",
    "dirty": true,
    "dtype": "float32",
    "host_read_seconds_per_value": {
-    "joined-mlp-calibrated": 5.2078244819616286e-06
+    "joined-mlp-calibrated": 4.383119974388844e-06
    },
    "memory_stage": {
     "children_peak_rss_kb": 2783104,
@@ -475,22 +475,22 @@
     "workers": 3
    },
    "numpy": "2.5.4",
-   "parent_peak_rss_kb": 2373336,
+   "parent_peak_rss_kb": 2359580,
    "phase": "read",
    "python": "3.12.3",
-   "revision": "823b0b7dd31f20d814546ec70b9841856a6d1ac5",
+   "revision": "6a42bb66b3c026600bde835fbb643d4479401464",
    "rss_convention": "ru_maxrss in KiB, per process; children is the largest single child",
    "runner_sha256": "4b5573ad3b7ecddb231f836a02d6b0f6ae51c992aefbb175d5cf4e6391e40bbd",
    "scope": "nondeterministic timing",
    "seed": 303,
    "threads_per_worker": 1,
    "torch": "2.14.1+cu130",
-   "wall_seconds": 21.71259304098203,
+   "wall_seconds": 22.014611580001656,
    "workers": 3
   }
  },
  "threads_per_worker": 1,
  "torch": "2.14.1+cu130",
- "wall_seconds": 50.11728702898836,
+ "wall_seconds": 49.123669391003205,
  "workers": 3
 }

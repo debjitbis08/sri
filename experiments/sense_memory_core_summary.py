@@ -23,6 +23,11 @@ def cell(xs):
     return '—' if not xs else f'{np.mean(xs):.2f} ({min(xs):.2f}–{max(xs):.2f})'
 
 
+def signed(xs):
+    xs = [x for x in xs if x is not None]
+    return '—' if not xs else f'{np.mean(xs):+.3f} ({min(xs):+.3f} to {max(xs):+.3f})'
+
+
 def get(R, key, arm=None, read=None):
     """Values over seeds and orders for results key 'host|point|{order}|state|role'."""
     out = []
@@ -55,11 +60,18 @@ def main(path):
         print(f'\n### {role} set   R0 {cell(get(R, f"{cal}|block3|{{order}}|both|{role}", "R0_retrieval"))}   answered {cell(get(R, f"{cal}|block3|{{order}}|both|{role}", "answered"))}'
               f'   sight-only dots {cell([v["r1"] for v in get(R, f"sight|{{order}}|both|{role}", "sense-only")])}')
         print(f'   at 0.70: R0 {cell(get(R, f"{cal}|block3|{{order}}|both|{role}", "R0_retrieval@0.70"))}   answered {cell(get(R, f"{cal}|block3|{{order}}|both|{role}", "answered@0.70"))}')
-        arms = [(cal, 'trace'), (cal, 'trace@0.70'), (cal, 'trace|retrieved'), (cal, 'trace-bypass'), (cal, 'trace-single'), (cal, 'trace-single-bypass'), (cal, 'copy'),
+        arms = [(cal, 'trace'), (cal, 'trace@0.70'), (cal, 'trace-bypass'), (cal, 'trace-single'), (cal, 'trace-single-bypass'), (cal, 'copy'),
                 (cal, 'core-only'), (cal, 'fresh-dots'), (ex, 'copy-existing'), (ex, 'core-only'), (ex, 'fresh-dots')]
         print(f'{"arm":40s} ' + ' '.join(f'{NAMES[k]:>18s}' for k in READS))
         for host, arm in arms:
             print(f'{host[:8] + " " + arm:40s} ' + ' '.join(f'{cell(get(R, f"{host}|block3|{{order}}|both|{role}", arm, k)):>18s}' for k in READS))
+        key = f'{cal}|block3|{{order}}|both|{role}'
+        print(f'\non the same correctly retrieved queries (both operands for comparison, all nine candidates for taps -> symbol)')
+        print(f'{"share of queries":40s} ' + ' '.join(f'{cell(get(R, key, "retrieved_share", k)):>18s}' for k in READS))
+        for arm in ('trace|retrieved', 'trace-bypass|retrieved', 'trace-single|retrieved', 'trace-single-bypass|retrieved'):
+            print(f'{arm:40s} ' + ' '.join(f'{cell(get(R, key, arm, k)):>18s}' for k in READS))
+        for arm in ('trace|retrieved-paired-difference', 'trace-single|retrieved-paired-difference'):
+            print(f'{arm:40s} ' + ' '.join(f'{signed(get(R, key, arm, k)):>18s}' for k in READS))
 
     print('\n## host change: first set on `first`, through each checkpoint')
     for host, arm in ((cal, 'trace'), (cal, 'trace-bypass'), (cal, 'copy'), (cal, 'fresh-dots'), (ex, 'copy-existing'), (ex, 'fresh-dots')):

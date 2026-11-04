@@ -372,13 +372,24 @@ def read_task(task):
                         low = r['score'] >= TAU_LOW
                         out = {'R0_retrieval': float(R0.mean()), 'answered': float(ok.mean()),
                                f'R0_retrieval@{TAU_LOW:.2f}': float((low & (r['fact'] == facts[name])).mean()), f'answered@{TAU_LOW:.2f}': float(low.mean())}
+                        # a read is conditioned on every retrieval it uses: the query for dots and taps, the query and its partner for comparison, all nine
+                        # candidates for taps -> symbol
+                        d_ = dr[name]
+                        given = {'r2': R0, 'r3': R0, 'r4': R0 & R0[d_['partner']], 'r3_taps_to_symbol': R0[d_['t_cand']].all(1)}
+                        per = {}
                         for arm, (Q, okq) in arms.items():
                             s, pk = score(host, Q, okq, counts[name], dr[name])
+                            per[arm] = s
                             out[arm] = {k: float(v.mean()) for k, v in s.items()}
-                            if arm in ('trace', 'trace-single'):
-                                out[arm + '|retrieved'] = {k: float(v[R0].mean()) if R0.any() and k != 'r3_taps_to_symbol' else None for k, v in s.items()}
                             if arm in ('trace', 'trace-bypass'):
                                 picks[f'{e}|{point}|{order}|{state}|{role}|{arm}'] = {k: v.tolist() for k, v in pk.items()}
+                        out['retrieved_share'] = {k: float(g.mean()) for k, g in given.items()}
+                        for arm, ref in (('trace', 'trace-bypass'), ('trace-single', 'trace-single-bypass')):
+                            if arm in per:  # end to end against the stored value, on the same correctly retrieved queries
+                                out[arm + '|retrieved'] = {k: float(per[arm][k][g].mean()) if g.any() else None for k, g in given.items()}
+                                out[ref + '|retrieved'] = {k: float(per[ref][k][g].mean()) if g.any() else None for k, g in given.items()}
+                                out[arm + '|retrieved-paired-difference'] = {k: float((per[arm][k][g].astype(float) - per[ref][k][g].astype(float)).mean()) if g.any() else None
+                                                                             for k, g in given.items()}
                         results[f'{e}|{point}|{order}|{state}|{role}'] = out
             hashes[e, point] = (h0, host.hash())
         # copies: values coded by the host at write time, read through every later host

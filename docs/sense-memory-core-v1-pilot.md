@@ -2,6 +2,8 @@
 
 Status: **pilot, 2026-11-04, seeds 300–303 (the step 8 seeds), both orders. Not a contract.** Design: [sense-memory-core-v1-design.md](sense-memory-core-v1-design.md), revised before this run after the user's decisions and an external review. Code: `experiments/sense_memory_core.py`, with tables from `experiments/sense_memory_core_summary.py`. Report: `reports/sense-memory-core-v1-pilot.json.gz`.
 
+**Correction (2026-11-04, after external review).** The first report conditioned comparison on correct retrieval of one operand only, and gave 0.70. It also compared reads on correctly retrieved queries with reads on stored values over different populations of queries. The read stage was rerun with every read conditioned on all the retrievals it uses, and with a paired comparison on the same queries. All other numbers are unchanged.
+
 **The claim is narrow:** memory on frozen sight preserves arbitrary symbol-to-collection associations that the current core can interpret, across senses and through a changing core. It says nothing about general retention of arbitrary sensory values, and nothing about training through memory: memory never changes the core here.
 
 ## Setup in brief
@@ -23,8 +25,7 @@ Every cell is a mean over 4 seeds × 2 orders, with the range in brackets. Chanc
 | Arm | Dots | Taps (across senses) | Comparison | Taps → symbol |
 |---|---|---|---|---|
 | `trace`, end to end, τ 0.85 | 0.65 (0.59–0.72) | 0.66 (0.56–0.71) | 0.50 (0.39–0.61) | 0.66 (0.53–0.76) |
-| `trace`, end to end, abstaining below 0.70 | 0.90 (0.81–0.96) | 0.92 (0.88–0.96) | 0.96 (0.92–1.00) | 0.94 (0.89–1.00) |
-| `trace`, queries retrieved correctly at τ 0.85 | 0.93 (0.85–0.97) | 0.94 (0.92–0.97) | 0.70 (0.63–0.79) | |
+| `trace`, end to end, abstaining below 0.70 (exploratory; unseen answered 0.20) | 0.90 (0.81–0.96) | 0.92 (0.88–0.96) | 0.96 (0.92–1.00) | 0.94 (0.89–1.00) |
 | `trace`, on the fact's own stored value (`bypass`) | 0.94 (0.87–0.98) | 0.95 (0.90–1.00) | 1.00 | 0.98 (0.93–1.00) |
 | `trace-single`, `bypass` (one actual collection per unit) | 0.94 (0.90–0.96) | 0.95 (0.93–0.98) | 1.00 (0.99–1.00) | 0.97 (0.91–1.00) |
 | `copy` (the core's code at write time, block 1) | 0.14 (0.11–0.20) | 0.12 (0.06–0.18) | 0.48 (0.39–0.60) | 0.24 (0.13–0.33) |
@@ -32,6 +33,18 @@ Every cell is a mean over 4 seeds × 2 orders, with the range in brackets. Chanc
 | `fresh-dots` (a new collection of the right count) | 0.90 (0.86–0.93) | 0.91 (0.88–0.95) | 1.00 | 0.95 (0.89–1.00) |
 | `copy-existing` (the core's own encoder) | 0.09 (0.07–0.12) | 0.08 (0.02–0.12) | 0.46 (0.36–0.53) | 0.21 (0.11–0.31) |
 | `fresh-dots`, `existing` host | 0.39 (0.33–0.50) | 0.39 (0.32–0.46) | 0.96 (0.94–0.97) | 0.66 (0.58–0.78) |
+
+**On the same correctly retrieved queries** (first set, block 3, `both`). A read counts only if every retrieval it uses was correct and answered at τ 0.85: the query for dots and taps, both operands for comparison, and all nine candidates for taps → symbol:
+
+| | Dots | Taps | Comparison | Taps → symbol |
+|---|---|---|---|---|
+| Share of queries | 0.69 (0.60–0.76) | 0.69 (0.60–0.76) | 0.48 (0.37–0.60) | 0.03 (0.00–0.04) |
+| `trace`, end to end | 0.93 (0.85–0.97) | 0.94 (0.92–0.97) | 1.00 (0.99–1.00) | 1.00 |
+| `trace`, on the stored value | 0.94 (0.87–0.98) | 0.95 (0.89–1.00) | 1.00 (0.99–1.00) | 1.00 |
+| Paired difference, end to end − stored | −0.007 (−0.035 to +0.041) | −0.010 (−0.035 to +0.038) | −0.001 (−0.009 to +0.000) | |
+| `trace-single`: paired difference | −0.011 (−0.045 to +0.017) | −0.012 (−0.032 to +0.019) | +0.000 (−0.018 to +0.019) | |
+
+The second set gives the same to within 0.01. Taps → symbol rarely has all nine candidates retrieved (0.03 of trials; none in 2 of 8 runs), so its conditional read is not informative.
 
 **Memory alone:**
 - **Retrieval:** right fact retrieved and answered, 0.69 (0.60–0.76) at τ 0.85 and 0.96 (0.94–0.99) at 0.70. Answered at all, 0.70 and 0.99.
@@ -64,14 +77,16 @@ Every cell is a mean over 4 seeds × 2 orders, with the range in brackets. Chanc
 ## What this shows
 
 - **Memory and core together answer what neither answers alone.** Through the core, a recalled dot value answers taps, a different sense, at 0.95 on the correct stored value and 0.94 on correctly retrieved queries. Without memory the core is at chance (0.11). Without the core, sight cannot answer taps at all, and it reads dots at only 0.31.
-- **Integration costs nothing beyond retrieval.**
-  - Reads on correctly retrieved queries (0.93–0.94) are within 0.02 of reads on the correct stored value (0.94–0.95).
-  - Those reads are at or above the core's reading of a fresh collection (0.90–0.91).
+- **Little apparent additional accuracy loss beyond retrieval, on dots and taps.**
+  - On the same correctly retrieved queries, the end-to-end read differs from the read on the fact's own stored value by −0.007 on dots and −0.010 on taps, ranging from −0.035 to +0.041 over seeds and orders.
+  - When a wrong unit wins among units of the right fact, or a mixed unit wins, the read loses a little. That is not shown to be zero.
+  - Comparison, with both operands retrieved, is 1.00.
+  - These reads are at or above the core's reading of a fresh collection (0.90–0.91).
   - The paired bars in the design are met.
 - **Averaging does not hurt.** Averaged values read like one actual collection (0.94–0.95 against 0.94–0.95 on `bypass`), within the 0.05 bar.
 - **Retrieval at τ 0.85 is the limit end to end.**
   - 30% of queries abstain, which caps dots and taps at about 0.65 and comparison, which needs two answers, at about 0.50.
-  - Abstaining only below 0.70 lifts end-to-end reads to 0.90–0.96, at the cost of answering 0.13–0.20 of unseen symbols, against 0.02–0.03.
+  - Abstaining only below 0.70, an exploratory read chosen after the smoke run, lifts end-to-end reads to 0.90–0.96. The cost is answering 0.13–0.20 of unseen symbols (0.20 once both sets are written), against 0.02–0.03.
   - This is the familiar threshold trade-off of earlier pilots. The fresh renderings differ from the written ones, and τ 0.85 is strict for them.
 - **Stored sensory traces follow the interpreter; copies go stale.**
   - Copies coded by the block-1 core read 0.46–0.49 through it, but 0.11–0.14 through the block-3 core.
@@ -108,7 +123,7 @@ The design's prior-work section applies:
 ## Computation
 
 - **Memory stage** (GTX 1650): 152–156 s wall per seed, 147–151 s of it frozen encoding of symbol renderings, passing runs and gate views. Four seeds ran in sequence, 10 min 52 s wall in total, peak RSS 2.8 GB.
-- **Read stage** (CPU, four workers): 50 s wall, 84 s aggregate worker CPU, peak RSS 2.4 GB.
+- **Read stage** (CPU, four workers): 49 s wall, 87 s aggregate worker CPU in the corrected run; peak RSS 2.4 GB.
 - **Latency:**
   - batch-one retrieval, 0.56–0.60 ms;
   - projection and core per recalled value, in batches of 225, 4–5 µs.
