@@ -123,6 +123,8 @@ Recommended order: 1 and 2, then 3 to 5 (one experiment), 7, 8, 9, 10. Step 11 i
     - a relation learned through the new sight, against the current encoder;
     - recall across senses, with the sense-only control;
     - relation reads with memory removed, so memory does not wear down the core.
+
+    **Design draft, 2026-11-04** ([draft](sense-memory-core-v1-design.md), nothing run). Stage 1: facts are new symbols seen with dot collections. Kept-centre memory on frozen sight stores each collection's raw frozen code as its value. At read time, the value goes through the current calibrated projection and core, which answers taps, dots and comparison: a sensory trace with no image stored. It reads through the step 8 checkpoints, so no core is retrained, with stale-copy, sense-only, core-only and oracle arms. Stage 2, memory training the core by replaying frozen codes, waits for stage 1 and a user decision.
 11. **Cost and scaling.** Measure seconds per input and bytes per key for each model, and their sum. Check them against `cpu-efficiency-design-constraint.md`.
 
     Scaling: n models cost n forward passes per input. Keys grow by the sum of code widths. Centres grow with domains × models, and the gate with models. All of this is linear and independent of time, unlike copies.
