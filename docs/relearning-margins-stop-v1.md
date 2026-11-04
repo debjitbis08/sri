@@ -85,7 +85,7 @@ Collection spacing and the senses' alignment stay near their update-0 values: 23
 
 ## Proposed intervention, with its prediction
 
-Revised 2026-11-04 after review, before the run. Run: [predictor stop](relearning-predictor-stop-v1.md).
+Revised 2026-11-04 after review, before the run. Run: [predictor stop](relearning-predictor-stop-v1.md). Composition was partly protected, below the expectations. Form-sequence learning continued through the representations.
 
 **Intervention.** From update 10 of the form-candidate stop trajectory, run updates 10–20 with the ordinary form-candidate stop-gradient kept, and also stop form rows' sequence-prediction gradient into the predictor's parameters:
 - form rows' predictions are computed with P's parameters detached;
