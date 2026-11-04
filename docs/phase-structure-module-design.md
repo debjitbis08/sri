@@ -1,6 +1,8 @@
 # Phase structure module: one neural mechanism for relational queries
 
-Status: **design draft, 2026-11-04. Nothing run; not a frozen contract.** It answers the user's request for a new neural component that answers relational queries, where several steps are not computed as several literal steps. It replaces the symbolic evaluator of the [relational expression note](relational-expression-core-design.md) as a system component. That evaluator stays a diagnostic only, by the user's ruling that the system should be purely neural.
+Status: **rejected by the user, 2026-11-04: not universal.** Its one operator covers relations that act as displacements along a dimension; other relation types need added gates and generators, and non-transformation relations fall outside it. Kept as a record. Nothing was run.
+
+Original status: design draft, 2026-11-04; not a frozen contract. It answers the user's request for a new neural component that answers relational queries, where several steps are not computed as several literal steps. It replaces the symbolic evaluator of the [relational expression note](relational-expression-core-design.md) as a system component. That evaluator stays a diagnostic only, by the user's ruling that the system should be purely neural.
 
 ## The job
 
