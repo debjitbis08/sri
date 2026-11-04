@@ -1,5 +1,6 @@
 """Tables for experiments.sense_core: the core's counts, symbols and relations with each image encoder, and the reference check against limited-memory main.
-Usage: python -m experiments.sense_core_summary reports/sense-core-v1-pilot.json.gz [reports/limited-memory-v1-main-results.json.gz]
+Usage: python -m experiments.sense_core_summary reports/sense-core-v1-pilot.json.gz [more reports ...] [--lm reports/limited-memory-v1-main-results.json.gz]
+Several reports are merged (for example the first pilot and the calibrated rerun); arms are paired with `existing` by seed.
 """
 import gzip
 import json
@@ -46,9 +47,14 @@ def measures(snap):
     return m
 
 
-def main(path, lm=None):
-    d = load(path)
-    R, arms, seeds = d['results'], d['arms'], d['seeds']
+def main(*paths, lm=None):
+    R, arms, seeds = {}, [], []
+    for path in paths:
+        d = load(path)
+        R.update(d['results'])
+        arms += [a for a in d['arms'] if a not in arms]
+        seeds += [s for s in d['seeds'] if s not in seeds]
+    arms = ['existing'] + [a for a in arms if a != 'existing']
     for point in ('block1', 'block2', 'block3', 'relearn'):
         rows = {}
         for a in arms:
@@ -98,4 +104,6 @@ def main(path, lm=None):
 
 
 if __name__ == '__main__':
-    main(*sys.argv[1:])
+    a = sys.argv[1:]
+    ref = a[a.index('--lm') + 1] if '--lm' in a else None
+    main(*[x for i, x in enumerate(a) if x != '--lm' and (i == 0 or a[i - 1] != '--lm')], lm=ref)

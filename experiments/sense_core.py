@@ -17,6 +17,8 @@ Usage (the cache is built in order: codes, then capture, then codes again, which
   NFI_DEVICE=cuda /data/venvs/sri-cuda/bin/python -m experiments.sense_core pilot codes
   NFI_DEVICE=cuda /data/venvs/sri-cuda/bin/python -m experiments.sense_core pilot capture
   NFI_DEVICE=cuda SC_WORKERS=3 /data/venvs/sri-cuda/bin/python -m experiments.sense_core pilot main
+The calibrated rerun (statistics from block 1's training images only, docs/sense-core-v1-pilot.md):
+  NFI_DEVICE=cuda SC_WORKERS=3 SC_ARMS=joined-mlp-calibrated SC_OUT=calibrated /data/venvs/sri-cuda/bin/python -m experiments.sense_core pilot main
 """
 import hashlib
 import json
@@ -47,7 +49,12 @@ RUNS = X.ROOT / 'runs' / NAME
 REPORT = X.ROOT / 'reports' / NAME
 CODES = X.ROOT / 'runs' / 'sense-core-v1' / 'codes.npz'  # shared by smoke and pilot; smoke images it lacks are encoded live
 MODELS = ('dinov2-s', 'trocr-s')
-ARMS = ('existing', 'joined-mlp', 'joined-linear', 'dinov2-mlp')
+CALIBRATION = ('english/train', 'dots/train')  # block 1's training images: what the system has before anything else is taught
+ARMS = tuple(os.environ.get('SC_ARMS', 'existing,joined-mlp,joined-linear,dinov2-mlp').split(','))
+# encoder arm -> (frozen models, head, statistics). The first pilot's three frozen arms fit statistics on every cached image; joined-mlp-calibrated fits
+# them on block 1's training images only, then freezes them.
+ENCODERS = {'joined-mlp': (MODELS, 'mlp', 'all-cached'), 'joined-linear': (MODELS, 'linear', 'all-cached'), 'dinov2-mlp': (('dinov2-s',), 'mlp', 'all-cached'),
+            'joined-mlp-calibrated': (MODELS, 'mlp', CALIBRATION)}
 SEEDS = tuple(int(s) for s in os.environ.get('SC_SEEDS', '300,301,302,303').split(','))
 WORKERS = int(os.environ.get('SC_WORKERS', 3))
 HIDDEN = 128
@@ -107,19 +114,53 @@ def codes():
                                                             'sources': names, 'senses': sense.describe()}))
 
 
-class FrozenImage(nn.Module):
-    """Image encoder for the core: frozen codes looked up by image content, standardized per model with fixed statistics from the cache, concatenated,
-    then a small trained projection. Only the projection is a parameter, so checkpoints hold only it."""
+def fit_stats(models, table, names):
+    """Per-coordinate mean and standard deviation of the frozen codes of the named sources, fitted once and then frozen with the projection.
+    'all-cached' (the first pilot) fits on every cached image, evaluation and later blocks included, which is transductive."""
+    src = sources()
+    if names == 'all-cached':
+        raw = np.concatenate([table[n] for n in models], 1)
+        used = [('all-cached', len(raw))]
+    else:
+        rows = [table['index'][image_key(r)] for name in names for r in np.ascontiguousarray(src[name], dtype=np.float32)]
+        raw = np.concatenate([table[n][rows] for n in models], 1)
+        used = [(name, len(src[name])) for name in names]
+    mean, std = raw.mean(0), raw.std(0) + 1e-6
+    return {'mean': mean, 'std': std, 'provenance': {'models': {n: SN.get(n).describe() for n in models}, 'input': 'raw 28x28 core image, as each model\'s inputs spec',
+                                                     'calibration': used, 'images': int(len(raw)),
+                                                     'sha256': hashlib.sha256(mean.tobytes() + std.tobytes()).hexdigest()}}
 
-    def __init__(self, models, head, out, table):
+
+class FrozenImage(nn.Module):
+    """Image encoder for the core: frozen codes looked up by image content, standardized per coordinate with fixed statistics, concatenated, then a
+    small trained projection. The statistics are buffers and their provenance (models, weights, calibration set) is extra state, so a checkpoint
+    carries everything that defines the projection's input; the code table itself is data and is not saved."""
+
+    def __init__(self, models, head, out, table, stats=None):
         super().__init__()
         self.models = tuple(models)
         self.index, self.raw = table['index'], np.concatenate([table[n] for n in self.models], 1)
-        self.mean, self.std = (self.raw.mean(0), self.raw.std(0) + 1e-6) if len(self.raw) else (None, None)
-        self.feats = None  # device tensor, built on first use
         width = self.raw.shape[1]
+        if stats is None:  # smoke before a cache exists: fitted on the first images seen
+            stats = {'mean': np.zeros(width, np.float32), 'std': np.ones(width, np.float32), 'provenance': None}
+        self.register_buffer('mean', torch.as_tensor(np.asarray(stats['mean'], np.float32)).clone())
+        self.register_buffer('std', torch.as_tensor(np.asarray(stats['std'], np.float32)).clone())
+        self.provenance = stats['provenance']
+        self.feats = None  # standardized device table, rebuilt when the table or the statistics change
         self.head = nn.Sequential(nn.Linear(width, HIDDEN), nn.ReLU(), nn.Linear(HIDDEN, out)) if head == 'mlp' else nn.Linear(width, out)
         self.misses, self.lookups, self.live = 0, 0, None
+
+    def get_extra_state(self):
+        return {'models': list(self.models), 'provenance': self.provenance}
+
+    def set_extra_state(self, state):
+        if list(state['models']) != list(self.models):
+            raise ValueError(f'checkpoint is for {state["models"]}, encoder is {list(self.models)}')
+        self.provenance = state['provenance']
+
+    def _load_from_state_dict(self, *a, **k):
+        super()._load_from_state_dict(*a, **k)
+        self.feats = None
 
     def lookup(self, x):
         a = x.detach().cpu().numpy().astype(np.float32, copy=False)
@@ -132,7 +173,7 @@ class FrozenImage(nn.Module):
             else:
                 rows[i] = j
         self.lookups += len(a)
-        if missing:  # encode live and add to the table
+        if missing:  # encode live and add to the table; the statistics do not change
             self.misses += len(missing)
             if self.live is None:
                 self.live = SN.Sense(self.models, DEV.NAME if DEV.ACTIVE else 'cpu', chunk=64)
@@ -143,15 +184,17 @@ class FrozenImage(nn.Module):
             for k, i in enumerate(missing):
                 self.index[image_key(a[i])] = base + k
                 rows[i] = base + k
+            if self.provenance is None:
+                self.mean.copy_(torch.from_numpy(self.raw.mean(0))), self.std.copy_(torch.from_numpy(self.raw.std(0) + 1e-6))
+                self.provenance = {'calibration': 'first images seen (smoke only)'}
             self.feats = None
         return rows
 
     def forward(self, x):
         rows = self.lookup(x)
-        if self.mean is None:  # statistics from the first images seen, when there was no cache (smoke only)
-            self.mean, self.std = self.raw.mean(0), self.raw.std(0) + 1e-6
         if self.feats is None:
-            self.feats = torch.from_numpy(((self.raw - self.mean) / self.std).astype(np.float32))
+            m, s = self.mean.cpu().numpy(), self.std.cpu().numpy()
+            self.feats = torch.from_numpy(((self.raw - m) / s).astype(np.float32))
             if DEV.ACTIVE:
                 self.feats = self.feats.to(DEV.NAME)
         return self.head(self.feats[torch.as_tensor(rows, device=self.feats.device)])
@@ -179,11 +222,13 @@ ORIG_MAKE_MODEL = LM.make_model
 def make_model(seed, arm, encoder):
     enc, model = ORIG_MAKE_MODEL(seed, arm)
     if encoder != 'existing':
-        models, head = {'joined-mlp': (MODELS, 'mlp'), 'joined-linear': (MODELS, 'linear'), 'dinov2-mlp': (('dinov2-s',), 'mlp')}[encoder]
+        models, head, cal = ENCODERS[encoder]
         out = enc['image'].out.out_features
+        t = table(models)
+        stats = fit_stats(models, t, cal) if len(t['index']) else None
         with torch.random.fork_rng(devices=[]):
-            torch.manual_seed(int(S0.nc.stream('sc_head', seed, encoder).integers(2 ** 62)))
-            enc['image'] = FrozenImage(models, head, out, table(models))
+            torch.manual_seed(int(S0.nc.stream('sc_head', seed, encoder.replace('-calibrated', '')).integers(2 ** 62)))  # the same initial head
+            enc['image'] = FrozenImage(models, head, out, t, stats)
     return enc, model
 
 
@@ -257,9 +302,10 @@ def main():
     fn = DUR.durable(counted_run, RUNS / 'done', '{0}-seed{1}')
     with ctx.Pool(WORKERS) as pool:
         res = pool.map(fn, tasks, chunksize=1)
-    S0.save_json(f'{REPORT}-pilot.json', {'status': 'exploratory, pilot; sparse48 trained and read as limited-memory main; only the image encoder differs', 'arms': ARMS, 'seeds': SEEDS,
-                                          'hidden': HIDDEN, 'licences': SN.licences(), 'results': {k: r for k, r, _ in res}})
-    S0.save_json(f'{REPORT}-pilot-runtime.json', S0.runtime({'phase': 'sparse48 with four image encoders', 'wall_seconds': time.perf_counter() - t0, 'workers': WORKERS,
+    out = os.environ.get('SC_OUT', 'pilot')  # the first pilot's report is frozen; reruns write their own
+    S0.save_json(f'{REPORT}-{out}.json', {'status': 'exploratory, pilot; sparse48 trained and read as limited-memory main; only the image encoder differs', 'arms': ARMS, 'seeds': SEEDS,
+                                          'hidden': HIDDEN, 'licences': SN.licences(), 'statistics': {a: ENCODERS[a][2] for a in ARMS if a in ENCODERS}, 'results': {k: r for k, r, _ in res}})
+    S0.save_json(f'{REPORT}-{out}-runtime.json', S0.runtime({'phase': 'sparse48 with four image encoders', 'wall_seconds': time.perf_counter() - t0, 'workers': WORKERS,
                                                              'tasks': {k: t for k, _, t in res}, 'aggregate_worker_cpu_seconds': float(sum(t['cpu_seconds'] for _, _, t in res))}))
 
 

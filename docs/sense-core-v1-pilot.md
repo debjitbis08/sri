@@ -1,6 +1,8 @@
 # Step 8: does frozen sight serve the core?
 
-Status: **pilot, 2026-11-04, seeds 300–303. Not a contract.** This is step 8 of the [sense integration plan](sense-integration-plan.md). Code: `experiments/sense_core.py`, with tables from `experiments/sense_core_summary.py`. Report: `reports/sense-core-v1-pilot.json.gz`.
+Status: **pilot, 2026-11-04, seeds 300–303. Not a contract.** This is step 8 of the [sense integration plan](sense-integration-plan.md). Code: `experiments/sense_core.py`, with tables from `experiments/sense_core_summary.py`. Reports: `reports/sense-core-v1-pilot.json.gz`, and the calibrated rerun `reports/sense-core-v1-calibrated.json.gz`.
+
+**Correction (2026-11-04, after external review).** The first pilot fitted the standardization statistics on every cached image, evaluation images and later blocks included. That makes those three frozen arms transductive. A rerun of `joined-mlp` with statistics fitted on block 1's training images only, then frozen (`joined-mlp-calibrated`, below), keeps every block-3 conclusion. The first pilot's tables are kept as run.
 
 ## Question
 
@@ -25,7 +27,13 @@ Only the image encoder changes:
 
 **Frozen codes are cached, not recomputed.** They are computed once for every image the core sees: the three scripts and Thai digits (the study's transfer script), dice, and the evaluation candidate sets. Training and reads look them up by image content, and every run had zero cache misses.
 
-**Standardization statistics** come from all cached images, evaluation images included. That shares input statistics with no labels attached.
+**Standardization statistics.**
+- **First pilot (`joined-mlp`, `joined-linear`, `dinov2-mlp`):** fitted on all cached images, evaluation images and later blocks included. No labels are involved, but this is transductive: inputs the core has not yet met shape its inputs.
+- **Calibrated rerun (`joined-mlp-calibrated`):** fitted once on block 1's training images, English numerals and dots (36,000 images), before any training, then frozen. Everything else is identical, including the projection's initial weights. The refactored encoder reproduces the first pilot's `joined-mlp` at seed 300 exactly with its original statistics, 385 of 385 measures.
+
+Under the calibration statistics, later scripts arrive off-centre: the mean standardized coordinate is 0.89–1.01 away from zero for Chinese, Devanagari and Thai, against 0.50–0.56 under the first pilot's statistics.
+
+**The statistics are part of the checkpoint.** They are buffers of the encoder, and its extra state records the frozen models' full descriptions (weights and hashes, layer, options, licence) and the calibration sources, with a hash of the statistics. Loading a checkpoint replaces the statistics, so expanding the code table no longer changes a saved projection's inputs. A checkpoint for other frozen models, or for the same models in another order, is refused (`tests/test_sense_core.py`).
 
 ## Results
 
@@ -72,6 +80,29 @@ Each cell is the mean over 4 seeds, with the range in brackets. Chance for match
 | Chinese matching, withheld | 0.21 | 0.61 |
 | Comparison, English | 0.64 | 0.88 |
 
+**Calibrated rerun.** `joined-mlp-calibrated` minus `joined-mlp`, paired by seed:
+
+| Measure | Difference (range over seeds) | `joined-mlp-calibrated` |
+|---|---|---|
+| Block 1, English matching, paired | −0.09 (−0.29 to +0.02) | 0.64 (0.52–0.72) |
+| Block 1, comparison, English | −0.00 (−0.02 to +0.02) | 0.97 (0.96–0.97) |
+| Block 2, Chinese matching, paired | −0.07 (−0.83 to +0.42) | 0.58 (0.15–0.96) |
+| Block 2, Chinese matching, withheld | −0.05 (−0.65 to +0.62) | 0.60 (0.25–0.98) |
+| Block 3, Devanagari matching, paired | +0.01 (−0.03 to +0.04) | 0.97 (0.96–0.98) |
+| Block 3, Devanagari matching, withheld | +0.05 (+0.00 to +0.12) | 1.00 (0.98–1.00) |
+| Block 3, taps → Devanagari, withheld | −0.00 (−0.05 to +0.03) | 0.99 (0.95–1.00) |
+| Block 3, composition of dots, one step up | −0.01 (−0.02 to +0.01) | 0.94 (0.91–0.95) |
+| Block 3, comparison, Chinese | +0.03 (+0.01 to +0.04) | 0.83 (0.81–0.86) |
+| Block 3, comparison, English | +0.10 (+0.03 to +0.15) | 0.59 (0.51–0.67) |
+| After relearning, English matching, paired | −0.20 (−0.66 to −0.01) | 0.54 (0.12–0.74) |
+| After relearning, Devanagari matching, paired | +0.29 (+0.22 to +0.40) | 0.82 (0.75–0.86) |
+| After relearning, Devanagari matching, withheld | +0.49 (+0.32 to +0.63) | 0.89 (0.83–0.95) |
+
+- **The block-3 gains over `existing` do not come from the transductive statistics.** Against `existing`, paired by seed, the calibrated arm gains +0.43 on Devanagari matching (paired) and +0.68 on withheld, with taps → Devanagari withheld +0.25 and comparison +0.03 to +0.13.
+- **Block 1 is a little lower.** This is the one block where the calibration and training data coincide, so the lower read is not explained by a shift in statistics. With four seeds it may be noise.
+- **Block 2 is dominated by seed spread.** Per-seed differences reach −0.83 and +0.62, the same spread every arm shows on Chinese.
+- **After relearning the pattern is mixed.** English is lower, mostly through one seed (0.12, against 0.63–0.74 for the others), while Devanagari kept far more. This is one budget of 200 updates on four seeds.
+
 ## What this shows
 
 - **Frozen sight serves the core better than the core's own encoder on these inputs.** With half as many trained parameters in the image path, the joined frozen blocks plus a small MLP give clearly higher reads on:
@@ -82,8 +113,9 @@ Each cell is the mean over 4 seeds, with the range in brackets. Chance for match
 - **The projection matters.**
   - One linear layer recovers part of the gain, but not all.
   - DINOv2 alone is best on Chinese but weaker than the joined code on Devanagari and on recall across senses. TrOCR earns its place here too.
-- **Forgetting is the core's problem, not the sense's.** Every arm forgets earlier scripts by block 3 to the same degree. Better sight does not change that, though it makes relearning much faster.
-- **Answer to step 8:** yes. Frozen established models, through a small trained projection, support counts, symbols and relational use in the core, on the core's own curriculum.
+- **Forgetting is not removed by frozen sight.** Every arm forgets earlier scripts by block 3 to about the same degree. The frozen backbones cannot forget, but the trained projection can, so this locates forgetting somewhere in the projection, core and readers together, not in the core alone. Separating them would need, for example, a projection frozen after block 1.
+- **Recovery at the relearning budget is better.** After 200 updates, frozen sight recovers far more than `existing`. That is better recovery at that budget. It does not yet show faster relearning, which would need recovery measured against the number of updates.
+- **Answer to step 8:** yes, also with statistics fitted only on block 1. Frozen established models, through a small trained projection, support counts, symbols and relational use in the core, on the core's own curriculum.
 
 ## What this does not establish
 
@@ -91,6 +123,8 @@ Each cell is the mean over 4 seeds, with the range in brackets. Chance for match
 - **Inputs beyond these scripts.** These are 28×28 renderings of numerals and dice, upsampled for the frozen models. Natural-image inputs to the core are untested.
 - **Memory and core together.** The core and memory have not yet been run together in one forward pass with frozen sight. That is step 10.
 - **What the projection learns,** and whether a frozen projection would do as well.
+- **Where forgetting sits** between projection, core and readers, and the speed of relearning.
+- **The calibration choice.** Block 1 alone was used. Statistics updated as new scripts arrive would break the checkpoint guarantee unless they were versioned like memory's centres.
 
 ## Prior work
 
@@ -117,4 +151,6 @@ These are familiar methods, not re-read for this pilot.
 
 Images missing from the cache were found by a block-3 snapshot (`pilot capture`), and are the same for seeds 300 and 301.
 
-**Core runs:** three workers, 16 runs of 160–212 s wall each. 982 s wall for the 13 runs of the final launch; three `existing` runs had finished in an earlier launch. 3,209 s aggregate worker CPU, peak RSS 3.6 GB, GPU peak 351 MB per frozen-encoder worker and 89 MB for `existing`.
+**Calibrated rerun:** three workers, 4 runs of 186–255 s wall each, 469 s wall, 921 s aggregate worker CPU, peak RSS 3.0 GB, GPU peak 351 MB per worker.
+
+**Core runs (first pilot):** three workers, 16 runs of 160–212 s wall each. 982 s wall for the 13 runs of the final launch; three `existing` runs had finished in an earlier launch. 3,209 s aggregate worker CPU, peak RSS 3.6 GB, GPU peak 351 MB per frozen-encoder worker and 89 MB for `existing`.
