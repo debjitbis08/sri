@@ -1,0 +1,163 @@
+{
+ "results": {
+  "seed300": {
+   "context_rows": {
+    "descent_cos_to_origin": {
+     "others": -0.49154406785964966,
+     "targets": 0.09863200783729553
+    },
+    "descent_cos_to_prediction": {
+     "others": -0.9999995827674866,
+     "targets": 0.9999997615814209
+    },
+    "distance_to_nearest_candidate": 5.328470230102539,
+    "distance_to_target": 5.328470230102539,
+    "gradient_share": 0.00030191405676305294,
+    "other_candidate_norm": 22.899673461914062,
+    "prediction_norm": 10.915571212768555,
+    "rows": 26,
+    "target_norm": 9.391901969909668,
+    "target_probability": 0.9476362466812134
+   },
+   "form_rows": {
+    "descent_cos_to_origin": {
+     "others": -0.04146068915724754,
+     "targets": 0.4427632689476013
+    },
+    "descent_cos_to_prediction": {
+     "others": -1.0,
+     "targets": 1.0
+    },
+    "distance_to_nearest_candidate": 7.141094207763672,
+    "distance_to_target": 14.5951566696167,
+    "gradient_share": 0.9996981620788574,
+    "other_candidate_norm": 22.475378036499023,
+    "prediction_norm": 18.21784019470215,
+    "rows": 133,
+    "target_norm": 13.034147262573242,
+    "target_probability": 0.5251070857048035
+   }
+  },
+  "seed301": {
+   "context_rows": {
+    "descent_cos_to_origin": {
+     "others": 0.20365475118160248,
+     "targets": 0.05802927166223526
+    },
+    "descent_cos_to_prediction": {
+     "others": -0.9995405077934265,
+     "targets": 0.9995591044425964
+    },
+    "distance_to_nearest_candidate": 5.317822456359863,
+    "distance_to_target": 5.317822456359863,
+    "gradient_share": 8.814562413306248e-10,
+    "other_candidate_norm": 20.001609802246094,
+    "prediction_norm": 12.317147254943848,
+    "rows": 38,
+    "target_norm": 11.645618438720703,
+    "target_probability": 0.9999719262123108
+   },
+   "form_rows": {
+    "descent_cos_to_origin": {
+     "others": -0.03842577710747719,
+     "targets": 0.8505991697311401
+    },
+    "descent_cos_to_prediction": {
+     "others": -0.9999998807907104,
+     "targets": 0.9999998807907104
+    },
+    "distance_to_nearest_candidate": 4.974850177764893,
+    "distance_to_target": 9.712960243225098,
+    "gradient_share": 1.0,
+    "other_candidate_norm": 19.893016815185547,
+    "prediction_norm": 11.291561126708984,
+    "rows": 136,
+    "target_norm": 12.051522254943848,
+    "target_probability": 0.6094949245452881
+   }
+  },
+  "seed302": {
+   "context_rows": {
+    "descent_cos_to_origin": {
+     "others": -0.2910365164279938,
+     "targets": -0.5682882070541382
+    },
+    "descent_cos_to_prediction": {
+     "others": -0.9999999403953552,
+     "targets": 1.0
+    },
+    "distance_to_nearest_candidate": 4.238247871398926,
+    "distance_to_target": 4.294976234436035,
+    "gradient_share": 0.012257987633347511,
+    "other_candidate_norm": 17.20899772644043,
+    "prediction_norm": 11.215082168579102,
+    "rows": 30,
+    "target_norm": 9.246256828308105,
+    "target_probability": 0.9026724696159363
+   },
+   "form_rows": {
+    "descent_cos_to_origin": {
+     "others": -0.10182199627161026,
+     "targets": 0.7318440675735474
+    },
+    "descent_cos_to_prediction": {
+     "others": -0.9999998807907104,
+     "targets": 1.0000001192092896
+    },
+    "distance_to_nearest_candidate": 4.365202903747559,
+    "distance_to_target": 9.189809799194336,
+    "gradient_share": 0.9877420663833618,
+    "other_candidate_norm": 17.1495418548584,
+    "prediction_norm": 11.059873580932617,
+    "rows": 120,
+    "target_norm": 10.477983474731445,
+    "target_probability": 0.5696442723274231
+   }
+  },
+  "seed303": {
+   "context_rows": {
+    "descent_cos_to_origin": {
+     "others": 0.10962358862161636,
+     "targets": 0.4495392143726349
+    },
+    "descent_cos_to_prediction": {
+     "others": -0.9999986290931702,
+     "targets": 0.9999966621398926
+    },
+    "distance_to_nearest_candidate": 5.200154781341553,
+    "distance_to_target": 5.200154781341553,
+    "gradient_share": 8.917180593925877e-07,
+    "other_candidate_norm": 16.980167388916016,
+    "prediction_norm": 12.786066055297852,
+    "rows": 30,
+    "target_norm": 11.11164379119873,
+    "target_probability": 0.9983697533607483
+   },
+   "form_rows": {
+    "descent_cos_to_origin": {
+     "others": 0.537605345249176,
+     "targets": 0.2747640013694763
+    },
+    "descent_cos_to_prediction": {
+     "others": -1.0,
+     "targets": 1.0
+    },
+    "distance_to_nearest_candidate": 9.746468544006348,
+    "distance_to_target": 17.464004516601562,
+    "gradient_share": 0.9999991655349731,
+    "other_candidate_norm": 16.96941566467285,
+    "prediction_norm": 21.219940185546875,
+    "rows": 120,
+    "target_norm": 11.076306343078613,
+    "target_probability": 0.5633768439292908
+   }
+  }
+ },
+ "seeds": [
+  300,
+  301,
+  302,
+  303
+ ],
+ "status": "no training; first relearning batch from the captured state"
+}
