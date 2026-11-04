@@ -1,0 +1,61 @@
+{
+ "aggregate_worker_cpu_seconds": 253.574407802,
+ "children_peak_rss_kb": 2547676,
+ "command": "/home/debjit/code/sri/experiments/two_script_reads_v4.py",
+ "contract_sha256": "54dc7b2d532a161ecf42d3e960eb6d3b76642f2c0982eb84948bfc898f2f246f",
+ "cpu": "x86_64",
+ "device": "cpu",
+ "dirty": true,
+ "dtype": "float32",
+ "numpy": "2.5.4",
+ "python": "3.12.3",
+ "revision": "0ae86bdd5f975f2d563daba2d3148fa7b42bb1f7",
+ "runner_sha256": "713d81da283b3462ccbb7ca0d37be92b51bd1c877c6bbffc5a54fad9f06e3212",
+ "scope": "nondeterministic timing",
+ "tasks": {
+  "common-k-cand/seed300": {
+   "cpu_seconds": 30.020498465,
+   "peak_rss_kb": 2529864,
+   "wall_seconds": 30.024235782009782
+  },
+  "common-k-cand/seed301": {
+   "cpu_seconds": 31.286202709,
+   "peak_rss_kb": 2547676,
+   "wall_seconds": 31.289747535978677
+  },
+  "common-k-cand/seed302": {
+   "cpu_seconds": 31.233970683,
+   "peak_rss_kb": 2527856,
+   "wall_seconds": 31.236065084987786
+  },
+  "common-k-cand/seed303": {
+   "cpu_seconds": 29.880414415,
+   "peak_rss_kb": 2530024,
+   "wall_seconds": 29.882651222025743
+  },
+  "gp/seed300": {
+   "cpu_seconds": 33.059522834,
+   "peak_rss_kb": 2485660,
+   "wall_seconds": 33.063724403007654
+  },
+  "gp/seed301": {
+   "cpu_seconds": 33.132257783,
+   "peak_rss_kb": 2485796,
+   "wall_seconds": 33.13531178300036
+  },
+  "gp/seed302": {
+   "cpu_seconds": 31.8281415,
+   "peak_rss_kb": 2485508,
+   "wall_seconds": 31.830819680995774
+  },
+  "gp/seed303": {
+   "cpu_seconds": 33.133399413,
+   "peak_rss_kb": 2489052,
+   "wall_seconds": 33.13610831799451
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "wall_seconds": 91.86446820097626,
+ "workers": 4
+}

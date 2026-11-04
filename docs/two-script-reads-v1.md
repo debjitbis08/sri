@@ -317,3 +317,51 @@ Run 2026-11-05: 158 s wall on 4 CPU workers, 513 s aggregate CPU; the one-task c
 
 **Not tested.** Identity from rank *within* the script (Chinese × Chinese comparisons plus one anchor), which would use only the
 kept order and not its alignment.
+
+## Where the mismatch is (2026-11-05)
+
+Written after the run: a diagnostic the user asked for (*is the alignment mismatch in the code space?*), with no pre-declared
+predictions. `experiments/two_script_reads_v4.py`, report `reports/two-script-reads-v4.json`; `gp` and `common-k-cand`, seeds
+300–303, the same checkpoints and items. No readers are used.
+
+**Reads.** Each item's code at the **projection output** (the trained image or sequence projection of the frozen sense code, the
+core's clamped input) and at **core_inner** (what readers read). Fitted on the first half of collection items only:
+- **nearest mean:** the collection count whose mean code is nearest;
+- **count axis:** ridge regression from code to count, reported as the mean predicted count per true count;
+- **distance to the collection line:** mean distance to the nearest collection count mean, relative to held-out collections'.
+A middle level (`input_inner`) is zero in this model and is left out.
+
+**Results** (mean over seeds; collections scored on their held-out half; chance 0.11):
+
+| Arm, point | Level | Chinese nearest mean | Chinese on the count axis, true counts 1–9 | Chinese distance | Devanagari nearest mean |
+|---|---|---|---|---|---|
+| `gp`, block 3 | projection | 0.15 | 2.6 3.5 4.1 5.1 5.3 5.5 6.0 6.3 5.9 | 3.8× | 0.85 |
+| | core | 0.15 | 2.4 3.5 4.1 5.1 5.2 5.3 6.1 6.2 6.0 | 5.1× | 0.82 |
+| `gp`, relearn | core | 0.56 | 1.1 1.9 3.0 4.0 5.0 5.5 6.2 6.8 6.6 | 6.2× | 0.56 |
+| `common-k-cand`, block 3 | projection | 0.14 | 2.9 3.8 4.3 5.2 5.2 5.1 5.6 5.7 5.9 | 3.1× | 0.85 |
+| | core | 0.16 | 3.0 4.0 4.6 5.7 5.6 5.5 6.0 6.2 6.5 | 2.6× | 0.86 |
+
+Collections sit at 1.0–8.9 on their own axis at every level and point. Thai sits at 5–6 for every count.
+
+**Matching right after each block** (pilot reports, paired forms):
+
+| Arm | Chinese, block 1 | Chinese, block 2 (just taught) | Chinese, block 3 | Chinese, delay |
+|---|---|---|---|---|
+| `gp` | 0.11 | **0.89** (0.74–0.99) | 0.20 | 0.11 |
+| `common-k-cand` | 0.14 | **0.41** (0.27–0.50) | 0.27 | 0.24 |
+
+**What this shows.**
+1. **The mismatch is in the code space, and it is already at the projection.** The Chinese codes the projection hands the core
+   are shifted up and compressed (true counts 1–9 land between 2.6 and 6.3) and sit 3–4 times farther from the collection
+   line than collections do. The core carries this through essentially unchanged; the readers then read it faithfully.
+2. **In `gp` it is forgetting.** Chinese was aligned right after block 2 (0.89) and lost during block 3, when Devanagari was
+   taught. The frozen senses did not move, so what moved is the shared projection (and core): fitting Devanagari onto the
+   collection line moved where Chinese lands.
+3. **In `common-k-cand` Chinese was never well aligned** (0.41 after its own block). For this arm, "forgotten" in the
+   identity-from-order results overstates it: part is never learned.
+4. **The order survives the move.** On the count axis Chinese is still roughly monotone. Interference bends the projection
+   so that it keeps rank but loses scale and offset against collections.
+
+**Computation.** 8 tasks × 3 checkpoints, 92 s wall on 4 CPU workers, 254 s aggregate CPU. The one-checkpoint checks took
+about 80 s. Cost per checkpoint: 6 kinds × 270 items through the projection and the core solve, a 9-mean table and a ridge
+fit in at most 64 dimensions.
