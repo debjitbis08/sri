@@ -1,7 +1,8 @@
 # Shared output v1: contract
 
-Status: **draft, revised 2026-11-04 after stage 0, not frozen. The pilot is not implemented or
-run.** This is stage 1 of the [shared output brief](shared-output-brief.md).
+Status: **draft, revised 2026-11-04 after stage 0, not frozen. The pilot ran on 2026-11-04 and
+its criteria fail ([pilot results](shared-output-v1-pilot.md)): the confirmation does not
+proceed as designed.** This is stage 1 of the [shared output brief](shared-output-brief.md).
 - **Stage 0** ([results](shared-output-v1-stage0.md)) ran on the existing checkpoints.
 - **The confirmation** is frozen only after the pilot below has run and any changes it forces
   have been recorded here.
@@ -76,8 +77,8 @@ the core, but are stopped at the identification weights.
 **What the structure supplies, and the question for the user.** The routing in (3) is supplied
 structure. It is substitutivity of identicals, the one logical law built in. Every relation,
 including `same` itself, is learned and has no built-in form. **Whether this law belongs in the
-"smallest logical consistency system" a core may hold is the user's decision, and is needed
-before the pilot.**
+"smallest logical consistency system" a core may hold was the user's decision: approved
+2026-11-04.**
 
 **What grounding loses.** A grounded state carries what the participant class shares: here,
 quantity. A relation about an item's own appearance (script, font) cannot be read from it. In
@@ -388,16 +389,39 @@ The pilot is 16 runs, about an hour on three workers.
 
 ## Implementation
 
-**Done.**
-- `experiments/shared_output.py`: name drawing and frozen encoding (`names`), and stage 0
-  (`stage0`).
-
-**Planned.**
-- `src/shared_output.py`: Q, s, M, grounding with the gradient rule, and the decision rules.
-- A `pilot` stage in the runner.
-- `tests/test_shared_output.py`:
-  - the leakage audit;
-  - parameter counts and masks;
-  - the gradient rule: relational losses give zero gradient to identification weights;
-  - threshold selection on validation only;
-  - removed-set reads.
+- **`src/shared_output.py`** converts the sparse48 `GenericSequenceNet` in place, so initial
+  weights, masks and every existing read stay as they are.
+  - **What it holds:**
+    - the participants M (a buffer of raw frozen codes);
+    - identification, and grounding with detached identification weights;
+    - `relation_logits` (grounded for `next` and `more` in the grounded arms; `same` always
+      raw);
+    - `cont_logits`;
+    - `predict`: `P`'s code, or the recalled participant for the common arms, so the step 8
+      composition reads roll it;
+    - the acceptance loss and the threshold.
+  - **For the common arms,** Q is `g` with its last layer 64 → 16, and s is `P` with its last
+    layer 64 → 1. Measured reader parameters: 13,003 for the `gp` arms and 13,025 for the common
+    arms, after masking.
+- **`experiments/shared_output.py`** has the stages `names`, `stage0`, `reference` and `pilot`.
+  - **Names** have their own item kind (`name`). Next negatives, comparison draws and sequence
+    rows select by kind or episode, so they cannot reach a name. Every update also asserts that
+    names appear only as matching sources.
+  - **The update** is `transition_pilot.train_update` with the same draws, plus the acceptance
+    losses and continuation through `cont_logits`. Participants are re-read with gradient for
+    the grounded arms.
+  - **Reads** are added to the block-3, delay and relearn snapshots.
+  - **Draws.** Continuation candidates in training are the update's 9 candidates, as before. In
+    the grounded arms they are grounded like every relational input.
+- **`experiments/shared_output_summary.py`** gives the tables and the pilot criteria.
+- **`tests/test_shared_output.py`** has 9 checks:
+  - parameter counts and masks across arms;
+  - the gradient rule (a relational loss gives no gradient to raw items or identification, and
+    some to M);
+  - substitution under hard grounding;
+  - shapes;
+  - threshold ties;
+  - acceptance weighting;
+  - the naming audit on real batches.
+- **Not yet implemented: the memory-present reads** (r2, r3, r3′, r4 on the `sense_memory_core`
+  memory states). They will be read from the saved checkpoints, as a separate read stage.
