@@ -121,13 +121,13 @@ The taps encoder and taps projection contribute less than ±1.4 in every row. Th
 | Composition, collections up 3 | 0.38 / 0.32 | 0.59 / 0.69 | 0.41 / 0.39 | 0.63 / 0.68 | 0.39 / 0.40 |
 | Composition, taps up 2 | 0.80 / 0.53 | 0.76 / 0.74 | 0.78 / 0.76 | 0.82 / 0.88 | 0.81 / 0.55 |
 
-The counterfactual is linear: it ignores how the trajectory itself would change. A real gradient stop also changes the step sizes of the other paths, because clipping (factor 0.002–0.11 over these updates, set mostly by this gradient) and Adam renormalize.
+The counterfactual is linear: it ignores how the trajectory itself would change. A real gradient stop also changes the step sizes of the other paths, because clipping (factor 0.002–0.11 over these updates) and Adam renormalize. In the [path-removal run](relearning-path-removal-v1.md), the path is 23–40% of the clipped gradient's norm.
 
 The [mechanism](relearning-mechanism-v1.md) branch `seq-no-cand`, an actual stop of this path on form rows that is otherwise unchanged, read collections → taps 0.75 / 0.69 at 10 / 20. That is below this counterfactual's 0.85 / 0.75. The decomposition does not account for the gap. Changes in clipping and Adam's state are one possible contributor, untested.
 
 ## Proposed intervention, with its prediction
 
-Revised 2026-11-04 after review, before the run. Run: [path removal](relearning-path-removal-v1.md).
+Revised 2026-11-04 after review, before the run. Run: [path removal](relearning-path-removal-v1.md). The attributed decisions are protected partly: collections → taps 0.77 / 0.65 at 10 / 20 against 0.53 / 0.26, with English intact. The expectations held at 10 and overestimated at 20. The ordinary stop-gradient gives nearly the same result.
 
 Of the request's four cases, this is the second: **representation updates dominate, and comparator changes partly compensate.** The single intervention is on the responsible path and loss, not on all image learning.
 
