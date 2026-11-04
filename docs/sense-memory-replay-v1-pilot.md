@@ -1,6 +1,6 @@
 # Step 10, stage 2: latent replay from memory, read with memory removed
 
-Status: **pilot, 2026-11-04, seeds 300–303, one order (A then B). Not a contract.** Design: [sense-memory-replay-v1-design.md](sense-memory-replay-v1-design.md), revised after external review before this run. Code: `experiments/sense_memory_replay.py`, with tables from `experiments/sense_memory_replay_summary.py`. Report: `reports/sense-memory-replay-v1-pilot.json.gz`.
+Status: **pilot, 2026-11-04, seeds 300–303, one order (A then B). Not a contract. Closed with a negative result (user, 2026-11-04):** uniform replay does not improve the combined system. Retrieval without replay is the working design; consolidation and sleep are future work. Design: [sense-memory-replay-v1-design.md](sense-memory-replay-v1-design.md), revised after external review before this run. Code: `experiments/sense_memory_replay.py`, with tables from `experiments/sense_memory_replay_summary.py`. Report: `reports/sense-memory-replay-v1-pilot.json.gz`.
 
 Replaying stored frozen codes is rehearsal: **latent replay from memory**. `no-replay` never learns the associations, so acquisition here shows what replay teaches; it is not protection after equal teaching.
 

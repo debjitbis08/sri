@@ -1,6 +1,6 @@
 # Step 10, stage 2: does latent replay from memory make learning last? (design draft)
 
-Status: **design for the stage 2 pilot, revised 2026-11-04 after external review (*Changes from review*, below). Not a contract. Run: [results](sense-memory-replay-v1-pilot.md).** Follows [stage 1](sense-memory-core-v1-pilot.md) and its [design](sense-memory-core-v1-design.md). Requested after external review of stage 1. The open choices are under *Decisions*.
+Status: **design for the stage 2 pilot, revised 2026-11-04 after external review (*Changes from review*, below). Not a contract. Run: [results](sense-memory-replay-v1-pilot.md); closed with a negative result.** Follows [stage 1](sense-memory-core-v1-pilot.md) and its [design](sense-memory-core-v1-design.md). Requested after external review of stage 1. The open choices are under *Decisions*.
 
 ## Question
 
