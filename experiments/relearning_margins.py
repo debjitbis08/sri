@@ -28,7 +28,11 @@ From the captured pre-relearning state per seed, the original relearning (stage 
 Lost decisions: queries with m > 0 at update 0 and m <= 0 at update 10 (20). Reported: their mean attributed change of the correct score, the max wrong
 score and the margin by path and group, against queries that stay correct.
 No new learning policy; no remedy.
-Usage: NFI_DEVICE=cuda RB_WORKERS=3 /data/venvs/sri-cuda/bin/python -m experiments.relearning_margins
+Windows: updates 0-9, 0-19 and 10-19; in 10-19 the decisions correct at 0 and already wrong at 10 are reported separately (still wrong at 20, or
+recovered).
+MG_ARM=form-cand-stop decomposes the trajectory of the ordinary stop-gradient of form rows' sequence gradient through the candidates (the
+mechanism's seq-no-cand; relearning_path_removal's form-cand-stop); that path's part is then zero. Report relearning-margins-stop-v1.
+Usage: [MG_ARM=form-cand-stop] NFI_DEVICE=cuda RB_WORKERS=3 /data/venvs/sri-cuda/bin/python -m experiments.relearning_margins
 """
 import copy
 import os
@@ -44,7 +48,9 @@ import torch
 import torch.nn.functional as F
 
 RB, SC, S0, P, D, X, DEV, LM, SP, TP = RM.RB, RM.SC, RM.S0, RM.P, RM.D, RM.X, RM.DEV, RM.LM, RM.SP, RM.TP
-NAME = 'relearning-margins-v1'
+ARM = os.environ.get('MG_ARM', 'unchanged')  # 'form-cand-stop': the trajectory of the ordinary form-row candidate stop-gradient
+assert ARM in ('unchanged', 'form-cand-stop')
+NAME = 'relearning-margins-v1' if ARM == 'unchanged' else 'relearning-margins-stop-v1'
 RUNS = X.ROOT / 'runs' / NAME
 REPORT = X.ROOT / 'reports' / NAME
 STEPS = 20
@@ -146,7 +152,7 @@ def jvps(enc, model, params, fx, dirs):
     return out.detach(), torch.stack(res), layout
 
 
-def component_losses(enc, model, material, rng):
+def component_losses(enc, model, material, rng, stop_cand=False):
     """RM.forward's losses split by path, with the same draws; the split losses' gradients sum to the total gradient."""
     items, pairs, match = material[:3]
     solvers = {'image': P.Coupled(model)}
@@ -204,7 +210,7 @@ def component_losses(enc, model, material, rng):
     N = len(rows)
     # the temperature's gradient is counted once, in the prediction path
     ce_c = F.cross_entropy(-model.scale.detach().exp() * (pred.detach()[:, None] - Cs).pow(2).sum(-1), cnt_, reduction='none')
-    L['seq form via candidates'] = (ce_c * fm).sum() / N
+    L['seq form via candidates'] = (ce_c * fm).sum() / N * (0. if stop_cand else 1.)  # stopped: kept in the graph with zero gradient
     L['seq form via prediction'] = (ce_(pred, Cs.detach()) * fm).sum() / N
     L['seq context'] = (full * ~fm).sum() / N
     value = float(L['match form'] + L['match context'] + L['succession'] + L['comparison'] + (full * fm).sum() / N + L['seq context'])
@@ -238,9 +244,9 @@ def instrumented(box, reads):
         material = (*SP.batch_material(eps, D.context_episodes(st['crng'], D.N_CONTEXT), 'taps'), len(eps))
         LM.CURRENT['step'] += 1
         rng0 = copy.deepcopy(st['rng'])
-        L, _, _, _ = RM.forward(enc, model, material, st['rng'])  # the update exactly as stage A's unchanged arm
+        L, _, _, _ = RM.forward(enc, model, material, st['rng'], True, 'cand' if ARM == 'form-cand-stop' else None)  # the update exactly as run
         loss = L['match'] + L['next'] + L['compare'] + L['sequence']
-        Lc, value = component_losses(enc, model, material, copy.deepcopy(rng0))
+        Lc, value = component_losses(enc, model, material, copy.deepcopy(rng0), ARM == 'form-cand-stop')
         gk = {k: [g if g is not None else torch.zeros_like(p_) for p_, g in zip(params, torch.autograd.grad(l, params, retain_graph=True, allow_unused=True))]
               for k, l in Lc.items()}
         theta = [p_.detach().clone() for p_ in params]
@@ -310,12 +316,15 @@ def summarize(traj, att, layout, groups, fx):
         r = {'accuracy': [float(((m[t] > 0) & ok).mean()) for t in range(len(m))], 'queries': n, 'cumulative': {}}
         if name.startswith('memory'):
             r['retrieval_ok'] = ok.tolist()
-        for T_ in (10, 20):
-            act = {'correct': c[T_] - c[0], 'max_wrong': w[T_] - w[0], 'margin': m[T_] - m[0]}
-            sets = {'lost': ok & (m[0] > 0) & (m[T_] <= 0), 'kept': ok & (m[0] > 0) & (m[T_] > 0), 'all': ok}
+        for a0, T_ in ((0, 10), (0, 20), (10, 20)):
+            act = {'correct': c[T_] - c[a0], 'max_wrong': w[T_] - w[a0], 'margin': m[T_] - m[a0]}
+            sets = {'lost': ok & (m[a0] > 0) & (m[T_] <= 0), 'kept': ok & (m[a0] > 0) & (m[T_] > 0), 'all': ok}
+            if a0:  # decisions correct at 0 and already wrong at the window's start, by whether they recover by its end
+                sets['already_wrong_still_wrong'] = ok & (m[0] > 0) & (m[a0] <= 0) & (m[T_] <= 0)
+                sets['already_wrong_recovered'] = ok & (m[0] > 0) & (m[a0] <= 0) & (m[T_] > 0)
             cell = {}
             for label in ('first', 'path'):
-                A = att[label][:T_]
+                A = att[label][a0:T_]
                 ac = A[..., pos:pos + n].sum(0); aw = A[..., pos + n:pos + 2 * n].sum(0)  # (paths, groups, n)
                 est = {'correct': ac, 'max_wrong': aw, 'margin': ac - aw}
                 cell[label] = {}
@@ -327,7 +336,7 @@ def summarize(traj, att, layout, groups, fx):
                                               'by_path_and_group': est[q][..., sel].mean(-1).tolist()}
                                           for q in ('correct', 'max_wrong', 'margin')}
                     cell[label][sname]['n'] = int(sel.sum())
-            r['cumulative'][str(T_)] = cell
+            r['cumulative'][str(T_) if not a0 else f'{a0}-{T_}'] = cell
         out[name] = r
     return out
 
@@ -360,7 +369,7 @@ def main():
     ctx = __import__('multiprocessing').get_context('fork')
     with ctx.Pool(int(os.environ.get('RB_WORKERS', 3))) as pool:
         res = pool.map(task, RB.SEEDS, chunksize=1)
-    S0.save_json(f'{REPORT}.json', {'status': 'margin decomposition of the first 20 relearning updates; diagnostic, no new learning policy', 'seeds': RB.SEEDS,
+    S0.save_json(f'{REPORT}.json', {'status': f'margin decomposition of the first 20 relearning updates, {ARM} trajectory; diagnostic, no new learning policy', 'arm': ARM, 'seeds': RB.SEEDS,
                                     'steps': STEPS, 'paths': PATHS, 'gauss_points': GAUSS, 'results': {f'seed{s}': r for s, r, _ in res}})
     S0.save_json(f'{REPORT}-runtime.json', S0.runtime({'phase': 'relearning margins', 'wall_seconds': time.perf_counter() - t0,
                                                       'tasks': {f'seed{s}': t for s, _, t in res}, 'aggregate_worker_cpu_seconds': float(sum(t['cpu_seconds'] for _, _, t in res))}))

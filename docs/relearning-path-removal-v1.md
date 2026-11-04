@@ -64,12 +64,12 @@ The removed path is 23–40% of the clipped full gradient's norm.
    - The trained taps → collections holds at 0.88 against 0.50, and the code space keeps its spacing and alignment.
    - Collection sequence prediction and composition are protected through update 10, then decline by 20. They remain above `unchanged`.
    - The protection is not complete: collections → taps still falls from 0.89 to 0.65.
-2. **Acquisition over this window is essentially intact.**
+2. **No clear acquisition penalty is observed within 20 updates.**
    - English matching at 20 is 0.20 against 0.23 (seed ranges 0.13–0.23 and 0.12–0.32).
    - English forms' sequence prediction is 0.24 against 0.22.
    - Chinese and Devanagari forms' sequence prediction are equal or better.
    - Twenty updates are too few to judge acquisition fully: English matching is still rising in every arm.
-3. **The expectations held at update 10 but overestimated at 20.**
+3. **The direction was correct, but protection was already below the numerical expectations at update 10, and further below at 20.**
    - At 10, the interpreter and memory reads are 0.05–0.08 below expectation, and sequence and composition are within 0.03 or above it.
    - At 20 the shortfall grows: 0.03–0.10 on the interpreter and memory reads, and 0.08–0.20 on sequence prediction and composition (largest on composition and descending prediction).
    - The linear subtraction does not capture how the remaining paths act on the changed trajectory. That was its stated limitation.
@@ -83,7 +83,7 @@ The removed path is 23–40% of the clipped full gradient's norm.
 - collections → taps loses 0.24 instead of 0.63;
 - memory A loses 0.17 instead of 0.57.
 
-It keeps the code space, with no measurable cost to English matching or form sequence prediction over the 20 updates. Collection composition is protected early but not through 20 updates.
+It keeps the code space, with no clear acquisition penalty observed within 20 updates on English matching or form sequence prediction. English acquisition is still weak at this point, so long-term equivalence is not established. Collection composition is protected early but not through 20 updates.
 
 This supports a causal role for the path in the early lost decisions. It is a diagnostic, not a remedy:
 - the window is 20 updates;
@@ -91,6 +91,8 @@ This supports a causal role for the path in the early lost decisions. It is a di
 - the remaining loss is unexplained.
 
 ## What remains open
+
+Follow-up: [attribution on the stop trajectory, updates 10–20](relearning-margins-stop-v1.md).
 
 - **The remaining early loss on this arm's trajectory.** The decomposition attributes smaller shares to form rows' prediction path (the predictor, and taps composition), and to form matching through the comparator. Whether those, or effects of the changed trajectory, account for it would take the same margin decomposition rerun on this arm's trajectory.
 - **Beyond 20 updates.** Composition already declines between 10 and 20.

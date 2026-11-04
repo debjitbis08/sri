@@ -4,6 +4,7 @@ the lost decisions' mean actual and attributed change of the correct score, the 
 against decisions that stay correct. Means over seeds (range).
 Usage: python -m experiments.relearning_margins_summary reports/relearning-margins-v1.json[.gz] [path|first]
        python -m experiments.relearning_margins_summary reports/relearning-margins-v1.json[.gz] counterfactual
+       python -m experiments.relearning_margins_summary reports/relearning-margins-stop-v1.json[.gz] window   (updates 10-19, by decision fate)
 The second form needs the per-query attributions in runs/relearning-margins-v1/margins-seed*.npz: accuracy at updates 10 and 20 with a loss path's
 attributed (path-integral) margin change subtracted, holding every other part of each actual step fixed (a linear counterfactual of removing that
 part of the displacement, with clipping and Adam's normalization unchanged).
@@ -46,9 +47,41 @@ def counterfactual(path):
             print(f'  {name:24s} at 0 {r[0]:.2f} | at 10 actual {r[1]:.2f}, without {r[2]:.2f} | at 20 actual {r[3]:.2f}, without {r[4]:.2f}')
 
 
+def window(path, key='10-20'):
+    """Updates 10-19: decisions that become wrong (correct at 10, wrong at 20), decisions already wrong at 10 (correct at 0), by whether they
+    recover, and decisions that stay correct; their mean attributed change of the correct score, max wrong score and margin, by group and path."""
+    d = SS.load(path)
+    R = d['results']
+    seeds = sorted(R)
+    paths, groups = d['paths'], R[seeds[0]]['groups']
+    print('trajectory:', d.get('arm', 'unchanged'))
+    for name in READS:
+        acc = np.array([R[s]['reads'][name]['accuracy'] for s in seeds])
+        print(f'\n######## {name}: accuracy at 0, 10, 20:', ' '.join(f'{acc[:, t].mean():.2f}' for t in (0, 10, 20)))
+        for sname in ('lost', 'already_wrong_still_wrong', 'already_wrong_recovered', 'kept'):
+            cs = [R[s]['reads'][name]['cumulative'][key]['path'].get(sname) for s in seeds]
+            cs = [c for c in cs if c]
+            if not cs:
+                continue
+            print(f'  {sname}: n {[c["n"] for c in cs]}')
+            for q in ('correct', 'max_wrong', 'margin'):
+                act = [c[q]['actual_mean'] for c in cs]; est = [c[q]['estimated_mean'] for c in cs]; err = [c[q]['relative_error'] for c in cs]
+                B = np.array([c[q]['by_path_and_group'] for c in cs])
+                byg, byp = B.sum(1).mean(0), B.sum(2).mean(0)
+                print(f'    {q:9s} actual {np.mean(act):+8.2f} est {np.mean(est):+8.2f} (rel err {np.mean(err):.2f})')
+                print('      by group: ' + ', '.join(f'{g} {v:+.2f}' for g, v in zip(groups, byg)))
+                print('      by path:  ' + ', '.join(f'{p} {v:+.2f}' for p, v in zip(paths, byp)))
+                if q != 'max_wrong':
+                    M = B.mean(0)
+                    top = np.dstack(np.unravel_index(np.argsort(M.ravel()), M.shape))[0][:5]
+                    print('      most negative cells: ' + ', '.join(f'{paths[i]} x {groups[j]} {M[i, j]:+.2f}' for i, j in top))
+
+
 def main(path, label='path'):
     if label == 'counterfactual':
         return counterfactual(path)
+    if label == 'window':
+        return window(path)
     d = SS.load(path)
     R = d['results']
     seeds = sorted(R)

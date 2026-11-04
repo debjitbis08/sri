@@ -127,7 +127,7 @@ The [mechanism](relearning-mechanism-v1.md) branch `seq-no-cand`, an actual stop
 
 ## Proposed intervention, with its prediction
 
-Revised 2026-11-04 after review, before the run. Run: [path removal](relearning-path-removal-v1.md). The attributed decisions are protected partly: collections → taps 0.77 / 0.65 at 10 / 20 against 0.53 / 0.26, with English intact. The expectations held at 10 and overestimated at 20. The ordinary stop-gradient gives nearly the same result.
+Revised 2026-11-04 after review, before the run. Run: [path removal](relearning-path-removal-v1.md). The attributed decisions are protected partly: collections → taps 0.77 / 0.65 at 10 / 20 against 0.53 / 0.26, with no clear acquisition penalty within 20 updates. The direction was correct, but protection was already below the numerical expectations at 10. The ordinary stop-gradient gives nearly the same result.
 
 Of the request's four cases, this is the second: **representation updates dominate, and comparator changes partly compensate.** The single intervention is on the responsible path and loss, not on all image learning.
 
