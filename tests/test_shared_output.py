@@ -96,12 +96,48 @@ class Readout(unittest.TestCase):
                 torch.testing.assert_close(a, b)
 
     def test_continuation_logits_shapes_and_predict(self):
-        for arm in ('gp', 'gp-grounded', 'common', 'common-raw'):
+        for arm in ('gp', 'gp-grounded', 'common', 'common-raw', 'common-k-cand', 'common-k-shared'):
             _, _, _, model = build(arm)
             with torch.no_grad():
                 p, c, cand = torch.randn(4, 16), torch.randn(4, 16), torch.randn(4, 9, 16)
                 self.assertEqual(tuple(model.cont_logits(p, c, cand).shape), (4, 9))
                 self.assertEqual(tuple(model.predict(p, c).shape), (4, 16))
+
+
+    def test_k_arms_counts_and_masks(self):
+        """K arms: Q is g with a 16-wide output, K is P (masks unchanged); counts are reported against gp and common."""
+        SC, SO, _, gp = build('gp')
+        counts = {}
+        for arm in ('common-k-cand', 'common-k-shared'):
+            _, _, _, m = build(arm)
+            counts[arm] = SO.reader_parameters(m)
+            self.assertEqual(m.g[-1].out_features, 16)
+            self.assertEqual(m.P[-1].out_features, 16)
+            for (_, a), (_, b) in zip(SC.LM.readers(gp), SC.LM.readers(m)):
+                torch.testing.assert_close(a[0].struct.mask, b[0].struct.mask)
+        self.assertEqual(counts['common-k-cand'], counts['common-k-shared'])
+        # g's 64 -> 16 instead of 64 -> 1 (+975) plus kappa, b_s, cont, empty against b_c
+        self.assertEqual(counts['common-k-cand'] - SO.reader_parameters(gp), 975 + 16 + 1 + 8 + 16 - 1)
+
+    def test_k_arms_pass_gradient_to_items_and_kappa(self):
+        for arm in ('common-k-cand', 'common-k-shared'):
+            _, _, _, model = build(arm)
+            p, c, cand = (torch.randn(3, 16, requires_grad=True), torch.randn(3, 16, requires_grad=True), torch.randn(3, 9, 16, requires_grad=True))
+            model.cont_logits(p, c, cand).sum().backward()
+            for t in (p, c, cand):
+                self.assertGreater(float(t.grad.abs().sum()), 0)
+            self.assertGreater(float(model.kappa.grad.abs().sum()), 0)
+
+    def test_shared_key_enters_the_query(self):
+        """In common-k-shared the query reads K(a); in common-k-cand it reads a. Changing only kappa moves the query in the shared arm alone."""
+        for arm, moves in (('common-k-cand', False), ('common-k-shared', True)):
+            _, SO, _, model = build(arm)
+            a = torch.randn(5, 16)
+            with torch.no_grad():
+                q0 = model._q(a, None, model.token.weight[SO.SAME]).clone()
+                model.kappa.add_(1.0)
+                q1 = model._q(a, None, model.token.weight[SO.SAME])
+            self.assertEqual(not torch.allclose(q0, q1), moves)
 
 
 class Helpers(unittest.TestCase):

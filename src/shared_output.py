@@ -8,6 +8,10 @@ Arms:
   gp-grounded  the same readers; every relational slot (next, more, continuation) takes a grounded state
   common       one query encoder Q and one scorer s for every read, identification included; grounded slots
   common-raw   Q and s on raw codes (ablation)
+  common-k-cand    bi-encoder, raw codes: S = exp(scale) <Q(r, a, b), K(y)> / sqrt(d) + b_s, K on candidates only (docs/shared-output-v1-k-arms.md)
+  common-k-shared  the same, with the one K also applied to both query slots: S = exp(scale) <Q(r, K(a), K(b)), K(y)> / sqrt(d) + b_s
+For the K arms Q is g with its last layer 64 -> 16 (as in common) and K(y) = P([y, kappa]) with a learned constant operand kappa, so K keeps P's masked
+first layer, RigL schedule and 64 -> 16 output. The empty slot lives in Q's input space (K-space in common-k-shared).
 For the common arms Q is g with its last layer 64 -> 16 (input [slot 1, slot 2, token], g's layout) and s is P with its last layer 64 -> 1 (input
 [q, y], P's layout), so the masked first layers and the reader parameter count are unchanged.
 
@@ -21,9 +25,10 @@ from torch import nn
 
 from src import generic_net as gen
 
-ARMS = ('gp', 'gp-grounded', 'common', 'common-raw')
+ARMS = ('gp', 'gp-grounded', 'common', 'common-raw', 'common-k-cand', 'common-k-shared')
 GROUNDED = {'gp-grounded', 'common'}
-COMMON = {'common', 'common-raw'}
+KEYED = {'common-k-cand', 'common-k-shared'}
+COMMON = {'common', 'common-raw'} | KEYED
 SAME, NEXT, MORE = 1, 0, 2
 
 
@@ -31,16 +36,27 @@ class Readout(gen.GenericSequenceNet):
     """Use `convert`; not constructed directly."""
 
     # ---------------------------------------------------------------- pieces
+    def key(self, y):
+        """K(y) = P([y, kappa]) (K arms)."""
+        return self.P(torch.cat([y, self.kappa.expand(len(y), -1)], 1))
+
     def _q(self, a, b, tok):
+        """Query from slots a and b (b None: the empty slot)."""
+        if self.arm == 'common-k-shared':
+            a = self.key(a)
+            b = None if b is None else self.key(b)
+        b = self.empty.expand(len(a), -1) if b is None else b
         return self.g(torch.cat([a, b, tok.expand(len(a), -1)], 1))
 
     def _s(self, q, y):
+        if self.arm in KEYED:
+            return self.scale.exp() * (q * self.key(y)).sum(1) / q.shape[1] ** 0.5 + self.b_s
         return self.P(torch.cat([q, y], 1)).squeeze(1)
 
     def _pair(self, a, b, head):
         """Raw pair logit for aligned rows."""
         if self.arm in COMMON:
-            return self._s(self._q(a, self.empty.expand(len(a), -1), self.token.weight[head]), b)
+            return self._s(self._q(a, None, self.token.weight[head]), b)
         return gen.GenericNet.relation_logits(self, a, b, head)
 
     # ---------------------------------------------------------------- participants and identification
@@ -61,7 +77,7 @@ class Readout(gen.GenericSequenceNet):
         M = self.participants() if M is None else M
         n, k, d = len(x), len(M), x.shape[1]
         if self.arm in COMMON:
-            q = self._q(x, self.empty.expand(n, -1), self.token.weight[SAME])
+            q = self._q(x, None, self.token.weight[SAME])
             return self._s(q[:, None].expand(-1, k, -1).reshape(-1, d), M[None].expand(n, -1, -1).reshape(-1, d)).reshape(n, k)
         return gen.GenericNet.relation_logits(self, x[:, None].expand(-1, k, -1).reshape(-1, d), M[None].expand(n, -1, -1).reshape(-1, d), SAME).reshape(n, k)
 
@@ -116,7 +132,11 @@ def convert(model, arm, enc, raw_participants, generator_seed):
         if arm in COMMON:
             h, i = model.g[-1].in_features, model.sizes[2]
             model.g[-1] = nn.Linear(h, i)  # Q: 64 -> 16
-            model.P[-1] = nn.Linear(h, 1)  # s: 64 -> 1
+            if arm in KEYED:
+                model.kappa = nn.Parameter(torch.zeros(i))  # K's constant second operand; P's 64 -> 16 output is kept
+                model.b_s = nn.Parameter(torch.zeros(()))
+            else:
+                model.P[-1] = nn.Linear(h, 1)  # s: 64 -> 1
             model.cont = nn.Parameter(torch.randn(gen.TOKEN))  # the continuation token, drawn like the relation tokens
             model.empty = nn.Parameter(torch.zeros(i))  # the empty slot
         else:
@@ -131,12 +151,12 @@ def acceptance(logits, target):
 
 
 def reader_parameters(model):
-    """Reader parameters: g/Q, P/s, tokens and the arm's additions (not scale, which only gp's distance logit uses)."""
+    """Reader parameters: g/Q, P/s/K, tokens and the arm's additions (scale only where a logit uses it: gp's distance, the K arms' dot product)."""
     n = sum(p.numel() for p in (*model.g.parameters(), *model.P.parameters(), model.token.weight))
-    for name in ('cont', 'empty', 'b_c'):
+    for name in ('cont', 'empty', 'b_c', 'kappa', 'b_s'):
         if hasattr(model, name):
             n += getattr(model, name).numel()
-    if model.arm not in COMMON:
+    if model.arm not in COMMON or model.arm in KEYED:
         n += model.scale.numel()
     return int(n)
 

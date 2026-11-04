@@ -1,6 +1,7 @@
 """Tables for the shared output pilot (docs/shared-output-v1-contract.md): reads N1-N3 per arm and the pre-declared pilot criteria.
 
-Usage: .venv/bin/python -m experiments.shared_output_summary [report]   (default reports/shared-output-v1-pilot.json)
+Usage: .venv/bin/python -m experiments.shared_output_summary [report ...]   (default reports/shared-output-v1-pilot.json)
+Several reports are merged (later ones add arms). With the K arms present, their criteria (docs/shared-output-v1-k-arms.md) are printed too.
 """
 import json
 import sys
@@ -10,7 +11,7 @@ from pathlib import Path
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
-ARMS = ('gp', 'gp-grounded', 'common', 'common-raw')
+ARMS = ('gp', 'gp-grounded', 'common', 'common-raw', 'common-k-cand', 'common-k-shared')
 GROUNDED = {'gp-grounded', 'common'}
 
 
@@ -18,8 +19,10 @@ def mode(arm):
     return 'hard' if arm in GROUNDED else 'direct'
 
 
-def load(path):
-    res = json.loads(Path(path).read_text())['results']
+def load(*paths):
+    res = {}
+    for path in paths:
+        res.update(json.loads(Path(path).read_text())['results'])
     seeds = sorted({int(k.split('seed')[1]) for k in res})
     return res, seeds
 
@@ -137,15 +140,50 @@ def criteria(res, seeds):
     return '\n'.join(out)
 
 
+def k_criteria(res, seeds):
+    """Pre-declared criteria of the K arms, at delay."""
+    out = []
+    n1 = READS['N1 mean of directions']
+    for a in ('common-k-cand', 'common-k-shared'):
+        ident = np.nanmean([get(res, a, s, 'block3', READS['Name identification (counts 2–8)']) for s in seeds])
+        fam = np.nanmean([get(res, a, s, 'delay', READS['Familiar (collection, collection)']) for s in seeds])
+        fam_raw = np.nanmean([get(res, 'common-raw', s, 'delay', READS['Familiar (collection, collection)']) for s in seeds])
+        out.append(f'- Gate `{a}`: identification at block 3 {fmt(ident)} (≥ 0.80, else read N1 given identification), familiar continuation at delay '
+                   f'{fmt(fam)} (≥ 0.60, and ≥ `common-raw` − 0.10 = {fmt(fam_raw - .1)}) → {"pass" if ident >= .8 and fam >= .6 and fam >= fam_raw - .1 else "fail"}')
+    for a, b in (('common-k-shared', 'common-raw'), ('common-k-shared', 'gp'), ('common-k-cand', 'common-raw'), ('common-k-shared', 'common-k-cand')):
+        d = paired(res, seeds, n1, a, b, 'delay')
+        verdict = f' → {"pass" if np.nanmean(d) >= .10 and (d > 0).sum() >= 3 else "fail"}' if (a, b) == ('common-k-shared', 'common-raw') else ''
+        out.append(f'- N1 `{a}` − `{b}` at delay: {fmt(np.nanmean(d))} (seeds {", ".join(fmt(x) for x in d)}){verdict}')
+    fa = -paired(res, seeds, READS['N2 names: removed set abstains'], 'common-k-shared', 'gp', 'delay')
+    out.append(f'- Rejection, removed-set false acceptance `common-k-shared` − `gp`: {fmt(np.nanmean(fa))} (≤ +0.05) → {"pass" if np.nanmean(fa) <= .05 else "fail"}')
+    worst = []
+    for name, f in {**{k: READS[k] for k in ('Familiar (collection, collection)', 'Familiar (collection, taps)', 'Familiar (collection, Devanagari)')}, **PRIOR}.items():
+        dd = np.nanmean(paired(res, seeds, f, 'common-k-shared', 'gp', 'delay'))
+        if dd < -.05:
+            worst.append(f'{name} {fmt(dd)}')
+    e = np.nanmean(paired(res, seeds, PRIOR['English matching, paired'], 'common-k-shared', 'gp', 'relearn'))
+    if e < -.05:
+        worst.append(f'English after relearning {fmt(e)}')
+    out.append(f'- Prior abilities of `common-k-shared` within 0.05 of `gp`: {"pass" if not worst else "fail: " + "; ".join(worst)}')
+    for a in ('common-k-cand', 'common-k-shared'):
+        for point in ('block3', 'delay'):
+            v = {sp: np.nanmean([get(res, a, s, point, lambda r, _, sp=sp: r['shared_output']['substitutability'][sp]['names_nearest_own_count_2_8']) for s in seeds])
+                 for sp in ('core', 'key')}
+            out.append(f'- Substitutability `{a}` at {point}, names nearest own count (2–8): core {fmt(v["core"])}, K space {fmt(v["key"])}')
+    return '\n'.join(out)
+
+
 def main():
     warnings.simplefilter('ignore', RuntimeWarning)  # arms or reads missing from a report give empty means
-    path = sys.argv[1] if len(sys.argv) > 1 else ROOT / 'reports' / 'shared-output-v1-pilot.json'
-    res, seeds = load(path)
+    paths = sys.argv[1:] or [ROOT / 'reports' / 'shared-output-v1-pilot.json']
+    res, seeds = load(*paths)
     arms = [a for a in ARMS if any(f'{a}/seed{s}' in res for s in seeds)]
     print(f'Seeds {seeds}; mean (range over seeds). Grounded arms read with hard grounding, raw arms directly.\n')
     for point in ('block3', 'delay', 'relearn'):
         print(f'### {point}\n\n{table(res, seeds, READS, point, arms)}\n\n{table(res, seeds, PRIOR, point, arms)}\n')
     print('### Pilot criteria\n\n' + criteria(res, seeds))
+    if any(f'common-k-shared/seed{s}' in res for s in seeds):
+        print('\n### K-arm criteria\n\n' + k_criteria(res, seeds))
 
 
 if __name__ == '__main__':

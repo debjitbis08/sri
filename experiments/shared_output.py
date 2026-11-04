@@ -492,7 +492,7 @@ def pilot_reads(enc, model, seed):
     mid = (qn >= 2) & (qn <= 8)
     lu = model.identify(un, M).numpy()
     fq = torch.cat([forms[n][:CUR_PER] for n in ns.NUMBERS if n not in withheld])
-    fn = np.repeat([n for n in ns.NUMBERS if n not in withheld], CUR_PER)
+    fn = np.concatenate([np.full(len(forms[n][:CUR_PER]), n) for n in ns.NUMBERS if n not in withheld])  # smoke data can hold fewer than CUR_PER forms
     out['identification'] = {'names': float(ident.mean()), 'names_counts_2_8': float(ident[mid].mean()), 'names_accepted': float(accepted.mean()),
                              'names_identified_and_accepted': float((ident & accepted).mean()), 'unseen_accepted': float((lu.max(1) >= thr_s).mean()),
                              'devanagari_trained': float((inv_n[model.identify(fq, M).numpy().argmax(1)] == fn).mean())}
@@ -562,6 +562,20 @@ def pilot_reads(enc, model, seed):
     within = float(np.mean([(colls[n] - means[n - 1]).norm(dim=1).mean().item() for n in ns.NUMBERS]))
     between = float(torch.pdist(means).mean())
     out['collection_geometry'] = {'between_count_means': between, 'within_count': within, 'ratio': between / within}
+
+    # substitutability (docs/shared-output-v1-k-arms.md): is a name's nearest per-count mean of M its own count, in core space and, for the K arms,
+    # in K space, where common-k-shared's relations read it. Added with the K arms; reports from before lack it.
+    qn5 = np.repeat(counts, EVAL_R)
+    spaces = {'core': lambda x: x}
+    if model.arm in SO.KEYED:
+        spaces['key'] = model.key
+    sub = {}
+    for space, f in spaces.items():
+        mu = torch.stack([f(M)[torch.as_tensor(inv_n == n)].mean(0) for n in ns.NUMBERS])
+        fq = f(nm.reshape(-1, nm.shape[-1]))
+        near = np.asarray(torch.cdist(fq, mu).argmin(1)) + 1
+        sub[space] = {'names_nearest_own_count': float((near == qn5).mean()), 'names_nearest_own_count_2_8': float((near == qn5)[(qn5 >= 2) & (qn5 <= 8)].mean())}
+    out['substitutability'] = sub
     for m in (enc['image'], enc['sequence'], model):
         m.train()
     return out
