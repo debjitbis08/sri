@@ -1,14 +1,14 @@
-# Remedies for the relearning collapse: candidates and prior work (plan for review)
+# Remedies for the relearning collapse: candidates, prior work and the stage A screen
 
-Status: **draft plan, 2026-11-04, for review. Nothing run.** Follows the [relearning mechanism](relearning-mechanism-v1.md), the [dynamics](relearning-dynamics-v1.md) and the [branches](relearning-branches-v1.md).
+Status: **plan, revised 2026-11-04 after external review (*Changes from review*, below). Stage A approved and specified here, and run: [results](relearning-remedies-a-v1.md). No arm met the conditions for stage B.** Follows the [relearning mechanism](relearning-mechanism-v1.md), the [dynamics](relearning-dynamics-v1.md) and the [branches](relearning-branches-v1.md).
 
-Prior work below is cited from familiar results and was not re-read for this draft. Exact formulations should be checked before any contract is frozen. The shared `docs/prior-work.md` has uncommitted edits by the user, so entries go there once those land.
+Prior work below is cited from familiar results and was not re-read for this plan. The review supplied links for the two most relevant: NormFace (arXiv 1704.06369) and Tian, Chen and Ganguli (arXiv 2102.06810). The shared `docs/prior-work.md` has uncommitted edits by the user, so entries go there once those land.
 
 ## The problem in one paragraph
 
 When the core relearns forms it had forgotten (English plus rehearsal of earlier scripts), its sequence-prediction loss scores each prediction by −exp(scale)·‖pred − cand‖² over nine candidate collections.
 
-Rows where a wrong candidate is much closer than the target cost hundreds. Their gradient pulls each target collection straight at a wrong prediction, with an inward component. Through the image projection shared by forms and collections, that sums to a largely uniform contraction of the image codes. Taps keep their own projection, so they do not contract with them.
+Rows where a wrong candidate is much closer than the target cost hundreds. Their gradient pulls each target collection straight at a wrong prediction, with an inward component. Through the image projection shared by forms and collections, that sums to a largely uniform contraction of the image codes. Taps keep their own projection.
 
 The two senses separate, and the core's collections → taps reading, which memory's recalled values depend on, collapses early and recovers only partly. Blocking the candidate-side gradient alone keeps most of the code space; it is the dominant identified route of the early collapse.
 
@@ -16,79 +16,109 @@ The two senses separate, and the core's collections → taps reading, which memo
 
 ## Three properties of the loss that produce it
 
-1. **Unbounded, quadratic scores.** Confidently wrong rows dominate the loss and its gradient without limit.
-2. **Scale sensitivity.** A uniform shrink of all codes lowers the loss; contraction is always a descent direction.
-3. **Gradient into the targets.** A prediction objective moves the very codes it predicts, and those codes are shared with working skills.
+1. **Unbounded, quadratic scores.** Rows where a wrong candidate is much closer than the target dominate the loss and its gradient.
+2. **Scale sensitivity on this batch.** On the disruptive first relearning batch, a uniform shrink of all image codes locally lowers the loss (shrink derivative +169). That is a measured property of that batch, not a general one: on a delay batch the derivative is −1.2, and shrinking confidently correct predictions can raise their loss.
+3. **Gradient into the targets.** The prediction objective moves the codes it predicts, which are shared with working skills.
 
-## Candidate remedies
+## Candidates
 
-Each candidate changes the sequence-prediction loss or adds one term, and nothing else.
+**In the stage A screen:**
 
-| # | Candidate | Removes | Expected effect | Risks |
-|---|---|---|---|---|
-| 1 | **Batch-relative distance logits:** each squared distance divided by that row's candidate spread, e.g. the mean squared distance of the nine candidates from their centroid, with gradient through both | 2, exactly: a uniform rescaling of all codes leaves every logit unchanged | no contraction incentive; keeps the number-line geometry, unlike per-item normalization | non-uniform contractions remain possible; the temperature must carry all confidence |
-| 2 | **Stop-gradient into the candidates** of sequence prediction: it trains the predictor and the codes predicted from, while targets are fixed anchors | 3 | keeps the code space (diagnostic branch: spacing 22.0 against 6.5; collections → taps 0.69 against 0.42 at 50 updates) | collection codes no longer learn from sequence structure; succession and composition must be checked |
-| 3 | **Bounded per-row influence:** plain distance instead of squared, or a margin cap on each row's logit gap | 1 | a confidently wrong row can no longer dominate | does not remove the contraction incentive alone |
-| 4 | **Per-sense scale anchor:** a variance floor per sense and dimension, or per-sense whitening of codes | 2, through a separate term | collections cannot contract relative to taps | an extra term with its own weight; whitening costs O(d²) per batch for d = 16 |
-| 5 | **Memory-anchored constraint:** keep the core's codes of memory's stored dot values stable relative to taps, up to scale, by a penalty or by projecting each update | the consequence for memory, not the cause | protects the interpreter memory depends on, using memory itself; does not train the failing read directly | which constraint to use; cost grows with the stored values used per update |
-| 1 + 2 | combined | 2 and 3 | most likely to keep memory's interpreter stable | as 1 and 2 |
+| Arm | Change | Hypothesis tested |
+|---|---|---|
+| `unchanged` | none | reference |
+| `seq-cand-stop` | sequence prediction's gradient into its candidates is stopped, on all sequence rows (form and context) | removing property 3 for this loss prevents the early collapse |
+| `seq-relative` | batch-relative distance logits (exact form below) | reducing property 2 for this loss prevents it |
+| `seq-weight-0.1` | the original sequence loss at weight 0.1 | the collapse is only a matter of this loss's magnitude |
+
+**`seq-cand-stop`** applies to sequence prediction only: matching, succession and comparison are unchanged. It applies to all sequence rows, as a general remedy would. The form-row-only intervention of the [mechanism](relearning-mechanism-v1.md) remains diagnostic evidence.
+
+Candidates are not permanently fixed anchors. They still move through the shared parameters and every other loss; only this loss's direct pull on them is removed.
+
+**`seq-relative`, the exact form.** For each sequence row with prediction p and nine candidates c₁…c₉ (the target at its count's slot):
+
+- s = (1/9) Σₖ ‖cₖ − c̄‖², the candidates' mean squared distance from their centroid c̄, with gradient through s;
+- logitₖ = −exp(scale) · s₀ · ‖p − cₖ‖² / (s + ε).
+
+The constants and policies:
+- **s₀** is the mean of s over all sequence rows of the first relearning batch at the captured state. It is computed once without gradient, so the logits equal the original loss's on that batch at update 0 on average, and the switch does not itself change confidence.
+- **ε = 10⁻⁶ · s₀** is a numerical floor.
+- **Temperature policy:** `scale` keeps training as before.
+
+The arm stays a hypothesis to test, for two reasons:
+- Jointly rescaling predictions and candidates leaves the logits unchanged. But scaling the core's codes need not rescale the predictor's output identically, so this does not prove contraction of the learned representation has no benefit.
+- Differentiating through s introduces a new incentive: the model can change candidate spread to change confidence. Spread is logged.
+
+**`seq-weight-0.1`:** the sequence loss on all rows is multiplied by 0.1, declared before the run. It is an order-of-magnitude reduction; the first relearning gradients were about 100 times the delay's. It is a control: if lowering this loss's weight alone avoids the collapse, the formulation is not what matters at this scale.
+
+**Deferred until the individual results show a need:**
+- **Combinations,** such as stop-gradient with batch-relative logits.
+- **Bounded per-row influence.** Plain distance and a margin cap are different interventions:
+  - plain distance bounds the distance derivative away from its singular point, but bounds neither the loss nor the gradient through the network;
+  - a hard cap can stop learning exactly on the difficult examples.
+- **Per-sense variance floors and whitening.**
+- **Memory-anchored constraints.** Keeping the core's codes of stored values stable is a separate memory-assisted training question. It need not involve sleep, but it widens this task beyond correcting the identified failure of the prediction loss.
 
 **Excluded or separate:**
-- **Explicit collections → taps training** builds the answer into training. It stays excluded by user decision.
-- **A symmetric comparator,** g(a, b) + g(b, a), addresses the fragility of the reverse read, not the collapse. It is a separate question.
-- **Optimizer changes,** such as a warm-up after quiet phases, per-loss gradient normalization or Adam resets, treat a symptom. Adam's role is still untested. One diagnostic continuation with fresh optimizer moments could test it, but it is not a remedy.
+- **Explicit collections → taps training** stays excluded by user decision.
+- **A symmetric comparator** addresses the fragility of the reverse read, not the collapse.
+- **Optimizer changes** treat a symptom. Adam's role is untested.
 
-## Prior work we can reuse
+## Prior work, with its limits
 
-**Scale doubling as temperature (property 2).**
-- **The identity:** with logits −β‖p − c‖², scaling every code by α is the same as replacing β with α²β. Code scale and temperature are redundant parameterizations, which is why shrinking substitutes for cooling.
-- **NormFace** (Wang, Xiang, Cheng and Yuille 2017) analyses softmax over L2-normalized features and shows that a separate scale parameter is then needed. CLIP's learned logit scale is the same design. Candidate 1 follows it, with a batch-relative spread in place of per-item normalization.
-- **Neighbourhood components analysis** (Goldberger, Roweis, Hinton and Salakhutdinov 2004) and **prototypical networks** (Snell, Swersky and Zemel 2017) use softmax over squared Euclidean distances. Their analyses cover why squared distance suits class means, and where its scale freedom comes from.
-- **VICReg** (Bardes, Ponce and LeCun 2022) uses a variance term to prevent collapse, and **W-MSE** (Ermolov, Siarohin, Sangineto and Sebe 2021) whitens embeddings. They are the references for candidate 4.
+- **Scale and temperature.** With logits −β‖p − c‖², scaling every code by α is the same as replacing β with α²β, so code scale and temperature are redundant parameterizations.
+  - NormFace (Wang, Xiang, Cheng and Yuille 2017) supports scoring normalized features with a separate scale parameter.
+  - It does not validate this candidate-spread denominator, which is our own construction and is tested as a hypothesis.
+  - Neighbourhood components analysis (Goldberger et al. 2004) and prototypical networks (Snell, Swersky and Zemel 2017) also use softmax over squared Euclidean distances.
+- **Stop-gradient on the target side.** BYOL, SimSiam, mean teacher and I-JEPA stop or slow gradients into the target side to prevent collapse in predictive objectives.
+  - Tian, Chen and Ganguli (2021) analyse a simplified non-contrastive setting with a linear predictor and a stop-gradient. Our objective differs: nine candidates, a nonlinear predictor and shared training losses.
+  - This work motivates `seq-cand-stop`. It does not predict that it will work here.
+- **Bounded losses** (Ghosh, Kumar and Sastry 2017; Zhang and Sabuncu 2018) and margin softmaxes (CosFace, ArcFace) are references for the deferred bounded-influence arm.
+- **Variance and whitening** (VICReg; W-MSE) are references for the deferred scale anchors.
+- **Update constraints with stored examples** (GEM, A-GEM, orthogonal gradient descent, Learning without Forgetting, EWC) are references for the deferred memory-anchored constraint.
+- **Comparing representations across checkpoints:** CKA (Kornblith et al. 2019) and orthogonal Procrustes, for any coordinate-compatibility check.
+- **Adam:** RAdam (Liu et al. 2020) analyses oversized steps from unreliable second moments. It is relevant to the untested Adam hypothesis.
 
-**Gradient into the targets (property 3).**
-- **BYOL** (Grill et al. 2020), **SimSiam** (Chen and He 2021), **mean teacher** (Tarvainen and Valpola 2017) and **I-JEPA** (Assran et al. 2023) stop gradients into the target side, or move it slowly, to prevent collapse in predictive objectives. They are the references for candidate 2.
-- **Theory:** Tian, Chen and Ganguli (2021), *Understanding self-supervised learning dynamics without contrastive pairs*, analyse a linear predictor with a stop-gradient. They show how the predictor and the stop-gradient avoid collapse, and how the predictor's eigenspaces align with the representation's. Our predictor and our linear projection are close to their model, so their analysis can predict candidate 2's effect before it is run.
-- **Measuring collapse:** Jing, Vincent, LeCun and Tian (2022) on dimensional collapse, and Wang and Isola (2020) on alignment and uniformity. Both give diagnostics beyond our uniform-scale measure.
+## Stage A: the screen
 
-**Unbounded row influence (property 1).**
-- **Bounded losses from noisy-label learning:** mean absolute error (Ghosh, Kumar and Sastry 2017) and generalized cross-entropy (Zhang and Sabuncu 2018).
-- **Margin-based cosine softmaxes:** CosFace and ArcFace. They are the references for candidate 3.
-- **On the optimizer:** RAdam (Liu et al. 2020) analyses Adam's oversized steps when its second-moment estimates are unreliable. It is relevant to the untested Adam-history hypothesis after the quiet delay.
+**From:** the captured pre-relearning states, seeds 300–303, with exact reproduction checked by the unchanged arm.
 
-**Constraining updates with stored examples (candidate 5).**
-- **Projection with memory:** GEM (Lopez-Paz and Ranzato 2017) and A-GEM (Chaudhry et al. 2019) project each update so that the loss on memory examples does not increase.
-- **Orthogonal gradient descent** (Farajtabar et al. 2020) projects updates away from directions that change earlier outputs.
-- **Penalties:** Learning without Forgetting (Li and Hoiem 2016) penalizes changes to earlier outputs on new inputs; elastic weight consolidation (Kirkpatrick et al. 2017) penalizes changes to important weights.
-- Here the constraint would act on the core's codes of stored values, which memory already holds, rather than on task losses.
+**Run:** 200 relearning updates per arm, with only the sequence loss changed.
 
-**Comparing representations across checkpoints.** CKA (Kornblith, Norouzi, Lee and Hinton 2019) and orthogonal Procrustes compare representations without assuming their coordinates line up. They give the coordinate-compatibility check required before any cross-checkpoint swap.
-
-## Proposed evaluation
-
-**Stage A, screen** (about 10 minutes):
-- From the captured pre-relearning states (seeds 300–303), run 200 relearning updates with only the sequence loss changed. Candidates 1, 2, 3 and 1 + 2, against the unchanged loss. Candidates 4 and 5 need a weight and a constraint form, decided in review.
-- Measure every 10 updates, as in the branches:
-  - collection spacing and senses' alignment;
-  - collections → taps on fresh and stored values, both comparator orders;
+**Reads every 10 updates,** on identical pairs and candidates:
+- **The interpreter:**
+  - collections → taps on fresh and stored values, in both comparator orders;
   - taps → collections;
-  - memory-present reads (symbol → taps, taps → symbol);
-  - English reacquisition.
-- **Limitation:** the core was trained with the old loss. The screen shows only whether a loss avoids the collapse at this transition.
+  - memory-present symbol → taps and taps → symbol, sets A and B;
+  - collection spacing, the senses' alignment, candidate spread s.
+- **The abilities the loss is meant to teach:** sequence prediction and composition, read by the existing composition measure. That is the predicted next code (and k = 2 and 3 steps) matched among nine collections, by distance and by `same`, for collections, taps and each script's forms.
+- **Acquisition:** English matching.
 
-**Stage B, full curriculum,** for the best one or two:
-- Retrain the core from scratch (about 4 minutes per seed), then rerun relearning and the 1,000-update continuation.
-- Read everything step 8 measures: matching, the transfer measures, succession and composition. Changing the loss changes what the core learns.
-- Then rerun stage 1's memory-and-core reads.
+**Two outcomes per measure:**
+- the **worst transient level:** the minimum over updates 0–200, against its value at update 0;
+- the **level at a fixed recovery deadline:** update 200, against its value at update 0.
 
-**Success,** stated for review:
-- the combined system keeps interpreting memory through relearning: collections → taps and memory-present symbol → taps stay within 0.05 of their pre-relearning level, or recover to it;
-- English reacquisition is no slower;
-- the core's step 8 measures are not worse by more than 0.05.
+**What would favour an arm:**
+- it limits the worst transient loss of the interpreter;
+- it holds collections → taps and memory-present symbol → taps at the deadline;
+- it does not weaken sequence prediction or composition, transiently or at the deadline;
+- English reacquisition is no slower.
 
-## Questions for review
+An arm that protects interpretation by weakening prediction learning does not pass.
 
-1. Is batch-relative scaling (candidate 1) the right form of scale invariance, or should codes be normalized per sense instead?
-2. Should candidate 2 apply to sequence prediction only, or to every relation trained against collection candidates?
-3. Is a memory-anchored constraint (candidate 5) within this stage, or is it consolidation work deferred with sleep?
-4. Are stage A's four candidates the right first screen?
+## Stage B, conditional
+
+Only for an arm that preserves both the combined system's interpretation and the sequence abilities the loss teaches:
+- retrain the core from scratch with it;
+- rerun relearning and the 1,000-update continuation;
+- read everything step 8 measures;
+- rerun stage 1's memory-and-core reads.
+
+## Changes from review (2026-11-04)
+
+- **Batch-relative scaling is a hypothesis.** Its exact denominator, numerical floor and temperature policy are specified. The claim that it removes the contraction incentive exactly is withdrawn, as is the claim that contraction is always a descent direction.
+- **The stop-gradient applies to sequence prediction's candidates only, on all sequence rows.** The candidates remain movable through other paths.
+- **Bounded influence is deferred.** A lower-weight control of the original loss replaces it in the screen.
+- **Deferred:** memory-anchored constraints, variance floors and whitening, and the combination.
+- **Sequence prediction and composition are measured in stage A.** Success is split into the worst transient and the level at a fixed deadline.
+- **Prior-work claims are narrowed:** NormFace, and the stop-gradient theory.
