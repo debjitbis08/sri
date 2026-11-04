@@ -1,0 +1,5765 @@
+{
+ "arms": [
+  "gp",
+  "common-k-cand"
+ ],
+ "points": [
+  "block1",
+  "block3",
+  "delay",
+  "relearn"
+ ],
+ "results": {
+  "common-k-cand/seed300": {
+   "checkpoints": {
+    "block1": {
+     "file": "runs/shared-output-v1/pilot/common-k-cand/checkpoints/sparse48-seed300-block1.pt",
+     "sha256": "03f4b510ed75a1602715d677dbc4e32b17355ef05951971bf069a489ca78e561"
+    },
+    "block3": {
+     "file": "runs/shared-output-v1/pilot/common-k-cand/checkpoints/sparse48-seed300-block3.pt",
+     "sha256": "0d81d6fae2eca12a4832cd1a7c1735dd856a8e8bf271f76db9c4e76c68a8c9c0"
+    },
+    "delay": {
+     "file": "runs/shared-output-v1/pilot/common-k-cand/checkpoints/sparse48-seed300-delay.pt",
+     "sha256": "e9529573c8057d7305b4427efe57ae1e98b9f202308be6ab8dce905f4cf7deaf"
+    },
+    "relearn": {
+     "file": "runs/shared-output-v1/pilot/common-k-cand/checkpoints/sparse48-seed300-relearn.pt",
+     "sha256": "fd815632c186385835da1f11784f29d8396734912750a16a3ca2ffffa2574cea"
+    }
+   },
+   "reads": {
+    "block1": {
+     "core_inner": {
+      "coll": {
+       "context": {
+        "axis": 0.837037037037037,
+        "axis_within1": 1.0,
+        "nearest": 0.9481481481481482,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.8814814814814815,
+        "axis_within1": 1.0,
+        "nearest": 0.9481481481481482,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.07037037037037037,
+        "axis_within1": 0.2851851851851852,
+        "nearest": 0.05555555555555555,
+        "nearest_within1": 0.24074074074074073
+       },
+       "raw": {
+        "axis": 0.0,
+        "axis_within1": 0.4148148148148148,
+        "nearest": 0.06296296296296296,
+        "nearest_within1": 0.28888888888888886
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.43333333333333335,
+        "axis_within1": 0.8555555555555555,
+        "nearest": 0.7148148148148148,
+        "nearest_within1": 0.937037037037037
+       },
+       "raw": {
+        "axis": 0.15185185185185185,
+        "axis_within1": 0.43703703703703706,
+        "nearest": 0.3,
+        "nearest_within1": 0.8074074074074075
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.8888888888888888,
+        "axis_within1": 1.0,
+        "nearest": 0.44814814814814813,
+        "nearest_within1": 0.8851851851851852
+       },
+       "raw": {
+        "axis": 0.08888888888888889,
+        "axis_within1": 0.1111111111111111,
+        "nearest": 0.4962962962962963,
+        "nearest_within1": 0.9925925925925926
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.0962962962962963,
+        "axis_within1": 0.32222222222222224,
+        "nearest": 0.1037037037037037,
+        "nearest_within1": 0.43333333333333335
+       },
+       "raw": {
+        "axis": 0.11851851851851852,
+        "axis_within1": 0.3814814814814815,
+        "nearest": 0.040740740740740744,
+        "nearest_within1": 0.4185185185185185
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.07037037037037037,
+        "axis_within1": 0.29259259259259257,
+        "nearest": 0.12222222222222222,
+        "nearest_within1": 0.34074074074074073
+       },
+       "raw": {
+        "axis": 0.1,
+        "axis_within1": 0.2777777777777778,
+        "nearest": 0.21851851851851853,
+        "nearest_within1": 0.5481481481481482
+       }
+      }
+     },
+     "projection": {
+      "coll": {
+       "context": {
+        "axis": 0.9333333333333333,
+        "axis_within1": 1.0,
+        "nearest": 0.9629629629629629,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.8814814814814815,
+        "axis_within1": 0.9925925925925926,
+        "nearest": 0.9481481481481482,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.11851851851851852,
+        "axis_within1": 0.3037037037037037,
+        "nearest": 0.05925925925925926,
+        "nearest_within1": 0.2814814814814815
+       },
+       "raw": {
+        "axis": 0.1259259259259259,
+        "axis_within1": 0.35185185185185186,
+        "nearest": 0.0962962962962963,
+        "nearest_within1": 0.29259259259259257
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.3148148148148148,
+        "axis_within1": 0.8,
+        "nearest": 0.6222222222222222,
+        "nearest_within1": 0.9333333333333333
+       },
+       "raw": {
+        "axis": 0.16296296296296298,
+        "axis_within1": 0.4185185185185185,
+        "nearest": 0.26296296296296295,
+        "nearest_within1": 0.7333333333333333
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.1037037037037037,
+        "axis_within1": 0.3074074074074074,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       },
+       "raw": {
+        "axis": 0.6555555555555556,
+        "axis_within1": 1.0,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.1,
+        "axis_within1": 0.34074074074074073,
+        "nearest": 0.10740740740740741,
+        "nearest_within1": 0.45925925925925926
+       },
+       "raw": {
+        "axis": 0.07037037037037037,
+        "axis_within1": 0.3296296296296296,
+        "nearest": 0.02962962962962963,
+        "nearest_within1": 0.42962962962962964
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.1111111111111111,
+        "axis_within1": 0.26666666666666666,
+        "nearest": 0.12222222222222222,
+        "nearest_within1": 0.37037037037037035
+       },
+       "raw": {
+        "axis": 0.12222222222222222,
+        "axis_within1": 0.32592592592592595,
+        "nearest": 0.17407407407407408,
+        "nearest_within1": 0.5148148148148148
+       }
+      }
+     }
+    },
+    "block3": {
+     "core_inner": {
+      "coll": {
+       "context": {
+        "axis": 0.9407407407407408,
+        "axis_within1": 1.0,
+        "nearest": 0.9703703703703703,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9481481481481482,
+        "axis_within1": 1.0,
+        "nearest": 0.9851851851851852,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.6407407407407407,
+        "axis_within1": 0.9222222222222223,
+        "nearest": 0.8481481481481481,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.362962962962963,
+        "axis_within1": 0.8851851851851852,
+        "nearest": 0.8740740740740741,
+        "nearest_within1": 1.0
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.0962962962962963,
+        "axis_within1": 0.28888888888888886,
+        "nearest": 0.14074074074074075,
+        "nearest_within1": 0.3851851851851852
+       },
+       "raw": {
+        "axis": 0.11851851851851852,
+        "axis_within1": 0.3037037037037037,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.24814814814814815
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.7444444444444445,
+        "axis_within1": 1.0,
+        "nearest": 0.662962962962963,
+        "nearest_within1": 0.9777777777777777
+       },
+       "raw": {
+        "axis": 0.27037037037037037,
+        "axis_within1": 0.5592592592592592,
+        "nearest": 0.774074074074074,
+        "nearest_within1": 1.0
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.13333333333333333,
+        "axis_within1": 0.3148148148148148,
+        "nearest": 0.14814814814814814,
+        "nearest_within1": 0.3148148148148148
+       },
+       "raw": {
+        "axis": 0.11481481481481481,
+        "axis_within1": 0.3592592592592593,
+        "nearest": 0.11481481481481481,
+        "nearest_within1": 0.32222222222222224
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.24814814814814815,
+        "axis_within1": 0.737037037037037,
+        "nearest": 0.2518518518518518,
+        "nearest_within1": 0.7074074074074074
+       },
+       "raw": {
+        "axis": 0.05555555555555555,
+        "axis_within1": 0.37777777777777777,
+        "nearest": 0.13333333333333333,
+        "nearest_within1": 0.5
+       }
+      }
+     },
+     "projection": {
+      "coll": {
+       "context": {
+        "axis": 0.9481481481481482,
+        "axis_within1": 1.0,
+        "nearest": 0.9481481481481482,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9185185185185185,
+        "axis_within1": 1.0,
+        "nearest": 0.9777777777777777,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.6518518518518519,
+        "axis_within1": 0.9074074074074074,
+        "nearest": 0.7814814814814814,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.37777777777777777,
+        "axis_within1": 0.8296296296296296,
+        "nearest": 0.8703703703703703,
+        "nearest_within1": 1.0
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.09259259259259259,
+        "axis_within1": 0.32592592592592595,
+        "nearest": 0.13703703703703704,
+        "nearest_within1": 0.36666666666666664
+       },
+       "raw": {
+        "axis": 0.11481481481481481,
+        "axis_within1": 0.28888888888888886,
+        "nearest": 0.11481481481481481,
+        "nearest_within1": 0.26296296296296295
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.05555555555555555,
+        "axis_within1": 0.2222222222222222,
+        "nearest": 0.007407407407407408,
+        "nearest_within1": 0.11851851851851852
+       },
+       "raw": {
+        "axis": 0.10740740740740741,
+        "axis_within1": 0.18888888888888888,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.11851851851851852,
+        "axis_within1": 0.3111111111111111,
+        "nearest": 0.16296296296296298,
+        "nearest_within1": 0.3074074074074074
+       },
+       "raw": {
+        "axis": 0.06296296296296296,
+        "axis_within1": 0.31851851851851853,
+        "nearest": 0.13703703703703704,
+        "nearest_within1": 0.34074074074074073
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.15555555555555556,
+        "axis_within1": 0.6222222222222222,
+        "nearest": 0.2111111111111111,
+        "nearest_within1": 0.6481481481481481
+       },
+       "raw": {
+        "axis": 0.0,
+        "axis_within1": 0.1111111111111111,
+        "nearest": 0.12222222222222222,
+        "nearest_within1": 0.5962962962962963
+       }
+      }
+     }
+    },
+    "delay": {
+     "core_inner": {
+      "coll": {
+       "context": {
+        "axis": 0.9703703703703703,
+        "axis_within1": 1.0,
+        "nearest": 0.9703703703703703,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9703703703703703,
+        "axis_within1": 1.0,
+        "nearest": 0.9777777777777777,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.774074074074074,
+        "axis_within1": 0.9703703703703703,
+        "nearest": 0.837037037037037,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.45925925925925926,
+        "axis_within1": 0.8,
+        "nearest": 0.6037037037037037,
+        "nearest_within1": 0.9555555555555556
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.1037037037037037,
+        "axis_within1": 0.31851851851851853,
+        "nearest": 0.12222222222222222,
+        "nearest_within1": 0.3333333333333333
+       },
+       "raw": {
+        "axis": 0.1259259259259259,
+        "axis_within1": 0.3074074074074074,
+        "nearest": 0.11481481481481481,
+        "nearest_within1": 0.24814814814814815
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.725925925925926,
+        "axis_within1": 1.0,
+        "nearest": 0.6777777777777778,
+        "nearest_within1": 0.8888888888888888
+       },
+       "raw": {
+        "axis": 0.3333333333333333,
+        "axis_within1": 0.6518518518518519,
+        "nearest": 0.7703703703703704,
+        "nearest_within1": 1.0
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.14444444444444443,
+        "axis_within1": 0.31851851851851853,
+        "nearest": 0.1259259259259259,
+        "nearest_within1": 0.3074074074074074
+       },
+       "raw": {
+        "axis": 0.11851851851851852,
+        "axis_within1": 0.34074074074074073,
+        "nearest": 0.1259259259259259,
+        "nearest_within1": 0.27037037037037037
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.3037037037037037,
+        "axis_within1": 0.6777777777777778,
+        "nearest": 0.27037037037037037,
+        "nearest_within1": 0.6074074074074074
+       },
+       "raw": {
+        "axis": 0.1259259259259259,
+        "axis_within1": 0.3074074074074074,
+        "nearest": 0.15185185185185185,
+        "nearest_within1": 0.4
+       }
+      }
+     },
+     "projection": {
+      "coll": {
+       "context": {
+        "axis": 0.9703703703703703,
+        "axis_within1": 1.0,
+        "nearest": 0.9703703703703703,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.8962962962962963,
+        "axis_within1": 1.0,
+        "nearest": 0.9703703703703703,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.5259259259259259,
+        "axis_within1": 0.8962962962962963,
+        "nearest": 0.7851851851851852,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.32592592592592595,
+        "axis_within1": 0.774074074074074,
+        "nearest": 0.6888888888888889,
+        "nearest_within1": 0.9851851851851852
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.08148148148148149,
+        "axis_within1": 0.3111111111111111,
+        "nearest": 0.10740740740740741,
+        "nearest_within1": 0.3296296296296296
+       },
+       "raw": {
+        "axis": 0.17037037037037037,
+        "axis_within1": 0.32592592592592595,
+        "nearest": 0.11851851851851852,
+        "nearest_within1": 0.25925925925925924
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.10740740740740741,
+        "axis_within1": 0.3111111111111111,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.32592592592592595
+       },
+       "raw": {
+        "axis": 0.1111111111111111,
+        "axis_within1": 0.12222222222222222,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.14074074074074075,
+        "axis_within1": 0.3592592592592593,
+        "nearest": 0.17037037037037037,
+        "nearest_within1": 0.29259259259259257
+       },
+       "raw": {
+        "axis": 0.11481481481481481,
+        "axis_within1": 0.3333333333333333,
+        "nearest": 0.1259259259259259,
+        "nearest_within1": 0.26666666666666666
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.17407407407407408,
+        "axis_within1": 0.5370370370370371,
+        "nearest": 0.2111111111111111,
+        "nearest_within1": 0.5666666666666667
+       },
+       "raw": {
+        "axis": 0.007407407407407408,
+        "axis_within1": 0.2037037037037037,
+        "nearest": 0.15185185185185185,
+        "nearest_within1": 0.42592592592592593
+       }
+      }
+     }
+    },
+    "relearn": {
+     "core_inner": {
+      "coll": {
+       "context": {
+        "axis": 0.9703703703703703,
+        "axis_within1": 1.0,
+        "nearest": 0.9777777777777777,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9777777777777777,
+        "axis_within1": 1.0,
+        "nearest": 0.9851851851851852,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.5222222222222223,
+        "axis_within1": 0.8666666666666667,
+        "nearest": 0.7407407407407407,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.44814814814814813,
+        "axis_within1": 0.774074074074074,
+        "nearest": 0.4740740740740741,
+        "nearest_within1": 0.9740740740740741
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.3074074074074074,
+        "axis_within1": 0.7444444444444445,
+        "nearest": 0.37777777777777777,
+        "nearest_within1": 0.7962962962962963
+       },
+       "raw": {
+        "axis": 0.18888888888888888,
+        "axis_within1": 0.4,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.8740740740740741,
+        "axis_within1": 1.0,
+        "nearest": 0.5555555555555556,
+        "nearest_within1": 0.7777777777777778
+       },
+       "raw": {
+        "axis": 0.24814814814814815,
+        "axis_within1": 0.5518518518518518,
+        "nearest": 0.6666666666666666,
+        "nearest_within1": 0.9925925925925926
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.1037037037037037,
+        "axis_within1": 0.2962962962962963,
+        "nearest": 0.1037037037037037,
+        "nearest_within1": 0.29259259259259257
+       },
+       "raw": {
+        "axis": 0.1,
+        "axis_within1": 0.2851851851851852,
+        "nearest": 0.09259259259259259,
+        "nearest_within1": 0.3111111111111111
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.8851851851851852,
+        "axis_within1": 1.0,
+        "nearest": 0.7037037037037037,
+        "nearest_within1": 0.9962962962962963
+       },
+       "raw": {
+        "axis": 0.3148148148148148,
+        "axis_within1": 0.937037037037037,
+        "nearest": 0.37777777777777777,
+        "nearest_within1": 0.825925925925926
+       }
+      }
+     },
+     "projection": {
+      "coll": {
+       "context": {
+        "axis": 0.9703703703703703,
+        "axis_within1": 1.0,
+        "nearest": 0.9777777777777777,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.8740740740740741,
+        "axis_within1": 1.0,
+        "nearest": 0.9777777777777777,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.25555555555555554,
+        "axis_within1": 0.8629629629629629,
+        "nearest": 0.6370370370370371,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.337037037037037,
+        "axis_within1": 0.7481481481481481,
+        "nearest": 0.6111111111111112,
+        "nearest_within1": 0.9888888888888889
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.3333333333333333,
+        "axis_within1": 0.7407407407407407,
+        "nearest": 0.34444444444444444,
+        "nearest_within1": 0.8037037037037037
+       },
+       "raw": {
+        "axis": 0.14074074074074075,
+        "axis_within1": 0.4666666666666667,
+        "nearest": 0.1962962962962963,
+        "nearest_within1": 0.6444444444444445
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.10740740740740741,
+        "axis_within1": 0.31851851851851853,
+        "nearest": 0.07777777777777778,
+        "nearest_within1": 0.2518518518518518
+       },
+       "raw": {
+        "axis": 0.022222222222222223,
+        "axis_within1": 0.2222222222222222,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.2962962962962963
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.11851851851851852,
+        "axis_within1": 0.3148148148148148,
+        "nearest": 0.0962962962962963,
+        "nearest_within1": 0.3037037037037037
+       },
+       "raw": {
+        "axis": 0.12962962962962962,
+        "axis_within1": 0.3851851851851852,
+        "nearest": 0.0962962962962963,
+        "nearest_within1": 0.25925925925925924
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.7962962962962963,
+        "axis_within1": 0.9851851851851852,
+        "nearest": 0.6666666666666666,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.2111111111111111,
+        "axis_within1": 0.6925925925925925,
+        "nearest": 0.6444444444444445,
+        "nearest_within1": 0.9814814814814815
+       }
+      }
+     }
+    }
+   }
+  },
+  "common-k-cand/seed301": {
+   "checkpoints": {
+    "block1": {
+     "file": "runs/shared-output-v1/pilot/common-k-cand/checkpoints/sparse48-seed301-block1.pt",
+     "sha256": "d6b10eebb102e4c4ab87e23ec81d9af23c1fb9820a1bf671f44a55cdf8727e27"
+    },
+    "block3": {
+     "file": "runs/shared-output-v1/pilot/common-k-cand/checkpoints/sparse48-seed301-block3.pt",
+     "sha256": "922f20f0da432cc38e4934178e9d307d55a1f4f64c7cec1e628a7edbdfadc0ec"
+    },
+    "delay": {
+     "file": "runs/shared-output-v1/pilot/common-k-cand/checkpoints/sparse48-seed301-delay.pt",
+     "sha256": "0671ef5d8ec8a6a5f40286ffd53af1aa57c2bd250048d255cf2f9fb10699155c"
+    },
+    "relearn": {
+     "file": "runs/shared-output-v1/pilot/common-k-cand/checkpoints/sparse48-seed301-relearn.pt",
+     "sha256": "a709055158e5c4777a1575f131751e52dd48a58afb1c1463b537e380b7d07863"
+    }
+   },
+   "reads": {
+    "block1": {
+     "core_inner": {
+      "coll": {
+       "context": {
+        "axis": 0.8962962962962963,
+        "axis_within1": 1.0,
+        "nearest": 0.9111111111111111,
+        "nearest_within1": 0.9925925925925926
+       },
+       "raw": {
+        "axis": 0.9037037037037037,
+        "axis_within1": 1.0,
+        "nearest": 0.9481481481481482,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.11851851851851852,
+        "axis_within1": 0.3,
+        "nearest": 0.06296296296296296,
+        "nearest_within1": 0.2814814814814815
+       },
+       "raw": {
+        "axis": 0.1037037037037037,
+        "axis_within1": 0.34074074074074073,
+        "nearest": 0.025925925925925925,
+        "nearest_within1": 0.40370370370370373
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.2074074074074074,
+        "axis_within1": 0.7555555555555555,
+        "nearest": 0.4925925925925926,
+        "nearest_within1": 0.8111111111111111
+       },
+       "raw": {
+        "axis": 0.1962962962962963,
+        "axis_within1": 0.45185185185185184,
+        "nearest": 0.3814814814814815,
+        "nearest_within1": 0.7148148148148148
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.8888888888888888,
+        "axis_within1": 0.9962962962962963,
+        "nearest": 0.34444444444444444,
+        "nearest_within1": 0.8851851851851852
+       },
+       "raw": {
+        "axis": 0.0962962962962963,
+        "axis_within1": 0.2222222222222222,
+        "nearest": 0.5518518518518518,
+        "nearest_within1": 0.9962962962962963
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.11481481481481481,
+        "axis_within1": 0.3962962962962963,
+        "nearest": 0.11851851851851852,
+        "nearest_within1": 0.4111111111111111
+       },
+       "raw": {
+        "axis": 0.22592592592592592,
+        "axis_within1": 0.337037037037037,
+        "nearest": 0.1037037037037037,
+        "nearest_within1": 0.43703703703703706
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.11481481481481481,
+        "axis_within1": 0.3111111111111111,
+        "nearest": 0.22592592592592592,
+        "nearest_within1": 0.40370370370370373
+       },
+       "raw": {
+        "axis": 0.16666666666666666,
+        "axis_within1": 0.42962962962962964,
+        "nearest": 0.15925925925925927,
+        "nearest_within1": 0.5
+       }
+      }
+     },
+     "projection": {
+      "coll": {
+       "context": {
+        "axis": 0.9407407407407408,
+        "axis_within1": 1.0,
+        "nearest": 0.9555555555555556,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.8962962962962963,
+        "axis_within1": 0.9925925925925926,
+        "nearest": 0.9407407407407408,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.1,
+        "axis_within1": 0.3814814814814815,
+        "nearest": 0.06666666666666667,
+        "nearest_within1": 0.27037037037037037
+       },
+       "raw": {
+        "axis": 0.17037037037037037,
+        "axis_within1": 0.43703703703703706,
+        "nearest": 0.022222222222222223,
+        "nearest_within1": 0.4
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.022222222222222223,
+        "axis_within1": 0.4185185185185185,
+        "nearest": 0.2777777777777778,
+        "nearest_within1": 0.8518518518518519
+       },
+       "raw": {
+        "axis": 0.14444444444444443,
+        "axis_within1": 0.4740740740740741,
+        "nearest": 0.27037037037037037,
+        "nearest_within1": 0.674074074074074
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.11851851851851852,
+        "axis_within1": 0.3148148148148148,
+        "nearest": 0.044444444444444446,
+        "nearest_within1": 0.21851851851851853
+       },
+       "raw": {
+        "axis": 0.07777777777777778,
+        "axis_within1": 0.1111111111111111,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3296296296296296
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.11851851851851852,
+        "axis_within1": 0.37037037037037035,
+        "nearest": 0.08148148148148149,
+        "nearest_within1": 0.42592592592592593
+       },
+       "raw": {
+        "axis": 0.09259259259259259,
+        "axis_within1": 0.43333333333333335,
+        "nearest": 0.09259259259259259,
+        "nearest_within1": 0.45555555555555555
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.10740740740740741,
+        "axis_within1": 0.32222222222222224,
+        "nearest": 0.17777777777777778,
+        "nearest_within1": 0.4
+       },
+       "raw": {
+        "axis": 0.08518518518518518,
+        "axis_within1": 0.4925925925925926,
+        "nearest": 0.15925925925925927,
+        "nearest_within1": 0.5259259259259259
+       }
+      }
+     }
+    },
+    "block3": {
+     "core_inner": {
+      "coll": {
+       "context": {
+        "axis": 0.9555555555555556,
+        "axis_within1": 1.0,
+        "nearest": 0.9629629629629629,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9481481481481482,
+        "axis_within1": 1.0,
+        "nearest": 0.9629629629629629,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.562962962962963,
+        "axis_within1": 0.8962962962962963,
+        "nearest": 0.7925925925925926,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.21481481481481482,
+        "axis_within1": 0.7666666666666667,
+        "nearest": 0.8814814814814815,
+        "nearest_within1": 1.0
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.15185185185185185,
+        "axis_within1": 0.362962962962963,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3851851851851852
+       },
+       "raw": {
+        "axis": 0.11851851851851852,
+        "axis_within1": 0.3,
+        "nearest": 0.11481481481481481,
+        "nearest_within1": 0.26296296296296295
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.8666666666666667,
+        "axis_within1": 1.0,
+        "nearest": 0.8851851851851852,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.8444444444444444,
+        "axis_within1": 1.0,
+        "nearest": 0.8888888888888888,
+        "nearest_within1": 1.0
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.09259259259259259,
+        "axis_within1": 0.3,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3296296296296296
+       },
+       "raw": {
+        "axis": 0.15185185185185185,
+        "axis_within1": 0.4111111111111111,
+        "nearest": 0.16296296296296298,
+        "nearest_within1": 0.32592592592592595
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.37407407407407406,
+        "axis_within1": 0.8333333333333334,
+        "nearest": 0.362962962962963,
+        "nearest_within1": 0.8481481481481481
+       },
+       "raw": {
+        "axis": 0.12962962962962962,
+        "axis_within1": 0.6185185185185185,
+        "nearest": 0.15925925925925927,
+        "nearest_within1": 0.5259259259259259
+       }
+      }
+     },
+     "projection": {
+      "coll": {
+       "context": {
+        "axis": 0.9555555555555556,
+        "axis_within1": 1.0,
+        "nearest": 0.9629629629629629,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9629629629629629,
+        "axis_within1": 1.0,
+        "nearest": 0.9629629629629629,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.3296296296296296,
+        "axis_within1": 0.774074074074074,
+        "nearest": 0.8148148148148148,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.2037037037037037,
+        "axis_within1": 0.43703703703703706,
+        "nearest": 0.8111111111111111,
+        "nearest_within1": 1.0
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.10740740740740741,
+        "axis_within1": 0.3592592592592593,
+        "nearest": 0.10740740740740741,
+        "nearest_within1": 0.34444444444444444
+       },
+       "raw": {
+        "axis": 0.09259259259259259,
+        "axis_within1": 0.2777777777777778,
+        "nearest": 0.10740740740740741,
+        "nearest_within1": 0.2740740740740741
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.1111111111111111,
+        "axis_within1": 0.3333333333333333,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.22962962962962963
+       },
+       "raw": {
+        "axis": 0.1111111111111111,
+        "axis_within1": 0.3333333333333333,
+        "nearest": 0.1037037037037037,
+        "nearest_within1": 0.2222222222222222
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.15555555555555556,
+        "axis_within1": 0.34814814814814815,
+        "nearest": 0.10740740740740741,
+        "nearest_within1": 0.3037037037037037
+       },
+       "raw": {
+        "axis": 0.17407407407407408,
+        "axis_within1": 0.4,
+        "nearest": 0.15925925925925927,
+        "nearest_within1": 0.32592592592592595
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.21851851851851853,
+        "axis_within1": 0.6814814814814815,
+        "nearest": 0.25925925925925924,
+        "nearest_within1": 0.674074074074074
+       },
+       "raw": {
+        "axis": 0.16296296296296298,
+        "axis_within1": 0.44074074074074077,
+        "nearest": 0.11851851851851852,
+        "nearest_within1": 0.5259259259259259
+       }
+      }
+     }
+    },
+    "delay": {
+     "core_inner": {
+      "coll": {
+       "context": {
+        "axis": 0.9703703703703703,
+        "axis_within1": 1.0,
+        "nearest": 0.9555555555555556,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9629629629629629,
+        "axis_within1": 1.0,
+        "nearest": 0.9703703703703703,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.7074074074074074,
+        "axis_within1": 0.9888888888888889,
+        "nearest": 0.8074074074074075,
+        "nearest_within1": 0.9962962962962963
+       },
+       "raw": {
+        "axis": 0.3074074074074074,
+        "axis_within1": 0.6962962962962963,
+        "nearest": 0.7037037037037037,
+        "nearest_within1": 0.9962962962962963
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.11481481481481481,
+        "axis_within1": 0.34814814814814815,
+        "nearest": 0.13703703703703704,
+        "nearest_within1": 0.362962962962963
+       },
+       "raw": {
+        "axis": 0.12962962962962962,
+        "axis_within1": 0.3148148148148148,
+        "nearest": 0.1,
+        "nearest_within1": 0.25925925925925924
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.3296296296296296,
+        "axis_within1": 0.9962962962962963,
+        "nearest": 0.8481481481481481,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.825925925925926,
+        "axis_within1": 1.0,
+        "nearest": 0.8703703703703703,
+        "nearest_within1": 1.0
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.14814814814814814,
+        "axis_within1": 0.2814814814814815,
+        "nearest": 0.1,
+        "nearest_within1": 0.2814814814814815
+       },
+       "raw": {
+        "axis": 0.17407407407407408,
+        "axis_within1": 0.32222222222222224,
+        "nearest": 0.15555555555555556,
+        "nearest_within1": 0.2851851851851852
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.26666666666666666,
+        "axis_within1": 0.7148148148148148,
+        "nearest": 0.21851851851851853,
+        "nearest_within1": 0.7703703703703704
+       },
+       "raw": {
+        "axis": 0.11851851851851852,
+        "axis_within1": 0.5074074074074074,
+        "nearest": 0.11481481481481481,
+        "nearest_within1": 0.5296296296296297
+       }
+      }
+     },
+     "projection": {
+      "coll": {
+       "context": {
+        "axis": 0.9629629629629629,
+        "axis_within1": 1.0,
+        "nearest": 0.9481481481481482,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9407407407407408,
+        "axis_within1": 1.0,
+        "nearest": 0.9629629629629629,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.5074074074074074,
+        "axis_within1": 0.8629629629629629,
+        "nearest": 0.8333333333333334,
+        "nearest_within1": 0.9962962962962963
+       },
+       "raw": {
+        "axis": 0.3037037037037037,
+        "axis_within1": 0.6777777777777778,
+        "nearest": 0.6851851851851852,
+        "nearest_within1": 0.9925925925925926
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.10740740740740741,
+        "axis_within1": 0.34444444444444444,
+        "nearest": 0.09259259259259259,
+        "nearest_within1": 0.32592592592592595
+       },
+       "raw": {
+        "axis": 0.08148148148148149,
+        "axis_within1": 0.23333333333333334,
+        "nearest": 0.07037037037037037,
+        "nearest_within1": 0.22962962962962963
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.1259259259259259,
+        "axis_within1": 0.44814814814814813,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.2222222222222222
+       },
+       "raw": {
+        "axis": 0.10740740740740741,
+        "axis_within1": 0.1111111111111111,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.08518518518518518,
+        "axis_within1": 0.24814814814814815,
+        "nearest": 0.07037037037037037,
+        "nearest_within1": 0.24074074074074073
+       },
+       "raw": {
+        "axis": 0.06296296296296296,
+        "axis_within1": 0.37777777777777777,
+        "nearest": 0.15555555555555556,
+        "nearest_within1": 0.2962962962962963
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.2777777777777778,
+        "axis_within1": 0.6851851851851852,
+        "nearest": 0.2851851851851852,
+        "nearest_within1": 0.6703703703703704
+       },
+       "raw": {
+        "axis": 0.0962962962962963,
+        "axis_within1": 0.362962962962963,
+        "nearest": 0.10740740740740741,
+        "nearest_within1": 0.5407407407407407
+       }
+      }
+     }
+    },
+    "relearn": {
+     "core_inner": {
+      "coll": {
+       "context": {
+        "axis": 0.9555555555555556,
+        "axis_within1": 1.0,
+        "nearest": 0.9481481481481482,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9481481481481482,
+        "axis_within1": 1.0,
+        "nearest": 0.9555555555555556,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.5962962962962963,
+        "axis_within1": 0.9333333333333333,
+        "nearest": 0.8518518518518519,
+        "nearest_within1": 0.9962962962962963
+       },
+       "raw": {
+        "axis": 0.28888888888888886,
+        "axis_within1": 0.7962962962962963,
+        "nearest": 0.662962962962963,
+        "nearest_within1": 0.9814814814814815
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.15925925925925927,
+        "axis_within1": 0.43703703703703706,
+        "nearest": 0.18888888888888888,
+        "nearest_within1": 0.4777777777777778
+       },
+       "raw": {
+        "axis": 0.08148148148148149,
+        "axis_within1": 0.27037037037037037,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.22592592592592592
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.2851851851851852,
+        "axis_within1": 0.7814814814814814,
+        "nearest": 0.7518518518518519,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.7592592592592593,
+        "axis_within1": 1.0,
+        "nearest": 0.8851851851851852,
+        "nearest_within1": 1.0
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.13333333333333333,
+        "axis_within1": 0.32592592592592595,
+        "nearest": 0.13333333333333333,
+        "nearest_within1": 0.34444444444444444
+       },
+       "raw": {
+        "axis": 0.15925925925925927,
+        "axis_within1": 0.32592592592592595,
+        "nearest": 0.09259259259259259,
+        "nearest_within1": 0.34814814814814815
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.32592592592592595,
+        "axis_within1": 0.8740740740740741,
+        "nearest": 0.6962962962962963,
+        "nearest_within1": 0.9888888888888889
+       },
+       "raw": {
+        "axis": 0.36666666666666664,
+        "axis_within1": 0.7851851851851852,
+        "nearest": 0.3333333333333333,
+        "nearest_within1": 0.9740740740740741
+       }
+      }
+     },
+     "projection": {
+      "coll": {
+       "context": {
+        "axis": 0.9629629629629629,
+        "axis_within1": 1.0,
+        "nearest": 0.9481481481481482,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9481481481481482,
+        "axis_within1": 1.0,
+        "nearest": 0.9555555555555556,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.4444444444444444,
+        "axis_within1": 0.7481481481481481,
+        "nearest": 0.774074074074074,
+        "nearest_within1": 0.9962962962962963
+       },
+       "raw": {
+        "axis": 0.1962962962962963,
+        "axis_within1": 0.5370370370370371,
+        "nearest": 0.6666666666666666,
+        "nearest_within1": 0.9888888888888889
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.16296296296296298,
+        "axis_within1": 0.3851851851851852,
+        "nearest": 0.2,
+        "nearest_within1": 0.5703703703703704
+       },
+       "raw": {
+        "axis": 0.08148148148148149,
+        "axis_within1": 0.2962962962962963,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.24444444444444444
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.1111111111111111,
+        "axis_within1": 0.3333333333333333,
+        "nearest": 0.09259259259259259,
+        "nearest_within1": 0.2222222222222222
+       },
+       "raw": {
+        "axis": 0.0,
+        "axis_within1": 0.17037037037037037,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.2222222222222222
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.14444444444444443,
+        "axis_within1": 0.3148148148148148,
+        "nearest": 0.1814814814814815,
+        "nearest_within1": 0.37777777777777777
+       },
+       "raw": {
+        "axis": 0.08518518518518518,
+        "axis_within1": 0.3925925925925926,
+        "nearest": 0.06296296296296296,
+        "nearest_within1": 0.3
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.3,
+        "axis_within1": 0.8407407407407408,
+        "nearest": 0.8296296296296296,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.1259259259259259,
+        "axis_within1": 0.48518518518518516,
+        "nearest": 0.4148148148148148,
+        "nearest_within1": 0.9851851851851852
+       }
+      }
+     }
+    }
+   }
+  },
+  "common-k-cand/seed302": {
+   "checkpoints": {
+    "block1": {
+     "file": "runs/shared-output-v1/pilot/common-k-cand/checkpoints/sparse48-seed302-block1.pt",
+     "sha256": "ffa71c3b73fc96640f229bf1b21aa1b6b125fe10630a1e6e50a52068a10f52b2"
+    },
+    "block3": {
+     "file": "runs/shared-output-v1/pilot/common-k-cand/checkpoints/sparse48-seed302-block3.pt",
+     "sha256": "38b1d11afb49bc594f362b23467a156885cded156611739d184dfb7d51ff4b4c"
+    },
+    "delay": {
+     "file": "runs/shared-output-v1/pilot/common-k-cand/checkpoints/sparse48-seed302-delay.pt",
+     "sha256": "ad43768124dbbdeff692b369a0aa1cade7c2cecb0df66ee9e557e5dda11cd27b"
+    },
+    "relearn": {
+     "file": "runs/shared-output-v1/pilot/common-k-cand/checkpoints/sparse48-seed302-relearn.pt",
+     "sha256": "13f0764f276d5818760a5bc3154cd4e6186d081c2e2dc85c2adb105f3cc18ff8"
+    }
+   },
+   "reads": {
+    "block1": {
+     "core_inner": {
+      "coll": {
+       "context": {
+        "axis": 0.8740740740740741,
+        "axis_within1": 1.0,
+        "nearest": 0.9629629629629629,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9111111111111111,
+        "axis_within1": 1.0,
+        "nearest": 0.9703703703703703,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.08148148148148149,
+        "axis_within1": 0.28888888888888886,
+        "nearest": 0.14074074074074075,
+        "nearest_within1": 0.34074074074074073
+       },
+       "raw": {
+        "axis": 0.08888888888888889,
+        "axis_within1": 0.3962962962962963,
+        "nearest": 0.08518518518518518,
+        "nearest_within1": 0.3592592592592593
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.35555555555555557,
+        "axis_within1": 0.8407407407407408,
+        "nearest": 0.725925925925926,
+        "nearest_within1": 0.9333333333333333
+       },
+       "raw": {
+        "axis": 0.3074074074074074,
+        "axis_within1": 0.5333333333333333,
+        "nearest": 0.4703703703703704,
+        "nearest_within1": 0.8481481481481481
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.5407407407407407,
+        "axis_within1": 0.9444444444444444,
+        "nearest": 0.5444444444444444,
+        "nearest_within1": 0.9888888888888889
+       },
+       "raw": {
+        "axis": 0.14074074074074075,
+        "axis_within1": 0.37407407407407406,
+        "nearest": 0.5592592592592592,
+        "nearest_within1": 1.0
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.1,
+        "axis_within1": 0.3074074074074074,
+        "nearest": 0.17407407407407408,
+        "nearest_within1": 0.3925925925925926
+       },
+       "raw": {
+        "axis": 0.24074074074074073,
+        "axis_within1": 0.35185185185185186,
+        "nearest": 0.1,
+        "nearest_within1": 0.48148148148148145
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.1,
+        "axis_within1": 0.29259259259259257,
+        "nearest": 0.15555555555555556,
+        "nearest_within1": 0.32592592592592595
+       },
+       "raw": {
+        "axis": 0.05555555555555555,
+        "axis_within1": 0.2777777777777778,
+        "nearest": 0.1259259259259259,
+        "nearest_within1": 0.4
+       }
+      }
+     },
+     "projection": {
+      "coll": {
+       "context": {
+        "axis": 0.8962962962962963,
+        "axis_within1": 1.0,
+        "nearest": 0.9629629629629629,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.8740740740740741,
+        "axis_within1": 1.0,
+        "nearest": 0.9703703703703703,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.07777777777777778,
+        "axis_within1": 0.28888888888888886,
+        "nearest": 0.13333333333333333,
+        "nearest_within1": 0.3296296296296296
+       },
+       "raw": {
+        "axis": 0.2037037037037037,
+        "axis_within1": 0.4148148148148148,
+        "nearest": 0.08148148148148149,
+        "nearest_within1": 0.34814814814814815
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.4074074074074074,
+        "axis_within1": 0.7592592592592593,
+        "nearest": 0.8074074074074075,
+        "nearest_within1": 0.9629629629629629
+       },
+       "raw": {
+        "axis": 0.040740740740740744,
+        "axis_within1": 0.35555555555555557,
+        "nearest": 0.3592592592592593,
+        "nearest_within1": 0.8333333333333334
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.04814814814814815,
+        "axis_within1": 0.2222222222222222,
+        "nearest": 0.003703703703703704,
+        "nearest_within1": 0.11481481481481481
+       },
+       "raw": {
+        "axis": 0.07777777777777778,
+        "axis_within1": 0.21481481481481482,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.24074074074074073
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.06296296296296296,
+        "axis_within1": 0.3074074074074074,
+        "nearest": 0.15185185185185185,
+        "nearest_within1": 0.45555555555555555
+       },
+       "raw": {
+        "axis": 0.09259259259259259,
+        "axis_within1": 0.3,
+        "nearest": 0.1,
+        "nearest_within1": 0.46296296296296297
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.07777777777777778,
+        "axis_within1": 0.2,
+        "nearest": 0.15185185185185185,
+        "nearest_within1": 0.34814814814814815
+       },
+       "raw": {
+        "axis": 0.11481481481481481,
+        "axis_within1": 0.3333333333333333,
+        "nearest": 0.12222222222222222,
+        "nearest_within1": 0.35185185185185186
+       }
+      }
+     }
+    },
+    "block3": {
+     "core_inner": {
+      "coll": {
+       "context": {
+        "axis": 0.8296296296296296,
+        "axis_within1": 1.0,
+        "nearest": 0.9481481481481482,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9111111111111111,
+        "axis_within1": 1.0,
+        "nearest": 0.9629629629629629,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.562962962962963,
+        "axis_within1": 0.7777777777777778,
+        "nearest": 0.9407407407407408,
+        "nearest_within1": 0.9740740740740741
+       },
+       "raw": {
+        "axis": 0.2222222222222222,
+        "axis_within1": 0.6333333333333333,
+        "nearest": 0.8629629629629629,
+        "nearest_within1": 0.8888888888888888
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.14074074074074075,
+        "axis_within1": 0.34814814814814815,
+        "nearest": 0.15185185185185185,
+        "nearest_within1": 0.4703703703703704
+       },
+       "raw": {
+        "axis": 0.06666666666666667,
+        "axis_within1": 0.25925925925925924,
+        "nearest": 0.14074074074074075,
+        "nearest_within1": 0.3888888888888889
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.3333333333333333,
+        "axis_within1": 0.8888888888888888,
+        "nearest": 0.8185185185185185,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.31851851851851853,
+        "axis_within1": 0.6222222222222222,
+        "nearest": 0.8962962962962963,
+        "nearest_within1": 1.0
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.08888888888888889,
+        "axis_within1": 0.25925925925925924,
+        "nearest": 0.18518518518518517,
+        "nearest_within1": 0.362962962962963
+       },
+       "raw": {
+        "axis": 0.1,
+        "axis_within1": 0.3148148148148148,
+        "nearest": 0.11481481481481481,
+        "nearest_within1": 0.3592592592592593
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.4444444444444444,
+        "axis_within1": 0.8851851851851852,
+        "nearest": 0.45185185185185184,
+        "nearest_within1": 0.8333333333333334
+       },
+       "raw": {
+        "axis": 0.2,
+        "axis_within1": 0.5259259259259259,
+        "nearest": 0.16666666666666666,
+        "nearest_within1": 0.6814814814814815
+       }
+      }
+     },
+     "projection": {
+      "coll": {
+       "context": {
+        "axis": 0.9555555555555556,
+        "axis_within1": 1.0,
+        "nearest": 0.9703703703703703,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.8888888888888888,
+        "axis_within1": 1.0,
+        "nearest": 0.9629629629629629,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.5074074074074074,
+        "axis_within1": 0.7777777777777778,
+        "nearest": 0.9333333333333333,
+        "nearest_within1": 0.9888888888888889
+       },
+       "raw": {
+        "axis": 0.37407407407407406,
+        "axis_within1": 0.6666666666666666,
+        "nearest": 0.8814814814814815,
+        "nearest_within1": 0.9259259259259259
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.15185185185185185,
+        "axis_within1": 0.37037037037037035,
+        "nearest": 0.18888888888888888,
+        "nearest_within1": 0.48148148148148145
+       },
+       "raw": {
+        "axis": 0.13333333333333333,
+        "axis_within1": 0.3814814814814815,
+        "nearest": 0.15925925925925927,
+        "nearest_within1": 0.3925925925925926
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.1111111111111111,
+        "axis_within1": 0.3333333333333333,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.22592592592592592
+       },
+       "raw": {
+        "axis": 0.18888888888888888,
+        "axis_within1": 0.4925925925925926,
+        "nearest": 0.05555555555555555,
+        "nearest_within1": 0.2222222222222222
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.13703703703703704,
+        "axis_within1": 0.31851851851851853,
+        "nearest": 0.12962962962962962,
+        "nearest_within1": 0.37037037037037035
+       },
+       "raw": {
+        "axis": 0.13333333333333333,
+        "axis_within1": 0.3148148148148148,
+        "nearest": 0.11851851851851852,
+        "nearest_within1": 0.37407407407407406
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.32592592592592595,
+        "axis_within1": 0.7777777777777778,
+        "nearest": 0.45185185185185184,
+        "nearest_within1": 0.8444444444444444
+       },
+       "raw": {
+        "axis": 0.21481481481481482,
+        "axis_within1": 0.5962962962962963,
+        "nearest": 0.1814814814814815,
+        "nearest_within1": 0.7555555555555555
+       }
+      }
+     }
+    },
+    "delay": {
+     "core_inner": {
+      "coll": {
+       "context": {
+        "axis": 0.7703703703703704,
+        "axis_within1": 1.0,
+        "nearest": 0.9925925925925926,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9259259259259259,
+        "axis_within1": 1.0,
+        "nearest": 0.9925925925925926,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.4666666666666667,
+        "axis_within1": 0.7777777777777778,
+        "nearest": 0.8851851851851852,
+        "nearest_within1": 0.9925925925925926
+       },
+       "raw": {
+        "axis": 0.23333333333333334,
+        "axis_within1": 0.5222222222222223,
+        "nearest": 0.7703703703703704,
+        "nearest_within1": 0.9666666666666667
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.10740740740740741,
+        "axis_within1": 0.3296296296296296,
+        "nearest": 0.18888888888888888,
+        "nearest_within1": 0.45925925925925926
+       },
+       "raw": {
+        "axis": 0.17407407407407408,
+        "axis_within1": 0.3851851851851852,
+        "nearest": 0.13703703703703704,
+        "nearest_within1": 0.36666666666666664
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.2222222222222222,
+        "axis_within1": 0.6148148148148148,
+        "nearest": 0.8407407407407408,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.43703703703703706,
+        "axis_within1": 0.8888888888888888,
+        "nearest": 0.7444444444444445,
+        "nearest_within1": 1.0
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.13333333333333333,
+        "axis_within1": 0.32222222222222224,
+        "nearest": 0.2111111111111111,
+        "nearest_within1": 0.4
+       },
+       "raw": {
+        "axis": 0.08148148148148149,
+        "axis_within1": 0.3074074074074074,
+        "nearest": 0.12222222222222222,
+        "nearest_within1": 0.34074074074074073
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.4222222222222222,
+        "axis_within1": 0.8296296296296296,
+        "nearest": 0.3962962962962963,
+        "nearest_within1": 0.7888888888888889
+       },
+       "raw": {
+        "axis": 0.2222222222222222,
+        "axis_within1": 0.4222222222222222,
+        "nearest": 0.18518518518518517,
+        "nearest_within1": 0.6037037037037037
+       }
+      }
+     },
+     "projection": {
+      "coll": {
+       "context": {
+        "axis": 0.9333333333333333,
+        "axis_within1": 1.0,
+        "nearest": 0.9703703703703703,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.8962962962962963,
+        "axis_within1": 1.0,
+        "nearest": 0.9851851851851852,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.3148148148148148,
+        "axis_within1": 0.774074074074074,
+        "nearest": 0.774074074074074,
+        "nearest_within1": 0.9888888888888889
+       },
+       "raw": {
+        "axis": 0.3074074074074074,
+        "axis_within1": 0.6777777777777778,
+        "nearest": 0.8074074074074075,
+        "nearest_within1": 0.9925925925925926
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.13333333333333333,
+        "axis_within1": 0.35555555555555557,
+        "nearest": 0.17777777777777778,
+        "nearest_within1": 0.4777777777777778
+       },
+       "raw": {
+        "axis": 0.14814814814814814,
+        "axis_within1": 0.32592592592592595,
+        "nearest": 0.15555555555555556,
+        "nearest_within1": 0.3814814814814815
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.1111111111111111,
+        "axis_within1": 0.3333333333333333,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       },
+       "raw": {
+        "axis": 0.362962962962963,
+        "axis_within1": 0.8444444444444444,
+        "nearest": 0.0,
+        "nearest_within1": 0.2222222222222222
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.08518518518518518,
+        "axis_within1": 0.2777777777777778,
+        "nearest": 0.18518518518518517,
+        "nearest_within1": 0.4
+       },
+       "raw": {
+        "axis": 0.14814814814814814,
+        "axis_within1": 0.3111111111111111,
+        "nearest": 0.13703703703703704,
+        "nearest_within1": 0.34074074074074073
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.3111111111111111,
+        "axis_within1": 0.7148148148148148,
+        "nearest": 0.37037037037037035,
+        "nearest_within1": 0.8333333333333334
+       },
+       "raw": {
+        "axis": 0.21481481481481482,
+        "axis_within1": 0.4148148148148148,
+        "nearest": 0.13703703703703704,
+        "nearest_within1": 0.6666666666666666
+       }
+      }
+     }
+    },
+    "relearn": {
+     "core_inner": {
+      "coll": {
+       "context": {
+        "axis": 0.7703703703703704,
+        "axis_within1": 1.0,
+        "nearest": 0.9555555555555556,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9111111111111111,
+        "axis_within1": 1.0,
+        "nearest": 0.9555555555555556,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.42592592592592593,
+        "axis_within1": 0.7777777777777778,
+        "nearest": 0.8629629629629629,
+        "nearest_within1": 0.9777777777777777
+       },
+       "raw": {
+        "axis": 0.1111111111111111,
+        "axis_within1": 0.37037037037037035,
+        "nearest": 0.4740740740740741,
+        "nearest_within1": 0.8740740740740741
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.32592592592592595,
+        "axis_within1": 0.6777777777777778,
+        "nearest": 0.4703703703703704,
+        "nearest_within1": 0.8703703703703703
+       },
+       "raw": {
+        "axis": 0.11851851851851852,
+        "axis_within1": 0.44814814814814813,
+        "nearest": 0.3296296296296296,
+        "nearest_within1": 0.5481481481481482
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.26296296296296295,
+        "axis_within1": 0.762962962962963,
+        "nearest": 0.7518518518518519,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.24444444444444444,
+        "axis_within1": 0.5148148148148148,
+        "nearest": 0.725925925925926,
+        "nearest_within1": 1.0
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.1,
+        "axis_within1": 0.32592592592592595,
+        "nearest": 0.18518518518518517,
+        "nearest_within1": 0.4222222222222222
+       },
+       "raw": {
+        "axis": 0.17777777777777778,
+        "axis_within1": 0.337037037037037,
+        "nearest": 0.0962962962962963,
+        "nearest_within1": 0.3333333333333333
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.3592592592592593,
+        "axis_within1": 0.8814814814814815,
+        "nearest": 0.8666666666666667,
+        "nearest_within1": 0.9740740740740741
+       },
+       "raw": {
+        "axis": 0.23703703703703705,
+        "axis_within1": 0.4074074074074074,
+        "nearest": 0.5592592592592592,
+        "nearest_within1": 0.8925925925925926
+       }
+      }
+     },
+     "projection": {
+      "coll": {
+       "context": {
+        "axis": 0.9259259259259259,
+        "axis_within1": 1.0,
+        "nearest": 0.9333333333333333,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.8592592592592593,
+        "axis_within1": 1.0,
+        "nearest": 0.9555555555555556,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.26296296296296295,
+        "axis_within1": 0.7703703703703704,
+        "nearest": 0.7888888888888889,
+        "nearest_within1": 0.9777777777777777
+       },
+       "raw": {
+        "axis": 0.2851851851851852,
+        "axis_within1": 0.6444444444444445,
+        "nearest": 0.5185185185185185,
+        "nearest_within1": 0.9111111111111111
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.337037037037037,
+        "axis_within1": 0.7148148148148148,
+        "nearest": 0.4703703703703704,
+        "nearest_within1": 0.8814814814814815
+       },
+       "raw": {
+        "axis": 0.1259259259259259,
+        "axis_within1": 0.4148148148148148,
+        "nearest": 0.37037037037037035,
+        "nearest_within1": 0.6555555555555556
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.0,
+        "axis_within1": 0.2222222222222222,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       },
+       "raw": {
+        "axis": 0.25555555555555554,
+        "axis_within1": 0.5185185185185185,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.05925925925925926,
+        "axis_within1": 0.32222222222222224,
+        "nearest": 0.2074074074074074,
+        "nearest_within1": 0.4703703703703704
+       },
+       "raw": {
+        "axis": 0.15185185185185185,
+        "axis_within1": 0.35185185185185186,
+        "nearest": 0.1,
+        "nearest_within1": 0.31851851851851853
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.40370370370370373,
+        "axis_within1": 0.9037037037037037,
+        "nearest": 0.8444444444444444,
+        "nearest_within1": 0.9666666666666667
+       },
+       "raw": {
+        "axis": 0.2111111111111111,
+        "axis_within1": 0.5777777777777777,
+        "nearest": 0.5074074074074074,
+        "nearest_within1": 0.9296296296296296
+       }
+      }
+     }
+    }
+   }
+  },
+  "common-k-cand/seed303": {
+   "checkpoints": {
+    "block1": {
+     "file": "runs/shared-output-v1/pilot/common-k-cand/checkpoints/sparse48-seed303-block1.pt",
+     "sha256": "e9cd2c5e77d095e130540dd18bebf9acf9262782a54b06f7251b769210d50f85"
+    },
+    "block3": {
+     "file": "runs/shared-output-v1/pilot/common-k-cand/checkpoints/sparse48-seed303-block3.pt",
+     "sha256": "ce112db5ceda13e48371dc9b9586076b3625e9af14cc745e30250df24664304c"
+    },
+    "delay": {
+     "file": "runs/shared-output-v1/pilot/common-k-cand/checkpoints/sparse48-seed303-delay.pt",
+     "sha256": "c50dd99d9e24993ca4cd24c9f6b78ad46a9da93c445483083fce61c2bbddea58"
+    },
+    "relearn": {
+     "file": "runs/shared-output-v1/pilot/common-k-cand/checkpoints/sparse48-seed303-relearn.pt",
+     "sha256": "d608e64e38797cb52e05bf566bc4a473ee424f564212b424d0a95b751cb1b1b5"
+    }
+   },
+   "reads": {
+    "block1": {
+     "core_inner": {
+      "coll": {
+       "context": {
+        "axis": 0.9259259259259259,
+        "axis_within1": 1.0,
+        "nearest": 0.9185185185185185,
+        "nearest_within1": 0.9925925925925926
+       },
+       "raw": {
+        "axis": 0.9333333333333333,
+        "axis_within1": 1.0,
+        "nearest": 0.9481481481481482,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.1037037037037037,
+        "axis_within1": 0.3,
+        "nearest": 0.08148148148148149,
+        "nearest_within1": 0.1962962962962963
+       },
+       "raw": {
+        "axis": 0.022222222222222223,
+        "axis_within1": 0.45555555555555555,
+        "nearest": 0.025925925925925925,
+        "nearest_within1": 0.37037037037037035
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.23333333333333334,
+        "axis_within1": 0.7666666666666667,
+        "nearest": 0.4888888888888889,
+        "nearest_within1": 0.8962962962962963
+       },
+       "raw": {
+        "axis": 0.11851851851851852,
+        "axis_within1": 0.5851851851851851,
+        "nearest": 0.3962962962962963,
+        "nearest_within1": 0.6666666666666666
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.34814814814814815,
+        "axis_within1": 0.9703703703703703,
+        "nearest": 0.3925925925925926,
+        "nearest_within1": 0.7888888888888889
+       },
+       "raw": {
+        "axis": 0.1111111111111111,
+        "axis_within1": 0.2222222222222222,
+        "nearest": 0.6888888888888889,
+        "nearest_within1": 1.0
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.08148148148148149,
+        "axis_within1": 0.35185185185185186,
+        "nearest": 0.1259259259259259,
+        "nearest_within1": 0.43333333333333335
+       },
+       "raw": {
+        "axis": 0.11481481481481481,
+        "axis_within1": 0.3592592592592593,
+        "nearest": 0.05185185185185185,
+        "nearest_within1": 0.4888888888888889
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.08888888888888889,
+        "axis_within1": 0.2814814814814815,
+        "nearest": 0.1,
+        "nearest_within1": 0.3814814814814815
+       },
+       "raw": {
+        "axis": 0.1259259259259259,
+        "axis_within1": 0.3814814814814815,
+        "nearest": 0.1,
+        "nearest_within1": 0.5
+       }
+      }
+     },
+     "projection": {
+      "coll": {
+       "context": {
+        "axis": 0.9111111111111111,
+        "axis_within1": 1.0,
+        "nearest": 0.9185185185185185,
+        "nearest_within1": 0.9925925925925926
+       },
+       "raw": {
+        "axis": 0.8814814814814815,
+        "axis_within1": 0.9925925925925926,
+        "nearest": 0.9481481481481482,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.08888888888888889,
+        "axis_within1": 0.2777777777777778,
+        "nearest": 0.07777777777777778,
+        "nearest_within1": 0.2111111111111111
+       },
+       "raw": {
+        "axis": 0.1037037037037037,
+        "axis_within1": 0.35185185185185186,
+        "nearest": 0.018518518518518517,
+        "nearest_within1": 0.35555555555555557
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.42962962962962964,
+        "axis_within1": 0.7814814814814814,
+        "nearest": 0.3962962962962963,
+        "nearest_within1": 0.9481481481481482
+       },
+       "raw": {
+        "axis": 0.1962962962962963,
+        "axis_within1": 0.42962962962962964,
+        "nearest": 0.32592592592592595,
+        "nearest_within1": 0.662962962962963
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.1111111111111111,
+        "axis_within1": 0.3333333333333333,
+        "nearest": 0.06296296296296296,
+        "nearest_within1": 0.24074074074074073
+       },
+       "raw": {
+        "axis": 0.025925925925925925,
+        "axis_within1": 0.1111111111111111,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.15925925925925927,
+        "axis_within1": 0.40370370370370373,
+        "nearest": 0.1259259259259259,
+        "nearest_within1": 0.46296296296296297
+       },
+       "raw": {
+        "axis": 0.11481481481481481,
+        "axis_within1": 0.2222222222222222,
+        "nearest": 0.040740740740740744,
+        "nearest_within1": 0.4888888888888889
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.11481481481481481,
+        "axis_within1": 0.25925925925925924,
+        "nearest": 0.14074074074074075,
+        "nearest_within1": 0.337037037037037
+       },
+       "raw": {
+        "axis": 0.06296296296296296,
+        "axis_within1": 0.3148148148148148,
+        "nearest": 0.1,
+        "nearest_within1": 0.5296296296296297
+       }
+      }
+     }
+    },
+    "block3": {
+     "core_inner": {
+      "coll": {
+       "context": {
+        "axis": 0.9185185185185185,
+        "axis_within1": 1.0,
+        "nearest": 0.9481481481481482,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9185185185185185,
+        "axis_within1": 1.0,
+        "nearest": 0.9777777777777777,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.34444444444444444,
+        "axis_within1": 0.8703703703703703,
+        "nearest": 0.5407407407407407,
+        "nearest_within1": 0.9259259259259259
+       },
+       "raw": {
+        "axis": 0.25925925925925924,
+        "axis_within1": 0.6777777777777778,
+        "nearest": 0.837037037037037,
+        "nearest_within1": 0.9925925925925926
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.11851851851851852,
+        "axis_within1": 0.3592592592592593,
+        "nearest": 0.08148148148148149,
+        "nearest_within1": 0.2518518518518518
+       },
+       "raw": {
+        "axis": 0.10740740740740741,
+        "axis_within1": 0.37777777777777777,
+        "nearest": 0.11481481481481481,
+        "nearest_within1": 0.22962962962962963
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 1.0,
+        "axis_within1": 1.0,
+        "nearest": 0.5481481481481482,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.28888888888888886,
+        "axis_within1": 0.562962962962963,
+        "nearest": 0.8148148148148148,
+        "nearest_within1": 1.0
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.14074074074074075,
+        "axis_within1": 0.362962962962963,
+        "nearest": 0.12962962962962962,
+        "nearest_within1": 0.32592592592592595
+       },
+       "raw": {
+        "axis": 0.1037037037037037,
+        "axis_within1": 0.3111111111111111,
+        "nearest": 0.14814814814814814,
+        "nearest_within1": 0.34074074074074073
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.2518518518518518,
+        "axis_within1": 0.6777777777777778,
+        "nearest": 0.4,
+        "nearest_within1": 0.8333333333333334
+       },
+       "raw": {
+        "axis": 0.22962962962962963,
+        "axis_within1": 0.5222222222222223,
+        "nearest": 0.1925925925925926,
+        "nearest_within1": 0.7148148148148148
+       }
+      }
+     },
+     "projection": {
+      "coll": {
+       "context": {
+        "axis": 0.9703703703703703,
+        "axis_within1": 1.0,
+        "nearest": 0.9703703703703703,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.8962962962962963,
+        "axis_within1": 1.0,
+        "nearest": 0.9851851851851852,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.6185185185185185,
+        "axis_within1": 0.9185185185185185,
+        "nearest": 0.6851851851851852,
+        "nearest_within1": 0.9851851851851852
+       },
+       "raw": {
+        "axis": 0.28888888888888886,
+        "axis_within1": 0.6370370370370371,
+        "nearest": 0.8444444444444444,
+        "nearest_within1": 0.9851851851851852
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.08148148148148149,
+        "axis_within1": 0.2962962962962963,
+        "nearest": 0.0962962962962963,
+        "nearest_within1": 0.27037037037037037
+       },
+       "raw": {
+        "axis": 0.14814814814814814,
+        "axis_within1": 0.35185185185185186,
+        "nearest": 0.11481481481481481,
+        "nearest_within1": 0.23703703703703705
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.1111111111111111,
+        "axis_within1": 0.3037037037037037,
+        "nearest": 0.10740740740740741,
+        "nearest_within1": 0.3333333333333333
+       },
+       "raw": {
+        "axis": 0.0,
+        "axis_within1": 0.10740740740740741,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.14074074074074075,
+        "axis_within1": 0.37407407407407406,
+        "nearest": 0.11851851851851852,
+        "nearest_within1": 0.3
+       },
+       "raw": {
+        "axis": 0.13333333333333333,
+        "axis_within1": 0.36666666666666664,
+        "nearest": 0.14814814814814814,
+        "nearest_within1": 0.3333333333333333
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.2111111111111111,
+        "axis_within1": 0.7925925925925926,
+        "nearest": 0.3814814814814815,
+        "nearest_within1": 0.8777777777777778
+       },
+       "raw": {
+        "axis": 0.13703703703703704,
+        "axis_within1": 0.5222222222222223,
+        "nearest": 0.15555555555555556,
+        "nearest_within1": 0.7
+       }
+      }
+     }
+    },
+    "delay": {
+     "core_inner": {
+      "coll": {
+       "context": {
+        "axis": 0.9333333333333333,
+        "axis_within1": 1.0,
+        "nearest": 0.9481481481481482,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9333333333333333,
+        "axis_within1": 1.0,
+        "nearest": 0.9703703703703703,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.42592592592592593,
+        "axis_within1": 0.8407407407407408,
+        "nearest": 0.5777777777777777,
+        "nearest_within1": 0.9333333333333333
+       },
+       "raw": {
+        "axis": 0.17407407407407408,
+        "axis_within1": 0.36666666666666664,
+        "nearest": 0.5148148148148148,
+        "nearest_within1": 0.9555555555555556
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.12222222222222222,
+        "axis_within1": 0.3592592592592593,
+        "nearest": 0.07777777777777778,
+        "nearest_within1": 0.25555555555555554
+       },
+       "raw": {
+        "axis": 0.1,
+        "axis_within1": 0.337037037037037,
+        "nearest": 0.11481481481481481,
+        "nearest_within1": 0.23703703703703705
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.6703703703703704,
+        "axis_within1": 1.0,
+        "nearest": 0.7814814814814814,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.3296296296296296,
+        "axis_within1": 0.6666666666666666,
+        "nearest": 0.8444444444444444,
+        "nearest_within1": 1.0
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.14444444444444443,
+        "axis_within1": 0.37777777777777777,
+        "nearest": 0.09259259259259259,
+        "nearest_within1": 0.3111111111111111
+       },
+       "raw": {
+        "axis": 0.1037037037037037,
+        "axis_within1": 0.34814814814814815,
+        "nearest": 0.1037037037037037,
+        "nearest_within1": 0.37407407407407406
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.16666666666666666,
+        "axis_within1": 0.5296296296296297,
+        "nearest": 0.4111111111111111,
+        "nearest_within1": 0.7592592592592593
+       },
+       "raw": {
+        "axis": 0.040740740740740744,
+        "axis_within1": 0.34814814814814815,
+        "nearest": 0.16296296296296298,
+        "nearest_within1": 0.5333333333333333
+       }
+      }
+     },
+     "projection": {
+      "coll": {
+       "context": {
+        "axis": 0.9555555555555556,
+        "axis_within1": 1.0,
+        "nearest": 0.9481481481481482,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9407407407407408,
+        "axis_within1": 1.0,
+        "nearest": 0.9703703703703703,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.5407407407407407,
+        "axis_within1": 0.8111111111111111,
+        "nearest": 0.5407407407407407,
+        "nearest_within1": 0.9148148148148149
+       },
+       "raw": {
+        "axis": 0.06666666666666667,
+        "axis_within1": 0.4185185185185185,
+        "nearest": 0.3962962962962963,
+        "nearest_within1": 0.9407407407407408
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.1,
+        "axis_within1": 0.3,
+        "nearest": 0.08888888888888889,
+        "nearest_within1": 0.2814814814814815
+       },
+       "raw": {
+        "axis": 0.14444444444444443,
+        "axis_within1": 0.37777777777777777,
+        "nearest": 0.11851851851851852,
+        "nearest_within1": 0.23703703703703705
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.1111111111111111,
+        "axis_within1": 0.3333333333333333,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       },
+       "raw": {
+        "axis": 0.0,
+        "axis_within1": 0.1111111111111111,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.12222222222222222,
+        "axis_within1": 0.32592592592592595,
+        "nearest": 0.05925925925925926,
+        "nearest_within1": 0.3037037037037037
+       },
+       "raw": {
+        "axis": 0.14444444444444443,
+        "axis_within1": 0.2962962962962963,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.37407407407407406
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.18888888888888888,
+        "axis_within1": 0.5851851851851851,
+        "nearest": 0.362962962962963,
+        "nearest_within1": 0.762962962962963
+       },
+       "raw": {
+        "axis": 0.1259259259259259,
+        "axis_within1": 0.35185185185185186,
+        "nearest": 0.14444444444444443,
+        "nearest_within1": 0.5148148148148148
+       }
+      }
+     }
+    },
+    "relearn": {
+     "core_inner": {
+      "coll": {
+       "context": {
+        "axis": 0.9407407407407408,
+        "axis_within1": 1.0,
+        "nearest": 0.9851851851851852,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9481481481481482,
+        "axis_within1": 1.0,
+        "nearest": 0.9703703703703703,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.3925925925925926,
+        "axis_within1": 0.8629629629629629,
+        "nearest": 0.5481481481481482,
+        "nearest_within1": 0.9703703703703703
+       },
+       "raw": {
+        "axis": 0.15185185185185185,
+        "axis_within1": 0.562962962962963,
+        "nearest": 0.6111111111111112,
+        "nearest_within1": 0.9481481481481482
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.28888888888888886,
+        "axis_within1": 0.6814814814814815,
+        "nearest": 0.1925925925925926,
+        "nearest_within1": 0.4925925925925926
+       },
+       "raw": {
+        "axis": 0.11481481481481481,
+        "axis_within1": 0.35185185185185186,
+        "nearest": 0.11481481481481481,
+        "nearest_within1": 0.24074074074074073
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.9444444444444444,
+        "axis_within1": 1.0,
+        "nearest": 0.8703703703703703,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.1111111111111111,
+        "axis_within1": 0.337037037037037,
+        "nearest": 0.8111111111111111,
+        "nearest_within1": 1.0
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.16296296296296298,
+        "axis_within1": 0.3925925925925926,
+        "nearest": 0.12962962962962962,
+        "nearest_within1": 0.2777777777777778
+       },
+       "raw": {
+        "axis": 0.16666666666666666,
+        "axis_within1": 0.36666666666666664,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.29259259259259257
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.5370370370370371,
+        "axis_within1": 0.9629629629629629,
+        "nearest": 0.8518518518518519,
+        "nearest_within1": 0.9962962962962963
+       },
+       "raw": {
+        "axis": 0.3333333333333333,
+        "axis_within1": 0.737037037037037,
+        "nearest": 0.8555555555555555,
+        "nearest_within1": 0.9962962962962963
+       }
+      }
+     },
+     "projection": {
+      "coll": {
+       "context": {
+        "axis": 0.9555555555555556,
+        "axis_within1": 1.0,
+        "nearest": 0.9851851851851852,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9185185185185185,
+        "axis_within1": 1.0,
+        "nearest": 0.9777777777777777,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.2074074074074074,
+        "axis_within1": 0.7888888888888889,
+        "nearest": 0.4925925925925926,
+        "nearest_within1": 0.9851851851851852
+       },
+       "raw": {
+        "axis": 0.17407407407407408,
+        "axis_within1": 0.5370370370370371,
+        "nearest": 0.5703703703703704,
+        "nearest_within1": 0.9407407407407408
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.22962962962962963,
+        "axis_within1": 0.6666666666666666,
+        "nearest": 0.24444444444444444,
+        "nearest_within1": 0.5296296296296297
+       },
+       "raw": {
+        "axis": 0.16296296296296298,
+        "axis_within1": 0.37407407407407406,
+        "nearest": 0.10740740740740741,
+        "nearest_within1": 0.23703703703703705
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.1111111111111111,
+        "axis_within1": 0.2222222222222222,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       },
+       "raw": {
+        "axis": 0.1111111111111111,
+        "axis_within1": 0.3,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.17037037037037037,
+        "axis_within1": 0.37407407407407406,
+        "nearest": 0.14814814814814814,
+        "nearest_within1": 0.35555555555555557
+       },
+       "raw": {
+        "axis": 0.15185185185185185,
+        "axis_within1": 0.4,
+        "nearest": 0.12222222222222222,
+        "nearest_within1": 0.2962962962962963
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.5296296296296297,
+        "axis_within1": 0.9666666666666667,
+        "nearest": 0.6703703703703704,
+        "nearest_within1": 0.9851851851851852
+       },
+       "raw": {
+        "axis": 0.1,
+        "axis_within1": 0.40370370370370373,
+        "nearest": 0.8888888888888888,
+        "nearest_within1": 0.9962962962962963
+       }
+      }
+     }
+    }
+   }
+  },
+  "gp/seed300": {
+   "checkpoints": {
+    "block1": {
+     "file": "runs/shared-output-v1/pilot/gp/checkpoints/sparse48-seed300-block1.pt",
+     "sha256": "49ac88f823599ea2670924fb099deab0c3a6909dfb0bbd290f74e4f631a0ad1e"
+    },
+    "block3": {
+     "file": "runs/shared-output-v1/pilot/gp/checkpoints/sparse48-seed300-block3.pt",
+     "sha256": "f8b79837edd2e9e0ab69ed17ba3f696243cd99e64a84bf41140032bfc1f38f79"
+    },
+    "delay": {
+     "file": "runs/shared-output-v1/pilot/gp/checkpoints/sparse48-seed300-delay.pt",
+     "sha256": "739bd04dd11c2dfa9fce39b98b5e57225f916b353ea1da8d21500a2974a5d446"
+    },
+    "relearn": {
+     "file": "runs/shared-output-v1/pilot/gp/checkpoints/sparse48-seed300-relearn.pt",
+     "sha256": "cb42e9362496da9f6f33c31e9659b6bfada58a51763c66561c523d4df7ccd315"
+    }
+   },
+   "reads": {
+    "block1": {
+     "core_inner": {
+      "coll": {
+       "context": {
+        "axis": 0.9555555555555556,
+        "axis_within1": 1.0,
+        "nearest": 0.8740740740740741,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9259259259259259,
+        "axis_within1": 1.0,
+        "nearest": 0.9407407407407408,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.07777777777777778,
+        "axis_within1": 0.2851851851851852,
+        "nearest": 0.15185185185185185,
+        "nearest_within1": 0.35185185185185186
+       },
+       "raw": {
+        "axis": 0.13333333333333333,
+        "axis_within1": 0.3851851851851852,
+        "nearest": 0.12962962962962962,
+        "nearest_within1": 0.3814814814814815
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.6333333333333333,
+        "axis_within1": 0.8962962962962963,
+        "nearest": 0.37037037037037035,
+        "nearest_within1": 0.6666666666666666
+       },
+       "raw": {
+        "axis": 0.24444444444444444,
+        "axis_within1": 0.5925925925925926,
+        "nearest": 0.5370370370370371,
+        "nearest_within1": 0.8962962962962963
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.5259259259259259,
+        "axis_within1": 1.0,
+        "nearest": 0.42962962962962964,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.774074074074074,
+        "axis_within1": 1.0,
+        "nearest": 0.9925925925925926,
+        "nearest_within1": 1.0
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.14074074074074075,
+        "axis_within1": 0.3814814814814815,
+        "nearest": 0.14814814814814814,
+        "nearest_within1": 0.42962962962962964
+       },
+       "raw": {
+        "axis": 0.24074074074074073,
+        "axis_within1": 0.35185185185185186,
+        "nearest": 0.12962962962962962,
+        "nearest_within1": 0.43333333333333335
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.1259259259259259,
+        "axis_within1": 0.337037037037037,
+        "nearest": 0.17777777777777778,
+        "nearest_within1": 0.35185185185185186
+       },
+       "raw": {
+        "axis": 0.1037037037037037,
+        "axis_within1": 0.3111111111111111,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.35555555555555557
+       }
+      }
+     },
+     "projection": {
+      "coll": {
+       "context": {
+        "axis": 0.9259259259259259,
+        "axis_within1": 1.0,
+        "nearest": 0.9111111111111111,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9259259259259259,
+        "axis_within1": 1.0,
+        "nearest": 0.9333333333333333,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.08518518518518518,
+        "axis_within1": 0.34444444444444444,
+        "nearest": 0.10740740740740741,
+        "nearest_within1": 0.29259259259259257
+       },
+       "raw": {
+        "axis": 0.17777777777777778,
+        "axis_within1": 0.35555555555555557,
+        "nearest": 0.17777777777777778,
+        "nearest_within1": 0.4074074074074074
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.3814814814814815,
+        "axis_within1": 0.8148148148148148,
+        "nearest": 0.4666666666666667,
+        "nearest_within1": 0.8592592592592593
+       },
+       "raw": {
+        "axis": 0.16296296296296298,
+        "axis_within1": 0.5333333333333333,
+        "nearest": 0.4222222222222222,
+        "nearest_within1": 0.8629629629629629
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.08518518518518518,
+        "axis_within1": 0.26296296296296295,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.32222222222222224
+       },
+       "raw": {
+        "axis": 0.0,
+        "axis_within1": 0.2222222222222222,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.11481481481481481,
+        "axis_within1": 0.40370370370370373,
+        "nearest": 0.13333333333333333,
+        "nearest_within1": 0.45555555555555555
+       },
+       "raw": {
+        "axis": 0.18888888888888888,
+        "axis_within1": 0.3814814814814815,
+        "nearest": 0.13333333333333333,
+        "nearest_within1": 0.46296296296296297
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.15185185185185185,
+        "axis_within1": 0.35185185185185186,
+        "nearest": 0.1259259259259259,
+        "nearest_within1": 0.3592592592592593
+       },
+       "raw": {
+        "axis": 0.12222222222222222,
+        "axis_within1": 0.3074074074074074,
+        "nearest": 0.13333333333333333,
+        "nearest_within1": 0.36666666666666664
+       }
+      }
+     }
+    },
+    "block3": {
+     "core_inner": {
+      "coll": {
+       "context": {
+        "axis": 0.9777777777777777,
+        "axis_within1": 1.0,
+        "nearest": 0.9555555555555556,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9777777777777777,
+        "axis_within1": 1.0,
+        "nearest": 0.9703703703703703,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.2,
+        "axis_within1": 0.8222222222222222,
+        "nearest": 0.25925925925925924,
+        "nearest_within1": 0.7962962962962963
+       },
+       "raw": {
+        "axis": 0.5370370370370371,
+        "axis_within1": 0.7777777777777778,
+        "nearest": 0.7518518518518519,
+        "nearest_within1": 0.8
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.14814814814814814,
+        "axis_within1": 0.34814814814814815,
+        "nearest": 0.14074074074074075,
+        "nearest_within1": 0.43333333333333335
+       },
+       "raw": {
+        "axis": 0.07407407407407407,
+        "axis_within1": 0.3074074074074074,
+        "nearest": 0.08888888888888889,
+        "nearest_within1": 0.2962962962962963
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.9555555555555556,
+        "axis_within1": 1.0,
+        "nearest": 0.8407407407407408,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.937037037037037,
+        "axis_within1": 1.0,
+        "nearest": 0.9037037037037037,
+        "nearest_within1": 1.0
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.1259259259259259,
+        "axis_within1": 0.35555555555555557,
+        "nearest": 0.13333333333333333,
+        "nearest_within1": 0.3333333333333333
+       },
+       "raw": {
+        "axis": 0.1111111111111111,
+        "axis_within1": 0.3925925925925926,
+        "nearest": 0.0962962962962963,
+        "nearest_within1": 0.3851851851851852
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.37777777777777777,
+        "axis_within1": 0.8148148148148148,
+        "nearest": 0.4444444444444444,
+        "nearest_within1": 0.737037037037037
+       },
+       "raw": {
+        "axis": 0.17777777777777778,
+        "axis_within1": 0.5777777777777777,
+        "nearest": 0.1259259259259259,
+        "nearest_within1": 0.6666666666666666
+       }
+      }
+     },
+     "projection": {
+      "coll": {
+       "context": {
+        "axis": 0.9629629629629629,
+        "axis_within1": 1.0,
+        "nearest": 0.9259259259259259,
+        "nearest_within1": 0.9925925925925926
+       },
+       "raw": {
+        "axis": 0.9555555555555556,
+        "axis_within1": 1.0,
+        "nearest": 0.9703703703703703,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.5,
+        "axis_within1": 0.7777777777777778,
+        "nearest": 0.44074074074074077,
+        "nearest_within1": 0.7925925925925926
+       },
+       "raw": {
+        "axis": 0.5037037037037037,
+        "axis_within1": 0.7888888888888889,
+        "nearest": 0.7777777777777778,
+        "nearest_within1": 0.8
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.13333333333333333,
+        "axis_within1": 0.35185185185185186,
+        "nearest": 0.08888888888888889,
+        "nearest_within1": 0.34814814814814815
+       },
+       "raw": {
+        "axis": 0.1,
+        "axis_within1": 0.34074074074074073,
+        "nearest": 0.08888888888888889,
+        "nearest_within1": 0.3074074074074074
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.11481481481481481,
+        "axis_within1": 0.31851851851851853,
+        "nearest": 0.018518518518518517,
+        "nearest_within1": 0.23703703703703705
+       },
+       "raw": {
+        "axis": 0.09259259259259259,
+        "axis_within1": 0.3111111111111111,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.14074074074074075,
+        "axis_within1": 0.34444444444444444,
+        "nearest": 0.13333333333333333,
+        "nearest_within1": 0.3962962962962963
+       },
+       "raw": {
+        "axis": 0.08148148148148149,
+        "axis_within1": 0.3333333333333333,
+        "nearest": 0.1037037037037037,
+        "nearest_within1": 0.3814814814814815
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.37407407407407406,
+        "axis_within1": 0.7888888888888889,
+        "nearest": 0.3037037037037037,
+        "nearest_within1": 0.5962962962962963
+       },
+       "raw": {
+        "axis": 0.3037037037037037,
+        "axis_within1": 0.7296296296296296,
+        "nearest": 0.14814814814814814,
+        "nearest_within1": 0.5962962962962963
+       }
+      }
+     }
+    },
+    "delay": {
+     "core_inner": {
+      "coll": {
+       "context": {
+        "axis": 0.9777777777777777,
+        "axis_within1": 1.0,
+        "nearest": 0.9333333333333333,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9777777777777777,
+        "axis_within1": 1.0,
+        "nearest": 0.9777777777777777,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.2814814814814815,
+        "axis_within1": 0.8407407407407408,
+        "nearest": 0.3925925925925926,
+        "nearest_within1": 0.8185185185185185
+       },
+       "raw": {
+        "axis": 0.6185185185185185,
+        "axis_within1": 0.7481481481481481,
+        "nearest": 0.662962962962963,
+        "nearest_within1": 0.7851851851851852
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.14814814814814814,
+        "axis_within1": 0.34444444444444444,
+        "nearest": 0.16296296296296298,
+        "nearest_within1": 0.34444444444444444
+       },
+       "raw": {
+        "axis": 0.07037037037037037,
+        "axis_within1": 0.28888888888888886,
+        "nearest": 0.13333333333333333,
+        "nearest_within1": 0.2962962962962963
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.9962962962962963,
+        "axis_within1": 1.0,
+        "nearest": 0.4222222222222222,
+        "nearest_within1": 0.8851851851851852
+       },
+       "raw": {
+        "axis": 0.7407407407407407,
+        "axis_within1": 1.0,
+        "nearest": 1.0,
+        "nearest_within1": 1.0
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.12222222222222222,
+        "axis_within1": 0.3592592592592593,
+        "nearest": 0.17037037037037037,
+        "nearest_within1": 0.37777777777777777
+       },
+       "raw": {
+        "axis": 0.12222222222222222,
+        "axis_within1": 0.40370370370370373,
+        "nearest": 0.10740740740740741,
+        "nearest_within1": 0.4
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.29259259259259257,
+        "axis_within1": 0.6296296296296297,
+        "nearest": 0.3111111111111111,
+        "nearest_within1": 0.6370370370370371
+       },
+       "raw": {
+        "axis": 0.11481481481481481,
+        "axis_within1": 0.40370370370370373,
+        "nearest": 0.11481481481481481,
+        "nearest_within1": 0.44814814814814813
+       }
+      }
+     },
+     "projection": {
+      "coll": {
+       "context": {
+        "axis": 0.9629629629629629,
+        "axis_within1": 1.0,
+        "nearest": 0.8814814814814815,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9629629629629629,
+        "axis_within1": 1.0,
+        "nearest": 0.9703703703703703,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.2074074074074074,
+        "axis_within1": 0.7851851851851852,
+        "nearest": 0.4444444444444444,
+        "nearest_within1": 0.7777777777777778
+       },
+       "raw": {
+        "axis": 0.5185185185185185,
+        "axis_within1": 0.7814814814814814,
+        "nearest": 0.6814814814814815,
+        "nearest_within1": 0.7851851851851852
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.13333333333333333,
+        "axis_within1": 0.3148148148148148,
+        "nearest": 0.0962962962962963,
+        "nearest_within1": 0.3296296296296296
+       },
+       "raw": {
+        "axis": 0.1,
+        "axis_within1": 0.3,
+        "nearest": 0.1,
+        "nearest_within1": 0.27037037037037037
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.1037037037037037,
+        "axis_within1": 0.2962962962962963,
+        "nearest": 0.1,
+        "nearest_within1": 0.2777777777777778
+       },
+       "raw": {
+        "axis": 0.1111111111111111,
+        "axis_within1": 0.32222222222222224,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.14814814814814814,
+        "axis_within1": 0.3333333333333333,
+        "nearest": 0.05925925925925926,
+        "nearest_within1": 0.3851851851851852
+       },
+       "raw": {
+        "axis": 0.11851851851851852,
+        "axis_within1": 0.35185185185185186,
+        "nearest": 0.10740740740740741,
+        "nearest_within1": 0.40370370370370373
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.32222222222222224,
+        "axis_within1": 0.7444444444444445,
+        "nearest": 0.32222222222222224,
+        "nearest_within1": 0.6222222222222222
+       },
+       "raw": {
+        "axis": 0.2037037037037037,
+        "axis_within1": 0.5518518518518518,
+        "nearest": 0.11481481481481481,
+        "nearest_within1": 0.43703703703703706
+       }
+      }
+     }
+    },
+    "relearn": {
+     "core_inner": {
+      "coll": {
+       "context": {
+        "axis": 0.9555555555555556,
+        "axis_within1": 1.0,
+        "nearest": 0.8814814814814815,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9629629629629629,
+        "axis_within1": 1.0,
+        "nearest": 0.9703703703703703,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.4148148148148148,
+        "axis_within1": 0.774074074074074,
+        "nearest": 0.4074074074074074,
+        "nearest_within1": 0.6111111111111112
+       },
+       "raw": {
+        "axis": 0.6148148148148148,
+        "axis_within1": 0.7888888888888889,
+        "nearest": 0.5703703703703704,
+        "nearest_within1": 0.7888888888888889
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.16296296296296298,
+        "axis_within1": 0.5888888888888889,
+        "nearest": 0.14814814814814814,
+        "nearest_within1": 0.32222222222222224
+       },
+       "raw": {
+        "axis": 0.3074074074074074,
+        "axis_within1": 0.6592592592592592,
+        "nearest": 0.3888888888888889,
+        "nearest_within1": 0.7888888888888889
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.31851851851851853,
+        "axis_within1": 1.0,
+        "nearest": 0.362962962962963,
+        "nearest_within1": 0.7777777777777778
+       },
+       "raw": {
+        "axis": 0.4888888888888889,
+        "axis_within1": 1.0,
+        "nearest": 0.6777777777777778,
+        "nearest_within1": 1.0
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.09259259259259259,
+        "axis_within1": 0.4,
+        "nearest": 0.15925925925925927,
+        "nearest_within1": 0.4111111111111111
+       },
+       "raw": {
+        "axis": 0.09259259259259259,
+        "axis_within1": 0.3962962962962963,
+        "nearest": 0.10740740740740741,
+        "nearest_within1": 0.4148148148148148
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.6962962962962963,
+        "axis_within1": 0.9814814814814815,
+        "nearest": 0.31851851851851853,
+        "nearest_within1": 0.8333333333333334
+       },
+       "raw": {
+        "axis": 0.7703703703703704,
+        "axis_within1": 0.9592592592592593,
+        "nearest": 0.6925925925925925,
+        "nearest_within1": 0.9666666666666667
+       }
+      }
+     },
+     "projection": {
+      "coll": {
+       "context": {
+        "axis": 0.9629629629629629,
+        "axis_within1": 1.0,
+        "nearest": 0.9111111111111111,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9629629629629629,
+        "axis_within1": 1.0,
+        "nearest": 0.9629629629629629,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.40370370370370373,
+        "axis_within1": 0.7925925925925926,
+        "nearest": 0.32592592592592595,
+        "nearest_within1": 0.7222222222222222
+       },
+       "raw": {
+        "axis": 0.6222222222222222,
+        "axis_within1": 0.8814814814814815,
+        "nearest": 0.6925925925925925,
+        "nearest_within1": 0.7925925925925926
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.43703703703703706,
+        "axis_within1": 0.7703703703703704,
+        "nearest": 0.4185185185185185,
+        "nearest_within1": 0.737037037037037
+       },
+       "raw": {
+        "axis": 0.16296296296296298,
+        "axis_within1": 0.5185185185185185,
+        "nearest": 0.4777777777777778,
+        "nearest_within1": 0.7925925925925926
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.07777777777777778,
+        "axis_within1": 0.12962962962962962,
+        "nearest": 0.11481481481481481,
+        "nearest_within1": 0.3074074074074074
+       },
+       "raw": {
+        "axis": 0.1111111111111111,
+        "axis_within1": 0.2222222222222222,
+        "nearest": 0.018518518518518517,
+        "nearest_within1": 0.2222222222222222
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.1,
+        "axis_within1": 0.37037037037037035,
+        "nearest": 0.06296296296296296,
+        "nearest_within1": 0.3111111111111111
+       },
+       "raw": {
+        "axis": 0.11481481481481481,
+        "axis_within1": 0.4,
+        "nearest": 0.08148148148148149,
+        "nearest_within1": 0.37777777777777777
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.7703703703703704,
+        "axis_within1": 0.9814814814814815,
+        "nearest": 0.45925925925925926,
+        "nearest_within1": 0.9222222222222223
+       },
+       "raw": {
+        "axis": 0.5962962962962963,
+        "axis_within1": 0.9814814814814815,
+        "nearest": 0.7481481481481481,
+        "nearest_within1": 0.9518518518518518
+       }
+      }
+     }
+    }
+   }
+  },
+  "gp/seed301": {
+   "checkpoints": {
+    "block1": {
+     "file": "runs/shared-output-v1/pilot/gp/checkpoints/sparse48-seed301-block1.pt",
+     "sha256": "f1dfff5f752e9852e5616d0cfd6cbeddcb26e00e7ffa91f9707793a77c2b38a6"
+    },
+    "block3": {
+     "file": "runs/shared-output-v1/pilot/gp/checkpoints/sparse48-seed301-block3.pt",
+     "sha256": "b96ceeec05d4de0862eab98e23e774bfc78119409ccb3d993422efa2f98e2983"
+    },
+    "delay": {
+     "file": "runs/shared-output-v1/pilot/gp/checkpoints/sparse48-seed301-delay.pt",
+     "sha256": "ef077daf5014808f670e57acbfd1bbdf17600ec2029466cbd30da56900e1301f"
+    },
+    "relearn": {
+     "file": "runs/shared-output-v1/pilot/gp/checkpoints/sparse48-seed301-relearn.pt",
+     "sha256": "3eec47082139e66a61264e9ad9d7221b8bcc488754a44142d0d33ec64eecba31"
+    }
+   },
+   "reads": {
+    "block1": {
+     "core_inner": {
+      "coll": {
+       "context": {
+        "axis": 0.9111111111111111,
+        "axis_within1": 1.0,
+        "nearest": 0.8814814814814815,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9111111111111111,
+        "axis_within1": 1.0,
+        "nearest": 0.9185185185185185,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.11851851851851852,
+        "axis_within1": 0.3074074074074074,
+        "nearest": 0.13703703703703704,
+        "nearest_within1": 0.2777777777777778
+       },
+       "raw": {
+        "axis": 0.09259259259259259,
+        "axis_within1": 0.37037037037037035,
+        "nearest": 0.0962962962962963,
+        "nearest_within1": 0.34814814814814815
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.6148148148148148,
+        "axis_within1": 0.8888888888888888,
+        "nearest": 0.45185185185185184,
+        "nearest_within1": 0.8148148148148148
+       },
+       "raw": {
+        "axis": 0.3296296296296296,
+        "axis_within1": 0.8074074074074075,
+        "nearest": 0.6703703703703704,
+        "nearest_within1": 0.9148148148148149
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.937037037037037,
+        "axis_within1": 1.0,
+        "nearest": 0.2814814814814815,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.8222222222222222,
+        "axis_within1": 1.0,
+        "nearest": 1.0,
+        "nearest_within1": 1.0
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.14814814814814814,
+        "axis_within1": 0.3814814814814815,
+        "nearest": 0.14444444444444443,
+        "nearest_within1": 0.4111111111111111
+       },
+       "raw": {
+        "axis": 0.1962962962962963,
+        "axis_within1": 0.37407407407407406,
+        "nearest": 0.1037037037037037,
+        "nearest_within1": 0.4111111111111111
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.15185185185185185,
+        "axis_within1": 0.3333333333333333,
+        "nearest": 0.15185185185185185,
+        "nearest_within1": 0.35185185185185186
+       },
+       "raw": {
+        "axis": 0.10740740740740741,
+        "axis_within1": 0.32222222222222224,
+        "nearest": 0.12962962962962962,
+        "nearest_within1": 0.36666666666666664
+       }
+      }
+     },
+     "projection": {
+      "coll": {
+       "context": {
+        "axis": 0.8962962962962963,
+        "axis_within1": 1.0,
+        "nearest": 0.8666666666666667,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9481481481481482,
+        "axis_within1": 1.0,
+        "nearest": 0.9259259259259259,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.14444444444444443,
+        "axis_within1": 0.3148148148148148,
+        "nearest": 0.07777777777777778,
+        "nearest_within1": 0.3333333333333333
+       },
+       "raw": {
+        "axis": 0.14074074074074075,
+        "axis_within1": 0.3888888888888889,
+        "nearest": 0.07037037037037037,
+        "nearest_within1": 0.36666666666666664
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.6481481481481481,
+        "axis_within1": 0.9074074074074074,
+        "nearest": 0.5555555555555556,
+        "nearest_within1": 0.9
+       },
+       "raw": {
+        "axis": 0.1814814814814815,
+        "axis_within1": 0.6259259259259259,
+        "nearest": 0.5814814814814815,
+        "nearest_within1": 0.9037037037037037
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.07407407407407407,
+        "axis_within1": 0.22962962962962963,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       },
+       "raw": {
+        "axis": 0.1111111111111111,
+        "axis_within1": 0.3333333333333333,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.14074074074074075,
+        "axis_within1": 0.3814814814814815,
+        "nearest": 0.12962962962962962,
+        "nearest_within1": 0.4740740740740741
+       },
+       "raw": {
+        "axis": 0.18518518518518517,
+        "axis_within1": 0.3814814814814815,
+        "nearest": 0.0962962962962963,
+        "nearest_within1": 0.45185185185185184
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.1259259259259259,
+        "axis_within1": 0.32592592592592595,
+        "nearest": 0.14074074074074075,
+        "nearest_within1": 0.37407407407407406
+       },
+       "raw": {
+        "axis": 0.1259259259259259,
+        "axis_within1": 0.25555555555555554,
+        "nearest": 0.11481481481481481,
+        "nearest_within1": 0.35185185185185186
+       }
+      }
+     }
+    },
+    "block3": {
+     "core_inner": {
+      "coll": {
+       "context": {
+        "axis": 0.9777777777777777,
+        "axis_within1": 1.0,
+        "nearest": 0.9703703703703703,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9777777777777777,
+        "axis_within1": 1.0,
+        "nearest": 0.9629629629629629,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.1925925925925926,
+        "axis_within1": 0.8888888888888888,
+        "nearest": 0.34814814814814815,
+        "nearest_within1": 0.8777777777777778
+       },
+       "raw": {
+        "axis": 0.5814814814814815,
+        "axis_within1": 0.8888888888888888,
+        "nearest": 0.8851851851851852,
+        "nearest_within1": 0.8888888888888888
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.2,
+        "axis_within1": 0.5333333333333333,
+        "nearest": 0.2037037037037037,
+        "nearest_within1": 0.4962962962962963
+       },
+       "raw": {
+        "axis": 0.14074074074074075,
+        "axis_within1": 0.4074074074074074,
+        "nearest": 0.15555555555555556,
+        "nearest_within1": 0.3851851851851852
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.1814814814814815,
+        "axis_within1": 0.6518518518518519,
+        "nearest": 0.22962962962962963,
+        "nearest_within1": 0.8222222222222222
+       },
+       "raw": {
+        "axis": 0.2222222222222222,
+        "axis_within1": 0.5444444444444444,
+        "nearest": 1.0,
+        "nearest_within1": 1.0
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.10740740740740741,
+        "axis_within1": 0.37037037037037035,
+        "nearest": 0.1925925925925926,
+        "nearest_within1": 0.3851851851851852
+       },
+       "raw": {
+        "axis": 0.1962962962962963,
+        "axis_within1": 0.37037037037037035,
+        "nearest": 0.16666666666666666,
+        "nearest_within1": 0.35555555555555557
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.42962962962962964,
+        "axis_within1": 0.762962962962963,
+        "nearest": 0.3111111111111111,
+        "nearest_within1": 0.7296296296296296
+       },
+       "raw": {
+        "axis": 0.27037037037037037,
+        "axis_within1": 0.737037037037037,
+        "nearest": 0.22592592592592592,
+        "nearest_within1": 0.7222222222222222
+       }
+      }
+     },
+     "projection": {
+      "coll": {
+       "context": {
+        "axis": 0.9703703703703703,
+        "axis_within1": 1.0,
+        "nearest": 0.9259259259259259,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9481481481481482,
+        "axis_within1": 1.0,
+        "nearest": 0.9703703703703703,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.14444444444444443,
+        "axis_within1": 0.8888888888888888,
+        "nearest": 0.28888888888888886,
+        "nearest_within1": 0.774074074074074
+       },
+       "raw": {
+        "axis": 0.4,
+        "axis_within1": 0.8333333333333334,
+        "nearest": 0.8851851851851852,
+        "nearest_within1": 0.8888888888888888
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.2222222222222222,
+        "axis_within1": 0.5074074074074074,
+        "nearest": 0.23703703703703705,
+        "nearest_within1": 0.43703703703703706
+       },
+       "raw": {
+        "axis": 0.15925925925925927,
+        "axis_within1": 0.43703703703703706,
+        "nearest": 0.15555555555555556,
+        "nearest_within1": 0.3851851851851852
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.14814814814814814,
+        "axis_within1": 0.3888888888888889,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       },
+       "raw": {
+        "axis": 0.2,
+        "axis_within1": 0.4444444444444444,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.4444444444444444
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.12962962962962962,
+        "axis_within1": 0.3925925925925926,
+        "nearest": 0.13703703703703704,
+        "nearest_within1": 0.36666666666666664
+       },
+       "raw": {
+        "axis": 0.14814814814814814,
+        "axis_within1": 0.3814814814814815,
+        "nearest": 0.17037037037037037,
+        "nearest_within1": 0.3592592592592593
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.43333333333333335,
+        "axis_within1": 0.7888888888888889,
+        "nearest": 0.37407407407407406,
+        "nearest_within1": 0.7037037037037037
+       },
+       "raw": {
+        "axis": 0.3148148148148148,
+        "axis_within1": 0.5888888888888889,
+        "nearest": 0.21851851851851853,
+        "nearest_within1": 0.7148148148148148
+       }
+      }
+     }
+    },
+    "delay": {
+     "core_inner": {
+      "coll": {
+       "context": {
+        "axis": 0.9703703703703703,
+        "axis_within1": 1.0,
+        "nearest": 0.9481481481481482,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9703703703703703,
+        "axis_within1": 1.0,
+        "nearest": 0.9629629629629629,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.2111111111111111,
+        "axis_within1": 0.8555555555555555,
+        "nearest": 0.3296296296296296,
+        "nearest_within1": 0.7666666666666667
+       },
+       "raw": {
+        "axis": 0.45555555555555555,
+        "axis_within1": 0.8518518518518519,
+        "nearest": 0.4962962962962963,
+        "nearest_within1": 0.8888888888888888
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.1814814814814815,
+        "axis_within1": 0.44814814814814813,
+        "nearest": 0.17037037037037037,
+        "nearest_within1": 0.4222222222222222
+       },
+       "raw": {
+        "axis": 0.14444444444444443,
+        "axis_within1": 0.44074074074074077,
+        "nearest": 0.13703703703703704,
+        "nearest_within1": 0.44074074074074077
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.4777777777777778,
+        "axis_within1": 1.0,
+        "nearest": 0.32592592592592595,
+        "nearest_within1": 0.8888888888888888
+       },
+       "raw": {
+        "axis": 1.0,
+        "axis_within1": 1.0,
+        "nearest": 1.0,
+        "nearest_within1": 1.0
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.11851851851851852,
+        "axis_within1": 0.35555555555555557,
+        "nearest": 0.18518518518518517,
+        "nearest_within1": 0.36666666666666664
+       },
+       "raw": {
+        "axis": 0.2,
+        "axis_within1": 0.35185185185185186,
+        "nearest": 0.14814814814814814,
+        "nearest_within1": 0.3333333333333333
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.3851851851851852,
+        "axis_within1": 0.7703703703703704,
+        "nearest": 0.22962962962962963,
+        "nearest_within1": 0.6666666666666666
+       },
+       "raw": {
+        "axis": 0.18518518518518517,
+        "axis_within1": 0.5555555555555556,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.5962962962962963
+       }
+      }
+     },
+     "projection": {
+      "coll": {
+       "context": {
+        "axis": 0.9629629629629629,
+        "axis_within1": 1.0,
+        "nearest": 0.8592592592592593,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9555555555555556,
+        "axis_within1": 1.0,
+        "nearest": 0.9703703703703703,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.1037037037037037,
+        "axis_within1": 0.8222222222222222,
+        "nearest": 0.32222222222222224,
+        "nearest_within1": 0.6666666666666666
+       },
+       "raw": {
+        "axis": 0.6148148148148148,
+        "axis_within1": 0.8703703703703703,
+        "nearest": 0.5222222222222223,
+        "nearest_within1": 0.8888888888888888
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.1814814814814815,
+        "axis_within1": 0.43333333333333335,
+        "nearest": 0.16666666666666666,
+        "nearest_within1": 0.43333333333333335
+       },
+       "raw": {
+        "axis": 0.15555555555555556,
+        "axis_within1": 0.3148148148148148,
+        "nearest": 0.15555555555555556,
+        "nearest_within1": 0.42962962962962964
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.1111111111111111,
+        "axis_within1": 0.3333333333333333,
+        "nearest": 0.1037037037037037,
+        "nearest_within1": 0.32222222222222224
+       },
+       "raw": {
+        "axis": 0.1111111111111111,
+        "axis_within1": 0.2222222222222222,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.12962962962962962,
+        "axis_within1": 0.4148148148148148,
+        "nearest": 0.13703703703703704,
+        "nearest_within1": 0.3074074074074074
+       },
+       "raw": {
+        "axis": 0.12222222222222222,
+        "axis_within1": 0.37777777777777777,
+        "nearest": 0.15925925925925927,
+        "nearest_within1": 0.34444444444444444
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.34444444444444444,
+        "axis_within1": 0.7851851851851852,
+        "nearest": 0.3037037037037037,
+        "nearest_within1": 0.6481481481481481
+       },
+       "raw": {
+        "axis": 0.16666666666666666,
+        "axis_within1": 0.5740740740740741,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.5703703703703704
+       }
+      }
+     }
+    },
+    "relearn": {
+     "core_inner": {
+      "coll": {
+       "context": {
+        "axis": 0.9333333333333333,
+        "axis_within1": 1.0,
+        "nearest": 0.8666666666666667,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9333333333333333,
+        "axis_within1": 1.0,
+        "nearest": 0.9333333333333333,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.32592592592592595,
+        "axis_within1": 0.8148148148148148,
+        "nearest": 0.32592592592592595,
+        "nearest_within1": 0.6666666666666666
+       },
+       "raw": {
+        "axis": 0.5259259259259259,
+        "axis_within1": 0.8851851851851852,
+        "nearest": 0.562962962962963,
+        "nearest_within1": 0.8851851851851852
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.4185185185185185,
+        "axis_within1": 0.7777777777777778,
+        "nearest": 0.2777777777777778,
+        "nearest_within1": 0.5666666666666667
+       },
+       "raw": {
+        "axis": 0.35185185185185186,
+        "axis_within1": 0.8,
+        "nearest": 0.37407407407407406,
+        "nearest_within1": 0.7148148148148148
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.7333333333333333,
+        "axis_within1": 1.0,
+        "nearest": 0.3925925925925926,
+        "nearest_within1": 0.8518518518518519
+       },
+       "raw": {
+        "axis": 0.8555555555555555,
+        "axis_within1": 1.0,
+        "nearest": 0.9185185185185185,
+        "nearest_within1": 1.0
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.1,
+        "axis_within1": 0.337037037037037,
+        "nearest": 0.07407407407407407,
+        "nearest_within1": 0.2740740740740741
+       },
+       "raw": {
+        "axis": 0.17037037037037037,
+        "axis_within1": 0.4185185185185185,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.362962962962963
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.6037037037037037,
+        "axis_within1": 0.8925925925925926,
+        "nearest": 0.2777777777777778,
+        "nearest_within1": 0.7185185185185186
+       },
+       "raw": {
+        "axis": 0.4148148148148148,
+        "axis_within1": 0.9148148148148149,
+        "nearest": 0.5185185185185185,
+        "nearest_within1": 0.8444444444444444
+       }
+      }
+     },
+     "projection": {
+      "coll": {
+       "context": {
+        "axis": 0.9185185185185185,
+        "axis_within1": 1.0,
+        "nearest": 0.8814814814814815,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.8962962962962963,
+        "axis_within1": 1.0,
+        "nearest": 0.9555555555555556,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.12222222222222222,
+        "axis_within1": 0.8814814814814815,
+        "nearest": 0.14074074074074075,
+        "nearest_within1": 0.6592592592592592
+       },
+       "raw": {
+        "axis": 0.6185185185185185,
+        "axis_within1": 0.8740740740740741,
+        "nearest": 0.7037037037037037,
+        "nearest_within1": 0.8888888888888888
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.42962962962962964,
+        "axis_within1": 0.7814814814814814,
+        "nearest": 0.3,
+        "nearest_within1": 0.762962962962963
+       },
+       "raw": {
+        "axis": 0.23703703703703705,
+        "axis_within1": 0.6,
+        "nearest": 0.3814814814814815,
+        "nearest_within1": 0.7962962962962963
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.1111111111111111,
+        "axis_within1": 0.3333333333333333,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       },
+       "raw": {
+        "axis": 0.2222222222222222,
+        "axis_within1": 0.5518518518518518,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.14444444444444443,
+        "axis_within1": 0.4148148148148148,
+        "nearest": 0.07407407407407407,
+        "nearest_within1": 0.34074074074074073
+       },
+       "raw": {
+        "axis": 0.0962962962962963,
+        "axis_within1": 0.25555555555555554,
+        "nearest": 0.1814814814814815,
+        "nearest_within1": 0.4148148148148148
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.4703703703703704,
+        "axis_within1": 0.8777777777777778,
+        "nearest": 0.6518518518518519,
+        "nearest_within1": 0.8814814814814815
+       },
+       "raw": {
+        "axis": 0.24074074074074073,
+        "axis_within1": 0.7222222222222222,
+        "nearest": 0.6592592592592592,
+        "nearest_within1": 0.8851851851851852
+       }
+      }
+     }
+    }
+   }
+  },
+  "gp/seed302": {
+   "checkpoints": {
+    "block1": {
+     "file": "runs/shared-output-v1/pilot/gp/checkpoints/sparse48-seed302-block1.pt",
+     "sha256": "e4ccb51b00b8ed4982d3ccb6cefc9ec89d7e556bd4204306c2f5e42f0c86cd8d"
+    },
+    "block3": {
+     "file": "runs/shared-output-v1/pilot/gp/checkpoints/sparse48-seed302-block3.pt",
+     "sha256": "b831de4d3d8475c35e401799820fee17c57c543908e1b2651e574647f184c704"
+    },
+    "delay": {
+     "file": "runs/shared-output-v1/pilot/gp/checkpoints/sparse48-seed302-delay.pt",
+     "sha256": "65b09e26bcb6a1908806a4d2cb71f143930095def23b1fd9baf56637566e73a8"
+    },
+    "relearn": {
+     "file": "runs/shared-output-v1/pilot/gp/checkpoints/sparse48-seed302-relearn.pt",
+     "sha256": "f5941da6c2838810c284c41c099a8d45a8690828671fb98730992a4f65f328d4"
+    }
+   },
+   "reads": {
+    "block1": {
+     "core_inner": {
+      "coll": {
+       "context": {
+        "axis": 0.9185185185185185,
+        "axis_within1": 1.0,
+        "nearest": 0.8666666666666667,
+        "nearest_within1": 0.9925925925925926
+       },
+       "raw": {
+        "axis": 0.9259259259259259,
+        "axis_within1": 1.0,
+        "nearest": 0.9407407407407408,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.10740740740740741,
+        "axis_within1": 0.32222222222222224,
+        "nearest": 0.09259259259259259,
+        "nearest_within1": 0.3296296296296296
+       },
+       "raw": {
+        "axis": 0.14444444444444443,
+        "axis_within1": 0.337037037037037,
+        "nearest": 0.12962962962962962,
+        "nearest_within1": 0.40370370370370373
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.40370370370370373,
+        "axis_within1": 0.8222222222222222,
+        "nearest": 0.34444444444444444,
+        "nearest_within1": 0.8037037037037037
+       },
+       "raw": {
+        "axis": 0.22962962962962963,
+        "axis_within1": 0.6074074074074074,
+        "nearest": 0.5925925925925926,
+        "nearest_within1": 0.9296296296296296
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.43703703703703706,
+        "axis_within1": 1.0,
+        "nearest": 0.35185185185185186,
+        "nearest_within1": 0.825925925925926
+       },
+       "raw": {
+        "axis": 0.9111111111111111,
+        "axis_within1": 1.0,
+        "nearest": 0.9111111111111111,
+        "nearest_within1": 1.0
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.14444444444444443,
+        "axis_within1": 0.45925925925925926,
+        "nearest": 0.1259259259259259,
+        "nearest_within1": 0.4222222222222222
+       },
+       "raw": {
+        "axis": 0.11481481481481481,
+        "axis_within1": 0.40370370370370373,
+        "nearest": 0.07777777777777778,
+        "nearest_within1": 0.4666666666666667
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.1962962962962963,
+        "axis_within1": 0.31851851851851853,
+        "nearest": 0.17777777777777778,
+        "nearest_within1": 0.3296296296296296
+       },
+       "raw": {
+        "axis": 0.13333333333333333,
+        "axis_within1": 0.24444444444444444,
+        "nearest": 0.11481481481481481,
+        "nearest_within1": 0.3
+       }
+      }
+     },
+     "projection": {
+      "coll": {
+       "context": {
+        "axis": 0.9333333333333333,
+        "axis_within1": 1.0,
+        "nearest": 0.8962962962962963,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9259259259259259,
+        "axis_within1": 1.0,
+        "nearest": 0.9333333333333333,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.1037037037037037,
+        "axis_within1": 0.3592592592592593,
+        "nearest": 0.09259259259259259,
+        "nearest_within1": 0.337037037037037
+       },
+       "raw": {
+        "axis": 0.13703703703703704,
+        "axis_within1": 0.31851851851851853,
+        "nearest": 0.17777777777777778,
+        "nearest_within1": 0.3962962962962963
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.5259259259259259,
+        "axis_within1": 0.9,
+        "nearest": 0.662962962962963,
+        "nearest_within1": 0.9333333333333333
+       },
+       "raw": {
+        "axis": 0.21851851851851853,
+        "axis_within1": 0.5962962962962963,
+        "nearest": 0.5555555555555556,
+        "nearest_within1": 0.9037037037037037
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.1111111111111111,
+        "axis_within1": 0.3333333333333333,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       },
+       "raw": {
+        "axis": 0.1111111111111111,
+        "axis_within1": 0.3333333333333333,
+        "nearest": 0.15185185185185185,
+        "nearest_within1": 0.4444444444444444
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.1037037037037037,
+        "axis_within1": 0.43703703703703706,
+        "nearest": 0.15185185185185185,
+        "nearest_within1": 0.4925925925925926
+       },
+       "raw": {
+        "axis": 0.18888888888888888,
+        "axis_within1": 0.35185185185185186,
+        "nearest": 0.1,
+        "nearest_within1": 0.4777777777777778
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.14814814814814814,
+        "axis_within1": 0.3111111111111111,
+        "nearest": 0.13333333333333333,
+        "nearest_within1": 0.32592592592592595
+       },
+       "raw": {
+        "axis": 0.10740740740740741,
+        "axis_within1": 0.2962962962962963,
+        "nearest": 0.11481481481481481,
+        "nearest_within1": 0.31851851851851853
+       }
+      }
+     }
+    },
+    "block3": {
+     "core_inner": {
+      "coll": {
+       "context": {
+        "axis": 0.9555555555555556,
+        "axis_within1": 1.0,
+        "nearest": 0.9333333333333333,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9629629629629629,
+        "axis_within1": 1.0,
+        "nearest": 0.9481481481481482,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.5481481481481482,
+        "axis_within1": 0.8851851851851852,
+        "nearest": 0.725925925925926,
+        "nearest_within1": 0.7777777777777778
+       },
+       "raw": {
+        "axis": 0.7111111111111111,
+        "axis_within1": 0.8888888888888888,
+        "nearest": 0.7777777777777778,
+        "nearest_within1": 0.8888888888888888
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.12962962962962962,
+        "axis_within1": 0.4074074074074074,
+        "nearest": 0.15185185185185185,
+        "nearest_within1": 0.43333333333333335
+       },
+       "raw": {
+        "axis": 0.15185185185185185,
+        "axis_within1": 0.32222222222222224,
+        "nearest": 0.0962962962962963,
+        "nearest_within1": 0.3333333333333333
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.3592592592592593,
+        "axis_within1": 0.9925925925925926,
+        "nearest": 0.5740740740740741,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.7925925925925926,
+        "axis_within1": 1.0,
+        "nearest": 1.0,
+        "nearest_within1": 1.0
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.0962962962962963,
+        "axis_within1": 0.28888888888888886,
+        "nearest": 0.13703703703703704,
+        "nearest_within1": 0.3148148148148148
+       },
+       "raw": {
+        "axis": 0.11481481481481481,
+        "axis_within1": 0.32592592592592595,
+        "nearest": 0.10740740740740741,
+        "nearest_within1": 0.3296296296296296
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.43333333333333335,
+        "axis_within1": 0.8740740740740741,
+        "nearest": 0.4185185185185185,
+        "nearest_within1": 0.8629629629629629
+       },
+       "raw": {
+        "axis": 0.12222222222222222,
+        "axis_within1": 0.5074074074074074,
+        "nearest": 0.10740740740740741,
+        "nearest_within1": 0.5
+       }
+      }
+     },
+     "projection": {
+      "coll": {
+       "context": {
+        "axis": 0.9629629629629629,
+        "axis_within1": 1.0,
+        "nearest": 0.9259259259259259,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9555555555555556,
+        "axis_within1": 1.0,
+        "nearest": 0.9481481481481482,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.34074074074074073,
+        "axis_within1": 0.8888888888888888,
+        "nearest": 0.3333333333333333,
+        "nearest_within1": 0.825925925925926
+       },
+       "raw": {
+        "axis": 0.7444444444444445,
+        "axis_within1": 0.8888888888888888,
+        "nearest": 0.8740740740740741,
+        "nearest_within1": 0.8888888888888888
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.12962962962962962,
+        "axis_within1": 0.3814814814814815,
+        "nearest": 0.13703703703703704,
+        "nearest_within1": 0.37777777777777777
+       },
+       "raw": {
+        "axis": 0.15555555555555556,
+        "axis_within1": 0.3592592592592593,
+        "nearest": 0.1259259259259259,
+        "nearest_within1": 0.337037037037037
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.1111111111111111,
+        "axis_within1": 0.34814814814814815,
+        "nearest": 0.10740740740740741,
+        "nearest_within1": 0.37407407407407406
+       },
+       "raw": {
+        "axis": 0.1111111111111111,
+        "axis_within1": 0.337037037037037,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.1,
+        "axis_within1": 0.23703703703703705,
+        "nearest": 0.08888888888888889,
+        "nearest_within1": 0.24444444444444444
+       },
+       "raw": {
+        "axis": 0.11481481481481481,
+        "axis_within1": 0.337037037037037,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.32592592592592595
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.3888888888888889,
+        "axis_within1": 0.8296296296296296,
+        "nearest": 0.23333333333333334,
+        "nearest_within1": 0.7814814814814814
+       },
+       "raw": {
+        "axis": 0.14444444444444443,
+        "axis_within1": 0.5259259259259259,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.5259259259259259
+       }
+      }
+     }
+    },
+    "delay": {
+     "core_inner": {
+      "coll": {
+       "context": {
+        "axis": 0.9777777777777777,
+        "axis_within1": 1.0,
+        "nearest": 0.9629629629629629,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9851851851851852,
+        "axis_within1": 1.0,
+        "nearest": 0.9555555555555556,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.42592592592592593,
+        "axis_within1": 0.8814814814814815,
+        "nearest": 0.4740740740740741,
+        "nearest_within1": 0.8037037037037037
+       },
+       "raw": {
+        "axis": 0.28888888888888886,
+        "axis_within1": 0.8555555555555555,
+        "nearest": 0.35185185185185186,
+        "nearest_within1": 0.8481481481481481
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.10740740740740741,
+        "axis_within1": 0.28888888888888886,
+        "nearest": 0.0962962962962963,
+        "nearest_within1": 0.337037037037037
+       },
+       "raw": {
+        "axis": 0.05185185185185185,
+        "axis_within1": 0.22962962962962963,
+        "nearest": 0.05925925925925926,
+        "nearest_within1": 0.2518518518518518
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.22592592592592592,
+        "axis_within1": 0.9148148148148149,
+        "nearest": 0.3592592592592593,
+        "nearest_within1": 0.9
+       },
+       "raw": {
+        "axis": 0.7185185185185186,
+        "axis_within1": 1.0,
+        "nearest": 1.0,
+        "nearest_within1": 1.0
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.11481481481481481,
+        "axis_within1": 0.26666666666666666,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.24814814814814815
+       },
+       "raw": {
+        "axis": 0.1037037037037037,
+        "axis_within1": 0.3296296296296296,
+        "nearest": 0.1037037037037037,
+        "nearest_within1": 0.35185185185185186
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.2777777777777778,
+        "axis_within1": 0.6851851851851852,
+        "nearest": 0.24444444444444444,
+        "nearest_within1": 0.6703703703703704
+       },
+       "raw": {
+        "axis": 0.10740740740740741,
+        "axis_within1": 0.4,
+        "nearest": 0.10740740740740741,
+        "nearest_within1": 0.43333333333333335
+       }
+      }
+     },
+     "projection": {
+      "coll": {
+       "context": {
+        "axis": 0.9407407407407408,
+        "axis_within1": 1.0,
+        "nearest": 0.837037037037037,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9481481481481482,
+        "axis_within1": 1.0,
+        "nearest": 0.9629629629629629,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.42592592592592593,
+        "axis_within1": 0.8555555555555555,
+        "nearest": 0.35185185185185186,
+        "nearest_within1": 0.8518518518518519
+       },
+       "raw": {
+        "axis": 0.17037037037037037,
+        "axis_within1": 0.5592592592592592,
+        "nearest": 0.6,
+        "nearest_within1": 0.8629629629629629
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.1,
+        "axis_within1": 0.3148148148148148,
+        "nearest": 0.0962962962962963,
+        "nearest_within1": 0.3074074074074074
+       },
+       "raw": {
+        "axis": 0.1814814814814815,
+        "axis_within1": 0.43703703703703706,
+        "nearest": 0.07777777777777778,
+        "nearest_within1": 0.24814814814814815
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.12222222222222222,
+        "axis_within1": 0.5407407407407407,
+        "nearest": 0.11851851851851852,
+        "nearest_within1": 0.4444444444444444
+       },
+       "raw": {
+        "axis": 0.21481481481481482,
+        "axis_within1": 0.8962962962962963,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.0962962962962963,
+        "axis_within1": 0.26666666666666666,
+        "nearest": 0.08518518518518518,
+        "nearest_within1": 0.24444444444444444
+       },
+       "raw": {
+        "axis": 0.09259259259259259,
+        "axis_within1": 0.34074074074074073,
+        "nearest": 0.1037037037037037,
+        "nearest_within1": 0.34814814814814815
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.3,
+        "axis_within1": 0.7037037037037037,
+        "nearest": 0.337037037037037,
+        "nearest_within1": 0.7148148148148148
+       },
+       "raw": {
+        "axis": 0.15555555555555556,
+        "axis_within1": 0.6222222222222222,
+        "nearest": 0.10740740740740741,
+        "nearest_within1": 0.46296296296296297
+       }
+      }
+     }
+    },
+    "relearn": {
+     "core_inner": {
+      "coll": {
+       "context": {
+        "axis": 0.9481481481481482,
+        "axis_within1": 1.0,
+        "nearest": 0.9185185185185185,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9555555555555556,
+        "axis_within1": 1.0,
+        "nearest": 0.9481481481481482,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.6037037037037037,
+        "axis_within1": 0.7814814814814814,
+        "nearest": 0.2740740740740741,
+        "nearest_within1": 0.7555555555555555
+       },
+       "raw": {
+        "axis": 0.24074074074074073,
+        "axis_within1": 0.7407407407407407,
+        "nearest": 0.45185185185185184,
+        "nearest_within1": 0.8074074074074075
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.37777777777777777,
+        "axis_within1": 0.8148148148148148,
+        "nearest": 0.1962962962962963,
+        "nearest_within1": 0.6851851851851852
+       },
+       "raw": {
+        "axis": 0.17777777777777778,
+        "axis_within1": 0.6481481481481481,
+        "nearest": 0.48148148148148145,
+        "nearest_within1": 0.8592592592592593
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.9740740740740741,
+        "axis_within1": 1.0,
+        "nearest": 0.337037037037037,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.4444444444444444,
+        "axis_within1": 0.9703703703703703,
+        "nearest": 0.9777777777777777,
+        "nearest_within1": 1.0
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.08888888888888889,
+        "axis_within1": 0.3851851851851852,
+        "nearest": 0.15555555555555556,
+        "nearest_within1": 0.2851851851851852
+       },
+       "raw": {
+        "axis": 0.07407407407407407,
+        "axis_within1": 0.2962962962962963,
+        "nearest": 0.07777777777777778,
+        "nearest_within1": 0.2962962962962963
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.5518518518518518,
+        "axis_within1": 0.9444444444444444,
+        "nearest": 0.4148148148148148,
+        "nearest_within1": 0.8481481481481481
+       },
+       "raw": {
+        "axis": 0.16296296296296298,
+        "axis_within1": 0.8481481481481481,
+        "nearest": 0.5666666666666667,
+        "nearest_within1": 0.9555555555555556
+       }
+      }
+     },
+     "projection": {
+      "coll": {
+       "context": {
+        "axis": 0.9259259259259259,
+        "axis_within1": 1.0,
+        "nearest": 0.9407407407407408,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9185185185185185,
+        "axis_within1": 1.0,
+        "nearest": 0.9777777777777777,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.5037037037037037,
+        "axis_within1": 0.7777777777777778,
+        "nearest": 0.4666666666666667,
+        "nearest_within1": 0.9777777777777777
+       },
+       "raw": {
+        "axis": 0.35555555555555557,
+        "axis_within1": 0.7222222222222222,
+        "nearest": 0.7185185185185186,
+        "nearest_within1": 0.937037037037037
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.3962962962962963,
+        "axis_within1": 0.8037037037037037,
+        "nearest": 0.21851851851851853,
+        "nearest_within1": 0.7703703703703704
+       },
+       "raw": {
+        "axis": 0.12222222222222222,
+        "axis_within1": 0.6,
+        "nearest": 0.34444444444444444,
+        "nearest_within1": 0.725925925925926
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.12962962962962962,
+        "axis_within1": 0.4148148148148148,
+        "nearest": 0.11851851851851852,
+        "nearest_within1": 0.35555555555555557
+       },
+       "raw": {
+        "axis": 0.1111111111111111,
+        "axis_within1": 0.3333333333333333,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.12962962962962962,
+        "axis_within1": 0.36666666666666664,
+        "nearest": 0.08888888888888889,
+        "nearest_within1": 0.37037037037037035
+       },
+       "raw": {
+        "axis": 0.13703703703703704,
+        "axis_within1": 0.35555555555555557,
+        "nearest": 0.06666666666666667,
+        "nearest_within1": 0.26666666666666666
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.6592592592592592,
+        "axis_within1": 0.937037037037037,
+        "nearest": 0.43703703703703706,
+        "nearest_within1": 0.937037037037037
+       },
+       "raw": {
+        "axis": 0.28888888888888886,
+        "axis_within1": 0.8111111111111111,
+        "nearest": 0.5481481481481482,
+        "nearest_within1": 0.9555555555555556
+       }
+      }
+     }
+    }
+   }
+  },
+  "gp/seed303": {
+   "checkpoints": {
+    "block1": {
+     "file": "runs/shared-output-v1/pilot/gp/checkpoints/sparse48-seed303-block1.pt",
+     "sha256": "fb43a813d54e12e6a2ccc1786bbb3f55a0d19cba8da4474fd53426792d1f494c"
+    },
+    "block3": {
+     "file": "runs/shared-output-v1/pilot/gp/checkpoints/sparse48-seed303-block3.pt",
+     "sha256": "707a33905c008bba0dafb1ca48928a6f83fd27622fd59e7b5dc737ae91a1e0b0"
+    },
+    "delay": {
+     "file": "runs/shared-output-v1/pilot/gp/checkpoints/sparse48-seed303-delay.pt",
+     "sha256": "a0aafd3b5f22d1c21883925959b700b68db866123b3a6eba8b077e88c1b66816"
+    },
+    "relearn": {
+     "file": "runs/shared-output-v1/pilot/gp/checkpoints/sparse48-seed303-relearn.pt",
+     "sha256": "2dc6a81b331b5a0bd220eda8855732611585ad1beeb683c7088cbf5b4ee1c837"
+    }
+   },
+   "reads": {
+    "block1": {
+     "core_inner": {
+      "coll": {
+       "context": {
+        "axis": 0.9185185185185185,
+        "axis_within1": 1.0,
+        "nearest": 0.9111111111111111,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9333333333333333,
+        "axis_within1": 1.0,
+        "nearest": 0.9407407407407408,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.08888888888888889,
+        "axis_within1": 0.29259259259259257,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.32222222222222224
+       },
+       "raw": {
+        "axis": 0.14444444444444443,
+        "axis_within1": 0.3962962962962963,
+        "nearest": 0.15555555555555556,
+        "nearest_within1": 0.3814814814814815
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.42962962962962964,
+        "axis_within1": 0.9185185185185185,
+        "nearest": 0.23703703703703705,
+        "nearest_within1": 0.6851851851851852
+       },
+       "raw": {
+        "axis": 0.34814814814814815,
+        "axis_within1": 0.8740740740740741,
+        "nearest": 0.6703703703703704,
+        "nearest_within1": 0.9259259259259259
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.8740740740740741,
+        "axis_within1": 1.0,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.4111111111111111
+       },
+       "raw": {
+        "axis": 0.837037037037037,
+        "axis_within1": 1.0,
+        "nearest": 0.9851851851851852,
+        "nearest_within1": 1.0
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.12222222222222222,
+        "axis_within1": 0.4444444444444444,
+        "nearest": 0.16666666666666666,
+        "nearest_within1": 0.44814814814814813
+       },
+       "raw": {
+        "axis": 0.23333333333333334,
+        "axis_within1": 0.37037037037037035,
+        "nearest": 0.10740740740740741,
+        "nearest_within1": 0.45555555555555555
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.18888888888888888,
+        "axis_within1": 0.35185185185185186,
+        "nearest": 0.1814814814814815,
+        "nearest_within1": 0.3333333333333333
+       },
+       "raw": {
+        "axis": 0.10740740740740741,
+        "axis_within1": 0.3296296296296296,
+        "nearest": 0.12222222222222222,
+        "nearest_within1": 0.36666666666666664
+       }
+      }
+     },
+     "projection": {
+      "coll": {
+       "context": {
+        "axis": 0.9111111111111111,
+        "axis_within1": 1.0,
+        "nearest": 0.8592592592592593,
+        "nearest_within1": 0.9925925925925926
+       },
+       "raw": {
+        "axis": 0.9111111111111111,
+        "axis_within1": 1.0,
+        "nearest": 0.9407407407407408,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.12962962962962962,
+        "axis_within1": 0.34814814814814815,
+        "nearest": 0.05555555555555555,
+        "nearest_within1": 0.25925925925925924
+       },
+       "raw": {
+        "axis": 0.13333333333333333,
+        "axis_within1": 0.34074074074074073,
+        "nearest": 0.15555555555555556,
+        "nearest_within1": 0.3888888888888889
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.26296296296296295,
+        "axis_within1": 0.8814814814814815,
+        "nearest": 0.5703703703703704,
+        "nearest_within1": 0.937037037037037
+       },
+       "raw": {
+        "axis": 0.2851851851851852,
+        "axis_within1": 0.6703703703703704,
+        "nearest": 0.562962962962963,
+        "nearest_within1": 0.9148148148148149
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.1,
+        "axis_within1": 0.3148148148148148,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       },
+       "raw": {
+        "axis": 0.1111111111111111,
+        "axis_within1": 0.3333333333333333,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.17407407407407408,
+        "axis_within1": 0.4777777777777778,
+        "nearest": 0.12962962962962962,
+        "nearest_within1": 0.5
+       },
+       "raw": {
+        "axis": 0.1814814814814815,
+        "axis_within1": 0.37407407407407406,
+        "nearest": 0.13703703703703704,
+        "nearest_within1": 0.4666666666666667
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.15925925925925927,
+        "axis_within1": 0.31851851851851853,
+        "nearest": 0.2074074074074074,
+        "nearest_within1": 0.40370370370370373
+       },
+       "raw": {
+        "axis": 0.1,
+        "axis_within1": 0.2962962962962963,
+        "nearest": 0.11851851851851852,
+        "nearest_within1": 0.3962962962962963
+       }
+      }
+     }
+    },
+    "block3": {
+     "core_inner": {
+      "coll": {
+       "context": {
+        "axis": 0.9851851851851852,
+        "axis_within1": 1.0,
+        "nearest": 0.9777777777777777,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9851851851851852,
+        "axis_within1": 1.0,
+        "nearest": 0.9777777777777777,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.36666666666666664,
+        "axis_within1": 0.8740740740740741,
+        "nearest": 0.32592592592592595,
+        "nearest_within1": 0.7777777777777778
+       },
+       "raw": {
+        "axis": 0.6777777777777778,
+        "axis_within1": 0.8888888888888888,
+        "nearest": 0.8703703703703703,
+        "nearest_within1": 0.8888888888888888
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.15555555555555556,
+        "axis_within1": 0.37037037037037035,
+        "nearest": 0.14814814814814814,
+        "nearest_within1": 0.3851851851851852
+       },
+       "raw": {
+        "axis": 0.13703703703703704,
+        "axis_within1": 0.27037037037037037,
+        "nearest": 0.12222222222222222,
+        "nearest_within1": 0.27037037037037037
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.7148148148148148,
+        "axis_within1": 1.0,
+        "nearest": 0.3925925925925926,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9666666666666667,
+        "axis_within1": 1.0,
+        "nearest": 0.9592592592592593,
+        "nearest_within1": 1.0
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.10740740740740741,
+        "axis_within1": 0.2962962962962963,
+        "nearest": 0.1,
+        "nearest_within1": 0.2851851851851852
+       },
+       "raw": {
+        "axis": 0.12222222222222222,
+        "axis_within1": 0.32592592592592595,
+        "nearest": 0.1,
+        "nearest_within1": 0.3037037037037037
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.3074074074074074,
+        "axis_within1": 0.8037037037037037,
+        "nearest": 0.24444444444444444,
+        "nearest_within1": 0.5703703703703704
+       },
+       "raw": {
+        "axis": 0.07407407407407407,
+        "axis_within1": 0.43703703703703706,
+        "nearest": 0.13703703703703704,
+        "nearest_within1": 0.725925925925926
+       }
+      }
+     },
+     "projection": {
+      "coll": {
+       "context": {
+        "axis": 0.9629629629629629,
+        "axis_within1": 1.0,
+        "nearest": 0.9333333333333333,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9481481481481482,
+        "axis_within1": 1.0,
+        "nearest": 0.9629629629629629,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.44074074074074077,
+        "axis_within1": 0.8555555555555555,
+        "nearest": 0.6370370370370371,
+        "nearest_within1": 0.8888888888888888
+       },
+       "raw": {
+        "axis": 0.4,
+        "axis_within1": 0.7,
+        "nearest": 0.8740740740740741,
+        "nearest_within1": 0.8888888888888888
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.1259259259259259,
+        "axis_within1": 0.3592592592592593,
+        "nearest": 0.15925925925925927,
+        "nearest_within1": 0.4148148148148148
+       },
+       "raw": {
+        "axis": 0.14444444444444443,
+        "axis_within1": 0.28888888888888886,
+        "nearest": 0.12962962962962962,
+        "nearest_within1": 0.25925925925925924
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.1111111111111111,
+        "axis_within1": 0.3148148148148148,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       },
+       "raw": {
+        "axis": 0.003703703703703704,
+        "axis_within1": 0.2222222222222222,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.15185185185185185,
+        "axis_within1": 0.36666666666666664,
+        "nearest": 0.13333333333333333,
+        "nearest_within1": 0.3925925925925926
+       },
+       "raw": {
+        "axis": 0.15925925925925927,
+        "axis_within1": 0.362962962962963,
+        "nearest": 0.1,
+        "nearest_within1": 0.3148148148148148
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.3,
+        "axis_within1": 0.7814814814814814,
+        "nearest": 0.25555555555555554,
+        "nearest_within1": 0.8333333333333334
+       },
+       "raw": {
+        "axis": 0.2,
+        "axis_within1": 0.4925925925925926,
+        "nearest": 0.13703703703703704,
+        "nearest_within1": 0.7074074074074074
+       }
+      }
+     }
+    },
+    "delay": {
+     "core_inner": {
+      "coll": {
+       "context": {
+        "axis": 0.9851851851851852,
+        "axis_within1": 1.0,
+        "nearest": 0.9703703703703703,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9851851851851852,
+        "axis_within1": 1.0,
+        "nearest": 0.9703703703703703,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.35555555555555557,
+        "axis_within1": 0.7148148148148148,
+        "nearest": 0.3814814814814815,
+        "nearest_within1": 0.674074074074074
+       },
+       "raw": {
+        "axis": 0.32592592592592595,
+        "axis_within1": 0.8333333333333334,
+        "nearest": 0.4444444444444444,
+        "nearest_within1": 0.8888888888888888
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.15925925925925927,
+        "axis_within1": 0.337037037037037,
+        "nearest": 0.14814814814814814,
+        "nearest_within1": 0.3333333333333333
+       },
+       "raw": {
+        "axis": 0.12962962962962962,
+        "axis_within1": 0.2740740740740741,
+        "nearest": 0.1259259259259259,
+        "nearest_within1": 0.26296296296296295
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.2222222222222222,
+        "axis_within1": 0.725925925925926,
+        "nearest": 0.27037037037037037,
+        "nearest_within1": 0.9777777777777777
+       },
+       "raw": {
+        "axis": 0.7111111111111111,
+        "axis_within1": 1.0,
+        "nearest": 1.0,
+        "nearest_within1": 1.0
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.17037037037037037,
+        "axis_within1": 0.2814814814814815,
+        "nearest": 0.16666666666666666,
+        "nearest_within1": 0.29259259259259257
+       },
+       "raw": {
+        "axis": 0.1,
+        "axis_within1": 0.3111111111111111,
+        "nearest": 0.08518518518518518,
+        "nearest_within1": 0.29259259259259257
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.2037037037037037,
+        "axis_within1": 0.5814814814814815,
+        "nearest": 0.22962962962962963,
+        "nearest_within1": 0.5666666666666667
+       },
+       "raw": {
+        "axis": 0.08518518518518518,
+        "axis_within1": 0.3925925925925926,
+        "nearest": 0.07407407407407407,
+        "nearest_within1": 0.562962962962963
+       }
+      }
+     },
+     "projection": {
+      "coll": {
+       "context": {
+        "axis": 0.9629629629629629,
+        "axis_within1": 1.0,
+        "nearest": 0.8962962962962963,
+        "nearest_within1": 0.9925925925925926
+       },
+       "raw": {
+        "axis": 0.9481481481481482,
+        "axis_within1": 1.0,
+        "nearest": 0.9629629629629629,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.6111111111111112,
+        "axis_within1": 0.825925925925926,
+        "nearest": 0.5851851851851851,
+        "nearest_within1": 0.9222222222222223
+       },
+       "raw": {
+        "axis": 0.5777777777777777,
+        "axis_within1": 0.8814814814814815,
+        "nearest": 0.5518518518518518,
+        "nearest_within1": 0.8888888888888888
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.13703703703703704,
+        "axis_within1": 0.35555555555555557,
+        "nearest": 0.13703703703703704,
+        "nearest_within1": 0.4074074074074074
+       },
+       "raw": {
+        "axis": 0.13333333333333333,
+        "axis_within1": 0.42962962962962964,
+        "nearest": 0.1259259259259259,
+        "nearest_within1": 0.25555555555555554
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.1111111111111111,
+        "axis_within1": 0.3296296296296296,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       },
+       "raw": {
+        "axis": 0.14074074074074075,
+        "axis_within1": 0.3962962962962963,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.14444444444444443,
+        "axis_within1": 0.37777777777777777,
+        "nearest": 0.08518518518518518,
+        "nearest_within1": 0.40370370370370373
+       },
+       "raw": {
+        "axis": 0.1962962962962963,
+        "axis_within1": 0.37777777777777777,
+        "nearest": 0.08148148148148149,
+        "nearest_within1": 0.2814814814814815
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.5074074074074074,
+        "axis_within1": 0.9259259259259259,
+        "nearest": 0.34074074074074073,
+        "nearest_within1": 0.8592592592592593
+       },
+       "raw": {
+        "axis": 0.26296296296296295,
+        "axis_within1": 0.7925925925925926,
+        "nearest": 0.1037037037037037,
+        "nearest_within1": 0.5925925925925926
+       }
+      }
+     }
+    },
+    "relearn": {
+     "core_inner": {
+      "coll": {
+       "context": {
+        "axis": 0.9407407407407408,
+        "axis_within1": 1.0,
+        "nearest": 0.9111111111111111,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9555555555555556,
+        "axis_within1": 1.0,
+        "nearest": 0.9703703703703703,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.5851851851851851,
+        "axis_within1": 0.8222222222222222,
+        "nearest": 0.48148148148148145,
+        "nearest_within1": 0.8851851851851852
+       },
+       "raw": {
+        "axis": 0.6296296296296297,
+        "axis_within1": 0.8777777777777778,
+        "nearest": 0.6481481481481481,
+        "nearest_within1": 0.8851851851851852
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.3148148148148148,
+        "axis_within1": 0.7851851851851852,
+        "nearest": 0.34444444444444444,
+        "nearest_within1": 0.6814814814814815
+       },
+       "raw": {
+        "axis": 0.22592592592592592,
+        "axis_within1": 0.6037037037037037,
+        "nearest": 0.17777777777777778,
+        "nearest_within1": 0.4962962962962963
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.9925925925925926,
+        "axis_within1": 1.0,
+        "nearest": 0.5111111111111111,
+        "nearest_within1": 0.9925925925925926
+       },
+       "raw": {
+        "axis": 0.5185185185185185,
+        "axis_within1": 1.0,
+        "nearest": 0.662962962962963,
+        "nearest_within1": 1.0
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.1,
+        "axis_within1": 0.3111111111111111,
+        "nearest": 0.12222222222222222,
+        "nearest_within1": 0.31851851851851853
+       },
+       "raw": {
+        "axis": 0.17777777777777778,
+        "axis_within1": 0.3888888888888889,
+        "nearest": 0.17777777777777778,
+        "nearest_within1": 0.42592592592592593
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.4740740740740741,
+        "axis_within1": 0.9148148148148149,
+        "nearest": 0.3851851851851852,
+        "nearest_within1": 0.8592592592592593
+       },
+       "raw": {
+        "axis": 0.3888888888888889,
+        "axis_within1": 0.8518518518518519,
+        "nearest": 0.46296296296296297,
+        "nearest_within1": 0.8592592592592593
+       }
+      }
+     },
+     "projection": {
+      "coll": {
+       "context": {
+        "axis": 0.9259259259259259,
+        "axis_within1": 1.0,
+        "nearest": 0.9407407407407408,
+        "nearest_within1": 1.0
+       },
+       "raw": {
+        "axis": 0.9037037037037037,
+        "axis_within1": 1.0,
+        "nearest": 0.9703703703703703,
+        "nearest_within1": 1.0
+       }
+      },
+      "dev": {
+       "context": {
+        "axis": 0.6370370370370371,
+        "axis_within1": 0.7814814814814814,
+        "nearest": 0.3111111111111111,
+        "nearest_within1": 0.8
+       },
+       "raw": {
+        "axis": 0.44814814814814813,
+        "axis_within1": 0.774074074074074,
+        "nearest": 0.7074074074074074,
+        "nearest_within1": 0.8925925925925926
+       }
+      },
+      "en": {
+       "context": {
+        "axis": 0.34814814814814815,
+        "axis_within1": 0.7703703703703704,
+        "nearest": 0.23333333333333334,
+        "nearest_within1": 0.6888888888888889
+       },
+       "raw": {
+        "axis": 0.25555555555555554,
+        "axis_within1": 0.674074074074074,
+        "nearest": 0.43333333333333335,
+        "nearest_within1": 0.825925925925926
+       }
+      },
+      "taps": {
+       "context": {
+        "axis": 0.08148148148148149,
+        "axis_within1": 0.3074074074074074,
+        "nearest": 0.10740740740740741,
+        "nearest_within1": 0.2740740740740741
+       },
+       "raw": {
+        "axis": 0.1111111111111111,
+        "axis_within1": 0.3925925925925926,
+        "nearest": 0.1111111111111111,
+        "nearest_within1": 0.3333333333333333
+       }
+      },
+      "thai": {
+       "context": {
+        "axis": 0.0962962962962963,
+        "axis_within1": 0.32222222222222224,
+        "nearest": 0.07777777777777778,
+        "nearest_within1": 0.40370370370370373
+       },
+       "raw": {
+        "axis": 0.08148148148148149,
+        "axis_within1": 0.2814814814814815,
+        "nearest": 0.12962962962962962,
+        "nearest_within1": 0.36666666666666664
+       }
+      },
+      "zh": {
+       "context": {
+        "axis": 0.6222222222222222,
+        "axis_within1": 0.9444444444444444,
+        "nearest": 0.42592592592592593,
+        "nearest_within1": 0.8148148148148148
+       },
+       "raw": {
+        "axis": 0.5407407407407407,
+        "axis_within1": 0.9148148148148149,
+        "nearest": 0.7296296296296296,
+        "nearest_within1": 0.8925925925925926
+       }
+      }
+     }
+    }
+   }
+  }
+ },
+ "seeds": [
+  300,
+  301,
+  302,
+  303
+ ],
+ "status": "context-normalized identity; no training"
+}
