@@ -232,3 +232,88 @@ range of seed means in brackets. `gp` shows the same pattern; both arms are in t
 5. **Thai × Thai matching is glyph resemblance, confirmed.** It does not depend on identification (0.67 against 0.63), and the
    mediated pick is far lower than the direct one.
 6. **Explanation 2 is not separated,** as stated in the predictions.
+
+## Identity from order (2026-11-05)
+
+Written before the run. Same checkpoints, arms, seeds and items; `experiments/two_script_reads_v3.py`, report
+`reports/two-script-reads-v3.json`. The user asked for it: *make the system derive something it has forgotten through other
+relations.*
+
+**Why.** At block 3 Chinese forms are identified over M only 0.21 of the time, yet they compare correctly with collections
+(0.73 adjacent, 0.86 at 3+ apart). If a form's place in the order survives, its count may be recoverable from its comparisons with
+collections the system still holds sharply, without the lost `same` pairing.
+
+**Order profile.** For an item x and each count c, s_c(x) is the mean over M's participants of count c of
+½[more(x, m) − more(m, x)], the antisymmetrized `more` logit. Positive means "x is above c". Nine numbers per item, read from the
+trained `more` reader only.
+
+**Two derivations.**
+- **Placement (fixed rule, diagnostic).** n̂ = argmax_n [Σ_{c<n} s_c − Σ_{c>n} s_c]: the count most consistent with the profile.
+  A hand-written rule over the system's outputs, so a diagnostic, not part of the system.
+- **Learned read (neural).** A linear softmax read from the 9-number profile to the count, fitted per checkpoint only on kinds
+  whose identity is present: collections and taps (first half of their items; the second half is scored). No script item is
+  used in fitting. Scored on every kind.
+
+**Reported per kind and point.** `same` identification (as in the follow-up), placement and learned-read accuracy, accuracy
+within one count, and the **recovered share**: derived accuracy on the items `same` misidentifies (chance about 1/8).
+
+**Predictions.**
+1. **[derived]** Chinese at block 3: derived identity clearly above `same`'s 0.21, mostly within one count (adjacent comparison is
+   only 0.73), so exact accuracy roughly 0.35–0.5 and within-one roughly 0.8 or more.
+2. Devanagari, already identified, gains little; derived identity may fall below `same`.
+3. Thai stays near chance: its forms have no order (Thai × Thai comparison 0.46–0.54).
+4. If the learned read matches placement, the information is usable by a learned read trained only where identity is present;
+   if it is far below, the profile of forms differs in shape from that of collections.
+
+**Prior work** ([familiar]). Ranking from pairwise comparisons (Borda and Copeland counts, Bradley–Terry); placement is a
+Borda-style score. The **symbolic distance effect** (Moyer and Landauer 1967): comparison accuracy rises with distance, as found
+above, and is the classic sign of an analogue order code rather than stored pairings. **Transitive inference** (in animals and
+networks): order can be derived for pairs never trained together. Known failure: with a compressed order code, placement is
+biased toward the middle counts; end counts are easier.
+
+**Cost.** Per checkpoint, 6 kinds × 9 counts × 30 items × 72 participants × 2 directions ≈ 233k `more` reads (~15k FLOPs each,
+about 3.5 GFLOP), and a 9 × 9 softmax read fitted by L-BFGS on 540 items. 16 tasks × 3 points ≈ 170 GFLOP. No new state kept.
+
+### Identity-from-order results
+
+Run 2026-11-05: 158 s wall on 4 CPU workers, 513 s aggregate CPU; the one-task check took 60 s. `common-k-cand`, mean over seeds
+(range of seed means). Collections and taps are scored on their held-out half. Chance is 0.11 exact and about 0.31 within one count.
+
+| Kind | Point | `same` | Placement | Within one | Recovered | Learned read | Within one | Recovered |
+|---|---|---|---|---|---|---|---|---|
+| Collections | block 3 | 0.93 | 0.97 | 1.00 | 0.65 | 0.96 | 1.00 | 0.67 |
+| Chinese | block 3 | **0.21** (0.10–0.38) | **0.19** (0.09–0.31) | 0.65 (0.47–0.82) | **0.05** | 0.22 | 0.65 | 0.09 |
+| | delay | 0.22 | 0.20 | 0.55 | 0.06 | 0.21 | 0.54 | 0.06 |
+| | relearn | 0.86 | 0.72 | 0.99 | 0.49 | 0.65 | 0.90 | 0.42 |
+| Devanagari | block 3 | 0.96 | 0.85 | 0.99 | 0.79 | 0.89 | 1.00 | 0.79 |
+| | delay | 0.79 | 0.68 | 0.95 | 0.23 | 0.73 | 0.91 | 0.27 |
+| English | block 3 | 0.13 | 0.14 | 0.31 | 0.05 | 0.13 | 0.33 | 0.07 |
+| Thai | block 3 | 0.13 | 0.14 | 0.34 | 0.02 | 0.13 | 0.34 | 0.02 |
+
+`gp` is the same: Chinese at block 3 is 0.19 by `same`, 0.16 by placement, 0.62 within one, recovered 0.06.
+
+**Placement of each count's mean Chinese profile** (the count the average form of each true count is placed at):
+
+| True count | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+|---|---|---|---|---|---|---|---|---|---|
+| Block 3 | 2 | 3 | 4 | 5 | 6 | 5 | 6 | 6 | 7 |
+| Relearn | 2 | 3 | 4 | 4 | 5 | 6 | 7 | 8 | 9 |
+
+**What this shows.**
+1. **Prediction 1 fails.** Order does not recover Chinese identity: placement 0.19 and the learned read 0.22, against `same`'s
+   0.21. On the items `same` gets wrong, order gets 0.05, *below* chance. The two reads fail on the same items, the same way.
+2. **The Chinese order is kept but miscalibrated against collections.** The mean profiles rise monotonically with the true count
+   (every column increases from count 1 to 9 apart from one dip at 6), so the forms are ordered among themselves. But the line is
+   shifted up by one at counts 1–5 and compressed at 6–9 (7, 8, 9 placed at 6, 6, 7). A Chinese 1 is judged above a collection
+   of one. This is why Chinese ↔ Devanagari comparison works: both lines are ordered, and a comparison between them only needs
+   relative order. Matching and placement both need the line's alignment to collections, and that is what was lost.
+3. **Within one count is well above chance** (0.65 against 0.31), consistent with a shifted line rather than lost order.
+4. **The learned read equals placement** (prediction 4): the profile is usable, but what it carries is the miscalibrated line.
+5. **Devanagari and Thai behave as predicted** (2 and 3). Devanagari's count 1 is placed at 2 (0.07 correct), the same end effect.
+6. **What was forgotten is an alignment, not a set of pairings.** One monotone map between the Chinese line and the collection line
+   would restore most of identity. Relearning English seems to do roughly that for Chinese (the relearn row is almost aligned).
+   That is a structural target a consolidation step could aim at: realign a whole kept order with the collection line from a few
+   anchors, rather than relearn each count.
+
+**Not tested.** Identity from rank *within* the script (Chinese × Chinese comparisons plus one anchor), which would use only the
+kept order and not its alignment.
