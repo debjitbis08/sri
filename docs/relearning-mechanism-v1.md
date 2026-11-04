@@ -87,6 +87,8 @@ Each branch's first 20 updates, on `proj['image']`:
 - **The smaller symmetry loss that form matching causes** ([dynamics](relearning-dynamics-v1.md)), or the late sag of the reverse read after 300 updates.
 - **Remedies.** The stop-gradient branch is a diagnostic. It shows which route carries the collapse, and is not proposed as a fix.
 
+**Later correction** ([margin decomposition](relearning-margins-v1.md)): on the lost decisions, the image head on the frozen codes moves about three times as much as `proj['image']`; the candidate-path pull acts on both.
+
 ## The architectural lesson
 
 The desired relation need not be wrong for its training updates to destroy a useful representation. Here the sequence-prediction objective lets errors on forgotten forms move the collection codes that working skills depend on: taps ↔ collections, and the interpretation of recalled values.
