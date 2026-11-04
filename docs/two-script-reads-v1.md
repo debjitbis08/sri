@@ -14,7 +14,8 @@ Chinese 5, or continuing (Chinese 2, Devanagari 3) → 4. Earlier reads mixed on
 - **Checkpoints.** The [shared output pilot](shared-output-v1-pilot.md) block-3, delay and relearn checkpoints of `gp`,
   `common-raw`, `common-k-cand` and `common-k-shared`, at seeds 300–303. The grounded arms are left out: grounding was dropped.
 - **Kinds.** Collections, taps, English, Chinese, Devanagari and Thai digits, with 30 evaluation items per count. Thai is never
-  taught, so it is the untaught-script control. English is taught in block 1 and relearned at the end. Chinese is taught in block 2
+  trained as numbers: it enters no training row in any block or in relearning, and the image statistics come from English and dots
+  only. It does pass through the same frozen senses, projection and core, so it is the control for a script never trained as numbers. English is taught in block 1 and relearned at the end. Chinese is taught in block 2
   and Devanagari in block 3.
 - **Reads, for every ordered pair of kinds (A, B).**
   - **Matching:** `same` from an item of A against a gallery of B, one item per count. The answer is correct if the top count is
@@ -152,3 +153,82 @@ ones. No cross-script expression was trained, so none of this tests learning fro
 - 16 tasks × 3 checkpoints, 161 s wall on 4 CPU workers, 528 s aggregate worker CPU.
 - 2.5 GB peak RSS per worker, mostly frozen sensory code caches.
 - The one-task check took 29 s.
+
+## Follow-up reads (2026-11-05)
+
+Written before the run. Same checkpoints, arms, seeds and items; `experiments/two_script_reads_v2.py`, report
+`reports/two-script-reads-v2.json`. "Untaught" above means never trained as numbers: see *Design*.
+
+**Why.** Cross-script comparison is high (0.81–0.90 for Chinese ↔ Devanagari) and cross-script matching low (0.20–0.26). Three
+explanations, not exclusive:
+1. **Coarse placement.** Comparison is right for distant pairs even if each form is placed only within about one count; matching
+   needs the exact count.
+2. **Reader support.** `more` was trained on mixed pools of collections and taps; `same` always had a collection in its second
+   slot, never a form.
+3. **Matching runs through collections.** Cross-script matching succeeds about when both forms are identified as the right
+   collection count (0.44 × 0.44 ≈ 0.2 against 0.24 observed).
+
+**Reads.**
+- **Comparison by distance:** the v1 comparison read split by |a − b| = 1, 2 and 3+.
+- **Matching via collections:** each item's count identified through `same` against M (a count's score is its best participant's
+  logit). Reported: identification per kind; *both correct* (the query and the gallery item of its count both identified as that
+  count); a *mediated* pick (the gallery item whose softmax over count scores best matches the query's, by dot product); *direct*
+  matching recomputed on the same items; their *agreement*; and direct accuracy split by *both correct*.
+
+**Predictions.**
+- Explanation 1 predicts cross-script comparison near chance at distance 1 and high at 3+, with the within-script and
+  script–collection reads following the same profile.
+- Explanation 3 predicts mediated ≈ direct, high agreement, and direct accuracy far higher when both are identified than when not.
+- If direct exceeds mediated, the forms share some count identity that does not pass through collections.
+- Explanation 2 is not separated by these reads: it would need a reader trained with forms in the second slot.
+
+### Follow-up results
+
+Run 2026-11-05: 159 s wall on 4 CPU workers, 520 s aggregate CPU. Below are `common-k-cand`'s numbers: the mean over seeds, with the
+range of seed means in brackets. `gp` shows the same pattern; both arms are in the report.
+
+**Identification over M** (chance 0.11):
+
+| Point | Collections | Taps | English | Chinese | Devanagari | Thai |
+|---|---|---|---|---|---|---|
+| Block 3 | 0.91 | 0.98 | 0.13 | **0.21** | 0.96 | 0.13 |
+| Delay | 0.94 | 1.00 | 0.14 | 0.22 | 0.79 | 0.12 |
+| Relearn | 0.84 | 1.00 | 0.68 | 0.86 | 0.83 | 0.12 |
+
+**Comparison by distance** (chance 0.5):
+
+| Group | Point | 1 apart | 2 apart | 3+ apart |
+|---|---|---|---|---|
+| Chinese ↔ Devanagari | block 3 | 0.67 (0.60–0.75) | 0.86 (0.74–0.93) | **0.97** (0.93–1.00) |
+| | delay | 0.67 | 0.81 | 0.94 |
+| | relearn | 0.87 | 0.94 | 0.95 |
+| Script ↔ collection | block 3 | 0.73 | 0.81 | 0.86 |
+| Collections | block 3 | 0.99 | 1.00 | 1.00 |
+| Thai × Thai | block 3 | 0.54 | 0.48 | 0.46 |
+
+**Matching via collections** (chance 0.11):
+
+| Group | Point | Direct | Mediated | Both identified | Agreement | Direct, both identified | Direct, not |
+|---|---|---|---|---|---|---|---|
+| Chinese ↔ Devanagari | block 3 | 0.24 | 0.25 | 0.21 | 0.83 | **0.76** | **0.11** |
+| | delay | 0.27 | 0.26 | 0.20 | 0.74 | 0.75 | 0.15 |
+| | relearn | 0.69 | 0.78 | 0.71 | 0.71 | 0.74 | 0.58 |
+| Script ↔ collection | block 3 | 0.44 | 0.44 | 0.40 | 0.82 | 0.79 | 0.24 |
+| Thai × Thai | block 3 | 0.63 | 0.47 | 0.13 | 0.53 | 0.67 | 0.63 |
+
+**What this shows.**
+1. **Explanation 1 holds.** Cross-script comparison is graded by distance: 0.67 for adjacent counts and 0.97 for counts 3 or more
+   apart. Forms are placed in the right order but blurrily. Collections are placed sharply (0.99 even when adjacent).
+2. **Comparison does not go through identification.** At block 3, Chinese forms are identified as the right collection count
+   only 0.21 of the time. Yet a Chinese and a Devanagari form 3 or more apart are compared correctly 0.97 of the time. The order
+   information is in the form's code without the form being matched to a count.
+3. **Explanation 3 holds before relearning.**
+   - Direct cross-script matching equals the mediated pick (0.24 against 0.25), and the two agree on 0.83 of queries.
+   - When both forms are identified, direct matching is 0.76. When they are not, it is at chance (0.11).
+   - So direct matching between scripts succeeds only through collections, and it is low because Chinese is barely identified.
+     Nothing shows a form-to-form identity that bypasses collections.
+4. **After relearning, the mediated pick beats direct matching** (0.78 against 0.69). The route through collections is then the
+   better one.
+5. **Thai × Thai matching is glyph resemblance, confirmed.** It does not depend on identification (0.67 against 0.63), and the
+   mediated pick is far lower than the direct one.
+6. **Explanation 2 is not separated,** as stated in the predictions.

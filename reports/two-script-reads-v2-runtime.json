@@ -1,0 +1,102 @@
+{
+ "aggregate_worker_cpu_seconds": 519.632446048,
+ "children_peak_rss_kb": 2503796,
+ "command": "/home/debjit/code/sri/experiments/two_script_reads_v2.py",
+ "contract_sha256": "9b58dcb271635f5b08486b35c30b363d667844f2cd70a4b13f9e95baeaf96494",
+ "cpu": "x86_64",
+ "device": "cpu",
+ "dirty": true,
+ "dtype": "float32",
+ "numpy": "2.5.4",
+ "python": "3.12.3",
+ "revision": "53084c2551212662d11480c500e989f26a2efa63",
+ "rss_convention": "ru_maxrss in KiB; children is the largest single child",
+ "runner_sha256": "4375ab05627a0c314f7934b188ecffbb0bf7d10f4b6971a3d28ce3b2bdcb396b",
+ "scope": "nondeterministic timing",
+ "tasks": {
+  "common-k-cand/seed300": {
+   "cpu_seconds": 30.916570561,
+   "peak_rss_kb": 2496476,
+   "wall_seconds": 30.923437285004184
+  },
+  "common-k-cand/seed301": {
+   "cpu_seconds": 31.632765426,
+   "peak_rss_kb": 2494888,
+   "wall_seconds": 31.63491003200761
+  },
+  "common-k-cand/seed302": {
+   "cpu_seconds": 32.350265252999996,
+   "peak_rss_kb": 2498960,
+   "wall_seconds": 32.354523119021906
+  },
+  "common-k-cand/seed303": {
+   "cpu_seconds": 32.196060134,
+   "peak_rss_kb": 2496548,
+   "wall_seconds": 32.1986630759784
+  },
+  "common-k-shared/seed300": {
+   "cpu_seconds": 32.30087879,
+   "peak_rss_kb": 2503796,
+   "wall_seconds": 32.30466066900408
+  },
+  "common-k-shared/seed301": {
+   "cpu_seconds": 32.168940742000004,
+   "peak_rss_kb": 2496760,
+   "wall_seconds": 32.17322993601556
+  },
+  "common-k-shared/seed302": {
+   "cpu_seconds": 32.676467534000004,
+   "peak_rss_kb": 2499276,
+   "wall_seconds": 32.679355967004085
+  },
+  "common-k-shared/seed303": {
+   "cpu_seconds": 32.480324992,
+   "peak_rss_kb": 2497360,
+   "wall_seconds": 32.482837064017076
+  },
+  "common-raw/seed300": {
+   "cpu_seconds": 31.039150183,
+   "peak_rss_kb": 2495584,
+   "wall_seconds": 31.047040494013345
+  },
+  "common-raw/seed301": {
+   "cpu_seconds": 32.814044578,
+   "peak_rss_kb": 2495980,
+   "wall_seconds": 32.81611503800377
+  },
+  "common-raw/seed302": {
+   "cpu_seconds": 31.037859249,
+   "peak_rss_kb": 2497676,
+   "wall_seconds": 31.04237765801372
+  },
+  "common-raw/seed303": {
+   "cpu_seconds": 32.726402706,
+   "peak_rss_kb": 2492752,
+   "wall_seconds": 32.73198759800289
+  },
+  "gp/seed300": {
+   "cpu_seconds": 33.373904563,
+   "peak_rss_kb": 2471244,
+   "wall_seconds": 33.38235888798954
+  },
+  "gp/seed301": {
+   "cpu_seconds": 33.973801112000004,
+   "peak_rss_kb": 2470344,
+   "wall_seconds": 33.97714798399829
+  },
+  "gp/seed302": {
+   "cpu_seconds": 33.972118781999995,
+   "peak_rss_kb": 2471080,
+   "wall_seconds": 33.97642178100068
+  },
+  "gp/seed303": {
+   "cpu_seconds": 33.972891442999995,
+   "peak_rss_kb": 2471180,
+   "wall_seconds": 33.97779037599685
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "wall_seconds": 159.16882933099987,
+ "workers": 4
+}
