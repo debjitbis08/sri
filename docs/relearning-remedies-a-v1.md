@@ -106,6 +106,8 @@ Stopping it entirely protects the interpreter and costs composition. Rescaling t
 
 These are proposals for review, not run.
 
+A constrained update from the [loss analysis](relearning-loss-analysis-v1.md) was tested afterwards and failed ([audit and continuation](relearning-constrained-audit-v1.md)).
+
 ## Computation
 
 - **GPU** (GTX 1650), three workers.

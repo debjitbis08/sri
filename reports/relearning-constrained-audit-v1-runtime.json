@@ -1,0 +1,45 @@
+{
+ "aggregate_worker_cpu_seconds": 973.671601764,
+ "children_peak_rss_kb": 3677840,
+ "command": "/home/debjit/code/sri/experiments/relearning_constrained_audit.py",
+ "contract_sha256": "e94933660a9c50b03e9b24099b64f977ec3cba1e788405f84facb1bcca8c839a",
+ "cpu": "x86_64",
+ "cublas_workspace_config": ":4096:8",
+ "cuda": "13.0",
+ "cudnn": 92400,
+ "deterministic_algorithms": true,
+ "device": "cuda",
+ "dirty": true,
+ "dtype": "float32",
+ "gpu": "NVIDIA GeForce GTX 1650",
+ "numpy": "2.5.4",
+ "parent_peak_rss_kb": 1554956,
+ "phase": "constrained-update audit",
+ "python": "3.12.3",
+ "revision": "25af82492fe2b28f0d16d614ec20746f11610573",
+ "rss_convention": "ru_maxrss in KiB, per process; children is the largest single child",
+ "runner_sha256": "4b5573ad3b7ecddb231f836a02d6b0f6ae51c992aefbb175d5cf4e6391e40bbd",
+ "scope": "nondeterministic timing",
+ "tasks": {
+  "seed300": {
+   "cpu_seconds": 268.526063359,
+   "wall_seconds": 231.9585869529983
+  },
+  "seed301": {
+   "cpu_seconds": 257.21768489100003,
+   "wall_seconds": 231.1613700070011
+  },
+  "seed302": {
+   "cpu_seconds": 266.344178118,
+   "wall_seconds": 231.9095122150029
+  },
+  "seed303": {
+   "cpu_seconds": 181.583675396,
+   "wall_seconds": 169.46152289101155
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cu130",
+ "wall_seconds": 429.2436867519864,
+ "workers": 3
+}
