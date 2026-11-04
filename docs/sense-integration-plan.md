@@ -131,6 +131,8 @@ Recommended order: 1 and 2, then 3 to 5 (one experiment), 7, 8, 9, 10. Step 11 i
     - Traces follow the core as it improves, while copies go stale (0.12 at block 3).
     - Interference is negligible (≤ 0.004).
     - The moving-host bar fails at relearning (taps 0.96 to 0.72), because the core itself reads fresh dots worse there (0.91 to 0.66). Fixed values do not give fixed answers.
+
+    **Stage 2 design draft, 2026-11-04** ([draft](sense-memory-replay-v1-design.md), nothing run). Latent replay from memory, which is rehearsal, during the core's training. The primary outcomes are read with memory removed: acquisition of the new symbol-to-count associations, and retention of the core's cross-sense abilities. Arms: no replay, memory replay, and a reservoir buffer of feature pairs at memory's bytes and the same replay budget. Replayed pairs are labelled by the core's own reading of the stored collection, with a true-count diagnostic arm.
 11. **Cost and scaling.** Measure seconds per input and bytes per key for each model, and their sum. Check them against `cpu-efficiency-design-constraint.md`.
 
     Scaling: n models cost n forward passes per input. Keys grow by the sum of code widths. Centres grow with domains × models, and the gate with models. All of this is linear and independent of time, unlike copies.
