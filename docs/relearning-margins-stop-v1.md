@@ -60,12 +60,12 @@ Collection spacing and the senses' alignment stay near their update-0 values: 23
    - The decisions already wrong at 10 lose margin the same way and fall further: −42 to −52 for those that stay wrong.
    - The collection representations are stable here. The image groups' contribution is small and often positive for composition, and spacing is kept.
    - This is the request's third case: the predictor's updates damage composition despite stable candidate representations. Forgotten forms' prediction errors retrain P in a way that breaks its use on collections, on taps and on descending sequences.
-2. **The remaining collections → taps loss is smaller and spread out.**
+2. **The remaining collections → taps loss is smaller, and dominated by form matching.**
    - Here accuracy goes from 0.74 to 0.67, and memory from 0.69 to 0.62.
    - For decisions that become wrong, the image side carries −5.3 of −7.8 in all, from several paths. The comparator carries −1.6 net. The largest single cell is form matching into the comparator (−4.9), partly offset by context matching (+2.6 over all groups).
    - Form matching mostly raises wrong candidates' scores (max wrong score +4.0, of which form matching +5.1), whereas the correct score falls a little through several paths (−3.8).
    - Decisions already wrong at 10 fall further for the same reasons. The small sets that recover do so through context matching (+3.1 to +9.9).
-   - No single path dominates. The largest, form matching, is also how English is acquired.
+   - Form matching contributes −6.5 of the −7.8 lost margin (memory A: −8.8 of −9.4), mostly through the comparator. Its largest harmful path also supports acquisition, so deleting it is not an obviously useful remedy.
 3. **The two reads now have different mechanisms.**
    - The early collapse (updates 0–10, previous study) was the representation route.
    - What remains for the interpreter is diffuse comparator and representation change, driven mostly by form matching.
@@ -83,29 +83,50 @@ Collection spacing and the senses' alignment stay near their update-0 values: 23
 | Sequence, collections down 1 | 0.64 → **0.82** | 0.64 → 0.64 | 0.64 → 0.66 |
 | Sequence, collections up 1 | 0.80 → 0.86 | 0.80 → 0.80 | 0.80 → 0.79 |
 
-## Proposed intervention, with its prediction (not run)
+## Proposed intervention, with its prediction
 
-**Intervention.** Branch from this trajectory's state at update 10 and run updates 10–20. Keep the ordinary form-candidate stop-gradient, and also stop form rows' sequence-prediction gradient into the predictor's parameters:
+Revised 2026-11-04 after review, before the run. Run: [predictor stop](relearning-predictor-stop-v1.md).
+
+**Intervention.** From update 10 of the form-candidate stop trajectory, run updates 10–20 with the ordinary form-candidate stop-gradient kept, and also stop form rows' sequence-prediction gradient into the predictor's parameters:
 - form rows' predictions are computed with P's parameters detached;
 - their gradient into the form and collection codes they are made from is kept.
 
-Context rows' sequence gradients (all parameters) and every other loss are unchanged. The references are the same trajectory continued unchanged from update 10, and `unchanged`.
+Context rows' sequence gradients (all parameters) and every other loss are unchanged.
 
-**Approximate expectations at update 20** come from the 10–19 counterfactual. They are not thresholds, for the same reasons as before.
-- **Composition:** collections up 2 about 0.71 (0.53 without the intervention), up 3 about 0.66 (0.45), taps up 2 about 0.87 (0.64).
-- **Sequence prediction:** collections down 1 about 0.82 (0.64), up 1 about 0.86 (0.80).
-- **No improvement expected** on collections → taps (about 0.67) or memory-present symbol → taps (about 0.62, 0.65). This intervention does not address their remaining loss.
+**References:**
+- the same trajectory continued unchanged from update 10;
+- `unchanged`.
 
-**Acquisition risk, stated in advance.** P is the forms' only sequence predictor, so stopping form rows' gradient into it removes how P learns English sequences.
-- English forms' sequence prediction is expected to gain less over 10–20 than on this trajectory, where it goes from 0.18 to 0.21. Its codes can still move through the prediction path's gradient into the image side.
-- English matching is not expected to change, since the comparator path is untouched.
-- Both are measured directly, with Chinese and Devanagari forms' sequence prediction.
+All arms see identical batches and draws.
+
+**Optimizer state is preserved.** The arms share Adam's state at update 10, which already holds earlier form-driven contributions in its first moment. Those keep decaying into later steps. This tests stopping **new** form-row gradients into P, not removing all form-attributed movement of P after update 10.
+
+**Form-sequence learning is not stopped by construction.** Form codes can still move, through the prediction path's gradient into the image head and projection, so that the existing predictor predicts them better. For new senses and forms this is the desirable route: they reach shared relational knowledge without rewriting it.
+
+This is measured directly at updates 15 and 20, for English, Chinese and Devanagari forms, up and down one step:
+- English form sequence prediction as read;
+- the same with the **current form codes and the predictor as it was at update 10**: gains here come from representations adapting to the existing predictor;
+- the same with the **update-10 codes and the current predictor**: gains here come from the predictor's change.
+
+**Approximate expectations at update 20,** from the 10–19 counterfactual. They are not thresholds.
+
+| Read | Without the intervention | Expected |
+|---|---|---|
+| Composition, collections up 2 | 0.53 | about 0.71 |
+| Composition, collections up 3 | 0.45 | about 0.66 |
+| Composition, taps up 2 | 0.64 | about 0.87 |
+| Sequence, collections down 1 | 0.64 | about 0.82 |
+| Sequence, collections up 1 | 0.80 | about 0.86 |
+
+- **No improvement expected** on collections → taps (about 0.67) or memory-present symbol → taps (about 0.62 and 0.65). This intervention does not address their remaining loss. Memory-present reads stay central to the judgment.
+- **English matching** is predicted to change little. That is a prediction, not a guarantee: its direct loss path remains, but the shared representations and the optimizer's scaling can still change.
 
 **How it would be read:**
-- **If composition is protected and English form sequence prediction loses its gain,** the shared predictor is a point of interference. Old composition and new form sequences then compete in one network, and preventing the loss cannot be a gradient stop without giving up form sequence learning. That would be an architectural finding rather than a loss-path fix.
-- **If composition is not protected,** the effects the linear account omits matter again.
+- **If composition survives and form-sequence learning continues,** the result supports adapting representations to the existing predictor in this setting. That continuation means English form sequence prediction still rises, with the gain visible under the update-10 predictor.
+- **If composition survives and form-sequence acquisition weakens,** that is a tradeoff under this intervention and over this window. It does not show that separate predictors or an architectural redesign are necessary.
+- **If composition is not protected,** the effects the linear account omits matter again, including the decaying optimizer history.
 
-**The remaining interpreter loss is not addressed.** Its largest part is form matching, which is also English acquisition, and the decomposition shows no single non-acquisition path to remove. Of the four cases in the request, it is closest to the fourth: contributions spread across paths and partly cancel (context matching offsets form matching).
+**The remaining interpreter loss is not addressed.** Its largest harmful path, form matching, also supports acquisition, so deleting it is not an obviously useful remedy.
 
 ## Computation
 
