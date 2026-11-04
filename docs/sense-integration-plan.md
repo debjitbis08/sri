@@ -145,11 +145,14 @@ Recommended order: 1 and 2, then 3 to 5 (one experiment), 7, 8, 9, 10. Step 11 i
     - [Same-relation diagnosis](same-relation-diagnosis-v1.md): the learned `same` comparator does not enforce symmetry. The reverse validity that emerged is fragile and associated with the learned alignment of collections and taps; the violation grows with code distance. How it arose and why it broke are not yet established.
     - Relearning shrinks the code space threefold, collections more than taps, and rotates the senses' count lines apart. The trained use, taps → collection, survives at 0.94–0.98.
     - The evaluated read fails through per-candidate offsets (hubs; centring lifts it from 0.49–0.82 to 0.72–0.90) and a smaller loss of pair discrimination (AUROC 0.97–1.00 to 0.90–0.97).
-    - [Relearning branches](relearning-branches-v1.md), from one captured pre-relearning state (reproductions exact). The decline depends on form-relearning updates: continuing the delay's material keeps every property, including memory-present reads.
+    - [Relearning branches](relearning-branches-v1.md), from one captured pre-relearning state (reproductions exact). Reintroducing the form-relearning material (English plus rehearsal of earlier scripts) triggers the decline in these branches; continuing the delay's material keeps every property, including memory-present reads.
     - It is an abrupt disruption in the first 20 updates, as forgotten forms give confidently wrong losses (matching about 12, sequence 60–94). The code space shrinks threefold and even the trained taps → collections falls to 0.29–0.60.
-    - Training restores the trained direction by 50 updates; collections → taps recovers only to 0.67 by 200.
+    - The trained direction recovers by 50 updates; collections → taps recovers partly, to 0.67 by 200 and still rising.
     - Freezing the shared image projection does not prevent it (0.61), and slows English reacquisition.
-    - Mechanism not established; next: per-loss attribution, update-size logging, a longer continuation. Explicit reverse training deferred.
+    - [Relearning dynamics](relearning-dynamics-v1.md), measurement first. The first relearning updates' gradients are two orders of magnitude above the delay's (total norm 229–2,027, clipped by 0.01). Before clipping, the form sequence-prediction loss dominates the shared projections, and they move 4–7 times more than from delay material.
+    - Removing the form sequence-prediction rows keeps the code space and the senses' alignment, with collections → taps at 0.86 and stored values at 0.90 at 200, and English still relearns (0.54). Removing form matching does not prevent the disruption, and slows English.
+    - Over 1,000 updates the reverse read peaks around 300 (0.78) and settles at 0.69, below its earlier 0.89, unrelated to English reacquisition per seed.
+    - Adam's history is not tested. Explicit reverse training is deferred.
 11. **Cost and scaling.** Measure seconds per input and bytes per key for each model, and their sum. Check them against `cpu-efficiency-design-constraint.md`.
 
     Scaling: n models cost n forward passes per input. Keys grow by the sum of code widths. Centres grow with domains × models, and the gate with models. All of this is linear and independent of time, unlike copies.

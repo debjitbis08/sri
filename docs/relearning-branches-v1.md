@@ -79,7 +79,9 @@ A 9-way matching loss of 12 is far above a uniform guess (2.2). The forgotten fo
 
 ## What this shows
 
-- **The decline depends on form-relearning updates.** Continuing the delay's material for the same 200 updates keeps every measured property:
+**Wording corrected (2026-11-04, after review).** The relearning material includes English episodes and rehearsal of earlier scripts. These branches have not isolated English, and reverse performance does partly recover.
+
+- **Reintroducing the form-relearning material triggers the decline in these branches.** That material is English episodes plus rehearsal of earlier scripts. Continuing the delay's material for the same 200 updates instead keeps every measured property:
   - the relation's symmetry and discrimination;
   - the code geometry;
   - collections → taps on fresh and stored values (0.89 and 0.95);
@@ -89,10 +91,10 @@ A 9-way matching loss of 12 is far above a uniform guess (2.2). The forgotten fo
   - Within 20 updates the code space shrinks threefold, and the two senses' count lines separate: same-count distance goes from 0.28 to 1.46 of the class spacing.
   - Even the trained direction, taps → collections, falls to 0.29–0.60.
   - These are the updates where the forgotten forms give matching losses near 12 and sequence losses of 60–94, against about 0.01 during the delay.
-- **Continued training restores what it trains, and only partly what it does not.**
+- **The trained direction recovers fast; the reverse recovers partly and more slowly.**
   - By 50 updates, taps → collections is back to 0.94, and its pair AUROC to 0.90.
-  - Collections → taps recovers only to 0.67 by 200, and the senses' alignment to 0.73 of the class spacing (0.28 before).
-  - Reverse validity emerged during the original, long learning. After the disruption it is not re-established within 200 updates, while the trained direction is.
+  - Collections → taps recovers from 0.26 at 20 updates to 0.67 by 200, still rising. The senses' alignment recovers to 0.73 of the class spacing, against 0.28 before.
+  - Within 200 updates the reverse does not regain its earlier level, while the trained direction does.
 - **Freezing the image projection does not prevent the disruption, and does not help.**
   - With the shared projection fixed, collection codes still shrink and the senses still separate, through the parts of the core still training.
   - Collections → taps ends at 0.61 against 0.67, and English reacquisition is slower (0.34 against 0.54).
@@ -101,9 +103,9 @@ A 9-way matching loss of 12 is far above a uniform guess (2.2). The forgotten fo
 - **Memory still holds the facts; what moves is the interpreter.** Memory-present symbol → taps falls and partly recovers exactly with the core's own collections → taps reading. Taps → symbol, which uses the trained direction, recovers to 0.79–0.81 by 50 updates in both relearning branches.
 
 **Why does learning new forms break a learned relation?** These runs locate the damage in time and in the material:
-- It comes from the first updates on confidently wrong, forgotten forms.
+- It comes from the first updates on the reintroduced form material, which the core gets confidently wrong.
 - It is not specific to the image projection.
-- Training restores only the directions it exercises.
+- The trained direction recovers within 50 updates; the reverse only partly within 200.
 
 They do not establish the mechanism of the disruption. Two candidates consistent with this are not tested:
 - the size of those first error signals;
@@ -115,7 +117,9 @@ They do not establish the mechanism of the disruption. Two candidates consistent
 - **Whether reverse validity would re-emerge with longer relearning.** Collections → taps is still rising at 200 updates in `as-run` (0.63 at 150, 0.67 at 200).
 - **Explicit reverse training,** deferred.
 
-## Next (recommended, not run)
+## Next
+
+These were approved with measurement first, and run: [relearning dynamics](relearning-dynamics-v1.md). The original recommendation:
 
 The smallest discriminating continuations from the same captured states, one change at a time, with the same reads:
 1. **Per-loss attribution of the disruption:** relearning as run without the sequence-prediction loss on form episodes, and separately without the form matching loss. Which error signal disrupts the relation?
