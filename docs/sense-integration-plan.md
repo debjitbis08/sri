@@ -89,11 +89,11 @@ Recommended order: 1 and 2, then 3 to 5 (one experiment), 7, 8, 9, 10. Step 11 i
 
    **Drift fix, pilot, 2026-11-04** ([results](sense-stable-v1-pilot.md)). Each fact keeps the centre it was written under, for key and value. Units are partitioned by centre, every centre is searched, and each centre keeps its own frozen gate. Together these remove drift exactly: 0 of 5,400 query reads changed in score, unit, value decoding or acceptance when centres opened or the gate refitted. Mild reads no longer degrade at all. What remains is interference from new units: a different unit wins in 48 of 5,400 reads on strong views, with 6 value decodings and 2 acceptances flipped, up to −0.04 on a single kind. The invariant covers unchanged units; a write merging into an old unit was not exercised. The costs are slightly more unseen inputs answered (0.13–0.15 against 0.11–0.13 mild) and batch-one retrieval of 1.36–1.50 ms against 1.09–1.16 ms. Occupied units take 8.5–8.9 MB in both designs, and allocation is 108–126 MB against 72 MB. Kept gate codes add 3 MB per centre. External review (2026-11-04) accepted the fix and recommended moving to step 8. The invariant is now a regression test (`tests/test_kept_memory.py`, `src.senses.KeptMemory`).
 
-   **When to open a centre, pilot, 2026-11-04** ([results](sense-growth-v1-pilot.md)). No rule tested is safe on all four stress streams.
-   - **A windowed shift rule** suits kinds that arrive in runs: no false centre in 51,200 familiar inputs. It fails on interleaved and gradual streams.
-   - **A pile-up trigger** handles gradual change, but over-splits overlapping kinds.
+   **When to open a centre, pilot, 2026-11-04** ([results](sense-growth-v1-pilot.md)). No rule tested matches one centre per kind on all four stress streams. That count is a diagnostic, not the objective: choosing a rule needs memory quality against state and read cost, which was not measured.
+   - **A windowed shift rule** suits kinds that arrive in runs: no false centre in 51,200 familiar inputs. It opens centres for blends on interleaved and gradual streams.
+   - **A pile-up trigger** handles gradual change, but opens extra pure centres for overlapping kinds. It also keeps every centre's forming codes, so its state grows with the number of centres.
 
-   Documented as open; per external review it does not delay step 8.
+   Occupied centres are never merged by averaging, since that would move the coordinates their units were written in. Per external review (2026-11-04), general online clustering is not a prerequisite. Step 10 uses `shift-window` under its stated assumption that kinds arrive in runs.
 
 6. **Upgrading a sense in production (lightweight, not on the path to integration).** When a sense model is replaced or added while memory holds facts written through the old one, old keys cannot be re-encoded, because no images are stored. Candidate designs, cheapest first:
    - **run both models for a while:** the old model stays as one more part of the key, new facts are written through the new model, and the old model is retired once few facts depend on it;
@@ -112,7 +112,11 @@ Recommended order: 1 and 2, then 3 to 5 (one experiment), 7, 8, 9, 10. Step 11 i
    - recall across senses on withheld counts: taps → Devanagari 0.99 against 0.73;
    - composition of dot collections: 0.95 against 0.49.
 
-   Comparison is equal or better. The `existing` arm reproduces the study's `sparse48` exactly, 1,540 of 1,540 measures. Forgetting of earlier scripts is unchanged in every arm, so it is the core's problem. These are four pilot seeds only.
+   Comparison is equal or better. The `existing` arm reproduces the study's `sparse48` exactly, 1,540 of 1,540 measures. These are four pilot seeds only.
+
+   The first run fitted standardization statistics on every cached image, which is transductive. A rerun fitted them on block 1's training images only, then froze them (`joined-mlp-calibrated`). It keeps every block-3 result: Devanagari 0.97 paired, 1.00 withheld; taps → Devanagari 0.99; composition 0.94. The statistics and their provenance are now saved in the projection's checkpoint.
+
+   Forgetting of earlier scripts is unchanged in every arm. The trained projection can forget as well as the core, so this locates forgetting in projection, core and readers together. Recovery after 200 relearning updates is better, which is not yet a measure of relearning speed.
 
 9. **Contract.** Freeze the bar from "When sight counts as ready" after the prior-work review in `literature-review.md`: multi-expert late fusion, normalisation (CSLS, whitening), test-time domain discovery and model-swap compatibility (backward-compatible embeddings). Then run fresh seeds.
 10. **Integration.** Feed the joined sight code to the sparse48 core and readers, and check three things:

@@ -54,7 +54,9 @@ Each cell is forward/reverse. There are 6 kinds. A pure centre is one where at l
 
 ## What this shows
 
-- **No rule is safe yet on all four kinds of stream.**
+**Centre counts and purity are diagnostics, not the objective.** One centre per labelled kind is not what the architecture needs. Several centres of one kind may hold useful structure within it, and a mixed centre might still support good recall. Choosing a rule needs what these runs did not measure: memory quality against state and read cost. The statements below describe how the rules behave, not which is better for memory.
+
+- **No rule matches one centre per kind on all four kinds of stream.**
 - **`shift-window` is the best rule when kinds come in runs.** It opened no false centre in 51,200 familiar inputs in either order, and its expiring pool removed the extra centres `shift` made.
 - **Batch-mean rules fail on blended streams.**
   - On interleaved kinds, `shift` and `shift-window` find a pure centre for only 1 of 6 kinds and open centres for blends instead.
@@ -63,15 +65,18 @@ Each cell is forward/reverse. There are 6 kinds. A pure centre is one where at l
 - **`pile-up` handles gradual change.**
   - It opens 6–7 centres for 6 kinds, with no false centre in the tail.
   - On interleaved kinds it finds 2–4 of 6, and misses rather than mixes.
-- **`pile-up` over-splits overlapping kinds on familiar streams.** It opened 9–14 extra centres, each pure. In the kept-centre memory, extra centres of one kind cost state and read time, and split that kind's facts across partitions. They don't mix coordinate systems, and reads search every centre.
+- **`pile-up` opens extra centres for overlapping kinds on familiar streams.** It opened 9–14 extra centres, each pure. In the kept-centre memory, extra centres of one kind cost state and read time, and split that kind's facts across partitions. They don't mix coordinate systems, and reads search every centre. Whether the split helps, hurts or does nothing to recall is not measured.
+
+**For the integration pilot (step 10)** the growth rule is `shift-window`, used under its stated assumption that kinds arrive in runs. General online clustering is not a prerequisite for testing whether memory and core work together.
 
 ## Next
 
-These ideas were not run.
+These ideas were not run, and none is established.
 
-- **Test pile-up before routing.** Compare the inputs a centre receives with bootstrapped member samples that have been routed the same way, against the same centres. Or test a whole batch against a mixture of the existing centres. Either removes the truncation bias diagnosed above.
+- **Test pile-up against a routing-matched reference.** Compare the inputs a centre receives with bootstrapped member samples routed the same way, against the same centres, or test a whole batch against a mixture of the existing centres. This is a hypothesis about the truncation bias diagnosed above, not a known correction. It works only if the reference reproduces the selection that produced the test sample. A centre's old members may not represent the familiar inputs that arrive from an overlapping kind, so the reference may itself be biased.
 - **Combine the two rules.** Use `shift-window` for batches that look like one kind, and the pile-up test for batches that look mixed.
-- **Merge centres.** Merge two centres whose members cannot be told apart, so over-splitting can be undone.
+- **Consolidate discovery, never occupied centres.** Averaging two occupied centres' coordinates would change the coordinates their stored units were written in, which undoes the stability guarantee of the kept-centre memory. Existing units keep their original centre and gate. At most, the discovery bookkeeping or the routing of future writes may be consolidated: for example, two centres that cannot be told apart could share one pile-up test, or later writes could go to only one of them.
+- **Score rules by memory.** Run each rule's centres through the kept-centre memory and compare recall, unseen acceptance, state and read time, rather than purity.
 
 ## What this does not establish
 
@@ -93,7 +98,11 @@ Per batch of b inputs and k centres:
 - `shift` costs O(k d) for the batch mean.
 - `pile-up` costs O(b k d) to route, O(b d) per tested centre, and a bootstrap of O(B s d) per centre and sample size, computed once and cached (B = 300 draws, s ≤ 256).
 
-Neither rule stores inputs beyond one window of the forming pool, at most 4 × 256 codes.
+Stored inputs:
+- **`shift` and `shift-window`:** only the forming pool. That is fewer than 512 + 256 codes for `shift`, whose pool empties when it opens a centre, and at most 4 × 256 codes for `shift-window`. Each centre keeps its means and one threshold.
+- **`pile-up`:** the windowed forming pool, plus every centre's forming codes, kept indefinitely for its bootstrap. That is 512–767 codes per centre, 0.8–1.2 MB at 384 float32 coordinates. It grows linearly with the number of centres: up to 24 MB for the 20 centres of `runs`, forward. A bounded form would keep a fixed-size sample per centre, or only the cached thresholds for the sample sizes in use.
+
+An earlier version of this section said neither rule stores inputs beyond one window. That was wrong for `pile-up`.
 
 ## Computation
 
