@@ -66,10 +66,12 @@ From block 3 to the delay, collection spacing grows (18–26 to 24–32). It shr
 
 ## What this shows
 
-- **The relation was never symmetric by construction, and is only approximately symmetric where cross-sense codes overlap.**
+**Correction (2026-11-04, user).** An earlier version of the next point said reverse validity was "not a learned property". That went too far. The comparator does not enforce symmetry, and reverse validity was expected to emerge through learning. The alignment between the senses, which it goes together with, was itself learned. The evidence shows that reverse validity was fragile and associated with that learned alignment. It does not yet establish how it arose or why it broke.
+
+- **The comparator does not enforce symmetry, and the learned relation is only approximately symmetric where cross-sense codes overlap.**
   - Before relearning, same-count pairs score nearly the same in both orders (0.04–0.19 spread units), while far-apart pairs differ by 0.6–1.4.
   - The violation grows with the distance between the two codes (correlation 0.28–0.96).
-  - So reverse validity was a by-product of collections and taps of a count landing close together, not a learned property.
+  - So the reverse validity that emerged is fragile: it is associated with the learned alignment that brings collections and taps of a count close together, and it weakens where that alignment is weaker. How it arose is not established.
 - **The trained use of the relation survives relearning.** Taps → collection by g(t, c) stays at 0.94–0.98, and its pair AUROC at 0.96–0.99. Continued training keeps exactly what it trains.
 - **Relearning breaks the overlap that reverse validity depended on.**
   - Re-teaching English forms shrinks the code space about threefold in 200 updates.
@@ -96,9 +98,12 @@ The branches:
 1. **Relearning as run.** It must reproduce the relearning checkpoint.
 2. **No new forms:** the delay's material continued for 200 updates. Does any continued training do this, or does re-teaching forms?
 3. **Forms with the image projection frozen:** does the damage go through the projection that forms and collections share? English must then be acquired through the core alone, which is measured.
-4. **Optional diagnostic upper bound, not a proposed fix:** branch 1 plus g(collection, taps) matching on the context pairs. This shows how much a directly trained reverse recovers.
+4. **Deferred (user, 2026-11-04): explicit reverse-direction training,** as a diagnostic upper bound only. Branches 1–3 investigate why learned reverse validity breaks without building the desired answer into training.
 
-**What would decide it:**
-- If branch 2 keeps the relation valid and branch 3 also keeps it, the damage is the forms' gradients through the shared projection.
-- If branch 3 does not keep it, the core's own projection carries the damage.
-- The time course shows whether the shrinkage comes first, as the forms' early large errors would produce.
+**Interpreting the outcome.** No outcome is mapped to a single cause in advance:
+- If branch 2 keeps the relation, the decline depends on introducing form-relearning updates.
+- If branch 3 helps, updates of the shared image projection contribute, not necessarily as the sole cause.
+- If branch 3 does not help, other changing components (the core's projection, the readers, the taps encoder) and their interactions remain possible. Nothing is concluded about the core's projection alone.
+- The time course shows the order in which the measured properties change.
+
+Branches 1–3 were run: [results](relearning-branches-v1.md).

@@ -59,53 +59,63 @@ def rank(S, qy, cy, draws):
     return float(np.mean(hit))
 
 
-def task(seed):
-    t0 = time.perf_counter()
-    torch.set_num_threads(SC.LM.FI.THREADS)
-    enc, model = SC.make_model(seed, 'sparse48', CTD.ENC)
+def make_draws(seed):
+    """Nine-candidate sets, one item per count, DRAWS per query: the same for every read, checkpoint and branch."""
     E = P.EVAL_PER
     y = np.repeat(np.arange(1, 10), E)
     rng = nc.stream('srd_draws', seed)
     by_count = [np.flatnonzero(y == n) for n in range(1, 10)]
-    draws = np.stack([np.stack([[rng.choice(b) for b in by_count] for _ in range(DRAWS)]) for _ in range(len(y))])  # the same for every read and checkpoint
+    return y, np.stack([np.stack([[rng.choice(b) for b in by_count] for _ in range(DRAWS)]) for _ in range(len(y))])
+
+
+def measure(enc, model, y, draws):
+    """Symmetry, pair discrimination, ranking (raw and candidate-centred) and geometry of the `same` relation at the current weights."""
+    with torch.no_grad():
+        code = lambda x, m: D.codes_for(enc, model, np.ascontiguousarray(x, dtype=np.float32), m)
+        C = torch.cat([code(P.DOTS['succ'][n], 'image') for n in range(1, 10)])
+        T = torch.cat([code(D.TAPS[('eval', n)], 'sequence') for n in range(1, 10)])
+        F = torch.cat([code(X.DATA[('english', 'eval')][0][P.EVAL[('english', n, 'idx')]], 'image') for n in range(1, 10)])
+    ct, tc = scores(model, C, T), scores(model, T, C).T  # both (collections, taps), the same pairs
+    fc, tt, cc = scores(model, F, C), scores(model, T, T), scores(model, C, C)
+    same = y[:, None] == y[None]
+    dist = torch.cdist(C, T).numpy()
+    viol = np.abs(ct - tc)
+    spread = np.std(np.concatenate([ct.ravel(), tc.ravel()]))
+    near = dist <= np.median(dist)
+    r = {
+        'symmetry': {'correlation': float(np.corrcoef(ct.ravel(), tc.ravel())[0, 1]), 'mean_abs_difference_over_spread': float(viol.mean() / spread),
+                     'same_count_pairs': float(viol[same].mean() / spread), 'different_count_pairs': float(viol[~same].mean() / spread),
+                     'nearer_half_by_code_distance': float(viol[near].mean() / spread), 'farther_half': float(viol[~near].mean() / spread),
+                     'violation_distance_correlation': float(np.corrcoef(viol.ravel(), dist.ravel())[0, 1])},
+        'discrimination_auroc': {'g(c,t)': auroc(ct[same], ct[~same]), 'g(t,c)': auroc(tc[same], tc[~same]),
+                                 'g(f,c) trained': auroc(fc[same], fc[~same]), 'g(t,t)': auroc(tt[same], tt[~same]), 'g(c,c)': auroc(cc[same], cc[~same]),
+                                 '-distance(c,t)': auroc(-dist[same], -dist[~same])},
+        'ranking': {}}
+    for name, S, Q in (('c -> t by g(c,t) (evaluated)', ct, 'c'), ('c -> t by g(t,c)', tc, 'c'), ('t -> c by g(t,c) (trained)', tc.T, 't'), ('t -> c by g(c,t)', ct.T, 't')):
+        raw = rank(S, y, y, draws)
+        cen = rank(S - S.mean(0, keepdims=True), y, y, draws)  # each candidate's mean over all queries removed
+        r['ranking'][name] = {'raw': raw, 'candidate_centred': cen}
+    with torch.no_grad():
+        Cm, Tm, Fm = [torch.stack([X_[y == n].mean(0) for n in range(1, 10)]) for X_ in (C, T, F)]
+        unit = float(torch.cdist(Cm, Cm)[~torch.eye(9, dtype=bool)].mean())
+        r['geometry'] = {'collection_class_spacing': unit,
+                         'same_count_c_t': float(torch.diagonal(torch.cdist(Cm, Tm)).mean() / unit),
+                         'same_count_c_f': float(torch.diagonal(torch.cdist(Cm, Fm)).mean() / unit),
+                         'same_count_t_f': float(torch.diagonal(torch.cdist(Tm, Fm)).mean() / unit),
+                         'taps_class_spacing': float(torch.cdist(Tm, Tm)[~torch.eye(9, dtype=bool)].mean() / unit),
+                         'english_forms_to_collections_nearest': float((torch.cdist(Fm, Cm).argmin(1) == torch.arange(9)).float().mean())}
+    return r
+
+
+def task(seed):
+    t0 = time.perf_counter()
+    torch.set_num_threads(SC.LM.FI.THREADS)
+    enc, model = SC.make_model(seed, 'sparse48', CTD.ENC)
+    y, draws = make_draws(seed)
     out = {}
     for p in POINTS:
         CTD.apply(enc, model, CTD.load(seed, p))
-        with torch.no_grad():
-            code = lambda x, m: D.codes_for(enc, model, np.ascontiguousarray(x, dtype=np.float32), m)
-            C = torch.cat([code(P.DOTS['succ'][n], 'image') for n in range(1, 10)])
-            T = torch.cat([code(D.TAPS[('eval', n)], 'sequence') for n in range(1, 10)])
-            F = torch.cat([code(X.DATA[('english', 'eval')][0][P.EVAL[('english', n, 'idx')]], 'image') for n in range(1, 10)])
-        ct, tc = scores(model, C, T), scores(model, T, C).T  # both (collections, taps), the same pairs
-        fc, tt, cc = scores(model, F, C), scores(model, T, T), scores(model, C, C)
-        same = y[:, None] == y[None]
-        dist = torch.cdist(C, T).numpy()
-        viol = np.abs(ct - tc)
-        spread = np.std(np.concatenate([ct.ravel(), tc.ravel()]))
-        near = dist <= np.median(dist)
-        r = {
-            'symmetry': {'correlation': float(np.corrcoef(ct.ravel(), tc.ravel())[0, 1]), 'mean_abs_difference_over_spread': float(viol.mean() / spread),
-                         'same_count_pairs': float(viol[same].mean() / spread), 'different_count_pairs': float(viol[~same].mean() / spread),
-                         'nearer_half_by_code_distance': float(viol[near].mean() / spread), 'farther_half': float(viol[~near].mean() / spread),
-                         'violation_distance_correlation': float(np.corrcoef(viol.ravel(), dist.ravel())[0, 1])},
-            'discrimination_auroc': {'g(c,t)': auroc(ct[same], ct[~same]), 'g(t,c)': auroc(tc[same], tc[~same]),
-                                     'g(f,c) trained': auroc(fc[same], fc[~same]), 'g(t,t)': auroc(tt[same], tt[~same]), 'g(c,c)': auroc(cc[same], cc[~same]),
-                                     '-distance(c,t)': auroc(-dist[same], -dist[~same])},
-            'ranking': {}}
-        for name, S, Q in (('c -> t by g(c,t) (evaluated)', ct, 'c'), ('c -> t by g(t,c)', tc, 'c'), ('t -> c by g(t,c) (trained)', tc.T, 't'), ('t -> c by g(c,t)', ct.T, 't')):
-            raw = rank(S, y, y, draws)
-            cen = rank(S - S.mean(0, keepdims=True), y, y, draws)  # each candidate's mean over all queries removed
-            r['ranking'][name] = {'raw': raw, 'candidate_centred': cen}
-        with torch.no_grad():
-            Cm, Tm, Fm = [torch.stack([X_[y == n].mean(0) for n in range(1, 10)]) for X_ in (C, T, F)]
-            unit = float(torch.cdist(Cm, Cm)[~torch.eye(9, dtype=bool)].mean())
-            r['geometry'] = {'collection_class_spacing': unit,
-                             'same_count_c_t': float(torch.diagonal(torch.cdist(Cm, Tm)).mean() / unit),
-                             'same_count_c_f': float(torch.diagonal(torch.cdist(Cm, Fm)).mean() / unit),
-                             'same_count_t_f': float(torch.diagonal(torch.cdist(Tm, Fm)).mean() / unit),
-                             'taps_class_spacing': float(torch.cdist(Tm, Tm)[~torch.eye(9, dtype=bool)].mean() / unit),
-                             'english_forms_to_collections_nearest': float((torch.cdist(Fm, Cm).argmin(1) == torch.arange(9)).float().mean())}
-        out[p] = r
+        out[p] = measure(enc, model, y, draws)
     return seed, out, time.perf_counter() - t0
 
 
