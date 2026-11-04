@@ -45,7 +45,7 @@ The same is measured on a delay batch from the same state for reference.
 
 Gradient terms are weighted by their magnitude.
 
-With exp(scale) ≈ 0.4, a target 17 away against a nearest candidate 10 away gives a row loss of about 0.4·(17² − 10²) ≈ 80. The mean target probability of 0.5–0.6 hides a tail of rows that are very wrong, and those rows dominate the loss and its gradient.
+With exp(scale) ≈ 0.4, a target 17 away against a nearest candidate 10 away gives a row loss of about 0.4·(17² − 10²) ≈ 80. The loss depends on relative distances: a row is costly when a wrong candidate is substantially closer to the prediction than the target is. A distant target alone costs little if every candidate is equally distant. The mean target probability of 0.5–0.6 hides a tail of rows where a wrong candidate is much closer, and those rows dominate the loss and its gradient.
 
 **3. Branches of 50 updates from the same state,** one change each:
 
@@ -63,25 +63,35 @@ Each branch's first 20 updates, on `proj['image']`:
 
 ## The mechanism
 
-1. **Reintroduced forms make confidently wrong predictions.** The forgotten forms' sequence predictions land 9–17 code units from their target collections, against 4–10 from the nearest candidate. Because the scores are squared distances, some rows cost hundreds. The sequence loss is about 94 and its gradient about 100 times the delay's.
+1. **Reintroduced forms make confidently wrong predictions.** The forgotten forms' sequence predictions land 9–17 code units from their target collections, against 4–10 from the nearest candidate. Squared distances turn that relative gap into very large differences between logits, so some rows cost hundreds. The sequence loss is about 94 and its gradient about 100 times the delay's.
 2. **That loss pulls each target collection straight at the wrong prediction.** On the candidate side, descent moves every target collection directly toward its row's prediction (cosine 1.00) and pushes the other candidates away. Form rows carry 99–100% of this gradient on collection codes.
-3. **The pull is inward, and summed over rows it is a contraction.** The predictions sit more centrally than their targets, so the pull points toward the origin (cosine 0.27–0.85). Through the shared linear projection, the summed gradient is radial (cosine with the weights 0.23–0.33). The shrink derivative is +169: shrinking every image code is the fastest way to lower this loss.
+3. **The pull has an inward component, and summed over rows it is largely a contraction.**
+   - The descent on target collections has a component toward the origin (cosine 0.27–0.85). This holds although prediction norms are not consistently smaller than target norms (11–21 against 10–13): a prediction can pull inward without having a smaller norm overall.
+   - Through the shared linear projection, the summed gradient has a substantial radial component (cosine with the weights 0.23–0.33).
+   - The shrink derivative is +169, so contraction locally lowers this loss. That does not make it the steepest direction: the radial cosine is well below 1, and most of the gradient points elsewhere.
    - After clipping and Adam, `proj['image']` loses 5% of its norm in 20 updates.
    - The collection codes shrink to 0.13–0.35 of their scale, and about 70% of their movement is that uniform scaling.
 4. **Taps do not contract with them.** Taps are never candidates in these rows and have their own projection. Their scale stays at 0.79–0.96 after 20 updates. The two senses' count lines separate (same-count distance from 0.28 to 1.46 of the spacing).
 5. **The comparator then re-adapts only in the order it is trained.** As the [dynamics](relearning-dynamics-v1.md) showed, the trained taps → collection read recovers within 50 updates. The reverse read, which memory's recalled collections need, recovers only partly.
 
-**The candidate-side gradient is the necessary route in these branches.**
+**The candidate-side gradient is the dominant identified route of the early collapse under these conditions.** Blocking it greatly reduces the contraction, but does not restore the original performance: collections → taps reads 0.69 at 50 updates, against 0.89 before relearning.
 - Stopping the form rows' sequence gradient into the candidates keeps the collections at 0.81–0.88 of their scale and the senses aligned (0.35). Collections → taps reads 0.69 at 50 updates against 0.42, and memory-present symbol → taps 0.61 against 0.36.
 - English reacquisition is unchanged (0.30 against 0.29 at 50).
 - Stopping the gradient into the prediction's inputs instead leaves the collapse as large or larger.
 - Freezing the temperature changes nothing, so the loss does not lower its temperature in place of shrinking the codes.
 
 **What this does not establish:**
-- **Why the forgotten forms' predictions sit centrally.** The predictor's response to out-of-practice form codes is not examined.
+- **Why the forgotten forms' predictions pull inward.** The predictor's response to out-of-practice form codes is not examined.
+- **What else contributes to the failure.** Blocking the candidate route leaves collections → taps at 0.69, against 0.89 before. Form matching updates, other code movement and the comparator's re-adaptation remain.
 - **Whether Adam's history enlarges the steps.** It is still untested; the radial direction comes from the gradient itself.
 - **The smaller symmetry loss that form matching causes** ([dynamics](relearning-dynamics-v1.md)), or the late sag of the reverse read after 300 updates.
 - **Remedies.** The stop-gradient branch is a diagnostic. It shows which route carries the collapse, and is not proposed as a fix.
+
+## The architectural lesson
+
+The desired relation need not be wrong for its training updates to destroy a useful representation. Here the sequence-prediction objective lets errors on forgotten forms move the collection codes that working skills depend on: taps ↔ collections, and the interpretation of recalled values.
+
+Memory cannot compensate when its interpreter changes underneath it. The stored values were intact throughout; the core's reading of them was not.
 
 ## Computation
 
