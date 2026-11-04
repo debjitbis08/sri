@@ -93,6 +93,10 @@ The desired relation need not be wrong for its training updates to destroy a use
 
 Memory cannot compensate when its interpreter changes underneath it. The stored values were intact throughout; the core's reading of them was not.
 
+## Remedies
+
+Candidates, with the prior work they draw on, are in the [remedies plan](relearning-remedies-plan.md), for review. Nothing is run.
+
 ## Computation
 
 - **GPU** (GTX 1650), three workers. The capture reruns each seed to the first relearning update, about 170–230 s per seed.
