@@ -242,10 +242,14 @@ class KeptMemory:
     - With frozen_gate, each centre keeps the gate it opened with, so an unchanged query's score against an unchanged unit never changes when centres open
       or the gate is refitted. Without it, every centre uses the current gate.
     make_memory() returns a memory with write(z, v) or write_tagged(z, v, row), and arrays a, u, n and count h (src.sparse_local_memory.Memory, or a tagged one).
+    values='coded' stores a target coded on the fact's centre (decode() compares it with candidates there); values='raw' stores the target's raw codes,
+    concatenated in model order, so a value can be passed back to whatever reads those codes (docs/sense-memory-core-v1-design.md). Raw values are in the
+    frozen models' own coordinates, so they are invariant to centres and gates by construction.
     Read cost: O(k d) to code a query on k centres plus O(h d) to score h units once; state: k centres, k gates when frozen, and the units."""
 
-    def __init__(self, models, make_memory, frozen_gate=True):
-        self.models, self.make_memory, self.frozen_gate = tuple(models), make_memory, frozen_gate
+    def __init__(self, models, make_memory, frozen_gate=True, values='coded'):
+        assert values in ('coded', 'raw')
+        self.models, self.make_memory, self.frozen_gate, self.values = tuple(models), make_memory, frozen_gate, values
         self.centres, self.parts, self.gates, self.gate = [], [], [], None
 
     def open_centre(self, centre, gate):
@@ -273,18 +277,26 @@ class KeptMemory:
         return join(self._parts(codes, j))
 
     def write(self, cue, target, centre_ids, rows=None):
-        """cue, target: {model: raw codes}; centre_ids: the centre of each fact (picked by its cue), used for both sides."""
+        """cue, target: {model: raw codes}; centre_ids: the centre of each fact (picked by its cue), used for both sides.
+        Returns, for each fact written, (its index in this call, its centre, the units it went to)."""
         centre_ids = np.asarray(centre_ids)
+        written = []  # (fact index in this call, centre, units it went to), so diagnostics can track what each unit took
         for j in np.unique(centre_ids):
             m = centre_ids == j
             z = self.key({n: cue[n][m] for n in self.models}, j)
-            v = self.key({n: target[n][m] for n in self.models}, j)
+            if self.values == 'raw':
+                v = np.concatenate([np.asarray(target[n][m], np.float32) for n in self.models], 1)
+            else:
+                v = self.key({n: target[n][m] for n in self.models}, j)
             mem = self.parts[j]
+            units = []
             for i, (zi, vi) in enumerate(zip(z, v)):
                 if rows is None:
-                    mem.write(zi, vi)
+                    units.append(mem.write(zi, vi))
                 else:
-                    mem.write_tagged(zi, vi, np.asarray(rows)[m][i])
+                    units.append(mem.write_tagged(zi, vi, np.asarray(rows)[m][i]))
+            written.extend((int(k), int(j), np.asarray(u)) for k, u in zip(np.flatnonzero(m), units))
+        return sorted(written, key=lambda w: w[0])
 
     def scores(self, codes):
         """(q, h) scores against every unit, with the centre and index of each column."""
@@ -307,7 +319,8 @@ class KeptMemory:
         return {'centre': c, 'unit': i, 'score': S[np.arange(len(b)), b], 'value': value, 'column': b}
 
     def decode(self, read, candidates):
-        """Index of the candidate each value matches best, with candidates coded on each read's winning centre."""
+        """Index of the candidate each value matches best, with candidates coded on each read's winning centre (coded values only)."""
+        assert self.values == 'coded', 'raw values are read by whatever takes the raw codes'
         Zc = {c: self.key(candidates, c) for c in np.unique(read['centre'])}
         return np.array([int((read['value'][r] @ Zc[c].T).argmax()) for r, c in enumerate(read['centre'])])
 

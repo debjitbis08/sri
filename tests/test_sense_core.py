@@ -62,6 +62,17 @@ class FrozenImageEncoder(unittest.TestCase):
         with self.assertRaises(ValueError):
             other.load_state_dict(sd)
 
+    def test_codes_given_directly_read_like_their_images(self):
+        models = ('dinov2-s', 'trocr-s')
+        enc = self.SC.FrozenImage(models, 'mlp', 7, self.table, self.stats(models, slice(0, 3)))
+        raw = np.concatenate([self.codes[n] for n in models], 1)
+        torch.testing.assert_close(enc.from_codes(raw[[2, 4]]), enc(torch.from_numpy(self.imgs[[2, 4]])))
+        rng = np.random.default_rng(2)
+        img, code = rng.uniform(size=(1, 28, 28)).astype(np.float32), rng.normal(size=(1, 768)).astype(np.float32)
+        enc.add_codes([self.SC.image_key(img[0])], code)
+        torch.testing.assert_close(enc(torch.from_numpy(img)), enc.from_codes(code))
+        self.assertEqual(enc.misses, 0)
+
     def test_only_the_projection_is_trained(self):
         enc = self.SC.FrozenImage(('dinov2-s',), 'mlp', 7, {'index': self.table['index'], 'dinov2-s': self.codes['dinov2-s']}, self.stats(('dinov2-s',)))
         self.assertEqual(sorted(n for n, _ in enc.named_parameters()), ['head.0.bias', 'head.0.weight', 'head.2.bias', 'head.2.weight'])

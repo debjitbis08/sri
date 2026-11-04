@@ -124,7 +124,13 @@ Recommended order: 1 and 2, then 3 to 5 (one experiment), 7, 8, 9, 10. Step 11 i
     - recall across senses, with the sense-only control;
     - relation reads with memory removed, so memory does not wear down the core.
 
-    **Design draft, 2026-11-04** ([draft](sense-memory-core-v1-design.md), nothing run). Stage 1: facts are new symbols seen with dot collections. Kept-centre memory on frozen sight stores each collection's raw frozen code as its value. At read time, the value goes through the current calibrated projection and core, which answers taps, dots and comparison: a sensory trace with no image stored. It reads through the step 8 checkpoints, so no core is retrained, with stale-copy, sense-only, core-only and oracle arms. Stage 2, memory training the core by replaying frozen codes, waits for stage 1 and a user decision.
+    **Design draft, 2026-11-04** ([draft](sense-memory-core-v1-design.md), nothing run). Stage 1: facts are new symbols seen with dot collections. Kept-centre memory on frozen sight stores each collection's raw frozen code as its value. At read time, the value goes through the current calibrated projection and core, which answers taps, dots and comparison: a sensory trace with no image stored. It reads through the step 8 checkpoints, so no core is retrained, with stale-copy, sense-only, core-only and oracle arms. Stage 2, latent replay from memory (rehearsal, by user decision), waits for stage 1.
+
+    **Stage 1, pilot, 2026-11-04** ([results](sense-memory-core-v1-pilot.md), seeds 300–303, both orders). Through the core, a recalled dot value answers taps, a different sense: 0.95 on the stored value and 0.94 on correctly retrieved queries, at or above the core's reading of fresh dots (0.91). The core alone is at chance, and sight alone cannot answer taps. Averaging stored values costs nothing.
+    - Retrieval at τ 0.85 limits end-to-end reads to about 0.65, since 30% of queries abstain. At 0.70 they reach 0.90–0.96, with 0.13–0.20 of unseen symbols answered.
+    - Traces follow the core as it improves, while copies go stale (0.12 at block 3).
+    - Interference is negligible (≤ 0.004).
+    - The moving-host bar fails at relearning (taps 0.96 to 0.72), because the core itself reads fresh dots worse there (0.91 to 0.66). Fixed values do not give fixed answers.
 11. **Cost and scaling.** Measure seconds per input and bytes per key for each model, and their sum. Check them against `cpu-efficiency-design-constraint.md`.
 
     Scaling: n models cost n forward passes per input. Keys grow by the sum of code widths. Centres grow with domains × models, and the gate with models. All of this is linear and independent of time, unlike copies.

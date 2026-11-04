@@ -110,5 +110,53 @@ class Invariant(unittest.TestCase):
         self.assertEqual(s['gates'], 4 * 2 * D * 2)
 
 
+class RawValues(unittest.TestCase):
+    """values='raw' (docs/sense-memory-core-v1-design.md): the stored value is the target's raw codes, untouched by centres or gates."""
+    def setUp(self):
+        rng = np.random.default_rng(4)
+        self.rng = rng
+        self.cA = {m: rng.normal(size=D).astype(np.float32) * 3 for m in ('a', 'b')}
+        self.cB = {m: rng.normal(size=D).astype(np.float32) * 3 for m in ('a', 'b')}
+        self.cues, self.targets = cluster(rng, self.cA, 10), cluster(rng, self.cA, 10)
+
+    def build(self, tau=.99):
+        km = SN.KeptMemory(('a', 'b'), lambda: Memory(64, 1, tau, 2 * D, 2 * D), values='raw')
+        km.open_centre(self.cA, FixedGate(1))
+        return km
+
+    def test_a_unit_holds_its_targets_raw_codes_and_reports_where_each_fact_went(self):
+        km = self.build()
+        w = km.write(self.cues, self.targets, np.zeros(10, int))
+        self.assertEqual([k for k, _, _ in w], list(range(10)))
+        raw = np.concatenate([self.targets['a'], self.targets['b']], 1)
+        for k, j, units in w:
+            self.assertEqual(j, 0)
+            np.testing.assert_allclose(km.parts[0].u[units[0]] / km.parts[0].n[units[0]], raw[k], rtol=1e-6)  # tau .99: one unit per fact
+        r = km.read(self.cues)
+        np.testing.assert_allclose(r['value'], raw, rtol=1e-6)
+
+    def test_merged_writes_average_raw_codes(self):
+        km = self.build(tau=-1.)
+        km.write({m: v[:3] for m, v in self.cues.items()}, {m: v[:3] for m, v in self.targets.items()}, np.zeros(3, int))
+        raw = np.concatenate([self.targets['a'][:3], self.targets['b'][:3]], 1)
+        np.testing.assert_allclose(km.read({m: v[:1] for m, v in self.cues.items()})['value'][0], raw.mean(0), rtol=1e-5)
+
+    def test_raw_values_are_unchanged_by_new_centres_and_refits(self):
+        km = self.build()
+        km.write(self.cues, self.targets, np.zeros(10, int))
+        before = km.read(self.cues)
+        km.open_centre(self.cB, FixedGate(2))
+        km.refit(FixedGate(3))
+        after = km.read(self.cues)
+        for k in ('centre', 'unit', 'score', 'value'):
+            np.testing.assert_array_equal(before[k], after[k])
+
+    def test_raw_values_cannot_be_decoded_in_key_coordinates(self):
+        km = self.build()
+        km.write(self.cues, self.targets, np.zeros(10, int))
+        with self.assertRaises(AssertionError):
+            km.decode(km.read(self.cues), self.targets)
+
+
 if __name__ == '__main__':
     unittest.main()

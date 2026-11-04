@@ -365,8 +365,10 @@ class Tagged(Memory):
         self.tags = np.zeros((H, facts), np.int16)
 
     def write_tagged(self, z, v, fact):
-        for i in self.write(z, v):
+        I = self.write(z, v)
+        for i in I:
             self.tags[i, fact] = min(int(self.tags[i, fact]) + 1, 32767)
+        return I
 
     def payload_bytes(self):
         return 4 * self.h * (self.d + self.m + 1)  # address, value sum, count

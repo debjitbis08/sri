@@ -190,6 +190,22 @@ class FrozenImage(nn.Module):
             self.feats = None
         return rows
 
+    def add_codes(self, keys, raw):
+        """Add frozen codes (n, width) for images with the given content keys, so they are looked up rather than encoded live. Statistics do not change."""
+        new = [i for i, k in enumerate(keys) if int(k) not in self.index]
+        base = len(self.raw)
+        self.raw = np.concatenate([self.raw, np.asarray(raw, np.float32)[new]])
+        for t, i in enumerate(new):
+            self.index[int(keys[i])] = base + t
+        self.feats = None
+
+    def from_codes(self, raw):
+        """The projection of raw frozen codes (n, width) given directly, for example a value recalled from memory: standardized with the fixed statistics,
+        then the head. No image and no lookup."""
+        m, s = self.mean.cpu().numpy(), self.std.cpu().numpy()
+        z = torch.from_numpy(((np.asarray(raw, np.float32) - m) / s).astype(np.float32))
+        return self.head(z.to(self.mean.device))
+
     def forward(self, x):
         rows = self.lookup(x)
         if self.feats is None:
