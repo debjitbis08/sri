@@ -1869,3 +1869,12 @@ texts read.
   old-task outputs by distillation on new-task data while fine-tuning. It is the standard form of the anchor-preservation loss.
 - **Confidence.** **[abstract]** Guo et al. 2017 (above, critic notes): neural confidence is poorly calibrated; this does not
   make margin a weak error detector on in-distribution data. **[derived]** v1 therefore reads whether conflict adds to margin.
+- **Error detection baselines.** **[abstract]** [Hendrycks and Gimpel 2017](https://arxiv.org/abs/1610.02136): the maximum
+  softmax probability separates misclassified from correct examples (AUROC, AUPR) across vision, language and speech, though
+  poorly calibrated; it is the baseline the critic's margin comparison stands for. [Jiang et al. 2018, trust
+  score](https://arxiv.org/abs/1805.11783): agreement with a modified nearest-neighbour classifier flags errors with higher
+  precision than the classifier's confidence in their tests. [Lakkaraju et al. 2017](https://arxiv.org/abs/1610.09064):
+  high-confidence errors ("unknown unknowns") arise from systematic training bias and cannot be found by confidence-based
+  active learning; they search data partitions with a bandit under an oracle budget. Searches 2026-11-05: `Hendrycks Gimpel
+  baseline detecting misclassified`; `Lakkaraju unknown unknowns AAAI 2017`; `Jiang Kim Guan Gupta To Trust Or Not To Trust`.
+  For [consistency critic v1 follow-up](consistency-critic-v1-confident.md).
