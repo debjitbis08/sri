@@ -1,6 +1,7 @@
 # Everyday relations v3: few "no"s, and two-word phrases
 
-Status: **draft contract, 2026-11-05. Not frozen; awaiting user review.**
+Status: **contract frozen 2026-11-05**, after the user's review of the draft (commit 1171110: the 1:1 ratio and the
+word lists confirmed) and a 100-step smoke run that only checked the runner.
 
 Follows [everyday relations v2](everyday-relations-v2-results.md). User direction (2026-11-05):
 - Fix the open world with option 1: false facts only where the answer is known.
@@ -135,15 +136,34 @@ No new search; sources are **[familiar]** unless linked in v1–v2 or the shared
 
 ## Computation (declared)
 
-- World: about 230 entities, 37 relations, about 19,000 queries (fixed at freezing).
+- World (`src/everyday_world_v3.py`): 205 entities, 37 relations, 17,231 queries (2,163 true). Trainable: 1,368 true and
+  12,360 false queries before the 5% validation split.
+- Few "no"s (smoke seed 420): 1,301 false facts mentioned (13 true facts found no allowed corruption in 50 draws), so
+  about 10,400 false pairs are never mentioned.
+- Parameters: `two` 26,001, `tworel` 28,049, `flat` 28,063.
+- Test sizes: G1 202 queries (50 true), G2 268, G3 246, G4 47 (39 good-order-but-silly, 8 sensible). `G3-names` (96, the
+  G3 words' `names` queries) is read as a not-inferable control.
 - 52 runs at about 5–7 CPU min each (v2: 4.6, with a larger world now), about 5–6 CPU h. About 45 min wall on 8 workers.
 - Fast mapping: 7 entities, about 20 fits per run, included in that time.
 - Stored: reports; checkpoints in `runs/` (not tracked).
 - No tuning: the 1:1 mentioned-negative ratio is fixed here.
 
-## Open decisions for the user
+## Decisions and implementation notes
 
-1. **Ratio of "no"s.** 1 mentioned false fact per true fact, as drafted. More "no"s moves toward the closed world; fewer
-   makes over-acceptance more likely.
-2. **Words.** Are the 19 nouns, 5 verbs and 8 adjectives and the two phrase patterns (noun–verb, adjective–noun) right
-   for a first phrase test?
+- User (2026-11-05): 1 mentioned "no" per true fact; the word lists and the two phrase patterns as drafted.
+- The mentioned "no"s are drawn once per seed. A corruption is accepted only if it is a known-false query outside the
+  held-out tests and the validation split. Up to 50 draws are tried per true fact; misses are recorded.
+- The G3 words keep `good-phrase(word, run-w)` and `good-phrase(word, swim-w)` true and `good-phrase(run-w, word)` false.
+  For `frog-w` that means "frog runs" is taught as good order, which it is (word order only), even though frogs do not run.
+- The G2 words keep only `names`.
+- G4 subsets: `silly` (good order, false meaning) and `sensible`. The dissociation read compares each silly pair's
+  `good-phrase` score with its `makes-sense` score.
+- Smoke (100 steps, 52 runs, 10 workers): 24 s wall, 140 s user CPU.
+
+## Commands
+
+```
+.venv/bin/python -m unittest tests.test_everyday_world_v3
+EV_WORKERS=8 .venv/bin/python -m experiments.everyday_relations_v3 main      # rerun resumes
+.venv/bin/python -m experiments.everyday_relations_v3 summary
+```
