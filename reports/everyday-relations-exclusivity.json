@@ -1,0 +1,8322 @@
+{
+ "complex/400/dax/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.9,
+    "auroc": 1.0,
+    "bal_acc": 0.875,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 0.75
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9166666666666667
+ },
+ "complex/400/dax/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.3333333333333333,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.3333333333333333,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.7,
+    "auroc": 0.8333333333333334,
+    "bal_acc": 0.7083333333333333,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.6666666666666666,
+    "tpr": 0.75
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.6535087719298246
+ },
+ "complex/400/dax/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.5,
+    "auroc": 1.0,
+    "bal_acc": 0.6666666666666666,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.3333333333333333,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.6,
+    "auroc": 0.75,
+    "bal_acc": 0.625,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.5,
+    "tpr": 0.75
+   },
+   "is-a": {
+    "acc": 0.3333333333333333,
+    "auroc": 0.8,
+    "bal_acc": 0.6,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.2,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.2,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5745614035087719
+ },
+ "complex/400/dax/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.75,
+    "auroc": 1.0,
+    "bal_acc": 0.8333333333333333,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.6666666666666666,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.6,
+    "auroc": 0.9583333333333334,
+    "bal_acc": 0.6666666666666666,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.3333333333333333,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.5,
+    "auroc": 1.0,
+    "bal_acc": 0.7,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.4,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.4,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.763157894736842
+ },
+ "complex/400/fep/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.6,
+    "auroc": 1.0,
+    "bal_acc": 0.75,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.5,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.25,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.25,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.7,
+    "auroc": 0.9523809523809523,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 1.0,
+    "tpr": 0.0
+   },
+   "is-a": {
+    "acc": 0.6666666666666666,
+    "auroc": 1.0,
+    "bal_acc": 0.8,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.6,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.6,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5260869565217392
+ },
+ "complex/400/fep/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.4,
+    "auroc": 1.0,
+    "bal_acc": 0.625,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.25,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.8333333333333334,
+    "auroc": 1.0,
+    "bal_acc": 0.9,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.8,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.8,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.8695652173913043
+ },
+ "complex/400/fep/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.0,
+    "auroc": 0.0,
+    "bal_acc": 0.0,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 0.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.4,
+    "auroc": 0.7619047619047619,
+    "bal_acc": 0.47619047619047616,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.2857142857142857,
+    "tpr": 0.6666666666666666
+   },
+   "is-a": {
+    "acc": 0.3333333333333333,
+    "auroc": 1.0,
+    "bal_acc": 0.6,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.2,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.3333333333333333,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.3333333333333333,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.2,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.3869565217391304
+ },
+ "complex/400/fep/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.8,
+    "auroc": 1.0,
+    "bal_acc": 0.875,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.75,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.75,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.75,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.3,
+    "auroc": 0.9523809523809523,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.3333333333333333,
+    "auroc": 1.0,
+    "bal_acc": 0.6,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.2,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.2,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.717391304347826
+ },
+ "complex/401/dax/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.6,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 0.0
+   },
+   "is-a": {
+    "acc": 0.3333333333333333,
+    "auroc": 1.0,
+    "bal_acc": 0.6,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.2,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.2,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5087719298245614
+ },
+ "complex/401/dax/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.75,
+    "auroc": 1.0,
+    "bal_acc": 0.8333333333333333,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.6666666666666666,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.9,
+    "auroc": 0.7916666666666666,
+    "bal_acc": 0.875,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 0.75
+   },
+   "is-a": {
+    "acc": 0.3333333333333333,
+    "auroc": 1.0,
+    "bal_acc": 0.6,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.2,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.2,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.6798245614035088
+ },
+ "complex/401/dax/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.75,
+    "auroc": 1.0,
+    "bal_acc": 0.8333333333333333,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.6666666666666666,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.3333333333333333,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.3333333333333333,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.7,
+    "auroc": 0.8333333333333334,
+    "bal_acc": 0.7083333333333333,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.6666666666666666,
+    "tpr": 0.75
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.6271929824561404
+ },
+ "complex/401/dax/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.75,
+    "auroc": 1.0,
+    "bal_acc": 0.8333333333333333,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.6666666666666666,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.6,
+    "auroc": 0.875,
+    "bal_acc": 0.625,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.5,
+    "tpr": 0.75
+   },
+   "is-a": {
+    "acc": 0.5,
+    "auroc": 1.0,
+    "bal_acc": 0.7,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.4,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.4,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.6271929824561404
+ },
+ "complex/401/fep/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.6,
+    "auroc": 1.0,
+    "bal_acc": 0.75,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.5,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.25,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.25,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.7,
+    "auroc": 0.9523809523809523,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 1.0,
+    "tpr": 0.0
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.4173913043478261
+ },
+ "complex/401/fep/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.6,
+    "auroc": 1.0,
+    "bal_acc": 0.75,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.5,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.9,
+    "auroc": 0.9047619047619048,
+    "bal_acc": 0.8333333333333333,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 1.0,
+    "tpr": 0.6666666666666666
+   },
+   "is-a": {
+    "acc": 0.3333333333333333,
+    "auroc": 1.0,
+    "bal_acc": 0.6,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.2,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.3333333333333333,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.3333333333333333,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.2,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.682608695652174
+ },
+ "complex/401/fep/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.6,
+    "auroc": 0.5,
+    "bal_acc": 0.75,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.5,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.6,
+    "auroc": 0.8095238095238095,
+    "bal_acc": 0.6190476190476191,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.5714285714285714,
+    "tpr": 0.6666666666666666
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.3333333333333333,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.3333333333333333,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5521739130434783
+ },
+ "complex/401/fep/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.4,
+    "auroc": 0.5,
+    "bal_acc": 0.625,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.25,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.3,
+    "auroc": 0.7142857142857143,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.3333333333333333,
+    "auroc": 1.0,
+    "bal_acc": 0.6,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.2,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.3333333333333333,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.3333333333333333,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.2,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.6086956521739131
+ },
+ "complex/402/dax/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.8,
+    "auroc": 1.0,
+    "bal_acc": 0.75,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 0.5
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.8333333333333333
+ },
+ "complex/402/dax/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.9,
+    "auroc": 0.8333333333333334,
+    "bal_acc": 0.875,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 0.75
+   },
+   "is-a": {
+    "acc": 0.8333333333333334,
+    "auroc": 1.0,
+    "bal_acc": 0.9,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.8,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.8,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.8377192982456141
+ },
+ "complex/402/dax/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.75,
+    "auroc": 1.0,
+    "bal_acc": 0.8333333333333333,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.6666666666666666,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.4,
+    "auroc": 0.25,
+    "bal_acc": 0.4583333333333333,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.16666666666666666,
+    "tpr": 0.75
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 0.8,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5219298245614035
+ },
+ "complex/402/dax/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.5,
+    "auroc": 1.0,
+    "bal_acc": 0.6666666666666666,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.3333333333333333,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.4,
+    "auroc": 0.5833333333333334,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.3333333333333333,
+    "auroc": 1.0,
+    "bal_acc": 0.6,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.2,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.2,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5789473684210527
+ },
+ "complex/402/fep/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.8,
+    "auroc": 1.0,
+    "bal_acc": 0.875,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.75,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.75,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.75,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.7,
+    "auroc": 0.8571428571428571,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 1.0,
+    "tpr": 0.0
+   },
+   "is-a": {
+    "acc": 0.3333333333333333,
+    "auroc": 1.0,
+    "bal_acc": 0.6,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.2,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.2,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5695652173913044
+ },
+ "complex/402/fep/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.6,
+    "auroc": 1.0,
+    "bal_acc": 0.75,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.5,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.75,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.75,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.9,
+    "auroc": 1.0,
+    "bal_acc": 0.8333333333333333,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 1.0,
+    "tpr": 0.6666666666666666
+   },
+   "is-a": {
+    "acc": 0.6666666666666666,
+    "auroc": 1.0,
+    "bal_acc": 0.8,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.6,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.6,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.7695652173913043
+ },
+ "complex/402/fep/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.4,
+    "auroc": 0.75,
+    "bal_acc": 0.625,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.25,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.25,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.25,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.6,
+    "auroc": 0.7142857142857143,
+    "bal_acc": 0.6190476190476191,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.5714285714285714,
+    "tpr": 0.6666666666666666
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.3333333333333333,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.3333333333333333,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5521739130434783
+ },
+ "complex/402/fep/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.4,
+    "auroc": 0.5,
+    "bal_acc": 0.625,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.25,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.4,
+    "auroc": 0.8095238095238095,
+    "bal_acc": 0.5714285714285714,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.14285714285714285,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.6304347826086957
+ },
+ "complex/403/dax/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.6,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 0.0
+   },
+   "is-a": {
+    "acc": 0.6666666666666666,
+    "auroc": 1.0,
+    "bal_acc": 0.8,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.6,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.6,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.6140350877192983
+ },
+ "complex/403/dax/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.3333333333333333,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.3333333333333333,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.9,
+    "auroc": 1.0,
+    "bal_acc": 0.875,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 0.75
+   },
+   "is-a": {
+    "acc": 0.5,
+    "auroc": 1.0,
+    "bal_acc": 0.7,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.4,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.4,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.7850877192982456
+ },
+ "complex/403/dax/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.3333333333333333,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.3333333333333333,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.9,
+    "auroc": 1.0,
+    "bal_acc": 0.875,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 0.75
+   },
+   "is-a": {
+    "acc": 0.3333333333333333,
+    "auroc": 1.0,
+    "bal_acc": 0.6,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.2,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.2,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.7324561403508771
+ },
+ "complex/403/dax/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.25,
+    "auroc": 0.3333333333333333,
+    "bal_acc": 0.16666666666666666,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.3333333333333333,
+    "tpr": 0.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.4,
+    "auroc": 0.6666666666666666,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.5,
+    "auroc": 1.0,
+    "bal_acc": 0.7,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.4,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.4,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5219298245614035
+ },
+ "complex/403/fep/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.8,
+    "auroc": 0.75,
+    "bal_acc": 0.875,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.75,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.75,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.75,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.7,
+    "auroc": 0.8571428571428571,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 1.0,
+    "tpr": 0.0
+   },
+   "is-a": {
+    "acc": 0.5,
+    "auroc": 0.6,
+    "bal_acc": 0.7,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.4,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.4,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5695652173913044
+ },
+ "complex/403/fep/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.6,
+    "auroc": 1.0,
+    "bal_acc": 0.75,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.5,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.75,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.75,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.8,
+    "auroc": 0.9047619047619048,
+    "bal_acc": 0.7619047619047619,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.8571428571428571,
+    "tpr": 0.6666666666666666
+   },
+   "is-a": {
+    "acc": 0.6666666666666666,
+    "auroc": 1.0,
+    "bal_acc": 0.8,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.6,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.6,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.7478260869565218
+ },
+ "complex/403/fep/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.4,
+    "auroc": 0.25,
+    "bal_acc": 0.625,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.25,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.6,
+    "auroc": 0.6190476190476191,
+    "bal_acc": 0.6190476190476191,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.5714285714285714,
+    "tpr": 0.6666666666666666
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.3333333333333333,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.3333333333333333,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5304347826086957
+ },
+ "complex/403/fep/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.6,
+    "auroc": 1.0,
+    "bal_acc": 0.75,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.5,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.3,
+    "auroc": 0.7142857142857143,
+    "bal_acc": 0.40476190476190477,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.14285714285714285,
+    "tpr": 0.6666666666666666
+   },
+   "is-a": {
+    "acc": 0.3333333333333333,
+    "auroc": 1.0,
+    "bal_acc": 0.6,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.2,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.2,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5739130434782609
+ },
+ "flat/400/dax/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.5,
+    "auroc": 0.6666666666666666,
+    "bal_acc": 0.3333333333333333,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.6666666666666666,
+    "tpr": 0.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.8640350877192983
+ },
+ "flat/400/dax/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 1.0
+ },
+ "flat/400/dax/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.75,
+    "auroc": 0.6666666666666666,
+    "bal_acc": 0.8333333333333333,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.6666666666666666,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.5,
+    "auroc": 1.0,
+    "bal_acc": 0.5833333333333334,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.16666666666666666,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.6666666666666666,
+    "auroc": 1.0,
+    "bal_acc": 0.8,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.6,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.6,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.763157894736842
+ },
+ "flat/400/dax/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.75,
+    "auroc": 1.0,
+    "bal_acc": 0.8333333333333333,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.6666666666666666,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.7,
+    "auroc": 1.0,
+    "bal_acc": 0.75,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.5,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.6666666666666666,
+    "auroc": 1.0,
+    "bal_acc": 0.8,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.6,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.6,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.8157894736842105
+ },
+ "flat/400/fep/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9782608695652174
+ },
+ "flat/400/fep/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 1.0
+ },
+ "flat/400/fep/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.9,
+    "auroc": 1.0,
+    "bal_acc": 0.9285714285714286,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.8571428571428571,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.8333333333333334,
+    "auroc": 1.0,
+    "bal_acc": 0.9,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.8,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.8,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9347826086956521
+ },
+ "flat/400/fep/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.8,
+    "auroc": 1.0,
+    "bal_acc": 0.875,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.75,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.75,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.75,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.6,
+    "auroc": 1.0,
+    "bal_acc": 0.7142857142857143,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.42857142857142855,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.6666666666666666,
+    "auroc": 1.0,
+    "bal_acc": 0.8,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.6,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.6,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.8043478260869565
+ },
+ "flat/401/dax/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.5,
+    "auroc": 0.6666666666666666,
+    "bal_acc": 0.3333333333333333,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.6666666666666666,
+    "tpr": 0.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.8640350877192983
+ },
+ "flat/401/dax/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 1.0
+ },
+ "flat/401/dax/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.75,
+    "auroc": 1.0,
+    "bal_acc": 0.8333333333333333,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.6666666666666666,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.3333333333333333,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.3333333333333333,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.7,
+    "auroc": 1.0,
+    "bal_acc": 0.75,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.5,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.6666666666666666,
+    "auroc": 1.0,
+    "bal_acc": 0.8,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.6,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.6,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.7368421052631579
+ },
+ "flat/401/dax/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.25,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.8333333333333334,
+    "auroc": 1.0,
+    "bal_acc": 0.9,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.8,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.8,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.8421052631578947
+ },
+ "flat/401/fep/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 1.0
+ },
+ "flat/401/fep/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 1.0
+ },
+ "flat/401/fep/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.6,
+    "auroc": 1.0,
+    "bal_acc": 0.75,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.5,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.25,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.25,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.5,
+    "auroc": 1.0,
+    "bal_acc": 0.6428571428571428,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.2857142857142857,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.6666666666666666,
+    "auroc": 1.0,
+    "bal_acc": 0.8,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.6,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.6,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.717391304347826
+ },
+ "flat/401/fep/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.8,
+    "auroc": 1.0,
+    "bal_acc": 0.875,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.75,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.5,
+    "auroc": 1.0,
+    "bal_acc": 0.6428571428571428,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.2857142857142857,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.3333333333333333,
+    "auroc": 1.0,
+    "bal_acc": 0.6,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.2,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.2,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.717391304347826
+ },
+ "flat/402/dax/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9736842105263157
+ },
+ "flat/402/dax/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.75,
+    "auroc": 1.0,
+    "bal_acc": 0.8333333333333333,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.6666666666666666,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.9,
+    "auroc": 1.0,
+    "bal_acc": 0.9166666666666667,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.8333333333333334,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9210526315789473
+ },
+ "flat/402/dax/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.25,
+    "auroc": 0.3333333333333333,
+    "bal_acc": 0.5,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.3333333333333333,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.3333333333333333,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.6,
+    "auroc": 1.0,
+    "bal_acc": 0.6666666666666666,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.3333333333333333,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.3333333333333333,
+    "auroc": 1.0,
+    "bal_acc": 0.6,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.2,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.2,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.6052631578947368
+ },
+ "flat/402/dax/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.5,
+    "auroc": 0.6666666666666666,
+    "bal_acc": 0.6666666666666666,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.3333333333333333,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.7,
+    "auroc": 0.9583333333333334,
+    "bal_acc": 0.75,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.5,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.6666666666666666,
+    "auroc": 1.0,
+    "bal_acc": 0.8,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.6,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.6,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.6842105263157895
+ },
+ "flat/402/fep/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.9,
+    "auroc": 1.0,
+    "bal_acc": 0.8333333333333333,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 1.0,
+    "tpr": 0.6666666666666666
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.8782608695652174
+ },
+ "flat/402/fep/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.9,
+    "auroc": 1.0,
+    "bal_acc": 0.8333333333333333,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 1.0,
+    "tpr": 0.6666666666666666
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9
+ },
+ "flat/402/fep/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.8,
+    "auroc": 1.0,
+    "bal_acc": 0.875,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.75,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.75,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.75,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.5,
+    "auroc": 1.0,
+    "bal_acc": 0.6428571428571428,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.2857142857142857,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.5,
+    "auroc": 1.0,
+    "bal_acc": 0.7,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.4,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.4,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.7608695652173914
+ },
+ "flat/402/fep/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.4,
+    "auroc": 1.0,
+    "bal_acc": 0.625,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.25,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.4,
+    "auroc": 0.8571428571428571,
+    "bal_acc": 0.5714285714285714,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.14285714285714285,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 0.8,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5869565217391304
+ },
+ "flat/403/dax/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9736842105263157
+ },
+ "flat/403/dax/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9736842105263157
+ },
+ "flat/403/dax/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.75,
+    "auroc": 0.6666666666666666,
+    "bal_acc": 0.8333333333333333,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.6666666666666666,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9210526315789473
+ },
+ "flat/403/dax/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.25,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.4,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5789473684210527
+ },
+ "flat/403/fep/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.9,
+    "auroc": 1.0,
+    "bal_acc": 0.8333333333333333,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 1.0,
+    "tpr": 0.6666666666666666
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.8782608695652174
+ },
+ "flat/403/fep/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 1.0
+ },
+ "flat/403/fep/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.8,
+    "auroc": 1.0,
+    "bal_acc": 0.875,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.75,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.75,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.75,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.6,
+    "auroc": 1.0,
+    "bal_acc": 0.7142857142857143,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.42857142857142855,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.5,
+    "auroc": 1.0,
+    "bal_acc": 0.7,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.4,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.4,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.7826086956521738
+ },
+ "flat/403/fep/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.8,
+    "auroc": 1.0,
+    "bal_acc": 0.875,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.75,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.75,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.75,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.5,
+    "auroc": 1.0,
+    "bal_acc": 0.6428571428571428,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.2857142857142857,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.5,
+    "auroc": 1.0,
+    "bal_acc": 0.7,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.4,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.4,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.7608695652173914
+ },
+ "two-16/400/dax/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.75,
+    "auroc": 0.3333333333333333,
+    "bal_acc": 0.5,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 0.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.9,
+    "auroc": 1.0,
+    "bal_acc": 0.9166666666666667,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.8333333333333334,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.8903508771929824
+ },
+ "two-16/400/dax/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.75,
+    "auroc": 1.0,
+    "bal_acc": 0.8333333333333333,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.6666666666666666,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.8,
+    "auroc": 1.0,
+    "bal_acc": 0.8333333333333333,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.6666666666666666,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.8947368421052632
+ },
+ "two-16/400/dax/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.75,
+    "auroc": 1.0,
+    "bal_acc": 0.8333333333333333,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.6666666666666666,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9210526315789473
+ },
+ "two-16/400/dax/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.75,
+    "auroc": 1.0,
+    "bal_acc": 0.8333333333333333,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.6666666666666666,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.9,
+    "auroc": 1.0,
+    "bal_acc": 0.9166666666666667,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.8333333333333334,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.8333333333333334,
+    "auroc": 1.0,
+    "bal_acc": 0.9,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.8,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.8,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.8947368421052632
+ },
+ "two-16/400/fep/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.8,
+    "auroc": 0.9047619047619048,
+    "bal_acc": 0.8571428571428572,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.7142857142857143,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9347826086956521
+ },
+ "two-16/400/fep/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.9,
+    "auroc": 0.9523809523809523,
+    "bal_acc": 0.9285714285714286,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.8571428571428571,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9565217391304348
+ },
+ "two-16/400/fep/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.8,
+    "auroc": 0.75,
+    "bal_acc": 0.875,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.75,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.75,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.75,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.6,
+    "auroc": 1.0,
+    "bal_acc": 0.7142857142857143,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.42857142857142855,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.6666666666666666,
+    "auroc": 1.0,
+    "bal_acc": 0.8,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.6,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.3333333333333333,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.3333333333333333,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.6,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.7826086956521738
+ },
+ "two-16/400/fep/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.4,
+    "auroc": 1.0,
+    "bal_acc": 0.625,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.25,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.3,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.5,
+    "auroc": 1.0,
+    "bal_acc": 0.7,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.4,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.4,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.6086956521739131
+ },
+ "two-16/401/dax/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 1.0
+ },
+ "two-16/401/dax/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 1.0
+ },
+ "two-16/401/dax/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.25,
+    "auroc": 0.3333333333333333,
+    "bal_acc": 0.5,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.5,
+    "auroc": 0.9583333333333334,
+    "bal_acc": 0.5833333333333334,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.16666666666666666,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.5,
+    "auroc": 1.0,
+    "bal_acc": 0.7,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.4,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.4,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.6578947368421053
+ },
+ "two-16/401/dax/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.25,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.8,
+    "auroc": 1.0,
+    "bal_acc": 0.8333333333333333,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.6666666666666666,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.8333333333333334,
+    "auroc": 1.0,
+    "bal_acc": 0.9,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.8,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.8,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.7894736842105263
+ },
+ "two-16/401/fep/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 1.0
+ },
+ "two-16/401/fep/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 1.0
+ },
+ "two-16/401/fep/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.8,
+    "auroc": 1.0,
+    "bal_acc": 0.875,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.75,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.9,
+    "auroc": 1.0,
+    "bal_acc": 0.9285714285714286,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.8571428571428571,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.5,
+    "auroc": 1.0,
+    "bal_acc": 0.7,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.4,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.4,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.8260869565217391
+ },
+ "two-16/401/fep/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.6,
+    "auroc": 1.0,
+    "bal_acc": 0.75,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.5,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.75,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.75,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.4,
+    "auroc": 1.0,
+    "bal_acc": 0.5714285714285714,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.14285714285714285,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.5,
+    "auroc": 1.0,
+    "bal_acc": 0.7,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.4,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.3333333333333333,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.3333333333333333,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.4,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.6956521739130435
+ },
+ "two-16/402/dax/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9736842105263157
+ },
+ "two-16/402/dax/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 1.0
+ },
+ "two-16/402/dax/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.25,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.4,
+    "auroc": 0.8333333333333334,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 0.8,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5
+ },
+ "two-16/402/dax/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.25,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.4,
+    "auroc": 0.5833333333333334,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 0.6,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5
+ },
+ "two-16/402/fep/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.8,
+    "auroc": 1.0,
+    "bal_acc": 0.875,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.75,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.9,
+    "auroc": 1.0,
+    "bal_acc": 0.9285714285714286,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.8571428571428571,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9565217391304348
+ },
+ "two-16/402/fep/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 1.0
+ },
+ "two-16/402/fep/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.2,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.25,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.25,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.3,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5217391304347826
+ },
+ "two-16/402/fep/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.2,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.3,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 0.4,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5
+ },
+ "two-16/403/dax/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.5,
+    "auroc": 0.6666666666666666,
+    "bal_acc": 0.6666666666666666,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.3333333333333333,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.8947368421052632
+ },
+ "two-16/403/dax/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.5,
+    "auroc": 1.0,
+    "bal_acc": 0.6666666666666666,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.3333333333333333,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.8947368421052632
+ },
+ "two-16/403/dax/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.75,
+    "auroc": 1.0,
+    "bal_acc": 0.8333333333333333,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.6666666666666666,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.3333333333333333,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.3333333333333333,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.5,
+    "auroc": 1.0,
+    "bal_acc": 0.5833333333333334,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.16666666666666666,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.6666666666666666,
+    "auroc": 1.0,
+    "bal_acc": 0.8,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.6,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.6,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.6842105263157895
+ },
+ "two-16/403/dax/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.25,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.4,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5
+ },
+ "two-16/403/fep/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.75,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.75,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9565217391304348
+ },
+ "two-16/403/fep/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.75,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.75,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.9,
+    "auroc": 1.0,
+    "bal_acc": 0.9285714285714286,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.8571428571428571,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9347826086956521
+ },
+ "two-16/403/fep/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.2,
+    "auroc": 0.75,
+    "bal_acc": 0.5,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.25,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.25,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.3,
+    "auroc": 0.6666666666666666,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 0.6,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5217391304347826
+ },
+ "two-16/403/fep/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.2,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.3,
+    "auroc": 0.5714285714285714,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 0.8,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5
+ },
+ "two-64/400/dax/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9736842105263157
+ },
+ "two-64/400/dax/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 1.0
+ },
+ "two-64/400/dax/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.75,
+    "auroc": 1.0,
+    "bal_acc": 0.8333333333333333,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.6666666666666666,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.3333333333333333,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.3333333333333333,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.6,
+    "auroc": 1.0,
+    "bal_acc": 0.6666666666666666,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.3333333333333333,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.5,
+    "auroc": 1.0,
+    "bal_acc": 0.7,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.4,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.4,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.6842105263157895
+ },
+ "two-64/400/dax/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.25,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.3333333333333333,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.3333333333333333,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.4,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.3333333333333333,
+    "auroc": 1.0,
+    "bal_acc": 0.6,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.2,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.2,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5526315789473684
+ },
+ "two-64/400/fep/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.8,
+    "auroc": 0.8571428571428571,
+    "bal_acc": 0.7619047619047619,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.8571428571428571,
+    "tpr": 0.6666666666666666
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.8782608695652174
+ },
+ "two-64/400/fep/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9782608695652174
+ },
+ "two-64/400/fep/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.2,
+    "auroc": 0.75,
+    "bal_acc": 0.5,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.4,
+    "auroc": 0.6190476190476191,
+    "bal_acc": 0.5714285714285714,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.14285714285714285,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.3333333333333333,
+    "auroc": 0.8,
+    "bal_acc": 0.6,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.2,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.2,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5434782608695652
+ },
+ "two-64/400/fep/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.2,
+    "auroc": 0.25,
+    "bal_acc": 0.5,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.3,
+    "auroc": 0.7619047619047619,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 0.8,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5
+ },
+ "two-64/401/dax/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9736842105263157
+ },
+ "two-64/401/dax/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9736842105263157
+ },
+ "two-64/401/dax/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 1.0
+ },
+ "two-64/401/dax/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.75,
+    "auroc": 1.0,
+    "bal_acc": 0.8333333333333333,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.6666666666666666,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.8,
+    "auroc": 1.0,
+    "bal_acc": 0.8333333333333333,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.6666666666666666,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.6666666666666666,
+    "auroc": 1.0,
+    "bal_acc": 0.8,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.6,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.6,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.8157894736842105
+ },
+ "two-64/401/fep/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9782608695652174
+ },
+ "two-64/401/fep/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9782608695652174
+ },
+ "two-64/401/fep/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.8,
+    "auroc": 1.0,
+    "bal_acc": 0.875,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.75,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.4,
+    "auroc": 1.0,
+    "bal_acc": 0.5714285714285714,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.14285714285714285,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.3333333333333333,
+    "auroc": 1.0,
+    "bal_acc": 0.6,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.2,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.2,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.6521739130434783
+ },
+ "two-64/401/fep/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.6,
+    "auroc": 1.0,
+    "bal_acc": 0.75,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.5,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.4,
+    "auroc": 1.0,
+    "bal_acc": 0.5714285714285714,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.14285714285714285,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.3333333333333333,
+    "auroc": 0.8,
+    "bal_acc": 0.6,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.2,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.2,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.6304347826086957
+ },
+ "two-64/402/dax/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9473684210526316
+ },
+ "two-64/402/dax/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9736842105263157
+ },
+ "two-64/402/dax/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.25,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.4,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5
+ },
+ "two-64/402/dax/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.25,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.4,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5
+ },
+ "two-64/402/fep/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.8,
+    "auroc": 0.75,
+    "bal_acc": 0.875,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.75,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.75,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.75,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.6,
+    "auroc": 0.8095238095238095,
+    "bal_acc": 0.7142857142857143,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.42857142857142855,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.8478260869565217
+ },
+ "two-64/402/fep/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.8,
+    "auroc": 1.0,
+    "bal_acc": 0.875,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.75,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.6,
+    "auroc": 0.9523809523809523,
+    "bal_acc": 0.7142857142857143,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.42857142857142855,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.8333333333333334,
+    "auroc": 1.0,
+    "bal_acc": 0.9,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.8,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.8,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.8478260869565217
+ },
+ "two-64/402/fep/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.4,
+    "auroc": 1.0,
+    "bal_acc": 0.625,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.25,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.3,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.3333333333333333,
+    "auroc": 1.0,
+    "bal_acc": 0.6,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.2,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.3333333333333333,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.3333333333333333,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.2,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.6086956521739131
+ },
+ "two-64/402/fep/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.2,
+    "auroc": 0.5,
+    "bal_acc": 0.5,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.3,
+    "auroc": 0.3333333333333333,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 0.2,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5
+ },
+ "two-64/403/dax/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.75,
+    "auroc": 1.0,
+    "bal_acc": 0.8333333333333333,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.6666666666666666,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9473684210526316
+ },
+ "two-64/403/dax/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.75,
+    "auroc": 1.0,
+    "bal_acc": 0.8333333333333333,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.6666666666666666,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.9,
+    "auroc": 1.0,
+    "bal_acc": 0.9166666666666667,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.8333333333333334,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.8333333333333334,
+    "auroc": 0.8,
+    "bal_acc": 0.9,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.8,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.8,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.8947368421052632
+ },
+ "two-64/403/dax/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9473684210526316
+ },
+ "two-64/403/dax/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.25,
+    "auroc": 0.0,
+    "bal_acc": 0.5,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.4,
+    "auroc": 0.9583333333333334,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5
+ },
+ "two-64/403/fep/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.8333333333333334,
+    "auroc": 1.0,
+    "bal_acc": 0.9,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.8,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.8,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9565217391304348
+ },
+ "two-64/403/fep/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.9,
+    "auroc": 1.0,
+    "bal_acc": 0.9285714285714286,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.8571428571428571,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.8333333333333334,
+    "auroc": 0.8,
+    "bal_acc": 0.9,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.8,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.8,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9347826086956521
+ },
+ "two-64/403/fep/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.8,
+    "auroc": 1.0,
+    "bal_acc": 0.875,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.75,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.6,
+    "auroc": 0.9047619047619048,
+    "bal_acc": 0.7142857142857143,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.42857142857142855,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.5,
+    "auroc": 1.0,
+    "bal_acc": 0.7,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.4,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.4,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.7608695652173914
+ },
+ "two-64/403/fep/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.2,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.25,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.25,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.3,
+    "auroc": 0.7142857142857143,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 0.8,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5217391304347826
+ },
+ "two/400/dax/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.5,
+    "auroc": 1.0,
+    "bal_acc": 0.6666666666666666,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.3333333333333333,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9210526315789473
+ },
+ "two/400/dax/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 1.0
+ },
+ "two/400/dax/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.25,
+    "auroc": 0.6666666666666666,
+    "bal_acc": 0.5,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.3333333333333333,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.3333333333333333,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.5,
+    "auroc": 1.0,
+    "bal_acc": 0.5833333333333334,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.16666666666666666,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.5,
+    "auroc": 1.0,
+    "bal_acc": 0.7,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.4,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.4,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.6052631578947368
+ },
+ "two/400/dax/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.25,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.4,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5
+ },
+ "two/400/fep/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9782608695652174
+ },
+ "two/400/fep/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.9,
+    "auroc": 1.0,
+    "bal_acc": 0.9285714285714286,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.8571428571428571,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9565217391304348
+ },
+ "two/400/fep/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.2,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.3,
+    "auroc": 0.9523809523809523,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 0.6,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5
+ },
+ "two/400/fep/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.2,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.3,
+    "auroc": 0.7619047619047619,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5
+ },
+ "two/401/dax/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.75,
+    "auroc": 1.0,
+    "bal_acc": 0.8333333333333333,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.6666666666666666,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.9,
+    "auroc": 1.0,
+    "bal_acc": 0.9166666666666667,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.8333333333333334,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9210526315789473
+ },
+ "two/401/dax/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.75,
+    "auroc": 1.0,
+    "bal_acc": 0.8333333333333333,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.6666666666666666,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9473684210526316
+ },
+ "two/401/dax/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.5,
+    "auroc": 1.0,
+    "bal_acc": 0.6666666666666666,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.3333333333333333,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.5,
+    "auroc": 1.0,
+    "bal_acc": 0.5833333333333334,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.16666666666666666,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.5,
+    "auroc": 1.0,
+    "bal_acc": 0.7,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.4,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.4,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.6052631578947368
+ },
+ "two/401/dax/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.25,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.4,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5
+ },
+ "two/401/fep/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.8,
+    "auroc": 1.0,
+    "bal_acc": 0.875,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.75,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.9,
+    "auroc": 1.0,
+    "bal_acc": 0.9285714285714286,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.8571428571428571,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.8333333333333334,
+    "auroc": 1.0,
+    "bal_acc": 0.9,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.8,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.8,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9130434782608696
+ },
+ "two/401/fep/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.8,
+    "auroc": 1.0,
+    "bal_acc": 0.875,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.75,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.9,
+    "auroc": 1.0,
+    "bal_acc": 0.9285714285714286,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.8571428571428571,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.8333333333333334,
+    "auroc": 1.0,
+    "bal_acc": 0.9,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.8,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.8,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9130434782608696
+ },
+ "two/401/fep/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.6,
+    "auroc": 1.0,
+    "bal_acc": 0.75,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.5,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.25,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.25,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.5,
+    "auroc": 1.0,
+    "bal_acc": 0.6428571428571428,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.2857142857142857,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.5,
+    "auroc": 1.0,
+    "bal_acc": 0.7,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.4,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.3333333333333333,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.3333333333333333,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.4,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.6739130434782609
+ },
+ "two/401/fep/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.2,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.3,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5
+ },
+ "two/402/dax/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.9,
+    "auroc": 0.9583333333333334,
+    "bal_acc": 0.9166666666666667,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.8333333333333334,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9210526315789473
+ },
+ "two/402/dax/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.9,
+    "auroc": 1.0,
+    "bal_acc": 0.9166666666666667,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.8333333333333334,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9210526315789473
+ },
+ "two/402/dax/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.25,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.4,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5
+ },
+ "two/402/dax/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.25,
+    "auroc": 0.6666666666666666,
+    "bal_acc": 0.5,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.4,
+    "auroc": 0.9166666666666666,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 0.8,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5
+ },
+ "two/402/fep/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9782608695652174
+ },
+ "two/402/fep/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9782608695652174
+ },
+ "two/402/fep/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.2,
+    "auroc": 0.75,
+    "bal_acc": 0.5,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.3,
+    "auroc": 0.5238095238095238,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 0.8,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5
+ },
+ "two/402/fep/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.2,
+    "auroc": 0.75,
+    "bal_acc": 0.5,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.3,
+    "auroc": 0.5238095238095238,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 0.8,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5
+ },
+ "two/403/dax/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.75,
+    "auroc": 0.6666666666666666,
+    "bal_acc": 0.8333333333333333,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.6666666666666666,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9210526315789473
+ },
+ "two/403/dax/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.75,
+    "auroc": 1.0,
+    "bal_acc": 0.8333333333333333,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.6666666666666666,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.5,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.5,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9210526315789473
+ },
+ "two/403/dax/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.25,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.5,
+    "auroc": 0.75,
+    "bal_acc": 0.5833333333333334,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.16666666666666666,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 0.6,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5263157894736842
+ },
+ "two/403/dax/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.25,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 4,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.4,
+    "auroc": 0.6666666666666666,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 4,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 0.8,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 2,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5
+ },
+ "two/403/fep/prior-only/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.75,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.75,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 1.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 1.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9782608695652174
+ },
+ "two/403/fep/prior-only/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.75,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.75,
+    "tpr": null
+   },
+   "has": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 1.0,
+    "auroc": 1.0,
+    "bal_acc": 1.0,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 1.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.6666666666666666,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.6666666666666666,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 1.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.9565217391304348
+ },
+ "two/403/fep/v1/k1": {
+  "by_relation": {
+   "can": {
+    "acc": 0.2,
+    "auroc": 0.75,
+    "bal_acc": 0.5,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.3,
+    "auroc": 0.5238095238095238,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 0.6,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5
+ },
+ "two/403/fep/v1/k4": {
+  "by_relation": {
+   "can": {
+    "acc": 0.2,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 5,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "eats": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 4,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   },
+   "has": {
+    "acc": 0.3,
+    "auroc": 0.9523809523809523,
+    "bal_acc": 0.5,
+    "n": 10,
+    "n_pos": 3,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "is-a": {
+    "acc": 0.16666666666666666,
+    "auroc": 1.0,
+    "bal_acc": 0.5,
+    "n": 6,
+    "n_pos": 1,
+    "tnr": 0.0,
+    "tpr": 1.0
+   },
+   "lives-in": {
+    "acc": 0.0,
+    "auroc": null,
+    "bal_acc": null,
+    "n": 3,
+    "n_pos": 0,
+    "tnr": 0.0,
+    "tpr": null
+   }
+  },
+  "other_classes_rejected": 0.0,
+  "own_class_accepted": 1.0,
+  "read_bal_acc_all": 0.5
+ }
+}
