@@ -1,0 +1,190 @@
+{
+ "aggregate_worker_cpu_seconds": 35695.069994964,
+ "children_peak_rss_kb": 1852992,
+ "command": "/home/debjit/code/sri/experiments/equality_relations_v2.py",
+ "contract_sha256": "852b67c1449df4b115c0e1aee228596c836d24c79d30137347a62b5a18640f7c",
+ "cpu": "x86_64",
+ "device": "cpu",
+ "dirty": true,
+ "dtype": "float32",
+ "numpy": "2.5.4",
+ "prepare_seconds": 28.899003740982153,
+ "python": "3.12.3",
+ "revision": "2acede6e2e7434121917749295340593fbd7f7b0",
+ "runner_sha256": "87f10b4939c0873d4af0117706ba01fcf7cfb16165619e34ac0422ae491f738a",
+ "scope": "nondeterministic timing",
+ "tasks": {
+  "count-enbuf/seed300": {
+   "cpu_seconds": 592.3740097369999,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1650108,
+   "wall_seconds": 592.5044969689916
+  },
+  "count-enbuf/seed301": {
+   "cpu_seconds": 588.918647106,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1650100,
+   "wall_seconds": 589.0445695780218
+  },
+  "count-enbuf/seed302": {
+   "cpu_seconds": 631.153469437,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1650028,
+   "wall_seconds": 631.3476394870086
+  },
+  "count-enbuf/seed303": {
+   "cpu_seconds": 631.201444156,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1650080,
+   "wall_seconds": 631.3869056979893
+  },
+  "count-rel-en/seed300": {
+   "cpu_seconds": 557.893048394,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1650176,
+   "wall_seconds": 557.9463968090131
+  },
+  "count-rel-en/seed301": {
+   "cpu_seconds": 570.69743224,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1650320,
+   "wall_seconds": 570.9155556060141
+  },
+  "count-rel-en/seed302": {
+   "cpu_seconds": 520.8607414759999,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1650564,
+   "wall_seconds": 520.9839635730023
+  },
+  "count-rel-en/seed303": {
+   "cpu_seconds": 435.140817909,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1650448,
+   "wall_seconds": 435.25657544098794
+  },
+  "rel-en-both/seed300": {
+   "cpu_seconds": 1613.5000158169998,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1656092,
+   "wall_seconds": 1614.1323875249946
+  },
+  "rel-en-both/seed301": {
+   "cpu_seconds": 1665.280665076,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1654228,
+   "wall_seconds": 1666.166514618002
+  },
+  "rel-en-both/seed302": {
+   "cpu_seconds": 1379.765875246,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1653812,
+   "wall_seconds": 1380.1024349229992
+  },
+  "rel-en-both/seed303": {
+   "cpu_seconds": 1695.426875617,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1655032,
+   "wall_seconds": 1696.035510923015
+  },
+  "rel-en-zh/seed300": {
+   "cpu_seconds": 1578.695847078,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1655372,
+   "wall_seconds": 1579.4106930740236
+  },
+  "rel-en-zh/seed301": {
+   "cpu_seconds": 1433.619850839,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1655556,
+   "wall_seconds": 1434.3335531030025
+  },
+  "rel-en-zh/seed302": {
+   "cpu_seconds": 1396.757260566,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1654068,
+   "wall_seconds": 1397.2041100860224
+  },
+  "rel-en-zh/seed303": {
+   "cpu_seconds": 1442.198186506,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1655792,
+   "wall_seconds": 1442.8891897769936
+  },
+  "rel-en/seed300": {
+   "cpu_seconds": 1674.212445864,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1614540,
+   "wall_seconds": 1674.6523229289742
+  },
+  "rel-en/seed301": {
+   "cpu_seconds": 1329.484628593,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1614224,
+   "wall_seconds": 1330.1084799139935
+  },
+  "rel-en/seed302": {
+   "cpu_seconds": 1636.009397339,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1619516,
+   "wall_seconds": 1636.1686930639844
+  },
+  "rel-en/seed303": {
+   "cpu_seconds": 1396.598651313,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1613856,
+   "wall_seconds": 1396.826486564998
+  },
+  "two-ctx-enbuf/seed300": {
+   "cpu_seconds": 1517.770032556,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1613952,
+   "wall_seconds": 1518.182445716986
+  },
+  "two-ctx-enbuf/seed301": {
+   "cpu_seconds": 1440.3118906720001,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1613848,
+   "wall_seconds": 1440.7312342300138
+  },
+  "two-ctx-enbuf/seed302": {
+   "cpu_seconds": 1740.901259626,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1613752,
+   "wall_seconds": 1741.392641893006
+  },
+  "two-ctx-enbuf/seed303": {
+   "cpu_seconds": 1744.692439257,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1613848,
+   "wall_seconds": 1745.1870075530023
+  },
+  "two-ctx-enzhbuf/seed300": {
+   "cpu_seconds": 1742.570162207,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1655772,
+   "wall_seconds": 1743.195401334
+  },
+  "two-ctx-enzhbuf/seed301": {
+   "cpu_seconds": 1421.849437816,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1654568,
+   "wall_seconds": 1422.3936625490023
+  },
+  "two-ctx-enzhbuf/seed302": {
+   "cpu_seconds": 1623.435203316,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1654836,
+   "wall_seconds": 1624.1729234580125
+  },
+  "two-ctx-enzhbuf/seed303": {
+   "cpu_seconds": 1693.750259205,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1654928,
+   "wall_seconds": 1694.3184147889842
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "wall_seconds": 4569.767543839,
+ "workers": 8
+}

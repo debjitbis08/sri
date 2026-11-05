@@ -142,3 +142,90 @@ EQ_SMOKE=1 .venv/bin/python -m experiments.equality_relations_v2
 .venv/bin/python -m experiments.equality_relations_v2            # EQ_WORKERS=8
 .venv/bin/python -m experiments.equality_relations_v2 summary
 ```
+
+## Results (run 2026-11-05)
+
+Means over seeds 300–303. Report: `reports/equality-relations-v2.json`; `summary` prints every table.
+
+**Trained order against reversed order** (`eq` balanced accuracy; the cross-script pair just trained: zh×en at block 2,
+dev×en at block 3; `more` alongside):
+
+| Arm | block 2 zh>en / en>zh | gap range | block 3 dev>en / en>dev | gap range | `more` block 3 |
+|---|---|---|---|---|---|
+| `two-ctx-enbuf` (no cross pairs) | 0.84 / 0.83 | 0.00–0.02 | 0.77 / 0.76 | 0.01–0.02 | 0.88 / 0.86 |
+| `rel-en` (one order) | 0.83 / 0.83 | −0.01–0.02 | 0.76 / 0.73 | 0.00–0.04 | 0.90 / 0.90 |
+| `rel-en-both` | 0.83 / 0.83 | 0.00–0.02 | 0.78 / 0.78 | −0.01–0.02 | 0.91 / 0.90 |
+| `rel-en-zh` | 0.83 / 0.84 | −0.02–0.02 | 0.78 / 0.76 | 0.01–0.04 | 0.91 / 0.90 |
+| `count-enbuf` (no cross pairs) | 0.60 / 0.59 | −0.01–0.03 | 0.60 / 0.60 | −0.07–0.08 | 0.79 / 0.75 |
+| `count-rel-en` (one order) | 0.67 / 0.57 | **0.09–0.12** | 0.74 / 0.59 | **0.10–0.21** | 0.85 / 0.67 |
+
+**Properties at block 3** (agreement with the true property; truth is 1.0 for each):
+
+| Arm | `eq` symmetric, zh\|en / dev\|en / zh\|dev | `more` antisymmetric, same pairs | `more` irreflexive, coll / cross-script / thai\|coll | `sum10` symmetric, coll / cross-script |
+|---|---|---|---|---|
+| `two-ctx-enbuf` | 0.93 / 0.94 / 0.94 | 0.88 / 0.87 / 0.86 | 0.90 / 0.38–0.53 / 0.10 | 0.99 / 0.86–0.88 |
+| `rel-en` | 0.91 / 0.92 / 0.92 | 0.90 / 0.92 / 0.92 | 0.91 / 0.36–0.46 / 0.09 | 0.99 / 0.77–0.81 |
+| `rel-en-both` | 0.94 / 0.94 / 0.94 | 0.90 / 0.93 / 0.91 | 0.92 / 0.37–0.51 / 0.10 | 0.99 / 0.75–0.79 |
+| `rel-en-zh` | 0.92 / 0.92 / 0.94 | 0.93 / 0.92 / 0.95 | 0.92 / 0.45–0.58 / 0.13 | 0.98 / 0.74–0.78 |
+| `count-enbuf` | 0.81 / 0.75 / 0.79 | 0.87 / 0.80 / 0.85 | 0.89 / 0.18–0.32 / 0.12 | 0.96 / 0.80–0.83 |
+| `count-rel-en` | 0.76 / 0.71 / 0.77 | 0.71 / 0.66 / 0.88 | 0.89 / 0.24–0.52 / 0.21 | 0.93 / 0.71–0.76 |
+
+**Chinese and substitution at block 3:**
+
+| Arm | zh identity (best) | zh `eq` identity | zh×dev `eq` | zh `more` / `sum10` substitution: true, judged (null 0.55–0.67 / 0.42–0.47) |
+|---|---|---|---|---|
+| `two-ctx-enbuf` | 0.59 | 0.60 | 0.69 | 0.91 / 0.73, 0.94 / 0.87 |
+| `rel-en` | 0.64 | 0.58 | 0.71 | 0.92 / 0.72, 0.95 / 0.85 |
+| `rel-en-both` | 0.58 | 0.54 | 0.70 | 0.91 / 0.68, 0.95 / 0.83 |
+| `two-ctx-enzhbuf` | 0.83 | 0.81 | 0.79 | 0.95 / 0.86, 0.97 / 0.93 |
+| `rel-en-zh` | 0.79 | 0.76 | 0.78 | 0.94 / 0.74, 0.97 / 0.82 |
+| `count-enbuf` | 0.71 | 0.37 | 0.62 | 0.87 / 0.67, 0.94 / 0.69 |
+| `count-rel-en` | 0.64 | 0.33 | 0.69 | 0.87 / 0.54, 0.89 / 0.56 |
+
+Thai: `eq` accuracy against collections 0.50–0.52, at chance.
+
+### What the results say
+
+1. **The collapse is gone.** With negatives, no arm goes blind to forms (prediction 1). On the count base, `sum10` still does
+   not reach forms (0.47–0.56); `more` does (0.81–0.87).
+2. **One-order training gives a directional equality when the operator reads raw object codes, as children's equals sign
+   does; not when it reads the relation space.** On the count base, the trained direction beats the reversed one in every
+   seed: 0.09–0.12 at block 2, 0.10–0.21 at block 3. `more` loses the same way (0.85 against 0.67). Its control, with no
+   cross-script pairs, has no gap. On the two-space base the gap is 0.00–0.04. Prediction 2 holds for the count base only; on
+   the two-space base, `rel-en-both` adds nothing.
+3. **The two-space base does not learn cross-script equality from the cross-script pairs at all.** Its control, which never
+   saw a cross-script `eq` pair, scores the same (block 2: 0.84 against 0.83). Equality across scripts, and its symmetry, come
+   from both scripts being related to collections, where `eq` is trained in both orders. Equality through collections is
+   symmetric and transitive by inheritance.
+4. **Each operator keeps its own property.** On cross-script pairs `eq` stays symmetric (0.91–0.94) while `more` stays
+   antisymmetric (0.86–0.95): learning `eq` did not symmetrize `more` (prediction 3). The weak property is `more`'s
+   irreflexivity across scripts: for equal counts in two scripts, `more` says "larger" in one order 42–64% of the time
+   (collections: 8–10%; Thai against collections: about 90%). Irreflexivity needs exact alignment of equal counts, and
+   cross-script alignment is approximate. `sum10` symmetry on cross-script pairs is 0.74–0.88.
+5. **Leibniz holds against the system's own judgement of equality, even when that judgement is wrong.** Substitution
+   against the collection item the system judges equal is higher than against the true same-count item (zh `sum10` 0.83–0.93
+   against 0.68–0.86). Thai, never taught, substitutes for its judged-equal collection at 0.89 / 0.77, against a null of
+   0.68 / 0.49. The operators are consistent with the system's own equality relation; they are not consistent with true
+   count where its equality is wrong.
+6. **Chinese is not protected by equality pairs** (prediction 5): `rel-en` 0.64 against 0.59 for its control, inside the
+   seed spread; `rel-en-zh` 0.79 against 0.83 with label replay of the same Chinese buffer. On the count base, `eq` identity
+   is poor (0.33–0.37) against nearest identity (0.64–0.71). The `eq` readout on [c_a, c_b] is weaker than location there.
+7. **Transitivity:** zh×dev `eq`, untrained in all arms but `rel-en-zh`: 0.69–0.71 on the two-space base, against 0.78–0.79
+   with the pair trained or Chinese replayed (prediction 4).
+
+### What this implies
+
+- Equality learned in one place where both orders are seen (collections), with negatives, is inherited symmetrically by
+  everything related to that place. Cross-script equality pairs in one order add nothing there, and on a base that reads raw
+  codes they teach a directional equality. This matches the arithmetic-education finding that one-order practice of "="
+  produces an operational reading.
+- Operator properties stay separate under a shared readout with operator codes.
+- What still fails is exactness: irreflexivity across scripts and the identity of an old script, both of which need equal
+  counts to coincide, not just to be ordered.
+
+### Computation (measured)
+
+- 28 runs (7 arms × 4 seeds) × 4,500 steps on 8 CPU workers, 1 thread each: 4,570 s wall, 35,695 s aggregate worker CPU
+  (≈ 1,275 s per run, inside the declared 1,000–1,500 s), 1.85 GB peak RSS per worker. The 20-step smoke run cost about
+  2 minutes.
+- No weights are retained.
