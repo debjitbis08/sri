@@ -110,8 +110,10 @@ the |logit| > 2 stratum holds 56–77% of all errors, so it is not a confident s
   confident ones. Equality errors here are adjacent counts that the consistency checks available (operators against nearby
   collection items) do not contradict, because neighbouring counts give nearly the same `more` and `sum10` pattern against
   most context items. So margin is the trigger for asking about `eq`; the critic adds nothing there.
-- **`more`, `sum10` and the count base:** the critic catches errors margin misses, including confident ones, and a two-feature
+- **`more`, and every operator on the count base:** the critic catches errors margin misses, including confident ones, and a two-feature
   combination fitted on collections transfers to forms without harm. That is the combined trigger to use for asking.
+- **`sum10` on the two-space base behaves like `eq`:** margin is better in the confident half of errors (0.76–0.85 against
+  0.50–0.77) and the fitted combination adds only 0.01–0.04.
 - Fitting matters: v1's unfitted rank mean lowered `eq` detection, the fitted combination does not.
 - Untaught kinds (Thai, block-2 Devanagari) remain invisible to both.
 
