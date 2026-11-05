@@ -229,3 +229,19 @@ Thai: `eq` accuracy against collections 0.50–0.52, at chance.
   (≈ 1,275 s per run, inside the declared 1,000–1,500 s), 1.85 GB peak RSS per worker. The 20-step smoke run cost about
   2 minutes.
 - No weights are retained.
+
+### Corrections after external review (2026-11-05)
+
+See [equality goal analysis](equality-goal-analysis.md). Three statements above claim more than the data show:
+
+- **Result 3** ("does not learn cross-script equality from the cross-script pairs at all"): the control is not free of
+  same-count information. It teaches forms their differences to collections in both orders, including d = 0. The cross-script
+  arms also change the replay objective and combine `eq` with `more`. The data show **no demonstrated added benefit** of
+  one-order cross-script pairs over that control on the two-space base. They do not show that the pairs taught nothing, or
+  that equality cannot help.
+- **Result 5** ("Leibniz holds against the system's own judgement"): the judged reference is the arg-max collection item even
+  when every `eq` logit is negative; Thai always gets a forced choice. The read shows **behavioural consistency with a selected
+  reference**, not substitution for accepted equalities, for all operators or in all contexts; shared reader errors are
+  possible.
+- **What this implies:** "symmetric and transitive by inheritance" is a hypothesis. Pair accuracy on zh×dev tests transfer, not
+  the triple implication eq(a, b) ∧ eq(b, c) ⇒ eq(a, c), and symmetry agreement is not split into positive and negative pairs.
