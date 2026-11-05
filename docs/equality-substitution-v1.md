@@ -136,3 +136,80 @@ EQ_SMOKE=1 .venv/bin/python -m experiments.equality_substitution_pilot
 .venv/bin/python -m experiments.equality_substitution_pilot            # EQ_WORKERS=8
 .venv/bin/python -m experiments.equality_substitution_pilot summary
 ```
+
+## Results (run 2026-11-05)
+
+Means over seeds 300–303 (range in brackets where it matters), after block 3 unless stated. Report:
+`reports/equality-substitution-v1.json`; `summary` prints every table.
+
+**Substitution under operators learned on collections only** (balanced agreement, all counts; null = reference of a
+different count; ceiling coll~coll is 0.97–0.99 for `more`, 0.90–0.96 for `sum10`):
+
+| Arm | zh~coll more / sum10 | null | dev~coll more / sum10 | en~coll more / sum10 | zh~dev more / sum10 | null |
+|---|---|---|---|---|---|---|
+| `count` | 0.84 / 0.61 | 0.59 / 0.47 | 0.82 / 0.60 | 0.58 / 0.51 | 0.79 / 0.58 | 0.58 / 0.47 |
+| `count-enbuf` | 0.87 / 0.64 | 0.62 / 0.46 | 0.87 / 0.65 | 0.84 / 0.61 | 0.82 / 0.62 | 0.65 / 0.46 |
+| `eq-en` | 0.75 / 0.50 | 0.74 / 0.50 | 0.74 / 0.50 | 0.74 / 0.50 | (degenerate) | |
+| `two-ctx` | 0.90 / 0.71 | 0.56 / 0.44 | 0.94 / 0.85 | 0.81 / 0.62 | 0.88 / 0.69 | 0.57 / 0.44 |
+| `two-ctx-enbuf` | 0.91 / 0.71 | 0.57 / 0.44 | 0.94 / 0.85 | 0.93 / 0.78 | 0.88 / 0.68 | 0.58 / 0.45 |
+| `two-ctx-eq-en` | 0.91 / **0.75** | 0.57 / 0.44 | 0.96 / 0.86 | 0.92 / 0.79 | 0.89 / **0.73** | 0.59 / 0.45 |
+| `count-enzhbuf` | 0.89 / 0.70 | 0.62 / 0.44 | 0.85 / 0.63 | 0.84 / 0.62 | 0.83 / 0.61 | 0.64 / 0.46 |
+| `eq-en-zh` | 0.74 / 0.50 | 0.74 / 0.50 | 0.74 / 0.50 | 0.74 / 0.50 | (degenerate) | |
+
+**Identity (diagnostic, best of nearest and relational) and operator accuracy:**
+
+| Arm | zh block 2 → 3 | dev | en | zh×coll more / sum10 accuracy |
+|---|---|---|---|---|
+| `count` | 0.80 → 0.74 (0.62–0.83) | 0.79 | 0.16 | 0.86 / 0.64 |
+| `count-enbuf` | 0.80 → 0.74 | 0.80 | 0.74 | 0.89 / 0.65 |
+| `eq-en` | 0.81 → 0.58 (0.41–0.70) | 0.78 | 0.34 | 0.75 / 0.50 |
+| `two-ctx` | 0.86 → 0.59 | 0.85 | 0.38 | 0.88 / 0.70 |
+| `two-ctx-enbuf` | 0.84 → 0.57 | 0.84 | 0.69 | 0.90 / 0.70 |
+| `two-ctx-eq-en` | 0.86 → 0.61 | 0.85 | 0.69 | 0.90 / 0.76 |
+| `count-enzhbuf` | 0.80 → 0.79 | 0.75 | 0.74 | 0.88 / 0.72 |
+| `eq-en-zh` | 0.81 → 0.61 (0.47–0.80) | 0.78 | 0.35 | 0.74 / 0.50 |
+
+Thai identity 0.13–0.18 everywhere; thai~coll substitution at its null (`more` 0.64–0.73 against 0.66–0.74).
+
+### What the results say
+
+1. **Substitution on operators that read object codes directly has a degenerate solution, and the network found it.** In
+   `eq-en` and `eq-en-zh`, operator outputs no longer depend on a form at all: every script, including the current one and
+   never-taught Thai, gives the same agreement (0.74 / 0.50), equal to the null; `sum10` accuracy is exactly 0.50 on every
+   form pair, Devanagari × Devanagari included (`more` 0.51–0.57). Forms and collections are two clouds here, and the
+   operator readout, trained only on collections, can satisfy "equal pairs give equal outputs" by making every output on the
+   form cloud constant. That costs nothing on collections and meets the loss exactly. Leibniz's law holds trivially if
+   operators cannot tell anything apart; equality as substitutability needs the converse as well, that **unequal** things give
+   **different** outputs (identity of indiscernibles). The design had no such term. This is inferred from the reads (identical
+   values across all scripts; no outputs on forms vary), not from inspecting weights, which are not kept.
+2. **Where operators read a relation space that the forms are also trained in, equality pairs help a little and transitivity
+   holds partly.** `two-ctx-eq-en` against its same-input control `two-ctx-enbuf`: zh~coll `sum10` 0.75 against 0.71,
+   zh×coll `sum10` accuracy 0.76 against 0.70, zh~dev 0.89 / 0.73 against 0.88 / 0.68 (null 0.58 / 0.45, ceiling 0.99 /
+   0.96). Chinese ≡ Devanagari was never trained there, so this is transitivity through English and collections, partial
+   (prediction 2 holds for this base).
+3. **Operators learned only on collections do reach forms, by order more than by count.** In every non-degenerate arm,
+   `more` substitutes well for Chinese (0.84–0.91, null ≈ 0.6) and `sum10` much less (0.61–0.75, null ≈ 0.45); operator
+   accuracy tracks substitution (prediction 3 holds). The two-space base carries both further than the count base (`sum10`
+   0.71 against 0.61), although its Chinese identity is lower (0.59 against 0.74): the relation space keeps what operators
+   need better than nearest-mean location does.
+4. **No equality arm protects Chinese identity.** Without Chinese replay, `two-ctx-eq-en` ≈ its control (0.61 against 0.57);
+   `eq-en` loses 0.16 against `count` because of the collapse. The label-replayed Chinese buffer gives the best Chinese
+   (0.79), the equality-paired one does not (0.61). Prediction 1 holds for the two-space base, fails for `eq-en`; prediction 4
+   fails (the zh~dev advantage of `eq-en-zh` is the degenerate one).
+5. **English through equality pairs:** in the two-space base, equality pairs keep English as well as labels do (0.69 against
+   0.69); in the count base they do not (0.34 against 0.74), again the collapse.
+
+### Next step this points to
+
+Train substitution together with its converse: equal pairs must agree under every operator, and unequal pairs (different
+counts, same or different script) must disagree under some operator, with operators reading a relation space rather than raw
+object codes. That is a contrastive form of equality (the standard fix for collapse in siamese and self-supervised learning,
+e.g. contrastive negatives or variance terms as in VICReg). Not run; the user's decision.
+
+### Computation (measured)
+
+- 32 runs (8 arms × 4 seeds) × 4,500 steps on 8 CPU workers, 1 thread each: 6,172 s wall, 47,022 s aggregate worker CPU
+  (≈ 1,470 s per run, about four times Part C's ≈ 370 s; the declared estimate of one and a half times was low, mostly from
+  the substitution pairs × collections and the block-3 operator pairs), 1.9 GB peak RSS per worker. Data preparation 28 s.
+  The two 20-step smoke runs cost about 2 minutes each.
+- No weights are retained.
