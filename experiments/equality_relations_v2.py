@@ -20,7 +20,9 @@ from src import relation_codes as RC
 
 T, D, X, nc, ns = RP.T, RP.D, RP.X, RP.nc, RP.ns
 SMOKE = bool(os.environ.get('EQ_SMOKE'))
-NAME = 'equality-relations-v2' + ('-smoke' if SMOKE else '')
+SNAP = bool(os.environ.get('EQ_SNAP'))  # diagnostics rerun: keep weights after every block (docs/equality-diagnostics-v2.md)
+NAME = 'equality-relations-v2' + ('-snap' if SNAP else '') + ('-smoke' if SMOKE else '')
+SNAP_ARMS = ('two-ctx-enbuf', 'rel-en', 'count-rel-en')
 CONTRACT = X.ROOT / 'docs' / 'equality-relations-v2.md'
 RUNS = X.ROOT / 'runs' / NAME
 REPORT = X.ROOT / 'reports' / NAME
@@ -153,6 +155,9 @@ def run(arm, seed):
         snaps[block] = RP.evaluate(model, withheld)
         snaps[block]['final_loss'] = float(L.detach())
         snaps[block]['operators'] = op_eval(model, withheld)
+        if SNAP:
+            (RUNS / 'weights').mkdir(parents=True, exist_ok=True)
+            torch.save(model.state_dict(), RUNS / 'weights' / f'{arm}-seed{seed}-{block}.pt')
     return snaps, withheld, {'optimizer_steps': steps}
 
 
@@ -170,7 +175,7 @@ def main():
     t0 = time.perf_counter()
     RP.prepare()
     tp = time.perf_counter() - t0
-    tasks = [(a, s) for a in EQ.ARMS for s in SEEDS]
+    tasks = [(a, s) for a in (SNAP_ARMS if SNAP else EQ.ARMS) for s in SEEDS]
     fn = DUR.durable(task, RUNS / 'done', '{0}-seed{1}')
     with __import__('multiprocessing').get_context('fork').Pool(WORKERS, maxtasksperchild=1) as pool:
         res = pool.map(fn, tasks, chunksize=1)
