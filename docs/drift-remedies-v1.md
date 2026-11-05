@@ -1,6 +1,6 @@
 # Drift remedies v1: rehearsal, weight penalty and per-kind registration
 
-**Status: draft contract, 2026-11-05. Not frozen; nothing run.** It follows the [moving-representation
+**Status: contract frozen 2026-11-05, before the run.** It follows the [moving-representation
 notes](moving-representation-notes.md) and the [consistency critic](consistency-critic-v1.md) results: on the two-space base,
 `eq` errors on a drifted script are in its codes, not in the `eq` reader, so `eq` is fixed by fixing drift. User decision
 (2026-11-05): fix the drift first; asking, with one trigger for all operators, is step 2 on the best arm.
@@ -12,7 +12,9 @@ compute, and at what cost to learning the new script? The three families of the 
 
 - **Keep evidence:** rehearsal of a few stored frozen sense codes.
 - **Stop the movement:** a weight-importance penalty (EWC).
-- **Isolate parameters:** freeze the object encoder after block 1 and give each later kind a small registration.
+- **Isolate parameters:** freeze the object encoder after block 1 and give each later kind a small registration. **Comparison
+  only:** it is told the script, which is acceptable for now and not long term (user decision, 2026-11-05). It shows what
+  isolation would buy with perfect routing. It is not a candidate remedy, and no conclusion about adopting it is drawn.
 
 ## System (as equality v2)
 
@@ -34,25 +36,25 @@ Call the block-2 script the **earlier script** and the block-3 script the **new 
 |---|---|---|
 | `none` | — | Nothing: `two-ctx-enbuf` |
 | `reh1`, `reh2`, `reh4` | Rehearsal | Stored frozen sense codes of the earlier script, 1, 2 or 4 per taught count, chosen at the end of block 2, replayed with labelled relations to collections, min(stored, 2) per count per step, as v2's buffers |
-| `ewc` | Weight penalty | Online EWC on all parameters: after each block, a diagonal empirical Fisher from squared gradients of that block's own loss on 64 minibatches, summed over blocks, penalty λ/2 Σ F_i (θ_i − θ*_i)² against the parameters at the end of the last block |
+| `ewc` | Weight penalty | Online EWC on all parameters: after each block, a diagonal empirical Fisher from squared gradients of that block's own loss on 64 minibatches, summed over blocks, each block's Fisher normalized to mean 1 over parameters, penalty λ/2 Σ F_i (θ_i − θ*_i)² against the parameters at the end of the last block |
 | `ewc-reh1` | Both | `ewc` plus `reh1` |
 | `reg` | Per-kind registration | E frozen after block 1. Each later kind k gets a residual adapter, c = E(x) + B_k ReLU(A_k x), with A_k 768 → 16 and B_k 16 → 16 (B_k initialized to zero), trained only in its own block and frozen after it. G, S, relation and operator codes keep training. The kind is told, as context normalization already does |
 
-`reh4` in order A is v2's `two-ctx-enzhbuf` design. **Reproduction check:** its report must equal v2's `two-ctx-enzhbuf`
-exactly; otherwise the difference is stated and `reh4` is reported against this run only.
+`reh4` in order A is v2's `two-ctx-enzhbuf` design, and `none` in order A is v2's `two-ctx-enbuf`. **Reproduction check:**
+their reports must equal v2's exactly; otherwise the difference is stated and `reh4` is reported against this run only.
 
 **Not included:**
-- **LwF.** It preserves outputs on present data only, so by the notes' argument it cannot protect an absent script. The notes
-  give it a prediction opposite to EWC's; testing that is deferred.
+- **LwF** (user decision, 2026-11-05). It preserves outputs on present data only, so by the notes' argument it cannot protect
+  an absent script.
 - **Synaptic intelligence.** The same family as EWC, with importance computed online.
 - **Generative replay** (van de Ven et al. 2020). The storage-free alternative to rehearsal; deferred.
 - **Routing for `reg`.** The kind is told. Routing by frozen sense code was measured in the [sense growth
-  pilot](sense-growth-v1-pilot.md), where no rule was safe on every stream; `reg` is an upper bound for registration, not a
-  test of routing.
+  pilot](sense-growth-v1-pilot.md), where no rule was safe on every stream. `reg` is an upper bound for registration, used
+  only as a comparison; a registration remedy for the system would have to route without being told.
 
 ## EWC selection (before the main seeds)
 
-λ ∈ {1, 10, 100, 1000} on seeds 310 and 311, order A only. The criterion is fixed now: the mean of the earlier script's and
+λ ∈ {0.1, 1, 10, 100, 1000} on seeds 310 and 311, order A only (the Fisher is normalized, so λ sets the penalty against a loss of order 1; the penalty at each block's end is logged). The criterion is fixed now: the mean of the earlier script's and
 the new script's `eq` identity at block 3, so retention and acquisition count equally. The selected λ is used for `ewc` and
 `ewc-reh1` in both orders. Selection runs and their cost are reported.
 
@@ -118,7 +120,7 @@ See [prior work: drift remedies](prior-work.md#drift-remedies-regularization-reh
 |---|---|---|---|---|
 | `reh-n` | n codes × taught counts × 768 float32 per earlier script | about 3 KB per code: about 21–27 KB at n = 1, 85–110 KB at n = 4 (7–9 taught counts) | Linear in K | Replayed rows per step: 2 per count per buffered script |
 | `ewc` | Anchor and summed Fisher, 2 × 105,610 floats | 845 KB | Constant | One penalty term per step; 64 extra backward passes per block |
-| `reg` | Adapter per kind, 12,560 floats | 50 KB per kind | Linear in K, plus a router when the kind is not told | One small matrix product per input |
+| `reg` | Adapter per kind, 12,576 floats | 50 KB per kind | Linear in K, plus a router when the kind is not told | One small matrix product per input |
 
 At this scale EWC stores more than rehearsal at 4 codes per count. Rehearsal passes EWC's storage after about 8 scripts at
 n = 4, or about 30 at n = 1. That crossover is part of the result.
@@ -127,7 +129,7 @@ n = 4, or about 30 at n = 1. That crossover is part of the result.
 
 From v2's runtime, a run is about 1,440 s on one CPU thread.
 - **Main runs:** 7 arms × 2 orders × 4 seeds = 56 runs, about 2.8 h on 8 workers.
-- **Selection:** 8 runs, about 25 min.
+- **Selection:** 10 runs, about 50 min.
 
 The runner must be crash-safe (durable per run). Runtime JSON is separate from results; measured items as the computation
 policy requires.
