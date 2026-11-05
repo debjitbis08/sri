@@ -1,0 +1,145 @@
+{
+ "aggregate_worker_cpu_seconds": 6872.70274383,
+ "children_peak_rss_kb": 341284,
+ "command": "/home/debjit/code/sri/experiments/taught_truth.py main",
+ "contract_sha256": "5136672e71aded25b27afb0d15950a0b7f66bbf93d626e2b198d3973341845bc",
+ "cpu": "x86_64",
+ "device": "cpu",
+ "dirty": true,
+ "dtype": "float32",
+ "numpy": "2.5.4",
+ "os": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "parent_peak_rss_kb": 299136,
+ "python": "3.12.3",
+ "revision": "f22db025c0d88ba675988f947d8aea6b9008032b",
+ "rss_convention": "ru_maxrss in KiB per process; children is the largest single child",
+ "runner_sha256": "a9342796959a88cb8a5eed8ac794f63e34883b3ea55f095c6ddf490f624b19fd",
+ "scope": "nondeterministic timing",
+ "tasks": {
+  "pred-flat/seed440": {
+   "checkpoint_bytes": 97503,
+   "cpu_seconds": 390.38896605300005,
+   "fit_steps": 500,
+   "optimizer_steps": 3000,
+   "params": 23409,
+   "peak_rss_kb": 323684,
+   "trained_statements": 14266,
+   "wall_seconds": 390.45731280295877
+  },
+  "pred-flat/seed441": {
+   "checkpoint_bytes": 97503,
+   "cpu_seconds": 313.135751323,
+   "fit_steps": 500,
+   "optimizer_steps": 3000,
+   "params": 23409,
+   "peak_rss_kb": 326388,
+   "trained_statements": 14266,
+   "wall_seconds": 313.1837148319464
+  },
+  "pred-flat/seed442": {
+   "checkpoint_bytes": 97503,
+   "cpu_seconds": 282.816157844,
+   "fit_steps": 500,
+   "optimizer_steps": 3000,
+   "params": 23409,
+   "peak_rss_kb": 323480,
+   "trained_statements": 14266,
+   "wall_seconds": 282.86073971900623
+  },
+  "pred-flat/seed443": {
+   "checkpoint_bytes": 97503,
+   "cpu_seconds": 283.73219001999996,
+   "fit_steps": 500,
+   "optimizer_steps": 3000,
+   "params": 23409,
+   "peak_rss_kb": 324088,
+   "trained_statements": 14266,
+   "wall_seconds": 283.77704990602797
+  },
+  "pred/seed440": {
+   "checkpoint_bytes": 140187,
+   "cpu_seconds": 697.5231160230001,
+   "fit_steps": 500,
+   "optimizer_steps": 3000,
+   "params": 33809,
+   "peak_rss_kb": 338756,
+   "trained_statements": 14266,
+   "wall_seconds": 697.6531410639873
+  },
+  "pred/seed441": {
+   "checkpoint_bytes": 140187,
+   "cpu_seconds": 758.5480504760001,
+   "fit_steps": 500,
+   "optimizer_steps": 3000,
+   "params": 33809,
+   "peak_rss_kb": 341284,
+   "trained_statements": 14266,
+   "wall_seconds": 758.6730715829763
+  },
+  "pred/seed442": {
+   "checkpoint_bytes": 140187,
+   "cpu_seconds": 854.205881576,
+   "fit_steps": 500,
+   "optimizer_steps": 3000,
+   "params": 33809,
+   "peak_rss_kb": 337560,
+   "trained_statements": 14266,
+   "wall_seconds": 854.5908780550235
+  },
+  "pred/seed443": {
+   "checkpoint_bytes": 140187,
+   "cpu_seconds": 709.6570024719999,
+   "fit_steps": 500,
+   "optimizer_steps": 3000,
+   "params": 33809,
+   "peak_rss_kb": 340276,
+   "trained_statements": 14266,
+   "wall_seconds": 709.8139312980347
+  },
+  "unit/seed440": {
+   "checkpoint_bytes": 119125,
+   "cpu_seconds": 707.919255623,
+   "fit_steps": 500,
+   "optimizer_steps": 3000,
+   "params": 28737,
+   "peak_rss_kb": 316784,
+   "trained_statements": 14266,
+   "wall_seconds": 708.0498176749679
+  },
+  "unit/seed441": {
+   "checkpoint_bytes": 119125,
+   "cpu_seconds": 693.5201843460001,
+   "fit_steps": 500,
+   "optimizer_steps": 3000,
+   "params": 28737,
+   "peak_rss_kb": 316936,
+   "trained_statements": 14266,
+   "wall_seconds": 693.9977966470178
+  },
+  "unit/seed442": {
+   "checkpoint_bytes": 119125,
+   "cpu_seconds": 640.320476715,
+   "fit_steps": 500,
+   "optimizer_steps": 3000,
+   "params": 28737,
+   "peak_rss_kb": 316644,
+   "trained_statements": 14266,
+   "wall_seconds": 640.4500563719776
+  },
+  "unit/seed443": {
+   "checkpoint_bytes": 119125,
+   "cpu_seconds": 540.935711359,
+   "fit_steps": 500,
+   "optimizer_steps": 3000,
+   "params": 28737,
+   "peak_rss_kb": 316948,
+   "trained_statements": 14266,
+   "wall_seconds": 541.0542691830196
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "wall_seconds": 981.6118544799974,
+ "workers": 8,
+ "world_sha256": "0b0b809dedc3d402f581fcc2fa293d3565af8a581074df3356f92d4a73b707ff"
+}

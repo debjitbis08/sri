@@ -1,0 +1,149 @@
+{
+ "pred-flat/S3b/always": {
+  "n": 48,
+  "pred_share": {
+   "F": 0.56,
+   "T": 0.33,
+   "U": 0.02,
+   "never": 0.02,
+   "sometimes": 0.04,
+   "usually": 0.02
+  },
+  "u_rank_mean": 5.67
+ },
+ "pred-flat/S3b/never": {
+  "n": 248,
+  "pred_share": {
+   "F": 0.86,
+   "T": 0.02,
+   "U": 0.01,
+   "always": 0.01,
+   "never": 0.04,
+   "sometimes": 0.04,
+   "usually": 0.02
+  },
+  "u_rank_mean": 4.93
+ },
+ "pred-flat/S3b/sometimes": {
+  "n": 72,
+  "pred_share": {
+   "F": 0.62,
+   "T": 0.08,
+   "U": 0.03,
+   "never": 0.04,
+   "sometimes": 0.18,
+   "usually": 0.04
+  },
+  "u_rank_mean": 5.33
+ },
+ "pred-flat/S3b/usually": {
+  "n": 32,
+  "pred_share": {
+   "F": 0.56,
+   "T": 0.25,
+   "U": 0.03,
+   "never": 0.12,
+   "usually": 0.03
+  },
+  "u_rank_mean": 5.28
+ },
+ "pred-flat/fit-anon/always": {
+  "n": 104,
+  "pred_share": {
+   "T": 1.0
+  },
+  "u_rank_mean": 3.68
+ },
+ "pred-flat/fit-anon/never": {
+  "n": 384,
+  "pred_share": {
+   "F": 1.0
+  },
+  "u_rank_mean": 2.97
+ },
+ "pred-flat/fit-anon/sometimes": {
+  "n": 240,
+  "pred_share": {
+   "U": 1.0
+  },
+  "u_rank_mean": 1.0
+ },
+ "pred-flat/fit-anon/usually": {
+  "n": 72,
+  "pred_share": {
+   "T": 1.0
+  },
+  "u_rank_mean": 2.53
+ },
+ "pred/S3b/always": {
+  "n": 48,
+  "pred_share": {
+   "F": 0.54,
+   "T": 0.42,
+   "always": 0.04
+  },
+  "u_rank_mean": 5.79
+ },
+ "pred/S3b/never": {
+  "n": 248,
+  "pred_share": {
+   "F": 0.77,
+   "T": 0.11,
+   "U": 0.01,
+   "always": 0.01,
+   "never": 0.04,
+   "sometimes": 0.04,
+   "usually": 0.01
+  },
+  "u_rank_mean": 5.13
+ },
+ "pred/S3b/sometimes": {
+  "n": 72,
+  "pred_share": {
+   "F": 0.54,
+   "T": 0.32,
+   "always": 0.01,
+   "never": 0.01,
+   "sometimes": 0.07,
+   "usually": 0.04
+  },
+  "u_rank_mean": 4.64
+ },
+ "pred/S3b/usually": {
+  "n": 32,
+  "pred_share": {
+   "F": 0.62,
+   "T": 0.34,
+   "usually": 0.03
+  },
+  "u_rank_mean": 5.28
+ },
+ "pred/fit-anon/always": {
+  "n": 104,
+  "pred_share": {
+   "T": 1.0
+  },
+  "u_rank_mean": 4.03
+ },
+ "pred/fit-anon/never": {
+  "n": 384,
+  "pred_share": {
+   "F": 1.0
+  },
+  "u_rank_mean": 3.09
+ },
+ "pred/fit-anon/sometimes": {
+  "n": 240,
+  "pred_share": {
+   "U": 1.0
+  },
+  "u_rank_mean": 1.0
+ },
+ "pred/fit-anon/usually": {
+  "n": 72,
+  "pred_share": {
+   "T": 1.0
+  },
+  "u_rank_mean": 3.17
+ }
+}
