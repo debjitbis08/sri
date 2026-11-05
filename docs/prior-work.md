@@ -8,6 +8,11 @@ studies are not yet reviewed.
 
 ## Search record and evidence levels
 
+2026-11-05: [consistency critic v1](consistency-critic-v1.md) maps the critic to dependency networks and masked
+prediction, probe selection to top-k gating and active feature acquisition, repair to BeliefBank/ConCoRD (symbolic
+solvers, given relations), self-training and Learning without Forgetting, and asking to active learning and its sampling
+bias. Sources **[abstract]** from searches recorded in the section below; implications **[derived]**.
+
 2026-11-03: [general frozen encoder](general-frozen-encoder.md) records Baradad et al. 2021, Asano et al. 2019, Yosinski et al. 2014 and DINOv2 at **[abstract]** level on which training images give general features; a pretrained general encoder is named there as a cheaper alternative to test.
 
 2026-11-03: [reading notes on memory through a learning encoder](natural-memory-prior-work.md) cover MoCo and SDC at **[read]** level, self-healing codes through a summarizing tool, and Expert Gate, Progressive Networks and REMIND at **[abstract]** level, for the [natural-image memory pilot](natural-memory-v1-pilot.md).
@@ -1812,3 +1817,55 @@ Search date 2026-11-01, after the [long-term memory pilot](long-term-memory-v1-p
 - **Importance of weights.** [Kirkpatrick et al., 2016, EWC](https://arxiv.org/abs/1612.00796) **[abstract]**: slows learning on weights important for earlier tasks. **[familiar]** Synaptic intelligence and memory aware synapses estimate importance online, and task-free variants exist. Bricken et al. report combining SDMLP with EWC on CIFAR-10.
 - **Multi-timescale synapses.** [Benna and Fusi, 2016](https://www.nature.com/articles/nn.4401) **[search record]**: synapses with several internal variables store many memories over long timescales, capacity roughly linear in synapses. **[hypothesis]** Hope's low-frequency blocks are a coarser relative.
 - **Replay.** [Shin et al., 2017](https://arxiv.org/abs/1705.08690) **[abstract]**: a generator interleaves synthetic past data, storing none. Retention remedies found bounded rehearsal effective here, on marked pairs.
+
+## Consistency critic, probe selection and asking
+
+Added 2026-11-05 for [consistency critic v1](consistency-critic-v1.md); design notes in
+[learned consistency critic](learned-consistency-critic-notes.md). Searches 2026-11-05: `Settles active learning literature
+survey 2009 query by committee`; `Seung Opper Sompolinsky 1992 query by committee COLT`; `Dasgupta "Two faces of active
+learning" sampling bias`; `Arazo pseudo-labeling confirmation bias`; `Li Hoiem Learning without Forgetting`; `Shazeer sparsely-gated
+mixture-of-experts`; `Shim joint active feature acquisition`; `Heckerman dependency networks JMLR 2000`; `BeliefBank Kassner`;
+`ConCoRD Mitchell 2022`; `Set Transformer Lee`; `Neural LP Yang Cohen 2017`. Abstracts and search excerpts inspected; no full
+texts read.
+
+- **Critic as masked conditional prediction = a dependency network.** **[abstract]** [Heckerman et al.
+  2000](https://jmlr.org/papers/v1/heckerman00a.html) learn one conditional distribution per variable given the others (graph
+  possibly cyclic) instead of a joint model, and extract joint predictions by Gibbs sampling. The critic is that estimator
+  over operator outputs. **[familiar]** It is also pseudo-likelihood (Besag 1975) and BERT-style masked prediction. **[derived]**
+  Conditionals learned this way need not be consistent with one joint distribution; a critic used only to flag one masked
+  output at a time does not need them to be.
+- **Repair from consistency = BeliefBank and ConCoRD, with the constraints learned.** **[abstract]** [BeliefBank (Kassner et
+  al. 2021)](https://arxiv.org/abs/2109.14723) keeps a language model's answers in a memory, revises clashing beliefs with
+  weighted MaxSAT over given constraints, and re-queries with known beliefs as context; it reports better accuracy and
+  consistency. [ConCoRD (Mitchell et al. 2022)](https://arxiv.org/abs/2211.11875) scores pairwise compatibility of candidate
+  answers with an NLI model and solves weighted MaxSAT, with no retraining. **[derived] Differences:** both use a symbolic
+  solver and hand-given or NLI-given relations; here the dependencies are learned from examples and repair stays neural (the
+  user's purely-neural requirement). Their improvement is context, not a prediction for this system.
+- **Probe selection = active feature acquisition and sparse routing.** **[abstract]** [Shim, Hwang and Yang
+  (NeurIPS 2018)](https://papers.neurips.cc/paper/2018/hash/e5841df2166dd424a57127423d276bbe-Abstract.html) choose features
+  one at a time at test time, trading accuracy against acquisition cost, with an order-invariant set encoding of acquired
+  features and a reinforcement-learned policy. [Shazeer et al. 2017](https://arxiv.org/abs/1701.06538) route each input to a
+  sparse top-k of experts with a learned gate, for capacity without proportional compute. **[derived]** The v1 selector is a
+  one-shot top-k gate distilled from leave-one-out influence, not a sequential policy; a sequential acquisition policy is the
+  stronger known alternative and is deferred.
+- **Set input for the critic.** **[abstract]** [Set Transformer (Lee et al. 2019)](https://arxiv.org/abs/1810.00825) models
+  interactions among set elements with attention, in time linear in set size via inducing points. v1 uses the simpler
+  DeepSets mean pool (**[familiar]**, Zaheer et al. 2017); interactions across units then come only through the head.
+- **Learned rules over relations.** **[abstract]** [Neural LP (Yang, Yang and Cohen 2017)](https://arxiv.org/abs/1702.08367)
+  learns first-order rules end to end, with attention as rule confidences, compiled from a differentiable logic (TensorLog).
+  **[derived]** It builds in the chain-rule form; the critic builds in only which outputs are grouped into one unit.
+- **Asking = active learning.** **[abstract]** [Seung, Opper and Sompolinsky
+  (1992)](https://www.sciweavers.org/node/177772) query where a committee trained on the same data disagrees most; in their toy
+  models error falls exponentially in the number of queries, against an inverse power law for random sampling.
+  [Settles (2009)](https://minds.wisconsin.edu/handle/1793/60660) surveys query strategies (uncertainty sampling,
+  query-by-committee, expected model change). [Dasgupta (2009/2011)](https://mlanthology.org/alt/2009/dasgupta2009alt-two)
+  treats sampling bias as the basic obstacle: adaptive querying can converge to a worse classifier even with unlimited labels;
+  remedies are importance weighting or managing sampling regions. **[derived]** Here the disagreement is among one system's
+  operator outputs, not among models; uncertainty sampling (the reader's own margin) is the cheaper established baseline.
+- **Repair towards critic predictions = self-training.** **[abstract]** [Arazo et al.](https://arxiv.org/abs/1908.02983) find
+  naive pseudo-labelling fits its own wrong predictions (confirmation bias); mixup, label noise and a minimum number of
+  labelled samples per batch reduce it. **[derived]** Repair needs retained teaching evidence in every update.
+- **Output preservation = Learning without Forgetting.** **[abstract]** [Li and Hoiem](https://arxiv.org/abs/1606.09282) keep
+  old-task outputs by distillation on new-task data while fine-tuning. It is the standard form of the anchor-preservation loss.
+- **Confidence.** **[abstract]** Guo et al. 2017 (above, critic notes): neural confidence is poorly calibrated; this does not
+  make margin a weak error detector on in-distribution data. **[derived]** v1 therefore reads whether conflict adds to margin.
