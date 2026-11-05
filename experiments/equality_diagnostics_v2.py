@@ -270,8 +270,61 @@ def _dig(d, path):
     return d
 
 
+
+
+@torch.no_grad()
+def conflict_precision(t):
+    """Added after the run (docs/equality-diagnostics-v2.md): among accepted form x collection pairs, the eq-more conflict rate
+    for truly equal against truly unequal pairs (labels used only to score)."""
+    arm, seed, block = t
+    torch.set_num_threads(1)
+    model = load(arm, seed, block)
+    ev = RP.DATA['eval']
+    codes = {}
+    for g, kind in enumerate(ev):
+        x = torch.from_numpy(np.concatenate([ev[kind][v] for v in ns.NUMBERS]))
+        codes[kind] = model.codes(x, torch.full((len(x),), g))
+    k = len(ev[C][1])
+    lab = torch.arange(1, N + 1).repeat_interleave(k)
+    test = (torch.arange(len(lab)) % k) >= k // 2
+    M, labM, yt = codes[C][~test], lab[~test], lab[test]
+    out = {}
+    for kind in KINDS:
+        L1, L2 = mat(model.op_logits, codes[kind][test], M), mat(model.op_logits, M, codes[kind][test]).transpose(0, 1)
+        acc = L1[..., 0] > 0
+        conflict = (L1[..., 1] > 0) | (L2[..., 1] > 0)
+        same = yt[:, None] == labM[None]
+        r = {'conflict_true_equal': float(conflict[acc & same].float().mean()) if (acc & same).any() else None,
+             'conflict_false_equal': float(conflict[acc & ~same].float().mean()) if (acc & ~same).any() else None,
+             'false_share_of_accepted': float((acc & ~same).sum() / acc.sum().clamp_min(1))}
+        cf = conflict & acc
+        r['precision_flags_false'] = float((cf & ~same).sum() / cf.sum().clamp_min(1)) if cf.any() else None
+        out[SHORT[kind]] = r
+    return '{}/seed{}/{}'.format(*t), out
+
+
+def conflict_main():
+    t0, c0 = time.perf_counter(), time.process_time()
+    RP.prepare()
+    tasks = [(a, s, b) for a in ARMS for s in SEEDS for b in BLOCKS]
+    with __import__('multiprocessing').get_context('fork').Pool(12, maxtasksperchild=1) as pool:
+        res = dict(pool.map(conflict_precision, tasks, chunksize=1))
+    rep = json.loads(REPORT.with_suffix('.json').read_text())
+    rep['conflict_precision_added_after_run'] = res
+    RP.S0.save_json(f'{REPORT}.json', rep)
+    print('wall', time.perf_counter() - t0)
+    f = lambda v: f'{np.mean([w for w in v if w is not None]):.2f}' if any(w is not None for w in v) else '-'
+    for block in BLOCKS:
+        print(f'\n## {block} conflict | true equal / false equal / false share of accepted / share of flags that are false')
+        for arm in ARMS:
+            print(f'| {arm} | ' + ' | '.join(kd + ' ' + '/'.join(f([res[f'{arm}/seed{s}/{block}'][kd][q] for s in SEEDS]) for q in
+                  ('conflict_true_equal', 'conflict_false_equal', 'false_share_of_accepted', 'precision_flags_false')) for kd in ('coll', 'zh', 'dev', 'en', 'thai')) + ' |')
+
+
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == 'summary':
         summary()
+    elif len(sys.argv) > 1 and sys.argv[1] == 'conflict':
+        conflict_main()
     else:
         main()

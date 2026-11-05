@@ -105,3 +105,110 @@ EQ_SNAP=1 EQ_WORKERS=12 .venv/bin/python -m experiments.equality_relations_v2
 .venv/bin/python -m experiments.equality_diagnostics_v2
 .venv/bin/python -m experiments.equality_diagnostics_v2 summary
 ```
+
+## Results (run 2026-11-05)
+
+Means over seeds 300–303, test half of the evaluation items. Report: `reports/equality-diagnostics-v2.json`; `summary` and
+`conflict` print every table. **Reproduction:** the snapshot rerun's report equals the v2 report exactly for all 12 runs.
+
+### 1. Identity by read, Chinese at block 3 (block 2 in brackets)
+
+| Read | `two-ctx-enbuf` | `rel-en` | `count-rel-en` |
+|---|---|---|---|
+| nearest | 0.57 (0.80) | 0.64 (0.81) | 0.64 (0.82) |
+| `eq` by count, form first | 0.54 (0.83) | 0.58 (0.84) | **0.33** (0.57) |
+| `eq` by count, form second | 0.55 (0.83) | 0.61 (0.81) | 0.46 (0.57) |
+| difference reader, zero class | 0.57 (0.85) | 0.58 (0.84) | 0.15 (0.46) |
+| relational | 0.56 (0.86) | 0.59 (0.85) | 0.19 (0.49) |
+| refit `eq`, collections only | 0.57 (0.84) | 0.59 (0.83) | **0.37** (0.60) |
+| refit `eq`, with Chinese fit half (upper bound) | 0.66 (0.91) | 0.65 (0.90) | **0.92** (0.91) |
+| linear probe fit on collections | 0.57 (0.80) | 0.56 (0.79) | 0.54 (0.74) |
+| linear probe fit on Chinese | 0.99 (1.00) | 0.99 (1.00) | 0.99 (1.00) |
+
+Same pattern for Devanagari at block 3: `two-ctx` reads 0.83–0.85 everywhere; `count-rel-en` nearest 0.84, `eq` 0.40, refit on
+collections 0.44, upper bound 0.97. Errors are mostly adjacent: 0.42–0.77 of identity errors are off by one for Chinese and
+Devanagari, against about 0.2 by chance.
+
+**Control for the probe:** a probe fit on Thai, never taught, reaches 0.84–0.87. The kind-fit probe therefore measures how
+separable the glyph classes are, not count meaning; frozen senses separate digit glyphs on their own.
+
+### 2. `eq` as a judgement (form × collection, block 3)
+
+| | `two-ctx-enbuf` zh / dev | `rel-en` zh / dev | `count-rel-en` zh / dev | collections (all arms) |
+|---|---|---|---|---|
+| positive recall | 0.56 / 0.80 | 0.61 / 0.82 | 0.35 / 0.35 | 0.94–0.96 |
+| false accept, \|Δ\| = 1 | 0.20 / 0.09 | 0.21 / 0.09 | 0.25 / 0.18 | 0.08–0.17 |
+| false accept, \|Δ\| ≥ 2 | 0.02 / 0.01 | 0.03 / 0.03 | 0.03 / 0.02 | 0.00 |
+| symmetry given accepted, P(eq(c, x) > 0 \| eq(x, c) > 0) | 0.78 / 0.85 | 0.74 / 0.81 | 0.40 / 0.48 | 0.92–0.97 |
+| symmetry given rejected | 0.97 / 0.98 | 0.97 / 0.98 | 0.90 / 0.88 | 0.99–1.00 |
+
+**Triples** zh → coll → dev (block 3, two-space arms): 20–21% of (zh, dev) pairs are joined by an accepted path through a
+collection item, but only 37% of those are truly the same count, and 43–44% of them have eq(zh, dev) ≤ 0. Without a path,
+eq(zh, dev) > 0 only 1% of the time.
+
+### 3. Substitution against truth and against the system's own judgement (block 3, `more` / `sum10`)
+
+| Chinese items | `two-ctx-enbuf` truth / own | `rel-en` truth / own |
+|---|---|---|
+| accepted and correct (n ≈ 68–78 of 135) | 0.94 / 0.94, 0.87 / 0.87 | 0.97 / 0.97, 0.85 / 0.85 |
+| accepted and wrong (n ≈ 46–47) | 0.87 / 0.91, **0.55 / 0.87** | 0.84 / 0.89, **0.52 / 0.81** |
+| rejected (n ≈ 10–21) | 0.86 / 0.87, 0.61 / 0.70 | 0.81 / 0.86, 0.60 / 0.69 |
+
+Thai accepted-and-wrong: truth 0.58–0.59 / 0.44–0.47, own 0.92–0.94 / 0.79–0.85.
+
+### 4. Conflict signal (label-free; `eq` accepted together with `more` true in either order)
+
+Rate among accepted pairs, block 3: collections 0.10 < Devanagari 0.21–0.22 < Chinese 0.29–0.30 (two-space arms), Thai
+0.35–0.42. On the count base, 0.63–0.79 for every form kind.
+
+**Added after the run** (not in the contract; labels used only to score it), per pair among accepted form × collection pairs,
+block 3:
+
+| | conflict when truly equal | conflict when not equal | share of accepted that are false | share of conflicts that are false |
+|---|---|---|---|---|
+| `two-ctx-enbuf` zh / dev | 0.18 / 0.11 | 0.43 / 0.56 | 0.46 / 0.23 | 0.69 / 0.61 |
+| `rel-en` zh / dev | 0.14 / 0.08 | 0.49 / 0.59 | 0.47 / 0.28 | 0.74 / 0.75 |
+| `count-rel-en` zh / dev | 0.78 / 0.65 | 0.77 / 0.60 | 0.64 / 0.54 | 0.64 / 0.50 |
+| Thai, two-space arms | 0.41–0.53 | 0.34–0.40 | 0.86 | 0.82–0.84 |
+
+### What the diagnostics say
+
+1. **On the two-space base the reader is not the bottleneck.** Every read of the same codes agrees within about 0.07: nearest,
+   `eq`, zero class, relational, and a fresh reader. Only a reader that sees Chinese labels does better, and by just 0.07–0.09.
+   What limits Chinese is how its codes sit against collections (prediction 1 holds for this base).
+2. **On the count base the reader is the bottleneck, and a refit on collections does not fix it.** `eq` reads 0.33 where
+   nearest reads 0.64. A fresh reader trained on collections reads 0.37; one that also sees Chinese reads 0.92. A reader on
+   concatenated raw codes learns collection-specific features and does not generalize to codes off the collection manifold.
+   Prediction 1's "refit closes the gap" fails.
+3. **Errors are adjacent-count errors.** False acceptance at |Δ| = 1 is 7–10 times that at |Δ| ≥ 2 (prediction 2). The learned
+   `eq` behaves as a tolerance relation, "within about one": symmetric on most pairs, but not transitive. Paths through
+   collections chain adjacent acceptances, so 63% of them join different counts.
+4. **Symmetry of accepted equalities is weaker than v2 reported.** v2's 0.91–0.94 was dominated by rejected pairs. Given
+   acceptance it is 0.74–0.85 for forms on the two-space base and 0.40–0.48 on the count base (collections 0.92–0.97). This
+   corrects v2 result 4.
+5. **Substitution follows the system's own judgement** (prediction 4). Where it accepts a wrong equality, `sum10` agrees with
+   the judged count (0.81–0.87) and not with the truth (0.52–0.55). Correctness is high only where the judgement is right.
+6. **The label-free conflict signal exists and is informative per pair on the two-space base for taught scripts.** A false
+   acceptance conflicts 3–7 times as often as a true one (Chinese 0.43–0.49 against 0.14–0.18). Flagged pairs are false
+   61–75% of the time, against a base rate of 23–47%. It is **not** informative on the count base (0.77 against 0.78), and
+   **not** for Thai, which was never taught (true equalities conflict as often as false ones). At the kind level it ranks
+   collections < Devanagari < Chinese (prediction 5).
+7. **Linear decodability is not evidence of kept meaning here.** Glyph classes are separable even for Thai, so "information
+   present" in the probe sense says nothing about count. Prediction 3's premise was wrong.
+
+### Bearing on the critic
+
+On the two-space base, a consistency signal of the kind the critic would learn picks out wrong equalities on taught scripts
+with useful precision. It cannot help a script with no taught relations (Thai), and it cannot help where the reader itself
+fails (the count base). Errors are adjacent, so a repair would mostly be pushing a form from count n ± 1 to n. The
+counterweight against drifting to "equal to nothing" is still needed: rejected items are a minority, but they exist
+(n ≈ 10–21 of 135).
+
+### Computation (measured)
+
+- Snapshot rerun: 12 runs, 12 workers, partly sharing the CPU with smoke checks. Its timing is in
+  `reports/equality-relations-v2-snap-runtime.json`. It reproduced v2 exactly.
+- Weights: 36 snapshots, about 16 MB under `runs/equality-relations-v2-snap/weights`, not committed.
+- Diagnostics: 24 snapshots on 12 workers, 221 s wall, 2,181 s aggregate CPU.
+- Added conflict read: 33 s wall.
+- Smoke checks: about 4 minutes for one snapshot, under full CPU contention.

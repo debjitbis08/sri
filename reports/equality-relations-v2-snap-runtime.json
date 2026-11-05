@@ -1,0 +1,94 @@
+{
+ "aggregate_worker_cpu_seconds": 19977.488740292,
+ "children_peak_rss_kb": 1854244,
+ "command": "/home/debjit/code/sri/experiments/equality_relations_v2.py",
+ "contract_sha256": "8d5730e5d02bb127dba5955edd14c5f7bcd4254ba4ca5decadc759159007b56b",
+ "cpu": "x86_64",
+ "device": "cpu",
+ "dirty": true,
+ "dtype": "float32",
+ "numpy": "2.5.4",
+ "prepare_seconds": 27.520570352004142,
+ "python": "3.12.3",
+ "revision": "d2cc4952553ca1dabec414a1204a80b94cfa11de",
+ "runner_sha256": "e5e811a9eedcec05de57d6159c5cef6a00de9fb88bded3c329f10c6e4a7b7b7c",
+ "scope": "nondeterministic timing",
+ "tasks": {
+  "count-rel-en/seed300": {
+   "cpu_seconds": 1040.063046659,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1610332,
+   "wall_seconds": 1315.379045949987
+  },
+  "count-rel-en/seed301": {
+   "cpu_seconds": 1036.9300056939999,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1610424,
+   "wall_seconds": 1323.7452618509997
+  },
+  "count-rel-en/seed302": {
+   "cpu_seconds": 1032.5757116300001,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1610064,
+   "wall_seconds": 1304.5597526330093
+  },
+  "count-rel-en/seed303": {
+   "cpu_seconds": 1035.7921845009998,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1610744,
+   "wall_seconds": 1315.1123315560108
+  },
+  "rel-en/seed300": {
+   "cpu_seconds": 1965.1052132470002,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1616968,
+   "wall_seconds": 2258.1633418700076
+  },
+  "rel-en/seed301": {
+   "cpu_seconds": 1991.029685224,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1616040,
+   "wall_seconds": 2295.7116151900264
+  },
+  "rel-en/seed302": {
+   "cpu_seconds": 1974.248213271,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1615864,
+   "wall_seconds": 2309.3682677350007
+  },
+  "rel-en/seed303": {
+   "cpu_seconds": 1990.6938142679999,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1612304,
+   "wall_seconds": 2315.9730862779834
+  },
+  "two-ctx-enbuf/seed300": {
+   "cpu_seconds": 1976.592832519,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1614996,
+   "wall_seconds": 2306.0051376489864
+  },
+  "two-ctx-enbuf/seed301": {
+   "cpu_seconds": 1992.756302741,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1619588,
+   "wall_seconds": 2314.95089272302
+  },
+  "two-ctx-enbuf/seed302": {
+   "cpu_seconds": 1925.0134874950002,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1615536,
+   "wall_seconds": 2311.7163716939976
+  },
+  "two-ctx-enbuf/seed303": {
+   "cpu_seconds": 2016.688243043,
+   "optimizer_steps": 4500,
+   "peak_rss_kb": 1616140,
+   "wall_seconds": 2310.594055210997
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "wall_seconds": 2344.0185132350016,
+ "workers": 12
+}
