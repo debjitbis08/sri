@@ -1,0 +1,145 @@
+{
+ "aggregate_worker_cpu_seconds": 94.017774253,
+ "children_peak_rss_kb": 299092,
+ "command": "/home/debjit/code/sri/experiments/everyday_relations_v2.py part0",
+ "contract_sha256": "667bcee0aafe0a5ac96eb72284c6e0efa9a5c5ef1b809927af110d0afdbeb26c",
+ "cpu": "x86_64",
+ "device": "cpu",
+ "dirty": true,
+ "dtype": "float32",
+ "numpy": "2.5.4",
+ "os": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "parent_peak_rss_kb": 299092,
+ "python": "3.12.3",
+ "revision": "0f2f8b8d4f0bb24f301b1f60d10d00ed94a093ad",
+ "rss_convention": "ru_maxrss in KiB per process; children is the largest single child",
+ "runner_sha256": "755320625c55f01cf27e420ccd8e10c1132c156878244e42e38ccdf0e79f29fa",
+ "scope": "nondeterministic timing",
+ "tasks": {
+  "complex/seed400": {
+   "cpu_seconds": 3.783041548,
+   "fit_steps": 500,
+   "fits": 18,
+   "wall_seconds": 3.7832828820100985
+  },
+  "complex/seed401": {
+   "cpu_seconds": 3.7665064239999992,
+   "fit_steps": 500,
+   "fits": 18,
+   "wall_seconds": 3.7667799810296856
+  },
+  "complex/seed402": {
+   "cpu_seconds": 3.763346762000001,
+   "fit_steps": 500,
+   "fits": 18,
+   "wall_seconds": 3.7635166369727813
+  },
+  "complex/seed403": {
+   "cpu_seconds": 3.7684400059999987,
+   "fit_steps": 500,
+   "fits": 18,
+   "wall_seconds": 3.768909921986051
+  },
+  "flat/seed400": {
+   "cpu_seconds": 5.399870164999999,
+   "fit_steps": 500,
+   "fits": 18,
+   "wall_seconds": 5.4004557660082355
+  },
+  "flat/seed401": {
+   "cpu_seconds": 5.278658052999999,
+   "fit_steps": 500,
+   "fits": 18,
+   "wall_seconds": 5.279404403991066
+  },
+  "flat/seed402": {
+   "cpu_seconds": 5.377017144999999,
+   "fit_steps": 500,
+   "fits": 18,
+   "wall_seconds": 5.377243315044325
+  },
+  "flat/seed403": {
+   "cpu_seconds": 5.38357809,
+   "fit_steps": 500,
+   "fits": 18,
+   "wall_seconds": 5.3876890579704195
+  },
+  "two-16/seed400": {
+   "cpu_seconds": 6.370765932,
+   "fit_steps": 500,
+   "fits": 18,
+   "wall_seconds": 6.3710309700109065
+  },
+  "two-16/seed401": {
+   "cpu_seconds": 6.317630005,
+   "fit_steps": 500,
+   "fits": 18,
+   "wall_seconds": 6.321958316024393
+  },
+  "two-16/seed402": {
+   "cpu_seconds": 6.376355588,
+   "fit_steps": 500,
+   "fits": 18,
+   "wall_seconds": 6.39702751400182
+  },
+  "two-16/seed403": {
+   "cpu_seconds": 4.287025736,
+   "fit_steps": 500,
+   "fits": 18,
+   "wall_seconds": 4.301199192996137
+  },
+  "two-64/seed400": {
+   "cpu_seconds": 4.003799952,
+   "fit_steps": 500,
+   "fits": 18,
+   "wall_seconds": 4.00409335095901
+  },
+  "two-64/seed401": {
+   "cpu_seconds": 3.9990416890000002,
+   "fit_steps": 500,
+   "fits": 18,
+   "wall_seconds": 3.999482030980289
+  },
+  "two-64/seed402": {
+   "cpu_seconds": 4.006976894999999,
+   "fit_steps": 500,
+   "fits": 18,
+   "wall_seconds": 4.007336804002989
+  },
+  "two-64/seed403": {
+   "cpu_seconds": 4.029999644000001,
+   "fit_steps": 500,
+   "fits": 18,
+   "wall_seconds": 4.030134676024318
+  },
+  "two/seed400": {
+   "cpu_seconds": 5.880967845000001,
+   "fit_steps": 500,
+   "fits": 18,
+   "wall_seconds": 5.881542731018271
+  },
+  "two/seed401": {
+   "cpu_seconds": 4.1827672410000005,
+   "fit_steps": 500,
+   "fits": 18,
+   "wall_seconds": 4.183929203951266
+  },
+  "two/seed402": {
+   "cpu_seconds": 4.00124819,
+   "fit_steps": 500,
+   "fits": 18,
+   "wall_seconds": 4.001867496990599
+  },
+  "two/seed403": {
+   "cpu_seconds": 4.040737343,
+   "fit_steps": 500,
+   "fits": 18,
+   "wall_seconds": 4.0411035399883986
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "wall_seconds": 12.1875605279929,
+ "workers": 8,
+ "world_sha256": "becebd0f5ab0d4d28653d53708f359243907425b08036af87775b8c8e1dfc4ef"
+}
