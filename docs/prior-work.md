@@ -2205,3 +2205,39 @@ ComplEx). Progressive differentiation and overgeneralization of exceptions are p
 exactly for deep linear networks, by Saxe, McClelland and Ganguli (2019). Kemp and Tenenbaum (2008) is the built-in-form
 alternative the program excludes. Composition (CLUTRR) is the expected weak point of single-hop scorers. Locally, generic
 relations v1 predicts weak fast mapping through a generic reader.
+
+## Backtracking search over middle things (added 2026-11-06, for the conflict search v1 draft)
+
+No search run on 2026-11-06; sources **[familiar]**, local results **[read: local results]**, implications **[derived]**.
+
+- **Conflict loop v1's defects [read: local code]:** the loop's step used the same G_L, S_L and E_L as step 0 with
+  gradients on, so the loss on withheld rows trained the one-pass reader; the trigger was recomputed from step 0's
+  disagreement each training step and fired on 6% of withheld rows by the end; rows were withheld at random across
+  relations, so the relation code was still taught one-pass. Implication: readers must be detached inside any loop or
+  search, and whole relations withheld, before a loop can be said to have had to reason.
+- **MINERVA** (Das et al. 2018) and **DeepPath** (Xiong et al. 2017): a learned agent walks a knowledge graph
+  choosing a relation and next entity per step, trained by reinforcement on reaching the answer, with a readable path.
+  Known failures: sparse reward and a beam needed at test. Implication: the forward walk is MINERVA's shape; the draft
+  adds backtracking with a trace, two learned routes checking each hop, and a ranking loss from the search's own checks
+  as reward shaping. (Added on external review of the first draft, which had missed both.)
+- **Neural Theorem Provers** (Rocktäschel and Riedel 2017) and **Conditional Theorem Provers** (Minervini et al. 2020):
+  differentiable backward chaining with soft unification and learned goal reformulation; exponential without k-max
+  pruning. **Neural LP** (Yang et al. 2017) and **DRUM** (Sadeghian et al. 2019): learned sequences of base relations
+  as matrix products over all entities. Difference from the draft: one committed middle at a time, a trace of failures,
+  a universal learned reader as the scorer, no rule templates.
+- **Expert iteration** (Anthony et al. 2017) and AlphaZero-style training: a proposal network improved from its own
+  search's outcomes. Known failure: the evaluator's errors become the proposer's labels. The draft keeps the final truth
+  label as the only ground truth and reads whether found paths are true paths.
+- **Language-model reasoning [familiar]:** one pass is pattern completion over trained closures; the compositionality
+  gap (Press et al. 2022) and out-of-distribution failure of grokked composition (Wang et al. 2024) predict that a
+  one-pass reader does not compose beyond what it saw. Chain of thought works because the intermediate is discrete,
+  committed, fed back through fixed weights and checkable; Tree of Thoughts (Yao et al. 2023) and
+  reinforcement-learned backtracking (DeepSeek-R1, 2025) add search and revision on a frozen base. Unfaithful chains
+  (Turpin et al. 2023) motivate reading the path, not only the answer. Implication: freeze the readers, train the
+  controller on outcomes, commit the middle, read the program.
+- **Negation as failure** (Prolog): exhaustion treated as false. The draft learns what exhaustion means, since the
+  world has unknowns.
+- **Neural stacks** (Grefenstette et al. 2015; Joulin and Mikolov 2015) and **inhibition of return** (Posner and Cohen
+  1984): a fixed stack discipline with learned contents, and exclusion of tried candidates.
+- **CLUTRR** (Sinha et al. 2019): facts given at question time force composition; lookup-table models fail on held-out
+  chain lengths. Not the draft; the study after it, where the search step becomes a memory hop.
