@@ -7,26 +7,47 @@ Seeds 450–453, 4 phase-1 and 16 phase-2 runs, 1,000 phase-2 steps each. Number
 
 ## Summary
 
-The search lifts logic off the floor on withheld relations: grandparent 0.00 → 0.38, ancestor 0.00 → 0.71, named
-0.00 → 0.18–0.26. But it mostly does not do this by finding the right middle things:
+Logic after the search beats a trivial baseline only on ancestor. Balanced accuracy (`tf_bal`) counts U as wrong and
+weights T and F rows equally, so answering F to everything scores 0.50 and answering U to everything scores 0.00.
+Logic's one pass answers U on every withheld relation. After the search: ancestor 0.71 (`bt-forward`) beats 0.50;
+grandparent 0.38, kind 0.31–0.43, size 0.13–0.21, named 0.18–0.26 and colour 0.34–0.51 do not. Those numbers are
+better than all-U but no better than always-F.
 
-- **Most of the gain comes from false rows.** An exhausted search gives a learned "against" vote, and the withheld
-  rows are mostly false (per seed about 2,866 F and 250 T). On a true row, logic can say T only if a path was found,
-  so its accuracy on true rows is at most the found rate. Grandparent `bt-forward`: found on true rows 0.00 and
-  balanced accuracy 0.38, so all of it comes from false rows (about 0.76 correct there).
-- **Found paths are rarely true.** True-path rate on withheld training rows: `bt-forward` 0.22, `bt-forward-notrace`
-  0.28, `bt-bidir` 0.01 (prediction ≥ 0.8).
+- **On those tests, the score comes from false rows.** An exhausted search gives a learned "against" vote. On a true
+  row, logic can say T only if a path was found, so its accuracy on true rows is at most the found rate. Grandparent
+  `bt-forward`: found on true rows 0.00 and balanced accuracy 0.38, so about 0.76 of false rows are answered F and no
+  true row is answered T. T recall, F recall and U rate were not reported separately; they should be.
+- **"True-path rate" is weaker than proof validity.** The read (`search_reads`, `experiments/conflict_search.py`)
+  counts a found path as true when every hop is a true individual fact under any relation, withheld relations
+  included. It does not check that the hops are permitted base relations, or that their order and directions prove
+  the asked relation (two true `parent-of` hops in the wrong directions do not make a grandparent). Even by this loose
+  read, found paths are rarely true: `bt-forward` 0.22, `bt-forward-notrace` 0.28, `bt-bidir` 0.01 (prediction ≥ 0.8).
+  Proof validity is lower or equal.
 - **The action space leaks.** The walk uses the withheld relations themselves and grammar relations (`good-phrase`,
   `and`, `or`) as hops. `bt-bidir` answers `bigger-than` with `>bigger-than <bigger-than|b` (187 found paths in seed 452
   on withheld rows) and named relations with `<named-can >named-can|b`. Every hop is checked by both routes, but
   intuition was trained on the withheld relations, so it confirms those hops: the search brings back intuition's own
   answer through the hop check. The per-hop read (1.00 true, 0.00 false) covered only the base relations, so it did not
   catch this.
-- **Where the program is right, the search works.** Ancestor in 2 of 4 seeds for `bt-forward`, 3 for `notrace`: the
-  program is `parent-of` repeated 3–5 times, true-path rate 0.67–0.75, logic on depth 4–5 pooled 0.67.
-- **Memory of failure did not matter.** `bt-forward-notrace` matches or beats `bt-forward` on every read.
-- **The bottleneck is the proposer, not the reader.** Per-hop base accuracy is 1.00, but proposer recall on true rows
-  is 0.26 (`bt-forward`), 0.16 (`bt-bidir`) and 0.33 (`notrace`).
+- **Ancestor is promising in some seeds, on few rows.** The program is `parent-of` repeated 3–5 times in seeds 451 and
+  453 (`bt-forward`; also 450 with 4 paths for `notrace`), loose true-path rate 0.67–0.75. Depth 4–5 has 18 rows per
+  seed (9 pairs, each with its reverse). Per seed, logic on those rows and found true pairs at depth 4 / 5 (of 6 / 3):
+
+  | Seed | bt-forward | notrace | bt-bidir |
+  |---|---|---|---|
+  | 450 | 0.50, 0/6, 0/3 | 0.50, 0/6, 0/3 | 0.50, 3/6, 1/3 |
+  | 451 | 0.83, 4/6, 2/3 | 0.78, 4/6, 1/3 | 0.50, 0/6, 0/3 |
+  | 452 | 0.61, 2/6, 0/3 | 0.50, 0/6, 0/3 | 0.44, 1/6, 0/3 |
+  | 453 | 0.72, 3/6, 1/3 | 0.89, 5/6, 2/3 | 0.61, 3/6, 0/3 |
+
+  "Found" is not "valid proof" (see above). This does not support a general claim about depth.
+- **The trace earned nothing at this budget.** `bt-forward-notrace` matches or beats `bt-forward` on every read. The
+  ablation removes both the trace and the exclusion of tried candidates, so it does not say which, if either, matters
+  in general.
+- **The failure is not in the per-hop check of base relations,** which is 1.00 / 0.00. Proposer recall on true rows is
+  0.26 (`bt-forward`), 0.16 (`bt-bidir`) and 0.33 (`notrace`), but this read is loose: `World.paths` treats base edges
+  as undirected and accepts them in any order, so it does not separate relation choice, entity ranking and budget.
+  Which of the three fails is not established.
 
 ## Answers (balanced accuracy, logic after the search / arbiter)
 
@@ -80,30 +101,33 @@ grandparent almost never found on test rows. `bt-bidir` builds paths from the wi
 | # | Prediction | Result |
 |---|---|---|
 | 1 | `one-pass` logic near chance on withheld; step 0 unchanged; trigger ≥ 0.8 | **Held.** Step 0 0.00 (U) in every arm, trigger 0.99–1.00 |
-| 2 | bt arms beat `one-pass` by ≥ 0.15 on grandparent, size, named, with base relations on ≥ 0.8 of found paths | **Failed.** The margins are met (grandparent +0.38, size +0.17/+0.21, named +0.18/+0.26), but the programs are not base relations and the gain is mostly false rows |
+| 2 | bt arms beat `one-pass` by ≥ 0.15 on grandparent, size, named, with base relations on ≥ 0.8 of found paths | **Failed.** The margins over `one-pass` are met (grandparent +0.38, size +0.17/+0.21, named +0.18/+0.26), but none beats always-F (0.50), the programs are not base relations, and the score comes from false rows |
 | 3 | Ancestor depth 4–5 ≥ 0.7; bidir ≥ forward; proposer recall ≥ 0.9 at depth 1–3 | **Failed.** 0.67 forward, 0.51 bidir; recall 0.16–0.33 overall |
 | 4 | True-path rate ≥ 0.8 | **Failed.** 0.22 / 0.01 / 0.28; the hop check admits withheld and grammar relations |
 | 5 | `notrace` exhausts ≥ 1.5× and is below `bt-forward` at depth ≥ 4 | **Failed.** Exhausts the same (0.58 vs 0.61), equal or better at depth 4–5 |
 | 6 | `soft-loop` gains ≤ 0.08 over `one-pass` and does not pass depth 3 | **Mostly held.** +0.03 to +0.11 logic (ancestor 0.10, depth 4–5 0.11), far below the bt arms |
 | 7 | Arbiter keeps intuition's chains within 0.05; U ≥ 0.5 on S4a with ≤ 0.05 on inferable; U after exhaustion ≥ 0.5 | **Mostly failed.** Chains not kept (size, named) in any arm including `one-pass`. S4a U 0.57 / 0.44 / 0.56 / 0.47 / 0.55 (one-pass, soft, fwd, bidir, notrace); inferable U 0.06–0.11; U after exhaustion on P7 0.66 / 0.59 / 0.80 (held) |
 | 8 | "Sometimes → unknown" ≤ 0.3 for logic | **Held** (0.07–0.29), as expected for a known limit |
-| 9 | Compounding: depth curve no steeper than the per-hop product | **The proposer is the bottleneck,** as the prediction's failure branch says: per-hop 1.00, recall 0.16–0.33 |
-| 10 | Stopping rule: found on true training rows < 0.3 at 250 steps | **Not fired in the main run:** 0.34–0.49 at step 1,000 (the smoke probe was 0.22 at 250 steps, recorded in the contract) |
+| 9 | Compounding: depth curve no steeper than the per-hop product | **Steeper.** Per-hop 1.00 on base relations, so the reader is not the limit. The prediction's branch names the proposer, but the recall read is too loose to separate relation choice, entity ranking and budget |
+| 10 | Stopping rule: found on true training rows < 0.3 at 250 steps | **Would have fired.** The smoke probe was 0.22 at 250 steps, and in the main run 9 of 12 search runs were below 0.3 at both step 200 and step 300 (`bt-forward` 0.15–0.41, `bt-bidir` 0.17–0.36, `notrace` 0.19–0.45). The run continued on the user's explicit direction, recorded in the contract's smoke-stage record. Step-1,000 values (0.34–0.49) do not bear on the rule |
 
 ## What this means
 
-1. **The hop check must be restricted.** Hops should use only relations logic was taught. A withheld relation as a hop
-   checks the question with the route that already knows the answer. Grammar statements are not facts between
-   entities. Both should be removed from the action space; this is a design fix, not tuning.
-2. **The exhausted-means-false vote should be read separately.** At this F:T balance, a search that never finds
-   anything still scores on false rows. The reads to judge by are logic's accuracy on true rows and the true-path rate.
-3. **Ancestor shows the mechanism can work** when the proposer finds the base relation: right program, true paths and
-   depth 4–5 at 0.67. It does this in 2–3 of 4 seeds, so learning the relation choice is the next weak point. The
-   v2 option held in the contract (all reader edges, Q orders them) fits here.
-4. **The trace earned nothing at this budget.** Proposals mostly succeed first or not at all; a failure memory adds
-   nothing when recall is the limit.
-5. **The arbiter's loss of intuition's chains comes from whole-relation withholding,** not from the search: it is
-   already present in `one-pass`, where logic answers U on every withheld row and the arbiter follows it.
+1. **Define a successful proof before spending more compute on the search.** Three reads are needed: every hop a true
+   fact; every hop a permitted base relation; and a relation-valid proof, with the base relations in the right order
+   and directions for the asked relation. The last is an evaluation diagnostic only; the controller is not given it.
+2. **Hops should be restricted.** A withheld relation used as a hop checks the question with the route that already
+   knows the answer. Grammar statements are not facts between entities. Both should be removed from the action space.
+3. **Not finding evidence is not evidence of falsity.** At this F:T balance, a search that never finds anything still
+   scores on false rows, and the learned give-up vote turns exhaustion into F. Reads should include T recall, F recall
+   and U rate, an exhaustion → U control, and the always-F baseline.
+4. **Failures should be isolated with cheap controls before another trained run.** On the same frozen reader graph:
+   given (oracle) relation choices, exhaustive enumeration of candidates, and plain bounded exhaustive search, with
+   graph construction and inference costs counted. These separate relation selection, entity ranking and budget. The
+   action space is already the frozen reader's edges ordered by Q (smoke amendment 3), so that is not a new option.
+5. **The arbiter should be compared with intuition alone.** With whole relations withheld it loses much of
+   intuition's accuracy on chains (size 0.96 → 0.45–0.65), already in `one-pass`, where logic answers U on every
+   withheld row and the arbiter follows it.
 
 ## Computation
 
