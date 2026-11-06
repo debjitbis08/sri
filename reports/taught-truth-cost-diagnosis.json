@@ -1,0 +1,1741 @@
+{
+ "450": {
+  "L1-anc": {
+   "pred_T_vs_F_bal": 0.5,
+   "pred_argmax_bal": 0.5,
+   "pred_auroc": 0.9104938271604939,
+   "pred_calibrated_global_bal": 0.5,
+   "pred_calibrated_per_relation_bal": 0.5,
+   "pred_margin_q10_50_90": {
+    "heldout_false": [
+     -21.78,
+     -20.43,
+     -17.04
+    ],
+    "heldout_true": [
+     -18.33,
+     -13.24,
+     -2.99
+    ],
+    "trained_false": [
+     -21.81,
+     -19.33,
+     -9.38
+    ],
+    "trained_true": [
+     5.7,
+     9.48,
+     12.58
+    ]
+   },
+   "pred_value_share_heldout_false": {
+    "F": 1.0
+   },
+   "pred_value_share_heldout_true": {
+    "F": 1.0
+   },
+   "unit_auroc": 1.0,
+   "unit_bal": 0.7222222222222222,
+   "unit_logit_q10_50_90": {
+    "heldout_false": [
+     -18.3,
+     -15.53,
+     -11.67
+    ],
+    "heldout_true": [
+     -6.74,
+     -0.74,
+     2.31
+    ],
+    "trained_false": [
+     -19.3,
+     -11.55,
+     -5.79
+    ],
+    "trained_true": [
+     6.6,
+     7.23,
+     8.17
+    ]
+   }
+  },
+  "L1-size": {
+   "pred_T_vs_F_bal": 0.75,
+   "pred_argmax_bal": 0.75,
+   "pred_auroc": 0.9211111111111111,
+   "pred_calibrated_global_bal": 0.7444444444444445,
+   "pred_calibrated_per_relation_bal": 0.75,
+   "pred_margin_q10_50_90": {
+    "heldout_false": [
+     -22.26,
+     -21.06,
+     -14.26
+    ],
+    "heldout_true": [
+     -19.02,
+     -0.36,
+     15.0
+    ],
+    "trained_false": [
+     -20.23,
+     -11.5,
+     -7.52
+    ],
+    "trained_true": [
+     7.27,
+     10.63,
+     16.16
+    ]
+   },
+   "pred_value_share_heldout_false": {
+    "F": 1.0
+   },
+   "pred_value_share_heldout_true": {
+    "F": 0.5,
+    "T": 0.5
+   },
+   "unit_auroc": 0.995679012345679,
+   "unit_bal": 0.9222222222222223,
+   "unit_logit_q10_50_90": {
+    "heldout_false": [
+     -20.68,
+     -14.18,
+     -9.28
+    ],
+    "heldout_true": [
+     -2.66,
+     7.2,
+     11.26
+    ],
+    "trained_false": [
+     -9.42,
+     -7.96,
+     -6.78
+    ],
+    "trained_true": [
+     7.23,
+     8.32,
+     8.71
+    ]
+   }
+  },
+  "L2-named": {
+   "pred_T_vs_F_bal": 0.8028846153846154,
+   "pred_argmax_bal": 0.8028846153846154,
+   "pred_auroc": 0.884430473372781,
+   "pred_calibrated_global_bal": 0.7932692307692307,
+   "pred_calibrated_per_relation_bal": 0.8028846153846154,
+   "pred_margin_q10_50_90": {
+    "heldout_false": [
+     -20.87,
+     -15.62,
+     -2.76
+    ],
+    "heldout_true": [
+     -8.05,
+     3.77,
+     14.45
+    ],
+    "trained_false": [
+     -21.38,
+     -17.58,
+     -9.69
+    ],
+    "trained_true": [
+     7.32,
+     10.13,
+     16.44
+    ]
+   },
+   "pred_value_share_heldout_false": {
+    "F": 0.95,
+    "T": 0.05
+   },
+   "pred_value_share_heldout_true": {
+    "F": 0.35,
+    "T": 0.65
+   },
+   "unit_auroc": 0.9543269230769231,
+   "unit_bal": 0.8990384615384615,
+   "unit_logit_q10_50_90": {
+    "heldout_false": [
+     -11.2,
+     -7.1,
+     -2.55
+    ],
+    "heldout_true": [
+     -1.78,
+     4.53,
+     9.53
+    ],
+    "trained_false": [
+     -12.65,
+     -8.84,
+     -7.46
+    ],
+    "trained_true": [
+     8.03,
+     8.58,
+     9.55
+    ]
+   }
+  },
+  "P1-default": {
+   "pred_T_vs_F_bal": 0.8198818897637795,
+   "pred_argmax_bal": 0.8159448818897638,
+   "pred_auroc": 0.9541619797525309,
+   "pred_calibrated_global_bal": 0.8316929133858268,
+   "pred_calibrated_per_relation_bal": 0.827755905511811,
+   "pred_margin_q10_50_90": {
+    "heldout_false": [
+     -21.22,
+     -16.49,
+     0.22
+    ],
+    "heldout_true": [
+     -4.56,
+     10.08,
+     18.55
+    ],
+    "trained_false": [
+     -20.83,
+     -15.3,
+     -5.63
+    ],
+    "trained_true": [
+     5.21,
+     9.5,
+     18.18
+    ]
+   },
+   "pred_value_share_heldout_false": {
+    "F": 0.88,
+    "T": 0.1,
+    "U": 0.02
+   },
+   "pred_value_share_heldout_true": {
+    "F": 0.25,
+    "T": 0.75
+   },
+   "unit_auroc": 0.9417885264341957,
+   "unit_bal": 0.8574240719910011,
+   "unit_logit_q10_50_90": {
+    "heldout_false": [
+     -11.7,
+     -8.28,
+     -2.71
+    ],
+    "heldout_true": [
+     -2.17,
+     4.06,
+     7.96
+    ],
+    "trained_false": [
+     -13.43,
+     -9.0,
+     -5.29
+    ],
+    "trained_true": [
+     5.93,
+     7.44,
+     9.0
+    ]
+   }
+  },
+  "P3": {
+   "pred_T_vs_F_bal": 0.6922749032723458,
+   "pred_argmax_bal": 0.6922749032723458,
+   "pred_auroc": 0.7902157518525805,
+   "pred_calibrated_global_bal": 0.6874877041117451,
+   "pred_calibrated_per_relation_bal": 0.6956193848776969,
+   "pred_margin_q10_50_90": {
+    "heldout_false": [
+     -21.67,
+     -18.59,
+     -5.2
+    ],
+    "heldout_true": [
+     -19.87,
+     -2.7,
+     17.13
+    ],
+    "trained_false": [
+     -21.74,
+     -19.65,
+     -11.74
+    ],
+    "trained_true": [
+     7.72,
+     9.74,
+     17.19
+    ]
+   },
+   "pred_value_share_heldout_false": {
+    "F": 0.95,
+    "T": 0.05
+   },
+   "pred_value_share_heldout_true": {
+    "F": 0.57,
+    "T": 0.43
+   },
+   "unit_auroc": 0.8462850022952325,
+   "unit_bal": 0.7267033903862549,
+   "unit_logit_q10_50_90": {
+    "heldout_false": [
+     -14.66,
+     -10.35,
+     -2.99
+    ],
+    "heldout_true": [
+     -10.86,
+     -1.05,
+     9.72
+    ],
+    "trained_false": [
+     -17.28,
+     -11.87,
+     -7.12
+    ],
+    "trained_true": [
+     7.53,
+     8.41,
+     9.59
+    ]
+   }
+  },
+  "P4": {
+   "pred_T_vs_F_bal": 0.5972222222222222,
+   "pred_argmax_bal": 0.5972222222222222,
+   "pred_auroc": 0.6907793209876543,
+   "pred_calibrated_global_bal": 0.6041666666666666,
+   "pred_calibrated_per_relation_bal": 0.5972222222222222,
+   "pred_margin_q10_50_90": {
+    "heldout_false": [
+     -22.04,
+     -19.04,
+     1.62
+    ],
+    "heldout_true": [
+     -20.58,
+     -11.29,
+     12.77
+    ],
+    "trained_false": [
+     -20.25,
+     -12.46,
+     -7.86
+    ],
+    "trained_true": [
+     7.92,
+     9.01,
+     14.43
+    ]
+   },
+   "pred_value_share_heldout_false": {
+    "F": 0.88,
+    "T": 0.12
+   },
+   "pred_value_share_heldout_true": {
+    "F": 0.68,
+    "T": 0.32
+   },
+   "unit_auroc": 0.9728009259259259,
+   "unit_bal": 0.8819444444444444,
+   "unit_logit_q10_50_90": {
+    "heldout_false": [
+     -15.86,
+     -11.29,
+     -5.17
+    ],
+    "heldout_true": [
+     -3.84,
+     2.89,
+     11.04
+    ],
+    "trained_false": [
+     -8.92,
+     -8.09,
+     -7.09
+    ],
+    "trained_true": [
+     7.95,
+     8.3,
+     8.56
+    ]
+   }
+  },
+  "P6-grandparent": {
+   "pred_T_vs_F_bal": 0.5,
+   "pred_argmax_bal": 0.5,
+   "pred_auroc": 0.9375,
+   "pred_calibrated_global_bal": 0.5,
+   "pred_calibrated_per_relation_bal": 0.5,
+   "pred_margin_q10_50_90": {
+    "heldout_false": [
+     -21.1,
+     -18.87,
+     -15.67
+    ],
+    "heldout_true": [
+     -12.93,
+     -9.64,
+     -7.23
+    ],
+    "trained_false": [
+     -21.49,
+     -19.54,
+     -12.35
+    ],
+    "trained_true": [
+     8.43,
+     9.92,
+     11.34
+    ]
+   },
+   "pred_value_share_heldout_false": {
+    "F": 1.0
+   },
+   "pred_value_share_heldout_true": {
+    "F": 1.0
+   },
+   "unit_auroc": 1.0,
+   "unit_bal": 1.0,
+   "unit_logit_q10_50_90": {
+    "heldout_false": [
+     -13.75,
+     -10.38,
+     -4.14
+    ],
+    "heldout_true": [
+     1.6,
+     3.57,
+     6.52
+    ],
+    "trained_false": [
+     -28.77,
+     -19.18,
+     -10.13
+    ],
+    "trained_true": [
+     8.27,
+     8.54,
+     8.75
+    ]
+   }
+  },
+  "temperature_scale": 20.4066162109375,
+  "value_code_cos": {
+   "F-U": -0.19,
+   "F-never": -0.06,
+   "T-F": 0.37,
+   "T-U": -0.48,
+   "T-always": -0.0
+  }
+ },
+ "451": {
+  "L1-anc": {
+   "pred_T_vs_F_bal": 0.5277777777777778,
+   "pred_argmax_bal": 0.5277777777777778,
+   "pred_auroc": 0.8395061728395061,
+   "pred_calibrated_global_bal": 0.5,
+   "pred_calibrated_per_relation_bal": 0.5,
+   "pred_margin_q10_50_90": {
+    "heldout_false": [
+     -17.32,
+     -16.26,
+     -9.4
+    ],
+    "heldout_true": [
+     -14.14,
+     -10.08,
+     -0.83
+    ],
+    "trained_false": [
+     -18.55,
+     -16.53,
+     -9.06
+    ],
+    "trained_true": [
+     5.38,
+     8.08,
+     11.75
+    ]
+   },
+   "pred_value_share_heldout_false": {
+    "F": 1.0
+   },
+   "pred_value_share_heldout_true": {
+    "F": 0.94,
+    "T": 0.06
+   },
+   "unit_auroc": 1.0,
+   "unit_bal": 0.7222222222222222,
+   "unit_logit_q10_50_90": {
+    "heldout_false": [
+     -19.29,
+     -16.13,
+     -13.38
+    ],
+    "heldout_true": [
+     -6.25,
+     -1.08,
+     5.49
+    ],
+    "trained_false": [
+     -19.05,
+     -11.71,
+     -5.96
+    ],
+    "trained_true": [
+     6.72,
+     7.27,
+     7.88
+    ]
+   }
+  },
+  "L1-size": {
+   "pred_T_vs_F_bal": 0.7166666666666667,
+   "pred_argmax_bal": 0.7166666666666667,
+   "pred_auroc": 0.8571604938271605,
+   "pred_calibrated_global_bal": 0.711111111111111,
+   "pred_calibrated_per_relation_bal": 0.7166666666666667,
+   "pred_margin_q10_50_90": {
+    "heldout_false": [
+     -18.8,
+     -17.58,
+     -10.93
+    ],
+    "heldout_true": [
+     -17.69,
+     -2.74,
+     12.2
+    ],
+    "trained_false": [
+     -17.37,
+     -12.73,
+     -7.67
+    ],
+    "trained_true": [
+     7.4,
+     10.17,
+     15.12
+    ]
+   },
+   "pred_value_share_heldout_false": {
+    "F": 0.98,
+    "T": 0.02
+   },
+   "pred_value_share_heldout_true": {
+    "F": 0.54,
+    "T": 0.46
+   },
+   "unit_auroc": 0.9932098765432099,
+   "unit_bal": 0.9388888888888889,
+   "unit_logit_q10_50_90": {
+    "heldout_false": [
+     -18.32,
+     -12.51,
+     -7.49
+    ],
+    "heldout_true": [
+     0.04,
+     5.87,
+     9.85
+    ],
+    "trained_false": [
+     -9.74,
+     -7.86,
+     -6.73
+    ],
+    "trained_true": [
+     7.25,
+     8.12,
+     9.41
+    ]
+   }
+  },
+  "L2-named": {
+   "pred_T_vs_F_bal": 0.7403846153846154,
+   "pred_argmax_bal": 0.7403846153846154,
+   "pred_auroc": 0.9214127218934911,
+   "pred_calibrated_global_bal": 0.7451923076923077,
+   "pred_calibrated_per_relation_bal": 0.7451923076923077,
+   "pred_margin_q10_50_90": {
+    "heldout_false": [
+     -18.18,
+     -14.09,
+     -7.43
+    ],
+    "heldout_true": [
+     -11.06,
+     1.78,
+     9.17
+    ],
+    "trained_false": [
+     -18.28,
+     -15.32,
+     -8.07
+    ],
+    "trained_true": [
+     6.47,
+     9.14,
+     11.87
+    ]
+   },
+   "pred_value_share_heldout_false": {
+    "F": 0.96,
+    "T": 0.04
+   },
+   "pred_value_share_heldout_true": {
+    "F": 0.48,
+    "T": 0.52
+   },
+   "unit_auroc": 0.9669008875739645,
+   "unit_bal": 0.8846153846153846,
+   "unit_logit_q10_50_90": {
+    "heldout_false": [
+     -11.0,
+     -7.76,
+     -2.64
+    ],
+    "heldout_true": [
+     -2.57,
+     5.55,
+     10.27
+    ],
+    "trained_false": [
+     -12.13,
+     -8.79,
+     -7.3
+    ],
+    "trained_true": [
+     7.84,
+     8.55,
+     10.17
+    ]
+   }
+  },
+  "P1-default": {
+   "pred_T_vs_F_bal": 0.8674071991001124,
+   "pred_argmax_bal": 0.8674071991001124,
+   "pred_auroc": 0.9291338582677166,
+   "pred_calibrated_global_bal": 0.8752812148481439,
+   "pred_calibrated_per_relation_bal": 0.8713442069741282,
+   "pred_margin_q10_50_90": {
+    "heldout_false": [
+     -17.86,
+     -13.78,
+     -2.1
+    ],
+    "heldout_true": [
+     -5.55,
+     7.39,
+     15.8
+    ],
+    "trained_false": [
+     -17.35,
+     -13.35,
+     -5.75
+    ],
+    "trained_true": [
+     4.65,
+     8.11,
+     15.47
+    ]
+   },
+   "pred_value_share_heldout_false": {
+    "F": 0.91,
+    "T": 0.09
+   },
+   "pred_value_share_heldout_true": {
+    "F": 0.18,
+    "T": 0.82
+   },
+   "unit_auroc": 0.9465691788526435,
+   "unit_bal": 0.8652980877390326,
+   "unit_logit_q10_50_90": {
+    "heldout_false": [
+     -12.04,
+     -8.28,
+     -1.31
+    ],
+    "heldout_true": [
+     -2.06,
+     3.77,
+     9.99
+    ],
+    "trained_false": [
+     -13.08,
+     -9.17,
+     -5.33
+    ],
+    "trained_true": [
+     5.94,
+     7.44,
+     9.15
+    ]
+   }
+  },
+  "P3": {
+   "pred_T_vs_F_bal": 0.6614204210112139,
+   "pred_argmax_bal": 0.6614204210112139,
+   "pred_auroc": 0.8386123680241327,
+   "pred_calibrated_global_bal": 0.6630926618138895,
+   "pred_calibrated_per_relation_bal": 0.6630926618138895,
+   "pred_margin_q10_50_90": {
+    "heldout_false": [
+     -18.78,
+     -16.96,
+     -8.23
+    ],
+    "heldout_true": [
+     -15.9,
+     -5.2,
+     10.94
+    ],
+    "trained_false": [
+     -19.0,
+     -17.74,
+     -10.87
+    ],
+    "trained_true": [
+     7.47,
+     9.84,
+     15.1
+    ]
+   },
+   "pred_value_share_heldout_false": {
+    "F": 0.97,
+    "T": 0.03
+   },
+   "pred_value_share_heldout_true": {
+    "F": 0.65,
+    "T": 0.35
+   },
+   "unit_auroc": 0.8548757295560364,
+   "unit_bal": 0.72981834874418,
+   "unit_logit_q10_50_90": {
+    "heldout_false": [
+     -18.23,
+     -11.52,
+     -4.69
+    ],
+    "heldout_true": [
+     -10.07,
+     0.46,
+     9.34
+    ],
+    "trained_false": [
+     -17.89,
+     -12.24,
+     -7.24
+    ],
+    "trained_true": [
+     7.57,
+     8.36,
+     9.89
+    ]
+   }
+  },
+  "P4": {
+   "pred_T_vs_F_bal": 0.6111111111111112,
+   "pred_argmax_bal": 0.6111111111111112,
+   "pred_auroc": 0.7100694444444444,
+   "pred_calibrated_global_bal": 0.5972222222222222,
+   "pred_calibrated_per_relation_bal": 0.6111111111111112,
+   "pred_margin_q10_50_90": {
+    "heldout_false": [
+     -18.36,
+     -16.52,
+     -0.45
+    ],
+    "heldout_true": [
+     -17.44,
+     -7.75,
+     12.13
+    ],
+    "trained_false": [
+     -17.18,
+     -11.9,
+     -7.58
+    ],
+    "trained_true": [
+     7.95,
+     8.98,
+     11.75
+    ]
+   },
+   "pred_value_share_heldout_false": {
+    "F": 0.9,
+    "T": 0.1
+   },
+   "pred_value_share_heldout_true": {
+    "F": 0.68,
+    "T": 0.32
+   },
+   "unit_auroc": 0.8807870370370371,
+   "unit_bal": 0.6805555555555556,
+   "unit_logit_q10_50_90": {
+    "heldout_false": [
+     -17.92,
+     -10.91,
+     -1.67
+    ],
+    "heldout_true": [
+     -8.67,
+     -0.37,
+     8.13
+    ],
+    "trained_false": [
+     -10.09,
+     -8.17,
+     -7.01
+    ],
+    "trained_true": [
+     8.01,
+     8.3,
+     8.59
+    ]
+   }
+  },
+  "P6-grandparent": {
+   "pred_T_vs_F_bal": 0.5,
+   "pred_argmax_bal": 0.5,
+   "pred_auroc": 0.95,
+   "pred_calibrated_global_bal": 0.5,
+   "pred_calibrated_per_relation_bal": 0.5,
+   "pred_margin_q10_50_90": {
+    "heldout_false": [
+     -18.11,
+     -16.87,
+     -13.8
+    ],
+    "heldout_true": [
+     -13.21,
+     -10.21,
+     -7.46
+    ],
+    "trained_false": [
+     -18.73,
+     -18.02,
+     -15.73
+    ],
+    "trained_true": [
+     8.2,
+     9.53,
+     11.3
+    ]
+   },
+   "pred_value_share_heldout_false": {
+    "F": 1.0
+   },
+   "pred_value_share_heldout_true": {
+    "F": 1.0
+   },
+   "unit_auroc": 1.0,
+   "unit_bal": 0.875,
+   "unit_logit_q10_50_90": {
+    "heldout_false": [
+     -12.78,
+     -10.63,
+     -1.55
+    ],
+    "heldout_true": [
+     0.43,
+     5.11,
+     8.64
+    ],
+    "trained_false": [
+     -28.04,
+     -19.16,
+     -9.98
+    ],
+    "trained_true": [
+     8.19,
+     8.53,
+     9.05
+    ]
+   }
+  },
+  "temperature_scale": 19.419418334960938,
+  "value_code_cos": {
+   "F-U": 0.05,
+   "F-never": 0.1,
+   "T-F": 0.43,
+   "T-U": 0.06,
+   "T-always": 0.03
+  }
+ },
+ "452": {
+  "L1-anc": {
+   "pred_T_vs_F_bal": 0.6666666666666666,
+   "pred_argmax_bal": 0.6666666666666666,
+   "pred_auroc": 0.9537037037037037,
+   "pred_calibrated_global_bal": 0.6388888888888888,
+   "pred_calibrated_per_relation_bal": 0.6666666666666666,
+   "pred_margin_q10_50_90": {
+    "heldout_false": [
+     -17.61,
+     -16.48,
+     -15.35
+    ],
+    "heldout_true": [
+     -15.56,
+     -8.49,
+     8.98
+    ],
+    "trained_false": [
+     -18.03,
+     -16.3,
+     -10.79
+    ],
+    "trained_true": [
+     6.42,
+     9.84,
+     13.91
+    ]
+   },
+   "pred_value_share_heldout_false": {
+    "F": 1.0
+   },
+   "pred_value_share_heldout_true": {
+    "F": 0.67,
+    "T": 0.33
+   },
+   "unit_auroc": 1.0,
+   "unit_bal": 0.75,
+   "unit_logit_q10_50_90": {
+    "heldout_false": [
+     -20.01,
+     -16.46,
+     -14.58
+    ],
+    "heldout_true": [
+     -8.48,
+     0.01,
+     2.33
+    ],
+    "trained_false": [
+     -19.61,
+     -11.98,
+     -6.12
+    ],
+    "trained_true": [
+     6.32,
+     6.89,
+     7.52
+    ]
+   }
+  },
+  "L1-size": {
+   "pred_T_vs_F_bal": 0.7777777777777778,
+   "pred_argmax_bal": 0.7777777777777778,
+   "pred_auroc": 0.8888888888888888,
+   "pred_calibrated_global_bal": 0.7722222222222223,
+   "pred_calibrated_per_relation_bal": 0.7777777777777778,
+   "pred_margin_q10_50_90": {
+    "heldout_false": [
+     -18.95,
+     -16.97,
+     -12.04
+    ],
+    "heldout_true": [
+     -16.89,
+     4.28,
+     15.84
+    ],
+    "trained_false": [
+     -17.77,
+     -12.62,
+     -7.62
+    ],
+    "trained_true": [
+     7.87,
+     11.65,
+     14.83
+    ]
+   },
+   "pred_value_share_heldout_false": {
+    "F": 0.99,
+    "T": 0.01
+   },
+   "pred_value_share_heldout_true": {
+    "F": 0.43,
+    "T": 0.57
+   },
+   "unit_auroc": 0.9990123456790123,
+   "unit_bal": 0.9888888888888889,
+   "unit_logit_q10_50_90": {
+    "heldout_false": [
+     -21.17,
+     -15.68,
+     -9.59
+    ],
+    "heldout_true": [
+     6.2,
+     10.2,
+     14.64
+    ],
+    "trained_false": [
+     -10.96,
+     -8.21,
+     -7.27
+    ],
+    "trained_true": [
+     6.89,
+     7.62,
+     8.59
+    ]
+   }
+  },
+  "L2-named": {
+   "pred_T_vs_F_bal": 0.8173076923076923,
+   "pred_argmax_bal": 0.8173076923076923,
+   "pred_auroc": 0.8600221893491125,
+   "pred_calibrated_global_bal": 0.8028846153846154,
+   "pred_calibrated_per_relation_bal": 0.8173076923076923,
+   "pred_margin_q10_50_90": {
+    "heldout_false": [
+     -17.85,
+     -14.68,
+     1.71
+    ],
+    "heldout_true": [
+     -15.14,
+     11.05,
+     17.48
+    ],
+    "trained_false": [
+     -18.03,
+     -15.37,
+     -9.6
+    ],
+    "trained_true": [
+     7.72,
+     13.29,
+     17.66
+    ]
+   },
+   "pred_value_share_heldout_false": {
+    "F": 0.87,
+    "T": 0.13
+   },
+   "pred_value_share_heldout_true": {
+    "F": 0.23,
+    "T": 0.77
+   },
+   "unit_auroc": 0.9450813609467456,
+   "unit_bal": 0.9134615384615384,
+   "unit_logit_q10_50_90": {
+    "heldout_false": [
+     -12.07,
+     -9.08,
+     -4.4
+    ],
+    "heldout_true": [
+     -2.83,
+     5.33,
+     8.77
+    ],
+    "trained_false": [
+     -12.85,
+     -9.53,
+     -7.65
+    ],
+    "trained_true": [
+     7.75,
+     8.23,
+     8.97
+    ]
+   }
+  },
+  "P1-default": {
+   "pred_T_vs_F_bal": 0.8731721034870641,
+   "pred_argmax_bal": 0.8692350956130483,
+   "pred_auroc": 0.9173228346456693,
+   "pred_calibrated_global_bal": 0.8731721034870641,
+   "pred_calibrated_per_relation_bal": 0.8731721034870641,
+   "pred_margin_q10_50_90": {
+    "heldout_false": [
+     -17.06,
+     -12.77,
+     -2.22
+    ],
+    "heldout_true": [
+     -7.89,
+     10.39,
+     16.43
+    ],
+    "trained_false": [
+     -16.54,
+     -11.9,
+     -5.89
+    ],
+    "trained_true": [
+     5.47,
+     9.8,
+     16.38
+    ]
+   },
+   "pred_value_share_heldout_false": {
+    "F": 0.95,
+    "T": 0.04,
+    "never": 0.01
+   },
+   "pred_value_share_heldout_true": {
+    "F": 0.21,
+    "T": 0.79
+   },
+   "unit_auroc": 0.9867829021372329,
+   "unit_bal": 0.9028402699662542,
+   "unit_logit_q10_50_90": {
+    "heldout_false": [
+     -13.13,
+     -9.27,
+     -4.48
+    ],
+    "heldout_true": [
+     -0.51,
+     5.09,
+     9.67
+    ],
+    "trained_false": [
+     -14.49,
+     -9.34,
+     -5.72
+    ],
+    "trained_true": [
+     5.53,
+     7.03,
+     9.46
+    ]
+   }
+  },
+  "P3": {
+   "pred_T_vs_F_bal": 0.6465997770345596,
+   "pred_argmax_bal": 0.6367958554659322,
+   "pred_auroc": 0.7609679323234311,
+   "pred_calibrated_global_bal": 0.6482720178372352,
+   "pred_calibrated_per_relation_bal": 0.6465997770345596,
+   "pred_margin_q10_50_90": {
+    "heldout_false": [
+     -17.31,
+     -15.87,
+     -8.14
+    ],
+    "heldout_true": [
+     -16.36,
+     -9.4,
+     15.1
+    ],
+    "trained_false": [
+     -17.09,
+     -15.71,
+     -11.09
+    ],
+    "trained_true": [
+     7.89,
+     10.23,
+     16.17
+    ]
+   },
+   "pred_value_share_heldout_false": {
+    "F": 0.96,
+    "T": 0.04
+   },
+   "pred_value_share_heldout_true": {
+    "F": 0.67,
+    "T": 0.31,
+    "U": 0.02
+   },
+   "unit_auroc": 0.8698931077447701,
+   "unit_bal": 0.7692635582661158,
+   "unit_logit_q10_50_90": {
+    "heldout_false": [
+     -15.98,
+     -11.53,
+     -4.79
+    ],
+    "heldout_true": [
+     -10.28,
+     0.85,
+     10.82
+    ],
+    "trained_false": [
+     -18.81,
+     -13.06,
+     -7.81
+    ],
+    "trained_true": [
+     7.28,
+     8.05,
+     9.99
+    ]
+   }
+  },
+  "P4": {
+   "pred_T_vs_F_bal": 0.6458333333333334,
+   "pred_argmax_bal": 0.6458333333333334,
+   "pred_auroc": 0.7623456790123457,
+   "pred_calibrated_global_bal": 0.6458333333333334,
+   "pred_calibrated_per_relation_bal": 0.6458333333333334,
+   "pred_margin_q10_50_90": {
+    "heldout_false": [
+     -17.21,
+     -14.61,
+     -5.25
+    ],
+    "heldout_true": [
+     -16.28,
+     -6.4,
+     14.47
+    ],
+    "trained_false": [
+     -17.13,
+     -11.13,
+     -7.81
+    ],
+    "trained_true": [
+     8.86,
+     9.63,
+     13.16
+    ]
+   },
+   "pred_value_share_heldout_false": {
+    "F": 0.93,
+    "T": 0.07
+   },
+   "pred_value_share_heldout_true": {
+    "F": 0.64,
+    "T": 0.36
+   },
+   "unit_auroc": 0.9747299382716049,
+   "unit_bal": 0.8194444444444444,
+   "unit_logit_q10_50_90": {
+    "heldout_false": [
+     -17.94,
+     -12.63,
+     -5.66
+    ],
+    "heldout_true": [
+     -5.25,
+     2.98,
+     9.79
+    ],
+    "trained_false": [
+     -9.18,
+     -8.39,
+     -7.56
+    ],
+    "trained_true": [
+     7.59,
+     7.97,
+     8.3
+    ]
+   }
+  },
+  "P6-grandparent": {
+   "pred_T_vs_F_bal": 0.625,
+   "pred_argmax_bal": 0.625,
+   "pred_auroc": 0.875,
+   "pred_calibrated_global_bal": 0.625,
+   "pred_calibrated_per_relation_bal": 0.625,
+   "pred_margin_q10_50_90": {
+    "heldout_false": [
+     -18.16,
+     -16.13,
+     -12.22
+    ],
+    "heldout_true": [
+     -14.19,
+     -9.57,
+     1.49
+    ],
+    "trained_false": [
+     -18.51,
+     -17.41,
+     -13.38
+    ],
+    "trained_true": [
+     9.03,
+     12.62,
+     14.89
+    ]
+   },
+   "pred_value_share_heldout_false": {
+    "F": 1.0
+   },
+   "pred_value_share_heldout_true": {
+    "F": 0.75,
+    "T": 0.25
+   },
+   "unit_auroc": 1.0,
+   "unit_bal": 1.0,
+   "unit_logit_q10_50_90": {
+    "heldout_false": [
+     -14.97,
+     -10.52,
+     -3.27
+    ],
+    "heldout_true": [
+     0.65,
+     2.79,
+     4.42
+    ],
+    "trained_false": [
+     -27.26,
+     -19.38,
+     -10.56
+    ],
+    "trained_true": [
+     7.98,
+     8.22,
+     8.45
+    ]
+   }
+  },
+  "temperature_scale": 18.78093910217285,
+  "value_code_cos": {
+   "F-U": 0.09,
+   "F-never": -0.34,
+   "T-F": 0.4,
+   "T-U": 0.08,
+   "T-always": -0.06
+  }
+ },
+ "453": {
+  "L1-anc": {
+   "pred_T_vs_F_bal": 0.5,
+   "pred_argmax_bal": 0.5,
+   "pred_auroc": 0.9444444444444444,
+   "pred_calibrated_global_bal": 0.5,
+   "pred_calibrated_per_relation_bal": 0.5,
+   "pred_margin_q10_50_90": {
+    "heldout_false": [
+     -18.06,
+     -16.62,
+     -14.06
+    ],
+    "heldout_true": [
+     -13.43,
+     -8.79,
+     -1.45
+    ],
+    "trained_false": [
+     -18.52,
+     -16.44,
+     -10.47
+    ],
+    "trained_true": [
+     5.88,
+     9.72,
+     13.82
+    ]
+   },
+   "pred_value_share_heldout_false": {
+    "F": 1.0
+   },
+   "pred_value_share_heldout_true": {
+    "F": 1.0
+   },
+   "unit_auroc": 0.9907407407407407,
+   "unit_bal": 0.6388888888888888,
+   "unit_logit_q10_50_90": {
+    "heldout_false": [
+     -16.64,
+     -13.24,
+     -8.98
+    ],
+    "heldout_true": [
+     -6.26,
+     -1.33,
+     1.65
+    ],
+    "trained_false": [
+     -19.34,
+     -11.68,
+     -6.21
+    ],
+    "trained_true": [
+     6.21,
+     6.87,
+     7.86
+    ]
+   }
+  },
+  "L1-size": {
+   "pred_T_vs_F_bal": 0.6888888888888889,
+   "pred_argmax_bal": 0.6888888888888889,
+   "pred_auroc": 0.8453086419753086,
+   "pred_calibrated_global_bal": 0.6777777777777778,
+   "pred_calibrated_per_relation_bal": 0.6888888888888889,
+   "pred_margin_q10_50_90": {
+    "heldout_false": [
+     -19.17,
+     -17.48,
+     -7.91
+    ],
+    "heldout_true": [
+     -16.79,
+     -1.58,
+     15.29
+    ],
+    "trained_false": [
+     -18.09,
+     -13.51,
+     -7.32
+    ],
+    "trained_true": [
+     7.15,
+     10.64,
+     14.91
+    ]
+   },
+   "pred_value_share_heldout_false": {
+    "F": 0.93,
+    "T": 0.07
+   },
+   "pred_value_share_heldout_true": {
+    "F": 0.56,
+    "T": 0.44
+   },
+   "unit_auroc": 0.9997530864197531,
+   "unit_bal": 0.9833333333333334,
+   "unit_logit_q10_50_90": {
+    "heldout_false": [
+     -22.2,
+     -15.87,
+     -9.85
+    ],
+    "heldout_true": [
+     3.67,
+     9.26,
+     12.62
+    ],
+    "trained_false": [
+     -10.71,
+     -8.42,
+     -7.38
+    ],
+    "trained_true": [
+     6.97,
+     7.64,
+     9.2
+    ]
+   }
+  },
+  "L2-named": {
+   "pred_T_vs_F_bal": 0.75,
+   "pred_argmax_bal": 0.7403846153846154,
+   "pred_auroc": 0.7853180473372781,
+   "pred_calibrated_global_bal": 0.75,
+   "pred_calibrated_per_relation_bal": 0.75,
+   "pred_margin_q10_50_90": {
+    "heldout_false": [
+     -19.22,
+     -17.1,
+     -7.7
+    ],
+    "heldout_true": [
+     -18.46,
+     1.85,
+     13.81
+    ],
+    "trained_false": [
+     -19.25,
+     -17.34,
+     -10.04
+    ],
+    "trained_true": [
+     6.58,
+     10.11,
+     16.33
+    ]
+   },
+   "pred_value_share_heldout_false": {
+    "F": 0.98,
+    "T": 0.02
+   },
+   "pred_value_share_heldout_true": {
+    "F": 0.48,
+    "T": 0.5,
+    "always": 0.02
+   },
+   "unit_auroc": 0.9641272189349113,
+   "unit_bal": 0.8894230769230769,
+   "unit_logit_q10_50_90": {
+    "heldout_false": [
+     -11.47,
+     -7.25,
+     -3.05
+    ],
+    "heldout_true": [
+     -1.55,
+     6.27,
+     10.6
+    ],
+    "trained_false": [
+     -12.19,
+     -9.18,
+     -7.95
+    ],
+    "trained_true": [
+     7.55,
+     8.34,
+     9.44
+    ]
+   }
+  },
+  "P1-default": {
+   "pred_T_vs_F_bal": 0.827755905511811,
+   "pred_argmax_bal": 0.8238188976377953,
+   "pred_auroc": 0.9097300337457818,
+   "pred_calibrated_global_bal": 0.8177727784026997,
+   "pred_calibrated_per_relation_bal": 0.8356299212598426,
+   "pred_margin_q10_50_90": {
+    "heldout_false": [
+     -19.21,
+     -16.18,
+     -0.92
+    ],
+    "heldout_true": [
+     -8.79,
+     11.24,
+     17.59
+    ],
+    "trained_false": [
+     -18.92,
+     -15.68,
+     -6.37
+    ],
+    "trained_true": [
+     5.7,
+     9.29,
+     16.82
+    ]
+   },
+   "pred_value_share_heldout_false": {
+    "F": 0.9,
+    "T": 0.09,
+    "U": 0.02
+   },
+   "pred_value_share_heldout_true": {
+    "F": 0.25,
+    "T": 0.75
+   },
+   "unit_auroc": 0.9606299212598425,
+   "unit_bal": 0.8771091113610798,
+   "unit_logit_q10_50_90": {
+    "heldout_false": [
+     -11.49,
+     -8.53,
+     -3.2
+    ],
+    "heldout_true": [
+     -1.94,
+     5.27,
+     9.26
+    ],
+    "trained_false": [
+     -13.52,
+     -8.97,
+     -5.81
+    ],
+    "trained_true": [
+     5.78,
+     7.02,
+     8.81
+    ]
+   }
+  },
+  "P3": {
+   "pred_T_vs_F_bal": 0.7104400288543511,
+   "pred_argmax_bal": 0.7104400288543511,
+   "pred_auroc": 0.7919863597612958,
+   "pred_calibrated_global_bal": 0.7121122696570267,
+   "pred_calibrated_per_relation_bal": 0.7104400288543511,
+   "pred_margin_q10_50_90": {
+    "heldout_false": [
+     -18.86,
+     -17.11,
+     -9.47
+    ],
+    "heldout_true": [
+     -17.7,
+     -7.03,
+     15.95
+    ],
+    "trained_false": [
+     -18.7,
+     -17.17,
+     -11.84
+    ],
+    "trained_true": [
+     7.85,
+     9.97,
+     16.66
+    ]
+   },
+   "pred_value_share_heldout_false": {
+    "F": 0.97,
+    "T": 0.03
+   },
+   "pred_value_share_heldout_true": {
+    "F": 0.55,
+    "T": 0.45
+   },
+   "unit_auroc": 0.8653026427962489,
+   "unit_bal": 0.7367368352023084,
+   "unit_logit_q10_50_90": {
+    "heldout_false": [
+     -17.28,
+     -12.11,
+     -6.19
+    ],
+    "heldout_true": [
+     -10.95,
+     -0.61,
+     9.17
+    ],
+    "trained_false": [
+     -19.29,
+     -12.94,
+     -7.64
+    ],
+    "trained_true": [
+     7.22,
+     7.9,
+     10.02
+    ]
+   }
+  },
+  "P4": {
+   "pred_T_vs_F_bal": 0.5694444444444444,
+   "pred_argmax_bal": 0.5694444444444444,
+   "pred_auroc": 0.6568287037037037,
+   "pred_calibrated_global_bal": 0.5625,
+   "pred_calibrated_per_relation_bal": 0.5694444444444444,
+   "pred_margin_q10_50_90": {
+    "heldout_false": [
+     -19.14,
+     -15.53,
+     -6.65
+    ],
+    "heldout_true": [
+     -17.42,
+     -12.1,
+     8.53
+    ],
+    "trained_false": [
+     -16.97,
+     -11.79,
+     -7.69
+    ],
+    "trained_true": [
+     8.26,
+     9.54,
+     12.08
+    ]
+   },
+   "pred_value_share_heldout_false": {
+    "F": 0.96,
+    "T": 0.04
+   },
+   "pred_value_share_heldout_true": {
+    "F": 0.82,
+    "T": 0.18
+   },
+   "unit_auroc": 0.9103009259259259,
+   "unit_bal": 0.7569444444444444,
+   "unit_logit_q10_50_90": {
+    "heldout_false": [
+     -17.48,
+     -11.87,
+     -3.9
+    ],
+    "heldout_true": [
+     -8.44,
+     1.43,
+     9.46
+    ],
+    "trained_false": [
+     -10.34,
+     -8.49,
+     -7.57
+    ],
+    "trained_true": [
+     7.57,
+     8.1,
+     8.41
+    ]
+   }
+  },
+  "P6-grandparent": {
+   "pred_T_vs_F_bal": 0.5,
+   "pred_argmax_bal": 0.5,
+   "pred_auroc": 0.8875,
+   "pred_calibrated_global_bal": 0.5,
+   "pred_calibrated_per_relation_bal": 0.5,
+   "pred_margin_q10_50_90": {
+    "heldout_false": [
+     -19.22,
+     -18.45,
+     -15.56
+    ],
+    "heldout_true": [
+     -17.04,
+     -11.8,
+     -6.53
+    ],
+    "trained_false": [
+     -18.56,
+     -16.94,
+     -14.34
+    ],
+    "trained_true": [
+     8.28,
+     11.72,
+     13.21
+    ]
+   },
+   "pred_value_share_heldout_false": {
+    "F": 1.0
+   },
+   "pred_value_share_heldout_true": {
+    "F": 1.0
+   },
+   "unit_auroc": 1.0,
+   "unit_bal": 1.0,
+   "unit_logit_q10_50_90": {
+    "heldout_false": [
+     -12.7,
+     -9.81,
+     -2.05
+    ],
+    "heldout_true": [
+     2.05,
+     4.62,
+     5.84
+    ],
+    "trained_false": [
+     -29.55,
+     -19.72,
+     -10.08
+    ],
+    "trained_true": [
+     7.95,
+     8.26,
+     8.54
+    ]
+   }
+  },
+  "temperature_scale": 20.00588607788086,
+  "value_code_cos": {
+   "F-U": -0.25,
+   "F-never": -0.06,
+   "T-F": 0.46,
+   "T-U": -0.15,
+   "T-always": -0.17
+  }
+ }
+}
