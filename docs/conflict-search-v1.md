@@ -392,3 +392,7 @@ Seed 450 only. Nothing here is a result of the study.
    0.004–0.039). Still below the 0.3 threshold of prediction 10, but rising from 0.04 untrained. The user directed the
    main run to proceed; the threshold miss is recorded here and the run's training logs report found rates every 100
    steps.
+
+## Results
+
+Main run completed 2026-11-06: [conflict-search-v1-results.md](conflict-search-v1-results.md).

@@ -1,0 +1,5651 @@
+{
+ "bt-bidir": {
+  "controller_params": 77685,
+  "dax": {
+   "always": {
+    "arbiter": 1.0,
+    "intuition": 1.0,
+    "logic-final": 0.75,
+    "logic-step0": 0.95,
+    "trigger_rate": 0.35
+   },
+   "never": {
+    "arbiter": 0.806,
+    "intuition": 0.917,
+    "logic-final": 0.861,
+    "logic-step0": 1.0,
+    "trigger_rate": 0.139
+   },
+   "sometimes": {
+    "arbiter": 0.028,
+    "intuition": 0.0,
+    "logic-final": 0.083,
+    "logic-step0": 0.139,
+    "trigger_rate": 0.472
+   },
+   "usually": {
+    "arbiter": 0.5,
+    "intuition": 0.5,
+    "logic-final": 0.375,
+    "logic-step0": 0.375,
+    "trigger_rate": 0.25
+   }
+  },
+  "final_log": {
+   "checks_true": 5.784,
+   "found_false": 0.208,
+   "found_true": 0.336,
+   "loss": 1.407,
+   "outcome": 0.712,
+   "rank": 0.695,
+   "step": 1000.0,
+   "wall": 837.274
+  },
+  "params": 151486,
+  "tests": {
+   "G2": {
+    "arbiter": 0.683,
+    "arbiter_u_rate": 0.027,
+    "backtracks_true": 3.202,
+    "backward_waste": 0.094,
+    "candidate_index_first": 0.559,
+    "candidate_index_mean": 1.46,
+    "checks_false": 5.743,
+    "checks_true": 5.141,
+    "exhausted_false": 0.667,
+    "exhausted_true": 0.738,
+    "found_rate_false": 0.333,
+    "found_rate_true": 0.262,
+    "intuition": 0.664,
+    "intuition_auroc": 0.825,
+    "logic-final": 0.58,
+    "logic-step0": 0.687,
+    "logic_final_auroc": 0.846,
+    "logic_step0_auroc": 0.888,
+    "path_len_found": 3.829,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 56.319,
+    "programs": [
+     [
+      [
+       "<named-can >named-can|b",
+       4
+      ],
+      [
+       ">named-can <named-can >named-can|b",
+       1
+      ]
+     ],
+     [
+      [
+       ">is-a >lives-with >lives-with|b",
+       13
+      ],
+      [
+       ">is-a >lives-with >lives-with >lives-with|b >lives-with|b",
+       5
+      ],
+      [
+       ">lives-with >lives-with >lives-with|b >lives-with|b >lives-with|b",
+       2
+      ]
+     ],
+     [
+      [
+       ">lives-with >lives-with >lives-with|b >lives-with|b >lives-with|b",
+       11
+      ],
+      [
+       ">lives-with >lives-with >lives-with|b",
+       9
+      ],
+      [
+       ">lives-with >lives-with >lives-with >lives-with >lives-with|b",
+       5
+      ]
+     ],
+     [
+      [
+       ">lives-with <lives-with <named-has|b >named-can|b >lives-with|b",
+       1
+      ]
+     ]
+    ],
+    "proposer_offpath_choice_points": 49.75,
+    "proposer_recall": null,
+    "search_rate": 0.195,
+    "trigger_rate": 0.195,
+    "trigger_rate_true": 0.54,
+    "true_path_rate": 0.0
+   },
+   "G4": {
+    "arbiter": 0.53,
+    "arbiter_u_rate": 0.037,
+    "backtracks_true": 3.708,
+    "backward_waste": 0.19,
+    "candidate_index_first": 0.648,
+    "candidate_index_mean": 1.481,
+    "checks_false": 4.719,
+    "checks_true": 5.708,
+    "exhausted_false": 0.821,
+    "exhausted_true": 0.75,
+    "found_rate_false": 0.179,
+    "found_rate_true": 0.25,
+    "intuition": 0.536,
+    "intuition_auroc": 0.696,
+    "logic-final": 0.479,
+    "logic-step0": 0.523,
+    "logic_final_auroc": 0.558,
+    "logic_step0_auroc": 0.535,
+    "path_len_found": 3.222,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 47.853,
+    "programs": [
+     [
+      [
+       ">named-can >good-phrase >or >colder-than|b",
+       2
+      ],
+      [
+       ">lives-in >good-phrase >good-phrase|b",
+       1
+      ]
+     ],
+     [],
+     [
+      [
+       ">lives-with",
+       1
+      ],
+      [
+       "<lives-with >kind-of|b",
+       1
+      ]
+     ],
+     [
+      [
+       "<named-can >lives-with >lives-with|b",
+       1
+      ],
+      [
+       ">is >lives-with >lives-with >named-can|b >lives-with|b",
+       1
+      ],
+      [
+       ">is >lives-with >lives-with >named-can|b <lives-with|b",
+       1
+      ]
+     ]
+    ],
+    "proposer_offpath_choice_points": 6.0,
+    "proposer_recall": null,
+    "search_rate": 0.234,
+    "trigger_rate": 0.234,
+    "trigger_rate_true": 0.25,
+    "true_path_rate": 0.0
+   },
+   "L1-anc": {
+    "arbiter": 0.667,
+    "arbiter_by_length": {
+     "3": 0.806,
+     "4": 0.562,
+     "5": 0.458
+    },
+    "arbiter_u_rate": 0.056,
+    "backtracks_true": 2.875,
+    "backward_waste": 0.0,
+    "candidate_index_first": 0.757,
+    "candidate_index_mean": 1.266,
+    "checks_by_length_true": {
+     "3": 4.667,
+     "4": 3.792,
+     "5": 3.417
+    },
+    "checks_false": 3.583,
+    "checks_true": 4.167,
+    "exhausted_false": 0.847,
+    "exhausted_true": 0.792,
+    "exhausted_true_by_length": {
+     "3": 0.806,
+     "4": 0.708,
+     "5": 0.917
+    },
+    "found_by_length_true": {
+     "3": 0.194,
+     "4": 0.292,
+     "5": 0.083
+    },
+    "found_count_true_by_length": {
+     "3": [
+      [
+       3,
+       9
+      ],
+      [
+       0,
+       9
+      ],
+      [
+       2,
+       9
+      ],
+      [
+       2,
+       9
+      ]
+     ],
+     "4": [
+      [
+       3,
+       6
+      ],
+      [
+       0,
+       6
+      ],
+      [
+       1,
+       6
+      ],
+      [
+       3,
+       6
+      ]
+     ],
+     "5": [
+      [
+       1,
+       3
+      ],
+      [
+       0,
+       3
+      ],
+      [
+       0,
+       3
+      ],
+      [
+       0,
+       3
+      ]
+     ]
+    },
+    "found_rate_false": 0.153,
+    "found_rate_true": 0.208,
+    "intuition": 0.722,
+    "intuition_auroc": 1.0,
+    "intuition_by_length": {
+     "3": 0.903,
+     "4": 0.562,
+     "5": 0.5
+    },
+    "logic-final": 0.493,
+    "logic-step0": 0.0,
+    "logic_final_auroc": 0.719,
+    "logic_final_by_length": {
+     "3": 0.472,
+     "4": 0.521,
+     "5": 0.5
+    },
+    "logic_search_all": 0.493,
+    "logic_step0_auroc": 0.496,
+    "n_by_length": {
+     "3": 18.0,
+     "4": 12.0,
+     "5": 6.0
+    },
+    "path_len_found": 3.26,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 14.421,
+    "programs": [
+     [
+      [
+       ">named-can >named-can|b >named-can|b <named-can|b",
+       3
+      ],
+      [
+       "<named-can >named-can|b",
+       3
+      ],
+      [
+       "<named-can >named-can >named-can <named-can|b >named-can|b",
+       3
+      ]
+     ],
+     [
+      [
+       ">is-a >lives-with >is-a >lives-with|b >lives-with|b",
+       1
+      ]
+     ],
+     [
+      [
+       ">ancestor-of <bigger-than|b",
+       2
+      ],
+      [
+       ">bigger-than <bigger-than|b",
+       2
+      ],
+      [
+       ">bigger-than <ancestor-of|b",
+       2
+      ]
+     ],
+     [
+      [
+       "<named-can <named-has|b",
+       3
+      ],
+      [
+       "<named-can >named-can|b",
+       2
+      ],
+      [
+       ">named-can <named-can <named-can >named-can|b <named-can|b",
+       1
+      ]
+     ]
+    ],
+    "proposer_offpath_choice_points": 13.0,
+    "proposer_recall": 0.009,
+    "search_all": {
+     "checks_true": 4.167,
+     "exhausted_true": 0.792,
+     "found_rate_false": 0.153,
+     "found_rate_true": 0.208,
+     "proposer_recall": 0.009,
+     "true_path_rate": 0.0
+    },
+    "search_rate": 1.0,
+    "trigger_rate": 1.0,
+    "trigger_rate_true": 1.0,
+    "true_path_rate": 0.0
+   },
+   "L1-anc-depth45": {
+    "arbiter": 0.528,
+    "intuition": 0.542,
+    "logic-final": 0.514,
+    "logic-step0": 0.0,
+    "n": 18.0
+   },
+   "L1-kind": {
+    "arbiter": 0.532,
+    "arbiter_by_length": {
+     "3": 0.639,
+     "4": 0.425
+    },
+    "arbiter_u_rate": 0.168,
+    "backtracks_true": 2.412,
+    "backward_waste": 0.082,
+    "candidate_index_first": 0.787,
+    "candidate_index_mean": 1.243,
+    "checks_by_length_true": {
+     "3": 3.288,
+     "4": 6.45
+    },
+    "checks_false": 5.083,
+    "checks_true": 4.883,
+    "exhausted_false": 0.635,
+    "exhausted_true": 0.402,
+    "exhausted_true_by_length": {
+     "3": 0.259,
+     "4": 0.543
+    },
+    "found_by_length_true": {
+     "3": 0.741,
+     "4": 0.457
+    },
+    "found_count_true_by_length": {
+     "3": [
+      [
+       33,
+       35
+      ],
+      [
+       34,
+       35
+      ],
+      [
+       10,
+       35
+      ],
+      [
+       25,
+       35
+      ]
+     ],
+     "4": [
+      [
+       3,
+       35
+      ],
+      [
+       35,
+       35
+      ],
+      [
+       21,
+       35
+      ],
+      [
+       5,
+       35
+      ]
+     ]
+    },
+    "found_rate_false": 0.365,
+    "found_rate_true": 0.598,
+    "intuition": 0.664,
+    "intuition_auroc": 0.75,
+    "intuition_by_length": {
+     "3": 0.812,
+     "4": 0.515
+    },
+    "logic-final": 0.435,
+    "logic-step0": 0.004,
+    "logic_final_auroc": 0.653,
+    "logic_final_by_length": {
+     "3": 0.51,
+     "4": 0.36
+    },
+    "logic_search_all": 0.435,
+    "logic_step0_auroc": 0.477,
+    "n_by_length": {
+     "3": 47.0,
+     "4": 47.0
+    },
+    "path_len_found": 2.66,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 58.132,
+    "programs": [
+     [
+      [
+       ">lighter-than",
+       22
+      ],
+      [
+       ">lives-in",
+       3
+      ],
+      [
+       ">named-can",
+       2
+      ]
+     ],
+     [
+      [
+       ">is-a",
+       36
+      ],
+      [
+       ">is-a >lives-with >is-a|b >lives-with|b >lives-with|b",
+       31
+      ],
+      [
+       ">is-a >lives-with >is-a|b",
+       4
+      ]
+     ],
+     [
+      [
+       ">lives-with >lives-with|b",
+       7
+      ],
+      [
+       "<lives-with",
+       5
+      ],
+      [
+       ">bigger-than >lives-with|b <named-has|b",
+       4
+      ]
+     ],
+     [
+      [
+       ">quieter-than",
+       10
+      ],
+      [
+       ">is-a",
+       5
+      ],
+      [
+       "<is >lives-with <is|b",
+       3
+      ]
+     ]
+    ],
+    "proposer_offpath_choice_points": 70.75,
+    "proposer_recall": 0.262,
+    "search_all": {
+     "checks_true": 4.875,
+     "exhausted_true": 0.4,
+     "found_rate_false": 0.365,
+     "found_rate_true": 0.6,
+     "proposer_recall": 0.264,
+     "true_path_rate": 0.143
+    },
+    "search_rate": 0.995,
+    "trigger_rate": 0.995,
+    "trigger_rate_true": 0.993,
+    "true_path_rate": 0.142
+   },
+   "L1-size": {
+    "arbiter": 0.615,
+    "arbiter_by_length": {
+     "10": 0.656,
+     "11": 0.562,
+     "3": 0.59,
+     "4": 0.609,
+     "5": 0.652,
+     "6": 0.615,
+     "7": 0.612,
+     "8": 0.625,
+     "9": 0.604
+    },
+    "arbiter_u_rate": 0.303,
+    "backtracks_true": 4.274,
+    "backward_waste": 0.066,
+    "candidate_index_first": 0.73,
+    "candidate_index_mean": 1.283,
+    "checks_by_length_true": {
+     "10": 8.25,
+     "11": 8.875,
+     "3": 7.236,
+     "4": 7.406,
+     "5": 7.161,
+     "6": 8.062,
+     "7": 9.853,
+     "8": 10.062,
+     "9": 8.375
+    },
+    "checks_false": 7.815,
+    "checks_true": 8.05,
+    "exhausted_false": 0.569,
+    "exhausted_true": 0.572,
+    "exhausted_true_by_length": {
+     "10": 0.812,
+     "11": 0.5,
+     "3": 0.542,
+     "4": 0.531,
+     "5": 0.5,
+     "6": 0.604,
+     "7": 0.572,
+     "8": 0.625,
+     "9": 0.667
+    },
+    "found_by_length_true": {
+     "10": 0.188,
+     "11": 0.5,
+     "3": 0.458,
+     "4": 0.469,
+     "5": 0.5,
+     "6": 0.396,
+     "7": 0.428,
+     "8": 0.375,
+     "9": 0.333
+    },
+    "found_count_true_by_length": {
+     "10": [
+      [
+       0,
+       4
+      ],
+      [
+       1,
+       4
+      ],
+      [
+       0,
+       4
+      ],
+      [
+       2,
+       4
+      ]
+     ],
+     "11": [
+      [
+       0,
+       2
+      ],
+      [
+       2,
+       2
+      ],
+      [
+       0,
+       2
+      ],
+      [
+       2,
+       2
+      ]
+     ],
+     "3": [
+      [
+       4,
+       18
+      ],
+      [
+       14,
+       18
+      ],
+      [
+       8,
+       18
+      ],
+      [
+       7,
+       18
+      ]
+     ],
+     "4": [
+      [
+       5,
+       16
+      ],
+      [
+       14,
+       16
+      ],
+      [
+       6,
+       16
+      ],
+      [
+       5,
+       16
+      ]
+     ],
+     "5": [
+      [
+       6,
+       14
+      ],
+      [
+       14,
+       14
+      ],
+      [
+       4,
+       14
+      ],
+      [
+       4,
+       14
+      ]
+     ],
+     "6": [
+      [
+       4,
+       12
+      ],
+      [
+       8,
+       12
+      ],
+      [
+       2,
+       12
+      ],
+      [
+       5,
+       12
+      ]
+     ],
+     "7": [
+      [
+       1,
+       10
+      ],
+      [
+       9,
+       10
+      ],
+      [
+       2,
+       10
+      ],
+      [
+       5,
+       10
+      ]
+     ],
+     "8": [
+      [
+       1,
+       8
+      ],
+      [
+       7,
+       8
+      ],
+      [
+       0,
+       8
+      ],
+      [
+       4,
+       8
+      ]
+     ],
+     "9": [
+      [
+       1,
+       6
+      ],
+      [
+       4,
+       6
+      ],
+      [
+       0,
+       6
+      ],
+      [
+       3,
+       6
+      ]
+     ]
+    },
+    "found_rate_false": 0.431,
+    "found_rate_true": 0.428,
+    "intuition": 0.964,
+    "intuition_auroc": 0.998,
+    "intuition_by_length": {
+     "10": 1.0,
+     "11": 1.0,
+     "3": 0.917,
+     "4": 0.93,
+     "5": 0.982,
+     "6": 0.99,
+     "7": 0.975,
+     "8": 1.0,
+     "9": 1.0
+    },
+    "logic-final": 0.215,
+    "logic-step0": 0.008,
+    "logic_final_auroc": 0.469,
+    "logic_final_by_length": {
+     "10": 0.094,
+     "11": 0.312,
+     "3": 0.229,
+     "4": 0.258,
+     "5": 0.232,
+     "6": 0.156,
+     "7": 0.213,
+     "8": 0.234,
+     "9": 0.167
+    },
+    "logic_search_all": 0.208,
+    "logic_step0_auroc": 0.515,
+    "n_by_length": {
+     "10": 8.0,
+     "11": 4.0,
+     "3": 36.0,
+     "4": 32.0,
+     "5": 28.0,
+     "6": 24.0,
+     "7": 20.0,
+     "8": 16.0,
+     "9": 12.0
+    },
+    "path_len_found": 3.802,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 53.07,
+    "programs": [
+     [
+      [
+       ">named-can",
+       3
+      ],
+      [
+       ">named-can >named-can|b",
+       2
+      ],
+      [
+       ">lives-in >named-can|b",
+       2
+      ]
+     ],
+     [
+      [
+       ">is-a >lives-with >lives-with >lives-with|b >lives-with|b",
+       37
+      ],
+      [
+       ">is-a >lives-with >lives-with|b >lives-with|b >lives-with|b",
+       23
+      ],
+      [
+       ">is-a >lives-with >lives-with|b",
+       14
+      ]
+     ],
+     [
+      [
+       ">bigger-than <bigger-than|b",
+       32
+      ],
+      [
+       ">bigger-than <bigger-than|b <bigger-than|b",
+       6
+      ],
+      [
+       ">bigger-than >bigger-than <bigger-than|b",
+       6
+      ]
+     ],
+     [
+      [
+       "<is >lives-with >lives-with <is|b <lives-with|b",
+       6
+      ],
+      [
+       "<lives-with >lives-with >lives-with|b >lives-with|b",
+       5
+      ],
+      [
+       "<lives-with >lives-with >lives-with <is|b >lives-with|b",
+       4
+      ]
+     ]
+    ],
+    "proposer_offpath_choice_points": 349.75,
+    "proposer_recall": 0.068,
+    "search_all": {
+     "checks_true": 8.056,
+     "exhausted_true": 0.569,
+     "found_rate_false": 0.433,
+     "found_rate_true": 0.431,
+     "proposer_recall": 0.068,
+     "true_path_rate": 0.015
+    },
+    "search_rate": 0.992,
+    "trigger_rate": 0.992,
+    "trigger_rate_true": 0.997,
+    "true_path_rate": 0.015
+   },
+   "L2-named": {
+    "arbiter": 0.588,
+    "arbiter_by_length": {
+     "named-can": 0.555,
+     "named-has": 0.533,
+     "named-kind": 0.646
+    },
+    "arbiter_u_rate": 0.388,
+    "backtracks_true": 3.428,
+    "backward_waste": 0.074,
+    "candidate_index_first": 0.698,
+    "candidate_index_mean": 1.32,
+    "checks_by_length_true": {
+     "named-can": 4.875,
+     "named-has": 5.312,
+     "named-kind": 7.708
+    },
+    "checks_false": 6.216,
+    "checks_true": 6.351,
+    "exhausted_false": 0.811,
+    "exhausted_true": 0.572,
+    "exhausted_true_by_length": {
+     "named-can": 0.75,
+     "named-has": 0.675,
+     "named-kind": 0.427
+    },
+    "found_by_length_true": {
+     "named-can": 0.25,
+     "named-has": 0.325,
+     "named-kind": 0.573
+    },
+    "found_count_true_by_length": {
+     "named-can": [
+      [
+       3,
+       8
+      ],
+      [
+       1,
+       8
+      ],
+      [
+       3,
+       8
+      ],
+      [
+       1,
+       8
+      ]
+     ],
+     "named-has": [
+      [
+       6,
+       20
+      ],
+      [
+       4,
+       20
+      ],
+      [
+       9,
+       20
+      ],
+      [
+       7,
+       20
+      ]
+     ],
+     "named-kind": [
+      [
+       10,
+       24
+      ],
+      [
+       9,
+       24
+      ],
+      [
+       20,
+       24
+      ],
+      [
+       16,
+       24
+      ]
+     ]
+    },
+    "found_rate_false": 0.189,
+    "found_rate_true": 0.428,
+    "intuition": 0.876,
+    "intuition_auroc": 0.943,
+    "intuition_by_length": {
+     "named-can": 0.803,
+     "named-has": 0.824,
+     "named-kind": 0.953
+    },
+    "logic-final": 0.258,
+    "logic-step0": 0.004,
+    "logic_final_auroc": 0.665,
+    "logic_final_by_length": {
+     "named-can": 0.199,
+     "named-has": 0.201,
+     "named-kind": 0.323
+    },
+    "logic_search_all": 0.256,
+    "logic_step0_auroc": 0.704,
+    "n_by_length": {
+     "named-can": 30.0,
+     "named-has": 66.0,
+     "named-kind": 60.0
+    },
+    "path_len_found": 3.711,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 64.114,
+    "programs": [
+     [
+      [
+       ">good-phrase",
+       3
+      ],
+      [
+       ">lives-in >good-phrase >lives-in|b",
+       2
+      ],
+      [
+       ">named-can >named-can <slower-than <slower-than|b",
+       2
+      ]
+     ],
+     [
+      [
+       ">lives-with >lives-with >lives-with|b >lives-with|b >lives-with|b",
+       5
+      ],
+      [
+       ">lives-with",
+       3
+      ],
+      [
+       "<is-a >lives-with >lives-with >lives-with|b >lives-with|b",
+       3
+      ]
+     ],
+     [
+      [
+       "<named-has >bigger-than <bigger-than|b",
+       8
+      ],
+      [
+       "<ancestor-of >bigger-than <bigger-than|b",
+       6
+      ],
+      [
+       "<lives-with >lives-with <lives-with|b",
+       4
+      ]
+     ],
+     [
+      [
+       "<named-can <lives-with >named-has|b >named-can|b",
+       9
+      ],
+      [
+       "<named-can >named-can|b",
+       5
+      ],
+      [
+       "<named-can >lives-with <lives-with <named-has|b >lives-with|b",
+       4
+      ]
+     ]
+    ],
+    "proposer_offpath_choice_points": 60.0,
+    "proposer_recall": 0.157,
+    "search_all": {
+     "checks_true": 6.351,
+     "exhausted_true": 0.572,
+     "found_rate_false": 0.19,
+     "found_rate_true": 0.428,
+     "proposer_recall": 0.157,
+     "true_path_rate": 0.0
+    },
+    "search_rate": 0.995,
+    "trigger_rate": 0.995,
+    "trigger_rate_true": 1.0,
+    "true_path_rate": 0.0
+   },
+   "P1-default": {
+    "arbiter": 0.878,
+    "arbiter_u_rate": 0.044,
+    "backtracks_true": 3.237,
+    "backward_waste": 0.065,
+    "candidate_index_first": 0.749,
+    "candidate_index_mean": 1.261,
+    "checks_false": 6.299,
+    "checks_true": 6.261,
+    "exhausted_false": 0.651,
+    "exhausted_true": 0.565,
+    "found_rate_false": 0.349,
+    "found_rate_true": 0.435,
+    "intuition": 0.917,
+    "intuition_auroc": 0.965,
+    "logic-final": 0.802,
+    "logic-step0": 0.808,
+    "logic_final_auroc": 0.958,
+    "logic_step0_auroc": 0.927,
+    "path_len_found": 3.589,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 55.956,
+    "programs": [
+     [
+      [
+       ">named-can >named-can|b >or|b >or|b",
+       1
+      ],
+      [
+       ">or >named-can|b >or|b",
+       1
+      ],
+      [
+       ">or <named-can >colder-than|b",
+       1
+      ]
+     ],
+     [
+      [
+       ">is-a >lives-with >lives-with|b >lives-with|b >lives-with|b",
+       7
+      ],
+      [
+       ">is-a >lives-with >lives-with >lives-with|b >lives-with|b",
+       4
+      ],
+      [
+       ">lives-with >is-a|b >is-a|b",
+       2
+      ]
+     ],
+     [
+      [
+       ">bigger-than <bigger-than|b",
+       5
+      ],
+      [
+       "<named-has >kind-of <bigger-than|b",
+       1
+      ],
+      [
+       ">lives-with <kind-of <bigger-than|b",
+       1
+      ]
+     ],
+     [
+      [
+       ">is <lives-with >lives-with|b >lives-with|b <lives-with|b",
+       1
+      ],
+      [
+       ">lives-with <lives-with >lives-with|b <lives-with|b >lives-with|b",
+       1
+      ],
+      [
+       ">is-a",
+       1
+      ]
+     ]
+    ],
+    "proposer_offpath_choice_points": 44.5,
+    "proposer_recall": null,
+    "search_rate": 0.177,
+    "trigger_rate": 0.177,
+    "trigger_rate_true": 0.366,
+    "true_path_rate": 0.0
+   },
+   "P2": {
+    "arbiter": 0.704,
+    "arbiter_u_rate": 0.073,
+    "backtracks_true": 3.22,
+    "backward_waste": 0.036,
+    "candidate_index_first": 0.76,
+    "candidate_index_mean": 1.251,
+    "checks_false": 5.729,
+    "checks_true": 6.221,
+    "exhausted_false": 0.711,
+    "exhausted_true": 0.556,
+    "found_rate_false": 0.289,
+    "found_rate_true": 0.444,
+    "intuition": 0.7,
+    "intuition_auroc": 0.831,
+    "logic-final": 0.624,
+    "logic-step0": 0.6,
+    "logic_final_auroc": 0.785,
+    "logic_search_all": 0.361,
+    "logic_step0_auroc": 0.761,
+    "path_len_found": 3.596,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 41.343,
+    "programs": [
+     [
+      [
+       ">named-can >named-can|b >named-can|b <named-can|b",
+       7
+      ],
+      [
+       ">named-can >named-can|b >named-can|b >named-can|b <named-can|b",
+       6
+      ],
+      [
+       ">named-can <named-can >named-can >named-can|b <bigger-than|b",
+       5
+      ]
+     ],
+     [
+      [
+       ">is-a >lives-with >lives-with|b >lives-with|b >lives-with|b",
+       31
+      ],
+      [
+       ">is-a >lives-with >lives-with >lives-with|b >lives-with|b",
+       28
+      ],
+      [
+       ">is-a >lives-with >lives-with|b",
+       9
+      ]
+     ],
+     [
+      [
+       ">bigger-than <bigger-than|b",
+       80
+      ],
+      [
+       ">bigger-than >bigger-than <bigger-than|b",
+       7
+      ],
+      [
+       ">bigger-than >lives-with <bigger-than|b >lives-with|b",
+       6
+      ]
+     ],
+     [
+      [
+       "<named-can >named-can|b",
+       37
+      ],
+      [
+       "<is >lives-with >lives-with >named-can|b >lives-with|b",
+       9
+      ],
+      [
+       "<named-can <named-has|b",
+       6
+      ]
+     ]
+    ],
+    "proposer_offpath_choice_points": 415.0,
+    "proposer_recall": 0.0,
+    "search_all": {
+     "checks_true": 6.598,
+     "exhausted_true": 0.554,
+     "found_rate_false": 0.276,
+     "found_rate_true": 0.446,
+     "proposer_recall": 0.0,
+     "true_path_rate": 0.005
+    },
+    "search_rate": 0.341,
+    "trigger_rate": 0.341,
+    "trigger_rate_true": 0.413,
+    "true_path_rate": 0.0
+   },
+   "P3": {
+    "arbiter": 0.741,
+    "arbiter_u_rate": 0.034,
+    "backtracks_true": 3.238,
+    "backward_waste": 0.052,
+    "candidate_index_first": 0.715,
+    "candidate_index_mean": 1.301,
+    "checks_false": 5.534,
+    "checks_true": 6.43,
+    "exhausted_false": 0.625,
+    "exhausted_true": 0.445,
+    "found_rate_false": 0.375,
+    "found_rate_true": 0.555,
+    "intuition": 0.745,
+    "intuition_auroc": 0.853,
+    "logic-final": 0.703,
+    "logic-step0": 0.65,
+    "logic_final_auroc": 0.85,
+    "logic_search_all": 0.327,
+    "logic_step0_auroc": 0.835,
+    "path_len_found": 3.394,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 49.564,
+    "programs": [
+     [
+      [
+       ">named-can",
+       5
+      ],
+      [
+       ">lives-in <named-can|b",
+       1
+      ],
+      [
+       ">or >named-can|b >named-can|b >named-can|b <named-can|b",
+       1
+      ]
+     ],
+     [
+      [
+       ">is-a >lives-with >lives-with >lives-with|b >lives-with|b",
+       5
+      ],
+      [
+       ">is-a >lives-with >lives-with|b >lives-with|b >lives-with|b",
+       4
+      ],
+      [
+       ">is-a >lives-with >lives-with >is-a|b >lives-with|b",
+       3
+      ]
+     ],
+     [
+      [
+       ">bigger-than <bigger-than|b",
+       10
+      ],
+      [
+       ">bigger-than >bigger-than <bigger-than|b",
+       3
+      ],
+      [
+       ">bigger-than <bigger-than|b <bigger-than|b",
+       1
+      ]
+     ],
+     [
+      [
+       "<is >lives-with <lives-with <is|b >lives-with|b",
+       2
+      ],
+      [
+       "<named-can <named-has|b",
+       2
+      ],
+      [
+       ">is-a >quieter-than >lives-with >is|b >lives-with|b",
+       2
+      ]
+     ]
+    ],
+    "proposer_offpath_choice_points": 58.25,
+    "proposer_recall": 0.083,
+    "search_all": {
+     "checks_true": 6.613,
+     "exhausted_true": 0.583,
+     "found_rate_false": 0.337,
+     "found_rate_true": 0.417,
+     "proposer_recall": 0.083,
+     "true_path_rate": 0.0
+    },
+    "search_rate": 0.126,
+    "trigger_rate": 0.126,
+    "trigger_rate_true": 0.353,
+    "true_path_rate": 0.0
+   },
+   "P4": {
+    "arbiter": 0.79,
+    "arbiter_u_rate": 0.033,
+    "backtracks_true": 3.51,
+    "backward_waste": 0.083,
+    "candidate_index_first": 0.742,
+    "candidate_index_mean": 1.264,
+    "checks_false": 6.071,
+    "checks_true": 6.314,
+    "exhausted_false": 0.415,
+    "exhausted_true": 0.649,
+    "found_rate_false": 0.585,
+    "found_rate_true": 0.351,
+    "intuition": 0.785,
+    "intuition_auroc": 0.927,
+    "logic-final": 0.658,
+    "logic-step0": 0.66,
+    "logic_final_auroc": 0.868,
+    "logic_step0_auroc": 0.818,
+    "path_len_found": 3.615,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 55.183,
+    "programs": [
+     [
+      [
+       ">named-can",
+       2
+      ],
+      [
+       ">named-can <good-phrase >or >lives-in|b",
+       1
+      ],
+      [
+       "<named-can >or >or >good-phrase|b >or|b",
+       1
+      ]
+     ],
+     [
+      [
+       ">is-a >lives-with >lives-with >lives-with|b >lives-with|b",
+       4
+      ],
+      [
+       ">is-a >lives-with >lives-with|b >lives-with|b",
+       3
+      ],
+      [
+       ">is-a >lives-with >lives-with|b >lives-with|b >lives-with|b",
+       3
+      ]
+     ],
+     [
+      [
+       ">bigger-than <bigger-than|b",
+       8
+      ],
+      [
+       "<named-has >lives-with|b",
+       1
+      ],
+      [
+       ">lives-with >lives-with >lives-with >lives-with >lives-with|b",
+       1
+      ]
+     ],
+     [
+      [
+       ">named-can >named-has >lives-with >named-can|b <lives-with|b",
+       4
+      ],
+      [
+       ">named-can <named-can >lives-with <named-has|b >lives-with|b",
+       4
+      ],
+      [
+       ">named-can <named-can >lives-with <named-has|b <lives-with|b",
+       2
+      ]
+     ]
+    ],
+    "proposer_offpath_choice_points": 137.0,
+    "proposer_recall": null,
+    "search_rate": 0.281,
+    "trigger_rate": 0.281,
+    "trigger_rate_true": 0.472,
+    "true_path_rate": 0.028
+   },
+   "P6-colour": {
+    "arbiter": 0.496,
+    "arbiter_u_rate": 0.172,
+    "backtracks_true": 2.812,
+    "backward_waste": 0.061,
+    "candidate_index_first": 0.777,
+    "candidate_index_mean": 1.237,
+    "checks_false": 6.048,
+    "checks_true": 5.725,
+    "exhausted_false": 0.638,
+    "exhausted_true": 0.488,
+    "found_rate_false": 0.362,
+    "found_rate_true": 0.513,
+    "intuition": 0.569,
+    "intuition_auroc": 0.616,
+    "logic-final": 0.514,
+    "logic-step0": 0.0,
+    "logic_final_auroc": 0.583,
+    "logic_search_all": 0.514,
+    "logic_step0_auroc": 0.508,
+    "path_len_found": 3.58,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 33.071,
+    "programs": [
+     [
+      [
+       ">named-can >named-can|b >named-can|b >or|b <named-can|b",
+       13
+      ],
+      [
+       "<named-can >named-can|b >or|b >named-can|b",
+       10
+      ],
+      [
+       ">named-can >named-can|b >named-can|b <named-can|b",
+       8
+      ]
+     ],
+     [
+      [
+       "<is-a >is-a >is-a >is-a|b",
+       6
+      ],
+      [
+       ">is-a <subkind-of >is-a|b >is-a|b >is-a|b",
+       3
+      ],
+      [
+       ">is-a >subkind-of >is-a|b",
+       3
+      ]
+     ],
+     [
+      [
+       ">bigger-than <bigger-than|b",
+       44
+      ],
+      [
+       "<bigger-than >bigger-than <bigger-than|b >bigger-than|b",
+       10
+      ],
+      [
+       "<bigger-than >bigger-than >bigger-than <bigger-than|b >bigger-than|b",
+       4
+      ]
+     ],
+     [
+      [
+       "<named-can >named-can|b",
+       68
+      ],
+      [
+       "<named-can <is >lives-with <named-has|b <is|b",
+       9
+      ],
+      [
+       "<named-can >lives-with <named-can|b >is|b",
+       6
+      ]
+     ]
+    ],
+    "proposer_offpath_choice_points": 35.5,
+    "proposer_recall": 0.0,
+    "search_all": {
+     "checks_true": 5.725,
+     "exhausted_true": 0.488,
+     "found_rate_false": 0.362,
+     "found_rate_true": 0.513,
+     "proposer_recall": 0.0,
+     "true_path_rate": 0.0
+    },
+    "search_rate": 1.0,
+    "trigger_rate": 1.0,
+    "trigger_rate_true": 1.0,
+    "true_path_rate": 0.0
+   },
+   "P6-grandparent": {
+    "arbiter": 0.781,
+    "arbiter_u_rate": 0.135,
+    "backtracks_true": 2.75,
+    "backward_waste": 0.0,
+    "candidate_index_first": 0.785,
+    "candidate_index_mean": 1.215,
+    "checks_false": 3.912,
+    "checks_true": 4.062,
+    "exhausted_false": 0.812,
+    "exhausted_true": 0.875,
+    "found_rate_false": 0.188,
+    "found_rate_true": 0.125,
+    "intuition": 0.969,
+    "intuition_auroc": 0.997,
+    "logic-final": 0.381,
+    "logic-step0": 0.0,
+    "logic_final_auroc": 0.634,
+    "logic_search_all": 0.381,
+    "logic_step0_auroc": 0.497,
+    "path_len_found": 2.783,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 16.45,
+    "programs": [
+     [],
+     [
+      [
+       ">lives-with >lives-with >lives-with|b >is-a|b >lives-with|b",
+       1
+      ],
+      [
+       ">lives-with >is-a|b >lives-with|b >lives-with|b >lives-with|b",
+       1
+      ],
+      [
+       "<is-a >is-a|b",
+       1
+      ]
+     ],
+     [],
+     [
+      [
+       "<named-can >named-can|b",
+       9
+      ],
+      [
+       ">named-has >named-has >named-can|b",
+       2
+      ],
+      [
+       ">named-has >named-can|b",
+       1
+      ]
+     ]
+    ],
+    "proposer_offpath_choice_points": 1.75,
+    "proposer_recall": 0.075,
+    "search_all": {
+     "checks_true": 4.062,
+     "exhausted_true": 0.875,
+     "found_rate_false": 0.188,
+     "found_rate_true": 0.125,
+     "proposer_recall": 0.075,
+     "true_path_rate": 0.0
+    },
+    "search_rate": 1.0,
+    "trigger_rate": 1.0,
+    "trigger_rate_true": 1.0,
+    "true_path_rate": 0.0
+   },
+   "S3b": {
+    "arbiter": {
+     "always": 0.625,
+     "never": 0.806,
+     "sometimes": 0.069,
+     "usually": 0.562
+    },
+    "intuition": {
+     "always": 0.417,
+     "never": 0.96,
+     "sometimes": 0.0,
+     "usually": 0.125
+    },
+    "logic-final": {
+     "always": 0.333,
+     "never": 0.871,
+     "sometimes": 0.264,
+     "usually": 0.219
+    },
+    "logic-step0": {
+     "always": 0.375,
+     "never": 0.911,
+     "sometimes": 0.097,
+     "usually": 0.406
+    }
+   },
+   "S3b-trigger-rate": 0.297,
+   "S4a-trigger-rate": 0.733,
+   "S4a-u-rate": {
+    "arbiter": 0.466,
+    "arbiter_u_given_exhausted": 0.654,
+    "logic-final": 0.489,
+    "logic-step0": 0.659
+   },
+   "S4b-P7-trigger-rate": 0.621,
+   "S4b-P7-u-rate": {
+    "arbiter": 0.356,
+    "arbiter_u_given_exhausted": 0.59,
+    "logic-final": 0.356,
+    "logic-step0": 0.568
+   },
+   "conflict-flags-intuition-errors": {
+    "error_rate": 0.141,
+    "graded_auroc": 0.673
+   },
+   "control-trigger-rate": 0.257,
+   "control-u-rate": {
+    "arbiter": 0.057,
+    "arbiter_u_given_exhausted": 0.235,
+    "logic-final": 0.096,
+    "logic-step0": 0.121
+   },
+   "per-hop": {
+    "by_relation_true": {
+     "can": 1.0,
+     "colour-of": 1.0,
+     "has": 1.0,
+     "is-a": 1.0,
+     "just-bigger-than": 1.0,
+     "names": 1.0,
+     "parent-of": 1.0,
+     "subkind-of": 1.0
+    },
+    "confirm_false": 0.0,
+    "confirm_true": 1.0
+   },
+   "withheld-fit": {
+    "arbiter": 0.896,
+    "backtracks_true": 3.099,
+    "backward_waste": 0.03,
+    "candidate_index_first": 0.77,
+    "candidate_index_mean": 1.249,
+    "checks_false": 4.753,
+    "checks_true": 5.584,
+    "exhausted_false": 0.782,
+    "exhausted_true": 0.59,
+    "found_rate_false": 0.218,
+    "found_rate_true": 0.41,
+    "intuition": 1.0,
+    "logic-final": 0.54,
+    "logic-step0": 0.0,
+    "path_len_found": 3.609,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 28.768,
+    "programs": [
+     [
+      [
+       "<named-can >named-can >named-can <named-can|b >named-can|b",
+       71
+      ],
+      [
+       ">named-can <named-can|b",
+       50
+      ],
+      [
+       ">named-can >named-can|b >named-can|b <named-can|b",
+       43
+      ]
+     ],
+     [
+      [
+       ">is-a >lives-with >lives-with|b >lives-with|b >lives-with|b",
+       43
+      ],
+      [
+       ">is-a >lives-with >lives-with >lives-with|b >lives-with|b",
+       42
+      ],
+      [
+       ">is-a >lives-with >is-a|b >lives-with|b >lives-with|b",
+       41
+      ]
+     ],
+     [
+      [
+       ">bigger-than <bigger-than|b",
+       187
+      ],
+      [
+       "<named-has >bigger-than <bigger-than|b",
+       21
+      ],
+      [
+       ">bigger-than <named-has|b",
+       19
+      ]
+     ],
+     [
+      [
+       "<named-can <named-has|b",
+       169
+      ],
+      [
+       "<named-can >named-can|b",
+       167
+      ],
+      [
+       ">named-has <named-has|b >named-can|b >named-has|b <named-has|b",
+       30
+      ]
+     ]
+    ],
+    "proposer_offpath_choice_points": 292.5,
+    "proposer_recall": 0.155,
+    "search_rate": 1.0,
+    "trigger_rate": 1.0,
+    "trigger_rate_true": 1.0,
+    "true_path_rate": 0.012
+   }
+  }
+ },
+ "bt-forward": {
+  "controller_params": 77685,
+  "dax": {
+   "always": {
+    "arbiter": 0.85,
+    "intuition": 1.0,
+    "logic-final": 0.7,
+    "logic-step0": 0.95,
+    "trigger_rate": 0.35
+   },
+   "never": {
+    "arbiter": 0.833,
+    "intuition": 0.917,
+    "logic-final": 0.917,
+    "logic-step0": 1.0,
+    "trigger_rate": 0.139
+   },
+   "sometimes": {
+    "arbiter": 0.139,
+    "intuition": 0.0,
+    "logic-final": 0.278,
+    "logic-step0": 0.139,
+    "trigger_rate": 0.472
+   },
+   "usually": {
+    "arbiter": 0.625,
+    "intuition": 0.5,
+    "logic-final": 0.5,
+    "logic-step0": 0.375,
+    "trigger_rate": 0.25
+   }
+  },
+  "final_log": {
+   "checks_true": 7.4,
+   "found_false": 0.034,
+   "found_true": 0.362,
+   "loss": 1.02,
+   "outcome": 0.466,
+   "rank": 0.554,
+   "step": 1000.0,
+   "wall": 1074.541
+  },
+  "params": 151486,
+  "tests": {
+   "G2": {
+    "arbiter": 0.699,
+    "arbiter_u_rate": 0.047,
+    "backtracks_true": 4.944,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_false": 9.413,
+    "checks_true": 6.984,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.664,
+    "intuition_auroc": 0.825,
+    "logic-final": 0.521,
+    "logic-step0": 0.687,
+    "logic_final_auroc": 0.847,
+    "logic_step0_auroc": 0.888,
+    "path_len_found": null,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 51.744,
+    "programs": [
+     [],
+     [],
+     [],
+     []
+    ],
+    "proposer_offpath_choice_points": 49.0,
+    "proposer_recall": null,
+    "search_rate": 0.195,
+    "trigger_rate": 0.195,
+    "trigger_rate_true": 0.54,
+    "true_path_rate": null
+   },
+   "G4": {
+    "arbiter": 0.544,
+    "arbiter_u_rate": 0.037,
+    "backtracks_true": 6.417,
+    "backward_waste": null,
+    "candidate_index_first": 0.5,
+    "candidate_index_mean": 1.5,
+    "checks_false": 8.033,
+    "checks_true": 11.25,
+    "exhausted_false": 0.86,
+    "exhausted_true": 0.875,
+    "found_rate_false": 0.14,
+    "found_rate_true": 0.125,
+    "intuition": 0.536,
+    "intuition_auroc": 0.696,
+    "logic-final": 0.454,
+    "logic-step0": 0.523,
+    "logic_final_auroc": 0.549,
+    "logic_step0_auroc": 0.535,
+    "path_len_found": 2.0,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 66.026,
+    "programs": [
+     [
+      [
+       ">good-phrase",
+       5
+      ]
+     ],
+     [],
+     [
+      [
+       ">lives-with",
+       1
+      ]
+     ],
+     [
+      [
+       "<heavier-than >heavier-than <is >is-a",
+       1
+      ]
+     ]
+    ],
+    "proposer_offpath_choice_points": 13.75,
+    "proposer_recall": null,
+    "search_rate": 0.234,
+    "trigger_rate": 0.234,
+    "trigger_rate_true": 0.25,
+    "true_path_rate": 0.333
+   },
+   "L1-anc": {
+    "arbiter": 0.681,
+    "arbiter_by_length": {
+     "3": 0.833,
+     "4": 0.562,
+     "5": 0.458
+    },
+    "arbiter_u_rate": 0.118,
+    "backtracks_true": 3.097,
+    "backward_waste": null,
+    "candidate_index_first": 0.793,
+    "candidate_index_mean": 1.237,
+    "checks_by_length_true": {
+     "3": 5.806,
+     "4": 5.792,
+     "5": 5.833
+    },
+    "checks_false": 6.944,
+    "checks_true": 5.806,
+    "exhausted_false": 1.0,
+    "exhausted_true": 0.569,
+    "exhausted_true_by_length": {
+     "3": 0.472,
+     "4": 0.625,
+     "5": 0.75
+    },
+    "found_by_length_true": {
+     "3": 0.528,
+     "4": 0.375,
+     "5": 0.25
+    },
+    "found_count_true_by_length": {
+     "3": [
+      [
+       0,
+       9
+      ],
+      [
+       8,
+       9
+      ],
+      [
+       2,
+       9
+      ],
+      [
+       9,
+       9
+      ]
+     ],
+     "4": [
+      [
+       0,
+       6
+      ],
+      [
+       4,
+       6
+      ],
+      [
+       2,
+       6
+      ],
+      [
+       3,
+       6
+      ]
+     ],
+     "5": [
+      [
+       0,
+       3
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       0,
+       3
+      ],
+      [
+       1,
+       3
+      ]
+     ]
+    },
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.431,
+    "intuition": 0.722,
+    "intuition_auroc": 1.0,
+    "intuition_by_length": {
+     "3": 0.903,
+     "4": 0.562,
+     "5": 0.5
+    },
+    "logic-final": 0.715,
+    "logic-step0": 0.0,
+    "logic_final_auroc": 0.903,
+    "logic_final_by_length": {
+     "3": 0.764,
+     "4": 0.688,
+     "5": 0.625
+    },
+    "logic_search_all": 0.715,
+    "logic_step0_auroc": 0.496,
+    "n_by_length": {
+     "3": 18.0,
+     "4": 12.0,
+     "5": 6.0
+    },
+    "path_len_found": 3.235,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 42.88,
+    "programs": [
+     [],
+     [
+      [
+       ">parent-of >parent-of >parent-of",
+       8
+      ],
+      [
+       ">parent-of >parent-of >parent-of >parent-of",
+       4
+      ],
+      [
+       ">parent-of >parent-of >parent-of >parent-of >parent-of",
+       2
+      ]
+     ],
+     [
+      [
+       ">lives-with >lives-with",
+       1
+      ],
+      [
+       ">ancestor-of >lives-with",
+       1
+      ],
+      [
+       ">ancestor-of >lives-with >lives-with",
+       1
+      ]
+     ],
+     [
+      [
+       ">parent-of >parent-of >parent-of",
+       9
+      ],
+      [
+       ">parent-of >parent-of >parent-of >parent-of",
+       3
+      ],
+      [
+       ">parent-of >parent-of >parent-of >parent-of >parent-of",
+       1
+      ]
+     ]
+    ],
+    "proposer_offpath_choice_points": 20.0,
+    "proposer_recall": 0.498,
+    "search_all": {
+     "checks_true": 5.806,
+     "exhausted_true": 0.569,
+     "found_rate_false": 0.0,
+     "found_rate_true": 0.431,
+     "proposer_recall": 0.498,
+     "true_path_rate": 0.667
+    },
+    "search_rate": 1.0,
+    "trigger_rate": 1.0,
+    "trigger_rate_true": 1.0,
+    "true_path_rate": 0.667
+   },
+   "L1-anc-depth45": {
+    "arbiter": 0.528,
+    "intuition": 0.542,
+    "logic-final": 0.667,
+    "logic-step0": 0.0,
+    "n": 18.0
+   },
+   "L1-kind": {
+    "arbiter": 0.547,
+    "arbiter_by_length": {
+     "3": 0.677,
+     "4": 0.418
+    },
+    "arbiter_u_rate": 0.144,
+    "backtracks_true": 5.87,
+    "backward_waste": null,
+    "candidate_index_first": 0.718,
+    "candidate_index_mean": 1.344,
+    "checks_by_length_true": {
+     "3": 6.868,
+     "4": 14.05
+    },
+    "checks_false": 8.521,
+    "checks_true": 10.503,
+    "exhausted_false": 0.781,
+    "exhausted_true": 0.679,
+    "exhausted_true_by_length": {
+     "3": 0.388,
+     "4": 0.964
+    },
+    "found_by_length_true": {
+     "3": 0.612,
+     "4": 0.036
+    },
+    "found_count_true_by_length": {
+     "3": [
+      [
+       23,
+       35
+      ],
+      [
+       26,
+       35
+      ],
+      [
+       2,
+       35
+      ],
+      [
+       33,
+       35
+      ]
+     ],
+     "4": [
+      [
+       0,
+       35
+      ],
+      [
+       0,
+       35
+      ],
+      [
+       5,
+       35
+      ],
+      [
+       0,
+       35
+      ]
+     ]
+    },
+    "found_rate_false": 0.219,
+    "found_rate_true": 0.321,
+    "intuition": 0.664,
+    "intuition_auroc": 0.75,
+    "intuition_by_length": {
+     "3": 0.812,
+     "4": 0.515
+    },
+    "logic-final": 0.313,
+    "logic-step0": 0.004,
+    "logic_final_auroc": 0.632,
+    "logic_final_by_length": {
+     "3": 0.348,
+     "4": 0.278
+    },
+    "logic_search_all": 0.313,
+    "logic_step0_auroc": 0.477,
+    "n_by_length": {
+     "3": 47.0,
+     "4": 47.0
+    },
+    "path_len_found": 2.194,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 61.276,
+    "programs": [
+     [
+      [
+       "<good-phrase <good-phrase <good-phrase >good-phrase >good-phrase",
+       9
+      ],
+      [
+       "<good-phrase <good-phrase >good-phrase >good-phrase",
+       6
+      ],
+      [
+       "<good-phrase <good-phrase >good-phrase",
+       6
+      ]
+     ],
+     [
+      [
+       ">is-a",
+       23
+      ],
+      [
+       ">brighter-than",
+       3
+      ],
+      [
+       ">brighter-than >lives-in",
+       1
+      ]
+     ],
+     [
+      [
+       "<named-can >lives-with",
+       2
+      ],
+      [
+       "<named-can <named-can >lives-with",
+       2
+      ],
+      [
+       "<named-can >named-can",
+       2
+      ]
+     ],
+     [
+      [
+       ">is-a",
+       23
+      ],
+      [
+       ">is-a >is-a",
+       14
+      ],
+      [
+       ">is-a >is-a >is-a >is-a",
+       3
+      ]
+     ]
+    ],
+    "proposer_offpath_choice_points": 144.75,
+    "proposer_recall": 0.234,
+    "search_all": {
+     "checks_true": 10.45,
+     "exhausted_true": 0.675,
+     "found_rate_false": 0.219,
+     "found_rate_true": 0.325,
+     "proposer_recall": 0.237,
+     "true_path_rate": 0.312
+    },
+    "search_rate": 0.995,
+    "trigger_rate": 0.995,
+    "trigger_rate_true": 0.993,
+    "true_path_rate": 0.316
+   },
+   "L1-size": {
+    "arbiter": 0.654,
+    "arbiter_by_length": {
+     "10": 0.719,
+     "11": 0.625,
+     "3": 0.618,
+     "4": 0.664,
+     "5": 0.67,
+     "6": 0.667,
+     "7": 0.637,
+     "8": 0.641,
+     "9": 0.688
+    },
+    "arbiter_u_rate": 0.324,
+    "backtracks_true": 4.953,
+    "backward_waste": null,
+    "candidate_index_first": 0.71,
+    "candidate_index_mean": 1.321,
+    "checks_by_length_true": {
+     "10": 6.625,
+     "11": 7.375,
+     "3": 8.097,
+     "4": 9.062,
+     "5": 8.536,
+     "6": 8.583,
+     "7": 8.725,
+     "8": 7.906,
+     "9": 8.208
+    },
+    "checks_false": 8.662,
+    "checks_true": 8.381,
+    "exhausted_false": 0.846,
+    "exhausted_true": 0.786,
+    "exhausted_true_by_length": {
+     "10": 0.812,
+     "11": 0.875,
+     "3": 0.708,
+     "4": 0.734,
+     "5": 0.75,
+     "6": 0.792,
+     "7": 0.9,
+     "8": 0.875,
+     "9": 0.875
+    },
+    "found_by_length_true": {
+     "10": 0.188,
+     "11": 0.125,
+     "3": 0.292,
+     "4": 0.266,
+     "5": 0.25,
+     "6": 0.208,
+     "7": 0.1,
+     "8": 0.125,
+     "9": 0.125
+    },
+    "found_count_true_by_length": {
+     "10": [
+      [
+       0,
+       4
+      ],
+      [
+       0,
+       4
+      ],
+      [
+       0,
+       4
+      ],
+      [
+       3,
+       4
+      ]
+     ],
+     "11": [
+      [
+       0,
+       2
+      ],
+      [
+       0,
+       2
+      ],
+      [
+       0,
+       2
+      ],
+      [
+       1,
+       2
+      ]
+     ],
+     "3": [
+      [
+       1,
+       18
+      ],
+      [
+       2,
+       18
+      ],
+      [
+       5,
+       18
+      ],
+      [
+       13,
+       18
+      ]
+     ],
+     "4": [
+      [
+       2,
+       16
+      ],
+      [
+       2,
+       16
+      ],
+      [
+       3,
+       16
+      ],
+      [
+       10,
+       16
+      ]
+     ],
+     "5": [
+      [
+       2,
+       14
+      ],
+      [
+       1,
+       14
+      ],
+      [
+       2,
+       14
+      ],
+      [
+       9,
+       14
+      ]
+     ],
+     "6": [
+      [
+       1,
+       12
+      ],
+      [
+       2,
+       12
+      ],
+      [
+       1,
+       12
+      ],
+      [
+       6,
+       12
+      ]
+     ],
+     "7": [
+      [
+       0,
+       10
+      ],
+      [
+       0,
+       10
+      ],
+      [
+       1,
+       10
+      ],
+      [
+       3,
+       10
+      ]
+     ],
+     "8": [
+      [
+       0,
+       8
+      ],
+      [
+       1,
+       8
+      ],
+      [
+       0,
+       8
+      ],
+      [
+       3,
+       8
+      ]
+     ],
+     "9": [
+      [
+       0,
+       6
+      ],
+      [
+       0,
+       6
+      ],
+      [
+       0,
+       6
+      ],
+      [
+       3,
+       6
+      ]
+     ]
+    },
+    "found_rate_false": 0.154,
+    "found_rate_true": 0.214,
+    "intuition": 0.964,
+    "intuition_auroc": 0.998,
+    "intuition_by_length": {
+     "10": 1.0,
+     "11": 1.0,
+     "3": 0.917,
+     "4": 0.93,
+     "5": 0.982,
+     "6": 0.99,
+     "7": 0.975,
+     "8": 1.0,
+     "9": 1.0
+    },
+    "logic-final": 0.169,
+    "logic-step0": 0.008,
+    "logic_final_auroc": 0.547,
+    "logic_final_by_length": {
+     "10": 0.188,
+     "11": 0.188,
+     "3": 0.208,
+     "4": 0.18,
+     "5": 0.161,
+     "6": 0.156,
+     "7": 0.15,
+     "8": 0.141,
+     "9": 0.125
+    },
+    "logic_search_all": 0.161,
+    "logic_step0_auroc": 0.515,
+    "n_by_length": {
+     "10": 8.0,
+     "11": 4.0,
+     "3": 36.0,
+     "4": 32.0,
+     "5": 28.0,
+     "6": 24.0,
+     "7": 20.0,
+     "8": 16.0,
+     "9": 12.0
+    },
+    "path_len_found": 2.644,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 57.342,
+    "programs": [
+     [
+      [
+       ">prey-of <prey-of",
+       4
+      ],
+      [
+       ">prey-of",
+       2
+      ],
+      [
+       ">prey-of >prey-of <prey-of >prey-of <prey-of",
+       2
+      ]
+     ],
+     [
+      [
+       ">or <or",
+       4
+      ],
+      [
+       ">is-a <or",
+       3
+      ],
+      [
+       "<brighter-than",
+       3
+      ]
+     ],
+     [
+      [
+       ">bigger-than >lives-with",
+       5
+      ],
+      [
+       ">lives-with >lives-with",
+       4
+      ],
+      [
+       ">bigger-than >lives-with >lives-with >lives-with",
+       3
+      ]
+     ],
+     [
+      [
+       ">heavier-than",
+       21
+      ],
+      [
+       ">heavier-than >heavier-than <heavier-than",
+       9
+      ],
+      [
+       ">heavier-than <heavier-than",
+       8
+      ]
+     ]
+    ],
+    "proposer_offpath_choice_points": 297.5,
+    "proposer_recall": 0.188,
+    "search_all": {
+     "checks_true": 8.381,
+     "exhausted_true": 0.786,
+     "found_rate_false": 0.156,
+     "found_rate_true": 0.214,
+     "proposer_recall": 0.188,
+     "true_path_rate": 0.154
+    },
+    "search_rate": 0.992,
+    "trigger_rate": 0.992,
+    "trigger_rate_true": 0.997,
+    "true_path_rate": 0.157
+   },
+   "L2-named": {
+    "arbiter": 0.554,
+    "arbiter_by_length": {
+     "named-can": 0.582,
+     "named-has": 0.491,
+     "named-kind": 0.592
+    },
+    "arbiter_u_rate": 0.47,
+    "backtracks_true": 5.043,
+    "backward_waste": null,
+    "candidate_index_first": 0.687,
+    "candidate_index_mean": 1.367,
+    "checks_by_length_true": {
+     "named-can": 8.344,
+     "named-has": 10.887,
+     "named-kind": 6.781
+    },
+    "checks_false": 11.288,
+    "checks_true": 8.601,
+    "exhausted_false": 0.959,
+    "exhausted_true": 0.745,
+    "exhausted_true_by_length": {
+     "named-can": 0.875,
+     "named-has": 0.812,
+     "named-kind": 0.646
+    },
+    "found_by_length_true": {
+     "named-can": 0.125,
+     "named-has": 0.188,
+     "named-kind": 0.354
+    },
+    "found_count_true_by_length": {
+     "named-can": [
+      [
+       0,
+       8
+      ],
+      [
+       0,
+       8
+      ],
+      [
+       3,
+       8
+      ],
+      [
+       1,
+       8
+      ]
+     ],
+     "named-has": [
+      [
+       4,
+       20
+      ],
+      [
+       3,
+       20
+      ],
+      [
+       2,
+       20
+      ],
+      [
+       6,
+       20
+      ]
+     ],
+     "named-kind": [
+      [
+       8,
+       24
+      ],
+      [
+       6,
+       24
+      ],
+      [
+       14,
+       24
+      ],
+      [
+       6,
+       24
+      ]
+     ]
+    },
+    "found_rate_false": 0.041,
+    "found_rate_true": 0.255,
+    "intuition": 0.876,
+    "intuition_auroc": 0.943,
+    "intuition_by_length": {
+     "named-can": 0.803,
+     "named-has": 0.824,
+     "named-kind": 0.953
+    },
+    "logic-final": 0.185,
+    "logic-step0": 0.004,
+    "logic_final_auroc": 0.767,
+    "logic_final_by_length": {
+     "named-can": 0.182,
+     "named-has": 0.164,
+     "named-kind": 0.188
+    },
+    "logic_search_all": 0.183,
+    "logic_step0_auroc": 0.704,
+    "n_by_length": {
+     "named-can": 30.0,
+     "named-has": 66.0,
+     "named-kind": 60.0
+    },
+    "path_len_found": 2.578,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 61.911,
+    "programs": [
+     [
+      [
+       ">good-phrase >good-phrase",
+       4
+      ],
+      [
+       ">good-phrase >good-phrase >good-phrase",
+       3
+      ],
+      [
+       "<good-phrase >good-phrase",
+       3
+      ]
+     ],
+     [
+      [
+       ">lives-in >lives-in",
+       3
+      ],
+      [
+       ">lives-in >lives-in >is-a >or",
+       2
+      ],
+      [
+       "<brighter-than",
+       2
+      ]
+     ],
+     [
+      [
+       ">louder-than >lives-with",
+       7
+      ],
+      [
+       ">lives-with",
+       3
+      ],
+      [
+       ">named-can >lives-with",
+       2
+      ]
+     ],
+     [
+      [
+       ">heavier-than",
+       6
+      ],
+      [
+       ">is-a >is-a",
+       5
+      ],
+      [
+       ">is-a >is-a >is-a >is-a",
+       2
+      ]
+     ]
+    ],
+    "proposer_offpath_choice_points": 119.75,
+    "proposer_recall": 0.21,
+    "search_all": {
+     "checks_true": 8.601,
+     "exhausted_true": 0.745,
+     "found_rate_false": 0.041,
+     "found_rate_true": 0.255,
+     "proposer_recall": 0.21,
+     "true_path_rate": 0.0
+    },
+    "search_rate": 0.995,
+    "trigger_rate": 0.995,
+    "trigger_rate_true": 1.0,
+    "true_path_rate": 0.0
+   },
+   "P1-default": {
+    "arbiter": 0.869,
+    "arbiter_u_rate": 0.053,
+    "backtracks_true": 5.923,
+    "backward_waste": null,
+    "candidate_index_first": 0.889,
+    "candidate_index_mean": 1.111,
+    "checks_false": 10.19,
+    "checks_true": 10.099,
+    "exhausted_false": 0.969,
+    "exhausted_true": 0.835,
+    "found_rate_false": 0.031,
+    "found_rate_true": 0.165,
+    "intuition": 0.917,
+    "intuition_auroc": 0.965,
+    "logic-final": 0.764,
+    "logic-step0": 0.808,
+    "logic_final_auroc": 0.96,
+    "logic_step0_auroc": 0.927,
+    "path_len_found": 2.083,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 59.724,
+    "programs": [
+     [],
+     [
+      [
+       ">is-a",
+       1
+      ]
+     ],
+     [
+      [
+       ">bigger-than >lives-with",
+       2
+      ],
+      [
+       ">bigger-than >lives-with >lives-with >lives-with >lives-with",
+       1
+      ]
+     ],
+     [
+      [
+       ">is-a >is-a",
+       1
+      ],
+      [
+       ">is-a >heavier-than",
+       1
+      ],
+      [
+       "<just-bigger-than >heavier-than",
+       1
+      ]
+     ]
+    ],
+    "proposer_offpath_choice_points": 50.5,
+    "proposer_recall": null,
+    "search_rate": 0.177,
+    "trigger_rate": 0.177,
+    "trigger_rate_true": 0.366,
+    "true_path_rate": 0.0
+   },
+   "P2": {
+    "arbiter": 0.681,
+    "arbiter_u_rate": 0.105,
+    "backtracks_true": 5.566,
+    "backward_waste": null,
+    "candidate_index_first": 0.618,
+    "candidate_index_mean": 1.464,
+    "checks_false": 8.104,
+    "checks_true": 9.098,
+    "exhausted_false": 0.959,
+    "exhausted_true": 0.875,
+    "found_rate_false": 0.041,
+    "found_rate_true": 0.125,
+    "intuition": 0.7,
+    "intuition_auroc": 0.831,
+    "logic-final": 0.581,
+    "logic-step0": 0.6,
+    "logic_final_auroc": 0.781,
+    "logic_search_all": 0.292,
+    "logic_step0_auroc": 0.761,
+    "path_len_found": 2.121,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 50.415,
+    "programs": [
+     [
+      [
+       ">can",
+       3
+      ],
+      [
+       ">prey-of <can",
+       3
+      ],
+      [
+       ">prey-of",
+       2
+      ]
+     ],
+     [
+      [
+       "<brighter-than",
+       9
+      ],
+      [
+       "<brighter-than <brighter-than",
+       4
+      ],
+      [
+       "<heavier-than",
+       2
+      ]
+     ],
+     [
+      [
+       ">bigger-than >lives-with",
+       17
+      ],
+      [
+       ">bigger-than >lives-with >lives-with >lives-with >lives-with",
+       9
+      ],
+      [
+       ">lives-with >lives-with",
+       6
+      ]
+     ],
+     [
+      [
+       ">parent-of",
+       5
+      ],
+      [
+       ">heavier-than",
+       2
+      ],
+      [
+       ">parent-of >is-a",
+       2
+      ]
+     ]
+    ],
+    "proposer_offpath_choice_points": 471.5,
+    "proposer_recall": 0.047,
+    "search_all": {
+     "checks_true": 8.75,
+     "exhausted_true": 0.87,
+     "found_rate_false": 0.032,
+     "found_rate_true": 0.13,
+     "proposer_recall": 0.047,
+     "true_path_rate": 0.167
+    },
+    "search_rate": 0.341,
+    "trigger_rate": 0.341,
+    "trigger_rate_true": 0.413,
+    "true_path_rate": 0.102
+   },
+   "P3": {
+    "arbiter": 0.742,
+    "arbiter_u_rate": 0.039,
+    "backtracks_true": 4.278,
+    "backward_waste": null,
+    "candidate_index_first": 0.731,
+    "candidate_index_mean": 1.367,
+    "checks_false": 7.6,
+    "checks_true": 6.622,
+    "exhausted_false": 0.896,
+    "exhausted_true": 0.804,
+    "found_rate_false": 0.104,
+    "found_rate_true": 0.196,
+    "intuition": 0.745,
+    "intuition_auroc": 0.853,
+    "logic-final": 0.652,
+    "logic-step0": 0.65,
+    "logic_final_auroc": 0.848,
+    "logic_search_all": 0.279,
+    "logic_step0_auroc": 0.835,
+    "path_len_found": 1.951,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 53.695,
+    "programs": [
+     [
+      [
+       ">can",
+       1
+      ],
+      [
+       ">prey-of <can",
+       1
+      ]
+     ],
+     [
+      [
+       ">is-a <or",
+       1
+      ],
+      [
+       ">is-a >is-a <or",
+       1
+      ],
+      [
+       ">same-colour-as <parent-of",
+       1
+      ]
+     ],
+     [
+      [
+       ">bigger-than >lives-with",
+       2
+      ],
+      [
+       ">bigger-than >lives-with >lives-with >lives-with",
+       2
+      ],
+      [
+       "<named-has",
+       1
+      ]
+     ],
+     [
+      [
+       "<just-bigger-than",
+       4
+      ],
+      [
+       "<just-bigger-than <just-bigger-than",
+       1
+      ],
+      [
+       "<heavier-than",
+       1
+      ]
+     ]
+    ],
+    "proposer_offpath_choice_points": 49.0,
+    "proposer_recall": 0.246,
+    "search_all": {
+     "checks_true": 7.436,
+     "exhausted_true": 0.858,
+     "found_rate_false": 0.049,
+     "found_rate_true": 0.142,
+     "proposer_recall": 0.237,
+     "true_path_rate": 0.113
+    },
+    "search_rate": 0.126,
+    "trigger_rate": 0.126,
+    "trigger_rate_true": 0.353,
+    "true_path_rate": 0.114
+   },
+   "P4": {
+    "arbiter": 0.788,
+    "arbiter_u_rate": 0.026,
+    "backtracks_true": 5.378,
+    "backward_waste": null,
+    "candidate_index_first": 0.622,
+    "candidate_index_mean": 1.404,
+    "checks_false": 7.702,
+    "checks_true": 8.244,
+    "exhausted_false": 0.909,
+    "exhausted_true": 0.971,
+    "found_rate_false": 0.091,
+    "found_rate_true": 0.029,
+    "intuition": 0.785,
+    "intuition_auroc": 0.927,
+    "logic-final": 0.599,
+    "logic-step0": 0.66,
+    "logic_final_auroc": 0.861,
+    "logic_step0_auroc": 0.818,
+    "path_len_found": 2.444,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 52.878,
+    "programs": [
+     [],
+     [
+      [
+       ">parent-of <or",
+       1
+      ],
+      [
+       ">parent-of >lives-in",
+       1
+      ]
+     ],
+     [
+      [
+       ">bigger-than >lives-with >lives-with >lives-with",
+       2
+      ],
+      [
+       ">lives-with >lives-with >lives-with >lives-with >lives-with",
+       1
+      ]
+     ],
+     [
+      [
+       ">parent-of",
+       1
+      ],
+      [
+       ">heavier-than",
+       1
+      ]
+     ]
+    ],
+    "proposer_offpath_choice_points": 128.0,
+    "proposer_recall": null,
+    "search_rate": 0.281,
+    "trigger_rate": 0.281,
+    "trigger_rate_true": 0.472,
+    "true_path_rate": 0.0
+   },
+   "P6-colour": {
+    "arbiter": 0.337,
+    "arbiter_u_rate": 0.456,
+    "backtracks_true": 4.85,
+    "backward_waste": null,
+    "candidate_index_first": 0.687,
+    "candidate_index_mean": 1.395,
+    "checks_false": 7.365,
+    "checks_true": 7.225,
+    "exhausted_false": 0.988,
+    "exhausted_true": 0.9,
+    "found_rate_false": 0.012,
+    "found_rate_true": 0.1,
+    "intuition": 0.569,
+    "intuition_auroc": 0.616,
+    "logic-final": 0.397,
+    "logic-step0": 0.0,
+    "logic_final_auroc": 0.567,
+    "logic_search_all": 0.397,
+    "logic_step0_auroc": 0.508,
+    "path_len_found": 2.478,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 41.418,
+    "programs": [
+     [
+      [
+       ">good-phrase",
+       1
+      ],
+      [
+       ">not >can >can <can",
+       1
+      ],
+      [
+       "<named-can <same-class-as >can >can <can",
+       1
+      ]
+     ],
+     [
+      [
+       "<heavier-than",
+       3
+      ],
+      [
+       ">same-colour-as <parent-of >parent-of <heavier-than",
+       1
+      ],
+      [
+       ">same-colour-as <parent-of <parent-of",
+       1
+      ]
+     ],
+     [
+      [
+       ">bigger-than >lives-with",
+       4
+      ],
+      [
+       "<bigger-than >bigger-than",
+       2
+      ],
+      [
+       "<bigger-than >bigger-than >lives-with >lives-with",
+       1
+      ]
+     ],
+     []
+    ],
+    "proposer_offpath_choice_points": 43.25,
+    "proposer_recall": 0.073,
+    "search_all": {
+     "checks_true": 7.225,
+     "exhausted_true": 0.9,
+     "found_rate_false": 0.012,
+     "found_rate_true": 0.1,
+     "proposer_recall": 0.073,
+     "true_path_rate": 0.0
+    },
+    "search_rate": 1.0,
+    "trigger_rate": 1.0,
+    "trigger_rate_true": 1.0,
+    "true_path_rate": 0.0
+   },
+   "P6-grandparent": {
+    "arbiter": 0.737,
+    "arbiter_u_rate": 0.354,
+    "backtracks_true": 6.125,
+    "backward_waste": null,
+    "candidate_index_first": 0.0,
+    "candidate_index_mean": 2.0,
+    "checks_false": 7.35,
+    "checks_true": 10.25,
+    "exhausted_false": 0.988,
+    "exhausted_true": 1.0,
+    "found_rate_false": 0.013,
+    "found_rate_true": 0.0,
+    "intuition": 0.969,
+    "intuition_auroc": 0.997,
+    "logic-final": 0.381,
+    "logic-step0": 0.0,
+    "logic_final_auroc": 0.781,
+    "logic_search_all": 0.381,
+    "logic_step0_auroc": 0.497,
+    "path_len_found": 1.0,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 40.461,
+    "programs": [
+     [],
+     [
+      [
+       ">sibling-of",
+       1
+      ]
+     ],
+     [],
+     []
+    ],
+    "proposer_offpath_choice_points": 14.25,
+    "proposer_recall": 0.0,
+    "search_all": {
+     "checks_true": 10.25,
+     "exhausted_true": 1.0,
+     "found_rate_false": 0.013,
+     "found_rate_true": 0.0,
+     "proposer_recall": 0.0,
+     "true_path_rate": 1.0
+    },
+    "search_rate": 1.0,
+    "trigger_rate": 1.0,
+    "trigger_rate_true": 1.0,
+    "true_path_rate": 1.0
+   },
+   "S3b": {
+    "arbiter": {
+     "always": 0.562,
+     "never": 0.831,
+     "sometimes": 0.222,
+     "usually": 0.594
+    },
+    "intuition": {
+     "always": 0.417,
+     "never": 0.96,
+     "sometimes": 0.0,
+     "usually": 0.125
+    },
+    "logic-final": {
+     "always": 0.188,
+     "never": 0.907,
+     "sometimes": 0.292,
+     "usually": 0.094
+    },
+    "logic-step0": {
+     "always": 0.375,
+     "never": 0.911,
+     "sometimes": 0.097,
+     "usually": 0.406
+    }
+   },
+   "S3b-trigger-rate": 0.297,
+   "S4a-trigger-rate": 0.733,
+   "S4a-u-rate": {
+    "arbiter": 0.557,
+    "arbiter_u_given_exhausted": 0.723,
+    "logic-final": 0.528,
+    "logic-step0": 0.659
+   },
+   "S4b-P7-trigger-rate": 0.621,
+   "S4b-P7-u-rate": {
+    "arbiter": 0.424,
+    "arbiter_u_given_exhausted": 0.655,
+    "logic-final": 0.356,
+    "logic-step0": 0.568
+   },
+   "conflict-flags-intuition-errors": {
+    "error_rate": 0.141,
+    "graded_auroc": 0.673
+   },
+   "control-trigger-rate": 0.257,
+   "control-u-rate": {
+    "arbiter": 0.078,
+    "arbiter_u_given_exhausted": 0.327,
+    "logic-final": 0.13,
+    "logic-step0": 0.121
+   },
+   "per-hop": {
+    "by_relation_true": {
+     "can": 1.0,
+     "colour-of": 1.0,
+     "has": 1.0,
+     "is-a": 1.0,
+     "just-bigger-than": 1.0,
+     "names": 1.0,
+     "parent-of": 1.0,
+     "subkind-of": 1.0
+    },
+    "confirm_false": 0.0,
+    "confirm_true": 1.0
+   },
+   "withheld-fit": {
+    "arbiter": 0.855,
+    "backtracks_true": 4.016,
+    "backward_waste": null,
+    "candidate_index_first": 0.701,
+    "candidate_index_mean": 1.346,
+    "checks_false": 7.96,
+    "checks_true": 6.977,
+    "exhausted_false": 0.969,
+    "exhausted_true": 0.611,
+    "found_rate_false": 0.031,
+    "found_rate_true": 0.389,
+    "intuition": 1.0,
+    "logic-final": 0.599,
+    "logic-step0": 0.0,
+    "path_len_found": 2.618,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 45.893,
+    "programs": [
+     [
+      [
+       "<good-phrase >good-phrase",
+       8
+      ],
+      [
+       ">good-phrase",
+       6
+      ],
+      [
+       "<good-phrase <good-phrase <good-phrase <good-phrase >good-phrase",
+       6
+      ]
+     ],
+     [
+      [
+       ">parent-of",
+       27
+      ],
+      [
+       ">is-a",
+       17
+      ],
+      [
+       ">parent-of >parent-of",
+       14
+      ]
+     ],
+     [
+      [
+       ">bigger-than >lives-with",
+       21
+      ],
+      [
+       ">bigger-than >lives-with >lives-with >lives-with >lives-with",
+       16
+      ],
+      [
+       "<named-can >lives-with",
+       14
+      ]
+     ],
+     [
+      [
+       ">parent-of",
+       35
+      ],
+      [
+       ">parent-of >parent-of",
+       22
+      ],
+      [
+       ">heavier-than",
+       19
+      ]
+     ]
+    ],
+    "proposer_offpath_choice_points": 459.0,
+    "proposer_recall": 0.259,
+    "search_rate": 1.0,
+    "trigger_rate": 1.0,
+    "trigger_rate_true": 1.0,
+    "true_path_rate": 0.223
+   }
+  }
+ },
+ "bt-forward-notrace": {
+  "controller_params": 77685,
+  "dax": {
+   "always": {
+    "arbiter": 0.9,
+    "intuition": 1.0,
+    "logic-final": 0.75,
+    "logic-step0": 0.95,
+    "trigger_rate": 0.35
+   },
+   "never": {
+    "arbiter": 0.806,
+    "intuition": 0.917,
+    "logic-final": 0.917,
+    "logic-step0": 1.0,
+    "trigger_rate": 0.139
+   },
+   "sometimes": {
+    "arbiter": 0.167,
+    "intuition": 0.0,
+    "logic-final": 0.25,
+    "logic-step0": 0.139,
+    "trigger_rate": 0.472
+   },
+   "usually": {
+    "arbiter": 0.375,
+    "intuition": 0.5,
+    "logic-final": 0.375,
+    "logic-step0": 0.375,
+    "trigger_rate": 0.25
+   }
+  },
+  "final_log": {
+   "checks_true": 6.772,
+   "found_false": 0.037,
+   "found_true": 0.485,
+   "loss": 1.113,
+   "outcome": 0.45,
+   "rank": 0.664,
+   "step": 1000.0,
+   "wall": 746.616
+  },
+  "params": 151486,
+  "tests": {
+   "G2": {
+    "arbiter": 0.686,
+    "arbiter_u_rate": 0.049,
+    "backtracks_true": 4.095,
+    "backward_waste": null,
+    "candidate_index_first": 1.0,
+    "candidate_index_mean": 1.0,
+    "checks_false": 5.302,
+    "checks_true": 5.357,
+    "exhausted_false": 0.989,
+    "exhausted_true": 0.976,
+    "found_rate_false": 0.011,
+    "found_rate_true": 0.024,
+    "intuition": 0.664,
+    "intuition_auroc": 0.825,
+    "logic-final": 0.523,
+    "logic-step0": 0.687,
+    "logic_final_auroc": 0.854,
+    "logic_step0_auroc": 0.888,
+    "path_len_found": 1.333,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 17.434,
+    "programs": [
+     [
+      [
+       ">good-phrase",
+       1
+      ]
+     ],
+     [],
+     [
+      [
+       ">has",
+       1
+      ]
+     ],
+     [
+      [
+       ">parent-of >parent-of",
+       1
+      ]
+     ]
+    ],
+    "proposer_offpath_choice_points": 40.75,
+    "proposer_recall": null,
+    "search_rate": 0.195,
+    "trigger_rate": 0.195,
+    "trigger_rate_true": 0.54,
+    "true_path_rate": 0.333
+   },
+   "G4": {
+    "arbiter": 0.534,
+    "arbiter_u_rate": 0.048,
+    "backtracks_true": 3.125,
+    "backward_waste": null,
+    "candidate_index_first": 1.0,
+    "candidate_index_mean": 1.0,
+    "checks_false": 7.165,
+    "checks_true": 4.083,
+    "exhausted_false": 0.854,
+    "exhausted_true": 0.792,
+    "found_rate_false": 0.146,
+    "found_rate_true": 0.208,
+    "intuition": 0.536,
+    "intuition_auroc": 0.696,
+    "logic-final": 0.479,
+    "logic-step0": 0.523,
+    "logic_final_auroc": 0.561,
+    "logic_step0_auroc": 0.535,
+    "path_len_found": 1.0,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 19.296,
+    "programs": [
+     [
+      [
+       ">good-phrase",
+       5
+      ]
+     ],
+     [],
+     [
+      [
+       ">has",
+       3
+      ]
+     ],
+     []
+    ],
+    "proposer_offpath_choice_points": 2.75,
+    "proposer_recall": null,
+    "search_rate": 0.234,
+    "trigger_rate": 0.234,
+    "trigger_rate_true": 0.25,
+    "true_path_rate": 0.5
+   },
+   "L1-anc": {
+    "arbiter": 0.757,
+    "arbiter_by_length": {
+     "3": 0.875,
+     "4": 0.667,
+     "5": 0.583
+    },
+    "arbiter_u_rate": 0.062,
+    "backtracks_true": 3.75,
+    "backward_waste": null,
+    "candidate_index_first": 1.0,
+    "candidate_index_mean": 1.0,
+    "checks_by_length_true": {
+     "3": 6.417,
+     "4": 9.625,
+     "5": 9.0
+    },
+    "checks_false": 8.542,
+    "checks_true": 7.917,
+    "exhausted_false": 1.0,
+    "exhausted_true": 0.528,
+    "exhausted_true_by_length": {
+     "3": 0.389,
+     "4": 0.625,
+     "5": 0.75
+    },
+    "found_by_length_true": {
+     "3": 0.611,
+     "4": 0.375,
+     "5": 0.25
+    },
+    "found_count_true_by_length": {
+     "3": [
+      [
+       4,
+       9
+      ],
+      [
+       7,
+       9
+      ],
+      [
+       2,
+       9
+      ],
+      [
+       9,
+       9
+      ]
+     ],
+     "4": [
+      [
+       0,
+       6
+      ],
+      [
+       4,
+       6
+      ],
+      [
+       0,
+       6
+      ],
+      [
+       5,
+       6
+      ]
+     ],
+     "5": [
+      [
+       0,
+       3
+      ],
+      [
+       1,
+       3
+      ],
+      [
+       0,
+       3
+      ],
+      [
+       2,
+       3
+      ]
+     ]
+    },
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.472,
+    "intuition": 0.722,
+    "intuition_auroc": 1.0,
+    "intuition_by_length": {
+     "3": 0.903,
+     "4": 0.562,
+     "5": 0.5
+    },
+    "logic-final": 0.736,
+    "logic-step0": 0.0,
+    "logic_final_auroc": 0.899,
+    "logic_final_by_length": {
+     "3": 0.806,
+     "4": 0.688,
+     "5": 0.625
+    },
+    "logic_search_all": 0.736,
+    "logic_step0_auroc": 0.496,
+    "n_by_length": {
+     "3": 18.0,
+     "4": 12.0,
+     "5": 6.0
+    },
+    "path_len_found": 3.266,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 7.833,
+    "programs": [
+     [
+      [
+       ">parent-of >parent-of >parent-of",
+       4
+      ]
+     ],
+     [
+      [
+       ">parent-of >parent-of >parent-of",
+       7
+      ],
+      [
+       ">parent-of >parent-of >parent-of >parent-of",
+       4
+      ],
+      [
+       ">parent-of >parent-of >parent-of >parent-of >parent-of",
+       1
+      ]
+     ],
+     [
+      [
+       ">has >has >has",
+       2
+      ]
+     ],
+     [
+      [
+       ">parent-of >parent-of >parent-of",
+       9
+      ],
+      [
+       ">parent-of >parent-of >parent-of >parent-of",
+       5
+      ],
+      [
+       ">parent-of >parent-of >parent-of >parent-of >parent-of",
+       2
+      ]
+     ]
+    ],
+    "proposer_offpath_choice_points": 16.0,
+    "proposer_recall": 0.643,
+    "search_all": {
+     "checks_true": 7.917,
+     "exhausted_true": 0.528,
+     "found_rate_false": 0.0,
+     "found_rate_true": 0.472,
+     "proposer_recall": 0.643,
+     "true_path_rate": 0.75
+    },
+    "search_rate": 1.0,
+    "trigger_rate": 1.0,
+    "trigger_rate_true": 1.0,
+    "true_path_rate": 0.75
+   },
+   "L1-anc-depth45": {
+    "arbiter": 0.639,
+    "intuition": 0.542,
+    "logic-final": 0.667,
+    "logic-step0": 0.0,
+    "n": 18.0
+   },
+   "L1-kind": {
+    "arbiter": 0.386,
+    "arbiter_by_length": {
+     "3": 0.471,
+     "4": 0.302
+    },
+    "arbiter_u_rate": 0.301,
+    "backtracks_true": 5.416,
+    "backward_waste": null,
+    "candidate_index_first": 1.0,
+    "candidate_index_mean": 1.0,
+    "checks_by_length_true": {
+     "3": 5.245,
+     "4": 12.986
+    },
+    "checks_false": 6.854,
+    "checks_true": 9.152,
+    "exhausted_false": 0.917,
+    "exhausted_true": 0.809,
+    "exhausted_true_by_length": {
+     "3": 0.615,
+     "4": 1.0
+    },
+    "found_by_length_true": {
+     "3": 0.385,
+     "4": 0.0
+    },
+    "found_count_true_by_length": {
+     "3": [
+      [
+       1,
+       35
+      ],
+      [
+       20,
+       35
+      ],
+      [
+       22,
+       35
+      ],
+      [
+       10,
+       35
+      ]
+     ],
+     "4": [
+      [
+       0,
+       35
+      ],
+      [
+       0,
+       35
+      ],
+      [
+       0,
+       35
+      ],
+      [
+       0,
+       35
+      ]
+     ]
+    },
+    "found_rate_false": 0.083,
+    "found_rate_true": 0.191,
+    "intuition": 0.664,
+    "intuition_auroc": 0.75,
+    "intuition_by_length": {
+     "3": 0.812,
+     "4": 0.515
+    },
+    "logic-final": 0.254,
+    "logic-step0": 0.004,
+    "logic_final_auroc": 0.608,
+    "logic_final_by_length": {
+     "3": 0.207,
+     "4": 0.302
+    },
+    "logic_search_all": 0.251,
+    "logic_step0_auroc": 0.477,
+    "n_by_length": {
+     "3": 47.0,
+     "4": 47.0
+    },
+    "path_len_found": 2.559,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 43.114,
+    "programs": [
+     [
+      [
+       "<good-phrase <good-phrase <good-phrase >good-phrase",
+       1
+      ]
+     ],
+     [
+      [
+       ">and <and >and >and",
+       12
+      ],
+      [
+       ">and",
+       8
+      ],
+      [
+       ">or <and >and >and",
+       2
+      ]
+     ],
+     [
+      [
+       ">has",
+       10
+      ],
+      [
+       ">has >has",
+       8
+      ],
+      [
+       "<has >has",
+       4
+      ]
+     ],
+     [
+      [
+       "<is-a >is-a",
+       7
+      ],
+      [
+       "<is-a",
+       2
+      ],
+      [
+       ">is-a",
+       2
+      ]
+     ]
+    ],
+    "proposer_offpath_choice_points": 108.0,
+    "proposer_recall": 0.152,
+    "search_all": {
+     "checks_true": 9.111,
+     "exhausted_true": 0.811,
+     "found_rate_false": 0.083,
+     "found_rate_true": 0.189,
+     "proposer_recall": 0.153,
+     "true_path_rate": 0.045
+    },
+    "search_rate": 0.995,
+    "trigger_rate": 0.995,
+    "trigger_rate_true": 0.993,
+    "true_path_rate": 0.045
+   },
+   "L1-size": {
+    "arbiter": 0.556,
+    "arbiter_by_length": {
+     "10": 0.594,
+     "11": 0.438,
+     "3": 0.5,
+     "4": 0.547,
+     "5": 0.562,
+     "6": 0.625,
+     "7": 0.575,
+     "8": 0.547,
+     "9": 0.583
+    },
+    "arbiter_u_rate": 0.4,
+    "backtracks_true": 5.165,
+    "backward_waste": null,
+    "candidate_index_first": 1.0,
+    "candidate_index_mean": 1.0,
+    "checks_by_length_true": {
+     "10": 9.938,
+     "11": 8.625,
+     "3": 7.708,
+     "4": 7.578,
+     "5": 7.929,
+     "6": 9.417,
+     "7": 9.042,
+     "8": 9.375,
+     "9": 9.0
+    },
+    "checks_false": 8.866,
+    "checks_true": 8.446,
+    "exhausted_false": 0.889,
+    "exhausted_true": 0.867,
+    "exhausted_true_by_length": {
+     "10": 1.0,
+     "11": 1.0,
+     "3": 0.75,
+     "4": 0.844,
+     "5": 0.839,
+     "6": 0.917,
+     "7": 0.95,
+     "8": 0.906,
+     "9": 0.917
+    },
+    "found_by_length_true": {
+     "10": 0.0,
+     "11": 0.0,
+     "3": 0.25,
+     "4": 0.156,
+     "5": 0.161,
+     "6": 0.083,
+     "7": 0.05,
+     "8": 0.094,
+     "9": 0.083
+    },
+    "found_count_true_by_length": {
+     "10": [
+      [
+       0,
+       4
+      ],
+      [
+       0,
+       4
+      ],
+      [
+       0,
+       4
+      ],
+      [
+       0,
+       4
+      ]
+     ],
+     "11": [
+      [
+       0,
+       2
+      ],
+      [
+       0,
+       2
+      ],
+      [
+       0,
+       2
+      ],
+      [
+       0,
+       2
+      ]
+     ],
+     "3": [
+      [
+       0,
+       18
+      ],
+      [
+       4,
+       18
+      ],
+      [
+       4,
+       18
+      ],
+      [
+       10,
+       18
+      ]
+     ],
+     "4": [
+      [
+       0,
+       16
+      ],
+      [
+       1,
+       16
+      ],
+      [
+       2,
+       16
+      ],
+      [
+       7,
+       16
+      ]
+     ],
+     "5": [
+      [
+       0,
+       14
+      ],
+      [
+       2,
+       14
+      ],
+      [
+       1,
+       14
+      ],
+      [
+       6,
+       14
+      ]
+     ],
+     "6": [
+      [
+       0,
+       12
+      ],
+      [
+       2,
+       12
+      ],
+      [
+       0,
+       12
+      ],
+      [
+       2,
+       12
+      ]
+     ],
+     "7": [
+      [
+       0,
+       10
+      ],
+      [
+       0,
+       10
+      ],
+      [
+       0,
+       10
+      ],
+      [
+       2,
+       10
+      ]
+     ],
+     "8": [
+      [
+       0,
+       8
+      ],
+      [
+       0,
+       8
+      ],
+      [
+       0,
+       8
+      ],
+      [
+       3,
+       8
+      ]
+     ],
+     "9": [
+      [
+       0,
+       6
+      ],
+      [
+       1,
+       6
+      ],
+      [
+       0,
+       6
+      ],
+      [
+       1,
+       6
+      ]
+     ]
+    },
+    "found_rate_false": 0.111,
+    "found_rate_true": 0.133,
+    "intuition": 0.964,
+    "intuition_auroc": 0.998,
+    "intuition_by_length": {
+     "10": 1.0,
+     "11": 1.0,
+     "3": 0.917,
+     "4": 0.93,
+     "5": 0.982,
+     "6": 0.99,
+     "7": 0.975,
+     "8": 1.0,
+     "9": 1.0
+    },
+    "logic-final": 0.132,
+    "logic-step0": 0.008,
+    "logic_final_auroc": 0.527,
+    "logic_final_by_length": {
+     "10": 0.125,
+     "11": 0.188,
+     "3": 0.146,
+     "4": 0.125,
+     "5": 0.134,
+     "6": 0.146,
+     "7": 0.1,
+     "8": 0.125,
+     "9": 0.125
+    },
+    "logic_search_all": 0.125,
+    "logic_step0_auroc": 0.515,
+    "n_by_length": {
+     "10": 8.0,
+     "11": 4.0,
+     "3": 36.0,
+     "4": 32.0,
+     "5": 28.0,
+     "6": 24.0,
+     "7": 20.0,
+     "8": 16.0,
+     "9": 12.0
+    },
+    "path_len_found": 2.796,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 20.175,
+    "programs": [
+     [],
+     [
+      [
+       ">and <and",
+       4
+      ],
+      [
+       "<is-a <good-phrase",
+       4
+      ],
+      [
+       ">or <and",
+       2
+      ]
+     ],
+     [
+      [
+       ">has >has >has",
+       2
+      ],
+      [
+       ">has",
+       2
+      ],
+      [
+       ">has >has",
+       1
+      ]
+     ],
+     [
+      [
+       ">is-a >is-a >is-a",
+       9
+      ],
+      [
+       "<just-bigger-than <just-bigger-than <just-bigger-than",
+       6
+      ],
+      [
+       ">is-a >is-a >is-a >is-a",
+       5
+      ]
+     ]
+    ],
+    "proposer_offpath_choice_points": 255.75,
+    "proposer_recall": 0.269,
+    "search_all": {
+     "checks_true": 8.433,
+     "exhausted_true": 0.867,
+     "found_rate_false": 0.111,
+     "found_rate_true": 0.133,
+     "proposer_recall": 0.269,
+     "true_path_rate": 0.094
+    },
+    "search_rate": 0.992,
+    "trigger_rate": 0.992,
+    "trigger_rate_true": 0.997,
+    "true_path_rate": 0.094
+   },
+   "L2-named": {
+    "arbiter": 0.504,
+    "arbiter_by_length": {
+     "named-can": 0.489,
+     "named-has": 0.461,
+     "named-kind": 0.542
+    },
+    "arbiter_u_rate": 0.511,
+    "backtracks_true": 3.851,
+    "backward_waste": null,
+    "candidate_index_first": 1.0,
+    "candidate_index_mean": 1.0,
+    "checks_by_length_true": {
+     "named-can": 4.438,
+     "named-has": 6.3,
+     "named-kind": 6.115
+    },
+    "checks_false": 7.644,
+    "checks_true": 5.928,
+    "exhausted_false": 0.971,
+    "exhausted_true": 0.803,
+    "exhausted_true_by_length": {
+     "named-can": 0.75,
+     "named-has": 0.838,
+     "named-kind": 0.792
+    },
+    "found_by_length_true": {
+     "named-can": 0.25,
+     "named-has": 0.163,
+     "named-kind": 0.208
+    },
+    "found_count_true_by_length": {
+     "named-can": [
+      [
+       1,
+       8
+      ],
+      [
+       0,
+       8
+      ],
+      [
+       4,
+       8
+      ],
+      [
+       3,
+       8
+      ]
+     ],
+     "named-has": [
+      [
+       7,
+       20
+      ],
+      [
+       0,
+       20
+      ],
+      [
+       4,
+       20
+      ],
+      [
+       2,
+       20
+      ]
+     ],
+     "named-kind": [
+      [
+       14,
+       24
+      ],
+      [
+       0,
+       24
+      ],
+      [
+       4,
+       24
+      ],
+      [
+       2,
+       24
+      ]
+     ]
+    },
+    "found_rate_false": 0.029,
+    "found_rate_true": 0.197,
+    "intuition": 0.876,
+    "intuition_auroc": 0.943,
+    "intuition_by_length": {
+     "named-can": 0.803,
+     "named-has": 0.824,
+     "named-kind": 0.953
+    },
+    "logic-final": 0.185,
+    "logic-step0": 0.004,
+    "logic_final_auroc": 0.77,
+    "logic_final_by_length": {
+     "named-can": 0.239,
+     "named-has": 0.174,
+     "named-kind": 0.167
+    },
+    "logic_search_all": 0.181,
+    "logic_step0_auroc": 0.704,
+    "n_by_length": {
+     "named-can": 30.0,
+     "named-has": 66.0,
+     "named-kind": 60.0
+    },
+    "path_len_found": 2.9,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 28.742,
+    "programs": [
+     [
+      [
+       "<good-phrase >good-phrase",
+       10
+      ],
+      [
+       ">good-phrase >good-phrase",
+       8
+      ],
+      [
+       "<good-phrase <good-phrase >good-phrase",
+       3
+      ]
+     ],
+     [
+      [
+       "<or >or <or <lives-in",
+       1
+      ]
+     ],
+     [
+      [
+       ">has >has",
+       11
+      ],
+      [
+       ">has >has >has >has",
+       1
+      ],
+      [
+       ">good-phrase",
+       1
+      ]
+     ],
+     [
+      [
+       ">parent-of >parent-of",
+       2
+      ],
+      [
+       "<is-a >is-a",
+       2
+      ],
+      [
+       ">is-a >is-a",
+       2
+      ]
+     ]
+    ],
+    "proposer_offpath_choice_points": 52.0,
+    "proposer_recall": 0.153,
+    "search_all": {
+     "checks_true": 5.928,
+     "exhausted_true": 0.803,
+     "found_rate_false": 0.029,
+     "found_rate_true": 0.197,
+     "proposer_recall": 0.153,
+     "true_path_rate": 0.0
+    },
+    "search_rate": 0.995,
+    "trigger_rate": 0.995,
+    "trigger_rate_true": 1.0,
+    "true_path_rate": 0.0
+   },
+   "P1-default": {
+    "arbiter": 0.863,
+    "arbiter_u_rate": 0.053,
+    "backtracks_true": 5.939,
+    "backward_waste": null,
+    "candidate_index_first": 1.0,
+    "candidate_index_mean": 1.0,
+    "checks_false": 9.869,
+    "checks_true": 9.721,
+    "exhausted_false": 1.0,
+    "exhausted_true": 0.933,
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.067,
+    "intuition": 0.917,
+    "intuition_auroc": 0.965,
+    "logic-final": 0.761,
+    "logic-step0": 0.808,
+    "logic_final_auroc": 0.963,
+    "logic_step0_auroc": 0.927,
+    "path_len_found": 1.333,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 36.537,
+    "programs": [
+     [
+      [
+       ">good-phrase",
+       1
+      ]
+     ],
+     [
+      [
+       "<good-phrase",
+       1
+      ]
+     ],
+     [],
+     [
+      [
+       ">is-a >is-a",
+       1
+      ]
+     ]
+    ],
+    "proposer_offpath_choice_points": 50.0,
+    "proposer_recall": null,
+    "search_rate": 0.177,
+    "trigger_rate": 0.177,
+    "trigger_rate_true": 0.366,
+    "true_path_rate": 0.0
+   },
+   "P2": {
+    "arbiter": 0.697,
+    "arbiter_u_rate": 0.091,
+    "backtracks_true": 5.008,
+    "backward_waste": null,
+    "candidate_index_first": 1.0,
+    "candidate_index_mean": 1.0,
+    "checks_false": 7.531,
+    "checks_true": 7.994,
+    "exhausted_false": 0.975,
+    "exhausted_true": 0.897,
+    "found_rate_false": 0.025,
+    "found_rate_true": 0.103,
+    "intuition": 0.7,
+    "intuition_auroc": 0.831,
+    "logic-final": 0.576,
+    "logic-step0": 0.6,
+    "logic_final_auroc": 0.783,
+    "logic_search_all": 0.28,
+    "logic_step0_auroc": 0.761,
+    "path_len_found": 2.149,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 32.579,
+    "programs": [
+     [
+      [
+       ">good-phrase",
+       11
+      ],
+      [
+       ">good-phrase >good-phrase >good-phrase",
+       3
+      ],
+      [
+       ">good-phrase >good-phrase >good-phrase >good-phrase",
+       3
+      ]
+     ],
+     [
+      [
+       ">makes-sense <parent-of",
+       2
+      ],
+      [
+       "<lives-in",
+       2
+      ],
+      [
+       "<lives-in <lives-in",
+       2
+      ]
+     ],
+     [
+      [
+       ">has",
+       5
+      ],
+      [
+       ">has >has",
+       4
+      ],
+      [
+       ">eats >ancestor-of <has",
+       2
+      ]
+     ],
+     [
+      [
+       ">parent-of",
+       4
+      ],
+      [
+       ">prey-of",
+       3
+      ],
+      [
+       "<prey-of",
+       3
+      ]
+     ]
+    ],
+    "proposer_offpath_choice_points": 410.0,
+    "proposer_recall": 0.014,
+    "search_all": {
+     "checks_true": 7.749,
+     "exhausted_true": 0.889,
+     "found_rate_false": 0.026,
+     "found_rate_true": 0.111,
+     "proposer_recall": 0.014,
+     "true_path_rate": 0.182
+    },
+    "search_rate": 0.341,
+    "trigger_rate": 0.341,
+    "trigger_rate_true": 0.413,
+    "true_path_rate": 0.138
+   },
+   "P3": {
+    "arbiter": 0.736,
+    "arbiter_u_rate": 0.035,
+    "backtracks_true": 4.6,
+    "backward_waste": null,
+    "candidate_index_first": 1.0,
+    "candidate_index_mean": 1.0,
+    "checks_false": 7.202,
+    "checks_true": 7.601,
+    "exhausted_false": 0.869,
+    "exhausted_true": 0.812,
+    "found_rate_false": 0.131,
+    "found_rate_true": 0.188,
+    "intuition": 0.745,
+    "intuition_auroc": 0.853,
+    "logic-final": 0.649,
+    "logic-step0": 0.65,
+    "logic_final_auroc": 0.846,
+    "logic_search_all": 0.27,
+    "logic_step0_auroc": 0.835,
+    "path_len_found": 1.333,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 21.468,
+    "programs": [
+     [
+      [
+       ">says",
+       2
+      ],
+      [
+       ">says <says",
+       1
+      ],
+      [
+       "<says <says",
+       1
+      ]
+     ],
+     [
+      [
+       "<good-phrase",
+       2
+      ],
+      [
+       "<is-a",
+       2
+      ],
+      [
+       ">makes-sense <is-a",
+       1
+      ]
+     ],
+     [
+      [
+       ">has",
+       1
+      ]
+     ],
+     [
+      [
+       "<just-bigger-than",
+       4
+      ],
+      [
+       "<just-bigger-than <just-bigger-than",
+       3
+      ],
+      [
+       ">is-a",
+       3
+      ]
+     ]
+    ],
+    "proposer_offpath_choice_points": 58.0,
+    "proposer_recall": 0.436,
+    "search_all": {
+     "checks_true": 6.51,
+     "exhausted_true": 0.858,
+     "found_rate_false": 0.053,
+     "found_rate_true": 0.142,
+     "proposer_recall": 0.425,
+     "true_path_rate": 0.165
+    },
+    "search_rate": 0.126,
+    "trigger_rate": 0.126,
+    "trigger_rate_true": 0.353,
+    "true_path_rate": 0.146
+   },
+   "P4": {
+    "arbiter": 0.785,
+    "arbiter_u_rate": 0.026,
+    "backtracks_true": 4.494,
+    "backward_waste": null,
+    "candidate_index_first": 1.0,
+    "candidate_index_mean": 1.0,
+    "checks_false": 5.526,
+    "checks_true": 6.404,
+    "exhausted_false": 0.846,
+    "exhausted_true": 0.978,
+    "found_rate_false": 0.154,
+    "found_rate_true": 0.022,
+    "intuition": 0.785,
+    "intuition_auroc": 0.927,
+    "logic-final": 0.599,
+    "logic-step0": 0.66,
+    "logic_final_auroc": 0.861,
+    "logic_step0_auroc": 0.818,
+    "path_len_found": 2.0,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 27.755,
+    "programs": [
+     [
+      [
+       ">parent-of",
+       1
+      ],
+      [
+       "<says >named-can >parent-of <parent-of",
+       1
+      ]
+     ],
+     [
+      [
+       "<is-a",
+       1
+      ]
+     ],
+     [
+      [
+       ">ancestor-of >ancestor-of",
+       2
+      ]
+     ],
+     [
+      [
+       ">is-a >is-a >is-a",
+       1
+      ],
+      [
+       ">is-a >is-a",
+       1
+      ]
+     ]
+    ],
+    "proposer_offpath_choice_points": 97.75,
+    "proposer_recall": null,
+    "search_rate": 0.281,
+    "trigger_rate": 0.281,
+    "trigger_rate_true": 0.472,
+    "true_path_rate": 0.0
+   },
+   "P6-colour": {
+    "arbiter": 0.404,
+    "arbiter_u_rate": 0.336,
+    "backtracks_true": 5.287,
+    "backward_waste": null,
+    "candidate_index_first": 1.0,
+    "candidate_index_mean": 1.0,
+    "checks_false": 7.179,
+    "checks_true": 8.262,
+    "exhausted_false": 0.995,
+    "exhausted_true": 0.975,
+    "found_rate_false": 0.005,
+    "found_rate_true": 0.025,
+    "intuition": 0.569,
+    "intuition_auroc": 0.616,
+    "logic-final": 0.335,
+    "logic-step0": 0.0,
+    "logic_final_auroc": 0.536,
+    "logic_search_all": 0.335,
+    "logic_step0_auroc": 0.508,
+    "path_len_found": 2.5,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 30.732,
+    "programs": [
+     [
+      [
+       ">parent-of >good-phrase <parent-of",
+       1
+      ],
+      [
+       ">parent-of >good-phrase <parent-of >good-phrase >good-phrase",
+       1
+      ],
+      [
+       ">good-phrase",
+       1
+      ]
+     ],
+     [
+      [
+       ">makes-sense <parent-of",
+       2
+      ],
+      [
+       ">makes-sense <is-a",
+       1
+      ]
+     ],
+     [],
+     []
+    ],
+    "proposer_offpath_choice_points": 55.75,
+    "proposer_recall": 0.038,
+    "search_all": {
+     "checks_true": 8.262,
+     "exhausted_true": 0.975,
+     "found_rate_false": 0.005,
+     "found_rate_true": 0.025,
+     "proposer_recall": 0.038,
+     "true_path_rate": 0.0
+    },
+    "search_rate": 1.0,
+    "trigger_rate": 1.0,
+    "trigger_rate_true": 1.0,
+    "true_path_rate": 0.0
+   },
+   "P6-grandparent": {
+    "arbiter": 0.813,
+    "arbiter_u_rate": 0.271,
+    "backtracks_true": 4.125,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_false": 6.262,
+    "checks_true": 5.438,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.969,
+    "intuition_auroc": 0.997,
+    "logic-final": 0.406,
+    "logic-step0": 0.0,
+    "logic_final_auroc": 0.778,
+    "logic_search_all": 0.406,
+    "logic_step0_auroc": 0.497,
+    "path_len_found": null,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 5.902,
+    "programs": [
+     [],
+     [],
+     [],
+     []
+    ],
+    "proposer_offpath_choice_points": 3.5,
+    "proposer_recall": 0.05,
+    "search_all": {
+     "checks_true": 5.438,
+     "exhausted_true": 1.0,
+     "found_rate_false": 0.0,
+     "found_rate_true": 0.0,
+     "proposer_recall": 0.05,
+     "true_path_rate": null
+    },
+    "search_rate": 1.0,
+    "trigger_rate": 1.0,
+    "trigger_rate_true": 1.0,
+    "true_path_rate": null
+   },
+   "S3b": {
+    "arbiter": {
+     "always": 0.688,
+     "never": 0.786,
+     "sometimes": 0.153,
+     "usually": 0.594
+    },
+    "intuition": {
+     "always": 0.417,
+     "never": 0.96,
+     "sometimes": 0.0,
+     "usually": 0.125
+    },
+    "logic-final": {
+     "always": 0.25,
+     "never": 0.907,
+     "sometimes": 0.292,
+     "usually": 0.188
+    },
+    "logic-step0": {
+     "always": 0.375,
+     "never": 0.911,
+     "sometimes": 0.097,
+     "usually": 0.406
+    }
+   },
+   "S3b-trigger-rate": 0.297,
+   "S4a-trigger-rate": 0.733,
+   "S4a-u-rate": {
+    "arbiter": 0.551,
+    "arbiter_u_given_exhausted": 0.703,
+    "logic-final": 0.551,
+    "logic-step0": 0.659
+   },
+   "S4b-P7-trigger-rate": 0.621,
+   "S4b-P7-u-rate": {
+    "arbiter": 0.5,
+    "arbiter_u_given_exhausted": 0.803,
+    "logic-final": 0.386,
+    "logic-step0": 0.568
+   },
+   "conflict-flags-intuition-errors": {
+    "error_rate": 0.141,
+    "graded_auroc": 0.673
+   },
+   "control-trigger-rate": 0.257,
+   "control-u-rate": {
+    "arbiter": 0.068,
+    "arbiter_u_given_exhausted": 0.281,
+    "logic-final": 0.136,
+    "logic-step0": 0.121
+   },
+   "per-hop": {
+    "by_relation_true": {
+     "can": 1.0,
+     "colour-of": 1.0,
+     "has": 1.0,
+     "is-a": 1.0,
+     "just-bigger-than": 1.0,
+     "names": 1.0,
+     "parent-of": 1.0,
+     "subkind-of": 1.0
+    },
+    "confirm_false": 0.0,
+    "confirm_true": 1.0
+   },
+   "withheld-fit": {
+    "arbiter": 0.891,
+    "backtracks_true": 3.215,
+    "backward_waste": null,
+    "candidate_index_first": 1.0,
+    "candidate_index_mean": 1.0,
+    "checks_false": 9.01,
+    "checks_true": 5.69,
+    "exhausted_false": 0.978,
+    "exhausted_true": 0.575,
+    "found_rate_false": 0.022,
+    "found_rate_true": 0.425,
+    "intuition": 1.0,
+    "logic-final": 0.631,
+    "logic-step0": 0.0,
+    "path_len_found": 2.049,
+    "pool_empty_rate": 0.0,
+    "pool_size_mean": 15.287,
+    "programs": [
+     [
+      [
+       ">parent-of",
+       35
+      ],
+      [
+       "<good-phrase <good-phrase >good-phrase",
+       21
+      ],
+      [
+       ">parent-of >parent-of",
+       19
+      ]
+     ],
+     [
+      [
+       ">and <and",
+       44
+      ],
+      [
+       ">parent-of",
+       32
+      ],
+      [
+       ">parent-of >parent-of",
+       23
+      ]
+     ],
+     [
+      [
+       ">has",
+       56
+      ],
+      [
+       ">has >has",
+       22
+      ],
+      [
+       ">has >has >has",
+       9
+      ]
+     ],
+     [
+      [
+       ">parent-of",
+       37
+      ],
+      [
+       ">parent-of >parent-of",
+       25
+      ],
+      [
+       ">is-a",
+       19
+      ]
+     ]
+    ],
+    "proposer_offpath_choice_points": 318.75,
+    "proposer_recall": 0.326,
+    "search_rate": 1.0,
+    "trigger_rate": 1.0,
+    "trigger_rate_true": 1.0,
+    "true_path_rate": 0.284
+   }
+  }
+ },
+ "one-pass": {
+  "controller_params": 77685,
+  "dax": {
+   "always": {
+    "arbiter": 1.0,
+    "intuition": 1.0,
+    "logic-final": 0.95,
+    "logic-step0": 0.95,
+    "trigger_rate": 0.0
+   },
+   "never": {
+    "arbiter": 0.889,
+    "intuition": 0.917,
+    "logic-final": 1.0,
+    "logic-step0": 1.0,
+    "trigger_rate": 0.0
+   },
+   "sometimes": {
+    "arbiter": 0.083,
+    "intuition": 0.0,
+    "logic-final": 0.139,
+    "logic-step0": 0.139,
+    "trigger_rate": 0.0
+   },
+   "usually": {
+    "arbiter": 0.75,
+    "intuition": 0.5,
+    "logic-final": 0.375,
+    "logic-step0": 0.375,
+    "trigger_rate": 0.0
+   }
+  },
+  "final_log": null,
+  "params": 151486,
+  "tests": {
+   "G2": {
+    "arbiter": 0.801,
+    "arbiter_u_rate": 0.0,
+    "intuition": 0.664,
+    "intuition_auroc": 0.825,
+    "logic-final": 0.687,
+    "logic-step0": 0.687,
+    "logic_final_auroc": 0.888,
+    "logic_step0_auroc": 0.888,
+    "trigger_rate": 0.0,
+    "trigger_rate_true": 0.0
+   },
+   "G4": {
+    "arbiter": 0.534,
+    "arbiter_u_rate": 0.005,
+    "intuition": 0.536,
+    "intuition_auroc": 0.696,
+    "logic-final": 0.523,
+    "logic-step0": 0.523,
+    "logic_final_auroc": 0.535,
+    "logic_step0_auroc": 0.535,
+    "trigger_rate": 0.0,
+    "trigger_rate_true": 0.0
+   },
+   "L1-anc": {
+    "arbiter": 0.16,
+    "arbiter_by_length": {
+     "3": 0.292,
+     "4": 0.042,
+     "5": 0.0
+    },
+    "arbiter_u_rate": 0.84,
+    "intuition": 0.722,
+    "intuition_auroc": 1.0,
+    "intuition_by_length": {
+     "3": 0.903,
+     "4": 0.562,
+     "5": 0.5
+    },
+    "logic-final": 0.0,
+    "logic-step0": 0.0,
+    "logic_final_auroc": 0.496,
+    "logic_final_by_length": {
+     "3": 0.0,
+     "4": 0.0,
+     "5": 0.0
+    },
+    "logic_step0_auroc": 0.496,
+    "n_by_length": {
+     "3": 18.0,
+     "4": 12.0,
+     "5": 6.0
+    },
+    "trigger_rate": 0.0,
+    "trigger_rate_true": 0.0
+   },
+   "L1-anc-depth45": {
+    "arbiter": 0.028,
+    "intuition": 0.542,
+    "logic-final": 0.0,
+    "logic-step0": 0.0,
+    "n": 18.0
+   },
+   "L1-kind": {
+    "arbiter": 0.359,
+    "arbiter_by_length": {
+     "3": 0.482,
+     "4": 0.236
+    },
+    "arbiter_u_rate": 0.37,
+    "intuition": 0.664,
+    "intuition_auroc": 0.75,
+    "intuition_by_length": {
+     "3": 0.812,
+     "4": 0.515
+    },
+    "logic-final": 0.004,
+    "logic-step0": 0.004,
+    "logic_final_auroc": 0.477,
+    "logic_final_by_length": {
+     "3": 0.007,
+     "4": 0.0
+    },
+    "logic_step0_auroc": 0.477,
+    "n_by_length": {
+     "3": 47.0,
+     "4": 47.0
+    },
+    "trigger_rate": 0.0,
+    "trigger_rate_true": 0.0
+   },
+   "L1-size": {
+    "arbiter": 0.454,
+    "arbiter_by_length": {
+     "10": 0.531,
+     "11": 0.562,
+     "3": 0.396,
+     "4": 0.422,
+     "5": 0.464,
+     "6": 0.479,
+     "7": 0.463,
+     "8": 0.5,
+     "9": 0.479
+    },
+    "arbiter_u_rate": 0.546,
+    "intuition": 0.964,
+    "intuition_auroc": 0.998,
+    "intuition_by_length": {
+     "10": 1.0,
+     "11": 1.0,
+     "3": 0.917,
+     "4": 0.93,
+     "5": 0.982,
+     "6": 0.99,
+     "7": 0.975,
+     "8": 1.0,
+     "9": 1.0
+    },
+    "logic-final": 0.008,
+    "logic-step0": 0.008,
+    "logic_final_auroc": 0.515,
+    "logic_final_by_length": {
+     "10": 0.031,
+     "11": 0.062,
+     "3": 0.0,
+     "4": 0.008,
+     "5": 0.0,
+     "6": 0.0,
+     "7": 0.025,
+     "8": 0.016,
+     "9": 0.0
+    },
+    "logic_step0_auroc": 0.515,
+    "n_by_length": {
+     "10": 8.0,
+     "11": 4.0,
+     "3": 36.0,
+     "4": 32.0,
+     "5": 28.0,
+     "6": 24.0,
+     "7": 20.0,
+     "8": 16.0,
+     "9": 12.0
+    },
+    "trigger_rate": 0.0,
+    "trigger_rate_true": 0.0
+   },
+   "L2-named": {
+    "arbiter": 0.37,
+    "arbiter_by_length": {
+     "named-can": 0.318,
+     "named-has": 0.284,
+     "named-kind": 0.462
+    },
+    "arbiter_u_rate": 0.729,
+    "intuition": 0.876,
+    "intuition_auroc": 0.943,
+    "intuition_by_length": {
+     "named-can": 0.803,
+     "named-has": 0.824,
+     "named-kind": 0.953
+    },
+    "logic-final": 0.004,
+    "logic-step0": 0.004,
+    "logic_final_auroc": 0.704,
+    "logic_final_by_length": {
+     "named-can": 0.006,
+     "named-has": 0.003,
+     "named-kind": 0.003
+    },
+    "logic_step0_auroc": 0.704,
+    "n_by_length": {
+     "named-can": 30.0,
+     "named-has": 66.0,
+     "named-kind": 60.0
+    },
+    "trigger_rate": 0.0,
+    "trigger_rate_true": 0.0
+   },
+   "P1-default": {
+    "arbiter": 0.902,
+    "arbiter_u_rate": 0.019,
+    "intuition": 0.917,
+    "intuition_auroc": 0.965,
+    "logic-final": 0.808,
+    "logic-step0": 0.808,
+    "logic_final_auroc": 0.927,
+    "logic_step0_auroc": 0.927,
+    "trigger_rate": 0.0,
+    "trigger_rate_true": 0.0
+   },
+   "P2": {
+    "arbiter": 0.659,
+    "arbiter_u_rate": 0.164,
+    "intuition": 0.7,
+    "intuition_auroc": 0.831,
+    "logic-final": 0.6,
+    "logic-step0": 0.6,
+    "logic_final_auroc": 0.761,
+    "logic_step0_auroc": 0.761,
+    "trigger_rate": 0.0,
+    "trigger_rate_true": 0.0
+   },
+   "P3": {
+    "arbiter": 0.726,
+    "arbiter_u_rate": 0.041,
+    "intuition": 0.745,
+    "intuition_auroc": 0.853,
+    "logic-final": 0.65,
+    "logic-step0": 0.65,
+    "logic_final_auroc": 0.835,
+    "logic_step0_auroc": 0.835,
+    "trigger_rate": 0.0,
+    "trigger_rate_true": 0.0
+   },
+   "P4": {
+    "arbiter": 0.807,
+    "arbiter_u_rate": 0.002,
+    "intuition": 0.785,
+    "intuition_auroc": 0.927,
+    "logic-final": 0.66,
+    "logic-step0": 0.66,
+    "logic_final_auroc": 0.818,
+    "logic_step0_auroc": 0.818,
+    "trigger_rate": 0.0,
+    "trigger_rate_true": 0.0
+   },
+   "P6-colour": {
+    "arbiter": 0.056,
+    "arbiter_u_rate": 0.971,
+    "intuition": 0.569,
+    "intuition_auroc": 0.616,
+    "logic-final": 0.0,
+    "logic-step0": 0.0,
+    "logic_final_auroc": 0.508,
+    "logic_step0_auroc": 0.508,
+    "trigger_rate": 0.0,
+    "trigger_rate_true": 0.0
+   },
+   "P6-grandparent": {
+    "arbiter": 0.5,
+    "arbiter_u_rate": 0.813,
+    "intuition": 0.969,
+    "intuition_auroc": 0.997,
+    "logic-final": 0.0,
+    "logic-step0": 0.0,
+    "logic_final_auroc": 0.497,
+    "logic_step0_auroc": 0.497,
+    "trigger_rate": 0.0,
+    "trigger_rate_true": 0.0
+   },
+   "S3b": {
+    "arbiter": {
+     "always": 0.625,
+     "never": 0.843,
+     "sometimes": 0.083,
+     "usually": 0.625
+    },
+    "intuition": {
+     "always": 0.417,
+     "never": 0.96,
+     "sometimes": 0.0,
+     "usually": 0.125
+    },
+    "logic-final": {
+     "always": 0.375,
+     "never": 0.911,
+     "sometimes": 0.097,
+     "usually": 0.406
+    },
+    "logic-step0": {
+     "always": 0.375,
+     "never": 0.911,
+     "sometimes": 0.097,
+     "usually": 0.406
+    }
+   },
+   "S3b-trigger-rate": 0.0,
+   "S4a-trigger-rate": 0.0,
+   "S4a-u-rate": {
+    "arbiter": 0.574,
+    "logic-final": 0.659,
+    "logic-step0": 0.659
+   },
+   "S4b-P7-trigger-rate": 0.0,
+   "S4b-P7-u-rate": {
+    "arbiter": 0.477,
+    "logic-final": 0.568,
+    "logic-step0": 0.568
+   },
+   "conflict-flags-intuition-errors": {
+    "error_rate": 0.141,
+    "graded_auroc": 0.673
+   },
+   "control-trigger-rate": 0.0,
+   "control-u-rate": {
+    "arbiter": 0.112,
+    "logic-final": 0.121,
+    "logic-step0": 0.121
+   },
+   "per-hop": {
+    "by_relation_true": {
+     "can": 1.0,
+     "colour-of": 1.0,
+     "has": 1.0,
+     "is-a": 1.0,
+     "just-bigger-than": 1.0,
+     "names": 1.0,
+     "parent-of": 1.0,
+     "subkind-of": 1.0
+    },
+    "confirm_false": 0.0,
+    "confirm_true": 1.0
+   },
+   "withheld-fit": {
+    "arbiter": 0.5,
+    "intuition": 1.0,
+    "logic-final": 0.0,
+    "logic-step0": 0.0,
+    "trigger_rate": 0.0,
+    "trigger_rate_true": 0.0
+   }
+  }
+ },
+ "phase1": {
+  "rl_check": {
+   "intuition_confident": 1.0,
+   "mean_s_minus": 0.0,
+   "mean_s_plus": 0.0,
+   "rows": 3116.75,
+   "states": {
+    "U": 1.0
+   },
+   "trigger_rate": 1.0,
+   "trigger_rate_confident": 1.0,
+   "withheld_no_support": null
+  },
+  "withheld_rows": {
+   "F": 2866.25,
+   "T": 250.5
+  }
+ },
+ "soft-loop": {
+  "controller_params": 77685,
+  "dax": {
+   "always": {
+    "arbiter": 1.0,
+    "intuition": 1.0,
+    "logic-final": 0.9,
+    "logic-step0": 0.95,
+    "trigger_rate": 0.35
+   },
+   "never": {
+    "arbiter": 0.861,
+    "intuition": 0.917,
+    "logic-final": 0.972,
+    "logic-step0": 1.0,
+    "trigger_rate": 0.139
+   },
+   "sometimes": {
+    "arbiter": 0.028,
+    "intuition": 0.0,
+    "logic-final": 0.083,
+    "logic-step0": 0.139,
+    "trigger_rate": 0.472
+   },
+   "usually": {
+    "arbiter": 0.625,
+    "intuition": 0.5,
+    "logic-final": 0.5,
+    "logic-step0": 0.375,
+    "trigger_rate": 0.25
+   }
+  },
+  "final_log": {
+   "expected_steps": 1.744,
+   "loss": 1.436,
+   "step": 1000.0,
+   "wall": 2979.893
+  },
+  "params": 151486,
+  "tests": {
+   "G2": {
+    "arbiter": 0.778,
+    "arbiter_u_rate": 0.01,
+    "expected_steps_triggered": 0.882,
+    "intuition": 0.664,
+    "intuition_auroc": 0.825,
+    "logic-final": 0.653,
+    "logic-step0": 0.687,
+    "logic_final_auroc": 0.867,
+    "logic_step0_auroc": 0.888,
+    "trigger_rate": 0.195,
+    "trigger_rate_true": 0.54
+   },
+   "G4": {
+    "arbiter": 0.53,
+    "arbiter_u_rate": 0.032,
+    "expected_steps_triggered": 0.926,
+    "intuition": 0.536,
+    "intuition_auroc": 0.696,
+    "logic-final": 0.52,
+    "logic-step0": 0.523,
+    "logic_final_auroc": 0.542,
+    "logic_step0_auroc": 0.535,
+    "trigger_rate": 0.234,
+    "trigger_rate_true": 0.25
+   },
+   "L1-anc": {
+    "arbiter": 0.451,
+    "arbiter_by_length": {
+     "3": 0.569,
+     "4": 0.333,
+     "5": 0.333
+    },
+    "arbiter_u_rate": 0.458,
+    "expected_steps_triggered": 0.884,
+    "intuition": 0.722,
+    "intuition_auroc": 1.0,
+    "intuition_by_length": {
+     "3": 0.903,
+     "4": 0.562,
+     "5": 0.5
+    },
+    "logic-final": 0.097,
+    "logic-step0": 0.0,
+    "logic_final_auroc": 0.851,
+    "logic_final_by_length": {
+     "3": 0.083,
+     "4": 0.083,
+     "5": 0.167
+    },
+    "logic_search_all": 0.097,
+    "logic_step0_auroc": 0.496,
+    "n_by_length": {
+     "3": 18.0,
+     "4": 12.0,
+     "5": 6.0
+    },
+    "steps_by_length": {
+     "3": 0.899,
+     "4": 0.864,
+     "5": 0.881
+    },
+    "trigger_rate": 1.0,
+    "trigger_rate_true": 1.0
+   },
+   "L1-anc-depth45": {
+    "arbiter": 0.333,
+    "intuition": 0.542,
+    "logic-final": 0.111,
+    "logic-step0": 0.0,
+    "n": 18.0
+   },
+   "L1-kind": {
+    "arbiter": 0.432,
+    "arbiter_by_length": {
+     "3": 0.535,
+     "4": 0.329
+    },
+    "arbiter_u_rate": 0.298,
+    "expected_steps_triggered": 0.871,
+    "intuition": 0.664,
+    "intuition_auroc": 0.75,
+    "intuition_by_length": {
+     "3": 0.812,
+     "4": 0.515
+    },
+    "logic-final": 0.057,
+    "logic-step0": 0.004,
+    "logic_final_auroc": 0.558,
+    "logic_final_by_length": {
+     "3": 0.114,
+     "4": 0.0
+    },
+    "logic_search_all": 0.057,
+    "logic_step0_auroc": 0.477,
+    "n_by_length": {
+     "3": 47.0,
+     "4": 47.0
+    },
+    "steps_by_length": {
+     "3": 0.807,
+     "4": 0.935
+    },
+    "trigger_rate": 0.995,
+    "trigger_rate_true": 0.993
+   },
+   "L1-size": {
+    "arbiter": 0.521,
+    "arbiter_by_length": {
+     "10": 0.594,
+     "11": 0.562,
+     "3": 0.472,
+     "4": 0.477,
+     "5": 0.491,
+     "6": 0.562,
+     "7": 0.562,
+     "8": 0.578,
+     "9": 0.562
+    },
+    "arbiter_u_rate": 0.467,
+    "expected_steps_triggered": 0.832,
+    "intuition": 0.964,
+    "intuition_auroc": 0.998,
+    "intuition_by_length": {
+     "10": 1.0,
+     "11": 1.0,
+     "3": 0.917,
+     "4": 0.93,
+     "5": 0.982,
+     "6": 0.99,
+     "7": 0.975,
+     "8": 1.0,
+     "9": 1.0
+    },
+    "logic-final": 0.031,
+    "logic-step0": 0.008,
+    "logic_final_auroc": 0.794,
+    "logic_final_by_length": {
+     "10": 0.031,
+     "11": 0.062,
+     "3": 0.014,
+     "4": 0.055,
+     "5": 0.0,
+     "6": 0.021,
+     "7": 0.062,
+     "8": 0.047,
+     "9": 0.021
+    },
+    "logic_search_all": 0.031,
+    "logic_step0_auroc": 0.515,
+    "n_by_length": {
+     "10": 8.0,
+     "11": 4.0,
+     "3": 36.0,
+     "4": 32.0,
+     "5": 28.0,
+     "6": 24.0,
+     "7": 20.0,
+     "8": 16.0,
+     "9": 12.0
+    },
+    "steps_by_length": {
+     "10": 0.865,
+     "11": 0.85,
+     "3": 0.843,
+     "4": 0.811,
+     "5": 0.815,
+     "6": 0.821,
+     "7": 0.856,
+     "8": 0.847,
+     "9": 0.833
+    },
+    "trigger_rate": 0.992,
+    "trigger_rate_true": 0.997
+   },
+   "L2-named": {
+    "arbiter": 0.494,
+    "arbiter_by_length": {
+     "named-can": 0.375,
+     "named-has": 0.437,
+     "named-kind": 0.59
+    },
+    "arbiter_u_rate": 0.567,
+    "expected_steps_triggered": 0.826,
+    "intuition": 0.876,
+    "intuition_auroc": 0.943,
+    "intuition_by_length": {
+     "named-can": 0.803,
+     "named-has": 0.824,
+     "named-kind": 0.953
+    },
+    "logic-final": 0.061,
+    "logic-step0": 0.004,
+    "logic_final_auroc": 0.812,
+    "logic_final_by_length": {
+     "named-can": 0.038,
+     "named-has": 0.041,
+     "named-kind": 0.089
+    },
+    "logic_search_all": 0.061,
+    "logic_step0_auroc": 0.704,
+    "n_by_length": {
+     "named-can": 30.0,
+     "named-has": 66.0,
+     "named-kind": 60.0
+    },
+    "steps_by_length": {
+     "named-can": 0.828,
+     "named-has": 0.824,
+     "named-kind": 0.828
+    },
+    "trigger_rate": 0.995,
+    "trigger_rate_true": 1.0
+   },
+   "P1-default": {
+    "arbiter": 0.915,
+    "arbiter_u_rate": 0.019,
+    "expected_steps_triggered": 0.889,
+    "intuition": 0.917,
+    "intuition_auroc": 0.965,
+    "logic-final": 0.83,
+    "logic-step0": 0.808,
+    "logic_final_auroc": 0.958,
+    "logic_step0_auroc": 0.927,
+    "trigger_rate": 0.177,
+    "trigger_rate_true": 0.366
+   },
+   "P2": {
+    "arbiter": 0.691,
+    "arbiter_u_rate": 0.105,
+    "expected_steps_triggered": 0.88,
+    "intuition": 0.7,
+    "intuition_auroc": 0.831,
+    "logic-final": 0.595,
+    "logic-step0": 0.6,
+    "logic_final_auroc": 0.788,
+    "logic_search_all": 0.567,
+    "logic_step0_auroc": 0.761,
+    "trigger_rate": 0.341,
+    "trigger_rate_true": 0.413
+   },
+   "P3": {
+    "arbiter": 0.733,
+    "arbiter_u_rate": 0.034,
+    "expected_steps_triggered": 0.9,
+    "intuition": 0.745,
+    "intuition_auroc": 0.853,
+    "logic-final": 0.642,
+    "logic-step0": 0.65,
+    "logic_final_auroc": 0.848,
+    "logic_search_all": 0.618,
+    "logic_step0_auroc": 0.835,
+    "trigger_rate": 0.126,
+    "trigger_rate_true": 0.353
+   },
+   "P4": {
+    "arbiter": 0.816,
+    "arbiter_u_rate": 0.005,
+    "expected_steps_triggered": 0.942,
+    "intuition": 0.785,
+    "intuition_auroc": 0.927,
+    "logic-final": 0.658,
+    "logic-step0": 0.66,
+    "logic_final_auroc": 0.868,
+    "logic_step0_auroc": 0.818,
+    "trigger_rate": 0.281,
+    "trigger_rate_true": 0.472
+   },
+   "P6-colour": {
+    "arbiter": 0.26,
+    "arbiter_u_rate": 0.562,
+    "expected_steps_triggered": 0.856,
+    "intuition": 0.569,
+    "intuition_auroc": 0.616,
+    "logic-final": 0.037,
+    "logic-step0": 0.0,
+    "logic_final_auroc": 0.697,
+    "logic_search_all": 0.037,
+    "logic_step0_auroc": 0.508,
+    "trigger_rate": 1.0,
+    "trigger_rate_true": 1.0
+   },
+   "P6-grandparent": {
+    "arbiter": 0.706,
+    "arbiter_u_rate": 0.469,
+    "expected_steps_triggered": 0.872,
+    "intuition": 0.969,
+    "intuition_auroc": 0.997,
+    "logic-final": 0.1,
+    "logic-step0": 0.0,
+    "logic_final_auroc": 0.788,
+    "logic_search_all": 0.1,
+    "logic_step0_auroc": 0.497,
+    "trigger_rate": 1.0,
+    "trigger_rate_true": 1.0
+   },
+   "S3b": {
+    "arbiter": {
+     "always": 0.687,
+     "never": 0.859,
+     "sometimes": 0.069,
+     "usually": 0.594
+    },
+    "intuition": {
+     "always": 0.417,
+     "never": 0.96,
+     "sometimes": 0.0,
+     "usually": 0.125
+    },
+    "logic-final": {
+     "always": 0.354,
+     "never": 0.952,
+     "sometimes": 0.069,
+     "usually": 0.312
+    },
+    "logic-step0": {
+     "always": 0.375,
+     "never": 0.911,
+     "sometimes": 0.097,
+     "usually": 0.406
+    }
+   },
+   "S3b-trigger-rate": 0.297,
+   "S4a-trigger-rate": 0.733,
+   "S4a-u-rate": {
+    "arbiter": 0.438,
+    "logic-final": 0.438,
+    "logic-step0": 0.659
+   },
+   "S4b-P7-trigger-rate": 0.621,
+   "S4b-P7-u-rate": {
+    "arbiter": 0.311,
+    "logic-final": 0.348,
+    "logic-step0": 0.568
+   },
+   "conflict-flags-intuition-errors": {
+    "error_rate": 0.141,
+    "graded_auroc": 0.673
+   },
+   "control-trigger-rate": 0.257,
+   "control-u-rate": {
+    "arbiter": 0.075,
+    "logic-final": 0.129,
+    "logic-step0": 0.121
+   },
+   "per-hop": {
+    "by_relation_true": {
+     "can": 1.0,
+     "colour-of": 1.0,
+     "has": 1.0,
+     "is-a": 1.0,
+     "just-bigger-than": 1.0,
+     "names": 1.0,
+     "parent-of": 1.0,
+     "subkind-of": 1.0
+    },
+    "confirm_false": 0.0,
+    "confirm_true": 1.0
+   },
+   "withheld-fit": {
+    "arbiter": 0.738,
+    "intuition": 1.0,
+    "logic-final": 0.086,
+    "logic-step0": 0.0,
+    "trigger_rate": 1.0,
+    "trigger_rate_true": 1.0
+   }
+  }
+ }
+}
