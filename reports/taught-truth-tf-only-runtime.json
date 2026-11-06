@@ -1,0 +1,53 @@
+{
+ "aggregate_worker_cpu_seconds": 1775.300952816,
+ "children_peak_rss_kb": 365476,
+ "command": "/home/debjit/code/sri/experiments/taught_truth_tf_only.py",
+ "contract_sha256": "667bcee0aafe0a5ac96eb72284c6e0efa9a5c5ef1b809927af110d0afdbeb26c",
+ "cpu": "x86_64",
+ "device": "cpu",
+ "dirty": true,
+ "dtype": "float32",
+ "numpy": "2.5.4",
+ "os": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "parent_peak_rss_kb": 299156,
+ "python": "3.12.3",
+ "revision": "311078bac965fdc7ed00c20b7a9addaeb409f2bb",
+ "rss_convention": "ru_maxrss in KiB per process; children is the largest single child",
+ "runner_sha256": "24f744fb44e8984b42999898fc47613e9bba54a5c8b6b659a01df600f4e20321",
+ "scope": "nondeterministic timing",
+ "tasks": {
+  "seed450": {
+   "cpu_seconds": 445.10684011899997,
+   "peak_rss_kb": 360484,
+   "steps": 3000,
+   "trained_statements": 16270,
+   "wall_seconds": 445.20713501400314
+  },
+  "seed451": {
+   "cpu_seconds": 440.807441912,
+   "peak_rss_kb": 362636,
+   "steps": 3000,
+   "trained_statements": 16268,
+   "wall_seconds": 440.9033943680115
+  },
+  "seed452": {
+   "cpu_seconds": 439.679328805,
+   "peak_rss_kb": 359916,
+   "steps": 3000,
+   "trained_statements": 16273,
+   "wall_seconds": 439.7837897920399
+  },
+  "seed453": {
+   "cpu_seconds": 449.70734198,
+   "peak_rss_kb": 365476,
+   "steps": 3000,
+   "trained_statements": 16270,
+   "wall_seconds": 449.7702083779732
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "wall_seconds": 449.829491286946,
+ "workers": 4,
+ "world_sha256": "becebd0f5ab0d4d28653d53708f359243907425b08036af87775b8c8e1dfc4ef"
+}

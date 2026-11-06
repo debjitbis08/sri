@@ -1,0 +1,310 @@
+{
+ "seed450": {
+  "L1-anc": {
+   "T_vs_F_bal": 0.5833333333333334,
+   "argmax_bal": 0.5833333333333334,
+   "auroc": 0.6666666666666666,
+   "margin_median": {
+    "heldout_false": -9.842369079589844,
+    "heldout_true": -9.724952220916748,
+    "trained_true": 8.485102653503418
+   }
+  },
+  "L1-size": {
+   "T_vs_F_bal": 0.8555555555555556,
+   "argmax_bal": 0.8555555555555556,
+   "auroc": 0.9539506172839506,
+   "margin_median": {
+    "heldout_false": -9.848065853118896,
+    "heldout_true": 8.415631771087646,
+    "trained_true": 9.762340068817139
+   }
+  },
+  "L2-named": {
+   "T_vs_F_bal": 0.7115384615384616,
+   "argmax_bal": 0.7115384615384616,
+   "auroc": 0.8581730769230769,
+   "margin_median": {
+    "heldout_false": -9.582114219665527,
+    "heldout_true": -0.4577016830444336,
+    "trained_true": 9.478419303894043
+   }
+  },
+  "P1-default": {
+   "T_vs_F_bal": 0.6473565804274466,
+   "argmax_bal": 0.6473565804274466,
+   "auroc": 0.7958380202474691,
+   "margin_median": {
+    "heldout_false": -9.538167953491211,
+    "heldout_true": -1.199817180633545,
+    "trained_true": 8.775314331054688
+   }
+  },
+  "P3": {
+   "T_vs_F_bal": 0.6972916256803725,
+   "argmax_bal": 0.6972916256803725,
+   "auroc": 0.8074627844448816,
+   "margin_median": {
+    "heldout_false": -9.732064247131348,
+    "heldout_true": -5.3835530281066895,
+    "trained_true": 9.289700031280518
+   }
+  },
+  "P4": {
+   "T_vs_F_bal": 0.6388888888888888,
+   "argmax_bal": 0.6388888888888888,
+   "auroc": 0.7696759259259259,
+   "margin_median": {
+    "heldout_false": -9.606103420257568,
+    "heldout_true": -5.90012001991272,
+    "trained_true": 9.286022186279297
+   }
+  },
+  "P6-grandparent": {
+   "T_vs_F_bal": 0.5,
+   "argmax_bal": 0.5,
+   "auroc": 0.8,
+   "margin_median": {
+    "heldout_false": -9.786647319793701,
+    "heldout_true": -8.846271991729736,
+    "trained_true": 9.280747890472412
+   }
+  },
+  "checkpoint": {
+   "file": "runs/taught-truth-tf-only/pred-tf-seed450.pt",
+   "sha256": "8e31f68a4c925cb9c3cd227d463d1a2513b659cec0275ff863b62936e372efbc"
+  },
+  "fit": 1.0
+ },
+ "seed451": {
+  "L1-anc": {
+   "T_vs_F_bal": 0.7222222222222222,
+   "argmax_bal": 0.7222222222222222,
+   "auroc": 0.9753086419753086,
+   "margin_median": {
+    "heldout_false": -10.044705867767334,
+    "heldout_true": -1.871182918548584,
+    "trained_true": 7.329134941101074
+   }
+  },
+  "L1-size": {
+   "T_vs_F_bal": 0.9,
+   "argmax_bal": 0.9,
+   "auroc": 0.9940740740740741,
+   "margin_median": {
+    "heldout_false": -10.2420015335083,
+    "heldout_true": 7.668812990188599,
+    "trained_true": 7.652234077453613
+   }
+  },
+  "L2-named": {
+   "T_vs_F_bal": 0.7884615384615384,
+   "argmax_bal": 0.7884615384615384,
+   "auroc": 0.9023668639053254,
+   "margin_median": {
+    "heldout_false": -9.894670009613037,
+    "heldout_true": 4.792809963226318,
+    "trained_true": 7.743401050567627
+   }
+  },
+  "P1-default": {
+   "T_vs_F_bal": 0.8020247469066366,
+   "argmax_bal": 0.8020247469066366,
+   "auroc": 0.907199100112486,
+   "margin_median": {
+    "heldout_false": -9.889350891113281,
+    "heldout_true": 6.67920708656311,
+    "trained_true": 7.39901876449585
+   }
+  },
+  "P3": {
+   "T_vs_F_bal": 0.718801232867729,
+   "argmax_bal": 0.718801232867729,
+   "auroc": 0.8538920584956391,
+   "margin_median": {
+    "heldout_false": -10.021881103515625,
+    "heldout_true": -0.9737844467163086,
+    "trained_true": 7.747348308563232
+   }
+  },
+  "P4": {
+   "T_vs_F_bal": 0.6597222222222222,
+   "argmax_bal": 0.6597222222222222,
+   "auroc": 0.8267746913580247,
+   "margin_median": {
+    "heldout_false": -10.202186107635498,
+    "heldout_true": -4.700476408004761,
+    "trained_true": 7.74143123626709
+   }
+  },
+  "P6-grandparent": {
+   "T_vs_F_bal": 0.875,
+   "argmax_bal": 0.875,
+   "auroc": 1.0,
+   "margin_median": {
+    "heldout_false": -10.204973220825195,
+    "heldout_true": 6.436813116073608,
+    "trained_true": 7.989947557449341
+   }
+  },
+  "checkpoint": {
+   "file": "runs/taught-truth-tf-only/pred-tf-seed451.pt",
+   "sha256": "d99a23d1a72f83faa3663955def580ee1f315b2118c3f40b778020bc0720e5d9"
+  },
+  "fit": 0.9998314909679159
+ },
+ "seed452": {
+  "L1-anc": {
+   "T_vs_F_bal": 0.6666666666666666,
+   "argmax_bal": 0.6666666666666666,
+   "auroc": 0.36419753086419754,
+   "margin_median": {
+    "heldout_false": -6.709145784378052,
+    "heldout_true": -7.64035439491272,
+    "trained_true": 8.10366439819336
+   }
+  },
+  "L1-size": {
+   "T_vs_F_bal": 0.8333333333333333,
+   "argmax_bal": 0.8333333333333333,
+   "auroc": 0.8281481481481482,
+   "margin_median": {
+    "heldout_false": -8.276338577270508,
+    "heldout_true": 7.79245138168335,
+    "trained_true": 8.079416275024414
+   }
+  },
+  "L2-named": {
+   "T_vs_F_bal": 0.7596153846153846,
+   "argmax_bal": 0.7596153846153846,
+   "auroc": 0.7194896449704142,
+   "margin_median": {
+    "heldout_false": -8.143717765808105,
+    "heldout_true": 4.489795684814453,
+    "trained_true": 7.797424077987671
+   }
+  },
+  "P1-default": {
+   "T_vs_F_bal": 0.8159448818897638,
+   "argmax_bal": 0.8159448818897638,
+   "auroc": 0.8782339707536558,
+   "margin_median": {
+    "heldout_false": -8.078250885009766,
+    "heldout_true": 7.713714361190796,
+    "trained_true": 8.223286628723145
+   }
+  },
+  "P3": {
+   "T_vs_F_bal": 0.6908321857170963,
+   "argmax_bal": 0.6908321857170963,
+   "auroc": 0.5968260213784511,
+   "margin_median": {
+    "heldout_false": -8.324112892150879,
+    "heldout_true": -8.020085334777832,
+    "trained_true": 7.9387288093566895
+   }
+  },
+  "P4": {
+   "T_vs_F_bal": 0.6875,
+   "argmax_bal": 0.6875,
+   "auroc": 0.6666666666666666,
+   "margin_median": {
+    "heldout_false": -8.453848838806152,
+    "heldout_true": -6.224255084991455,
+    "trained_true": 8.081233024597168
+   }
+  },
+  "P6-grandparent": {
+   "T_vs_F_bal": 0.75,
+   "argmax_bal": 0.75,
+   "auroc": 0.75,
+   "margin_median": {
+    "heldout_false": -7.690321683883667,
+    "heldout_true": 1.7346227169036865,
+    "trained_true": 8.483456134796143
+   }
+  },
+  "checkpoint": {
+   "file": "runs/taught-truth-tf-only/pred-tf-seed452.pt",
+   "sha256": "c38a20402583e145ddf2e8c9bfaf5f4f0ff3c58b465a6775ce2f95666a208a80"
+  },
+  "fit": 0.9958887740747506
+ },
+ "seed453": {
+  "L1-anc": {
+   "T_vs_F_bal": 0.6388888888888888,
+   "argmax_bal": 0.6388888888888888,
+   "auroc": 0.904320987654321,
+   "margin_median": {
+    "heldout_false": -9.019425868988037,
+    "heldout_true": -8.059205770492554,
+    "trained_true": 8.21351146697998
+   }
+  },
+  "L1-size": {
+   "T_vs_F_bal": 0.9722222222222222,
+   "argmax_bal": 0.9722222222222222,
+   "auroc": 0.9998765432098765,
+   "margin_median": {
+    "heldout_false": -8.878054141998291,
+    "heldout_true": 8.104738235473633,
+    "trained_true": 8.303958892822266
+   }
+  },
+  "L2-named": {
+   "T_vs_F_bal": 0.7644230769230769,
+   "argmax_bal": 0.7644230769230769,
+   "auroc": 0.8574334319526628,
+   "margin_median": {
+    "heldout_false": -8.872566223144531,
+    "heldout_true": 1.7783637046813965,
+    "trained_true": 8.358427047729492
+   }
+  },
+  "P1-default": {
+   "T_vs_F_bal": 0.6985376827896512,
+   "argmax_bal": 0.6985376827896512,
+   "auroc": 0.9221034870641169,
+   "margin_median": {
+    "heldout_false": -8.956640243530273,
+    "heldout_true": -6.351662635803223,
+    "trained_true": 8.39432144165039
+   }
+  },
+  "P3": {
+   "T_vs_F_bal": 0.7936586005639714,
+   "argmax_bal": 0.7936586005639714,
+   "auroc": 0.8876647649026166,
+   "margin_median": {
+    "heldout_false": -8.989114761352539,
+    "heldout_true": 5.792121887207031,
+    "trained_true": 8.224996566772461
+   }
+  },
+  "P4": {
+   "T_vs_F_bal": 0.7430555555555556,
+   "argmax_bal": 0.7430555555555556,
+   "auroc": 0.8348765432098766,
+   "margin_median": {
+    "heldout_false": -8.923138618469238,
+    "heldout_true": -3.0095248222351074,
+    "trained_true": 8.41628360748291
+   }
+  },
+  "P6-grandparent": {
+   "T_vs_F_bal": 0.5,
+   "argmax_bal": 0.5,
+   "auroc": 1.0,
+   "margin_median": {
+    "heldout_false": -8.685205936431885,
+    "heldout_true": -5.9437174797058105,
+    "trained_true": 7.819560766220093
+   }
+  },
+  "checkpoint": {
+   "file": "runs/taught-truth-tf-only/pred-tf-seed453.pt",
+   "sha256": "4206053bd3babf46cc6fdb318fd6c1856f479edee16230702319ed56e1585c92"
+  },
+  "fit": 0.9990105899769655
+ }
+}

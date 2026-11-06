@@ -81,3 +81,33 @@ A `pred` trained on individual T/F statements only would separate them:
 - if not, the readout is.
 
 Both are design decisions the user made deliberately, so this is reported, not run.
+
+## Follow-up run: taught-truth reader trained on T/F statements only (user-approved, 2026-11-06)
+
+Command: `.venv/bin/python -m experiments.taught_truth_tf_only` (7.5 min wall, 30 CPU min, 4 workers). The same `pred`
+reader, statements, splits, seeds 450–453 and 3,000 steps as `pred-one`, trained only on individual T/F statements
+(the unit's diet). Artifacts: `reports/taught-truth-tf-only{,-runtime}.json`; checkpoints in
+`runs/taught-truth-tf-only/` (not tracked). Training fit 1.00.
+
+| Test | Taught truth, all statements | Taught truth, T/F only | Built-in unit | AUROC (all / T/F only / unit) | Held-out true margin, T/F only (median) |
+|---|---|---|---|---|---|
+| L1 size | 0.73 | **0.89** | 0.96 | 0.88 / 0.94 / 1.00 | +7.9 |
+| L1 ancestor | 0.55 | 0.65 | 0.71 | 0.91 / 0.73 / 1.00 | −7.8 |
+| L2 named | 0.78 | 0.76 | 0.90 | 0.86 / 0.83 / 0.96 | +3.1 |
+| P6 grandparent | 0.53 | 0.66 | 0.97 | 0.91 / 0.89 / 1.00 | −2.1 |
+| P4 order | 0.61 | 0.68 | 0.78 | 0.71 / 0.77 / 0.93 | −5.3 |
+| P3 inverse | 0.68 | 0.73 | 0.74 | 0.80 / 0.79 / 0.86 | −3.2 |
+| P1 inheritance | 0.84 | 0.74 | 0.88 | 0.93 / 0.88 / 0.96 | +2.7 |
+
+### Reading: both causes contribute
+
+- **The extra statement groups explain part of the cost.** Without them, held-out true facts move toward or past the
+  boundary: grandparent margin −9.6 → −2.1, ancestor −13.2 → −7.8, size −0.4 → +7.9. Balanced accuracy rises on size
+  (+0.16), grandparent (+0.13), ancestor (+0.10), order (+0.07) and inverse (+0.05).
+- **The readout explains the rest.** Even on the unit's diet, the code-and-cosine reader trails the unit on every chain:
+  grandparent 0.66 against 0.97, named 0.76 against 0.90. Its ranking is below the unit's everywhere (AUROC 0.73–0.94
+  against 0.86–1.00). The ancestor ranking is lower than with all statements (0.73 against 0.91).
+- **The extra groups also help some things.** Inheritance falls without them (0.84 → 0.74), and named relations slightly
+  (0.78 → 0.76): kind statements and fill-the-tail rows carry information about classes and names.
+- So the cost is not a single bug. Training on the other statement groups pushes unseen facts toward F. Answering by a
+  code compared with value codes ranks unseen facts less well than a scalar truth unit. Neither alone closes the gap.
