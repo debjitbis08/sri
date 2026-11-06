@@ -1,0 +1,3797 @@
+{
+ "results": {
+  "base/seed450": {
+   "arm": "base",
+   "categories": {
+    "ability": 5,
+    "body-part": 11,
+    "colour": 11,
+    "food": 5,
+    "habitat": 4,
+    "object": 22,
+    "person": 42,
+    "property": 16,
+    "sound": 16,
+    "substance": 6
+   },
+   "checkpoint": {
+    "file": "runs/type-meanings-v1/base-seed450.pt",
+    "sha256": "8c0aefc28f85ce5709372f763ee38a723823c8c6c5d5859364cbcca86f80a41f"
+   },
+   "log": [
+    {
+     "applicability": 4.8939087719190866e-05,
+     "loss": 0.006284266244620085,
+     "step": 250,
+     "wall": 136.05030858700047
+    },
+    {
+     "applicability": 8.271875412901863e-05,
+     "loss": 1.4995667934417725,
+     "step": 500,
+     "wall": 272.49149950799983
+    },
+    {
+     "applicability": 9.628582483856007e-05,
+     "loss": 0.006639095954596996,
+     "step": 750,
+     "wall": 409.25593179600037
+    },
+    {
+     "applicability": 7.743254536762834e-05,
+     "loss": 0.003535280469805002,
+     "step": 1000,
+     "wall": 545.7807933500007
+    },
+    {
+     "applicability": 7.00492673786357e-05,
+     "loss": 0.0030205261427909136,
+     "step": 1250,
+     "wall": 682.6958141150008
+    },
+    {
+     "applicability": 6.649354327237234e-05,
+     "loss": 0.0028200431261211634,
+     "step": 1500,
+     "wall": 819.5058839370013
+    },
+    {
+     "applicability": 6.426665640901774e-05,
+     "loss": 0.0027170327957719564,
+     "step": 1750,
+     "wall": 956.3942054970012
+    },
+    {
+     "applicability": 7.80959744588472e-05,
+     "loss": 0.004271306097507477,
+     "step": 2000,
+     "wall": 1093.291815083001
+    },
+    {
+     "applicability": 7.009249384282157e-05,
+     "loss": 0.0028770107310265303,
+     "step": 2250,
+     "wall": 1230.7363889500011
+    },
+    {
+     "applicability": 6.839712295914069e-05,
+     "loss": 0.0026994890067726374,
+     "step": 2500,
+     "wall": 1368.3069842580007
+    },
+    {
+     "applicability": 6.71942689223215e-05,
+     "loss": 0.0026330112013965845,
+     "step": 2750,
+     "wall": 1505.1376848660002
+    },
+    {
+     "applicability": 6.602764915442094e-05,
+     "loss": 0.00257163867354393,
+     "step": 3000,
+     "wall": 1642.0496523130005
+    }
+   ],
+   "n_isa_rows": 0,
+   "n_meaningless_train": 0,
+   "object_members": [
+    "apple",
+    "banana",
+    "carrot",
+    "cherry",
+    "chocolate",
+    "cloud",
+    "coal",
+    "feather",
+    "grape",
+    "grass",
+    "leaf",
+    "lemon",
+    "night-sky",
+    "plum",
+    "sea",
+    "sky",
+    "snow",
+    "strawberry",
+    "sun",
+    "tangerine",
+    "thunder",
+    "tomato"
+   ],
+   "reads": {
+    "M_sets": {
+     "M-cat": {
+      "confirmed": 0.01633333333333333,
+      "confirmed_gated": 0.01633333333333333,
+      "n": 3000,
+      "recognized": 0.0
+     },
+     "M-in": {
+      "confirmed": 0.020666666666666667,
+      "confirmed_gated": 0.020666666666666667,
+      "n": 3000,
+      "recognized": 0.0
+     },
+     "M-rel": {
+      "confirmed": 0.05433333333333333,
+      "confirmed_gated": 0.05433333333333333,
+      "n": 3000,
+      "recognized": 0.0
+     }
+    },
+    "cow_parent_of_moo": {
+     "app": 0.9998300075531006,
+     "confirmed": 1.0,
+     "sig": 0.9992407560348511,
+     "sm": 3.972581907873973e-05,
+     "sp": 0.9999752044677734
+    },
+    "full_graph": {
+     "meaningless_confirmed": 41049,
+     "meaningless_confirmed_gated": 41049,
+     "meaningless_total": 1567101,
+     "true_confirmed": 1285,
+     "true_confirmed_gated": 1285,
+     "true_total": 1690
+    },
+    "sound_isa": {
+     "support_false": 0.09692419320344925,
+     "support_true": 0.08298679441213608
+    },
+    "taught_kept_meaningful": 1.0,
+    "taught_kept_meaningful_true": 1.0,
+    "truth": {
+     "G2": {
+      "intuition": 0.6198448346263781,
+      "logic": 0.6632639172451341,
+      "logic_with_M": 0.6632639172451341,
+      "meaningless_rate": 0.0
+     },
+     "G4": {
+      "intuition": 0.6490384615384616,
+      "logic": 0.4983974358974359,
+      "logic_with_M": 0.4983974358974359,
+      "meaningless_rate": 0.0
+     },
+     "L1-anc": {
+      "intuition": 0.6666666666666666,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "L1-kind": {
+      "intuition": 0.7458333333333333,
+      "logic": 0.15714285714285714,
+      "logic_with_M": 0.15714285714285714,
+      "meaningless_rate": 0.0
+     },
+     "L1-size": {
+      "intuition": 0.9833333333333334,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "L2-named": {
+      "intuition": 0.9134615384615385,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "P1-default": {
+      "intuition": 0.8613610798650169,
+      "logic": 0.7841676040494938,
+      "logic_with_M": 0.7841676040494938,
+      "meaningless_rate": 0.0
+     },
+     "P2": {
+      "intuition": 0.680610345373891,
+      "logic": 0.6036319708491762,
+      "logic_with_M": 0.6036319708491762,
+      "meaningless_rate": 0.0
+     },
+     "P3": {
+      "intuition": 0.7463112335235098,
+      "logic": 0.6595186569611122,
+      "logic_with_M": 0.6595186569611122,
+      "meaningless_rate": 0.0
+     },
+     "P4": {
+      "intuition": 0.7777777777777778,
+      "logic": 0.7083333333333334,
+      "logic_with_M": 0.7083333333333334,
+      "meaningless_rate": 0.0
+     },
+     "P6-colour": {
+      "intuition": 0.5480392156862745,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "P6-grandparent": {
+      "intuition": 1.0,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     }
+    }
+   },
+   "seed": 450
+  },
+  "base/seed451": {
+   "arm": "base",
+   "categories": {
+    "ability": 5,
+    "body-part": 11,
+    "colour": 11,
+    "food": 5,
+    "habitat": 4,
+    "object": 22,
+    "person": 42,
+    "property": 16,
+    "sound": 16,
+    "substance": 6
+   },
+   "checkpoint": {
+    "file": "runs/type-meanings-v1/base-seed451.pt",
+    "sha256": "f33d537f753d1eaca9ecd1419790856669ac8f02d56c6d1136f463c3533814bc"
+   },
+   "log": [
+    {
+     "applicability": 4.134690607315861e-05,
+     "loss": 0.007144336588680744,
+     "step": 250,
+     "wall": 136.51332116400044
+    },
+    {
+     "applicability": 4.8432571929879487e-05,
+     "loss": 0.0038113058544695377,
+     "step": 500,
+     "wall": 272.9360163759993
+    },
+    {
+     "applicability": 8.144594175973907e-05,
+     "loss": 0.009266669861972332,
+     "step": 750,
+     "wall": 409.2550369189994
+    },
+    {
+     "applicability": 7.062272197799757e-05,
+     "loss": 0.004992721136659384,
+     "step": 1000,
+     "wall": 546.0908889080001
+    },
+    {
+     "applicability": 6.787641177652404e-05,
+     "loss": 0.0029503314290195704,
+     "step": 1250,
+     "wall": 683.350668866
+    },
+    {
+     "applicability": 6.691210001008585e-05,
+     "loss": 0.0027638624887913465,
+     "step": 1500,
+     "wall": 820.0074468519997
+    },
+    {
+     "applicability": 6.601600762223825e-05,
+     "loss": 0.002691288711503148,
+     "step": 1750,
+     "wall": 956.9697176190002
+    },
+    {
+     "applicability": 6.53019014862366e-05,
+     "loss": 0.0026433670427650213,
+     "step": 2000,
+     "wall": 1093.442434397999
+    },
+    {
+     "applicability": 6.460270378738642e-05,
+     "loss": 0.00260508107021451,
+     "step": 2250,
+     "wall": 1230.4242912030004
+    },
+    {
+     "applicability": 6.388328620232642e-05,
+     "loss": 0.0025712333153933287,
+     "step": 2500,
+     "wall": 1367.6879950740004
+    },
+    {
+     "applicability": 6.470624794019386e-05,
+     "loss": 0.006225284188985825,
+     "step": 2750,
+     "wall": 1504.4381266500004
+    },
+    {
+     "applicability": 6.791627674829215e-05,
+     "loss": 0.0030984608456492424,
+     "step": 3000,
+     "wall": 1641.1716531049988
+    }
+   ],
+   "n_isa_rows": 0,
+   "n_meaningless_train": 0,
+   "object_members": [
+    "apple",
+    "banana",
+    "carrot",
+    "cherry",
+    "chocolate",
+    "cloud",
+    "coal",
+    "feather",
+    "grape",
+    "grass",
+    "leaf",
+    "lemon",
+    "night-sky",
+    "plum",
+    "sea",
+    "sky",
+    "snow",
+    "strawberry",
+    "sun",
+    "tangerine",
+    "thunder",
+    "tomato"
+   ],
+   "reads": {
+    "M_sets": {
+     "M-cat": {
+      "confirmed": 0.01633333333333333,
+      "confirmed_gated": 0.01633333333333333,
+      "n": 3000,
+      "recognized": 0.0
+     },
+     "M-in": {
+      "confirmed": 0.013666666666666667,
+      "confirmed_gated": 0.013666666666666667,
+      "n": 3000,
+      "recognized": 0.0
+     },
+     "M-rel": {
+      "confirmed": 0.04566666666666667,
+      "confirmed_gated": 0.04566666666666667,
+      "n": 3000,
+      "recognized": 0.0
+     }
+    },
+    "cow_parent_of_moo": {
+     "app": 0.9996527433395386,
+     "confirmed": 1.0,
+     "sig": 0.966183066368103,
+     "sm": 0.0003249425790272653,
+     "sp": 0.9997205138206482
+    },
+    "full_graph": {
+     "meaningless_confirmed": 31028,
+     "meaningless_confirmed_gated": 31028,
+     "meaningless_total": 1567101,
+     "true_confirmed": 1227,
+     "true_confirmed_gated": 1227,
+     "true_total": 1690
+    },
+    "sound_isa": {
+     "support_false": 0.00037317219539545476,
+     "support_true": 0.00011306941451039165
+    },
+    "taught_kept_meaningful": 1.0,
+    "taught_kept_meaningful_true": 1.0,
+    "truth": {
+     "G2": {
+      "intuition": 0.6106574111882401,
+      "logic": 0.6169865251122907,
+      "logic_with_M": 0.6169865251122907,
+      "meaningless_rate": 0.0
+     },
+     "G4": {
+      "intuition": 0.5737179487179487,
+      "logic": 0.44871794871794873,
+      "logic_with_M": 0.44871794871794873,
+      "meaningless_rate": 0.0
+     },
+     "L1-anc": {
+      "intuition": 0.6944444444444444,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "L1-kind": {
+      "intuition": 0.6625,
+      "logic": 0.10714285714285714,
+      "logic_with_M": 0.10714285714285714,
+      "meaningless_rate": 0.0
+     },
+     "L1-size": {
+      "intuition": 0.9555555555555555,
+      "logic": 0.005555555555555556,
+      "logic_with_M": 0.005555555555555556,
+      "meaningless_rate": 0.0
+     },
+     "L2-named": {
+      "intuition": 0.8798076923076923,
+      "logic": 0.038461538461538464,
+      "logic_with_M": 0.038461538461538464,
+      "meaningless_rate": 0.0
+     },
+     "P1-default": {
+      "intuition": 0.8038526434195725,
+      "logic": 0.8377390326209224,
+      "logic_with_M": 0.8377390326209224,
+      "meaningless_rate": 0.0
+     },
+     "P2": {
+      "intuition": 0.6939183301647656,
+      "logic": 0.5731622306717363,
+      "logic_with_M": 0.5731622306717363,
+      "meaningless_rate": 0.0
+     },
+     "P3": {
+      "intuition": 0.7367368352023084,
+      "logic": 0.5973506459439963,
+      "logic_with_M": 0.5973506459439963,
+      "meaningless_rate": 0.0
+     },
+     "P4": {
+      "intuition": 0.6319444444444444,
+      "logic": 0.6458333333333333,
+      "logic_with_M": 0.6458333333333333,
+      "meaningless_rate": 0.0
+     },
+     "P6-colour": {
+      "intuition": 0.5151960784313725,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "P6-grandparent": {
+      "intuition": 1.0,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     }
+    }
+   },
+   "seed": 451
+  },
+  "base/seed452": {
+   "arm": "base",
+   "categories": {
+    "ability": 5,
+    "body-part": 11,
+    "colour": 11,
+    "food": 5,
+    "habitat": 4,
+    "object": 22,
+    "person": 42,
+    "property": 16,
+    "sound": 16,
+    "substance": 6
+   },
+   "checkpoint": {
+    "file": "runs/type-meanings-v1/base-seed452.pt",
+    "sha256": "3f293c72bc8bbbea323fda860e65210d7b235dcb86d78aa05a05d5e2da310b5b"
+   },
+   "log": [
+    {
+     "applicability": 4.7581947001162916e-05,
+     "loss": 0.006616576109081507,
+     "step": 250,
+     "wall": 136.4824505409997
+    },
+    {
+     "applicability": 0.00028435979038476944,
+     "loss": 2.4621880054473877,
+     "step": 500,
+     "wall": 272.8179441650009
+    },
+    {
+     "applicability": 9.884741302812472e-05,
+     "loss": 0.005244515836238861,
+     "step": 750,
+     "wall": 409.10357327699967
+    },
+    {
+     "applicability": 8.099248225335032e-05,
+     "loss": 0.003441906999796629,
+     "step": 1000,
+     "wall": 545.7740438620003
+    },
+    {
+     "applicability": 7.343426113948226e-05,
+     "loss": 0.0030323294922709465,
+     "step": 1250,
+     "wall": 683.4442746740006
+    },
+    {
+     "applicability": 6.98119547450915e-05,
+     "loss": 0.002864903537556529,
+     "step": 1500,
+     "wall": 820.6553979740002
+    },
+    {
+     "applicability": 6.792144995415583e-05,
+     "loss": 0.0027652205899357796,
+     "step": 1750,
+     "wall": 957.2585115250004
+    },
+    {
+     "applicability": 6.819019472459331e-05,
+     "loss": 0.0030250130221247673,
+     "step": 2000,
+     "wall": 1094.2534684399998
+    },
+    {
+     "applicability": 6.80273151374422e-05,
+     "loss": 0.0027568317018449306,
+     "step": 2250,
+     "wall": 1231.6098513609995
+    },
+    {
+     "applicability": 6.769965693820268e-05,
+     "loss": 0.002653691917657852,
+     "step": 2500,
+     "wall": 1368.2544040440007
+    },
+    {
+     "applicability": 6.721098907291889e-05,
+     "loss": 0.0025978649500757456,
+     "step": 2750,
+     "wall": 1505.5676849690008
+    },
+    {
+     "applicability": 6.642494554398581e-05,
+     "loss": 0.002558270003646612,
+     "step": 3000,
+     "wall": 1642.6639706580008
+    }
+   ],
+   "n_isa_rows": 0,
+   "n_meaningless_train": 0,
+   "object_members": [
+    "apple",
+    "banana",
+    "carrot",
+    "cherry",
+    "chocolate",
+    "cloud",
+    "coal",
+    "feather",
+    "grape",
+    "grass",
+    "leaf",
+    "lemon",
+    "night-sky",
+    "plum",
+    "sea",
+    "sky",
+    "snow",
+    "strawberry",
+    "sun",
+    "tangerine",
+    "thunder",
+    "tomato"
+   ],
+   "reads": {
+    "M_sets": {
+     "M-cat": {
+      "confirmed": 0.025666666666666667,
+      "confirmed_gated": 0.025666666666666667,
+      "n": 3000,
+      "recognized": 0.0
+     },
+     "M-in": {
+      "confirmed": 0.02266666666666667,
+      "confirmed_gated": 0.02266666666666667,
+      "n": 3000,
+      "recognized": 0.0
+     },
+     "M-rel": {
+      "confirmed": 0.07933333333333334,
+      "confirmed_gated": 0.07933333333333334,
+      "n": 3000,
+      "recognized": 0.0
+     }
+    },
+    "cow_parent_of_moo": {
+     "app": 0.9998941421508789,
+     "confirmed": 0.0,
+     "sig": 0.9945388436317444,
+     "sm": 0.9989595413208008,
+     "sp": 0.0022126282565295696
+    },
+    "full_graph": {
+     "meaningless_confirmed": 48494,
+     "meaningless_confirmed_gated": 48494,
+     "meaningless_total": 1567101,
+     "true_confirmed": 1298,
+     "true_confirmed_gated": 1298,
+     "true_total": 1690
+    },
+    "sound_isa": {
+     "support_false": 0.34407368302345276,
+     "support_true": 0.28713834285736084
+    },
+    "taught_kept_meaningful": 1.0,
+    "taught_kept_meaningful_true": 1.0,
+    "truth": {
+     "G2": {
+      "intuition": 0.7473798829454199,
+      "logic": 0.8638900231386961,
+      "logic_with_M": 0.8638900231386961,
+      "meaningless_rate": 0.0
+     },
+     "G4": {
+      "intuition": 0.5865384615384616,
+      "logic": 0.5224358974358974,
+      "logic_with_M": 0.5224358974358974,
+      "meaningless_rate": 0.0
+     },
+     "L1-anc": {
+      "intuition": 0.7222222222222222,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "L1-kind": {
+      "intuition": 0.6571428571428571,
+      "logic": 0.07142857142857142,
+      "logic_with_M": 0.07142857142857142,
+      "meaningless_rate": 0.0
+     },
+     "L1-size": {
+      "intuition": 0.9611111111111111,
+      "logic": 0.011111111111111112,
+      "logic_with_M": 0.011111111111111112,
+      "meaningless_rate": 0.0
+     },
+     "L2-named": {
+      "intuition": 0.9326923076923077,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "P1-default": {
+      "intuition": 0.922806524184477,
+      "logic": 0.8020247469066366,
+      "logic_with_M": 0.8020247469066366,
+      "meaningless_rate": 0.0
+     },
+     "P2": {
+      "intuition": 0.6771981939163498,
+      "logic": 0.6357176806083651,
+      "logic_with_M": 0.6357176806083651,
+      "meaningless_rate": 0.0
+     },
+     "P3": {
+      "intuition": 0.76136140074759,
+      "logic": 0.6282051282051282,
+      "logic_with_M": 0.6282051282051282,
+      "meaningless_rate": 0.0
+     },
+     "P4": {
+      "intuition": 0.8402777777777778,
+      "logic": 0.6597222222222222,
+      "logic_with_M": 0.6597222222222222,
+      "meaningless_rate": 0.0
+     },
+     "P6-colour": {
+      "intuition": 0.6004901960784313,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "P6-grandparent": {
+      "intuition": 1.0,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     }
+    }
+   },
+   "seed": 452
+  },
+  "base/seed453": {
+   "arm": "base",
+   "categories": {
+    "ability": 5,
+    "body-part": 11,
+    "colour": 11,
+    "food": 5,
+    "habitat": 4,
+    "object": 22,
+    "person": 42,
+    "property": 16,
+    "sound": 16,
+    "substance": 6
+   },
+   "checkpoint": {
+    "file": "runs/type-meanings-v1/base-seed453.pt",
+    "sha256": "bcd3dfd00c7be75ca74362f5f8f7f46768f7acc1c92aed852b944b06dbcdb270"
+   },
+   "log": [
+    {
+     "applicability": 4.540522786555812e-05,
+     "loss": 0.006482770200818777,
+     "step": 250,
+     "wall": 136.18456454399893
+    },
+    {
+     "applicability": 0.0003188590635545552,
+     "loss": 1.1552417278289795,
+     "step": 500,
+     "wall": 272.68623081699843
+    },
+    {
+     "applicability": 0.0001085941621568054,
+     "loss": 0.004854531958699226,
+     "step": 750,
+     "wall": 409.2590975160001
+    },
+    {
+     "applicability": 8.825262921163812e-05,
+     "loss": 0.003297253046184778,
+     "step": 1000,
+     "wall": 545.8966917999987
+    },
+    {
+     "applicability": 6.899752042954788e-05,
+     "loss": 0.002969134598970413,
+     "step": 1250,
+     "wall": 682.7518458630002
+    },
+    {
+     "applicability": 6.470336666097865e-05,
+     "loss": 0.0028299519326537848,
+     "step": 1500,
+     "wall": 819.4631292999984
+    },
+    {
+     "applicability": 6.420657155103981e-05,
+     "loss": 0.002746972953900695,
+     "step": 1750,
+     "wall": 956.396280085999
+    },
+    {
+     "applicability": 6.398145342245698e-05,
+     "loss": 0.002686090301722288,
+     "step": 2000,
+     "wall": 1092.7490779889995
+    },
+    {
+     "applicability": 7.390783866867423e-05,
+     "loss": 0.005619352217763662,
+     "step": 2250,
+     "wall": 1229.714945841999
+    },
+    {
+     "applicability": 7.252067734953016e-05,
+     "loss": 0.0028860075399279594,
+     "step": 2500,
+     "wall": 1365.9920934049987
+    },
+    {
+     "applicability": 7.117284985724837e-05,
+     "loss": 0.0027363516855984926,
+     "step": 2750,
+     "wall": 1502.641758202999
+    },
+    {
+     "applicability": 7.000813639024273e-05,
+     "loss": 0.0026387134566903114,
+     "step": 3000,
+     "wall": 1639.6718409099994
+    }
+   ],
+   "n_isa_rows": 0,
+   "n_meaningless_train": 0,
+   "object_members": [
+    "apple",
+    "banana",
+    "carrot",
+    "cherry",
+    "chocolate",
+    "cloud",
+    "coal",
+    "feather",
+    "grape",
+    "grass",
+    "leaf",
+    "lemon",
+    "night-sky",
+    "plum",
+    "sea",
+    "sky",
+    "snow",
+    "strawberry",
+    "sun",
+    "tangerine",
+    "thunder",
+    "tomato"
+   ],
+   "reads": {
+    "M_sets": {
+     "M-cat": {
+      "confirmed": 0.011666666666666667,
+      "confirmed_gated": 0.011666666666666667,
+      "n": 3000,
+      "recognized": 0.0
+     },
+     "M-in": {
+      "confirmed": 0.020666666666666667,
+      "confirmed_gated": 0.020666666666666667,
+      "n": 3000,
+      "recognized": 0.0
+     },
+     "M-rel": {
+      "confirmed": 0.04033333333333333,
+      "confirmed_gated": 0.04033333333333333,
+      "n": 3000,
+      "recognized": 0.0
+     }
+    },
+    "cow_parent_of_moo": {
+     "app": 0.9993390440940857,
+     "confirmed": 1.0,
+     "sig": 0.9997768998146057,
+     "sm": 5.9830843383679166e-05,
+     "sp": 0.999957799911499
+    },
+    "full_graph": {
+     "meaningless_confirmed": 32223,
+     "meaningless_confirmed_gated": 32223,
+     "meaningless_total": 1567101,
+     "true_confirmed": 1266,
+     "true_confirmed_gated": 1266,
+     "true_total": 1690
+    },
+    "sound_isa": {
+     "support_false": 0.006139696575701237,
+     "support_true": 0.008266680873930454
+    },
+    "taught_kept_meaningful": 1.0,
+    "taught_kept_meaningful_true": 1.0,
+    "truth": {
+     "G2": {
+      "intuition": 0.6843609636586362,
+      "logic": 0.6870831631958623,
+      "logic_with_M": 0.6870831631958623,
+      "meaningless_rate": 0.0
+     },
+     "G4": {
+      "intuition": 0.6105769230769231,
+      "logic": 0.5240384615384616,
+      "logic_with_M": 0.5240384615384616,
+      "meaningless_rate": 0.0
+     },
+     "L1-anc": {
+      "intuition": 0.7777777777777778,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "L1-kind": {
+      "intuition": 0.7339285714285715,
+      "logic": 0.03571428571428571,
+      "logic_with_M": 0.03571428571428571,
+      "meaningless_rate": 0.0
+     },
+     "L1-size": {
+      "intuition": 0.95,
+      "logic": 0.016666666666666666,
+      "logic_with_M": 0.016666666666666666,
+      "meaningless_rate": 0.0
+     },
+     "L2-named": {
+      "intuition": 0.9230769230769231,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "P1-default": {
+      "intuition": 0.8771091113610798,
+      "logic": 0.8217097862767154,
+      "logic_with_M": 0.8217097862767154,
+      "meaningless_rate": 0.0
+     },
+     "P2": {
+      "intuition": 0.7248831590621039,
+      "logic": 0.5690470532319392,
+      "logic_with_M": 0.5690470532319392,
+      "meaningless_rate": 0.0
+     },
+     "P3": {
+      "intuition": 0.7252606728310054,
+      "logic": 0.6365663322185061,
+      "logic_with_M": 0.6365663322185061,
+      "meaningless_rate": 0.0
+     },
+     "P4": {
+      "intuition": 0.7291666666666666,
+      "logic": 0.6736111111111112,
+      "logic_with_M": 0.6736111111111112,
+      "meaningless_rate": 0.0
+     },
+     "P6-colour": {
+      "intuition": 0.5950980392156863,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "P6-grandparent": {
+      "intuition": 0.975,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     }
+    }
+   },
+   "seed": 453
+  },
+  "isa+meaningless/seed450": {
+   "arm": "isa+meaningless",
+   "categories": {
+    "ability": 5,
+    "body-part": 11,
+    "colour": 11,
+    "food": 5,
+    "habitat": 4,
+    "object": 22,
+    "person": 42,
+    "property": 16,
+    "sound": 16,
+    "substance": 6
+   },
+   "checkpoint": {
+    "file": "runs/type-meanings-v1/isa+meaningless-seed450.pt",
+    "sha256": "61acfbc3480f412a7426a9659a6efed5db57c0570c72819e2ff60bdc83126b5a"
+   },
+   "log": [
+    {
+     "applicability": 0.000643666775431484,
+     "loss": 0.007492245174944401,
+     "step": 250,
+     "wall": 152.64707293799984
+    },
+    {
+     "applicability": 0.010757518000900745,
+     "loss": 0.36080288887023926,
+     "step": 500,
+     "wall": 260.36071843399986
+    },
+    {
+     "applicability": 0.0005267855594865978,
+     "loss": 0.007572965230792761,
+     "step": 750,
+     "wall": 347.9326579990011
+    },
+    {
+     "applicability": 0.00042772936285473406,
+     "loss": 0.004472920671105385,
+     "step": 1000,
+     "wall": 440.7444037260011
+    },
+    {
+     "applicability": 0.00040077808080241084,
+     "loss": 0.003801726968958974,
+     "step": 1250,
+     "wall": 529.9984990650009
+    },
+    {
+     "applicability": 0.00039137672865763307,
+     "loss": 0.003504496533423662,
+     "step": 1500,
+     "wall": 626.6045525959998
+    },
+    {
+     "applicability": 0.00038540083914995193,
+     "loss": 0.003331173211336136,
+     "step": 1750,
+     "wall": 709.7131132049999
+    },
+    {
+     "applicability": 0.00037992827128618956,
+     "loss": 0.0032137478701770306,
+     "step": 2000,
+     "wall": 794.1121332710009
+    },
+    {
+     "applicability": 0.0003747164737433195,
+     "loss": 0.0031336320098489523,
+     "step": 2250,
+     "wall": 879.7893501039998
+    },
+    {
+     "applicability": 0.00036856374936178327,
+     "loss": 0.003063638461753726,
+     "step": 2500,
+     "wall": 976.6477853350007
+    },
+    {
+     "applicability": 0.00037935521686449647,
+     "loss": 0.004881426692008972,
+     "step": 2750,
+     "wall": 1073.2421937889994
+    },
+    {
+     "applicability": 0.0003455030091572553,
+     "loss": 0.0034654198680073023,
+     "step": 3000,
+     "wall": 1171.424092612
+    }
+   ],
+   "n_isa_rows": 1606,
+   "n_meaningless_train": 2700,
+   "object_members": [
+    "apple",
+    "banana",
+    "carrot",
+    "cherry",
+    "chocolate",
+    "cloud",
+    "coal",
+    "feather",
+    "grape",
+    "grass",
+    "leaf",
+    "lemon",
+    "night-sky",
+    "plum",
+    "sea",
+    "sky",
+    "snow",
+    "strawberry",
+    "sun",
+    "tangerine",
+    "thunder",
+    "tomato"
+   ],
+   "reads": {
+    "M_sets": {
+     "M-cat": {
+      "confirmed": 0.024,
+      "confirmed_gated": 0.0033333333333333335,
+      "n": 3000,
+      "recognized": 0.886
+     },
+     "M-in": {
+      "confirmed": 0.024,
+      "confirmed_gated": 0.0006666666666666666,
+      "n": 3000,
+      "recognized": 0.9613333333333334
+     },
+     "M-rel": {
+      "confirmed": 0.048,
+      "confirmed_gated": 0.034,
+      "n": 3000,
+      "recognized": 0.397
+     }
+    },
+    "cow_parent_of_moo": {
+     "app": 0.04181878641247749,
+     "confirmed": 1.0,
+     "sig": 0.9996486902236938,
+     "sm": 0.22037991881370544,
+     "sp": 0.8523257374763489
+    },
+    "full_graph": {
+     "meaningless_confirmed": 39854,
+     "meaningless_confirmed_gated": 11638,
+     "meaningless_total": 1567101,
+     "true_confirmed": 1278,
+     "true_confirmed_gated": 1275,
+     "true_total": 1690
+    },
+    "sound_isa": {
+     "support_false": 0.020548049360513687,
+     "support_true": 0.984984278678894
+    },
+    "taught_kept_meaningful": 0.9939152187140828,
+    "taught_kept_meaningful_true": 0.9905325443786982,
+    "truth": {
+     "G2": {
+      "intuition": 0.652715394038383,
+      "logic": 0.7173676330475024,
+      "logic_with_M": 0.7173676330475024,
+      "meaningless_rate": 0.0
+     },
+     "G4": {
+      "intuition": 0.5993589743589743,
+      "logic": 0.5240384615384616,
+      "logic_with_M": 0.5240384615384616,
+      "meaningless_rate": 0.0
+     },
+     "L1-anc": {
+      "intuition": 0.75,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "L1-kind": {
+      "intuition": 0.7583333333333333,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "L1-size": {
+      "intuition": 0.9611111111111111,
+      "logic": 0.005555555555555556,
+      "logic_with_M": 0.005555555555555556,
+      "meaningless_rate": 0.0
+     },
+     "L2-named": {
+      "intuition": 0.8894230769230769,
+      "logic": 0.009615384615384616,
+      "logic_with_M": 0.009615384615384616,
+      "meaningless_rate": 0.0
+     },
+     "P1-default": {
+      "intuition": 0.8652980877390326,
+      "logic": 0.8023059617547806,
+      "logic_with_M": 0.8023059617547806,
+      "meaningless_rate": 0.0
+     },
+     "P2": {
+      "intuition": 0.7189975443599492,
+      "logic": 0.6182945183776933,
+      "logic_with_M": 0.6156903517110266,
+      "meaningless_rate": 0.004905968928863451
+     },
+     "P3": {
+      "intuition": 0.7544429142894616,
+      "logic": 0.6131549609810479,
+      "logic_with_M": 0.6081382385730212,
+      "meaningless_rate": 0.02
+     },
+     "P4": {
+      "intuition": 0.8333333333333333,
+      "logic": 0.7916666666666667,
+      "logic_with_M": 0.7430555555555556,
+      "meaningless_rate": 0.09027777777777778
+     },
+     "P6-colour": {
+      "intuition": 0.5151960784313725,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "P6-grandparent": {
+      "intuition": 1.0,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     }
+    }
+   },
+   "seed": 450
+  },
+  "isa+meaningless/seed451": {
+   "arm": "isa+meaningless",
+   "categories": {
+    "ability": 5,
+    "body-part": 11,
+    "colour": 11,
+    "food": 5,
+    "habitat": 4,
+    "object": 22,
+    "person": 42,
+    "property": 16,
+    "sound": 16,
+    "substance": 6
+   },
+   "checkpoint": {
+    "file": "runs/type-meanings-v1/isa+meaningless-seed451.pt",
+    "sha256": "c411e54d453472b05ef9f640936d8e074186ae882222b81dd3dba03b5e4b647f"
+   },
+   "log": [
+    {
+     "applicability": 0.0006753357592970133,
+     "loss": 0.00823030062019825,
+     "step": 250,
+     "wall": 152.69881376400008
+    },
+    {
+     "applicability": 0.0004686104948632419,
+     "loss": 0.004502241965383291,
+     "step": 500,
+     "wall": 246.90208336700016
+    },
+    {
+     "applicability": 0.0005119557026773691,
+     "loss": 0.010576576925814152,
+     "step": 750,
+     "wall": 346.54310096300105
+    },
+    {
+     "applicability": 0.00043326662853360176,
+     "loss": 0.005309504922479391,
+     "step": 1000,
+     "wall": 442.3105899180009
+    },
+    {
+     "applicability": 0.0003974506980739534,
+     "loss": 0.003998978529125452,
+     "step": 1250,
+     "wall": 538.8615137100005
+    },
+    {
+     "applicability": 0.0003785078879445791,
+     "loss": 0.0035278473515063524,
+     "step": 1500,
+     "wall": 639.3310059440009
+    },
+    {
+     "applicability": 0.00036889492184855044,
+     "loss": 0.003280367236584425,
+     "step": 1750,
+     "wall": 738.8922688740004
+    },
+    {
+     "applicability": 0.00036254856968298554,
+     "loss": 0.003122726920992136,
+     "step": 2000,
+     "wall": 838.7090869389995
+    },
+    {
+     "applicability": 0.0003573235298972577,
+     "loss": 0.0030302703380584717,
+     "step": 2250,
+     "wall": 938.4702821089995
+    },
+    {
+     "applicability": 0.00035321267205290496,
+     "loss": 0.002964003011584282,
+     "step": 2500,
+     "wall": 1038.6590706370007
+    },
+    {
+     "applicability": 0.0003683607210405171,
+     "loss": 0.0050378721207380295,
+     "step": 2750,
+     "wall": 1124.0987913589997
+    },
+    {
+     "applicability": 0.00033270218409597874,
+     "loss": 0.0034003001637756824,
+     "step": 3000,
+     "wall": 1208.1251016610004
+    }
+   ],
+   "n_isa_rows": 1606,
+   "n_meaningless_train": 2700,
+   "object_members": [
+    "apple",
+    "banana",
+    "carrot",
+    "cherry",
+    "chocolate",
+    "cloud",
+    "coal",
+    "feather",
+    "grape",
+    "grass",
+    "leaf",
+    "lemon",
+    "night-sky",
+    "plum",
+    "sea",
+    "sky",
+    "snow",
+    "strawberry",
+    "sun",
+    "tangerine",
+    "thunder",
+    "tomato"
+   ],
+   "reads": {
+    "M_sets": {
+     "M-cat": {
+      "confirmed": 0.003,
+      "confirmed_gated": 0.002,
+      "n": 3000,
+      "recognized": 0.8573333333333333
+     },
+     "M-in": {
+      "confirmed": 0.0013333333333333333,
+      "confirmed_gated": 0.0,
+      "n": 3000,
+      "recognized": 0.9613333333333334
+     },
+     "M-rel": {
+      "confirmed": 0.03,
+      "confirmed_gated": 0.02666666666666667,
+      "n": 3000,
+      "recognized": 0.35533333333333333
+     }
+    },
+    "cow_parent_of_moo": {
+     "app": 0.0002905265137087554,
+     "confirmed": 0.0,
+     "sig": 0.9876684546470642,
+     "sm": 0.9980212450027466,
+     "sp": 0.0047261593863368034
+    },
+    "full_graph": {
+     "meaningless_confirmed": 11825,
+     "meaningless_confirmed_gated": 8399,
+     "meaningless_total": 1567101,
+     "true_confirmed": 1210,
+     "true_confirmed_gated": 1209,
+     "true_total": 1690
+    },
+    "sound_isa": {
+     "support_false": 0.013345776125788689,
+     "support_true": 0.9898148775100708
+    },
+    "taught_kept_meaningful": 0.9975660874856331,
+    "taught_kept_meaningful_true": 0.9952662721893492,
+    "truth": {
+     "G2": {
+      "intuition": 0.649993194501157,
+      "logic": 0.6626514223492582,
+      "logic_with_M": 0.6626514223492582,
+      "meaningless_rate": 0.0
+     },
+     "G4": {
+      "intuition": 0.5368589743589743,
+      "logic": 0.5480769230769231,
+      "logic_with_M": 0.5480769230769231,
+      "meaningless_rate": 0.0
+     },
+     "L1-anc": {
+      "intuition": 0.6944444444444444,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "L1-kind": {
+      "intuition": 0.8357142857142856,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "L1-size": {
+      "intuition": 0.95,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "L2-named": {
+      "intuition": 0.8942307692307692,
+      "logic": 0.019230769230769232,
+      "logic_with_M": 0.019230769230769232,
+      "meaningless_rate": 0.0
+     },
+     "P1-default": {
+      "intuition": 0.84533183352081,
+      "logic": 0.7384701912260967,
+      "logic_with_M": 0.7305961754780652,
+      "meaningless_rate": 0.012903225806451613
+     },
+     "P2": {
+      "intuition": 0.6369613434727504,
+      "logic": 0.6114721958174905,
+      "logic_with_M": 0.6099096958174905,
+      "meaningless_rate": 0.003270645952575634
+     },
+     "P3": {
+      "intuition": 0.7252606728310054,
+      "logic": 0.6298773690078038,
+      "logic_with_M": 0.6198439241917503,
+      "meaningless_rate": 0.017142857142857144
+     },
+     "P4": {
+      "intuition": 0.7777777777777778,
+      "logic": 0.6666666666666666,
+      "logic_with_M": 0.5902777777777778,
+      "meaningless_rate": 0.1111111111111111
+     },
+     "P6-colour": {
+      "intuition": 0.5426470588235295,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "P6-grandparent": {
+      "intuition": 1.0,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     }
+    }
+   },
+   "seed": 451
+  },
+  "isa+meaningless/seed452": {
+   "arm": "isa+meaningless",
+   "categories": {
+    "ability": 5,
+    "body-part": 11,
+    "colour": 11,
+    "food": 5,
+    "habitat": 4,
+    "object": 22,
+    "person": 42,
+    "property": 16,
+    "sound": 16,
+    "substance": 6
+   },
+   "checkpoint": {
+    "file": "runs/type-meanings-v1/isa+meaningless-seed452.pt",
+    "sha256": "9d820352b4c98f5f367bf1df804678f2b3f282869a67ffac7723c6f77a87345a"
+   },
+   "log": [
+    {
+     "applicability": 0.0006629340350627899,
+     "loss": 0.007728896103799343,
+     "step": 250,
+     "wall": 109.93481878800048
+    },
+    {
+     "applicability": 0.004912268370389938,
+     "loss": 0.12391133606433868,
+     "step": 500,
+     "wall": 212.32291059800082
+    },
+    {
+     "applicability": 0.0004849450197070837,
+     "loss": 0.007665899582207203,
+     "step": 750,
+     "wall": 313.8864942750006
+    },
+    {
+     "applicability": 0.0004299564170651138,
+     "loss": 0.004760247189551592,
+     "step": 1000,
+     "wall": 414.46166420100053
+    },
+    {
+     "applicability": 0.0004071576986461878,
+     "loss": 0.003533524228259921,
+     "step": 1250,
+     "wall": 503.92944779699974
+    },
+    {
+     "applicability": 0.00039709097472950816,
+     "loss": 0.0033099695574492216,
+     "step": 1500,
+     "wall": 604.4792620110002
+    },
+    {
+     "applicability": 0.0003910867962986231,
+     "loss": 0.0031783354934304953,
+     "step": 1750,
+     "wall": 705.5972767139992
+    },
+    {
+     "applicability": 0.0003853410598821938,
+     "loss": 0.003112869570031762,
+     "step": 2000,
+     "wall": 794.7970165009992
+    },
+    {
+     "applicability": 0.0003799250698648393,
+     "loss": 0.003052075393497944,
+     "step": 2250,
+     "wall": 881.7507125920001
+    },
+    {
+     "applicability": 0.00037379012792371213,
+     "loss": 0.002999181393533945,
+     "step": 2500,
+     "wall": 975.2203653439992
+    },
+    {
+     "applicability": 0.0004144746344536543,
+     "loss": 0.005434712395071983,
+     "step": 2750,
+     "wall": 1068.9493333259998
+    },
+    {
+     "applicability": 0.0003518369630910456,
+     "loss": 0.0034442965406924486,
+     "step": 3000,
+     "wall": 1138.7264913309991
+    }
+   ],
+   "n_isa_rows": 1606,
+   "n_meaningless_train": 2700,
+   "object_members": [
+    "apple",
+    "banana",
+    "carrot",
+    "cherry",
+    "chocolate",
+    "cloud",
+    "coal",
+    "feather",
+    "grape",
+    "grass",
+    "leaf",
+    "lemon",
+    "night-sky",
+    "plum",
+    "sea",
+    "sky",
+    "snow",
+    "strawberry",
+    "sun",
+    "tangerine",
+    "thunder",
+    "tomato"
+   ],
+   "reads": {
+    "M_sets": {
+     "M-cat": {
+      "confirmed": 0.014666666666666666,
+      "confirmed_gated": 0.0036666666666666666,
+      "n": 3000,
+      "recognized": 0.8716666666666667
+     },
+     "M-in": {
+      "confirmed": 0.019,
+      "confirmed_gated": 0.0013333333333333333,
+      "n": 3000,
+      "recognized": 0.957
+     },
+     "M-rel": {
+      "confirmed": 0.03866666666666667,
+      "confirmed_gated": 0.02033333333333333,
+      "n": 3000,
+      "recognized": 0.5116666666666667
+     }
+    },
+    "cow_parent_of_moo": {
+     "app": 0.9099752902984619,
+     "confirmed": 0.0,
+     "sig": 0.8033779263496399,
+     "sm": 0.999982476234436,
+     "sp": 2.8249292881810106e-05
+    },
+    "full_graph": {
+     "meaningless_confirmed": 31073,
+     "meaningless_confirmed_gated": 8417,
+     "meaningless_total": 1567101,
+     "true_confirmed": 1281,
+     "true_confirmed_gated": 1273,
+     "true_total": 1690
+    },
+    "sound_isa": {
+     "support_false": 0.014766709879040718,
+     "support_true": 0.987186849117279
+    },
+    "taught_kept_meaningful": 0.9956730444189034,
+    "taught_kept_meaningful_true": 0.9905325443786982,
+    "truth": {
+     "G2": {
+      "intuition": 0.7228120321219546,
+      "logic": 0.8462637811351572,
+      "logic_with_M": 0.8462637811351572,
+      "meaningless_rate": 0.0
+     },
+     "G4": {
+      "intuition": 0.5737179487179487,
+      "logic": 0.5352564102564102,
+      "logic_with_M": 0.5352564102564102,
+      "meaningless_rate": 0.0
+     },
+     "L1-anc": {
+      "intuition": 0.7222222222222222,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "L1-kind": {
+      "intuition": 0.7958333333333334,
+      "logic": 0.014285714285714285,
+      "logic_with_M": 0.014285714285714285,
+      "meaningless_rate": 0.0
+     },
+     "L1-size": {
+      "intuition": 0.9388888888888889,
+      "logic": 0.03888888888888889,
+      "logic_with_M": 0.03888888888888889,
+      "meaningless_rate": 0.0
+     },
+     "L2-named": {
+      "intuition": 0.9086538461538461,
+      "logic": 0.019230769230769232,
+      "logic_with_M": 0.019230769230769232,
+      "meaningless_rate": 0.0
+     },
+     "P1-default": {
+      "intuition": 0.8892013498312711,
+      "logic": 0.8077896512935883,
+      "logic_with_M": 0.8077896512935883,
+      "meaningless_rate": 0.0
+     },
+     "P2": {
+      "intuition": 0.6738652566539924,
+      "logic": 0.5816005228136882,
+      "logic_with_M": 0.5763921894803549,
+      "meaningless_rate": 0.009811937857726901
+     },
+     "P3": {
+      "intuition": 0.7140140337071283,
+      "logic": 0.6427962489343564,
+      "logic_with_M": 0.5904321594858679,
+      "meaningless_rate": 0.02
+     },
+     "P4": {
+      "intuition": 0.8402777777777778,
+      "logic": 0.7222222222222222,
+      "logic_with_M": 0.6388888888888888,
+      "meaningless_rate": 0.1111111111111111
+     },
+     "P6-colour": {
+      "intuition": 0.5509803921568628,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "P6-grandparent": {
+      "intuition": 1.0,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     }
+    }
+   },
+   "seed": 452
+  },
+  "isa+meaningless/seed453": {
+   "arm": "isa+meaningless",
+   "categories": {
+    "ability": 5,
+    "body-part": 11,
+    "colour": 11,
+    "food": 5,
+    "habitat": 4,
+    "object": 22,
+    "person": 42,
+    "property": 16,
+    "sound": 16,
+    "substance": 6
+   },
+   "checkpoint": {
+    "file": "runs/type-meanings-v1/isa+meaningless-seed453.pt",
+    "sha256": "d292eb7e4bccec58c59cf7631a585edd925b9cfb34276328340b33552b45e0ed"
+   },
+   "log": [
+    {
+     "applicability": 0.0006601014174520969,
+     "loss": 0.007932048290967941,
+     "step": 250,
+     "wall": 106.84786723200159
+    },
+    {
+     "applicability": 0.00045769644202664495,
+     "loss": 0.004299517720937729,
+     "step": 500,
+     "wall": 202.2636445950011
+    },
+    {
+     "applicability": 0.0005482895066961646,
+     "loss": 0.011621684767305851,
+     "step": 750,
+     "wall": 291.0209586560013
+    },
+    {
+     "applicability": 0.00043230800656601787,
+     "loss": 0.005284998565912247,
+     "step": 1000,
+     "wall": 386.8427680140012
+    },
+    {
+     "applicability": 0.0003945047501474619,
+     "loss": 0.003955467138439417,
+     "step": 1250,
+     "wall": 484.091433304
+    },
+    {
+     "applicability": 0.00037828099448233843,
+     "loss": 0.0034923520870506763,
+     "step": 1500,
+     "wall": 583.3017075860007
+    },
+    {
+     "applicability": 0.0003698567452374846,
+     "loss": 0.0032569796312600374,
+     "step": 1750,
+     "wall": 683.3692728290007
+    },
+    {
+     "applicability": 0.0003640417999122292,
+     "loss": 0.003134148195385933,
+     "step": 2000,
+     "wall": 781.7580421430011
+    },
+    {
+     "applicability": 0.0003590660053305328,
+     "loss": 0.003057806985452771,
+     "step": 2250,
+     "wall": 880.6346806790007
+    },
+    {
+     "applicability": 0.0004130598099436611,
+     "loss": 0.005099488887935877,
+     "step": 2500,
+     "wall": 981.4010399510007
+    },
+    {
+     "applicability": 0.0003447175258770585,
+     "loss": 0.003156566061079502,
+     "step": 2750,
+     "wall": 1071.7837026690013
+    },
+    {
+     "applicability": 0.0003401244175620377,
+     "loss": 0.0030019774567335844,
+     "step": 3000,
+     "wall": 1134.896482121001
+    }
+   ],
+   "n_isa_rows": 1606,
+   "n_meaningless_train": 2700,
+   "object_members": [
+    "apple",
+    "banana",
+    "carrot",
+    "cherry",
+    "chocolate",
+    "cloud",
+    "coal",
+    "feather",
+    "grape",
+    "grass",
+    "leaf",
+    "lemon",
+    "night-sky",
+    "plum",
+    "sea",
+    "sky",
+    "snow",
+    "strawberry",
+    "sun",
+    "tangerine",
+    "thunder",
+    "tomato"
+   ],
+   "reads": {
+    "M_sets": {
+     "M-cat": {
+      "confirmed": 0.019666666666666666,
+      "confirmed_gated": 0.003,
+      "n": 3000,
+      "recognized": 0.826
+     },
+     "M-in": {
+      "confirmed": 0.03333333333333333,
+      "confirmed_gated": 0.0023333333333333335,
+      "n": 3000,
+      "recognized": 0.9586666666666667
+     },
+     "M-rel": {
+      "confirmed": 0.065,
+      "confirmed_gated": 0.025333333333333333,
+      "n": 3000,
+      "recognized": 0.35933333333333334
+     }
+    },
+    "cow_parent_of_moo": {
+     "app": 0.0006289778975769877,
+     "confirmed": 1.0,
+     "sig": 0.9998074173927307,
+     "sm": 3.775446384679526e-05,
+     "sp": 0.9999665021896362
+    },
+    "full_graph": {
+     "meaningless_confirmed": 55124,
+     "meaningless_confirmed_gated": 10527,
+     "meaningless_total": 1567101,
+     "true_confirmed": 1247,
+     "true_confirmed_gated": 1244,
+     "true_total": 1690
+    },
+    "sound_isa": {
+     "support_false": 0.010935564525425434,
+     "support_true": 0.9934747219085693
+    },
+    "taught_kept_meaningful": 0.9960786965046312,
+    "taught_kept_meaningful_true": 0.9940828402366864,
+    "truth": {
+     "G2": {
+      "intuition": 0.6913025724785626,
+      "logic": 0.8968966925275623,
+      "logic_with_M": 0.8968966925275623,
+      "meaningless_rate": 0.0
+     },
+     "G4": {
+      "intuition": 0.5240384615384616,
+      "logic": 0.5737179487179487,
+      "logic_with_M": 0.5737179487179487,
+      "meaningless_rate": 0.0
+     },
+     "L1-anc": {
+      "intuition": 0.75,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "L1-kind": {
+      "intuition": 0.7321428571428572,
+      "logic": 0.08571428571428572,
+      "logic_with_M": 0.08571428571428572,
+      "meaningless_rate": 0.0
+     },
+     "L1-size": {
+      "intuition": 0.9388888888888889,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "L2-named": {
+      "intuition": 0.8942307692307692,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "P1-default": {
+      "intuition": 0.9206974128233971,
+      "logic": 0.8038526434195725,
+      "logic_with_M": 0.8038526434195725,
+      "meaningless_rate": 0.0
+     },
+     "P2": {
+      "intuition": 0.6979285487959442,
+      "logic": 0.5617811311787072,
+      "logic_with_M": 0.5586561311787073,
+      "meaningless_rate": 0.006541291905151268
+     },
+     "P3": {
+      "intuition": 0.7431962751655846,
+      "logic": 0.6315496098104794,
+      "logic_with_M": 0.6117122434257984,
+      "meaningless_rate": 0.022857142857142857
+     },
+     "P4": {
+      "intuition": 0.7222222222222222,
+      "logic": 0.6527777777777778,
+      "logic_with_M": 0.5902777777777778,
+      "meaningless_rate": 0.08333333333333333
+     },
+     "P6-colour": {
+      "intuition": 0.532843137254902,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "P6-grandparent": {
+      "intuition": 1.0,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     }
+    }
+   },
+   "seed": 453
+  },
+  "isa/seed450": {
+   "arm": "isa",
+   "categories": {
+    "ability": 5,
+    "body-part": 11,
+    "colour": 11,
+    "food": 5,
+    "habitat": 4,
+    "object": 22,
+    "person": 42,
+    "property": 16,
+    "sound": 16,
+    "substance": 6
+   },
+   "checkpoint": {
+    "file": "runs/type-meanings-v1/isa-seed450.pt",
+    "sha256": "6345e5c6f77fd35629664c3cacaaf53e308271d572c1735e602469c3d1737a48"
+   },
+   "log": [
+    {
+     "applicability": 5.259459067019634e-05,
+     "loss": 0.006908121518790722,
+     "step": 250,
+     "wall": 150.4861175829992
+    },
+    {
+     "applicability": 7.898549665696919e-05,
+     "loss": 0.00386410066857934,
+     "step": 500,
+     "wall": 300.9848243329998
+    },
+    {
+     "applicability": 8.325115777552128e-05,
+     "loss": 0.010515092872083187,
+     "step": 750,
+     "wall": 451.88283736799895
+    },
+    {
+     "applicability": 6.668217247352004e-05,
+     "loss": 0.00500580994412303,
+     "step": 1000,
+     "wall": 602.6870124399993
+    },
+    {
+     "applicability": 6.196219328558072e-05,
+     "loss": 0.0038677682168781757,
+     "step": 1250,
+     "wall": 754.0483281899997
+    },
+    {
+     "applicability": 6.030669101164676e-05,
+     "loss": 0.0033112098462879658,
+     "step": 1500,
+     "wall": 905.5210522540001
+    },
+    {
+     "applicability": 6.131584814283997e-05,
+     "loss": 0.0028218883089721203,
+     "step": 1750,
+     "wall": 1056.3267187049987
+    },
+    {
+     "applicability": 6.0535865486599505e-05,
+     "loss": 0.002753675449639559,
+     "step": 2000,
+     "wall": 1207.4767552510002
+    },
+    {
+     "applicability": 6.827410834375769e-05,
+     "loss": 0.0034986110404133797,
+     "step": 2250,
+     "wall": 1358.7408873219993
+    },
+    {
+     "applicability": 6.664288230240345e-05,
+     "loss": 0.002924337750300765,
+     "step": 2500,
+     "wall": 1509.793098008
+    },
+    {
+     "applicability": 6.608098919969052e-05,
+     "loss": 0.0027720483485609293,
+     "step": 2750,
+     "wall": 1663.573849512999
+    },
+    {
+     "applicability": 6.56243137200363e-05,
+     "loss": 0.0026973376516252756,
+     "step": 3000,
+     "wall": 1813.2685793349992
+    }
+   ],
+   "n_isa_rows": 1606,
+   "n_meaningless_train": 0,
+   "object_members": [
+    "apple",
+    "banana",
+    "carrot",
+    "cherry",
+    "chocolate",
+    "cloud",
+    "coal",
+    "feather",
+    "grape",
+    "grass",
+    "leaf",
+    "lemon",
+    "night-sky",
+    "plum",
+    "sea",
+    "sky",
+    "snow",
+    "strawberry",
+    "sun",
+    "tangerine",
+    "thunder",
+    "tomato"
+   ],
+   "reads": {
+    "M_sets": {
+     "M-cat": {
+      "confirmed": 0.015,
+      "confirmed_gated": 0.015,
+      "n": 3000,
+      "recognized": 0.0
+     },
+     "M-in": {
+      "confirmed": 0.018,
+      "confirmed_gated": 0.018,
+      "n": 3000,
+      "recognized": 0.0
+     },
+     "M-rel": {
+      "confirmed": 0.056,
+      "confirmed_gated": 0.056,
+      "n": 3000,
+      "recognized": 0.0
+     }
+    },
+    "cow_parent_of_moo": {
+     "app": 0.9997836947441101,
+     "confirmed": 1.0,
+     "sig": 0.9996486902236938,
+     "sm": 0.01892499066889286,
+     "sp": 0.9903140664100647
+    },
+    "full_graph": {
+     "meaningless_confirmed": 37884,
+     "meaningless_confirmed_gated": 37884,
+     "meaningless_total": 1567101,
+     "true_confirmed": 1287,
+     "true_confirmed_gated": 1287,
+     "true_total": 1690
+    },
+    "sound_isa": {
+     "support_false": 0.01197690237313509,
+     "support_true": 0.9842780232429504
+    },
+    "taught_kept_meaningful": 1.0,
+    "taught_kept_meaningful_true": 1.0,
+    "truth": {
+     "G2": {
+      "intuition": 0.652715394038383,
+      "logic": 0.7959030896964747,
+      "logic_with_M": 0.7959030896964747,
+      "meaningless_rate": 0.0
+     },
+     "G4": {
+      "intuition": 0.5993589743589743,
+      "logic": 0.5352564102564102,
+      "logic_with_M": 0.5352564102564102,
+      "meaningless_rate": 0.0
+     },
+     "L1-anc": {
+      "intuition": 0.75,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "L1-kind": {
+      "intuition": 0.7583333333333333,
+      "logic": 0.02142857142857143,
+      "logic_with_M": 0.02142857142857143,
+      "meaningless_rate": 0.0
+     },
+     "L1-size": {
+      "intuition": 0.9611111111111111,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "L2-named": {
+      "intuition": 0.8894230769230769,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "P1-default": {
+      "intuition": 0.8652980877390326,
+      "logic": 0.8398481439820022,
+      "logic_with_M": 0.8398481439820022,
+      "meaningless_rate": 0.0
+     },
+     "P2": {
+      "intuition": 0.7189975443599492,
+      "logic": 0.6093096482889734,
+      "logic_with_M": 0.6093096482889734,
+      "meaningless_rate": 0.0
+     },
+     "P3": {
+      "intuition": 0.7544429142894616,
+      "logic": 0.6250901698472031,
+      "logic_with_M": 0.6250901698472031,
+      "meaningless_rate": 0.0
+     },
+     "P4": {
+      "intuition": 0.8333333333333333,
+      "logic": 0.7291666666666667,
+      "logic_with_M": 0.7291666666666667,
+      "meaningless_rate": 0.0
+     },
+     "P6-colour": {
+      "intuition": 0.5151960784313725,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "P6-grandparent": {
+      "intuition": 1.0,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     }
+    }
+   },
+   "seed": 450
+  },
+  "isa/seed451": {
+   "arm": "isa",
+   "categories": {
+    "ability": 5,
+    "body-part": 11,
+    "colour": 11,
+    "food": 5,
+    "habitat": 4,
+    "object": 22,
+    "person": 42,
+    "property": 16,
+    "sound": 16,
+    "substance": 6
+   },
+   "checkpoint": {
+    "file": "runs/type-meanings-v1/isa-seed451.pt",
+    "sha256": "79de06e57c44346e8f7c1ba87075b46b35b469f410d882a3338cf0cb024224d4"
+   },
+   "log": [
+    {
+     "applicability": 3.9390448364429176e-05,
+     "loss": 0.008219738490879536,
+     "step": 250,
+     "wall": 150.43336350600111
+    },
+    {
+     "applicability": 0.0006474470137618482,
+     "loss": 0.620440661907196,
+     "step": 500,
+     "wall": 301.15512574999957
+    },
+    {
+     "applicability": 8.779373456491157e-05,
+     "loss": 0.008262614719569683,
+     "step": 750,
+     "wall": 451.12347419100115
+    },
+    {
+     "applicability": 7.294295210158452e-05,
+     "loss": 0.004868980497121811,
+     "step": 1000,
+     "wall": 600.7793422699997
+    },
+    {
+     "applicability": 6.897250568727031e-05,
+     "loss": 0.0034660124219954014,
+     "step": 1250,
+     "wall": 751.5505597709998
+    },
+    {
+     "applicability": 6.794674118282273e-05,
+     "loss": 0.0030738215427845716,
+     "step": 1500,
+     "wall": 901.9044997680012
+    },
+    {
+     "applicability": 6.731394387315959e-05,
+     "loss": 0.0028886720538139343,
+     "step": 1750,
+     "wall": 1051.9853504260009
+    },
+    {
+     "applicability": 6.660396320512518e-05,
+     "loss": 0.0027977991849184036,
+     "step": 2000,
+     "wall": 1202.302561128001
+    },
+    {
+     "applicability": 6.833748193457723e-05,
+     "loss": 0.003849669825285673,
+     "step": 2250,
+     "wall": 1352.0075105220003
+    },
+    {
+     "applicability": 6.942019535927102e-05,
+     "loss": 0.0030127561185508966,
+     "step": 2500,
+     "wall": 1502.2760038220003
+    },
+    {
+     "applicability": 6.940341700101271e-05,
+     "loss": 0.0028226429130882025,
+     "step": 2750,
+     "wall": 1654.4348055459996
+    },
+    {
+     "applicability": 6.896570994285867e-05,
+     "loss": 0.002744474448263645,
+     "step": 3000,
+     "wall": 1803.2502134940005
+    }
+   ],
+   "n_isa_rows": 1606,
+   "n_meaningless_train": 0,
+   "object_members": [
+    "apple",
+    "banana",
+    "carrot",
+    "cherry",
+    "chocolate",
+    "cloud",
+    "coal",
+    "feather",
+    "grape",
+    "grass",
+    "leaf",
+    "lemon",
+    "night-sky",
+    "plum",
+    "sea",
+    "sky",
+    "snow",
+    "strawberry",
+    "sun",
+    "tangerine",
+    "thunder",
+    "tomato"
+   ],
+   "reads": {
+    "M_sets": {
+     "M-cat": {
+      "confirmed": 0.006666666666666667,
+      "confirmed_gated": 0.006666666666666667,
+      "n": 3000,
+      "recognized": 0.0
+     },
+     "M-in": {
+      "confirmed": 0.008666666666666666,
+      "confirmed_gated": 0.008666666666666666,
+      "n": 3000,
+      "recognized": 0.0
+     },
+     "M-rel": {
+      "confirmed": 0.03866666666666667,
+      "confirmed_gated": 0.03866666666666667,
+      "n": 3000,
+      "recognized": 0.0
+     }
+    },
+    "cow_parent_of_moo": {
+     "app": 0.9996601343154907,
+     "confirmed": 0.0,
+     "sig": 0.9876684546470642,
+     "sm": 0.49383458495140076,
+     "sp": 0.5782474279403687
+    },
+    "full_graph": {
+     "meaningless_confirmed": 24853,
+     "meaningless_confirmed_gated": 24853,
+     "meaningless_total": 1567101,
+     "true_confirmed": 1191,
+     "true_confirmed_gated": 1191,
+     "true_total": 1690
+    },
+    "sound_isa": {
+     "support_false": 0.022895116358995438,
+     "support_true": 0.9866827130317688
+    },
+    "taught_kept_meaningful": 1.0,
+    "taught_kept_meaningful_true": 1.0,
+    "truth": {
+     "G2": {
+      "intuition": 0.649993194501157,
+      "logic": 0.7937933850551245,
+      "logic_with_M": 0.7937933850551245,
+      "meaningless_rate": 0.0
+     },
+     "G4": {
+      "intuition": 0.5368589743589743,
+      "logic": 0.5112179487179487,
+      "logic_with_M": 0.5112179487179487,
+      "meaningless_rate": 0.0
+     },
+     "L1-anc": {
+      "intuition": 0.6944444444444444,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "L1-kind": {
+      "intuition": 0.8357142857142856,
+      "logic": 0.014285714285714285,
+      "logic_with_M": 0.014285714285714285,
+      "meaningless_rate": 0.0
+     },
+     "L1-size": {
+      "intuition": 0.95,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "L2-named": {
+      "intuition": 0.8942307692307692,
+      "logic": 0.019230769230769232,
+      "logic_with_M": 0.019230769230769232,
+      "meaningless_rate": 0.0
+     },
+     "P1-default": {
+      "intuition": 0.84533183352081,
+      "logic": 0.8001968503937008,
+      "logic_with_M": 0.8001968503937008,
+      "meaningless_rate": 0.0
+     },
+     "P2": {
+      "intuition": 0.6369613434727504,
+      "logic": 0.5451916983523447,
+      "logic_with_M": 0.5451916983523447,
+      "meaningless_rate": 0.0
+     },
+     "P3": {
+      "intuition": 0.7252606728310054,
+      "logic": 0.6286641746999804,
+      "logic_with_M": 0.6286641746999804,
+      "meaningless_rate": 0.0
+     },
+     "P4": {
+      "intuition": 0.7777777777777778,
+      "logic": 0.7152777777777778,
+      "logic_with_M": 0.7152777777777778,
+      "meaningless_rate": 0.0
+     },
+     "P6-colour": {
+      "intuition": 0.5426470588235295,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "P6-grandparent": {
+      "intuition": 1.0,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     }
+    }
+   },
+   "seed": 451
+  },
+  "isa/seed452": {
+   "arm": "isa",
+   "categories": {
+    "ability": 5,
+    "body-part": 11,
+    "colour": 11,
+    "food": 5,
+    "habitat": 4,
+    "object": 22,
+    "person": 42,
+    "property": 16,
+    "sound": 16,
+    "substance": 6
+   },
+   "checkpoint": {
+    "file": "runs/type-meanings-v1/isa-seed452.pt",
+    "sha256": "e9348cc15ed6ef4c8fd6dae6c51bcad8cb9725ed9dfd86c57c396be1c3d60ceb"
+   },
+   "log": [
+    {
+     "applicability": 4.8781126679386944e-05,
+     "loss": 0.007700118236243725,
+     "step": 250,
+     "wall": 150.01843911600008
+    },
+    {
+     "applicability": 9.615701128495857e-05,
+     "loss": 0.00397478137165308,
+     "step": 500,
+     "wall": 301.2658375889987
+    },
+    {
+     "applicability": 0.00012004125164821744,
+     "loss": 0.008560902439057827,
+     "step": 750,
+     "wall": 452.22670791199926
+    },
+    {
+     "applicability": 9.152136044576764e-05,
+     "loss": 0.004430991131812334,
+     "step": 1000,
+     "wall": 601.6016849349999
+    },
+    {
+     "applicability": 8.095085649983957e-05,
+     "loss": 0.0035667242482304573,
+     "step": 1250,
+     "wall": 751.1082362950001
+    },
+    {
+     "applicability": 7.59679896873422e-05,
+     "loss": 0.0032180892303586006,
+     "step": 1500,
+     "wall": 901.9741466739997
+    },
+    {
+     "applicability": 7.327798084588721e-05,
+     "loss": 0.0029812450520694256,
+     "step": 1750,
+     "wall": 1052.2605499439996
+    },
+    {
+     "applicability": 7.185651338659227e-05,
+     "loss": 0.002804363612085581,
+     "step": 2000,
+     "wall": 1202.9576938239989
+    },
+    {
+     "applicability": 0.00012551891268230975,
+     "loss": 0.10479148477315903,
+     "step": 2250,
+     "wall": 1353.7317989069998
+    },
+    {
+     "applicability": 7.641056436114013e-05,
+     "loss": 0.003024597419425845,
+     "step": 2500,
+     "wall": 1504.4646083539992
+    },
+    {
+     "applicability": 7.503361848648638e-05,
+     "loss": 0.00276592536829412,
+     "step": 2750,
+     "wall": 1654.9836663269998
+    },
+    {
+     "applicability": 7.424497744068503e-05,
+     "loss": 0.0026751586701720953,
+     "step": 3000,
+     "wall": 1807.016402284
+    }
+   ],
+   "n_isa_rows": 1606,
+   "n_meaningless_train": 0,
+   "object_members": [
+    "apple",
+    "banana",
+    "carrot",
+    "cherry",
+    "chocolate",
+    "cloud",
+    "coal",
+    "feather",
+    "grape",
+    "grass",
+    "leaf",
+    "lemon",
+    "night-sky",
+    "plum",
+    "sea",
+    "sky",
+    "snow",
+    "strawberry",
+    "sun",
+    "tangerine",
+    "thunder",
+    "tomato"
+   ],
+   "reads": {
+    "M_sets": {
+     "M-cat": {
+      "confirmed": 0.008666666666666666,
+      "confirmed_gated": 0.008666666666666666,
+      "n": 3000,
+      "recognized": 0.0
+     },
+     "M-in": {
+      "confirmed": 0.018333333333333333,
+      "confirmed_gated": 0.018333333333333333,
+      "n": 3000,
+      "recognized": 0.0
+     },
+     "M-rel": {
+      "confirmed": 0.044333333333333336,
+      "confirmed_gated": 0.044333333333333336,
+      "n": 3000,
+      "recognized": 0.0
+     }
+    },
+    "cow_parent_of_moo": {
+     "app": 0.9998973608016968,
+     "confirmed": 0.0,
+     "sig": 0.8033779263496399,
+     "sm": 0.7519962787628174,
+     "sp": 0.3848693370819092
+    },
+    "full_graph": {
+     "meaningless_confirmed": 32149,
+     "meaningless_confirmed_gated": 32149,
+     "meaningless_total": 1567101,
+     "true_confirmed": 1287,
+     "true_confirmed_gated": 1287,
+     "true_total": 1690
+    },
+    "sound_isa": {
+     "support_false": 0.016827641054987907,
+     "support_true": 0.9859356880187988
+    },
+    "taught_kept_meaningful": 1.0,
+    "taught_kept_meaningful_true": 1.0,
+    "truth": {
+     "G2": {
+      "intuition": 0.7228120321219546,
+      "logic": 0.8779093507554103,
+      "logic_with_M": 0.8779093507554103,
+      "meaningless_rate": 0.0
+     },
+     "G4": {
+      "intuition": 0.5737179487179487,
+      "logic": 0.483974358974359,
+      "logic_with_M": 0.483974358974359,
+      "meaningless_rate": 0.0
+     },
+     "L1-anc": {
+      "intuition": 0.7222222222222222,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "L1-kind": {
+      "intuition": 0.7958333333333334,
+      "logic": 0.19285714285714287,
+      "logic_with_M": 0.19285714285714287,
+      "meaningless_rate": 0.0
+     },
+     "L1-size": {
+      "intuition": 0.9388888888888889,
+      "logic": 0.011111111111111112,
+      "logic_with_M": 0.011111111111111112,
+      "meaningless_rate": 0.0
+     },
+     "L2-named": {
+      "intuition": 0.9086538461538461,
+      "logic": 0.004807692307692308,
+      "logic_with_M": 0.004807692307692308,
+      "meaningless_rate": 0.0
+     },
+     "P1-default": {
+      "intuition": 0.8892013498312711,
+      "logic": 0.7999156355455568,
+      "logic_with_M": 0.7999156355455568,
+      "meaningless_rate": 0.0
+     },
+     "P2": {
+      "intuition": 0.6738652566539924,
+      "logic": 0.634858206590621,
+      "logic_with_M": 0.634858206590621,
+      "meaningless_rate": 0.0
+     },
+     "P3": {
+      "intuition": 0.7140140337071283,
+      "logic": 0.6595186569611122,
+      "logic_with_M": 0.6595186569611122,
+      "meaningless_rate": 0.0
+     },
+     "P4": {
+      "intuition": 0.8402777777777778,
+      "logic": 0.6527777777777778,
+      "logic_with_M": 0.6527777777777778,
+      "meaningless_rate": 0.0
+     },
+     "P6-colour": {
+      "intuition": 0.5509803921568628,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "P6-grandparent": {
+      "intuition": 1.0,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     }
+    }
+   },
+   "seed": 452
+  },
+  "isa/seed453": {
+   "arm": "isa",
+   "categories": {
+    "ability": 5,
+    "body-part": 11,
+    "colour": 11,
+    "food": 5,
+    "habitat": 4,
+    "object": 22,
+    "person": 42,
+    "property": 16,
+    "sound": 16,
+    "substance": 6
+   },
+   "checkpoint": {
+    "file": "runs/type-meanings-v1/isa-seed453.pt",
+    "sha256": "d7348c262add73d84330725c0d458de93c86de6756dabef6d2c0d1bdeeea3c8f"
+   },
+   "log": [
+    {
+     "applicability": 5.3564730478683487e-05,
+     "loss": 0.007118683774024248,
+     "step": 250,
+     "wall": 150.25022176600032
+    },
+    {
+     "applicability": 0.0005020867101848125,
+     "loss": 3.3260350227355957,
+     "step": 500,
+     "wall": 302.0942912779992
+    },
+    {
+     "applicability": 7.70706610637717e-05,
+     "loss": 0.13929851353168488,
+     "step": 750,
+     "wall": 453.9426427119997
+    },
+    {
+     "applicability": 6.613809819100425e-05,
+     "loss": 0.1376878023147583,
+     "step": 1000,
+     "wall": 605.6941672829998
+    },
+    {
+     "applicability": 6.363663851516321e-05,
+     "loss": 0.13741564750671387,
+     "step": 1250,
+     "wall": 758.6011105769994
+    },
+    {
+     "applicability": 6.27789631835185e-05,
+     "loss": 0.13716213405132294,
+     "step": 1500,
+     "wall": 907.8714257449992
+    },
+    {
+     "applicability": 6.223627860890701e-05,
+     "loss": 0.13678893446922302,
+     "step": 1750,
+     "wall": 1060.3686380669988
+    },
+    {
+     "applicability": 6.170912820380181e-05,
+     "loss": 0.13626980781555176,
+     "step": 2000,
+     "wall": 1211.0258523249995
+    },
+    {
+     "applicability": 6.107570516178384e-05,
+     "loss": 0.1356734037399292,
+     "step": 2250,
+     "wall": 1363.1990661669988
+    },
+    {
+     "applicability": 6.606705574085936e-05,
+     "loss": 0.004556752275675535,
+     "step": 2500,
+     "wall": 1515.6296834309996
+    },
+    {
+     "applicability": 6.708528235321864e-05,
+     "loss": 0.002950722584500909,
+     "step": 2750,
+     "wall": 1667.6141978759988
+    },
+    {
+     "applicability": 6.708763976348564e-05,
+     "loss": 0.002762668067589402,
+     "step": 3000,
+     "wall": 1820.331987054
+    }
+   ],
+   "n_isa_rows": 1606,
+   "n_meaningless_train": 0,
+   "object_members": [
+    "apple",
+    "banana",
+    "carrot",
+    "cherry",
+    "chocolate",
+    "cloud",
+    "coal",
+    "feather",
+    "grape",
+    "grass",
+    "leaf",
+    "lemon",
+    "night-sky",
+    "plum",
+    "sea",
+    "sky",
+    "snow",
+    "strawberry",
+    "sun",
+    "tangerine",
+    "thunder",
+    "tomato"
+   ],
+   "reads": {
+    "M_sets": {
+     "M-cat": {
+      "confirmed": 0.006666666666666667,
+      "confirmed_gated": 0.006666666666666667,
+      "n": 3000,
+      "recognized": 0.0
+     },
+     "M-in": {
+      "confirmed": 0.01633333333333333,
+      "confirmed_gated": 0.01633333333333333,
+      "n": 3000,
+      "recognized": 0.0
+     },
+     "M-rel": {
+      "confirmed": 0.035666666666666666,
+      "confirmed_gated": 0.035666666666666666,
+      "n": 3000,
+      "recognized": 0.0
+     }
+    },
+    "cow_parent_of_moo": {
+     "app": 0.9996292591094971,
+     "confirmed": 0.0,
+     "sig": 0.9998074173927307,
+     "sm": 0.46159228682518005,
+     "sp": 0.6489171981811523
+    },
+    "full_graph": {
+     "meaningless_confirmed": 26038,
+     "meaningless_confirmed_gated": 26038,
+     "meaningless_total": 1567101,
+     "true_confirmed": 1257,
+     "true_confirmed_gated": 1257,
+     "true_total": 1690
+    },
+    "sound_isa": {
+     "support_false": 0.021324867382645607,
+     "support_true": 0.9887204170227051
+    },
+    "taught_kept_meaningful": 1.0,
+    "taught_kept_meaningful_true": 1.0,
+    "truth": {
+     "G2": {
+      "intuition": 0.6913025724785626,
+      "logic": 0.6486320947325439,
+      "logic_with_M": 0.6486320947325439,
+      "meaningless_rate": 0.0
+     },
+     "G4": {
+      "intuition": 0.5240384615384616,
+      "logic": 0.5608974358974359,
+      "logic_with_M": 0.5608974358974359,
+      "meaningless_rate": 0.0
+     },
+     "L1-anc": {
+      "intuition": 0.75,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "L1-kind": {
+      "intuition": 0.7321428571428572,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "L1-size": {
+      "intuition": 0.9388888888888889,
+      "logic": 0.02777777777777778,
+      "logic_with_M": 0.02777777777777778,
+      "meaningless_rate": 0.0
+     },
+     "L2-named": {
+      "intuition": 0.8942307692307692,
+      "logic": 0.03365384615384615,
+      "logic_with_M": 0.03365384615384615,
+      "meaningless_rate": 0.0
+     },
+     "P1-default": {
+      "intuition": 0.9206974128233971,
+      "logic": 0.873453318335208,
+      "logic_with_M": 0.873453318335208,
+      "meaningless_rate": 0.0
+     },
+     "P2": {
+      "intuition": 0.6979285487959442,
+      "logic": 0.5631356939163498,
+      "logic_with_M": 0.5631356939163498,
+      "meaningless_rate": 0.0
+     },
+     "P3": {
+      "intuition": 0.7431962751655846,
+      "logic": 0.6301068922552299,
+      "logic_with_M": 0.6301068922552299,
+      "meaningless_rate": 0.0
+     },
+     "P4": {
+      "intuition": 0.7222222222222222,
+      "logic": 0.6319444444444444,
+      "logic_with_M": 0.6319444444444444,
+      "meaningless_rate": 0.0
+     },
+     "P6-colour": {
+      "intuition": 0.532843137254902,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "P6-grandparent": {
+      "intuition": 1.0,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     }
+    }
+   },
+   "seed": 453
+  },
+  "meaningless/seed450": {
+   "arm": "meaningless",
+   "categories": {
+    "ability": 5,
+    "body-part": 11,
+    "colour": 11,
+    "food": 5,
+    "habitat": 4,
+    "object": 22,
+    "person": 42,
+    "property": 16,
+    "sound": 16,
+    "substance": 6
+   },
+   "checkpoint": {
+    "file": "runs/type-meanings-v1/meaningless-seed450.pt",
+    "sha256": "c0c2840f6e9ecc9c1794ca7984f71f87f9d1d03821b562e7daeaf842549452ed"
+   },
+   "log": [
+    {
+     "applicability": 0.0006301734247244895,
+     "loss": 0.007046402897685766,
+     "step": 250,
+     "wall": 140.05169101200045
+    },
+    {
+     "applicability": 0.010138056240975857,
+     "loss": 0.434781014919281,
+     "step": 500,
+     "wall": 278.68392890500036
+    },
+    {
+     "applicability": 0.00047186395386233926,
+     "loss": 0.007851004600524902,
+     "step": 750,
+     "wall": 416.838530590001
+    },
+    {
+     "applicability": 0.0004037152393721044,
+     "loss": 0.004485669545829296,
+     "step": 1000,
+     "wall": 554.937816873
+    },
+    {
+     "applicability": 0.0003783210995607078,
+     "loss": 0.0036058423575013876,
+     "step": 1250,
+     "wall": 693.2518325649999
+    },
+    {
+     "applicability": 0.00036660401383414865,
+     "loss": 0.003170106327161193,
+     "step": 1500,
+     "wall": 831.6156429660005
+    },
+    {
+     "applicability": 0.00036248264950700104,
+     "loss": 0.0030748541466891766,
+     "step": 1750,
+     "wall": 969.2739933989997
+    },
+    {
+     "applicability": 0.0003600452619139105,
+     "loss": 0.0030104878824204206,
+     "step": 2000,
+     "wall": 1106.6452270500013
+    },
+    {
+     "applicability": 0.0003572403220459819,
+     "loss": 0.0029583824798464775,
+     "step": 2250,
+     "wall": 1244.4131952919997
+    },
+    {
+     "applicability": 0.00035388334072194993,
+     "loss": 0.002912770723924041,
+     "step": 2500,
+     "wall": 1381.9457460150006
+    },
+    {
+     "applicability": 0.00034086083178408444,
+     "loss": 0.0036137988790869713,
+     "step": 2750,
+     "wall": 1518.9556584220009
+    },
+    {
+     "applicability": 0.00032939304946921766,
+     "loss": 0.003121995832771063,
+     "step": 3000,
+     "wall": 1656.8077962389998
+    }
+   ],
+   "n_isa_rows": 0,
+   "n_meaningless_train": 2700,
+   "object_members": [
+    "apple",
+    "banana",
+    "carrot",
+    "cherry",
+    "chocolate",
+    "cloud",
+    "coal",
+    "feather",
+    "grape",
+    "grass",
+    "leaf",
+    "lemon",
+    "night-sky",
+    "plum",
+    "sea",
+    "sky",
+    "snow",
+    "strawberry",
+    "sun",
+    "tangerine",
+    "thunder",
+    "tomato"
+   ],
+   "reads": {
+    "M_sets": {
+     "M-cat": {
+      "confirmed": 0.018666666666666668,
+      "confirmed_gated": 0.004,
+      "n": 3000,
+      "recognized": 0.9086666666666666
+     },
+     "M-in": {
+      "confirmed": 0.018,
+      "confirmed_gated": 0.001,
+      "n": 3000,
+      "recognized": 0.965
+     },
+     "M-rel": {
+      "confirmed": 0.05566666666666667,
+      "confirmed_gated": 0.04033333333333333,
+      "n": 3000,
+      "recognized": 0.3476666666666667
+     }
+    },
+    "cow_parent_of_moo": {
+     "app": 0.005677033681422472,
+     "confirmed": 0.0,
+     "sig": 0.9992407560348511,
+     "sm": 0.8362032771110535,
+     "sp": 0.3016796410083771
+    },
+    "full_graph": {
+     "meaningless_confirmed": 40421,
+     "meaningless_confirmed_gated": 12007,
+     "meaningless_total": 1567101,
+     "true_confirmed": 1241,
+     "true_confirmed_gated": 1237,
+     "true_total": 1690
+    },
+    "sound_isa": {
+     "support_false": 0.06488858908414841,
+     "support_true": 0.07959321141242981
+    },
+    "taught_kept_meaningful": 0.9955378270569941,
+    "taught_kept_meaningful_true": 0.991715976331361,
+    "truth": {
+     "G2": {
+      "intuition": 0.6198448346263781,
+      "logic": 0.6086838165237511,
+      "logic_with_M": 0.6086838165237511,
+      "meaningless_rate": 0.0
+     },
+     "G4": {
+      "intuition": 0.6490384615384616,
+      "logic": 0.5721153846153846,
+      "logic_with_M": 0.5721153846153846,
+      "meaningless_rate": 0.0
+     },
+     "L1-anc": {
+      "intuition": 0.6666666666666666,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "L1-kind": {
+      "intuition": 0.7458333333333333,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "L1-size": {
+      "intuition": 0.9833333333333334,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "L2-named": {
+      "intuition": 0.9134615384615385,
+      "logic": 0.004807692307692308,
+      "logic_with_M": 0.004807692307692308,
+      "meaningless_rate": 0.0
+     },
+     "P1-default": {
+      "intuition": 0.8613610798650169,
+      "logic": 0.6691507311586051,
+      "logic_with_M": 0.6691507311586051,
+      "meaningless_rate": 0.0
+     },
+     "P2": {
+      "intuition": 0.680610345373891,
+      "logic": 0.5863395120405577,
+      "logic_with_M": 0.5780061787072244,
+      "meaningless_rate": 0.013900245298446443
+     },
+     "P3": {
+      "intuition": 0.7463112335235098,
+      "logic": 0.6167289658338252,
+      "logic_with_M": 0.6052528034625221,
+      "meaningless_rate": 0.008571428571428572
+     },
+     "P4": {
+      "intuition": 0.7777777777777778,
+      "logic": 0.6875,
+      "logic_with_M": 0.6319444444444444,
+      "meaningless_rate": 0.09027777777777778
+     },
+     "P6-colour": {
+      "intuition": 0.5480392156862745,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "P6-grandparent": {
+      "intuition": 1.0,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     }
+    }
+   },
+   "seed": 450
+  },
+  "meaningless/seed451": {
+   "arm": "meaningless",
+   "categories": {
+    "ability": 5,
+    "body-part": 11,
+    "colour": 11,
+    "food": 5,
+    "habitat": 4,
+    "object": 22,
+    "person": 42,
+    "property": 16,
+    "sound": 16,
+    "substance": 6
+   },
+   "checkpoint": {
+    "file": "runs/type-meanings-v1/meaningless-seed451.pt",
+    "sha256": "f3faab01f6fb29f1e72cff321a33dff0eb0c2a3a51b6768f24ce3a0216b47ec0"
+   },
+   "log": [
+    {
+     "applicability": 0.0006392428185790777,
+     "loss": 0.007569432258605957,
+     "step": 250,
+     "wall": 141.19143999399967
+    },
+    {
+     "applicability": 0.0004527957644313574,
+     "loss": 0.004292693920433521,
+     "step": 500,
+     "wall": 281.6625882690005
+    },
+    {
+     "applicability": 0.0005004560807719827,
+     "loss": 0.009509681724011898,
+     "step": 750,
+     "wall": 420.0684535649998
+    },
+    {
+     "applicability": 0.0004185569123364985,
+     "loss": 0.0047455523163080215,
+     "step": 1000,
+     "wall": 558.5317318639991
+    },
+    {
+     "applicability": 0.0003836227406281978,
+     "loss": 0.0038429785054177046,
+     "step": 1250,
+     "wall": 698.4983883490004
+    },
+    {
+     "applicability": 0.0003661475784610957,
+     "loss": 0.0031807152554392815,
+     "step": 1500,
+     "wall": 839.410834893999
+    },
+    {
+     "applicability": 0.0003600606869440526,
+     "loss": 0.0030676585156470537,
+     "step": 1750,
+     "wall": 979.7051751449999
+    },
+    {
+     "applicability": 0.0003563711070455611,
+     "loss": 0.0029935953207314014,
+     "step": 2000,
+     "wall": 1119.9493206079987
+    },
+    {
+     "applicability": 0.000352692324668169,
+     "loss": 0.002938654040917754,
+     "step": 2250,
+     "wall": 1260.0337248779997
+    },
+    {
+     "applicability": 0.00034854994737543166,
+     "loss": 0.0028914387803524733,
+     "step": 2500,
+     "wall": 1400.2031471989994
+    },
+    {
+     "applicability": 0.00037152564618736506,
+     "loss": 0.005673169158399105,
+     "step": 2750,
+     "wall": 1540.7123230729994
+    },
+    {
+     "applicability": 0.0003349437902215868,
+     "loss": 0.0033343243412673473,
+     "step": 3000,
+     "wall": 1681.783828128
+    }
+   ],
+   "n_isa_rows": 0,
+   "n_meaningless_train": 2700,
+   "object_members": [
+    "apple",
+    "banana",
+    "carrot",
+    "cherry",
+    "chocolate",
+    "cloud",
+    "coal",
+    "feather",
+    "grape",
+    "grass",
+    "leaf",
+    "lemon",
+    "night-sky",
+    "plum",
+    "sea",
+    "sky",
+    "snow",
+    "strawberry",
+    "sun",
+    "tangerine",
+    "thunder",
+    "tomato"
+   ],
+   "reads": {
+    "M_sets": {
+     "M-cat": {
+      "confirmed": 0.005666666666666667,
+      "confirmed_gated": 0.002,
+      "n": 3000,
+      "recognized": 0.8966666666666666
+     },
+     "M-in": {
+      "confirmed": 0.004,
+      "confirmed_gated": 0.0013333333333333333,
+      "n": 3000,
+      "recognized": 0.9566666666666667
+     },
+     "M-rel": {
+      "confirmed": 0.030333333333333334,
+      "confirmed_gated": 0.028333333333333332,
+      "n": 3000,
+      "recognized": 0.22366666666666668
+     }
+    },
+    "cow_parent_of_moo": {
+     "app": 0.00010980670049320906,
+     "confirmed": 0.0,
+     "sig": 0.966183066368103,
+     "sm": 0.5333303809165955,
+     "sp": 0.6695653796195984
+    },
+    "full_graph": {
+     "meaningless_confirmed": 13393,
+     "meaningless_confirmed_gated": 9767,
+     "meaningless_total": 1567101,
+     "true_confirmed": 1252,
+     "true_confirmed_gated": 1251,
+     "true_total": 1690
+    },
+    "sound_isa": {
+     "support_false": 2.121882744177128e-06,
+     "support_true": 2.4497537651768653e-06
+    },
+    "taught_kept_meaningful": 0.9950645662903117,
+    "taught_kept_meaningful_true": 0.9928994082840237,
+    "truth": {
+     "G2": {
+      "intuition": 0.6106574111882401,
+      "logic": 0.7215870423302028,
+      "logic_with_M": 0.7215870423302028,
+      "meaningless_rate": 0.0
+     },
+     "G4": {
+      "intuition": 0.5737179487179487,
+      "logic": 0.5977564102564102,
+      "logic_with_M": 0.5977564102564102,
+      "meaningless_rate": 0.0
+     },
+     "L1-anc": {
+      "intuition": 0.6944444444444444,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "L1-kind": {
+      "intuition": 0.6625,
+      "logic": 0.04285714285714286,
+      "logic_with_M": 0.04285714285714286,
+      "meaningless_rate": 0.0
+     },
+     "L1-size": {
+      "intuition": 0.9555555555555555,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "L2-named": {
+      "intuition": 0.8798076923076923,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "P1-default": {
+      "intuition": 0.8038526434195725,
+      "logic": 0.8259280089988752,
+      "logic_with_M": 0.7844488188976377,
+      "meaningless_rate": 0.04516129032258064
+     },
+     "P2": {
+      "intuition": 0.6939183301647656,
+      "logic": 0.6013149556400508,
+      "logic_with_M": 0.5976691223067174,
+      "meaningless_rate": 0.006541291905151268
+     },
+     "P3": {
+      "intuition": 0.7367368352023084,
+      "logic": 0.5956784051413208,
+      "logic_with_M": 0.5724965571512886,
+      "meaningless_rate": 0.02857142857142857
+     },
+     "P4": {
+      "intuition": 0.6319444444444444,
+      "logic": 0.6319444444444444,
+      "logic_with_M": 0.5416666666666667,
+      "meaningless_rate": 0.1388888888888889
+     },
+     "P6-colour": {
+      "intuition": 0.5151960784313725,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "P6-grandparent": {
+      "intuition": 1.0,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     }
+    }
+   },
+   "seed": 451
+  },
+  "meaningless/seed452": {
+   "arm": "meaningless",
+   "categories": {
+    "ability": 5,
+    "body-part": 11,
+    "colour": 11,
+    "food": 5,
+    "habitat": 4,
+    "object": 22,
+    "person": 42,
+    "property": 16,
+    "sound": 16,
+    "substance": 6
+   },
+   "checkpoint": {
+    "file": "runs/type-meanings-v1/meaningless-seed452.pt",
+    "sha256": "0cc3d4a164e7450663a5475812a57671a75b3037a4f92bd55ddf1f0bfcb9066f"
+   },
+   "log": [
+    {
+     "applicability": 0.0006180104101076722,
+     "loss": 0.007083464413881302,
+     "step": 250,
+     "wall": 139.6176323589989
+    },
+    {
+     "applicability": 0.002051078947260976,
+     "loss": 0.09824178367853165,
+     "step": 500,
+     "wall": 277.77736272999937
+    },
+    {
+     "applicability": 0.00047367194201797247,
+     "loss": 0.005581198260188103,
+     "step": 750,
+     "wall": 417.6700779519997
+    },
+    {
+     "applicability": 0.0004189004248473793,
+     "loss": 0.004058853257447481,
+     "step": 1000,
+     "wall": 557.2865955029993
+    },
+    {
+     "applicability": 0.00040442519821226597,
+     "loss": 0.0034729428589344025,
+     "step": 1250,
+     "wall": 697.794846204999
+    },
+    {
+     "applicability": 0.00039798824582248926,
+     "loss": 0.0032108393497765064,
+     "step": 1500,
+     "wall": 837.7243529259995
+    },
+    {
+     "applicability": 0.0003939977614209056,
+     "loss": 0.0031179296784102917,
+     "step": 1750,
+     "wall": 977.0405990459985
+    },
+    {
+     "applicability": 0.000388463435228914,
+     "loss": 0.0030449090991169214,
+     "step": 2000,
+     "wall": 1116.5632887009997
+    },
+    {
+     "applicability": 0.00038343670894391835,
+     "loss": 0.002996155759319663,
+     "step": 2250,
+     "wall": 1256.131932848999
+    },
+    {
+     "applicability": 0.013448023237287998,
+     "loss": 0.4509233832359314,
+     "step": 2500,
+     "wall": 1395.7175106799987
+    },
+    {
+     "applicability": 0.00035076349740847945,
+     "loss": 0.003494715318083763,
+     "step": 2750,
+     "wall": 1536.003579590999
+    },
+    {
+     "applicability": 0.00034038175363093615,
+     "loss": 0.0030733668245375156,
+     "step": 3000,
+     "wall": 1675.982586442
+    }
+   ],
+   "n_isa_rows": 0,
+   "n_meaningless_train": 2700,
+   "object_members": [
+    "apple",
+    "banana",
+    "carrot",
+    "cherry",
+    "chocolate",
+    "cloud",
+    "coal",
+    "feather",
+    "grape",
+    "grass",
+    "leaf",
+    "lemon",
+    "night-sky",
+    "plum",
+    "sea",
+    "sky",
+    "snow",
+    "strawberry",
+    "sun",
+    "tangerine",
+    "thunder",
+    "tomato"
+   ],
+   "reads": {
+    "M_sets": {
+     "M-cat": {
+      "confirmed": 0.03333333333333333,
+      "confirmed_gated": 0.0033333333333333335,
+      "n": 3000,
+      "recognized": 0.8993333333333333
+     },
+     "M-in": {
+      "confirmed": 0.035,
+      "confirmed_gated": 0.001,
+      "n": 3000,
+      "recognized": 0.958
+     },
+     "M-rel": {
+      "confirmed": 0.060333333333333336,
+      "confirmed_gated": 0.019333333333333334,
+      "n": 3000,
+      "recognized": 0.385
+     }
+    },
+    "cow_parent_of_moo": {
+     "app": 0.046266403049230576,
+     "confirmed": 0.0,
+     "sig": 0.9945388436317444,
+     "sm": 0.9724934697151184,
+     "sp": 0.053412213921546936
+    },
+    "full_graph": {
+     "meaningless_confirmed": 58297,
+     "meaningless_confirmed_gated": 8796,
+     "meaningless_total": 1567101,
+     "true_confirmed": 1305,
+     "true_confirmed_gated": 1295,
+     "true_total": 1690
+    },
+    "sound_isa": {
+     "support_false": 0.7205139994621277,
+     "support_true": 0.7840920686721802
+    },
+    "taught_kept_meaningful": 0.995199783652221,
+    "taught_kept_meaningful_true": 0.9911242603550295,
+    "truth": {
+     "G2": {
+      "intuition": 0.7473798829454199,
+      "logic": 0.8533414999319451,
+      "logic_with_M": 0.8533414999319451,
+      "meaningless_rate": 0.0
+     },
+     "G4": {
+      "intuition": 0.5865384615384616,
+      "logic": 0.4967948717948718,
+      "logic_with_M": 0.4967948717948718,
+      "meaningless_rate": 0.0
+     },
+     "L1-anc": {
+      "intuition": 0.7222222222222222,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "L1-kind": {
+      "intuition": 0.6571428571428571,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "L1-size": {
+      "intuition": 0.9611111111111111,
+      "logic": 0.027777777777777776,
+      "logic_with_M": 0.027777777777777776,
+      "meaningless_rate": 0.0
+     },
+     "L2-named": {
+      "intuition": 0.9326923076923077,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "P1-default": {
+      "intuition": 0.922806524184477,
+      "logic": 0.811726659167604,
+      "logic_with_M": 0.811726659167604,
+      "meaningless_rate": 0.0
+     },
+     "P2": {
+      "intuition": 0.6771981939163498,
+      "logic": 0.596991840937896,
+      "logic_with_M": 0.5917835076045628,
+      "meaningless_rate": 0.008994276369582993
+     },
+     "P3": {
+      "intuition": 0.76136140074759,
+      "logic": 0.6250901698472031,
+      "logic_with_M": 0.5808577611646666,
+      "meaningless_rate": 0.022857142857142857
+     },
+     "P4": {
+      "intuition": 0.8402777777777778,
+      "logic": 0.7291666666666666,
+      "logic_with_M": 0.6666666666666666,
+      "meaningless_rate": 0.08333333333333333
+     },
+     "P6-colour": {
+      "intuition": 0.6004901960784313,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "P6-grandparent": {
+      "intuition": 1.0,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     }
+    }
+   },
+   "seed": 452
+  },
+  "meaningless/seed453": {
+   "arm": "meaningless",
+   "categories": {
+    "ability": 5,
+    "body-part": 11,
+    "colour": 11,
+    "food": 5,
+    "habitat": 4,
+    "object": 22,
+    "person": 42,
+    "property": 16,
+    "sound": 16,
+    "substance": 6
+   },
+   "checkpoint": {
+    "file": "runs/type-meanings-v1/meaningless-seed453.pt",
+    "sha256": "8b27426aa71416c3ada341ca070a809675349258542d20722a8d5e87e3215cb8"
+   },
+   "log": [
+    {
+     "applicability": 0.0006055620033293962,
+     "loss": 0.007148454897105694,
+     "step": 250,
+     "wall": 139.24970769099855
+    },
+    {
+     "applicability": 0.0004339098231866956,
+     "loss": 0.004231046419590712,
+     "step": 500,
+     "wall": 279.2446927989986
+    },
+    {
+     "applicability": 0.0004839173052459955,
+     "loss": 0.006992213428020477,
+     "step": 750,
+     "wall": 418.91054920499846
+    },
+    {
+     "applicability": 0.00041773979319259524,
+     "loss": 0.004137471318244934,
+     "step": 1000,
+     "wall": 558.2724730279988
+    },
+    {
+     "applicability": 0.0003880277508869767,
+     "loss": 0.003509148955345154,
+     "step": 1250,
+     "wall": 698.4871840589985
+    },
+    {
+     "applicability": 0.0003750371397472918,
+     "loss": 0.003276428673416376,
+     "step": 1500,
+     "wall": 838.0976351089994
+    },
+    {
+     "applicability": 0.00036933113005943596,
+     "loss": 0.003146393457427621,
+     "step": 1750,
+     "wall": 977.2637893259998
+    },
+    {
+     "applicability": 0.00036554597318172455,
+     "loss": 0.0030625660438090563,
+     "step": 2000,
+     "wall": 1117.3627428399996
+    },
+    {
+     "applicability": 0.0003626724937930703,
+     "loss": 0.0030031977221369743,
+     "step": 2250,
+     "wall": 1256.7886636349995
+    },
+    {
+     "applicability": 0.0003592386201489717,
+     "loss": 0.0029472925234586,
+     "step": 2500,
+     "wall": 1396.1169719279987
+    },
+    {
+     "applicability": 0.00035371759440749884,
+     "loss": 0.003891837317496538,
+     "step": 2750,
+     "wall": 1536.470005796
+    },
+    {
+     "applicability": 0.00033228006213903427,
+     "loss": 0.003126503899693489,
+     "step": 3000,
+     "wall": 1677.4126142369987
+    }
+   ],
+   "n_isa_rows": 0,
+   "n_meaningless_train": 2700,
+   "object_members": [
+    "apple",
+    "banana",
+    "carrot",
+    "cherry",
+    "chocolate",
+    "cloud",
+    "coal",
+    "feather",
+    "grape",
+    "grass",
+    "leaf",
+    "lemon",
+    "night-sky",
+    "plum",
+    "sea",
+    "sky",
+    "snow",
+    "strawberry",
+    "sun",
+    "tangerine",
+    "thunder",
+    "tomato"
+   ],
+   "reads": {
+    "M_sets": {
+     "M-cat": {
+      "confirmed": 0.04833333333333333,
+      "confirmed_gated": 0.004,
+      "n": 3000,
+      "recognized": 0.8623333333333333
+     },
+     "M-in": {
+      "confirmed": 0.043666666666666666,
+      "confirmed_gated": 0.0036666666666666666,
+      "n": 3000,
+      "recognized": 0.951
+     },
+     "M-rel": {
+      "confirmed": 0.085,
+      "confirmed_gated": 0.024333333333333332,
+      "n": 3000,
+      "recognized": 0.434
+     }
+    },
+    "cow_parent_of_moo": {
+     "app": 0.00020089649478904903,
+     "confirmed": 1.0,
+     "sig": 0.9997768998146057,
+     "sm": 6.851218495285138e-05,
+     "sp": 0.9999456405639648
+    },
+    "full_graph": {
+     "meaningless_confirmed": 75137,
+     "meaningless_confirmed_gated": 11562,
+     "meaningless_total": 1567101,
+     "true_confirmed": 1278,
+     "true_confirmed_gated": 1274,
+     "true_total": 1690
+    },
+    "sound_isa": {
+     "support_false": 0.7968747019767761,
+     "support_true": 0.9510812759399414
+    },
+    "taught_kept_meaningful": 0.9950645662903117,
+    "taught_kept_meaningful_true": 0.9887573964497042,
+    "truth": {
+     "G2": {
+      "intuition": 0.6843609636586362,
+      "logic": 0.8189737307744658,
+      "logic_with_M": 0.8189737307744658,
+      "meaningless_rate": 0.0
+     },
+     "G4": {
+      "intuition": 0.6105769230769231,
+      "logic": 0.4983974358974359,
+      "logic_with_M": 0.4983974358974359,
+      "meaningless_rate": 0.0
+     },
+     "L1-anc": {
+      "intuition": 0.7777777777777778,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "L1-kind": {
+      "intuition": 0.7339285714285715,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "L1-size": {
+      "intuition": 0.95,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     },
+     "L2-named": {
+      "intuition": 0.9230769230769231,
+      "logic": 0.004807692307692308,
+      "logic_with_M": 0.004807692307692308,
+      "meaningless_rate": 0.00641025641025641
+     },
+     "P1-default": {
+      "intuition": 0.8771091113610798,
+      "logic": 0.8059617547806524,
+      "logic_with_M": 0.8059617547806524,
+      "meaningless_rate": 0.0
+     },
+     "P2": {
+      "intuition": 0.7248831590621039,
+      "logic": 0.5502455640050696,
+      "logic_with_M": 0.5445163973384031,
+      "meaningless_rate": 0.017988552739165987
+     },
+     "P3": {
+      "intuition": 0.7252606728310054,
+      "logic": 0.6380090497737557,
+      "logic_with_M": 0.5724965571512886,
+      "meaningless_rate": 0.03428571428571429
+     },
+     "P4": {
+      "intuition": 0.7291666666666666,
+      "logic": 0.6944444444444444,
+      "logic_with_M": 0.625,
+      "meaningless_rate": 0.09722222222222222
+     },
+     "P6-colour": {
+      "intuition": 0.5950980392156863,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.008928571428571428
+     },
+     "P6-grandparent": {
+      "intuition": 0.975,
+      "logic": 0.0,
+      "logic_with_M": 0.0,
+      "meaningless_rate": 0.0
+     }
+    }
+   },
+   "seed": 453
+  }
+ },
+ "status": "type meanings v1"
+}

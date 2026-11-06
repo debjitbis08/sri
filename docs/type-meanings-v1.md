@@ -147,3 +147,75 @@ Resumable per run with `experiments/durable.py`.
 
     EV_WORKERS=6 .venv/bin/python -m experiments.type_meanings          # rerun to resume
     .venv/bin/python -m experiments.type_meanings summary
+
+## Results (2026-11-06)
+
+Run at revision `85b7830`, 16 runs, 6 workers, 78 min wall. Means over seeds 450–453.
+
+### Recognizing meaningless facts
+
+| Arm | M-in (trained relations) | M-cat (sounds, held out) | M-rel (held-out relations) | taught facts kept meaningful |
+|---|---|---|---|---|
+| `base` | 0.00 | 0.00 | 0.00 | 1.000 |
+| `isa` | 0.00 | 0.00 | 0.00 | 1.000 |
+| `meaningless` | 0.96 | 0.89 | 0.35 (0.22–0.43) | 0.995 |
+| `isa+meaningless` | 0.96 | 0.86 | 0.41 (0.36–0.51) | 0.996 |
+
+`cow parent-of moo`: applicability 1.00 in `base` and `isa`, 0.01 in `meaningless`, 0.24 in `isa+meaningless`
+(meaningless in both). The categories are learned: in the `isa` arms, logic's support for "sound is-a sound" is 0.99
+and for sounds under the other categories 0.02.
+
+### Leakage in the reader graph
+
+Confirmed meaningless facts under the 33 permitted relations (seed mean):
+
+| Arm | ungated | gated (a ≥ 0.5) | true facts confirmed, gated |
+|---|---|---|---|
+| `base` | 38,199 | — | 1,269 |
+| `isa` | 30,231 | — | 1,256 |
+| `meaningless` | 46,812 | 10,533 | 1,264 |
+| `isa+meaningless` | 34,469 | 9,745 | 1,250 |
+
+Of the gated remainder, 80–82% lies in the six held-out relations (`brighter-than` 3,260–3,761, `lives-with`
+1,829–2,177, `mixed-from`, `slower-than`, `eats`). On the 27 trained relations the gate leaves about 1,900, against
+about 30,000 without it.
+
+### Truth kept, and a cost
+
+Logic's support alone stays within 0.03 of `base` on every T/F test. Read with M, the gate marks real test facts
+meaningless: P4 (adjacent-only comparatives) 0.10, P3 0.02–0.024, P1 and P2 up to 0.012. Logic with M on P4 drops
+from 0.67 to 0.62–0.64. These test facts are taught pairs' neighbours that were never trained. The head partly learned
+"unfamiliar", not only "wrong type". In the `isa` arms intuition also moves: L1-kind 0.70 → 0.78, G4 0.61 → 0.56.
+
+### Against the predictions
+
+1. **Held.** `isa` alone: 30,231 against 38,199 confirmed, within a factor of 2. The categories are learned, but
+   nothing makes the support head use them.
+2. **Held.** M-in 0.96 in both meaningless arms; 99.5% of taught facts kept meaningful.
+3. **Failed (low).** Held-out relations 0.35 and 0.41, below the predicted 0.5–0.9.
+4. **Failed, first named way.** Sounds are recognized without categories (0.89) as well as with them (0.86). A sound's
+   code is already distinct through `says`. The user's hypothesis, that category meaning is what carries the
+   judgement over, is not supported here, because there was nothing left for it to add on this category.
+5. **Partly failed.** Support within 0.03; with M, P4 −0.03 to −0.06, P3 up to −0.05.
+6. **Failed.** The gate cuts confirmed meaningless facts 3.6× (`isa+meaningless` against `base`), not 10×. The
+   remainder is mostly held-out relations. Under the contract, the composition critic rerun is not triggered.
+
+Infection through connectives was not testable (connectives read support only), as declared.
+
+### What this means
+
+- **Applicability is learnable by example and generalizes within a relation,** to unseen pairs and to an unseen
+  category, at little cost to truth.
+- **It does not transfer well to relations without meaningless examples.** A relation's types have to be learned per
+  relation, from that relation's own examples. Categories did not supply the transfer.
+- **Categories alone change nothing about meaningfulness.** Knowing moo is a sound does not stop "cow parent-of moo"
+  until something teaches that parent-of does not apply to sounds.
+- **The head mixes "wrong type" with "unfamiliar pair"** (P4 test facts at 0.10). A judgement that reads the
+  arguments' categories against the relation's types would separate the two. This head is free to use anything.
+
+### Computation (measured)
+
+`reports/type-meanings-v1-runtime.json`. Training 1,163–1,811 CPU s per run (`isa+meaningless` ran last, with fewer
+parallel workers); reads 10–21 CPU s; 80,631 parameters; peak RSS 0.49–0.51 GB per worker. Total 25,477 CPU s
+(7.1 CPU h), 78 min wall: above the declared 3 CPU h and 45–60 min, because a run took 19–30 CPU min instead of the
+declared 10 when six ran in parallel. The follow-up breakdown by relation added about 2 CPU min. No tuning.
