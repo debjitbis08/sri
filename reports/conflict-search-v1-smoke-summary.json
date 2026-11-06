@@ -1,0 +1,3207 @@
+{
+ "bt-bidir": {
+  "controller_params": 77685,
+  "dax": {
+   "always": {
+    "arbiter": 0.6,
+    "intuition": 0.4,
+    "logic-final": 0.6,
+    "logic-step0": 0.8,
+    "trigger_rate": 0.2
+   },
+   "never": {
+    "arbiter": 0.556,
+    "intuition": 0.667,
+    "logic-final": 0.667,
+    "logic-step0": 0.778,
+    "trigger_rate": 0.667
+   },
+   "sometimes": {
+    "arbiter": 0.0,
+    "intuition": 0.0,
+    "logic-final": 0.556,
+    "logic-step0": 0.667,
+    "trigger_rate": 0.667
+   },
+   "usually": {
+    "arbiter": 0.5,
+    "intuition": 0.5,
+    "logic-final": 0.5,
+    "logic-step0": 1.0,
+    "trigger_rate": 0.5
+   }
+  },
+  "final_log": {
+   "checks_true": 3.311,
+   "found_false": 0.0,
+   "found_true": 0.0,
+   "loss": 0.466,
+   "outcome": 0.466,
+   "rank": 0.0,
+   "step": 40.0,
+   "wall": 6.072
+  },
+  "params": 151486,
+  "tests": {
+   "G2": {
+    "arbiter": 0.67,
+    "arbiter_u_rate": 0.22,
+    "backtracks_true": 3.103,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_false": 3.095,
+    "checks_true": 3.276,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.745,
+    "intuition_auroc": 0.844,
+    "logic-final": 0.333,
+    "logic-step0": 0.583,
+    "logic_final_auroc": 0.74,
+    "logic_step0_auroc": 0.752,
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 34.0,
+    "proposer_recall": null,
+    "search_rate": 0.463,
+    "trigger_rate": 0.463,
+    "trigger_rate_true": 0.935,
+    "true_path_rate": null
+   },
+   "G4": {
+    "arbiter": 0.37,
+    "arbiter_u_rate": 0.149,
+    "backtracks_true": 3.0,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_false": 3.048,
+    "checks_true": 3.0,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.46,
+    "intuition_auroc": 0.42,
+    "logic-final": 0.357,
+    "logic-step0": 0.341,
+    "logic_final_auroc": 0.503,
+    "logic_step0_auroc": 0.519,
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 6.0,
+    "proposer_recall": null,
+    "search_rate": 0.574,
+    "trigger_rate": 0.574,
+    "trigger_rate_true": 0.75,
+    "true_path_rate": null
+   },
+   "L1-anc": {
+    "arbiter": 0.528,
+    "arbiter_by_length": {
+     "3": 0.5,
+     "4": 0.5,
+     "5": 0.667
+    },
+    "arbiter_u_rate": 0.056,
+    "backtracks_true": 3.0,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_by_length_true": {
+     "3": 3.2,
+     "4": 3.0,
+     "5": 3.0
+    },
+    "checks_false": 3.0,
+    "checks_true": 3.083,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "exhausted_true_by_length": {
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0
+    },
+    "found_by_length_true": {
+     "3": 0.0,
+     "4": 0.0,
+     "5": 0.0
+    },
+    "found_count_true_by_length": {
+     "3": [
+      0,
+      9
+     ],
+     "4": [
+      0,
+      6
+     ],
+     "5": [
+      0,
+      3
+     ]
+    },
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.528,
+    "intuition_auroc": 0.815,
+    "intuition_by_length": {
+     "3": 0.5,
+     "4": 0.5,
+     "5": 0.667
+    },
+    "logic-final": 0.5,
+    "logic-step0": 0.389,
+    "logic_final_auroc": 0.75,
+    "logic_final_by_length": {
+     "3": 0.444,
+     "4": 0.5,
+     "5": 0.667
+    },
+    "logic_search_all": 0.472,
+    "logic_step0_auroc": 0.559,
+    "n_by_length": {
+     "3": 18.0,
+     "4": 12.0,
+     "5": 6.0
+    },
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 0.0,
+    "proposer_recall": 0.0,
+    "search_all": {
+     "checks_true": 3.056,
+     "exhausted_true": 1.0,
+     "found_rate_false": 0.0,
+     "found_rate_true": 0.0,
+     "proposer_recall": 0.0,
+     "true_path_rate": null
+    },
+    "search_rate": 0.722,
+    "trigger_rate": 0.722,
+    "trigger_rate_true": 0.667,
+    "true_path_rate": null
+   },
+   "L1-anc-depth45": {
+    "arbiter": 0.556,
+    "intuition": 0.556,
+    "logic-final": 0.556,
+    "logic-step0": 0.556,
+    "n": 18.0
+   },
+   "L1-kind": {
+    "arbiter": 0.442,
+    "arbiter_by_length": {
+     "3": 0.342,
+     "4": 0.543
+    },
+    "arbiter_u_rate": 0.309,
+    "backtracks_true": 3.367,
+    "backward_waste": 0.0,
+    "candidate_index_first": 0.75,
+    "candidate_index_mean": 1.5,
+    "checks_by_length_true": {
+     "3": 4.667,
+     "4": 3.4
+    },
+    "checks_false": 3.222,
+    "checks_true": 4.033,
+    "exhausted_false": 1.0,
+    "exhausted_true": 0.967,
+    "exhausted_true_by_length": {
+     "3": 0.933,
+     "4": 1.0
+    },
+    "found_by_length_true": {
+     "3": 0.067,
+     "4": 0.0
+    },
+    "found_count_true_by_length": {
+     "3": [
+      1,
+      35
+     ],
+     "4": [
+      0,
+      35
+     ]
+    },
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.033,
+    "intuition": 0.581,
+    "intuition_auroc": 0.649,
+    "intuition_by_length": {
+     "3": 0.633,
+     "4": 0.529
+    },
+    "logic-final": 0.4,
+    "logic-step0": 0.564,
+    "logic_final_auroc": 0.651,
+    "logic_final_by_length": {
+     "3": 0.327,
+     "4": 0.473
+    },
+    "logic_search_all": 0.146,
+    "logic_step0_auroc": 0.549,
+    "n_by_length": {
+     "3": 47.0,
+     "4": 47.0
+    },
+    "path_len_found": 4.0,
+    "programs": [
+     [
+      ">lighter-than >smaller-than >lighter-than|b >colder-than|b",
+      1
+     ]
+    ],
+    "proposer_offpath_choice_points": 7.0,
+    "proposer_recall": 0.067,
+    "search_all": {
+     "checks_true": 3.8,
+     "exhausted_true": 0.971,
+     "found_rate_false": 0.0,
+     "found_rate_true": 0.029,
+     "proposer_recall": 0.042,
+     "true_path_rate": 0.0
+    },
+    "search_rate": 0.415,
+    "trigger_rate": 0.415,
+    "trigger_rate_true": 0.429,
+    "true_path_rate": 0.0
+   },
+   "L1-size": {
+    "arbiter": 0.489,
+    "arbiter_by_length": {
+     "10": 0.875,
+     "11": 0.5,
+     "3": 0.417,
+     "4": 0.438,
+     "5": 0.464,
+     "6": 0.375,
+     "7": 0.55,
+     "8": 0.625,
+     "9": 0.583
+    },
+    "arbiter_u_rate": 0.4,
+    "backtracks_true": 3.057,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_by_length_true": {
+     "10": 3.0,
+     "11": 3.0,
+     "3": 3.133,
+     "4": 3.667,
+     "5": 3.1,
+     "6": 3.222,
+     "7": 3.0,
+     "8": 3.333,
+     "9": 3.0
+    },
+    "checks_false": 3.068,
+    "checks_true": 3.214,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "exhausted_true_by_length": {
+     "10": 1.0,
+     "11": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 1.0,
+     "7": 1.0,
+     "8": 1.0,
+     "9": 1.0
+    },
+    "found_by_length_true": {
+     "10": 0.0,
+     "11": 0.0,
+     "3": 0.0,
+     "4": 0.0,
+     "5": 0.0,
+     "6": 0.0,
+     "7": 0.0,
+     "8": 0.0,
+     "9": 0.0
+    },
+    "found_count_true_by_length": {
+     "10": [
+      0,
+      4
+     ],
+     "11": [
+      0,
+      2
+     ],
+     "3": [
+      0,
+      18
+     ],
+     "4": [
+      0,
+      16
+     ],
+     "5": [
+      0,
+      14
+     ],
+     "6": [
+      0,
+      12
+     ],
+     "7": [
+      0,
+      10
+     ],
+     "8": [
+      0,
+      8
+     ],
+     "9": [
+      0,
+      6
+     ]
+    },
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.728,
+    "intuition_auroc": 0.889,
+    "intuition_by_length": {
+     "10": 0.875,
+     "11": 0.75,
+     "3": 0.639,
+     "4": 0.781,
+     "5": 0.75,
+     "6": 0.625,
+     "7": 0.75,
+     "8": 0.75,
+     "9": 0.833
+    },
+    "logic-final": 0.228,
+    "logic-step0": 0.506,
+    "logic_final_auroc": 0.663,
+    "logic_final_by_length": {
+     "10": 0.25,
+     "11": 0.25,
+     "3": 0.222,
+     "4": 0.156,
+     "5": 0.179,
+     "6": 0.208,
+     "7": 0.4,
+     "8": 0.25,
+     "9": 0.25
+    },
+    "logic_search_all": 0.078,
+    "logic_step0_auroc": 0.62,
+    "n_by_length": {
+     "10": 8.0,
+     "11": 4.0,
+     "3": 36.0,
+     "4": 32.0,
+     "5": 28.0,
+     "6": 24.0,
+     "7": 20.0,
+     "8": 16.0,
+     "9": 12.0
+    },
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 38.0,
+    "proposer_recall": 0.022,
+    "search_all": {
+     "checks_true": 3.2,
+     "exhausted_true": 1.0,
+     "found_rate_false": 0.0,
+     "found_rate_true": 0.0,
+     "proposer_recall": 0.017,
+     "true_path_rate": null
+    },
+    "search_rate": 0.794,
+    "trigger_rate": 0.794,
+    "trigger_rate_true": 0.778,
+    "true_path_rate": null
+   },
+   "L2-named": {
+    "arbiter": 0.49,
+    "arbiter_by_length": {
+     "named-can": 0.278,
+     "named-has": 0.353,
+     "named-kind": 0.722
+    },
+    "arbiter_u_rate": 0.359,
+    "backtracks_true": 3.03,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_by_length_true": {
+     "named-can": 3.0,
+     "named-has": 3.0,
+     "named-kind": 3.333
+    },
+    "checks_false": 3.179,
+    "checks_true": 3.152,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "exhausted_true_by_length": {
+     "named-can": 1.0,
+     "named-has": 1.0,
+     "named-kind": 1.0
+    },
+    "found_by_length_true": {
+     "named-can": 0.0,
+     "named-has": 0.0,
+     "named-kind": 0.0
+    },
+    "found_count_true_by_length": {
+     "named-can": [
+      0,
+      8
+     ],
+     "named-has": [
+      0,
+      20
+     ],
+     "named-kind": [
+      0,
+      24
+     ]
+    },
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.716,
+    "intuition_auroc": 0.81,
+    "intuition_by_length": {
+     "named-can": 0.557,
+     "named-has": 0.635,
+     "named-kind": 0.826
+    },
+    "logic-final": 0.332,
+    "logic-step0": 0.611,
+    "logic_final_auroc": 0.66,
+    "logic_final_by_length": {
+     "named-can": 0.193,
+     "named-has": 0.249,
+     "named-kind": 0.507
+    },
+    "logic_search_all": 0.062,
+    "logic_step0_auroc": 0.607,
+    "n_by_length": {
+     "named-can": 30.0,
+     "named-has": 66.0,
+     "named-kind": 60.0
+    },
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 0.0,
+    "proposer_recall": 0.027,
+    "search_all": {
+     "checks_true": 3.519,
+     "exhausted_true": 1.0,
+     "found_rate_false": 0.0,
+     "found_rate_true": 0.0,
+     "proposer_recall": 0.03,
+     "true_path_rate": null
+    },
+    "search_rate": 0.571,
+    "trigger_rate": 0.571,
+    "trigger_rate_true": 0.635,
+    "true_path_rate": null
+   },
+   "P1-default": {
+    "arbiter": 0.388,
+    "arbiter_u_rate": 0.4,
+    "backtracks_true": 3.0,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_false": 3.195,
+    "checks_true": 3.174,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.584,
+    "intuition_auroc": 0.572,
+    "logic-final": 0.205,
+    "logic-step0": 0.479,
+    "logic_final_auroc": 0.606,
+    "logic_step0_auroc": 0.651,
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 27.0,
+    "proposer_recall": null,
+    "search_rate": 0.645,
+    "trigger_rate": 0.645,
+    "trigger_rate_true": 0.821,
+    "true_path_rate": null
+   },
+   "P2": {
+    "arbiter": 0.475,
+    "arbiter_u_rate": 0.307,
+    "backtracks_true": 3.095,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_false": 3.214,
+    "checks_true": 3.29,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.622,
+    "intuition_auroc": 0.691,
+    "logic-final": 0.266,
+    "logic-step0": 0.469,
+    "logic_final_auroc": 0.59,
+    "logic_search_all": 0.177,
+    "logic_step0_auroc": 0.515,
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 228.0,
+    "proposer_recall": 0.0,
+    "search_all": {
+     "checks_true": 3.278,
+     "exhausted_true": 1.0,
+     "found_rate_false": 0.0,
+     "found_rate_true": 0.0,
+     "proposer_recall": 0.0,
+     "true_path_rate": null
+    },
+    "search_rate": 0.77,
+    "trigger_rate": 0.77,
+    "trigger_rate_true": 0.76,
+    "true_path_rate": null
+   },
+   "P3": {
+    "arbiter": 0.412,
+    "arbiter_u_rate": 0.394,
+    "backtracks_true": 3.22,
+    "backward_waste": 0.0,
+    "candidate_index_first": 0.25,
+    "candidate_index_mean": 2.0,
+    "checks_false": 3.165,
+    "checks_true": 3.415,
+    "exhausted_false": 0.996,
+    "exhausted_true": 1.0,
+    "found_rate_false": 0.004,
+    "found_rate_true": 0.0,
+    "intuition": 0.651,
+    "intuition_auroc": 0.745,
+    "logic-final": 0.255,
+    "logic-step0": 0.498,
+    "logic_final_auroc": 0.593,
+    "logic_search_all": 0.166,
+    "logic_step0_auroc": 0.585,
+    "path_len_found": 4.0,
+    "programs": [
+     [
+      ">brighter-than >smaller-than >louder-than|b <bigger-than|b",
+      1
+     ]
+    ],
+    "proposer_offpath_choice_points": 42.0,
+    "proposer_recall": 0.0,
+    "search_all": {
+     "checks_true": 3.333,
+     "exhausted_true": 1.0,
+     "found_rate_false": 0.003,
+     "found_rate_true": 0.0,
+     "proposer_recall": 0.0,
+     "true_path_rate": 0.0
+    },
+    "search_rate": 0.777,
+    "trigger_rate": 0.777,
+    "trigger_rate_true": 0.804,
+    "true_path_rate": 0.0
+   },
+   "P4": {
+    "arbiter": 0.368,
+    "arbiter_u_rate": 0.424,
+    "backtracks_true": 2.948,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_false": 3.207,
+    "checks_true": 3.052,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.625,
+    "intuition_auroc": 0.656,
+    "logic-final": 0.188,
+    "logic-step0": 0.424,
+    "logic_final_auroc": 0.536,
+    "logic_step0_auroc": 0.512,
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 64.0,
+    "proposer_recall": null,
+    "search_rate": 0.806,
+    "trigger_rate": 0.806,
+    "trigger_rate_true": 0.806,
+    "true_path_rate": null
+   },
+   "P6-colour": {
+    "arbiter": 0.429,
+    "arbiter_u_rate": 0.156,
+    "backtracks_true": 3.0,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_false": 3.205,
+    "checks_true": 3.125,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.513,
+    "intuition_auroc": 0.545,
+    "logic-final": 0.355,
+    "logic-step0": 0.334,
+    "logic_final_auroc": 0.581,
+    "logic_search_all": 0.333,
+    "logic_step0_auroc": 0.487,
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 0.0,
+    "proposer_recall": 0.0,
+    "search_all": {
+     "checks_true": 3.1,
+     "exhausted_true": 1.0,
+     "found_rate_false": 0.0,
+     "found_rate_true": 0.0,
+     "proposer_recall": 0.0,
+     "true_path_rate": null
+    },
+    "search_rate": 0.79,
+    "trigger_rate": 0.79,
+    "trigger_rate_true": 0.8,
+    "true_path_rate": null
+   },
+   "P6-grandparent": {
+    "arbiter": 0.5,
+    "arbiter_u_rate": 0.0,
+    "backtracks_true": 3.0,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_false": 3.0,
+    "checks_true": 3.0,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.5,
+    "intuition_auroc": 0.65,
+    "logic-final": 0.5,
+    "logic-step0": 0.2,
+    "logic_final_auroc": 0.637,
+    "logic_search_all": 0.5,
+    "logic_step0_auroc": 0.087,
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 0.0,
+    "proposer_recall": 0.0,
+    "search_all": {
+     "checks_true": 3.0,
+     "exhausted_true": 1.0,
+     "found_rate_false": 0.0,
+     "found_rate_true": 0.0,
+     "proposer_recall": 0.0,
+     "true_path_rate": null
+    },
+    "search_rate": 0.708,
+    "trigger_rate": 0.708,
+    "trigger_rate_true": 0.25,
+    "true_path_rate": null
+   },
+   "S3b": {
+    "arbiter": {
+     "always": 0.5,
+     "never": 0.823,
+     "sometimes": 0.222,
+     "usually": 0.75
+    },
+    "intuition": {
+     "always": 0.5,
+     "never": 0.935,
+     "sometimes": 0.0,
+     "usually": 0.625
+    },
+    "logic-final": {
+     "always": 0.167,
+     "never": 0.823,
+     "sometimes": 0.444,
+     "usually": 0.375
+    },
+    "logic-step0": {
+     "always": 0.75,
+     "never": 0.581,
+     "sometimes": 0.333,
+     "usually": 0.5
+    }
+   },
+   "S3b-trigger-rate": 0.65,
+   "S4a-trigger-rate": 0.773,
+   "S4a-u-rate": {
+    "arbiter": 0.25,
+    "arbiter_u_given_exhausted": 0.324,
+    "logic-final": 0.455,
+    "logic-step0": 0.205
+   },
+   "S4b-P7-trigger-rate": 0.879,
+   "S4b-P7-u-rate": {
+    "arbiter": 0.364,
+    "arbiter_u_given_exhausted": 0.414,
+    "logic-final": 0.788,
+    "logic-step0": 0.455
+   },
+   "conflict-flags-intuition-errors": {
+    "error_rate": 0.25,
+    "graded_auroc": 0.504
+   },
+   "control-trigger-rate": 0.745,
+   "control-u-rate": {
+    "arbiter": 0.33,
+    "arbiter_u_given_exhausted": 0.444,
+    "logic-final": 0.534,
+    "logic-step0": 0.069
+   },
+   "per-hop": {
+    "by_relation_true": {
+     "can": 0.343,
+     "colour-of": 0.185,
+     "has": 0.5,
+     "is-a": 0.562,
+     "just-bigger-than": 0.111,
+     "names": 0.0,
+     "parent-of": 0.111,
+     "subkind-of": 0.5
+    },
+    "confirm_false": 0.024,
+    "confirm_true": 0.39
+   },
+   "withheld-fit": {
+    "arbiter": 0.901,
+    "backtracks_true": 3.085,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_false": 3.152,
+    "checks_true": 3.233,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.994,
+    "logic-final": 0.559,
+    "logic-step0": 0.505,
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 5.0,
+    "proposer_recall": 0.005,
+    "search_rate": 0.695,
+    "trigger_rate": 0.695,
+    "trigger_rate_true": 0.685,
+    "true_path_rate": null
+   }
+  }
+ },
+ "bt-forward": {
+  "controller_params": 77685,
+  "dax": {
+   "always": {
+    "arbiter": 0.6,
+    "intuition": 0.4,
+    "logic-final": 0.6,
+    "logic-step0": 0.8,
+    "trigger_rate": 0.2
+   },
+   "never": {
+    "arbiter": 0.667,
+    "intuition": 0.667,
+    "logic-final": 0.667,
+    "logic-step0": 0.778,
+    "trigger_rate": 0.667
+   },
+   "sometimes": {
+    "arbiter": 0.111,
+    "intuition": 0.0,
+    "logic-final": 0.444,
+    "logic-step0": 0.667,
+    "trigger_rate": 0.667
+   },
+   "usually": {
+    "arbiter": 0.5,
+    "intuition": 0.5,
+    "logic-final": 0.5,
+    "logic-step0": 1.0,
+    "trigger_rate": 0.5
+   }
+  },
+  "final_log": {
+   "checks_true": 3.257,
+   "found_false": 0.0,
+   "found_true": 0.0,
+   "loss": 0.445,
+   "outcome": 0.445,
+   "rank": 0.0,
+   "step": 40.0,
+   "wall": 6.039
+  },
+  "params": 151486,
+  "tests": {
+   "G2": {
+    "arbiter": 0.627,
+    "arbiter_u_rate": 0.246,
+    "backtracks_true": 3.0,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_false": 3.189,
+    "checks_true": 3.0,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.745,
+    "intuition_auroc": 0.844,
+    "logic-final": 0.342,
+    "logic-step0": 0.583,
+    "logic_final_auroc": 0.702,
+    "logic_step0_auroc": 0.752,
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 29.0,
+    "proposer_recall": null,
+    "search_rate": 0.463,
+    "trigger_rate": 0.463,
+    "trigger_rate_true": 0.935,
+    "true_path_rate": null
+   },
+   "G4": {
+    "arbiter": 0.357,
+    "arbiter_u_rate": 0.191,
+    "backtracks_true": 3.0,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_false": 3.095,
+    "checks_true": 3.0,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.46,
+    "intuition_auroc": 0.42,
+    "logic-final": 0.345,
+    "logic-step0": 0.341,
+    "logic_final_auroc": 0.497,
+    "logic_step0_auroc": 0.519,
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 6.0,
+    "proposer_recall": null,
+    "search_rate": 0.574,
+    "trigger_rate": 0.574,
+    "trigger_rate_true": 0.75,
+    "true_path_rate": null
+   },
+   "L1-anc": {
+    "arbiter": 0.5,
+    "arbiter_by_length": {
+     "3": 0.444,
+     "4": 0.5,
+     "5": 0.667
+    },
+    "arbiter_u_rate": 0.111,
+    "backtracks_true": 3.0,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_by_length_true": {
+     "3": 3.0,
+     "4": 3.0,
+     "5": 3.0
+    },
+    "checks_false": 3.0,
+    "checks_true": 3.0,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "exhausted_true_by_length": {
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0
+    },
+    "found_by_length_true": {
+     "3": 0.0,
+     "4": 0.0,
+     "5": 0.0
+    },
+    "found_count_true_by_length": {
+     "3": [
+      0,
+      9
+     ],
+     "4": [
+      0,
+      6
+     ],
+     "5": [
+      0,
+      3
+     ]
+    },
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.528,
+    "intuition_auroc": 0.815,
+    "intuition_by_length": {
+     "3": 0.5,
+     "4": 0.5,
+     "5": 0.667
+    },
+    "logic-final": 0.472,
+    "logic-step0": 0.389,
+    "logic_final_auroc": 0.716,
+    "logic_final_by_length": {
+     "3": 0.389,
+     "4": 0.5,
+     "5": 0.667
+    },
+    "logic_search_all": 0.417,
+    "logic_step0_auroc": 0.559,
+    "n_by_length": {
+     "3": 18.0,
+     "4": 12.0,
+     "5": 6.0
+    },
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 0.0,
+    "proposer_recall": 0.0,
+    "search_all": {
+     "checks_true": 3.111,
+     "exhausted_true": 1.0,
+     "found_rate_false": 0.0,
+     "found_rate_true": 0.0,
+     "proposer_recall": 0.0,
+     "true_path_rate": null
+    },
+    "search_rate": 0.722,
+    "trigger_rate": 0.722,
+    "trigger_rate_true": 0.667,
+    "true_path_rate": null
+   },
+   "L1-anc-depth45": {
+    "arbiter": 0.556,
+    "intuition": 0.556,
+    "logic-final": 0.556,
+    "logic-step0": 0.556,
+    "n": 18.0
+   },
+   "L1-kind": {
+    "arbiter": 0.428,
+    "arbiter_by_length": {
+     "3": 0.327,
+     "4": 0.529
+    },
+    "arbiter_u_rate": 0.362,
+    "backtracks_true": 3.2,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_by_length_true": {
+     "3": 3.4,
+     "4": 3.4
+    },
+    "checks_false": 3.0,
+    "checks_true": 3.4,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "exhausted_true_by_length": {
+     "3": 1.0,
+     "4": 1.0
+    },
+    "found_by_length_true": {
+     "3": 0.0,
+     "4": 0.0
+    },
+    "found_count_true_by_length": {
+     "3": [
+      0,
+      35
+     ],
+     "4": [
+      0,
+      35
+     ]
+    },
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.581,
+    "intuition_auroc": 0.649,
+    "intuition_by_length": {
+     "3": 0.633,
+     "4": 0.529
+    },
+    "logic-final": 0.421,
+    "logic-step0": 0.564,
+    "logic_final_auroc": 0.649,
+    "logic_final_by_length": {
+     "3": 0.327,
+     "4": 0.514
+    },
+    "logic_search_all": 0.229,
+    "logic_step0_auroc": 0.549,
+    "n_by_length": {
+     "3": 47.0,
+     "4": 47.0
+    },
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 4.0,
+    "proposer_recall": 0.0,
+    "search_all": {
+     "checks_true": 3.486,
+     "exhausted_true": 1.0,
+     "found_rate_false": 0.0,
+     "found_rate_true": 0.0,
+     "proposer_recall": 0.0,
+     "true_path_rate": null
+    },
+    "search_rate": 0.415,
+    "trigger_rate": 0.415,
+    "trigger_rate_true": 0.429,
+    "true_path_rate": null
+   },
+   "L1-size": {
+    "arbiter": 0.422,
+    "arbiter_by_length": {
+     "10": 0.625,
+     "11": 0.5,
+     "3": 0.306,
+     "4": 0.375,
+     "5": 0.429,
+     "6": 0.333,
+     "7": 0.55,
+     "8": 0.5,
+     "9": 0.583
+    },
+    "arbiter_u_rate": 0.461,
+    "backtracks_true": 3.071,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_by_length_true": {
+     "10": 3.5,
+     "11": 3.0,
+     "3": 3.133,
+     "4": 3.0,
+     "5": 3.4,
+     "6": 3.0,
+     "7": 3.0,
+     "8": 3.333,
+     "9": 3.0
+    },
+    "checks_false": 3.274,
+    "checks_true": 3.143,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "exhausted_true_by_length": {
+     "10": 1.0,
+     "11": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 1.0,
+     "7": 1.0,
+     "8": 1.0,
+     "9": 1.0
+    },
+    "found_by_length_true": {
+     "10": 0.0,
+     "11": 0.0,
+     "3": 0.0,
+     "4": 0.0,
+     "5": 0.0,
+     "6": 0.0,
+     "7": 0.0,
+     "8": 0.0,
+     "9": 0.0
+    },
+    "found_count_true_by_length": {
+     "10": [
+      0,
+      4
+     ],
+     "11": [
+      0,
+      2
+     ],
+     "3": [
+      0,
+      18
+     ],
+     "4": [
+      0,
+      16
+     ],
+     "5": [
+      0,
+      14
+     ],
+     "6": [
+      0,
+      12
+     ],
+     "7": [
+      0,
+      10
+     ],
+     "8": [
+      0,
+      8
+     ],
+     "9": [
+      0,
+      6
+     ]
+    },
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.728,
+    "intuition_auroc": 0.889,
+    "intuition_by_length": {
+     "10": 0.875,
+     "11": 0.75,
+     "3": 0.639,
+     "4": 0.781,
+     "5": 0.75,
+     "6": 0.625,
+     "7": 0.75,
+     "8": 0.75,
+     "9": 0.833
+    },
+    "logic-final": 0.189,
+    "logic-step0": 0.506,
+    "logic_final_auroc": 0.654,
+    "logic_final_by_length": {
+     "10": 0.25,
+     "11": 0.25,
+     "3": 0.167,
+     "4": 0.125,
+     "5": 0.143,
+     "6": 0.125,
+     "7": 0.4,
+     "8": 0.25,
+     "9": 0.167
+    },
+    "logic_search_all": 0.039,
+    "logic_step0_auroc": 0.62,
+    "n_by_length": {
+     "10": 8.0,
+     "11": 4.0,
+     "3": 36.0,
+     "4": 32.0,
+     "5": 28.0,
+     "6": 24.0,
+     "7": 20.0,
+     "8": 16.0,
+     "9": 12.0
+    },
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 37.0,
+    "proposer_recall": 0.026,
+    "search_all": {
+     "checks_true": 3.133,
+     "exhausted_true": 1.0,
+     "found_rate_false": 0.0,
+     "found_rate_true": 0.0,
+     "proposer_recall": 0.02,
+     "true_path_rate": null
+    },
+    "search_rate": 0.794,
+    "trigger_rate": 0.794,
+    "trigger_rate_true": 0.778,
+    "true_path_rate": null
+   },
+   "L2-named": {
+    "arbiter": 0.447,
+    "arbiter_by_length": {
+     "named-can": 0.278,
+     "named-has": 0.321,
+     "named-kind": 0.66
+    },
+    "arbiter_u_rate": 0.397,
+    "backtracks_true": 3.212,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_by_length_true": {
+     "named-can": 3.0,
+     "named-has": 3.462,
+     "named-kind": 3.533
+    },
+    "checks_false": 3.179,
+    "checks_true": 3.424,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "exhausted_true_by_length": {
+     "named-can": 1.0,
+     "named-has": 1.0,
+     "named-kind": 1.0
+    },
+    "found_by_length_true": {
+     "named-can": 0.0,
+     "named-has": 0.0,
+     "named-kind": 0.0
+    },
+    "found_count_true_by_length": {
+     "named-can": [
+      0,
+      8
+     ],
+     "named-has": [
+      0,
+      20
+     ],
+     "named-kind": [
+      0,
+      24
+     ]
+    },
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.716,
+    "intuition_auroc": 0.81,
+    "intuition_by_length": {
+     "named-can": 0.557,
+     "named-has": 0.635,
+     "named-kind": 0.826
+    },
+    "logic-final": 0.332,
+    "logic-step0": 0.611,
+    "logic_final_auroc": 0.68,
+    "logic_final_by_length": {
+     "named-can": 0.193,
+     "named-has": 0.26,
+     "named-kind": 0.493
+    },
+    "logic_search_all": 0.062,
+    "logic_step0_auroc": 0.607,
+    "n_by_length": {
+     "named-can": 30.0,
+     "named-has": 66.0,
+     "named-kind": 60.0
+    },
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 2.0,
+    "proposer_recall": 0.053,
+    "search_all": {
+     "checks_true": 3.5,
+     "exhausted_true": 1.0,
+     "found_rate_false": 0.0,
+     "found_rate_true": 0.0,
+     "proposer_recall": 0.049,
+     "true_path_rate": null
+    },
+    "search_rate": 0.571,
+    "trigger_rate": 0.571,
+    "trigger_rate_true": 0.635,
+    "true_path_rate": null
+   },
+   "P1-default": {
+    "arbiter": 0.346,
+    "arbiter_u_rate": 0.439,
+    "backtracks_true": 3.043,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_false": 3.208,
+    "checks_true": 3.087,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.584,
+    "intuition_auroc": 0.572,
+    "logic-final": 0.205,
+    "logic-step0": 0.479,
+    "logic_final_auroc": 0.606,
+    "logic_step0_auroc": 0.651,
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 24.0,
+    "proposer_recall": null,
+    "search_rate": 0.645,
+    "trigger_rate": 0.645,
+    "trigger_rate_true": 0.821,
+    "true_path_rate": null
+   },
+   "P2": {
+    "arbiter": 0.454,
+    "arbiter_u_rate": 0.357,
+    "backtracks_true": 3.12,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_false": 3.253,
+    "checks_true": 3.24,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.622,
+    "intuition_auroc": 0.691,
+    "logic-final": 0.27,
+    "logic-step0": 0.469,
+    "logic_final_auroc": 0.586,
+    "logic_search_all": 0.183,
+    "logic_step0_auroc": 0.515,
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 212.0,
+    "proposer_recall": 0.0,
+    "search_all": {
+     "checks_true": 3.243,
+     "exhausted_true": 1.0,
+     "found_rate_false": 0.0,
+     "found_rate_true": 0.0,
+     "proposer_recall": 0.0,
+     "true_path_rate": null
+    },
+    "search_rate": 0.77,
+    "trigger_rate": 0.77,
+    "trigger_rate_true": 0.76,
+    "true_path_rate": null
+   },
+   "P3": {
+    "arbiter": 0.415,
+    "arbiter_u_rate": 0.417,
+    "backtracks_true": 3.049,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_false": 3.147,
+    "checks_true": 3.098,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.651,
+    "intuition_auroc": 0.745,
+    "logic-final": 0.25,
+    "logic-step0": 0.498,
+    "logic_final_auroc": 0.608,
+    "logic_search_all": 0.161,
+    "logic_step0_auroc": 0.585,
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 36.0,
+    "proposer_recall": 0.0,
+    "search_all": {
+     "checks_true": 3.078,
+     "exhausted_true": 1.0,
+     "found_rate_false": 0.0,
+     "found_rate_true": 0.0,
+     "proposer_recall": 0.0,
+     "true_path_rate": null
+    },
+    "search_rate": 0.777,
+    "trigger_rate": 0.777,
+    "trigger_rate_true": 0.804,
+    "true_path_rate": null
+   },
+   "P4": {
+    "arbiter": 0.361,
+    "arbiter_u_rate": 0.438,
+    "backtracks_true": 3.069,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_false": 3.276,
+    "checks_true": 3.138,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.625,
+    "intuition_auroc": 0.656,
+    "logic-final": 0.188,
+    "logic-step0": 0.424,
+    "logic_final_auroc": 0.545,
+    "logic_step0_auroc": 0.512,
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 62.0,
+    "proposer_recall": null,
+    "search_rate": 0.806,
+    "trigger_rate": 0.806,
+    "trigger_rate_true": 0.806,
+    "true_path_rate": null
+   },
+   "P6-colour": {
+    "arbiter": 0.393,
+    "arbiter_u_rate": 0.228,
+    "backtracks_true": 3.125,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_false": 3.174,
+    "checks_true": 3.25,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.513,
+    "intuition_auroc": 0.545,
+    "logic-final": 0.331,
+    "logic-step0": 0.334,
+    "logic_final_auroc": 0.545,
+    "logic_search_all": 0.321,
+    "logic_step0_auroc": 0.487,
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 2.0,
+    "proposer_recall": 0.0,
+    "search_all": {
+     "checks_true": 3.2,
+     "exhausted_true": 1.0,
+     "found_rate_false": 0.0,
+     "found_rate_true": 0.0,
+     "proposer_recall": 0.0,
+     "true_path_rate": null
+    },
+    "search_rate": 0.79,
+    "trigger_rate": 0.79,
+    "trigger_rate_true": 0.8,
+    "true_path_rate": null
+   },
+   "P6-grandparent": {
+    "arbiter": 0.5,
+    "arbiter_u_rate": 0.0,
+    "backtracks_true": 3.0,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_false": 3.75,
+    "checks_true": 3.0,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.5,
+    "intuition_auroc": 0.65,
+    "logic-final": 0.45,
+    "logic-step0": 0.2,
+    "logic_final_auroc": 0.625,
+    "logic_search_all": 0.425,
+    "logic_step0_auroc": 0.087,
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 0.0,
+    "proposer_recall": 0.0,
+    "search_all": {
+     "checks_true": 3.0,
+     "exhausted_true": 1.0,
+     "found_rate_false": 0.0,
+     "found_rate_true": 0.0,
+     "proposer_recall": 0.0,
+     "true_path_rate": null
+    },
+    "search_rate": 0.708,
+    "trigger_rate": 0.708,
+    "trigger_rate_true": 0.25,
+    "true_path_rate": null
+   },
+   "S3b": {
+    "arbiter": {
+     "always": 0.5,
+     "never": 0.79,
+     "sometimes": 0.444,
+     "usually": 0.75
+    },
+    "intuition": {
+     "always": 0.5,
+     "never": 0.935,
+     "sometimes": 0.0,
+     "usually": 0.625
+    },
+    "logic-final": {
+     "always": 0.167,
+     "never": 0.806,
+     "sometimes": 0.444,
+     "usually": 0.375
+    },
+    "logic-step0": {
+     "always": 0.75,
+     "never": 0.581,
+     "sometimes": 0.333,
+     "usually": 0.5
+    }
+   },
+   "S3b-trigger-rate": 0.65,
+   "S4a-trigger-rate": 0.773,
+   "S4a-u-rate": {
+    "arbiter": 0.364,
+    "arbiter_u_given_exhausted": 0.471,
+    "logic-final": 0.455,
+    "logic-step0": 0.205
+   },
+   "S4b-P7-trigger-rate": 0.879,
+   "S4b-P7-u-rate": {
+    "arbiter": 0.455,
+    "arbiter_u_given_exhausted": 0.517,
+    "logic-final": 0.667,
+    "logic-step0": 0.455
+   },
+   "conflict-flags-intuition-errors": {
+    "error_rate": 0.25,
+    "graded_auroc": 0.504
+   },
+   "control-trigger-rate": 0.745,
+   "control-u-rate": {
+    "arbiter": 0.371,
+    "arbiter_u_given_exhausted": 0.498,
+    "logic-final": 0.524,
+    "logic-step0": 0.069
+   },
+   "per-hop": {
+    "by_relation_true": {
+     "can": 0.343,
+     "colour-of": 0.185,
+     "has": 0.5,
+     "is-a": 0.562,
+     "just-bigger-than": 0.111,
+     "names": 0.0,
+     "parent-of": 0.111,
+     "subkind-of": 0.5
+    },
+    "confirm_false": 0.024,
+    "confirm_true": 0.39
+   },
+   "withheld-fit": {
+    "arbiter": 0.86,
+    "backtracks_true": 3.119,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_false": 3.232,
+    "checks_true": 3.239,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.994,
+    "logic-final": 0.557,
+    "logic-step0": 0.505,
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 17.0,
+    "proposer_recall": 0.0,
+    "search_rate": 0.695,
+    "trigger_rate": 0.695,
+    "trigger_rate_true": 0.685,
+    "true_path_rate": null
+   }
+  }
+ },
+ "bt-forward-notrace": {
+  "controller_params": 77685,
+  "dax": {
+   "always": {
+    "arbiter": 0.6,
+    "intuition": 0.4,
+    "logic-final": 0.6,
+    "logic-step0": 0.8,
+    "trigger_rate": 0.2
+   },
+   "never": {
+    "arbiter": 0.556,
+    "intuition": 0.667,
+    "logic-final": 0.444,
+    "logic-step0": 0.778,
+    "trigger_rate": 0.667
+   },
+   "sometimes": {
+    "arbiter": 0.222,
+    "intuition": 0.0,
+    "logic-final": 0.556,
+    "logic-step0": 0.667,
+    "trigger_rate": 0.667
+   },
+   "usually": {
+    "arbiter": 0.5,
+    "intuition": 0.5,
+    "logic-final": 0.5,
+    "logic-step0": 1.0,
+    "trigger_rate": 0.5
+   }
+  },
+  "final_log": {
+   "checks_true": 3.187,
+   "found_false": 0.0,
+   "found_true": 0.0,
+   "loss": 0.475,
+   "outcome": 0.475,
+   "rank": 0.0,
+   "step": 40.0,
+   "wall": 4.672
+  },
+  "params": 151486,
+  "tests": {
+   "G2": {
+    "arbiter": 0.701,
+    "arbiter_u_rate": 0.183,
+    "backtracks_true": 3.0,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_false": 3.632,
+    "checks_true": 3.0,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.745,
+    "intuition_auroc": 0.844,
+    "logic-final": 0.342,
+    "logic-step0": 0.583,
+    "logic_final_auroc": 0.731,
+    "logic_step0_auroc": 0.752,
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 29.0,
+    "proposer_recall": null,
+    "search_rate": 0.463,
+    "trigger_rate": 0.463,
+    "trigger_rate_true": 0.935,
+    "true_path_rate": null
+   },
+   "G4": {
+    "arbiter": 0.345,
+    "arbiter_u_rate": 0.213,
+    "backtracks_true": 3.0,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_false": 3.0,
+    "checks_true": 3.0,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.46,
+    "intuition_auroc": 0.42,
+    "logic-final": 0.332,
+    "logic-step0": 0.341,
+    "logic_final_auroc": 0.545,
+    "logic_step0_auroc": 0.519,
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 6.0,
+    "proposer_recall": null,
+    "search_rate": 0.574,
+    "trigger_rate": 0.574,
+    "trigger_rate_true": 0.75,
+    "true_path_rate": null
+   },
+   "L1-anc": {
+    "arbiter": 0.528,
+    "arbiter_by_length": {
+     "3": 0.5,
+     "4": 0.5,
+     "5": 0.667
+    },
+    "arbiter_u_rate": 0.083,
+    "backtracks_true": 3.0,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_by_length_true": {
+     "3": 3.0,
+     "4": 3.0,
+     "5": 3.0
+    },
+    "checks_false": 3.0,
+    "checks_true": 3.0,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "exhausted_true_by_length": {
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0
+    },
+    "found_by_length_true": {
+     "3": 0.0,
+     "4": 0.0,
+     "5": 0.0
+    },
+    "found_count_true_by_length": {
+     "3": [
+      0,
+      9
+     ],
+     "4": [
+      0,
+      6
+     ],
+     "5": [
+      0,
+      3
+     ]
+    },
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.528,
+    "intuition_auroc": 0.815,
+    "intuition_by_length": {
+     "3": 0.5,
+     "4": 0.5,
+     "5": 0.667
+    },
+    "logic-final": 0.5,
+    "logic-step0": 0.389,
+    "logic_final_auroc": 0.731,
+    "logic_final_by_length": {
+     "3": 0.444,
+     "4": 0.5,
+     "5": 0.667
+    },
+    "logic_search_all": 0.472,
+    "logic_step0_auroc": 0.559,
+    "n_by_length": {
+     "3": 18.0,
+     "4": 12.0,
+     "5": 6.0
+    },
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 0.0,
+    "proposer_recall": 0.0,
+    "search_all": {
+     "checks_true": 3.333,
+     "exhausted_true": 1.0,
+     "found_rate_false": 0.0,
+     "found_rate_true": 0.0,
+     "proposer_recall": 0.0,
+     "true_path_rate": null
+    },
+    "search_rate": 0.722,
+    "trigger_rate": 0.722,
+    "trigger_rate_true": 0.667,
+    "true_path_rate": null
+   },
+   "L1-anc-depth45": {
+    "arbiter": 0.556,
+    "intuition": 0.556,
+    "logic-final": 0.556,
+    "logic-step0": 0.556,
+    "n": 18.0
+   },
+   "L1-kind": {
+    "arbiter": 0.407,
+    "arbiter_by_length": {
+     "3": 0.286,
+     "4": 0.529
+    },
+    "arbiter_u_rate": 0.362,
+    "backtracks_true": 3.2,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_by_length_true": {
+     "3": 3.4,
+     "4": 3.4
+    },
+    "checks_false": 3.0,
+    "checks_true": 3.4,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "exhausted_true_by_length": {
+     "3": 1.0,
+     "4": 1.0
+    },
+    "found_by_length_true": {
+     "3": 0.0,
+     "4": 0.0
+    },
+    "found_count_true_by_length": {
+     "3": [
+      0,
+      35
+     ],
+     "4": [
+      0,
+      35
+     ]
+    },
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.581,
+    "intuition_auroc": 0.649,
+    "intuition_by_length": {
+     "3": 0.633,
+     "4": 0.529
+    },
+    "logic-final": 0.379,
+    "logic-step0": 0.564,
+    "logic_final_auroc": 0.645,
+    "logic_final_by_length": {
+     "3": 0.286,
+     "4": 0.473
+    },
+    "logic_search_all": 0.125,
+    "logic_step0_auroc": 0.549,
+    "n_by_length": {
+     "3": 47.0,
+     "4": 47.0
+    },
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 6.0,
+    "proposer_recall": 0.067,
+    "search_all": {
+     "checks_true": 3.257,
+     "exhausted_true": 1.0,
+     "found_rate_false": 0.0,
+     "found_rate_true": 0.0,
+     "proposer_recall": 0.029,
+     "true_path_rate": null
+    },
+    "search_rate": 0.415,
+    "trigger_rate": 0.415,
+    "trigger_rate_true": 0.429,
+    "true_path_rate": null
+   },
+   "L1-size": {
+    "arbiter": 0.478,
+    "arbiter_by_length": {
+     "10": 0.75,
+     "11": 0.5,
+     "3": 0.444,
+     "4": 0.375,
+     "5": 0.464,
+     "6": 0.417,
+     "7": 0.55,
+     "8": 0.562,
+     "9": 0.583
+    },
+    "arbiter_u_rate": 0.417,
+    "backtracks_true": 3.086,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_by_length_true": {
+     "10": 3.0,
+     "11": 3.0,
+     "3": 3.0,
+     "4": 3.0,
+     "5": 3.6,
+     "6": 3.667,
+     "7": 3.0,
+     "8": 3.0,
+     "9": 3.0
+    },
+    "checks_false": 3.247,
+    "checks_true": 3.171,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "exhausted_true_by_length": {
+     "10": 1.0,
+     "11": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 1.0,
+     "7": 1.0,
+     "8": 1.0,
+     "9": 1.0
+    },
+    "found_by_length_true": {
+     "10": 0.0,
+     "11": 0.0,
+     "3": 0.0,
+     "4": 0.0,
+     "5": 0.0,
+     "6": 0.0,
+     "7": 0.0,
+     "8": 0.0,
+     "9": 0.0
+    },
+    "found_count_true_by_length": {
+     "10": [
+      0,
+      4
+     ],
+     "11": [
+      0,
+      2
+     ],
+     "3": [
+      0,
+      18
+     ],
+     "4": [
+      0,
+      16
+     ],
+     "5": [
+      0,
+      14
+     ],
+     "6": [
+      0,
+      12
+     ],
+     "7": [
+      0,
+      10
+     ],
+     "8": [
+      0,
+      8
+     ],
+     "9": [
+      0,
+      6
+     ]
+    },
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.728,
+    "intuition_auroc": 0.889,
+    "intuition_by_length": {
+     "10": 0.875,
+     "11": 0.75,
+     "3": 0.639,
+     "4": 0.781,
+     "5": 0.75,
+     "6": 0.625,
+     "7": 0.75,
+     "8": 0.75,
+     "9": 0.833
+    },
+    "logic-final": 0.183,
+    "logic-step0": 0.506,
+    "logic_final_auroc": 0.67,
+    "logic_final_by_length": {
+     "10": 0.25,
+     "11": 0.0,
+     "3": 0.167,
+     "4": 0.094,
+     "5": 0.179,
+     "6": 0.167,
+     "7": 0.35,
+     "8": 0.25,
+     "9": 0.167
+    },
+    "logic_search_all": 0.033,
+    "logic_step0_auroc": 0.62,
+    "n_by_length": {
+     "10": 8.0,
+     "11": 4.0,
+     "3": 36.0,
+     "4": 32.0,
+     "5": 28.0,
+     "6": 24.0,
+     "7": 20.0,
+     "8": 16.0,
+     "9": 12.0
+    },
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 36.0,
+    "proposer_recall": 0.025,
+    "search_all": {
+     "checks_true": 3.2,
+     "exhausted_true": 1.0,
+     "found_rate_false": 0.0,
+     "found_rate_true": 0.0,
+     "proposer_recall": 0.02,
+     "true_path_rate": null
+    },
+    "search_rate": 0.794,
+    "trigger_rate": 0.794,
+    "trigger_rate_true": 0.778,
+    "true_path_rate": null
+   },
+   "L2-named": {
+    "arbiter": 0.514,
+    "arbiter_by_length": {
+     "named-can": 0.301,
+     "named-has": 0.357,
+     "named-kind": 0.764
+    },
+    "arbiter_u_rate": 0.353,
+    "backtracks_true": 3.182,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_by_length_true": {
+     "named-can": 3.0,
+     "named-has": 3.462,
+     "named-kind": 3.4
+    },
+    "checks_false": 3.0,
+    "checks_true": 3.364,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "exhausted_true_by_length": {
+     "named-can": 1.0,
+     "named-has": 1.0,
+     "named-kind": 1.0
+    },
+    "found_by_length_true": {
+     "named-can": 0.0,
+     "named-has": 0.0,
+     "named-kind": 0.0
+    },
+    "found_count_true_by_length": {
+     "named-can": [
+      0,
+      8
+     ],
+     "named-has": [
+      0,
+      20
+     ],
+     "named-kind": [
+      0,
+      24
+     ]
+    },
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.716,
+    "intuition_auroc": 0.81,
+    "intuition_by_length": {
+     "named-can": 0.557,
+     "named-has": 0.635,
+     "named-kind": 0.826
+    },
+    "logic-final": 0.337,
+    "logic-step0": 0.611,
+    "logic_final_auroc": 0.684,
+    "logic_final_by_length": {
+     "named-can": 0.17,
+     "named-has": 0.271,
+     "named-kind": 0.507
+    },
+    "logic_search_all": 0.053,
+    "logic_step0_auroc": 0.607,
+    "n_by_length": {
+     "named-can": 30.0,
+     "named-has": 66.0,
+     "named-kind": 60.0
+    },
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 3.0,
+    "proposer_recall": 0.028,
+    "search_all": {
+     "checks_true": 3.346,
+     "exhausted_true": 1.0,
+     "found_rate_false": 0.0,
+     "found_rate_true": 0.0,
+     "proposer_recall": 0.018,
+     "true_path_rate": null
+    },
+    "search_rate": 0.571,
+    "trigger_rate": 0.571,
+    "trigger_rate_true": 0.635,
+    "true_path_rate": null
+   },
+   "P1-default": {
+    "arbiter": 0.344,
+    "arbiter_u_rate": 0.413,
+    "backtracks_true": 3.13,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_false": 3.078,
+    "checks_true": 3.261,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.584,
+    "intuition_auroc": 0.572,
+    "logic-final": 0.221,
+    "logic-step0": 0.479,
+    "logic_final_auroc": 0.595,
+    "logic_step0_auroc": 0.651,
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 26.0,
+    "proposer_recall": null,
+    "search_rate": 0.645,
+    "trigger_rate": 0.645,
+    "trigger_rate_true": 0.821,
+    "true_path_rate": null
+   },
+   "P2": {
+    "arbiter": 0.479,
+    "arbiter_u_rate": 0.294,
+    "backtracks_true": 3.12,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_false": 3.251,
+    "checks_true": 3.24,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.622,
+    "intuition_auroc": 0.691,
+    "logic-final": 0.287,
+    "logic-step0": 0.469,
+    "logic_final_auroc": 0.593,
+    "logic_search_all": 0.202,
+    "logic_step0_auroc": 0.515,
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 212.0,
+    "proposer_recall": 0.0,
+    "search_all": {
+     "checks_true": 3.365,
+     "exhausted_true": 1.0,
+     "found_rate_false": 0.0,
+     "found_rate_true": 0.0,
+     "proposer_recall": 0.0,
+     "true_path_rate": null
+    },
+    "search_rate": 0.77,
+    "trigger_rate": 0.77,
+    "trigger_rate_true": 0.76,
+    "true_path_rate": null
+   },
+   "P3": {
+    "arbiter": 0.435,
+    "arbiter_u_rate": 0.371,
+    "backtracks_true": 3.0,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_false": 3.156,
+    "checks_true": 3.0,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.651,
+    "intuition_auroc": 0.745,
+    "logic-final": 0.258,
+    "logic-step0": 0.498,
+    "logic_final_auroc": 0.61,
+    "logic_search_all": 0.169,
+    "logic_step0_auroc": 0.585,
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 34.0,
+    "proposer_recall": 0.0,
+    "search_all": {
+     "checks_true": 3.0,
+     "exhausted_true": 1.0,
+     "found_rate_false": 0.0,
+     "found_rate_true": 0.0,
+     "proposer_recall": 0.0,
+     "true_path_rate": null
+    },
+    "search_rate": 0.777,
+    "trigger_rate": 0.777,
+    "trigger_rate_true": 0.804,
+    "true_path_rate": null
+   },
+   "P4": {
+    "arbiter": 0.368,
+    "arbiter_u_rate": 0.417,
+    "backtracks_true": 3.0,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_false": 3.0,
+    "checks_true": 3.0,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.625,
+    "intuition_auroc": 0.656,
+    "logic-final": 0.188,
+    "logic-step0": 0.424,
+    "logic_final_auroc": 0.546,
+    "logic_step0_auroc": 0.512,
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 58.0,
+    "proposer_recall": null,
+    "search_rate": 0.806,
+    "trigger_rate": 0.806,
+    "trigger_rate_true": 0.806,
+    "true_path_rate": null
+   },
+   "P6-colour": {
+    "arbiter": 0.427,
+    "arbiter_u_rate": 0.165,
+    "backtracks_true": 3.0,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_false": 3.037,
+    "checks_true": 3.0,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.513,
+    "intuition_auroc": 0.545,
+    "logic-final": 0.368,
+    "logic-step0": 0.334,
+    "logic_final_auroc": 0.561,
+    "logic_search_all": 0.373,
+    "logic_step0_auroc": 0.487,
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 0.0,
+    "proposer_recall": 0.0,
+    "search_all": {
+     "checks_true": 3.0,
+     "exhausted_true": 1.0,
+     "found_rate_false": 0.0,
+     "found_rate_true": 0.0,
+     "proposer_recall": 0.0,
+     "true_path_rate": null
+    },
+    "search_rate": 0.79,
+    "trigger_rate": 0.79,
+    "trigger_rate_true": 0.8,
+    "true_path_rate": null
+   },
+   "P6-grandparent": {
+    "arbiter": 0.5,
+    "arbiter_u_rate": 0.0,
+    "backtracks_true": 3.0,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_false": 3.75,
+    "checks_true": 3.0,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.5,
+    "intuition_auroc": 0.65,
+    "logic-final": 0.5,
+    "logic-step0": 0.2,
+    "logic_final_auroc": 0.588,
+    "logic_search_all": 0.5,
+    "logic_step0_auroc": 0.087,
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 0.0,
+    "proposer_recall": 0.0,
+    "search_all": {
+     "checks_true": 3.0,
+     "exhausted_true": 1.0,
+     "found_rate_false": 0.0,
+     "found_rate_true": 0.0,
+     "proposer_recall": 0.0,
+     "true_path_rate": null
+    },
+    "search_rate": 0.708,
+    "trigger_rate": 0.708,
+    "trigger_rate_true": 0.25,
+    "true_path_rate": null
+   },
+   "S3b": {
+    "arbiter": {
+     "always": 0.5,
+     "never": 0.79,
+     "sometimes": 0.333,
+     "usually": 0.75
+    },
+    "intuition": {
+     "always": 0.5,
+     "never": 0.935,
+     "sometimes": 0.0,
+     "usually": 0.625
+    },
+    "logic-final": {
+     "always": 0.167,
+     "never": 0.774,
+     "sometimes": 0.556,
+     "usually": 0.375
+    },
+    "logic-step0": {
+     "always": 0.75,
+     "never": 0.581,
+     "sometimes": 0.333,
+     "usually": 0.5
+    }
+   },
+   "S3b-trigger-rate": 0.65,
+   "S4a-trigger-rate": 0.773,
+   "S4a-u-rate": {
+    "arbiter": 0.318,
+    "arbiter_u_given_exhausted": 0.412,
+    "logic-final": 0.5,
+    "logic-step0": 0.205
+   },
+   "S4b-P7-trigger-rate": 0.879,
+   "S4b-P7-u-rate": {
+    "arbiter": 0.364,
+    "arbiter_u_given_exhausted": 0.414,
+    "logic-final": 0.545,
+    "logic-step0": 0.455
+   },
+   "conflict-flags-intuition-errors": {
+    "error_rate": 0.25,
+    "graded_auroc": 0.504
+   },
+   "control-trigger-rate": 0.745,
+   "control-u-rate": {
+    "arbiter": 0.313,
+    "arbiter_u_given_exhausted": 0.421,
+    "logic-final": 0.491,
+    "logic-step0": 0.069
+   },
+   "per-hop": {
+    "by_relation_true": {
+     "can": 0.343,
+     "colour-of": 0.185,
+     "has": 0.5,
+     "is-a": 0.562,
+     "just-bigger-than": 0.111,
+     "names": 0.0,
+     "parent-of": 0.111,
+     "subkind-of": 0.5
+    },
+    "confirm_false": 0.024,
+    "confirm_true": 0.39
+   },
+   "withheld-fit": {
+    "arbiter": 0.924,
+    "backtracks_true": 3.119,
+    "backward_waste": null,
+    "candidate_index_first": null,
+    "candidate_index_mean": null,
+    "checks_false": 3.389,
+    "checks_true": 3.239,
+    "exhausted_false": 1.0,
+    "exhausted_true": 1.0,
+    "found_rate_false": 0.0,
+    "found_rate_true": 0.0,
+    "intuition": 0.994,
+    "logic-final": 0.565,
+    "logic-step0": 0.505,
+    "path_len_found": null,
+    "programs": [],
+    "proposer_offpath_choice_points": 15.0,
+    "proposer_recall": 0.0,
+    "search_rate": 0.695,
+    "trigger_rate": 0.695,
+    "trigger_rate_true": 0.685,
+    "true_path_rate": null
+   }
+  }
+ },
+ "one-pass": {
+  "controller_params": 77685,
+  "dax": {
+   "always": {
+    "arbiter": 0.6,
+    "intuition": 0.4,
+    "logic-final": 0.8,
+    "logic-step0": 0.8,
+    "trigger_rate": 0.0
+   },
+   "never": {
+    "arbiter": 0.667,
+    "intuition": 0.667,
+    "logic-final": 0.778,
+    "logic-step0": 0.778,
+    "trigger_rate": 0.0
+   },
+   "sometimes": {
+    "arbiter": 0.444,
+    "intuition": 0.0,
+    "logic-final": 0.667,
+    "logic-step0": 0.667,
+    "trigger_rate": 0.0
+   },
+   "usually": {
+    "arbiter": 0.5,
+    "intuition": 0.5,
+    "logic-final": 1.0,
+    "logic-step0": 1.0,
+    "trigger_rate": 0.0
+   }
+  },
+  "final_log": null,
+  "params": 151486,
+  "tests": {
+   "G2": {
+    "arbiter": 0.75,
+    "arbiter_u_rate": 0.112,
+    "intuition": 0.745,
+    "intuition_auroc": 0.844,
+    "logic-final": 0.583,
+    "logic-step0": 0.583,
+    "logic_final_auroc": 0.752,
+    "logic_step0_auroc": 0.752,
+    "trigger_rate": 0.0,
+    "trigger_rate_true": 0.0
+   },
+   "G4": {
+    "arbiter": 0.293,
+    "arbiter_u_rate": 0.298,
+    "intuition": 0.46,
+    "intuition_auroc": 0.42,
+    "logic-final": 0.341,
+    "logic-step0": 0.341,
+    "logic_final_auroc": 0.519,
+    "logic_step0_auroc": 0.519,
+    "trigger_rate": 0.0,
+    "trigger_rate_true": 0.0
+   },
+   "L1-anc": {
+    "arbiter": 0.333,
+    "arbiter_by_length": {
+     "3": 0.222,
+     "4": 0.417,
+     "5": 0.5
+    },
+    "arbiter_u_rate": 0.361,
+    "intuition": 0.528,
+    "intuition_auroc": 0.815,
+    "intuition_by_length": {
+     "3": 0.5,
+     "4": 0.5,
+     "5": 0.667
+    },
+    "logic-final": 0.389,
+    "logic-step0": 0.389,
+    "logic_final_auroc": 0.559,
+    "logic_final_by_length": {
+     "3": 0.222,
+     "4": 0.583,
+     "5": 0.5
+    },
+    "logic_step0_auroc": 0.559,
+    "n_by_length": {
+     "3": 18.0,
+     "4": 12.0,
+     "5": 6.0
+    },
+    "trigger_rate": 0.0,
+    "trigger_rate_true": 0.0
+   },
+   "L1-anc-depth45": {
+    "arbiter": 0.444,
+    "intuition": 0.556,
+    "logic-final": 0.556,
+    "logic-step0": 0.556,
+    "n": 18.0
+   },
+   "L1-kind": {
+    "arbiter": 0.429,
+    "arbiter_by_length": {
+     "3": 0.357,
+     "4": 0.501
+    },
+    "arbiter_u_rate": 0.255,
+    "intuition": 0.581,
+    "intuition_auroc": 0.649,
+    "intuition_by_length": {
+     "3": 0.633,
+     "4": 0.529
+    },
+    "logic-final": 0.564,
+    "logic-step0": 0.564,
+    "logic_final_auroc": 0.549,
+    "logic_final_by_length": {
+     "3": 0.5,
+     "4": 0.629
+    },
+    "logic_step0_auroc": 0.549,
+    "n_by_length": {
+     "3": 47.0,
+     "4": 47.0
+    },
+    "trigger_rate": 0.0,
+    "trigger_rate_true": 0.0
+   },
+   "L1-size": {
+    "arbiter": 0.683,
+    "arbiter_by_length": {
+     "10": 0.875,
+     "11": 0.75,
+     "3": 0.528,
+     "4": 0.656,
+     "5": 0.75,
+     "6": 0.708,
+     "7": 0.65,
+     "8": 0.812,
+     "9": 0.75
+    },
+    "arbiter_u_rate": 0.139,
+    "intuition": 0.728,
+    "intuition_auroc": 0.889,
+    "intuition_by_length": {
+     "10": 0.875,
+     "11": 0.75,
+     "3": 0.639,
+     "4": 0.781,
+     "5": 0.75,
+     "6": 0.625,
+     "7": 0.75,
+     "8": 0.75,
+     "9": 0.833
+    },
+    "logic-final": 0.506,
+    "logic-step0": 0.506,
+    "logic_final_auroc": 0.62,
+    "logic_final_by_length": {
+     "10": 0.625,
+     "11": 0.75,
+     "3": 0.5,
+     "4": 0.531,
+     "5": 0.464,
+     "6": 0.458,
+     "7": 0.5,
+     "8": 0.5,
+     "9": 0.5
+    },
+    "logic_step0_auroc": 0.62,
+    "n_by_length": {
+     "10": 8.0,
+     "11": 4.0,
+     "3": 36.0,
+     "4": 32.0,
+     "5": 28.0,
+     "6": 24.0,
+     "7": 20.0,
+     "8": 16.0,
+     "9": 12.0
+    },
+    "trigger_rate": 0.0,
+    "trigger_rate_true": 0.0
+   },
+   "L2-named": {
+    "arbiter": 0.688,
+    "arbiter_by_length": {
+     "named-can": 0.562,
+     "named-has": 0.62,
+     "named-kind": 0.799
+    },
+    "arbiter_u_rate": 0.103,
+    "intuition": 0.716,
+    "intuition_auroc": 0.81,
+    "intuition_by_length": {
+     "named-can": 0.557,
+     "named-has": 0.635,
+     "named-kind": 0.826
+    },
+    "logic-final": 0.611,
+    "logic-step0": 0.611,
+    "logic_final_auroc": 0.607,
+    "logic_final_by_length": {
+     "named-can": 0.534,
+     "named-has": 0.566,
+     "named-kind": 0.722
+    },
+    "logic_step0_auroc": 0.607,
+    "n_by_length": {
+     "named-can": 30.0,
+     "named-has": 66.0,
+     "named-kind": 60.0
+    },
+    "trigger_rate": 0.0,
+    "trigger_rate_true": 0.0
+   },
+   "P1-default": {
+    "arbiter": 0.451,
+    "arbiter_u_rate": 0.252,
+    "intuition": 0.584,
+    "intuition_auroc": 0.572,
+    "logic-final": 0.479,
+    "logic-step0": 0.479,
+    "logic_final_auroc": 0.651,
+    "logic_step0_auroc": 0.651,
+    "trigger_rate": 0.0,
+    "trigger_rate_true": 0.0
+   },
+   "P2": {
+    "arbiter": 0.564,
+    "arbiter_u_rate": 0.136,
+    "intuition": 0.622,
+    "intuition_auroc": 0.691,
+    "logic-final": 0.469,
+    "logic-step0": 0.469,
+    "logic_final_auroc": 0.515,
+    "logic_step0_auroc": 0.515,
+    "trigger_rate": 0.0,
+    "trigger_rate_true": 0.0
+   },
+   "P3": {
+    "arbiter": 0.578,
+    "arbiter_u_rate": 0.206,
+    "intuition": 0.651,
+    "intuition_auroc": 0.745,
+    "logic-final": 0.498,
+    "logic-step0": 0.498,
+    "logic_final_auroc": 0.585,
+    "logic_step0_auroc": 0.585,
+    "trigger_rate": 0.0,
+    "trigger_rate_true": 0.0
+   },
+   "P4": {
+    "arbiter": 0.556,
+    "arbiter_u_rate": 0.132,
+    "intuition": 0.625,
+    "intuition_auroc": 0.656,
+    "logic-final": 0.424,
+    "logic-step0": 0.424,
+    "logic_final_auroc": 0.512,
+    "logic_step0_auroc": 0.512,
+    "trigger_rate": 0.0,
+    "trigger_rate_true": 0.0
+   },
+   "P6-colour": {
+    "arbiter": 0.273,
+    "arbiter_u_rate": 0.46,
+    "intuition": 0.513,
+    "intuition_auroc": 0.545,
+    "logic-final": 0.334,
+    "logic-step0": 0.334,
+    "logic_final_auroc": 0.487,
+    "logic_step0_auroc": 0.487,
+    "trigger_rate": 0.0,
+    "trigger_rate_true": 0.0
+   },
+   "P6-grandparent": {
+    "arbiter": 0.325,
+    "arbiter_u_rate": 0.292,
+    "intuition": 0.5,
+    "intuition_auroc": 0.65,
+    "logic-final": 0.2,
+    "logic-step0": 0.2,
+    "logic_final_auroc": 0.087,
+    "logic_step0_auroc": 0.087,
+    "trigger_rate": 0.0,
+    "trigger_rate_true": 0.0
+   },
+   "S3b": {
+    "arbiter": {
+     "always": 0.5,
+     "never": 0.629,
+     "sometimes": 0.722,
+     "usually": 0.5
+    },
+    "intuition": {
+     "always": 0.5,
+     "never": 0.935,
+     "sometimes": 0.0,
+     "usually": 0.625
+    },
+    "logic-final": {
+     "always": 0.75,
+     "never": 0.581,
+     "sometimes": 0.333,
+     "usually": 0.5
+    },
+    "logic-step0": {
+     "always": 0.75,
+     "never": 0.581,
+     "sometimes": 0.333,
+     "usually": 0.5
+    }
+   },
+   "S3b-trigger-rate": 0.0,
+   "S4a-trigger-rate": 0.0,
+   "S4a-u-rate": {
+    "arbiter": 0.273,
+    "logic-final": 0.205,
+    "logic-step0": 0.205
+   },
+   "S4b-P7-trigger-rate": 0.0,
+   "S4b-P7-u-rate": {
+    "arbiter": 0.303,
+    "logic-final": 0.455,
+    "logic-step0": 0.455
+   },
+   "conflict-flags-intuition-errors": {
+    "error_rate": 0.25,
+    "graded_auroc": 0.504
+   },
+   "control-trigger-rate": 0.0,
+   "control-u-rate": {
+    "arbiter": 0.155,
+    "logic-final": 0.069,
+    "logic-step0": 0.069
+   },
+   "per-hop": {
+    "by_relation_true": {
+     "can": 0.343,
+     "colour-of": 0.185,
+     "has": 0.5,
+     "is-a": 0.562,
+     "just-bigger-than": 0.111,
+     "names": 0.0,
+     "parent-of": 0.111,
+     "subkind-of": 0.5
+    },
+    "confirm_false": 0.024,
+    "confirm_true": 0.39
+   },
+   "withheld-fit": {
+    "arbiter": 0.76,
+    "intuition": 0.994,
+    "logic-final": 0.505,
+    "logic-step0": 0.505,
+    "trigger_rate": 0.0,
+    "trigger_rate_true": 0.0
+   }
+  }
+ },
+ "phase1": {
+  "rl_check": {
+   "intuition_confident": 0.981,
+   "mean_s_minus": 0.482,
+   "mean_s_plus": 0.4,
+   "rows": 3121.0,
+   "states": {
+    "D": 0.005,
+    "F": 0.409,
+    "T": 0.422,
+    "U": 0.163
+   },
+   "trigger_rate": 0.695,
+   "trigger_rate_confident": 0.697,
+   "withheld_no_support": null
+  },
+  "withheld_rows": {
+   "F": 2864.0,
+   "T": 257.0
+  }
+ },
+ "soft-loop": {
+  "controller_params": 77685,
+  "dax": {
+   "always": {
+    "arbiter": 0.6,
+    "intuition": 0.4,
+    "logic-final": 0.6,
+    "logic-step0": 0.8,
+    "trigger_rate": 0.2
+   },
+   "never": {
+    "arbiter": 0.667,
+    "intuition": 0.667,
+    "logic-final": 0.556,
+    "logic-step0": 0.778,
+    "trigger_rate": 0.667
+   },
+   "sometimes": {
+    "arbiter": 0.333,
+    "intuition": 0.0,
+    "logic-final": 0.667,
+    "logic-step0": 0.667,
+    "trigger_rate": 0.667
+   },
+   "usually": {
+    "arbiter": 0.5,
+    "intuition": 0.5,
+    "logic-final": 0.5,
+    "logic-step0": 1.0,
+    "trigger_rate": 0.5
+   }
+  },
+  "final_log": {
+   "expected_steps": 1.349,
+   "loss": 1.172,
+   "step": 40.0,
+   "wall": 66.541
+  },
+  "params": 151486,
+  "tests": {
+   "G2": {
+    "arbiter": 0.716,
+    "arbiter_u_rate": 0.131,
+    "expected_steps_triggered": 0.707,
+    "intuition": 0.745,
+    "intuition_auroc": 0.844,
+    "logic-final": 0.549,
+    "logic-step0": 0.583,
+    "logic_final_auroc": 0.758,
+    "logic_step0_auroc": 0.752,
+    "trigger_rate": 0.463,
+    "trigger_rate_true": 0.935
+   },
+   "G4": {
+    "arbiter": 0.255,
+    "arbiter_u_rate": 0.362,
+    "expected_steps_triggered": 0.709,
+    "intuition": 0.46,
+    "intuition_auroc": 0.42,
+    "logic-final": 0.279,
+    "logic-step0": 0.341,
+    "logic_final_auroc": 0.542,
+    "logic_step0_auroc": 0.519,
+    "trigger_rate": 0.574,
+    "trigger_rate_true": 0.75
+   },
+   "L1-anc": {
+    "arbiter": 0.5,
+    "arbiter_by_length": {
+     "3": 0.444,
+     "4": 0.5,
+     "5": 0.667
+    },
+    "arbiter_u_rate": 0.167,
+    "expected_steps_triggered": 0.618,
+    "intuition": 0.528,
+    "intuition_auroc": 0.815,
+    "intuition_by_length": {
+     "3": 0.5,
+     "4": 0.5,
+     "5": 0.667
+    },
+    "logic-final": 0.472,
+    "logic-step0": 0.389,
+    "logic_final_auroc": 0.623,
+    "logic_final_by_length": {
+     "3": 0.333,
+     "4": 0.583,
+     "5": 0.667
+    },
+    "logic_search_all": 0.472,
+    "logic_step0_auroc": 0.559,
+    "n_by_length": {
+     "3": 18.0,
+     "4": 12.0,
+     "5": 6.0
+    },
+    "steps_by_length": {
+     "3": 0.617,
+     "4": 0.621,
+     "5": 0.612
+    },
+    "trigger_rate": 0.722,
+    "trigger_rate_true": 0.667
+   },
+   "L1-anc-depth45": {
+    "arbiter": 0.556,
+    "intuition": 0.556,
+    "logic-final": 0.611,
+    "logic-step0": 0.556,
+    "n": 18.0
+   },
+   "L1-kind": {
+    "arbiter": 0.401,
+    "arbiter_by_length": {
+     "3": 0.3,
+     "4": 0.501
+    },
+    "arbiter_u_rate": 0.255,
+    "expected_steps_triggered": 0.709,
+    "intuition": 0.581,
+    "intuition_auroc": 0.649,
+    "intuition_by_length": {
+     "3": 0.633,
+     "4": 0.529
+    },
+    "logic-final": 0.507,
+    "logic-step0": 0.564,
+    "logic_final_auroc": 0.543,
+    "logic_final_by_length": {
+     "3": 0.5,
+     "4": 0.514
+    },
+    "logic_search_all": 0.5,
+    "logic_step0_auroc": 0.549,
+    "n_by_length": {
+     "3": 47.0,
+     "4": 47.0
+    },
+    "steps_by_length": {
+     "3": 0.685,
+     "4": 0.744
+    },
+    "trigger_rate": 0.415,
+    "trigger_rate_true": 0.429
+   },
+   "L1-size": {
+    "arbiter": 0.611,
+    "arbiter_by_length": {
+     "10": 0.875,
+     "11": 0.75,
+     "3": 0.417,
+     "4": 0.594,
+     "5": 0.643,
+     "6": 0.583,
+     "7": 0.6,
+     "8": 0.812,
+     "9": 0.75
+    },
+    "arbiter_u_rate": 0.222,
+    "expected_steps_triggered": 0.712,
+    "intuition": 0.728,
+    "intuition_auroc": 0.889,
+    "intuition_by_length": {
+     "10": 0.875,
+     "11": 0.75,
+     "3": 0.639,
+     "4": 0.781,
+     "5": 0.75,
+     "6": 0.625,
+     "7": 0.75,
+     "8": 0.75,
+     "9": 0.833
+    },
+    "logic-final": 0.539,
+    "logic-step0": 0.506,
+    "logic_final_auroc": 0.617,
+    "logic_final_by_length": {
+     "10": 0.625,
+     "11": 0.5,
+     "3": 0.583,
+     "4": 0.562,
+     "5": 0.464,
+     "6": 0.5,
+     "7": 0.5,
+     "8": 0.562,
+     "9": 0.583
+    },
+    "logic_search_all": 0.561,
+    "logic_step0_auroc": 0.62,
+    "n_by_length": {
+     "10": 8.0,
+     "11": 4.0,
+     "3": 36.0,
+     "4": 32.0,
+     "5": 28.0,
+     "6": 24.0,
+     "7": 20.0,
+     "8": 16.0,
+     "9": 12.0
+    },
+    "steps_by_length": {
+     "10": 0.714,
+     "11": 0.705,
+     "3": 0.706,
+     "4": 0.713,
+     "5": 0.711,
+     "6": 0.718,
+     "7": 0.719,
+     "8": 0.717,
+     "9": 0.712
+    },
+    "trigger_rate": 0.794,
+    "trigger_rate_true": 0.778
+   },
+   "L2-named": {
+    "arbiter": 0.635,
+    "arbiter_by_length": {
+     "named-can": 0.369,
+     "named-has": 0.584,
+     "named-kind": 0.792
+    },
+    "arbiter_u_rate": 0.147,
+    "expected_steps_triggered": 0.744,
+    "intuition": 0.716,
+    "intuition_auroc": 0.81,
+    "intuition_by_length": {
+     "named-can": 0.557,
+     "named-has": 0.635,
+     "named-kind": 0.826
+    },
+    "logic-final": 0.567,
+    "logic-step0": 0.611,
+    "logic_final_auroc": 0.654,
+    "logic_final_by_length": {
+     "named-can": 0.511,
+     "named-has": 0.468,
+     "named-kind": 0.736
+    },
+    "logic_search_all": 0.567,
+    "logic_step0_auroc": 0.607,
+    "n_by_length": {
+     "named-can": 30.0,
+     "named-has": 66.0,
+     "named-kind": 60.0
+    },
+    "steps_by_length": {
+     "named-can": 0.724,
+     "named-has": 0.754,
+     "named-kind": 0.744
+    },
+    "trigger_rate": 0.571,
+    "trigger_rate_true": 0.635
+   },
+   "P1-default": {
+    "arbiter": 0.454,
+    "arbiter_u_rate": 0.271,
+    "expected_steps_triggered": 0.722,
+    "intuition": 0.584,
+    "intuition_auroc": 0.572,
+    "logic-final": 0.453,
+    "logic-step0": 0.479,
+    "logic_final_auroc": 0.648,
+    "logic_step0_auroc": 0.651,
+    "trigger_rate": 0.645,
+    "trigger_rate_true": 0.821
+   },
+   "P2": {
+    "arbiter": 0.547,
+    "arbiter_u_rate": 0.181,
+    "expected_steps_triggered": 0.703,
+    "intuition": 0.622,
+    "intuition_auroc": 0.691,
+    "logic-final": 0.525,
+    "logic-step0": 0.469,
+    "logic_final_auroc": 0.574,
+    "logic_search_all": 0.541,
+    "logic_step0_auroc": 0.515,
+    "trigger_rate": 0.77,
+    "trigger_rate_true": 0.76
+   },
+   "P3": {
+    "arbiter": 0.548,
+    "arbiter_u_rate": 0.26,
+    "expected_steps_triggered": 0.695,
+    "intuition": 0.651,
+    "intuition_auroc": 0.745,
+    "logic-final": 0.498,
+    "logic-step0": 0.498,
+    "logic_final_auroc": 0.583,
+    "logic_search_all": 0.494,
+    "logic_step0_auroc": 0.585,
+    "trigger_rate": 0.777,
+    "trigger_rate_true": 0.804
+   },
+   "P4": {
+    "arbiter": 0.486,
+    "arbiter_u_rate": 0.236,
+    "expected_steps_triggered": 0.722,
+    "intuition": 0.625,
+    "intuition_auroc": 0.656,
+    "logic-final": 0.424,
+    "logic-step0": 0.424,
+    "logic_final_auroc": 0.518,
+    "logic_step0_auroc": 0.512,
+    "trigger_rate": 0.806,
+    "trigger_rate_true": 0.806
+   },
+   "P6-colour": {
+    "arbiter": 0.29,
+    "arbiter_u_rate": 0.424,
+    "expected_steps_triggered": 0.71,
+    "intuition": 0.513,
+    "intuition_auroc": 0.545,
+    "logic-final": 0.374,
+    "logic-step0": 0.334,
+    "logic_final_auroc": 0.528,
+    "logic_search_all": 0.397,
+    "logic_step0_auroc": 0.487,
+    "trigger_rate": 0.79,
+    "trigger_rate_true": 0.8
+   },
+   "P6-grandparent": {
+    "arbiter": 0.475,
+    "arbiter_u_rate": 0.042,
+    "expected_steps_triggered": 0.589,
+    "intuition": 0.5,
+    "intuition_auroc": 0.65,
+    "logic-final": 0.35,
+    "logic-step0": 0.2,
+    "logic_final_auroc": 0.075,
+    "logic_search_all": 0.35,
+    "logic_step0_auroc": 0.087,
+    "trigger_rate": 0.708,
+    "trigger_rate_true": 0.25
+   },
+   "S3b": {
+    "arbiter": {
+     "always": 0.5,
+     "never": 0.742,
+     "sometimes": 0.444,
+     "usually": 0.75
+    },
+    "intuition": {
+     "always": 0.5,
+     "never": 0.935,
+     "sometimes": 0.0,
+     "usually": 0.625
+    },
+    "logic-final": {
+     "always": 0.667,
+     "never": 0.613,
+     "sometimes": 0.278,
+     "usually": 0.625
+    },
+    "logic-step0": {
+     "always": 0.75,
+     "never": 0.581,
+     "sometimes": 0.333,
+     "usually": 0.5
+    }
+   },
+   "S3b-trigger-rate": 0.65,
+   "S4a-trigger-rate": 0.773,
+   "S4a-u-rate": {
+    "arbiter": 0.25,
+    "logic-final": 0.295,
+    "logic-step0": 0.205
+   },
+   "S4b-P7-trigger-rate": 0.879,
+   "S4b-P7-u-rate": {
+    "arbiter": 0.333,
+    "logic-final": 0.424,
+    "logic-step0": 0.455
+   },
+   "conflict-flags-intuition-errors": {
+    "error_rate": 0.25,
+    "graded_auroc": 0.504
+   },
+   "control-trigger-rate": 0.745,
+   "control-u-rate": {
+    "arbiter": 0.2,
+    "logic-final": 0.084,
+    "logic-step0": 0.069
+   },
+   "per-hop": {
+    "by_relation_true": {
+     "can": 0.343,
+     "colour-of": 0.185,
+     "has": 0.5,
+     "is-a": 0.562,
+     "just-bigger-than": 0.111,
+     "names": 0.0,
+     "parent-of": 0.111,
+     "subkind-of": 0.5
+    },
+    "confirm_false": 0.024,
+    "confirm_true": 0.39
+   },
+   "withheld-fit": {
+    "arbiter": 0.849,
+    "intuition": 0.994,
+    "logic-final": 0.586,
+    "logic-step0": 0.505,
+    "trigger_rate": 0.695,
+    "trigger_rate_true": 0.685
+   }
+  }
+ }
+}

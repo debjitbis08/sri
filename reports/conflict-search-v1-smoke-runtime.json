@@ -1,0 +1,83 @@
+{
+ "aggregate_worker_cpu_seconds": 113.16237264200001,
+ "children_peak_rss_kb": 1203052,
+ "command": "/home/debjit/code/sri/experiments/conflict_search.py main",
+ "contract_sha256": "07851c1ede55ae838dfd10e2b4c0a9be17ebf404c01edcc7f84126b35da930e9",
+ "cpu": "x86_64",
+ "device": "cpu",
+ "dirty": false,
+ "dtype": "float32",
+ "numpy": "2.5.4",
+ "os": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "parent_peak_rss_kb": 299208,
+ "python": "3.12.3",
+ "revision": "72511cf0cd55ec27e803e887f9e477720edeb39d",
+ "rss_convention": "ru_maxrss in KiB per process; children is the largest single child",
+ "runner_sha256": "d35e1a1fd6dc5bbe7d2645042d5fa1e08bb1311421d1282a6d87f47cdb62d067",
+ "scope": "nondeterministic timing",
+ "tasks": {
+  "bt-bidir/seed450": {
+   "arbiter_steps": 50,
+   "checkpoint_bytes": 626387,
+   "cpu_seconds": 8.762578943,
+   "peak_rss_kb": 327584,
+   "phase2_cpu_seconds": 6.083886613000001,
+   "phase2_steps": 40,
+   "reads_cpu_seconds": 2.328615988,
+   "wall_seconds": 8.767904596985318
+  },
+  "bt-forward-notrace/seed450": {
+   "arbiter_steps": 50,
+   "checkpoint_bytes": 627141,
+   "cpu_seconds": 6.957189301,
+   "peak_rss_kb": 314108,
+   "phase2_cpu_seconds": 4.676804193000001,
+   "phase2_steps": 40,
+   "reads_cpu_seconds": 1.94651863,
+   "wall_seconds": 6.959545696969144
+  },
+  "bt-forward/seed450": {
+   "arbiter_steps": 50,
+   "checkpoint_bytes": 626525,
+   "cpu_seconds": 8.674020879999999,
+   "peak_rss_kb": 320764,
+   "phase2_cpu_seconds": 6.050877087,
+   "phase2_steps": 40,
+   "reads_cpu_seconds": 2.2900897250000005,
+   "wall_seconds": 8.67750306299422
+  },
+  "one-pass/seed450": {
+   "arbiter_steps": 50,
+   "checkpoint_bytes": 626387,
+   "cpu_seconds": 0.351752263,
+   "peak_rss_kb": 289420,
+   "phase2_cpu_seconds": 0.00010226999999998765,
+   "phase2_steps": 0,
+   "reads_cpu_seconds": 0.128667157,
+   "wall_seconds": 0.3518400700413622
+  },
+  "phase1/seed450": {
+   "checkpoint_bytes": 304649,
+   "cpu_seconds": 6.797875357000001,
+   "optimizer_steps": 60,
+   "peak_rss_kb": 369380,
+   "train_cpu_seconds": 6.6068390280000004,
+   "wall_seconds": 6.7989910210017115
+  },
+  "soft-loop/seed450": {
+   "arbiter_steps": 50,
+   "checkpoint_bytes": 626456,
+   "cpu_seconds": 81.61895589800001,
+   "peak_rss_kb": 1203052,
+   "phase2_cpu_seconds": 67.40547323,
+   "phase2_steps": 40,
+   "reads_cpu_seconds": 12.885812023,
+   "wall_seconds": 81.63811386399902
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "wall_seconds": 88.55630796297919,
+ "workers": 5,
+ "world_sha256": "becebd0f5ab0d4d28653d53708f359243907425b08036af87775b8c8e1dfc4ef"
+}
