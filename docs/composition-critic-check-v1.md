@@ -73,3 +73,86 @@ Candidate enumeration per row: one 66 × 246 × 66 product for 2-step programs (
 storage of about 1.5 M short programs per seed. Training: 1,500 steps × about 120 k programs × a 32-unit network per
 variant; estimated 1–2 CPU min per variant and seed. Total 12 runs (3 variants × 4 seeds) on 4 workers: about 5–10 min
 wall. Measured times go in the runtime JSON. No tuning: the constants above are fixed before the run.
+
+## Results (2026-11-06)
+
+Four seeds, means unless stated. "With valid" means the shortest valid proof in the confirmed graph is among a
+question's candidates; "without" uses only enumerated programs of at most 2 steps and sampled 3–5-step paths.
+
+### Ancestor: pairwise checking generalizes in length
+
+| Variant | valid `parent-of`×3 / ×4 / ×5 accepted | spurious 3–5 accepted | program AUROC | question bal. with valid (depth 4–5) | without valid |
+|---|---|---|---|---|---|
+| `pairwise` | 0.96 / 1.00 / 1.00 | 0.00 | 1.00 | 0.89 (0.88) | 0.55 |
+| `summary` | 0.71 / 0.75 / 0.75 | 0.00 | 0.80 | 0.78 (0.76) | 0.56 |
+| `lookback` | 0.25 / 0.25 / 0.25 | 0.00 | 0.64 | 0.69 (0.68) | 0.57 |
+
+Trained on chains of at most 2 steps, the pairwise critic accepts every valid chain up to 5 steps in all four seeds
+(probe `ancestor-of | parent-of×k`: 0.998–1.000 for k = 1–5) and rejects every spurious long path. `summary` fails
+completely in seed 452 (all `parent-of` chains below 10⁻⁴); otherwise its state settles. `lookback` learns the chain in
+1 seed of 4. Without the valid proof among the candidates, question accuracy falls to 0.55–0.57: the critic can judge
+a proof but does not find one. The proposer is still needed.
+
+### Counting: no variant counts, and the data cannot teach it
+
+Probe `grandparent-of | parent-of×k`, k = 1…5, accept if > 0.5:
+
+| Variant | k = 1 | k = 2 | k = 3–5 |
+|---|---|---|---|
+| `pairwise` | 0.65 (3 seeds 0.86–0.88, one 0.005) | the same | the same, flat in k |
+| `summary` | 0.22 (rejects in 3 seeds) | 0.72 | 0.67–0.72 |
+| `lookback` | 0.01 | 0.26 | 0.26 |
+
+As expected, `pairwise` cannot tell one, two or five steps apart. `summary` learns to reject a single step but accepts
+3–5. The training data contains no 3-step `parent-of` path for any grandparent question, so nothing teaches that
+negative. Counting stays untested here.
+
+### Everywhere else, valid programs are rejected
+
+Pairwise critic, seed 450, trained scores of the valid programs: kind-of `>is-a` 0.00 and `>is-a >subkind-of` 0.00
+(72 true memberships, 4 false); named-can `>names >can` 0.00; named-has 0.00; named-kind `>names >is-a` 0.00;
+same-colour `>colour-of <colour-of` 0.00; bigger-than `>just-bigger-than` 1.00 but 2 steps 0.00; smaller-than 0.01.
+The highest-scoring programs are nonsense: kind-of `>parent-of`, `>opposite`, `>lives-in` (all 1.00); named-can
+`>parent-of >opposite`, `>lives-in`; same-colour `>sibling-of`, `>has-baby`. On test questions, the valid programs of
+kind, size, named and colour are accepted at 0.00–0.25 at every length (program AUROC for size 0.19–0.37, below
+chance). Question-level scores are still high (named 0.86–0.88, grandparent 0.81–0.95), but through these nonsense
+programs.
+
+### Why: the confirmed graph is mostly facts the reader was never taught
+
+Of the confirmed facts under permitted relations, seed 450: **40,382 unlabelled, 1,251 true, 54 false** (seed 453:
+42,335 / 1,302 / 41). "Unlabelled" means a relation–entity combination never taught either way, for example
+`cow parent-of moo`, `legs4 parent-of animal`, `sparrow parent-of fly`, `penguin parent-of bird`. Both routes confirm
+them. The per-hop accuracy of v1 and the diagnostics (1.00 / 0.00) was measured on labelled base facts, which are 3% of
+the graph.
+
+These edges follow associations (cow–moo, penguin–bird), so they correlate with the answers. Each true question needs
+only one accepted program, so the critic picks such edges as its witnesses: they reach b on true questions and seldom
+on false ones. A valid program loses as soon as one of its steps is shared with programs that occur on false questions.
+For example, the step START → `is-a` also begins `>is-a >X` paths on false kind-of questions. For same-colour the
+valid program occurs on more false questions than true ones (101 against 35 memberships), through wrongly confirmed
+`colour-of` facts. That last account is a reading of the scores, not a separate test.
+
+Ancestor works because `parent-of` between people is fully labelled (every pair of people is taught true or false), so
+there are no hallucinated people-to-people `parent-of` edges to exploit.
+
+### What this means
+
+1. **The hop level is not solved.** The two-route check confirms almost any fact outside the taught combinations. Any
+   composition learner trained from question labels will use those edges. The reader needs to answer unknown (or
+   false) for relation–entity combinations it was never taught evidence for. That is a reader property, not a search
+   property.
+2. **Where the hops are sound, step-local composition works and generalizes in length** (ancestor, pairwise).
+3. **Max-witness training needs a constraint.** With one witness per true question, the critic is free to choose
+   idiosyncratic witnesses. A valid program should explain many true questions of its relation and few false ones
+   (support and confidence, as in rule mining). That would also make a sound graph easier to exploit correctly.
+4. **Counting remains open,** and needs data with the negative cases.
+
+### Computation (measured)
+
+`reports/composition-critic-check-v1-runtime.json`; 4 workers, 1 thread each. Per seed: graph 9.4 CPU s; candidates
+73.7 CPU s (1.08 M training memberships over 31.8 k unique (q, program) pairs; 0.69 M evaluation memberships over
+231 k pairs); training 296 / 1,131 / 573 CPU s (`pairwise` / `summary` / `lookback`, 3,457 / 9,313 / 5,073 parameters);
+evaluation 2–6 CPU s. Total 8,380 CPU s (2.3 CPU h), 36 min wall. The declared 5–10 min wall was too low by about 4×:
+the single-seed timing was taken at 100 steps with one process, and four parallel workers ran about 2× slower per step.
+The inspection rerun (pairwise, seed 450, 4 threads) and the graph-label count added about 6 CPU min. No tuning.

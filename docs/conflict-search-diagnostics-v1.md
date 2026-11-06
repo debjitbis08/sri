@@ -196,3 +196,10 @@ distances ≤ D_max; and it must report proof validity and T recall, not balance
 
 Total 178 CPU s (3.0 CPU min) for 4 seeds, 49 s wall; peak RSS 0.66 GB per worker. This was well below the declared
 20–40 CPU min, because the exhaustive searches share BFS by start node. No selection or tuning.
+
+## Correction (2026-11-06, from the composition critic check)
+
+"The failure is not in the per-hop check" holds only for labelled facts. 97% of the confirmed graph under permitted
+relations (40,382 of 41,687 facts, seed 450) are relation–entity combinations never taught, such as
+`cow parent-of moo`, and both routes confirm them. Unguided BFS connecting 0.97 of false pairs is largely due to these
+edges. See [composition critic check v1](composition-critic-check-v1.md).
