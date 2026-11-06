@@ -1,0 +1,3478 @@
+{
+ "results": {
+  "dual-separate/seed450": {
+   "arm": "dual-separate",
+   "checkpoint": {
+    "file": "runs/dual-route-truth-v1/dual-separate-seed450.pt",
+    "sha256": "5219369fe90694b7e253bfaf24a2d44af30054b5d08ce92724b5a5ac7efd61c8"
+   },
+   "dax": {
+    "always": {
+     "R1-intuition": 1.0,
+     "R2-logic": 1.0,
+     "R3-logic-overrides": 1.0,
+     "R4-conflict-unknown": 1.0,
+     "conflict_rate": 0.0
+    },
+    "never": {
+     "R1-intuition": 0.8888888888888888,
+     "R2-logic": 1.0,
+     "R3-logic-overrides": 1.0,
+     "R4-conflict-unknown": 0.8888888888888888,
+     "conflict_rate": 0.1111111111111111
+    },
+    "other_classes_rejected": {
+     "R1-intuition": 1.0,
+     "R2-logic": 1.0,
+     "R3-logic-overrides": 1.0,
+     "R4-conflict-unknown": 1.0
+    },
+    "sometimes": {
+     "R1-intuition": 0.0,
+     "R2-logic": 0.3333333333333333,
+     "R3-logic-overrides": 0.0,
+     "R4-conflict-unknown": 0.5555555555555556,
+     "conflict_rate": 0.5555555555555556
+    },
+    "usually": {
+     "R1-intuition": 0.5,
+     "R2-logic": 1.0,
+     "R3-logic-overrides": 1.0,
+     "R4-conflict-unknown": 0.5,
+     "conflict_rate": 0.5
+    }
+   },
+   "log": [
+    {
+     "intuition": 0.0010393678676337004,
+     "logic": 0.0018163904314860702,
+     "loss": 0.007165077142417431,
+     "step": 250,
+     "wall": 94.64535630302271
+    },
+    {
+     "intuition": 0.0008063114946708083,
+     "logic": 0.0012181464117020369,
+     "loss": 0.0038760164752602577,
+     "step": 500,
+     "wall": 188.78678480599774
+    },
+    {
+     "intuition": 0.0007278762059286237,
+     "logic": 0.004212674684822559,
+     "loss": 0.007512202952057123,
+     "step": 750,
+     "wall": 284.86960948002525
+    },
+    {
+     "intuition": 0.0006356216035783291,
+     "logic": 0.0018184325890615582,
+     "loss": 0.00399183202534914,
+     "step": 1000,
+     "wall": 379.3258391499985
+    },
+    {
+     "intuition": 0.0005921077681705356,
+     "logic": 0.0014368505217134953,
+     "loss": 0.003296565730124712,
+     "step": 1250,
+     "wall": 476.0030842649867
+    },
+    {
+     "intuition": 0.0005781073123216629,
+     "logic": 0.0013072437141090631,
+     "loss": 0.003041618037968874,
+     "step": 1500,
+     "wall": 570.9830822549993
+    },
+    {
+     "intuition": 0.0005703520146198571,
+     "logic": 0.0012311054160818458,
+     "loss": 0.0028933845460414886,
+     "step": 1750,
+     "wall": 665.7174995730165
+    },
+    {
+     "intuition": 0.0005607361090369523,
+     "logic": 0.008629127405583858,
+     "loss": 0.03362908214330673,
+     "step": 2000,
+     "wall": 758.582953057019
+    },
+    {
+     "intuition": 0.0005526657914742827,
+     "logic": 0.00097664725035429,
+     "loss": 0.0031138602644205093,
+     "step": 2250,
+     "wall": 851.6479719890049
+    },
+    {
+     "intuition": 0.0005506990710273385,
+     "logic": 0.0009631220018491149,
+     "loss": 0.002782748779281974,
+     "step": 2500,
+     "wall": 944.3046215479844
+    },
+    {
+     "intuition": 0.0005391117883846164,
+     "logic": 0.0009642073418945074,
+     "loss": 0.0026551703922450542,
+     "step": 2750,
+     "wall": 1038.9459281599848
+    },
+    {
+     "intuition": 0.0005458761006593704,
+     "logic": 0.0009605516097508371,
+     "loss": 0.002594900317490101,
+     "step": 3000,
+     "wall": 1133.5769969819812
+    }
+   ],
+   "params": 73590,
+   "seed": 450,
+   "tests": {
+    "G2": {
+     "R1-intuition": 0.7011024908125765,
+     "R2-logic": 0.7832448618483735,
+     "R3-logic-overrides": 0.8155029263645025,
+     "R4-conflict-unknown": 0.6120185109568532,
+     "agreement": 0.8619402985074627,
+     "intuition_auroc": 0.8293180890159249,
+     "logic_auroc": 0.946236559139785,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.8805970149253731,
+      "T": 0.11194029850746269,
+      "U": 0.007462686567164179
+     }
+    },
+    "G4": {
+     "R1-intuition": 0.5993589743589743,
+     "R2-logic": 0.5352564102564102,
+     "R3-logic-overrides": 0.5352564102564102,
+     "R4-conflict-unknown": 0.5224358974358974,
+     "agreement": 0.851063829787234,
+     "intuition_auroc": 0.7884615384615384,
+     "logic_auroc": 0.5096153846153846,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.8085106382978723,
+      "T": 0.19148936170212766,
+      "U": 0.0
+     }
+    },
+    "L1-anc": {
+     "R1-intuition": 0.6944444444444444,
+     "R2-logic": 0.5277777777777778,
+     "R3-logic-overrides": 0.5277777777777778,
+     "R4-conflict-unknown": 0.5,
+     "agreement": 0.75,
+     "intuition_auroc": 1.0,
+     "logic_auroc": 0.9382716049382716,
+     "logic_state_share": {
+      "D": 0.027777777777777776,
+      "F": 0.9444444444444444,
+      "T": 0.027777777777777776,
+      "U": 0.0
+     }
+    },
+    "L1-kind": {
+     "R1-intuition": 0.6970238095238095,
+     "R2-logic": 0.6595238095238095,
+     "R3-logic-overrides": 0.6803571428571429,
+     "R4-conflict-unknown": 0.5345238095238095,
+     "agreement": 0.7446808510638299,
+     "intuition_auroc": 0.7511904761904762,
+     "logic_auroc": 0.743452380952381,
+     "logic_state_share": {
+      "D": 0.010638297872340425,
+      "F": 0.5851063829787234,
+      "T": 0.39361702127659576,
+      "U": 0.010638297872340425
+     }
+    },
+    "L1-size": {
+     "R1-intuition": 0.95,
+     "R2-logic": 0.8277777777777777,
+     "R3-logic-overrides": 0.8277777777777777,
+     "R4-conflict-unknown": 0.8222222222222222,
+     "agreement": 0.8666666666666667,
+     "intuition_auroc": 0.9995061728395062,
+     "logic_auroc": 0.970246913580247,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.6722222222222223,
+      "T": 0.3277777777777778,
+      "U": 0.0
+     }
+    },
+    "L2-named": {
+     "R1-intuition": 0.8990384615384616,
+     "R2-logic": 0.8461538461538461,
+     "R3-logic-overrides": 0.8557692307692308,
+     "R4-conflict-unknown": 0.8221153846153846,
+     "agreement": 0.9102564102564102,
+     "intuition_auroc": 0.9517381656804734,
+     "logic_auroc": 0.9380547337278107,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.7243589743589743,
+      "T": 0.2692307692307692,
+      "U": 0.00641025641025641
+     }
+    },
+    "P1-default": {
+     "R1-intuition": 0.9188695163104612,
+     "R2-logic": 0.8238188976377953,
+     "R3-logic-overrides": 0.8713442069741282,
+     "R4-conflict-unknown": 0.7505624296962881,
+     "agreement": 0.832258064516129,
+     "intuition_auroc": 0.9600674915635545,
+     "logic_auroc": 0.90607424071991,
+     "logic_state_share": {
+      "D": 0.0064516129032258064,
+      "F": 0.7677419354838709,
+      "T": 0.2,
+      "U": 0.025806451612903226
+     }
+    },
+    "P2": {
+     "R1-intuition": 0.7013921894803549,
+     "R2-logic": 0.6881891634980989,
+     "R3-logic-overrides": 0.6900903041825095,
+     "R4-conflict-unknown": 0.5913359474017744,
+     "agreement": 0.856909239574816,
+     "intuition_auroc": 0.8328699302915082,
+     "logic_auroc": 0.8039884347275031,
+     "logic_state_share": {
+      "D": 0.0008176614881439084,
+      "F": 0.830744071954211,
+      "T": 0.16598528209321342,
+      "U": 0.0024529844644317253
+     }
+    },
+    "P3": {
+     "R1-intuition": 0.7544429142894616,
+     "R2-logic": 0.6745688241851925,
+     "R3-logic-overrides": 0.6795855465932192,
+     "R4-conflict-unknown": 0.6348940914158305,
+     "agreement": 0.9085714285714286,
+     "intuition_auroc": 0.8841235490851859,
+     "logic_auroc": 0.7963800904977375,
+     "logic_state_share": {
+      "D": 0.005714285714285714,
+      "F": 0.9257142857142857,
+      "T": 0.06571428571428571,
+      "U": 0.002857142857142857
+     }
+    },
+    "P4": {
+     "R1-intuition": 0.8194444444444444,
+     "R2-logic": 0.75,
+     "R3-logic-overrides": 0.7638888888888888,
+     "R4-conflict-unknown": 0.6944444444444444,
+     "agreement": 0.8194444444444444,
+     "intuition_auroc": 0.9500385802469136,
+     "logic_auroc": 0.8773148148148148,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.7083333333333334,
+      "T": 0.2777777777777778,
+      "U": 0.013888888888888888
+     }
+    },
+    "P6-colour": {
+     "R1-intuition": 0.5127450980392156,
+     "R2-logic": 0.6514705882352941,
+     "R3-logic-overrides": 0.6588235294117647,
+     "R4-conflict-unknown": 0.41911764705882354,
+     "agreement": 0.8125,
+     "intuition_auroc": 0.696078431372549,
+     "logic_auroc": 0.7252450980392157,
+     "logic_state_share": {
+      "D": 0.013392857142857142,
+      "F": 0.8214285714285714,
+      "T": 0.16071428571428573,
+      "U": 0.004464285714285714
+     }
+    },
+    "P6-grandparent": {
+     "R1-intuition": 1.0,
+     "R2-logic": 0.5,
+     "R3-logic-overrides": 0.5,
+     "R4-conflict-unknown": 0.5,
+     "agreement": 0.8333333333333334,
+     "intuition_auroc": 1.0,
+     "logic_auroc": 1.0,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 1.0,
+      "T": 0.0,
+      "U": 0.0
+     }
+    },
+    "S2": 0.5641025641025641,
+    "S3b": {
+     "R1-intuition": {
+      "acc": 0.64,
+      "by_quantity": {
+       "always": 0.3333333333333333,
+       "never": 0.967741935483871,
+       "sometimes": 0.0,
+       "usually": 0.0
+      }
+     },
+     "R2-logic": {
+      "acc": 0.72,
+      "by_quantity": {
+       "always": 0.5833333333333334,
+       "never": 0.9193548387096774,
+       "sometimes": 0.1111111111111111,
+       "usually": 0.75
+      }
+     },
+     "R3-logic-overrides": {
+      "acc": 0.71,
+      "by_quantity": {
+       "always": 0.5833333333333334,
+       "never": 0.9354838709677419,
+       "sometimes": 0.0,
+       "usually": 0.75
+      }
+     },
+     "R4-conflict-unknown": {
+      "acc": 0.64,
+      "by_quantity": {
+       "always": 0.25,
+       "never": 0.8870967741935484,
+       "sometimes": 0.3333333333333333,
+       "usually": 0.0
+      }
+     }
+    },
+    "S3b-conflict-rate-by-quantity": {
+     "always": 0.4166666666666667,
+     "never": 0.11290322580645161,
+     "sometimes": 0.3333333333333333,
+     "usually": 0.75
+    },
+    "S4a-conflict-rate": 0.5454545454545454,
+    "S4a-u-rate": {
+     "R2-logic": 0.5,
+     "R3-logic-overrides": 0.0,
+     "R4-conflict-unknown": 0.5454545454545454
+    },
+    "S4b-P7-conflict-rate": 0.5151515151515151,
+    "S4b-P7-u-rate": {
+     "R2-logic": 0.45454545454545453,
+     "R3-logic-overrides": 0.0,
+     "R4-conflict-unknown": 0.5151515151515151
+    },
+    "conflict-flags-intuition-errors": {
+     "binary_auroc": 0.6483173076923077,
+     "conflict_rate": 0.14477766287487073,
+     "error_rate": 0.13960703205791106,
+     "graded_auroc": 0.7873456790123456
+    },
+    "control-conflict-rate": 0.1241662390969728,
+    "control-u-rate": {
+     "R2-logic": 0.0061570035915854285,
+     "R3-logic-overrides": 0.0,
+     "R4-conflict-unknown": 0.1241662390969728
+    },
+    "fit-anon": {
+     "R1-intuition": {
+      "acc": 0.48,
+      "by_quantity": {
+       "always": 0.07692307692307693,
+       "never": 0.9583333333333334,
+       "sometimes": 0.0,
+       "usually": 0.1111111111111111
+      }
+     },
+     "R2-logic": {
+      "acc": 1.0,
+      "by_quantity": {
+       "always": 1.0,
+       "never": 1.0,
+       "sometimes": 1.0,
+       "usually": 1.0
+      }
+     },
+     "R3-logic-overrides": {
+      "acc": 0.7,
+      "by_quantity": {
+       "always": 1.0,
+       "never": 1.0,
+       "sometimes": 0.0,
+       "usually": 1.0
+      }
+     },
+     "R4-conflict-unknown": {
+      "acc": 0.78,
+      "by_quantity": {
+       "always": 0.07692307692307693,
+       "never": 0.9583333333333334,
+       "sometimes": 1.0,
+       "usually": 0.1111111111111111
+      }
+     }
+    },
+    "fit-anon-conflict-rate-by-quantity": {
+     "always": 0.9230769230769231,
+     "never": 0.041666666666666664,
+     "sometimes": 1.0,
+     "usually": 0.8888888888888888
+    },
+    "fit-connectives": 1.0,
+    "fit-individual": {
+     "R1-intuition": 1.0,
+     "R2-logic": 0.999966252699784,
+     "R3-logic-overrides": 1.0,
+     "R4-conflict-unknown": 0.999966252699784
+    },
+    "fit-kind": 1.0
+   }
+  },
+  "dual-separate/seed451": {
+   "arm": "dual-separate",
+   "checkpoint": {
+    "file": "runs/dual-route-truth-v1/dual-separate-seed451.pt",
+    "sha256": "f87bb36b96eb7c163508068d0dc234b206d1c842a117c273c5c26e96d0db1550"
+   },
+   "dax": {
+    "always": {
+     "R1-intuition": 1.0,
+     "R2-logic": 1.0,
+     "R3-logic-overrides": 1.0,
+     "R4-conflict-unknown": 1.0,
+     "conflict_rate": 0.0
+    },
+    "never": {
+     "R1-intuition": 1.0,
+     "R2-logic": 1.0,
+     "R3-logic-overrides": 1.0,
+     "R4-conflict-unknown": 1.0,
+     "conflict_rate": 0.0
+    },
+    "other_classes_rejected": {
+     "R1-intuition": 1.0,
+     "R2-logic": 1.0,
+     "R3-logic-overrides": 1.0,
+     "R4-conflict-unknown": 1.0
+    },
+    "sometimes": {
+     "R1-intuition": 0.0,
+     "R2-logic": 0.1111111111111111,
+     "R3-logic-overrides": 0.0,
+     "R4-conflict-unknown": 0.2222222222222222,
+     "conflict_rate": 0.2222222222222222
+    },
+    "usually": {
+     "R1-intuition": 0.5,
+     "R2-logic": 0.5,
+     "R3-logic-overrides": 0.5,
+     "R4-conflict-unknown": 0.5,
+     "conflict_rate": 0.0
+    }
+   },
+   "log": [
+    {
+     "intuition": 0.0008769391570240259,
+     "logic": 0.002075450262054801,
+     "loss": 0.0065790461376309395,
+     "step": 250,
+     "wall": 98.64889011497144
+    },
+    {
+     "intuition": 0.0007461884524673223,
+     "logic": 0.0011968754697591066,
+     "loss": 0.003671357873827219,
+     "step": 500,
+     "wall": 197.50394606997725
+    },
+    {
+     "intuition": 0.0006805155426263809,
+     "logic": 0.003206346184015274,
+     "loss": 0.00620826194062829,
+     "step": 750,
+     "wall": 295.11238224996487
+    },
+    {
+     "intuition": 0.0006317286170087755,
+     "logic": 0.0014956146478652954,
+     "loss": 0.003582125063985586,
+     "step": 1000,
+     "wall": 392.99025965394685
+    },
+    {
+     "intuition": 0.0006002591690048575,
+     "logic": 0.001295061782002449,
+     "loss": 0.0031260920222848654,
+     "step": 1250,
+     "wall": 490.74054034997243
+    },
+    {
+     "intuition": 0.0005832152673974633,
+     "logic": 0.0012170912232249975,
+     "loss": 0.0029295491985976696,
+     "step": 1500,
+     "wall": 589.2303800729569
+    },
+    {
+     "intuition": 0.0005716420710086823,
+     "logic": 0.001160094398073852,
+     "loss": 0.002801764290779829,
+     "step": 1750,
+     "wall": 685.8154089829768
+    },
+    {
+     "intuition": 0.0005630630766972899,
+     "logic": 0.0010295138927176595,
+     "loss": 0.0031737368553876877,
+     "step": 2000,
+     "wall": 782.0779861059855
+    },
+    {
+     "intuition": 0.0005578477284871042,
+     "logic": 0.0009562366176396608,
+     "loss": 0.0026824832893908024,
+     "step": 2250,
+     "wall": 877.283581857977
+    },
+    {
+     "intuition": 0.0005484875873662531,
+     "logic": 0.0009777710074558854,
+     "loss": 0.002607683651149273,
+     "step": 2500,
+     "wall": 973.6493360209861
+    },
+    {
+     "intuition": 0.000548928277567029,
+     "logic": 0.0009719561203382909,
+     "loss": 0.0025572513695806265,
+     "step": 2750,
+     "wall": 1069.0279120599735
+    },
+    {
+     "intuition": 0.0005457793595269322,
+     "logic": 0.0009672823362052441,
+     "loss": 0.002517885062843561,
+     "step": 3000,
+     "wall": 1162.474479116965
+    }
+   ],
+   "params": 73590,
+   "seed": 451,
+   "tests": {
+    "G2": {
+     "R1-intuition": 0.5937797740574384,
+     "R2-logic": 0.703960800326664,
+     "R3-logic-overrides": 0.736218864842793,
+     "R4-conflict-unknown": 0.5004763849190146,
+     "agreement": 0.8432835820895522,
+     "intuition_auroc": 0.7842656866748333,
+     "logic_auroc": 0.8946508779093507,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.8656716417910447,
+      "T": 0.12313432835820895,
+      "U": 0.011194029850746268
+     }
+    },
+    "G4": {
+     "R1-intuition": 0.5737179487179487,
+     "R2-logic": 0.6105769230769231,
+     "R3-logic-overrides": 0.6105769230769231,
+     "R4-conflict-unknown": 0.4599358974358974,
+     "agreement": 0.8085106382978724,
+     "intuition_auroc": 0.7211538461538461,
+     "logic_auroc": 0.6474358974358975,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.8085106382978723,
+      "T": 0.19148936170212766,
+      "U": 0.0
+     }
+    },
+    "L1-anc": {
+     "R1-intuition": 0.7222222222222222,
+     "R2-logic": 0.6111111111111112,
+     "R3-logic-overrides": 0.6111111111111112,
+     "R4-conflict-unknown": 0.5833333333333334,
+     "agreement": 0.8333333333333334,
+     "intuition_auroc": 1.0,
+     "logic_auroc": 0.9783950617283951,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.8888888888888888,
+      "T": 0.1111111111111111,
+      "U": 0.0
+     }
+    },
+    "L1-kind": {
+     "R1-intuition": 0.6714285714285715,
+     "R2-logic": 0.5875,
+     "R3-logic-overrides": 0.5946428571428571,
+     "R4-conflict-unknown": 0.3375,
+     "agreement": 0.43617021276595747,
+     "intuition_auroc": 0.7916666666666666,
+     "logic_auroc": 0.7476190476190476,
+     "logic_state_share": {
+      "D": 0.010638297872340425,
+      "F": 0.7340425531914894,
+      "T": 0.2553191489361702,
+      "U": 0.0
+     }
+    },
+    "L1-size": {
+     "R1-intuition": 0.9666666666666667,
+     "R2-logic": 0.65,
+     "R3-logic-overrides": 0.6611111111111111,
+     "R4-conflict-unknown": 0.65,
+     "agreement": 0.6833333333333333,
+     "intuition_auroc": 0.9985185185185185,
+     "logic_auroc": 0.8309876543209876,
+     "logic_state_share": {
+      "D": 0.005555555555555556,
+      "F": 0.7722222222222223,
+      "T": 0.21666666666666667,
+      "U": 0.005555555555555556
+     }
+    },
+    "L2-named": {
+     "R1-intuition": 0.8701923076923077,
+     "R2-logic": 0.8317307692307692,
+     "R3-logic-overrides": 0.8317307692307692,
+     "R4-conflict-unknown": 0.8028846153846154,
+     "agreement": 0.9230769230769231,
+     "intuition_auroc": 0.9219674556213018,
+     "logic_auroc": 0.955991124260355,
+     "logic_state_share": {
+      "D": 0.00641025641025641,
+      "F": 0.7435897435897436,
+      "T": 0.25,
+      "U": 0.0
+     }
+    },
+    "P1-default": {
+     "R1-intuition": 0.8196006749156355,
+     "R2-logic": 0.8416760404949382,
+     "R3-logic-overrides": 0.8495500562429696,
+     "R4-conflict-unknown": 0.718785151856018,
+     "agreement": 0.832258064516129,
+     "intuition_auroc": 0.9325084364454443,
+     "logic_auroc": 0.9429133858267716,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.7741935483870968,
+      "T": 0.2064516129032258,
+      "U": 0.01935483870967742
+     }
+    },
+    "P2": {
+     "R1-intuition": 0.6859493821292776,
+     "R2-logic": 0.6829550855513308,
+     "R3-logic-overrides": 0.6866009188846641,
+     "R4-conflict-unknown": 0.5884723542458808,
+     "agreement": 0.8413736713000818,
+     "intuition_auroc": 0.8105038022813689,
+     "logic_auroc": 0.7936628643852979,
+     "logic_state_share": {
+      "D": 0.0024529844644317253,
+      "F": 0.8111201962387572,
+      "T": 0.18070318887980377,
+      "U": 0.005723630417007359
+     }
+    },
+    "P3": {
+     "R1-intuition": 0.7317201127942816,
+     "R2-logic": 0.6497147353924848,
+     "R3-logic-overrides": 0.6513869761951604,
+     "R4-conflict-unknown": 0.610269525870549,
+     "agreement": 0.9057142857142857,
+     "intuition_auroc": 0.8462194242245393,
+     "logic_auroc": 0.7759197324414716,
+     "logic_state_share": {
+      "D": 0.002857142857142857,
+      "F": 0.9028571428571428,
+      "T": 0.09428571428571429,
+      "U": 0.0
+     }
+    },
+    "P4": {
+     "R1-intuition": 0.7291666666666667,
+     "R2-logic": 0.6527777777777778,
+     "R3-logic-overrides": 0.6527777777777778,
+     "R4-conflict-unknown": 0.5902777777777778,
+     "agreement": 0.7986111111111112,
+     "intuition_auroc": 0.8923611111111112,
+     "logic_auroc": 0.8485725308641975,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.8055555555555556,
+      "T": 0.19444444444444445,
+      "U": 0.0
+     }
+    },
+    "P6-colour": {
+     "R1-intuition": 0.4950980392156863,
+     "R2-logic": 0.5450980392156863,
+     "R3-logic-overrides": 0.5450980392156863,
+     "R4-conflict-unknown": 0.49019607843137253,
+     "agreement": 0.9732142857142857,
+     "intuition_auroc": 0.4821078431372549,
+     "logic_auroc": 0.6661764705882353,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.9821428571428571,
+      "T": 0.017857142857142856,
+      "U": 0.0
+     }
+    },
+    "P6-grandparent": {
+     "R1-intuition": 1.0,
+     "R2-logic": 0.5,
+     "R3-logic-overrides": 0.5,
+     "R4-conflict-unknown": 0.5,
+     "agreement": 0.8333333333333334,
+     "intuition_auroc": 1.0,
+     "logic_auroc": 0.9,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 1.0,
+      "T": 0.0,
+      "U": 0.0
+     }
+    },
+    "S2": 0.6410256410256411,
+    "S3b": {
+     "R1-intuition": {
+      "acc": 0.68,
+      "by_quantity": {
+       "always": 0.5,
+       "never": 1.0,
+       "sometimes": 0.0,
+       "usually": 0.0
+      }
+     },
+     "R2-logic": {
+      "acc": 0.62,
+      "by_quantity": {
+       "always": 0.4166666666666667,
+       "never": 0.8387096774193549,
+       "sometimes": 0.16666666666666666,
+       "usually": 0.25
+      }
+     },
+     "R3-logic-overrides": {
+      "acc": 0.65,
+      "by_quantity": {
+       "always": 0.4166666666666667,
+       "never": 0.9354838709677419,
+       "sometimes": 0.0,
+       "usually": 0.25
+      }
+     },
+     "R4-conflict-unknown": {
+      "acc": 0.67,
+      "by_quantity": {
+       "always": 0.3333333333333333,
+       "never": 0.8387096774193549,
+       "sometimes": 0.6111111111111112,
+       "usually": 0.0
+      }
+     }
+    },
+    "S3b-conflict-rate-by-quantity": {
+     "always": 0.3333333333333333,
+     "never": 0.16129032258064516,
+     "sometimes": 0.6111111111111112,
+     "usually": 0.375
+    },
+    "S4a-conflict-rate": 0.4090909090909091,
+    "S4a-u-rate": {
+     "R2-logic": 0.3409090909090909,
+     "R3-logic-overrides": 0.0,
+     "R4-conflict-unknown": 0.4090909090909091
+    },
+    "S4b-P7-conflict-rate": 0.45454545454545453,
+    "S4b-P7-u-rate": {
+     "R2-logic": 0.3939393939393939,
+     "R3-logic-overrides": 0.0,
+     "R4-conflict-unknown": 0.45454545454545453
+    },
+    "conflict-flags-intuition-errors": {
+     "binary_auroc": 0.6336051405040952,
+     "conflict_rate": 0.1623578076525336,
+     "error_rate": 0.1554636332299207,
+     "graded_auroc": 0.7545680800036201
+    },
+    "control-conflict-rate": 0.13648024628014366,
+    "control-u-rate": {
+     "R2-logic": 0.006670087224217547,
+     "R3-logic-overrides": 0.0,
+     "R4-conflict-unknown": 0.13648024628014366
+    },
+    "fit-anon": {
+     "R1-intuition": {
+      "acc": 0.5,
+      "by_quantity": {
+       "always": 0.23076923076923078,
+       "never": 0.9375,
+       "sometimes": 0.0,
+       "usually": 0.2222222222222222
+      }
+     },
+     "R2-logic": {
+      "acc": 1.0,
+      "by_quantity": {
+       "always": 1.0,
+       "never": 1.0,
+       "sometimes": 1.0,
+       "usually": 1.0
+      }
+     },
+     "R3-logic-overrides": {
+      "acc": 0.7,
+      "by_quantity": {
+       "always": 1.0,
+       "never": 1.0,
+       "sometimes": 0.0,
+       "usually": 1.0
+      }
+     },
+     "R4-conflict-unknown": {
+      "acc": 0.8,
+      "by_quantity": {
+       "always": 0.23076923076923078,
+       "never": 0.9375,
+       "sometimes": 1.0,
+       "usually": 0.2222222222222222
+      }
+     }
+    },
+    "fit-anon-conflict-rate-by-quantity": {
+     "always": 0.7692307692307693,
+     "never": 0.0625,
+     "sometimes": 1.0,
+     "usually": 0.7777777777777778
+    },
+    "fit-connectives": 1.0,
+    "fit-individual": {
+     "R1-intuition": 1.0,
+     "R2-logic": 1.0,
+     "R3-logic-overrides": 1.0,
+     "R4-conflict-unknown": 1.0
+    },
+    "fit-kind": 1.0
+   }
+  },
+  "dual-separate/seed452": {
+   "arm": "dual-separate",
+   "checkpoint": {
+    "file": "runs/dual-route-truth-v1/dual-separate-seed452.pt",
+    "sha256": "ceda68a0587e9733c39d6ef0055e7f2db28f713079da862bca0df3f9575ef389"
+   },
+   "dax": {
+    "always": {
+     "R1-intuition": 1.0,
+     "R2-logic": 1.0,
+     "R3-logic-overrides": 1.0,
+     "R4-conflict-unknown": 1.0,
+     "conflict_rate": 0.0
+    },
+    "never": {
+     "R1-intuition": 0.8888888888888888,
+     "R2-logic": 1.0,
+     "R3-logic-overrides": 1.0,
+     "R4-conflict-unknown": 0.8888888888888888,
+     "conflict_rate": 0.1111111111111111
+    },
+    "other_classes_rejected": {
+     "R1-intuition": 1.0,
+     "R2-logic": 1.0,
+     "R3-logic-overrides": 1.0,
+     "R4-conflict-unknown": 1.0
+    },
+    "sometimes": {
+     "R1-intuition": 0.0,
+     "R2-logic": 0.3333333333333333,
+     "R3-logic-overrides": 0.0,
+     "R4-conflict-unknown": 0.4444444444444444,
+     "conflict_rate": 0.4444444444444444
+    },
+    "usually": {
+     "R1-intuition": 0.5,
+     "R2-logic": 0.5,
+     "R3-logic-overrides": 0.5,
+     "R4-conflict-unknown": 0.5,
+     "conflict_rate": 0.0
+    }
+   },
+   "log": [
+    {
+     "intuition": 0.0009198089828714728,
+     "logic": 0.0019108506385236979,
+     "loss": 0.0063689700327813625,
+     "step": 250,
+     "wall": 56.72017301298911
+    },
+    {
+     "intuition": 0.0007720605353824794,
+     "logic": 0.0012536041904240847,
+     "loss": 0.0037155053578317165,
+     "step": 500,
+     "wall": 93.69890338100959
+    },
+    {
+     "intuition": 0.0006894813268445432,
+     "logic": 0.002747702645137906,
+     "loss": 0.0063258083537220955,
+     "step": 750,
+     "wall": 130.54185175098246
+    },
+    {
+     "intuition": 0.000626149179879576,
+     "logic": 0.0014783345395699143,
+     "loss": 0.0038013532757759094,
+     "step": 1000,
+     "wall": 167.31300027901307
+    },
+    {
+     "intuition": 0.0005920507246628404,
+     "logic": 0.0012408869806677103,
+     "loss": 0.003215326927602291,
+     "step": 1250,
+     "wall": 204.0863977179979
+    },
+    {
+     "intuition": 0.0005733421421609819,
+     "logic": 0.0011607641354203224,
+     "loss": 0.0029747686348855495,
+     "step": 1500,
+     "wall": 240.83142566500464
+    },
+    {
+     "intuition": 0.0005628684884868562,
+     "logic": 0.00111753202509135,
+     "loss": 0.0028327673207968473,
+     "step": 1750,
+     "wall": 277.4775465929997
+    },
+    {
+     "intuition": 0.000556458136998117,
+     "logic": 0.0010905726812779903,
+     "loss": 0.002744305180385709,
+     "step": 2000,
+     "wall": 314.2244210559875
+    },
+    {
+     "intuition": 0.0005441959947347641,
+     "logic": 0.0010688998736441135,
+     "loss": 0.0026683914475142956,
+     "step": 2250,
+     "wall": 350.9965225409833
+    },
+    {
+     "intuition": 0.0005392107414081693,
+     "logic": 0.0010496549075469375,
+     "loss": 0.002615247154608369,
+     "step": 2500,
+     "wall": 387.7662178030005
+    },
+    {
+     "intuition": 0.0005408342112787068,
+     "logic": 0.0009907846106216311,
+     "loss": 0.0038542805705219507,
+     "step": 2750,
+     "wall": 424.52584255998954
+    },
+    {
+     "intuition": 0.000526582298334688,
+     "logic": 0.0009344167774543166,
+     "loss": 0.0029102612752467394,
+     "step": 3000,
+     "wall": 461.48220867599593
+    }
+   ],
+   "params": 73590,
+   "seed": 452,
+   "tests": {
+    "G2": {
+     "R1-intuition": 0.5916700694160882,
+     "R2-logic": 0.6569348033210834,
+     "R3-logic-overrides": 0.6569348033210834,
+     "R4-conflict-unknown": 0.5039471893289779,
+     "agreement": 0.8432835820895522,
+     "intuition_auroc": 0.7959711446849054,
+     "logic_auroc": 0.8293180890159249,
+     "logic_state_share": {
+      "D": 0.0037313432835820895,
+      "F": 0.8582089552238806,
+      "T": 0.13805970149253732,
+      "U": 0.0
+     }
+    },
+    "G4": {
+     "R1-intuition": 0.5737179487179487,
+     "R2-logic": 0.3974358974358974,
+     "R3-logic-overrides": 0.3974358974358974,
+     "R4-conflict-unknown": 0.38461538461538464,
+     "agreement": 0.8297872340425532,
+     "intuition_auroc": 0.7243589743589743,
+     "logic_auroc": 0.4423076923076923,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.8297872340425532,
+      "T": 0.1702127659574468,
+      "U": 0.0
+     }
+    },
+    "L1-anc": {
+     "R1-intuition": 0.75,
+     "R2-logic": 0.5833333333333334,
+     "R3-logic-overrides": 0.6111111111111112,
+     "R4-conflict-unknown": 0.5555555555555556,
+     "agreement": 0.7777777777777778,
+     "intuition_auroc": 1.0,
+     "logic_auroc": 0.9969135802469136,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.8888888888888888,
+      "T": 0.08333333333333333,
+      "U": 0.027777777777777776
+     }
+    },
+    "L1-kind": {
+     "R1-intuition": 0.5875,
+     "R2-logic": 0.6619047619047619,
+     "R3-logic-overrides": 0.6970238095238095,
+     "R4-conflict-unknown": 0.3964285714285714,
+     "agreement": 0.5638297872340425,
+     "intuition_auroc": 0.6886904761904762,
+     "logic_auroc": 0.7392857142857143,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.3829787234042553,
+      "T": 0.5638297872340425,
+      "U": 0.05319148936170213
+     }
+    },
+    "L1-size": {
+     "R1-intuition": 0.9611111111111111,
+     "R2-logic": 0.8277777777777777,
+     "R3-logic-overrides": 0.8333333333333333,
+     "R4-conflict-unknown": 0.8166666666666667,
+     "agreement": 0.8444444444444444,
+     "intuition_auroc": 0.9980246913580247,
+     "logic_auroc": 0.9744444444444444,
+     "logic_state_share": {
+      "D": 0.005555555555555556,
+      "F": 0.6444444444444445,
+      "T": 0.35,
+      "U": 0.0
+     }
+    },
+    "L2-named": {
+     "R1-intuition": 0.9038461538461537,
+     "R2-logic": 0.8461538461538461,
+     "R3-logic-overrides": 0.8605769230769231,
+     "R4-conflict-unknown": 0.8076923076923077,
+     "agreement": 0.8974358974358975,
+     "intuition_auroc": 0.9458210059171598,
+     "logic_auroc": 0.9407359467455622,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.7435897435897436,
+      "T": 0.24358974358974358,
+      "U": 0.01282051282051282
+     }
+    },
+    "P1-default": {
+     "R1-intuition": 0.9642857142857143,
+     "R2-logic": 0.8217097862767154,
+     "R3-logic-overrides": 0.8731721034870641,
+     "R4-conflict-unknown": 0.8217097862767154,
+     "agreement": 0.9032258064516129,
+     "intuition_auroc": 0.9926884139482565,
+     "logic_auroc": 0.9524746906636671,
+     "logic_state_share": {
+      "D": 0.0064516129032258064,
+      "F": 0.8,
+      "T": 0.16129032258064516,
+      "U": 0.03225806451612903
+     }
+    },
+    "P2": {
+     "R1-intuition": 0.6864444708491761,
+     "R2-logic": 0.6809747306717364,
+     "R3-logic-overrides": 0.6809747306717364,
+     "R4-conflict-unknown": 0.5760753326996197,
+     "agreement": 0.83892068683565,
+     "intuition_auroc": 0.8008951204055766,
+     "logic_auroc": 0.8048102820025349,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.8536385936222404,
+      "T": 0.1455437448896157,
+      "U": 0.0008176614881439084
+     }
+    },
+    "P3": {
+     "R1-intuition": 0.7628041183028396,
+     "R2-logic": 0.7166699455702014,
+     "R3-logic-overrides": 0.7281461079415044,
+     "R4-conflict-unknown": 0.6839136992589678,
+     "agreement": 0.9342857142857143,
+     "intuition_auroc": 0.86366319102892,
+     "logic_auroc": 0.8087087677880517,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.8771428571428571,
+      "T": 0.11714285714285715,
+      "U": 0.005714285714285714
+     }
+    },
+    "P4": {
+     "R1-intuition": 0.8541666666666666,
+     "R2-logic": 0.6319444444444444,
+     "R3-logic-overrides": 0.6388888888888888,
+     "R4-conflict-unknown": 0.5972222222222222,
+     "agreement": 0.7083333333333333,
+     "intuition_auroc": 0.9749228395061729,
+     "logic_auroc": 0.7439236111111112,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.7777777777777778,
+      "T": 0.2152777777777778,
+      "U": 0.006944444444444444
+     }
+    },
+    "P6-colour": {
+     "R1-intuition": 0.5779411764705883,
+     "R2-logic": 0.5602941176470588,
+     "R3-logic-overrides": 0.5627450980392157,
+     "R4-conflict-unknown": 0.46568627450980393,
+     "agreement": 0.9107142857142857,
+     "intuition_auroc": 0.675,
+     "logic_auroc": 0.5829656862745098,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.9598214285714286,
+      "T": 0.03571428571428571,
+      "U": 0.004464285714285714
+     }
+    },
+    "P6-grandparent": {
+     "R1-intuition": 1.0,
+     "R2-logic": 0.75,
+     "R3-logic-overrides": 0.75,
+     "R4-conflict-unknown": 0.75,
+     "agreement": 0.9166666666666666,
+     "intuition_auroc": 1.0,
+     "logic_auroc": 0.95,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.9166666666666666,
+      "T": 0.08333333333333333,
+      "U": 0.0
+     }
+    },
+    "S2": 0.6923076923076923,
+    "S3b": {
+     "R1-intuition": {
+      "acc": 0.68,
+      "by_quantity": {
+       "always": 0.5,
+       "never": 1.0,
+       "sometimes": 0.0,
+       "usually": 0.0
+      }
+     },
+     "R2-logic": {
+      "acc": 0.66,
+      "by_quantity": {
+       "always": 0.16666666666666666,
+       "never": 0.9354838709677419,
+       "sometimes": 0.05555555555555555,
+       "usually": 0.625
+      }
+     },
+     "R3-logic-overrides": {
+      "acc": 0.65,
+      "by_quantity": {
+       "always": 0.16666666666666666,
+       "never": 0.9354838709677419,
+       "sometimes": 0.0,
+       "usually": 0.625
+      }
+     },
+     "R4-conflict-unknown": {
+      "acc": 0.67,
+      "by_quantity": {
+       "always": 0.0,
+       "never": 0.9354838709677419,
+       "sometimes": 0.5,
+       "usually": 0.0
+      }
+     }
+    },
+    "S3b-conflict-rate-by-quantity": {
+     "always": 0.6666666666666666,
+     "never": 0.06451612903225806,
+     "sometimes": 0.5,
+     "usually": 0.625
+    },
+    "S4a-conflict-rate": 0.5454545454545454,
+    "S4a-u-rate": {
+     "R2-logic": 0.4318181818181818,
+     "R3-logic-overrides": 0.0,
+     "R4-conflict-unknown": 0.5454545454545454
+    },
+    "S4b-P7-conflict-rate": 0.8181818181818182,
+    "S4b-P7-u-rate": {
+     "R2-logic": 0.7272727272727273,
+     "R3-logic-overrides": 0.0,
+     "R4-conflict-unknown": 0.8181818181818182
+    },
+    "conflict-flags-intuition-errors": {
+     "binary_auroc": 0.662267748432797,
+     "conflict_rate": 0.1523612547397449,
+     "error_rate": 0.14788004136504654,
+     "graded_auroc": 0.7721266058644699
+    },
+    "control-conflict-rate": 0.12621857362750127,
+    "control-u-rate": {
+     "R2-logic": 0.0061570035915854285,
+     "R3-logic-overrides": 0.0,
+     "R4-conflict-unknown": 0.12621857362750127
+    },
+    "fit-anon": {
+     "R1-intuition": {
+      "acc": 0.46,
+      "by_quantity": {
+       "always": 0.07692307692307693,
+       "never": 0.8958333333333334,
+       "sometimes": 0.0,
+       "usually": 0.2222222222222222
+      }
+     },
+     "R2-logic": {
+      "acc": 1.0,
+      "by_quantity": {
+       "always": 1.0,
+       "never": 1.0,
+       "sometimes": 1.0,
+       "usually": 1.0
+      }
+     },
+     "R3-logic-overrides": {
+      "acc": 0.7,
+      "by_quantity": {
+       "always": 1.0,
+       "never": 1.0,
+       "sometimes": 0.0,
+       "usually": 1.0
+      }
+     },
+     "R4-conflict-unknown": {
+      "acc": 0.76,
+      "by_quantity": {
+       "always": 0.07692307692307693,
+       "never": 0.8958333333333334,
+       "sometimes": 1.0,
+       "usually": 0.2222222222222222
+      }
+     }
+    },
+    "fit-anon-conflict-rate-by-quantity": {
+     "always": 0.9230769230769231,
+     "never": 0.10416666666666667,
+     "sometimes": 1.0,
+     "usually": 0.7777777777777778
+    },
+    "fit-connectives": 1.0,
+    "fit-individual": {
+     "R1-intuition": 1.0,
+     "R2-logic": 0.9998989013951607,
+     "R3-logic-overrides": 1.0,
+     "R4-conflict-unknown": 0.9998989013951607
+    },
+    "fit-kind": 1.0
+   }
+  },
+  "dual-separate/seed453": {
+   "arm": "dual-separate",
+   "checkpoint": {
+    "file": "runs/dual-route-truth-v1/dual-separate-seed453.pt",
+    "sha256": "4adaca93fb092b4fdcfde3865781be19cabdde58ad05c024f2c39be75d066264"
+   },
+   "dax": {
+    "always": {
+     "R1-intuition": 1.0,
+     "R2-logic": 1.0,
+     "R3-logic-overrides": 1.0,
+     "R4-conflict-unknown": 1.0,
+     "conflict_rate": 0.0
+    },
+    "never": {
+     "R1-intuition": 1.0,
+     "R2-logic": 1.0,
+     "R3-logic-overrides": 1.0,
+     "R4-conflict-unknown": 1.0,
+     "conflict_rate": 0.0
+    },
+    "other_classes_rejected": {
+     "R1-intuition": 1.0,
+     "R2-logic": 1.0,
+     "R3-logic-overrides": 1.0,
+     "R4-conflict-unknown": 1.0
+    },
+    "sometimes": {
+     "R1-intuition": 0.0,
+     "R2-logic": 0.1111111111111111,
+     "R3-logic-overrides": 0.0,
+     "R4-conflict-unknown": 0.6666666666666666,
+     "conflict_rate": 0.6666666666666666
+    },
+    "usually": {
+     "R1-intuition": 0.5,
+     "R2-logic": 0.5,
+     "R3-logic-overrides": 0.5,
+     "R4-conflict-unknown": 0.5,
+     "conflict_rate": 0.0
+    }
+   },
+   "log": [
+    {
+     "intuition": 0.0010011777048930526,
+     "logic": 0.0019758944399654865,
+     "loss": 0.007083081640303135,
+     "step": 250,
+     "wall": 56.62052210897673
+    },
+    {
+     "intuition": 0.0007575505296699703,
+     "logic": 0.0012541892938315868,
+     "loss": 0.0038300207816064358,
+     "step": 500,
+     "wall": 101.68353484600084
+    },
+    {
+     "intuition": 0.000665505591314286,
+     "logic": 0.008019029162824154,
+     "loss": 0.012852159328758717,
+     "step": 750,
+     "wall": 146.7450477660168
+    },
+    {
+     "intuition": 0.0006221369258128107,
+     "logic": 0.002291276352480054,
+     "loss": 0.004692280199378729,
+     "step": 1000,
+     "wall": 192.05903033097275
+    },
+    {
+     "intuition": 0.0005954859079793096,
+     "logic": 0.0015581342158839107,
+     "loss": 0.003531748428940773,
+     "step": 1250,
+     "wall": 237.4786637799698
+    },
+    {
+     "intuition": 0.0005798239726573229,
+     "logic": 0.0012886722106486559,
+     "loss": 0.003083853516727686,
+     "step": 1500,
+     "wall": 282.8505928720115
+    },
+    {
+     "intuition": 0.0005673047271557152,
+     "logic": 0.001202228246256709,
+     "loss": 0.0028965086676180363,
+     "step": 1750,
+     "wall": 328.1395017670002
+    },
+    {
+     "intuition": 0.0005574615788646042,
+     "logic": 0.0011585669126361609,
+     "loss": 0.002786527620628476,
+     "step": 2000,
+     "wall": 373.94900061096996
+    },
+    {
+     "intuition": 0.0005498423124663532,
+     "logic": 0.001127435709349811,
+     "loss": 0.0027091009542346,
+     "step": 2250,
+     "wall": 419.5218958609621
+    },
+    {
+     "intuition": 0.0005477599333971739,
+     "logic": 0.0011014281772077084,
+     "loss": 0.0026573033537715673,
+     "step": 2500,
+     "wall": 462.63180659897625
+    },
+    {
+     "intuition": 0.0005377166089601815,
+     "logic": 0.001077878987416625,
+     "loss": 0.0026016375049948692,
+     "step": 2750,
+     "wall": 496.2990116919973
+    },
+    {
+     "intuition": 0.0005329482373781502,
+     "logic": 0.0027027830947190523,
+     "loss": 0.009193063713610172,
+     "step": 3000,
+     "wall": 530.0691593979718
+    }
+   ],
+   "params": 73590,
+   "seed": 453,
+   "tests": {
+    "G2": {
+     "R1-intuition": 0.7228120321219546,
+     "R2-logic": 0.5357288689260923,
+     "R3-logic-overrides": 0.5357288689260923,
+     "R4-conflict-unknown": 0.45841840206887163,
+     "agreement": 0.8171641791044776,
+     "intuition_auroc": 0.831631958622567,
+     "logic_auroc": 0.6887845379066285,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.9664179104477612,
+      "T": 0.033582089552238806,
+      "U": 0.0
+     }
+    },
+    "G4": {
+     "R1-intuition": 0.4983974358974359,
+     "R2-logic": 0.5480769230769231,
+     "R3-logic-overrides": 0.5480769230769231,
+     "R4-conflict-unknown": 0.44711538461538464,
+     "agreement": 0.8297872340425532,
+     "intuition_auroc": 0.6025641025641025,
+     "logic_auroc": 0.5673076923076923,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.8297872340425532,
+      "T": 0.1702127659574468,
+      "U": 0.0
+     }
+    },
+    "L1-anc": {
+     "R1-intuition": 0.6666666666666666,
+     "R2-logic": 0.6944444444444444,
+     "R3-logic-overrides": 0.6944444444444444,
+     "R4-conflict-unknown": 0.5833333333333334,
+     "agreement": 0.8055555555555556,
+     "intuition_auroc": 0.9938271604938271,
+     "logic_auroc": 1.0,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.8055555555555556,
+      "T": 0.19444444444444445,
+      "U": 0.0
+     }
+    },
+    "L1-kind": {
+     "R1-intuition": 0.575595238095238,
+     "R2-logic": 0.5702380952380952,
+     "R3-logic-overrides": 0.5773809523809523,
+     "R4-conflict-unknown": 0.3547619047619047,
+     "agreement": 0.574468085106383,
+     "intuition_auroc": 0.7839285714285714,
+     "logic_auroc": 0.6672619047619047,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.46808510638297873,
+      "T": 0.5212765957446809,
+      "U": 0.010638297872340425
+     }
+    },
+    "L1-size": {
+     "R1-intuition": 0.9888888888888889,
+     "R2-logic": 0.7888888888888889,
+     "R3-logic-overrides": 0.7888888888888889,
+     "R4-conflict-unknown": 0.7888888888888889,
+     "agreement": 0.8,
+     "intuition_auroc": 1.0,
+     "logic_auroc": 0.9582098765432099,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.7111111111111111,
+      "T": 0.28888888888888886,
+      "U": 0.0
+     }
+    },
+    "L2-named": {
+     "R1-intuition": 0.9038461538461539,
+     "R2-logic": 0.7836538461538461,
+     "R3-logic-overrides": 0.7980769230769231,
+     "R4-conflict-unknown": 0.7596153846153846,
+     "agreement": 0.8269230769230769,
+     "intuition_auroc": 0.9637573964497042,
+     "logic_auroc": 0.9117973372781065,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.6794871794871795,
+      "T": 0.28846153846153844,
+      "U": 0.03205128205128205
+     }
+    },
+    "P1-default": {
+     "R1-intuition": 0.9188695163104612,
+     "R2-logic": 0.8217097862767154,
+     "R3-logic-overrides": 0.8256467941507312,
+     "R4-conflict-unknown": 0.7841676040494938,
+     "agreement": 0.8709677419354839,
+     "intuition_auroc": 0.952755905511811,
+     "logic_auroc": 0.953599550056243,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.8129032258064516,
+      "T": 0.17419354838709677,
+      "U": 0.012903225806451613
+     }
+    },
+    "P2": {
+     "R1-intuition": 0.7148308776932826,
+     "R2-logic": 0.6690213086185044,
+     "R3-logic-overrides": 0.6700629752851711,
+     "R4-conflict-unknown": 0.5904507287705957,
+     "agreement": 0.8536385936222404,
+     "intuition_auroc": 0.8159497782002535,
+     "logic_auroc": 0.8172112642585552,
+     "logic_state_share": {
+      "D": 0.004088307440719542,
+      "F": 0.8462796402289452,
+      "T": 0.14881439084219134,
+      "U": 0.0008176614881439084
+     }
+    },
+    "P3": {
+     "R1-intuition": 0.7577873958948128,
+     "R2-logic": 0.7004065840382976,
+     "R3-logic-overrides": 0.7200144271755525,
+     "R4-conflict-unknown": 0.6576168929110106,
+     "agreement": 0.9057142857142857,
+     "intuition_auroc": 0.8450390189520625,
+     "logic_auroc": 0.8498590071480097,
+     "logic_state_share": {
+      "D": 0.008571428571428572,
+      "F": 0.8828571428571429,
+      "T": 0.10857142857142857,
+      "U": 0.0
+     }
+    },
+    "P4": {
+     "R1-intuition": 0.75,
+     "R2-logic": 0.7222222222222222,
+     "R3-logic-overrides": 0.7222222222222222,
+     "R4-conflict-unknown": 0.6666666666666667,
+     "agreement": 0.8611111111111112,
+     "intuition_auroc": 0.902391975308642,
+     "logic_auroc": 0.9108796296296297,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.7638888888888888,
+      "T": 0.2361111111111111,
+      "U": 0.0
+     }
+    },
+    "P6-colour": {
+     "R1-intuition": 0.5754901960784313,
+     "R2-logic": 0.5558823529411765,
+     "R3-logic-overrides": 0.5558823529411765,
+     "R4-conflict-unknown": 0.45882352941176474,
+     "agreement": 0.8571428571428572,
+     "intuition_auroc": 0.6598039215686274,
+     "logic_auroc": 0.6438725490196079,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.9017857142857143,
+      "T": 0.09821428571428571,
+      "U": 0.0
+     }
+    },
+    "P6-grandparent": {
+     "R1-intuition": 1.0,
+     "R2-logic": 0.5,
+     "R3-logic-overrides": 0.5,
+     "R4-conflict-unknown": 0.5,
+     "agreement": 0.8333333333333334,
+     "intuition_auroc": 1.0,
+     "logic_auroc": 1.0,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 1.0,
+      "T": 0.0,
+      "U": 0.0
+     }
+    },
+    "S2": 0.6153846153846154,
+    "S3b": {
+     "R1-intuition": {
+      "acc": 0.72,
+      "by_quantity": {
+       "always": 0.6666666666666666,
+       "never": 0.967741935483871,
+       "sometimes": 0.0,
+       "usually": 0.5
+      }
+     },
+     "R2-logic": {
+      "acc": 0.75,
+      "by_quantity": {
+       "always": 0.6666666666666666,
+       "never": 1.0,
+       "sometimes": 0.0,
+       "usually": 0.625
+      }
+     },
+     "R3-logic-overrides": {
+      "acc": 0.75,
+      "by_quantity": {
+       "always": 0.6666666666666666,
+       "never": 1.0,
+       "sometimes": 0.0,
+       "usually": 0.625
+      }
+     },
+     "R4-conflict-unknown": {
+      "acc": 0.77,
+      "by_quantity": {
+       "always": 0.5,
+       "never": 0.967741935483871,
+       "sometimes": 0.5,
+       "usually": 0.25
+      }
+     }
+    },
+    "S3b-conflict-rate-by-quantity": {
+     "always": 0.3333333333333333,
+     "never": 0.03225806451612903,
+     "sometimes": 0.5,
+     "usually": 0.625
+    },
+    "S4a-conflict-rate": 0.6136363636363636,
+    "S4a-u-rate": {
+     "R2-logic": 0.5,
+     "R3-logic-overrides": 0.0,
+     "R4-conflict-unknown": 0.6136363636363636
+    },
+    "S4b-P7-conflict-rate": 0.7878787878787878,
+    "S4b-P7-u-rate": {
+     "R2-logic": 0.7272727272727273,
+     "R3-logic-overrides": 0.0,
+     "R4-conflict-unknown": 0.7878787878787878
+    },
+    "conflict-flags-intuition-errors": {
+     "binary_auroc": 0.650833610135021,
+     "conflict_rate": 0.1568424681144433,
+     "error_rate": 0.14270941054808686,
+     "graded_auroc": 0.7763316103642321
+    },
+    "control-conflict-rate": 0.12519240636223705,
+    "control-u-rate": {
+     "R2-logic": 0.002565418163160595,
+     "R3-logic-overrides": 0.0,
+     "R4-conflict-unknown": 0.12519240636223705
+    },
+    "fit-anon": {
+     "R1-intuition": {
+      "acc": 0.47,
+      "by_quantity": {
+       "always": 0.3076923076923077,
+       "never": 0.8125,
+       "sometimes": 0.0,
+       "usually": 0.4444444444444444
+      }
+     },
+     "R2-logic": {
+      "acc": 1.0,
+      "by_quantity": {
+       "always": 1.0,
+       "never": 1.0,
+       "sometimes": 1.0,
+       "usually": 1.0
+      }
+     },
+     "R3-logic-overrides": {
+      "acc": 0.7,
+      "by_quantity": {
+       "always": 1.0,
+       "never": 1.0,
+       "sometimes": 0.0,
+       "usually": 1.0
+      }
+     },
+     "R4-conflict-unknown": {
+      "acc": 0.77,
+      "by_quantity": {
+       "always": 0.3076923076923077,
+       "never": 0.8125,
+       "sometimes": 1.0,
+       "usually": 0.4444444444444444
+      }
+     }
+    },
+    "fit-anon-conflict-rate-by-quantity": {
+     "always": 0.6923076923076923,
+     "never": 0.1875,
+     "sometimes": 1.0,
+     "usually": 0.5555555555555556
+    },
+    "fit-connectives": 1.0,
+    "fit-individual": {
+     "R1-intuition": 1.0,
+     "R2-logic": 0.9982140450195445,
+     "R3-logic-overrides": 0.9986521094487127,
+     "R4-conflict-unknown": 0.9982140450195445
+    },
+    "fit-kind": 1.0
+   }
+  },
+  "dual-shared/seed450": {
+   "arm": "dual-shared",
+   "checkpoint": {
+    "file": "runs/dual-route-truth-v1/dual-shared-seed450.pt",
+    "sha256": "1252ebb5efe64a2247f7ec091e7ddfaa3be7376cbeeb4e285cdbb9a5bfdedcf9"
+   },
+   "dax": {
+    "always": {
+     "R1-intuition": 1.0,
+     "R2-logic": 1.0,
+     "R3-logic-overrides": 1.0,
+     "R4-conflict-unknown": 1.0,
+     "conflict_rate": 0.0
+    },
+    "never": {
+     "R1-intuition": 1.0,
+     "R2-logic": 1.0,
+     "R3-logic-overrides": 1.0,
+     "R4-conflict-unknown": 1.0,
+     "conflict_rate": 0.0
+    },
+    "other_classes_rejected": {
+     "R1-intuition": 1.0,
+     "R2-logic": 1.0,
+     "R3-logic-overrides": 1.0,
+     "R4-conflict-unknown": 1.0
+    },
+    "sometimes": {
+     "R1-intuition": 0.0,
+     "R2-logic": 0.3333333333333333,
+     "R3-logic-overrides": 0.0,
+     "R4-conflict-unknown": 0.4444444444444444,
+     "conflict_rate": 0.4444444444444444
+    },
+    "usually": {
+     "R1-intuition": 0.5,
+     "R2-logic": 0.5,
+     "R3-logic-overrides": 0.5,
+     "R4-conflict-unknown": 0.5,
+     "conflict_rate": 0.0
+    }
+   },
+   "log": [
+    {
+     "intuition": 0.0008763869991526008,
+     "logic": 0.0020307712256908417,
+     "loss": 0.00677507184445858,
+     "step": 250,
+     "wall": 95.94565534498543
+    },
+    {
+     "intuition": 0.000765791570302099,
+     "logic": 0.0012102921027690172,
+     "loss": 0.0037464089691638947,
+     "step": 500,
+     "wall": 192.11667547596153
+    },
+    {
+     "intuition": 0.024522949010133743,
+     "logic": 0.04157206416130066,
+     "loss": 0.1273684799671173,
+     "step": 750,
+     "wall": 286.65407477499684
+    },
+    {
+     "intuition": 0.0011717574670910835,
+     "logic": 0.004804764408618212,
+     "loss": 0.009031230583786964,
+     "step": 1000,
+     "wall": 381.9969103229814
+    },
+    {
+     "intuition": 0.0007408005185425282,
+     "logic": 0.001807947177439928,
+     "loss": 0.004353696014732122,
+     "step": 1250,
+     "wall": 476.3163753549452
+    },
+    {
+     "intuition": 0.0006724513950757682,
+     "logic": 0.001169375842437148,
+     "loss": 0.0032829451374709606,
+     "step": 1500,
+     "wall": 573.689131616964
+    },
+    {
+     "intuition": 0.0006547712255269289,
+     "logic": 0.0010087360860779881,
+     "loss": 0.0029323864728212357,
+     "step": 1750,
+     "wall": 670.5040787789621
+    },
+    {
+     "intuition": 0.0006448870990425348,
+     "logic": 0.0009498326689936221,
+     "loss": 0.002769296057522297,
+     "step": 2000,
+     "wall": 767.4088018289767
+    },
+    {
+     "intuition": 0.0006333226338028908,
+     "logic": 0.0009309377055615187,
+     "loss": 0.002675620373338461,
+     "step": 2250,
+     "wall": 863.7788687589928
+    },
+    {
+     "intuition": 0.0006225164979696274,
+     "logic": 0.0009171328274533153,
+     "loss": 0.002606429625302553,
+     "step": 2500,
+     "wall": 960.0883853499545
+    },
+    {
+     "intuition": 0.0004914628807455301,
+     "logic": 0.000984037877060473,
+     "loss": 0.003335012122988701,
+     "step": 2750,
+     "wall": 1052.7082550959894
+    },
+    {
+     "intuition": 0.0005583983147516847,
+     "logic": 0.0008588265045545995,
+     "loss": 0.0027243741787970066,
+     "step": 3000,
+     "wall": 1150.6616756229778
+    }
+   ],
+   "params": 64966,
+   "seed": 450,
+   "tests": {
+    "G2": {
+     "R1-intuition": 0.8975091874234382,
+     "R2-logic": 0.7901864706683,
+     "R3-logic-overrides": 0.8126446168504151,
+     "R4-conflict-unknown": 0.7558187015108208,
+     "agreement": 0.9253731343283582,
+     "intuition_auroc": 0.9643391860623384,
+     "logic_auroc": 0.9237784129576698,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.832089552238806,
+      "T": 0.1417910447761194,
+      "U": 0.026119402985074626
+     }
+    },
+    "G4": {
+     "R1-intuition": 0.6233974358974359,
+     "R2-logic": 0.5993589743589743,
+     "R3-logic-overrides": 0.5993589743589743,
+     "R4-conflict-unknown": 0.4983974358974359,
+     "agreement": 0.851063829787234,
+     "intuition_auroc": 0.6217948717948718,
+     "logic_auroc": 0.6602564102564102,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.9148936170212766,
+      "T": 0.06382978723404255,
+      "U": 0.02127659574468085
+     }
+    },
+    "L1-anc": {
+     "R1-intuition": 0.6944444444444444,
+     "R2-logic": 0.6666666666666666,
+     "R3-logic-overrides": 0.6666666666666666,
+     "R4-conflict-unknown": 0.5833333333333334,
+     "agreement": 0.8055555555555556,
+     "intuition_auroc": 0.9351851851851852,
+     "logic_auroc": 0.9691358024691358,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.8333333333333334,
+      "T": 0.16666666666666666,
+      "U": 0.0
+     }
+    },
+    "L1-kind": {
+     "R1-intuition": 0.6666666666666667,
+     "R2-logic": 0.6333333333333333,
+     "R3-logic-overrides": 0.6404761904761904,
+     "R4-conflict-unknown": 0.5547619047619048,
+     "agreement": 0.7978723404255319,
+     "intuition_auroc": 0.7309523809523809,
+     "logic_auroc": 0.6607142857142857,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.4574468085106383,
+      "T": 0.5319148936170213,
+      "U": 0.010638297872340425
+     }
+    },
+    "L1-size": {
+     "R1-intuition": 0.9111111111111111,
+     "R2-logic": 0.7944444444444445,
+     "R3-logic-overrides": 0.8,
+     "R4-conflict-unknown": 0.7777777777777777,
+     "agreement": 0.85,
+     "intuition_auroc": 0.9850617283950617,
+     "logic_auroc": 0.9581481481481482,
+     "logic_state_share": {
+      "D": 0.005555555555555556,
+      "F": 0.6777777777777778,
+      "T": 0.31666666666666665,
+      "U": 0.0
+     }
+    },
+    "L2-named": {
+     "R1-intuition": 0.8461538461538461,
+     "R2-logic": 0.8798076923076923,
+     "R3-logic-overrides": 0.8846153846153846,
+     "R4-conflict-unknown": 0.8269230769230769,
+     "agreement": 0.9038461538461539,
+     "intuition_auroc": 0.917344674556213,
+     "logic_auroc": 0.9311205621301775,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.6730769230769231,
+      "T": 0.30128205128205127,
+      "U": 0.02564102564102564
+     }
+    },
+    "P1-default": {
+     "R1-intuition": 0.8138357705286839,
+     "R2-logic": 0.7760123734533183,
+     "R3-logic-overrides": 0.779949381327334,
+     "R4-conflict-unknown": 0.6988188976377953,
+     "agreement": 0.8903225806451613,
+     "intuition_auroc": 0.8849831271091113,
+     "logic_auroc": 0.9333520809898763,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.8451612903225807,
+      "T": 0.14838709677419354,
+      "U": 0.0064516129032258064
+     }
+    },
+    "P2": {
+     "R1-intuition": 0.6964710076045627,
+     "R2-logic": 0.6983721482889733,
+     "R3-logic-overrides": 0.7072005703422053,
+     "R4-conflict-unknown": 0.6372762198986058,
+     "agreement": 0.901880621422731,
+     "intuition_auroc": 0.7903635931558936,
+     "logic_auroc": 0.797641397338403,
+     "logic_state_share": {
+      "D": 0.001635322976287817,
+      "F": 0.8176614881439084,
+      "T": 0.17252657399836469,
+      "U": 0.008176614881439084
+     }
+    },
+    "P3": {
+     "R1-intuition": 0.6791265000983671,
+     "R2-logic": 0.698734343235622,
+     "R3-logic-overrides": 0.7004065840382976,
+     "R4-conflict-unknown": 0.6396812905764313,
+     "agreement": 0.94,
+     "intuition_auroc": 0.8199881959472752,
+     "logic_auroc": 0.7881828316610925,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.8857142857142857,
+      "T": 0.10857142857142857,
+      "U": 0.005714285714285714
+     }
+    },
+    "P4": {
+     "R1-intuition": 0.6875,
+     "R2-logic": 0.6736111111111112,
+     "R3-logic-overrides": 0.6736111111111112,
+     "R4-conflict-unknown": 0.6111111111111112,
+     "agreement": 0.8611111111111112,
+     "intuition_auroc": 0.8431712962962963,
+     "logic_auroc": 0.7674575617283951,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.7708333333333334,
+      "T": 0.22916666666666666,
+      "U": 0.0
+     }
+    },
+    "P6-colour": {
+     "R1-intuition": 0.4950980392156863,
+     "R2-logic": 0.5151960784313725,
+     "R3-logic-overrides": 0.5151960784313725,
+     "R4-conflict-unknown": 0.4852941176470588,
+     "agreement": 0.9642857142857143,
+     "intuition_auroc": 0.6151960784313726,
+     "logic_auroc": 0.6501225490196079,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.9732142857142857,
+      "T": 0.022321428571428572,
+      "U": 0.004464285714285714
+     }
+    },
+    "P6-grandparent": {
+     "R1-intuition": 0.475,
+     "R2-logic": 0.475,
+     "R3-logic-overrides": 0.475,
+     "R4-conflict-unknown": 0.475,
+     "agreement": 1.0,
+     "intuition_auroc": 0.9375,
+     "logic_auroc": 0.85,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.9583333333333334,
+      "T": 0.041666666666666664,
+      "U": 0.0
+     }
+    },
+    "S2": 0.7692307692307693,
+    "S3b": {
+     "R1-intuition": {
+      "acc": 0.76,
+      "by_quantity": {
+       "always": 0.5833333333333334,
+       "never": 0.9838709677419355,
+       "sometimes": 0.0,
+       "usually": 1.0
+      }
+     },
+     "R2-logic": {
+      "acc": 0.75,
+      "by_quantity": {
+       "always": 0.5833333333333334,
+       "never": 0.9193548387096774,
+       "sometimes": 0.16666666666666666,
+       "usually": 1.0
+      }
+     },
+     "R3-logic-overrides": {
+      "acc": 0.73,
+      "by_quantity": {
+       "always": 0.6666666666666666,
+       "never": 0.9193548387096774,
+       "sometimes": 0.0,
+       "usually": 1.0
+      }
+     },
+     "R4-conflict-unknown": {
+      "acc": 0.75,
+      "by_quantity": {
+       "always": 0.5,
+       "never": 0.9193548387096774,
+       "sometimes": 0.2222222222222222,
+       "usually": 1.0
+      }
+     }
+    },
+    "S3b-conflict-rate-by-quantity": {
+     "always": 0.16666666666666666,
+     "never": 0.06451612903225806,
+     "sometimes": 0.2222222222222222,
+     "usually": 0.0
+    },
+    "S4a-conflict-rate": 0.4318181818181818,
+    "S4a-u-rate": {
+     "R2-logic": 0.4090909090909091,
+     "R3-logic-overrides": 0.0,
+     "R4-conflict-unknown": 0.4318181818181818
+    },
+    "S4b-P7-conflict-rate": 0.42424242424242425,
+    "S4b-P7-u-rate": {
+     "R2-logic": 0.36363636363636365,
+     "R3-logic-overrides": 0.0,
+     "R4-conflict-unknown": 0.42424242424242425
+    },
+    "conflict-flags-intuition-errors": {
+     "binary_auroc": 0.6111077757517852,
+     "conflict_rate": 0.09686315063771113,
+     "error_rate": 0.1661496035849707,
+     "graded_auroc": 0.7438355412459111
+    },
+    "control-conflict-rate": 0.08414571575166752,
+    "control-u-rate": {
+     "R2-logic": 0.008209338122113904,
+     "R3-logic-overrides": 0.0,
+     "R4-conflict-unknown": 0.08414571575166752
+    },
+    "fit-anon": {
+     "R1-intuition": {
+      "acc": 0.555,
+      "by_quantity": {
+       "always": 0.5,
+       "never": 1.0,
+       "sometimes": 0.0,
+       "usually": 0.1111111111111111
+      }
+     },
+     "R2-logic": {
+      "acc": 1.0,
+      "by_quantity": {
+       "always": 1.0,
+       "never": 1.0,
+       "sometimes": 1.0,
+       "usually": 1.0
+      }
+     },
+     "R3-logic-overrides": {
+      "acc": 0.7,
+      "by_quantity": {
+       "always": 1.0,
+       "never": 1.0,
+       "sometimes": 0.0,
+       "usually": 1.0
+      }
+     },
+     "R4-conflict-unknown": {
+      "acc": 0.855,
+      "by_quantity": {
+       "always": 0.5,
+       "never": 1.0,
+       "sometimes": 1.0,
+       "usually": 0.1111111111111111
+      }
+     }
+    },
+    "fit-anon-conflict-rate-by-quantity": {
+     "always": 0.5,
+     "never": 0.0,
+     "sometimes": 1.0,
+     "usually": 0.8888888888888888
+    },
+    "fit-connectives": 1.0,
+    "fit-individual": {
+     "R1-intuition": 1.0,
+     "R2-logic": 1.0,
+     "R3-logic-overrides": 1.0,
+     "R4-conflict-unknown": 1.0
+    },
+    "fit-kind": 1.0
+   }
+  },
+  "dual-shared/seed451": {
+   "arm": "dual-shared",
+   "checkpoint": {
+    "file": "runs/dual-route-truth-v1/dual-shared-seed451.pt",
+    "sha256": "965e681d1a92d239d25a9840a742efe404fec486825fe7d518e10bdd513a4ebb"
+   },
+   "dax": {
+    "always": {
+     "R1-intuition": 1.0,
+     "R2-logic": 1.0,
+     "R3-logic-overrides": 1.0,
+     "R4-conflict-unknown": 1.0,
+     "conflict_rate": 0.0
+    },
+    "never": {
+     "R1-intuition": 1.0,
+     "R2-logic": 1.0,
+     "R3-logic-overrides": 1.0,
+     "R4-conflict-unknown": 1.0,
+     "conflict_rate": 0.0
+    },
+    "other_classes_rejected": {
+     "R1-intuition": 1.0,
+     "R2-logic": 1.0,
+     "R3-logic-overrides": 1.0,
+     "R4-conflict-unknown": 1.0
+    },
+    "sometimes": {
+     "R1-intuition": 0.0,
+     "R2-logic": 0.2222222222222222,
+     "R3-logic-overrides": 0.0,
+     "R4-conflict-unknown": 0.3333333333333333,
+     "conflict_rate": 0.3333333333333333
+    },
+    "usually": {
+     "R1-intuition": 0.0,
+     "R2-logic": 0.5,
+     "R3-logic-overrides": 0.5,
+     "R4-conflict-unknown": 0.0,
+     "conflict_rate": 0.5
+    }
+   },
+   "log": [
+    {
+     "intuition": 0.0007677978719584644,
+     "logic": 0.0018802393460646272,
+     "loss": 0.006975762080401182,
+     "step": 250,
+     "wall": 95.90621406200808
+    },
+    {
+     "intuition": 0.0006827791803516448,
+     "logic": 0.001128370757214725,
+     "loss": 0.0037502855993807316,
+     "step": 500,
+     "wall": 191.59317693201592
+    },
+    {
+     "intuition": 0.008853187784552574,
+     "logic": 0.015536148101091385,
+     "loss": 0.03537460044026375,
+     "step": 750,
+     "wall": 286.45410011004424
+    },
+    {
+     "intuition": 0.0008591886144131422,
+     "logic": 0.002040581312030554,
+     "loss": 0.005147662479430437,
+     "step": 1000,
+     "wall": 383.78201384004205
+    },
+    {
+     "intuition": 0.0006490065716207027,
+     "logic": 0.0011854041367769241,
+     "loss": 0.003398437285795808,
+     "step": 1250,
+     "wall": 479.46413201099494
+    },
+    {
+     "intuition": 0.0006206586258485913,
+     "logic": 0.0010094211902469397,
+     "loss": 0.0029524783603847027,
+     "step": 1500,
+     "wall": 575.5283916800399
+    },
+    {
+     "intuition": 0.0006125365034677088,
+     "logic": 0.0009463313035666943,
+     "loss": 0.002761402865871787,
+     "step": 1750,
+     "wall": 671.4861335500027
+    },
+    {
+     "intuition": 0.0006066049681976438,
+     "logic": 0.0009169020922854543,
+     "loss": 0.0026536346413195133,
+     "step": 2000,
+     "wall": 764.1188703220105
+    },
+    {
+     "intuition": 0.0005996242398396134,
+     "logic": 0.0008995169773697853,
+     "loss": 0.0025783833116292953,
+     "step": 2250,
+     "wall": 857.4333672870416
+    },
+    {
+     "intuition": 0.0005938105168752372,
+     "logic": 0.0008864574483595788,
+     "loss": 0.0025221474934369326,
+     "step": 2500,
+     "wall": 951.1593885530019
+    },
+    {
+     "intuition": 0.0005879634409211576,
+     "logic": 0.0008725905208848417,
+     "loss": 0.002472358988597989,
+     "step": 2750,
+     "wall": 1045.9243522810284
+    },
+    {
+     "intuition": 0.00044975418131798506,
+     "logic": 0.0009261717787012458,
+     "loss": 0.004253264982253313,
+     "step": 3000,
+     "wall": 1138.8961759810336
+    }
+   ],
+   "params": 64966,
+   "seed": 451,
+   "tests": {
+    "G2": {
+     "R1-intuition": 0.7356063699469171,
+     "R2-logic": 0.6570709132979448,
+     "R3-logic-overrides": 0.6591806179392949,
+     "R4-conflict-unknown": 0.6346127671158296,
+     "agreement": 0.9552238805970149,
+     "intuition_auroc": 0.8566761943650469,
+     "logic_auroc": 0.8579692391452294,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.9552238805970149,
+      "T": 0.041044776119402986,
+      "U": 0.0037313432835820895
+     }
+    },
+    "G4": {
+     "R1-intuition": 0.6362179487179487,
+     "R2-logic": 0.5849358974358974,
+     "R3-logic-overrides": 0.5977564102564102,
+     "R4-conflict-unknown": 0.5721153846153846,
+     "agreement": 0.8723404255319149,
+     "intuition_auroc": 0.6442307692307693,
+     "logic_auroc": 0.5641025641025641,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.7659574468085106,
+      "T": 0.2127659574468085,
+      "U": 0.02127659574468085
+     }
+    },
+    "L1-anc": {
+     "R1-intuition": 0.5,
+     "R2-logic": 0.5,
+     "R3-logic-overrides": 0.5,
+     "R4-conflict-unknown": 0.5,
+     "agreement": 1.0,
+     "intuition_auroc": 0.8487654320987654,
+     "logic_auroc": 0.8117283950617284,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 1.0,
+      "T": 0.0,
+      "U": 0.0
+     }
+    },
+    "L1-kind": {
+     "R1-intuition": 0.7113095238095238,
+     "R2-logic": 0.7261904761904762,
+     "R3-logic-overrides": 0.7261904761904762,
+     "R4-conflict-unknown": 0.6482142857142856,
+     "agreement": 0.8404255319148937,
+     "intuition_auroc": 0.8035714285714286,
+     "logic_auroc": 0.7964285714285714,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.3191489361702128,
+      "T": 0.6702127659574468,
+      "U": 0.010638297872340425
+     }
+    },
+    "L1-size": {
+     "R1-intuition": 0.9166666666666667,
+     "R2-logic": 0.8055555555555556,
+     "R3-logic-overrides": 0.8111111111111111,
+     "R4-conflict-unknown": 0.7833333333333333,
+     "agreement": 0.8444444444444444,
+     "intuition_auroc": 0.9944444444444445,
+     "logic_auroc": 0.9758641975308642,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.6888888888888889,
+      "T": 0.3055555555555556,
+      "U": 0.005555555555555556
+     }
+    },
+    "L2-named": {
+     "R1-intuition": 0.8461538461538461,
+     "R2-logic": 0.8269230769230769,
+     "R3-logic-overrides": 0.8317307692307692,
+     "R4-conflict-unknown": 0.7932692307692307,
+     "agreement": 0.9230769230769231,
+     "intuition_auroc": 0.9509985207100592,
+     "logic_auroc": 0.9334319526627219,
+     "logic_state_share": {
+      "D": 0.00641025641025641,
+      "F": 0.7371794871794872,
+      "T": 0.25,
+      "U": 0.00641025641025641
+     }
+    },
+    "P1-default": {
+     "R1-intuition": 0.8413948256467941,
+     "R2-logic": 0.8474409448818898,
+     "R3-logic-overrides": 0.859251968503937,
+     "R4-conflict-unknown": 0.7720753655793026,
+     "agreement": 0.9161290322580645,
+     "intuition_auroc": 0.9516310461192351,
+     "logic_auroc": 0.9457255343082115,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.8193548387096774,
+      "T": 0.15483870967741936,
+      "U": 0.025806451612903226
+     }
+    },
+    "P2": {
+     "R1-intuition": 0.6899338561470215,
+     "R2-logic": 0.6982157002534854,
+     "R3-logic-overrides": 0.7044399556400507,
+     "R4-conflict-unknown": 0.6236553390367554,
+     "agreement": 0.8986099754701553,
+     "intuition_auroc": 0.7983959125475285,
+     "logic_auroc": 0.8079313212927757,
+     "logic_state_share": {
+      "D": 0.0024529844644317253,
+      "F": 0.8250204415372036,
+      "T": 0.17007358953393295,
+      "U": 0.0024529844644317253
+     }
+    },
+    "P3": {
+     "R1-intuition": 0.687258180864319,
+     "R2-logic": 0.6956193848776969,
+     "R3-logic-overrides": 0.7054233064463243,
+     "R4-conflict-unknown": 0.6461407305397076,
+     "agreement": 0.9228571428571428,
+     "intuition_auroc": 0.8281854547839202,
+     "logic_auroc": 0.7815594465210833,
+     "logic_state_share": {
+      "D": 0.005714285714285714,
+      "F": 0.9,
+      "T": 0.09142857142857143,
+      "U": 0.002857142857142857
+     }
+    },
+    "P4": {
+     "R1-intuition": 0.6736111111111112,
+     "R2-logic": 0.6458333333333333,
+     "R3-logic-overrides": 0.6527777777777778,
+     "R4-conflict-unknown": 0.5902777777777778,
+     "agreement": 0.8541666666666666,
+     "intuition_auroc": 0.9112654320987654,
+     "logic_auroc": 0.8651620370370371,
+     "logic_state_share": {
+      "D": 0.006944444444444444,
+      "F": 0.7916666666666666,
+      "T": 0.19444444444444445,
+      "U": 0.006944444444444444
+     }
+    },
+    "P6-colour": {
+     "R1-intuition": 0.5127450980392156,
+     "R2-logic": 0.5151960784313725,
+     "R3-logic-overrides": 0.5176470588235295,
+     "R4-conflict-unknown": 0.48284313725490197,
+     "agreement": 0.96875,
+     "intuition_auroc": 0.6024509803921568,
+     "logic_auroc": 0.571813725490196,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.9776785714285714,
+      "T": 0.017857142857142856,
+      "U": 0.004464285714285714
+     }
+    },
+    "P6-grandparent": {
+     "R1-intuition": 0.5,
+     "R2-logic": 0.625,
+     "R3-logic-overrides": 0.625,
+     "R4-conflict-unknown": 0.5,
+     "agreement": 0.875,
+     "intuition_auroc": 1.0,
+     "logic_auroc": 0.975,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.875,
+      "T": 0.041666666666666664,
+      "U": 0.08333333333333333
+     }
+    },
+    "S2": 0.7692307692307693,
+    "S3b": {
+     "R1-intuition": {
+      "acc": 0.67,
+      "by_quantity": {
+       "always": 0.3333333333333333,
+       "never": 0.9838709677419355,
+       "sometimes": 0.0,
+       "usually": 0.25
+      }
+     },
+     "R2-logic": {
+      "acc": 0.68,
+      "by_quantity": {
+       "always": 0.5,
+       "never": 0.9516129032258065,
+       "sometimes": 0.05555555555555555,
+       "usually": 0.25
+      }
+     },
+     "R3-logic-overrides": {
+      "acc": 0.69,
+      "by_quantity": {
+       "always": 0.5,
+       "never": 0.9838709677419355,
+       "sometimes": 0.0,
+       "usually": 0.25
+      }
+     },
+     "R4-conflict-unknown": {
+      "acc": 0.66,
+      "by_quantity": {
+       "always": 0.3333333333333333,
+       "never": 0.9516129032258065,
+       "sometimes": 0.05555555555555555,
+       "usually": 0.25
+      }
+     }
+    },
+    "S3b-conflict-rate-by-quantity": {
+     "always": 0.16666666666666666,
+     "never": 0.03225806451612903,
+     "sometimes": 0.05555555555555555,
+     "usually": 0.0
+    },
+    "S4a-conflict-rate": 0.5909090909090909,
+    "S4a-u-rate": {
+     "R2-logic": 0.5454545454545454,
+     "R3-logic-overrides": 0.0,
+     "R4-conflict-unknown": 0.5909090909090909
+    },
+    "S4b-P7-conflict-rate": 0.2727272727272727,
+    "S4b-P7-u-rate": {
+     "R2-logic": 0.24242424242424243,
+     "R3-logic-overrides": 0.0,
+     "R4-conflict-unknown": 0.2727272727272727
+    },
+    "conflict-flags-intuition-errors": {
+     "binary_auroc": 0.6088048433711639,
+     "conflict_rate": 0.09238193726301275,
+     "error_rate": 0.15753188555670458,
+     "graded_auroc": 0.7540692698055704
+    },
+    "control-conflict-rate": 0.0887634684453566,
+    "control-u-rate": {
+     "R2-logic": 0.004617752693689072,
+     "R3-logic-overrides": 0.0,
+     "R4-conflict-unknown": 0.0887634684453566
+    },
+    "fit-anon": {
+     "R1-intuition": {
+      "acc": 0.585,
+      "by_quantity": {
+       "always": 0.46153846153846156,
+       "never": 1.0,
+       "sometimes": 0.0,
+       "usually": 0.5
+      }
+     },
+     "R2-logic": {
+      "acc": 1.0,
+      "by_quantity": {
+       "always": 1.0,
+       "never": 1.0,
+       "sometimes": 1.0,
+       "usually": 1.0
+      }
+     },
+     "R3-logic-overrides": {
+      "acc": 0.7,
+      "by_quantity": {
+       "always": 1.0,
+       "never": 1.0,
+       "sometimes": 0.0,
+       "usually": 1.0
+      }
+     },
+     "R4-conflict-unknown": {
+      "acc": 0.885,
+      "by_quantity": {
+       "always": 0.46153846153846156,
+       "never": 1.0,
+       "sometimes": 1.0,
+       "usually": 0.5
+      }
+     }
+    },
+    "fit-anon-conflict-rate-by-quantity": {
+     "always": 0.5384615384615384,
+     "never": 0.0,
+     "sometimes": 1.0,
+     "usually": 0.5
+    },
+    "fit-connectives": 1.0,
+    "fit-individual": {
+     "R1-intuition": 1.0,
+     "R2-logic": 0.9998314909679159,
+     "R3-logic-overrides": 0.9998988945807495,
+     "R4-conflict-unknown": 0.9998314909679159
+    },
+    "fit-kind": 1.0
+   }
+  },
+  "dual-shared/seed452": {
+   "arm": "dual-shared",
+   "checkpoint": {
+    "file": "runs/dual-route-truth-v1/dual-shared-seed452.pt",
+    "sha256": "52e1066be1e7f2c3b20faa89396d5cc2a930e81de5505f9bf3b58afacf8816eb"
+   },
+   "dax": {
+    "always": {
+     "R1-intuition": 1.0,
+     "R2-logic": 1.0,
+     "R3-logic-overrides": 1.0,
+     "R4-conflict-unknown": 1.0,
+     "conflict_rate": 0.0
+    },
+    "never": {
+     "R1-intuition": 1.0,
+     "R2-logic": 1.0,
+     "R3-logic-overrides": 1.0,
+     "R4-conflict-unknown": 1.0,
+     "conflict_rate": 0.0
+    },
+    "other_classes_rejected": {
+     "R1-intuition": 1.0,
+     "R2-logic": 1.0,
+     "R3-logic-overrides": 1.0,
+     "R4-conflict-unknown": 1.0
+    },
+    "sometimes": {
+     "R1-intuition": 0.0,
+     "R2-logic": 0.1111111111111111,
+     "R3-logic-overrides": 0.0,
+     "R4-conflict-unknown": 0.1111111111111111,
+     "conflict_rate": 0.1111111111111111
+    },
+    "usually": {
+     "R1-intuition": 0.5,
+     "R2-logic": 0.5,
+     "R3-logic-overrides": 0.5,
+     "R4-conflict-unknown": 0.5,
+     "conflict_rate": 0.0
+    }
+   },
+   "log": [
+    {
+     "intuition": 0.0007808638038113713,
+     "logic": 0.0015363827114924788,
+     "loss": 0.0063893976621329784,
+     "step": 250,
+     "wall": 97.38851735601202
+    },
+    {
+     "intuition": 0.000664214720018208,
+     "logic": 0.0010055173188447952,
+     "loss": 0.0035714679397642612,
+     "step": 500,
+     "wall": 195.35488225403242
+    },
+    {
+     "intuition": 0.004809550475329161,
+     "logic": 0.009049629792571068,
+     "loss": 0.01984807476401329,
+     "step": 750,
+     "wall": 292.92266501905397
+    },
+    {
+     "intuition": 0.0008795409230515361,
+     "logic": 0.001777885714545846,
+     "loss": 0.004526414908468723,
+     "step": 1000,
+     "wall": 391.0110221730429
+    },
+    {
+     "intuition": 0.0006711094174534082,
+     "logic": 0.0011393121676519513,
+     "loss": 0.0031977728940546513,
+     "step": 1250,
+     "wall": 488.85775681002997
+    },
+    {
+     "intuition": 0.0006330773467198014,
+     "logic": 0.0010068729752674699,
+     "loss": 0.002864448819309473,
+     "step": 1500,
+     "wall": 585.4482259840006
+    },
+    {
+     "intuition": 0.0006188793340697885,
+     "logic": 0.0009567133383825421,
+     "loss": 0.002715654671192169,
+     "step": 1750,
+     "wall": 684.1326849290053
+    },
+    {
+     "intuition": 0.0006099529564380646,
+     "logic": 0.0009278652141802013,
+     "loss": 0.002622002735733986,
+     "step": 2000,
+     "wall": 783.5018829550245
+    },
+    {
+     "intuition": 0.0006009781500324607,
+     "logic": 0.0009036340052261949,
+     "loss": 0.002548198215663433,
+     "step": 2250,
+     "wall": 879.6832738400553
+    },
+    {
+     "intuition": 0.0005932566709816456,
+     "logic": 0.0008849360747262836,
+     "loss": 0.002489609643816948,
+     "step": 2500,
+     "wall": 979.0473397450405
+    },
+    {
+     "intuition": 0.000584339490160346,
+     "logic": 0.0008709783433005214,
+     "loss": 0.00244330451823771,
+     "step": 2750,
+     "wall": 1075.9105518730357
+    },
+    {
+     "intuition": 0.0005777582409791648,
+     "logic": 0.0008601406589150429,
+     "loss": 0.0024092146195471287,
+     "step": 3000,
+     "wall": 1168.6649780940497
+    }
+   ],
+   "params": 64966,
+   "seed": 452,
+   "tests": {
+    "G2": {
+     "R1-intuition": 0.7600381107935212,
+     "R2-logic": 0.7200898325847285,
+     "R3-logic-overrides": 0.736218864842793,
+     "R4-conflict-unknown": 0.7116510140193276,
+     "agreement": 0.9738805970149254,
+     "intuition_auroc": 0.871920511773513,
+     "logic_auroc": 0.8632094732543896,
+     "logic_state_share": {
+      "D": 0.0037313432835820895,
+      "F": 0.8694029850746269,
+      "T": 0.12686567164179105,
+      "U": 0.0
+     }
+    },
+    "G4": {
+     "R1-intuition": 0.5993589743589743,
+     "R2-logic": 0.6233974358974359,
+     "R3-logic-overrides": 0.6233974358974359,
+     "R4-conflict-unknown": 0.5608974358974359,
+     "agreement": 0.9148936170212766,
+     "intuition_auroc": 0.7019230769230769,
+     "logic_auroc": 0.6987179487179487,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.8297872340425532,
+      "T": 0.1702127659574468,
+      "U": 0.0
+     }
+    },
+    "L1-anc": {
+     "R1-intuition": 0.7222222222222222,
+     "R2-logic": 0.5555555555555556,
+     "R3-logic-overrides": 0.5555555555555556,
+     "R4-conflict-unknown": 0.5555555555555556,
+     "agreement": 0.8333333333333334,
+     "intuition_auroc": 0.9907407407407407,
+     "logic_auroc": 0.9320987654320988,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.9444444444444444,
+      "T": 0.05555555555555555,
+      "U": 0.0
+     }
+    },
+    "L1-kind": {
+     "R1-intuition": 0.6178571428571429,
+     "R2-logic": 0.6255952380952381,
+     "R3-logic-overrides": 0.6255952380952381,
+     "R4-conflict-unknown": 0.5619047619047619,
+     "agreement": 0.8617021276595744,
+     "intuition_auroc": 0.6726190476190477,
+     "logic_auroc": 0.6934523809523809,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.5,
+      "T": 0.4787234042553192,
+      "U": 0.02127659574468085
+     }
+    },
+    "L1-size": {
+     "R1-intuition": 0.9777777777777779,
+     "R2-logic": 0.9444444444444444,
+     "R3-logic-overrides": 0.9444444444444444,
+     "R4-conflict-unknown": 0.9333333333333333,
+     "agreement": 0.9444444444444444,
+     "intuition_auroc": 0.9964197530864197,
+     "logic_auroc": 0.9893827160493828,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.5555555555555556,
+      "T": 0.4444444444444444,
+      "U": 0.0
+     }
+    },
+    "L2-named": {
+     "R1-intuition": 0.8798076923076923,
+     "R2-logic": 0.8653846153846154,
+     "R3-logic-overrides": 0.8701923076923077,
+     "R4-conflict-unknown": 0.8365384615384616,
+     "agreement": 0.9294871794871795,
+     "intuition_auroc": 0.9417529585798816,
+     "logic_auroc": 0.9204881656804734,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.6987179487179487,
+      "T": 0.2948717948717949,
+      "U": 0.00641025641025641
+     }
+    },
+    "P1-default": {
+     "R1-intuition": 0.9624578177727784,
+     "R2-logic": 0.8374578177727784,
+     "R3-logic-overrides": 0.8631889763779528,
+     "R4-conflict-unknown": 0.8177727784026997,
+     "agreement": 0.8903225806451613,
+     "intuition_auroc": 0.9884701912260967,
+     "logic_auroc": 0.9462879640044994,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.832258064516129,
+      "T": 0.14838709677419354,
+      "U": 0.01935483870967742
+     }
+    },
+    "P2": {
+     "R1-intuition": 0.6873296894803549,
+     "R2-logic": 0.6858978929024081,
+     "R3-logic-overrides": 0.6898823669201521,
+     "R4-conflict-unknown": 0.6312341571609632,
+     "agreement": 0.9125102207686018,
+     "intuition_auroc": 0.7766120088719899,
+     "logic_auroc": 0.7919201520912548,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.8119378577269011,
+      "T": 0.18152085036794766,
+      "U": 0.006541291905151268
+     }
+    },
+    "P3": {
+     "R1-intuition": 0.7575578726473867,
+     "R2-logic": 0.7233589087809037,
+     "R3-logic-overrides": 0.7233589087809037,
+     "R4-conflict-unknown": 0.6887008984195685,
+     "agreement": 0.9342857142857143,
+     "intuition_auroc": 0.8601875532821824,
+     "logic_auroc": 0.8346776837825431,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.8914285714285715,
+      "T": 0.10857142857142857,
+      "U": 0.0
+     }
+    },
+    "P4": {
+     "R1-intuition": 0.7708333333333333,
+     "R2-logic": 0.7361111111111112,
+     "R3-logic-overrides": 0.7361111111111112,
+     "R4-conflict-unknown": 0.6944444444444444,
+     "agreement": 0.875,
+     "intuition_auroc": 0.9185956790123457,
+     "logic_auroc": 0.875,
+     "logic_state_share": {
+      "D": 0.006944444444444444,
+      "F": 0.7013888888888888,
+      "T": 0.2916666666666667,
+      "U": 0.0
+     }
+    },
+    "P6-colour": {
+     "R1-intuition": 0.5852941176470589,
+     "R2-logic": 0.5553921568627451,
+     "R3-logic-overrides": 0.5553921568627451,
+     "R4-conflict-unknown": 0.5254901960784314,
+     "agreement": 0.9598214285714286,
+     "intuition_auroc": 0.5931372549019608,
+     "logic_auroc": 0.5764705882352941,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.9508928571428571,
+      "T": 0.049107142857142856,
+      "U": 0.0
+     }
+    },
+    "P6-grandparent": {
+     "R1-intuition": 0.625,
+     "R2-logic": 0.625,
+     "R3-logic-overrides": 0.625,
+     "R4-conflict-unknown": 0.625,
+     "agreement": 1.0,
+     "intuition_auroc": 1.0,
+     "logic_auroc": 0.9875,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.9583333333333334,
+      "T": 0.041666666666666664,
+      "U": 0.0
+     }
+    },
+    "S2": 0.6923076923076923,
+    "S3b": {
+     "R1-intuition": {
+      "acc": 0.74,
+      "by_quantity": {
+       "always": 0.75,
+       "never": 0.967741935483871,
+       "sometimes": 0.0,
+       "usually": 0.625
+      }
+     },
+     "R2-logic": {
+      "acc": 0.73,
+      "by_quantity": {
+       "always": 0.5833333333333334,
+       "never": 1.0,
+       "sometimes": 0.0,
+       "usually": 0.5
+      }
+     },
+     "R3-logic-overrides": {
+      "acc": 0.75,
+      "by_quantity": {
+       "always": 0.75,
+       "never": 1.0,
+       "sometimes": 0.0,
+       "usually": 0.5
+      }
+     },
+     "R4-conflict-unknown": {
+      "acc": 0.7,
+      "by_quantity": {
+       "always": 0.4166666666666667,
+       "never": 0.967741935483871,
+       "sometimes": 0.16666666666666666,
+       "usually": 0.25
+      }
+     }
+    },
+    "S3b-conflict-rate-by-quantity": {
+     "always": 0.5,
+     "never": 0.03225806451612903,
+     "sometimes": 0.16666666666666666,
+     "usually": 0.625
+    },
+    "S4a-conflict-rate": 0.5,
+    "S4a-u-rate": {
+     "R2-logic": 0.45454545454545453,
+     "R3-logic-overrides": 0.0,
+     "R4-conflict-unknown": 0.5
+    },
+    "S4b-P7-conflict-rate": 0.24242424242424243,
+    "S4b-P7-u-rate": {
+     "R2-logic": 0.24242424242424243,
+     "R3-logic-overrides": 0.0,
+     "R4-conflict-unknown": 0.24242424242424243
+    },
+    "conflict-flags-intuition-errors": {
+     "binary_auroc": 0.5793677940366743,
+     "conflict_rate": 0.07755946225439504,
+     "error_rate": 0.15098241985522234,
+     "graded_auroc": 0.732840560848503
+    },
+    "control-conflict-rate": 0.07747562852744998,
+    "control-u-rate": {
+     "R2-logic": 0.007183170856849667,
+     "R3-logic-overrides": 0.0,
+     "R4-conflict-unknown": 0.07747562852744998
+    },
+    "fit-anon": {
+     "R1-intuition": {
+      "acc": 0.59,
+      "by_quantity": {
+       "always": 0.4230769230769231,
+       "never": 0.9791666666666666,
+       "sometimes": 0.0,
+       "usually": 0.7222222222222222
+      }
+     },
+     "R2-logic": {
+      "acc": 1.0,
+      "by_quantity": {
+       "always": 1.0,
+       "never": 1.0,
+       "sometimes": 1.0,
+       "usually": 1.0
+      }
+     },
+     "R3-logic-overrides": {
+      "acc": 0.7,
+      "by_quantity": {
+       "always": 1.0,
+       "never": 1.0,
+       "sometimes": 0.0,
+       "usually": 1.0
+      }
+     },
+     "R4-conflict-unknown": {
+      "acc": 0.89,
+      "by_quantity": {
+       "always": 0.4230769230769231,
+       "never": 0.9791666666666666,
+       "sometimes": 1.0,
+       "usually": 0.7222222222222222
+      }
+     }
+    },
+    "fit-anon-conflict-rate-by-quantity": {
+     "always": 0.5769230769230769,
+     "never": 0.020833333333333332,
+     "sometimes": 1.0,
+     "usually": 0.2777777777777778
+    },
+    "fit-connectives": 1.0,
+    "fit-individual": {
+     "R1-intuition": 1.0,
+     "R2-logic": 1.0,
+     "R3-logic-overrides": 1.0,
+     "R4-conflict-unknown": 1.0
+    },
+    "fit-kind": 1.0
+   }
+  },
+  "dual-shared/seed453": {
+   "arm": "dual-shared",
+   "checkpoint": {
+    "file": "runs/dual-route-truth-v1/dual-shared-seed453.pt",
+    "sha256": "64943b55c67152374f138be0b3f17d1162fc72c1f4e804c4f217cc44a0f4d075"
+   },
+   "dax": {
+    "always": {
+     "R1-intuition": 1.0,
+     "R2-logic": 1.0,
+     "R3-logic-overrides": 1.0,
+     "R4-conflict-unknown": 1.0,
+     "conflict_rate": 0.0
+    },
+    "never": {
+     "R1-intuition": 1.0,
+     "R2-logic": 1.0,
+     "R3-logic-overrides": 1.0,
+     "R4-conflict-unknown": 1.0,
+     "conflict_rate": 0.0
+    },
+    "other_classes_rejected": {
+     "R1-intuition": 1.0,
+     "R2-logic": 1.0,
+     "R3-logic-overrides": 1.0,
+     "R4-conflict-unknown": 1.0
+    },
+    "sometimes": {
+     "R1-intuition": 0.0,
+     "R2-logic": 0.0,
+     "R3-logic-overrides": 0.0,
+     "R4-conflict-unknown": 0.2222222222222222,
+     "conflict_rate": 0.2222222222222222
+    },
+    "usually": {
+     "R1-intuition": 1.0,
+     "R2-logic": 1.0,
+     "R3-logic-overrides": 1.0,
+     "R4-conflict-unknown": 1.0,
+     "conflict_rate": 0.0
+    }
+   },
+   "log": [
+    {
+     "intuition": 0.0008743150974623859,
+     "logic": 0.0016488005639985204,
+     "loss": 0.00625778641551733,
+     "step": 250,
+     "wall": 97.87023030302953
+    },
+    {
+     "intuition": 0.0006827780744060874,
+     "logic": 0.0011252700351178646,
+     "loss": 0.0035563907586038113,
+     "step": 500,
+     "wall": 196.95777995605022
+    },
+    {
+     "intuition": 0.002442234894260764,
+     "logic": 0.009852040559053421,
+     "loss": 0.015456004068255424,
+     "step": 750,
+     "wall": 297.43334523105295
+    },
+    {
+     "intuition": 0.0006022986490279436,
+     "logic": 0.0022517829202115536,
+     "loss": 0.004389285109937191,
+     "step": 1000,
+     "wall": 394.4961076450418
+    },
+    {
+     "intuition": 0.0005233718547970057,
+     "logic": 0.0013116257032379508,
+     "loss": 0.003084450261667371,
+     "step": 1250,
+     "wall": 493.1281996300095
+    },
+    {
+     "intuition": 0.0005160689470358193,
+     "logic": 0.0011102764401584864,
+     "loss": 0.002765107899904251,
+     "step": 1500,
+     "wall": 590.1703217620379
+    },
+    {
+     "intuition": 0.0005165566690266132,
+     "logic": 0.0010336142731830478,
+     "loss": 0.002629954367876053,
+     "step": 1750,
+     "wall": 688.9120888920152
+    },
+    {
+     "intuition": 0.0005196507554501295,
+     "logic": 0.0009903009049594402,
+     "loss": 0.0025503048673272133,
+     "step": 2000,
+     "wall": 788.6681465430302
+    },
+    {
+     "intuition": 0.000524938921444118,
+     "logic": 0.0009575834847055376,
+     "loss": 0.0024959654547274113,
+     "step": 2250,
+     "wall": 888.2271324150497
+    },
+    {
+     "intuition": 0.0005307419924065471,
+     "logic": 0.0009309649467468262,
+     "loss": 0.0024518179707229137,
+     "step": 2500,
+     "wall": 983.704844198015
+    },
+    {
+     "intuition": 0.0005358830676414073,
+     "logic": 0.0009086373611353338,
+     "loss": 0.002416379051283002,
+     "step": 2750,
+     "wall": 1081.3443478200352
+    },
+    {
+     "intuition": 0.002072078874334693,
+     "logic": 0.016383560374379158,
+     "loss": 0.1609814465045929,
+     "step": 3000,
+     "wall": 1170.2954563760431
+    }
+   ],
+   "params": 64966,
+   "seed": 453,
+   "tests": {
+    "G2": {
+     "R1-intuition": 0.564516129032258,
+     "R2-logic": 0.6478834898598067,
+     "R3-logic-overrides": 0.6521028991425071,
+     "R4-conflict-unknown": 0.5349802640533552,
+     "agreement": 0.917910447761194,
+     "intuition_auroc": 0.8230570300803048,
+     "logic_auroc": 0.7643255750646523,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.9029850746268657,
+      "T": 0.08582089552238806,
+      "U": 0.011194029850746268
+     }
+    },
+    "G4": {
+     "R1-intuition": 0.5737179487179487,
+     "R2-logic": 0.5080128205128205,
+     "R3-logic-overrides": 0.5080128205128205,
+     "R4-conflict-unknown": 0.44551282051282054,
+     "agreement": 0.7659574468085106,
+     "intuition_auroc": 0.5865384615384616,
+     "logic_auroc": 0.6057692307692307,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.6382978723404256,
+      "T": 0.3617021276595745,
+      "U": 0.0
+     }
+    },
+    "L1-anc": {
+     "R1-intuition": 0.6388888888888888,
+     "R2-logic": 0.7222222222222222,
+     "R3-logic-overrides": 0.7222222222222222,
+     "R4-conflict-unknown": 0.6388888888888888,
+     "agreement": 0.8611111111111112,
+     "intuition_auroc": 0.9907407407407407,
+     "logic_auroc": 0.9876543209876543,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.7222222222222222,
+      "T": 0.2222222222222222,
+      "U": 0.05555555555555555
+     }
+    },
+    "L1-kind": {
+     "R1-intuition": 0.6857142857142857,
+     "R2-logic": 0.5172619047619048,
+     "R3-logic-overrides": 0.5172619047619048,
+     "R4-conflict-unknown": 0.4755952380952381,
+     "agreement": 0.8085106382978724,
+     "intuition_auroc": 0.8172619047619047,
+     "logic_auroc": 0.6892857142857143,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.26595744680851063,
+      "T": 0.7340425531914894,
+      "U": 0.0
+     }
+    },
+    "L1-size": {
+     "R1-intuition": 0.9333333333333333,
+     "R2-logic": 0.8,
+     "R3-logic-overrides": 0.8111111111111111,
+     "R4-conflict-unknown": 0.788888888888889,
+     "agreement": 0.8444444444444444,
+     "intuition_auroc": 0.9919753086419754,
+     "logic_auroc": 0.9424691358024692,
+     "logic_state_share": {
+      "D": 0.011111111111111112,
+      "F": 0.6555555555555556,
+      "T": 0.3333333333333333,
+      "U": 0.0
+     }
+    },
+    "L2-named": {
+     "R1-intuition": 0.7596153846153846,
+     "R2-logic": 0.7740384615384616,
+     "R3-logic-overrides": 0.7740384615384616,
+     "R4-conflict-unknown": 0.7211538461538461,
+     "agreement": 0.9102564102564102,
+     "intuition_auroc": 0.8890532544378699,
+     "logic_auroc": 0.8688979289940828,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.7115384615384616,
+      "T": 0.28846153846153844,
+      "U": 0.0
+     }
+    },
+    "P1-default": {
+     "R1-intuition": 0.8156636670416197,
+     "R2-logic": 0.8295838020247469,
+     "R3-logic-overrides": 0.8335208098987626,
+     "R4-conflict-unknown": 0.7642013498312711,
+     "agreement": 0.9161290322580645,
+     "intuition_auroc": 0.93785151856018,
+     "logic_auroc": 0.9361642294713161,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.8258064516129032,
+      "T": 0.16129032258064516,
+      "U": 0.012903225806451613
+     }
+    },
+    "P2": {
+     "R1-intuition": 0.6906368821292777,
+     "R2-logic": 0.6879297370088719,
+     "R3-logic-overrides": 0.690351711026616,
+     "R4-conflict-unknown": 0.6102701204055767,
+     "agreement": 0.8708094848732625,
+     "intuition_auroc": 0.7998613751584284,
+     "logic_auroc": 0.7813054499366286,
+     "logic_state_share": {
+      "D": 0.004088307440719542,
+      "F": 0.7914963205233033,
+      "T": 0.2044153720359771,
+      "U": 0.0
+     }
+    },
+    "P3": {
+     "R1-intuition": 0.7216866679782281,
+     "R2-logic": 0.6705357728375632,
+     "R3-logic-overrides": 0.6705357728375632,
+     "R4-conflict-unknown": 0.6229588825496754,
+     "agreement": 0.9028571428571428,
+     "intuition_auroc": 0.8584169453734671,
+     "logic_auroc": 0.7703128073972064,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.86,
+      "T": 0.14,
+      "U": 0.0
+     }
+    },
+    "P4": {
+     "R1-intuition": 0.7222222222222222,
+     "R2-logic": 0.7638888888888888,
+     "R3-logic-overrides": 0.7638888888888888,
+     "R4-conflict-unknown": 0.6527777777777778,
+     "agreement": 0.8194444444444444,
+     "intuition_auroc": 0.9239969135802469,
+     "logic_auroc": 0.9137731481481481,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.7083333333333334,
+      "T": 0.2916666666666667,
+      "U": 0.0
+     }
+    },
+    "P6-colour": {
+     "R1-intuition": 0.5651960784313725,
+     "R2-logic": 0.5906862745098039,
+     "R3-logic-overrides": 0.5906862745098039,
+     "R4-conflict-unknown": 0.538235294117647,
+     "agreement": 0.9375,
+     "intuition_auroc": 0.6036764705882353,
+     "logic_auroc": 0.6294117647058823,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.9151785714285714,
+      "T": 0.08482142857142858,
+      "U": 0.0
+     }
+    },
+    "P6-grandparent": {
+     "R1-intuition": 0.5,
+     "R2-logic": 0.7,
+     "R3-logic-overrides": 0.7,
+     "R4-conflict-unknown": 0.45,
+     "agreement": 0.8333333333333334,
+     "intuition_auroc": 0.8875,
+     "logic_auroc": 0.925,
+     "logic_state_share": {
+      "D": 0.0,
+      "F": 0.8333333333333334,
+      "T": 0.16666666666666666,
+      "U": 0.0
+     }
+    },
+    "S2": 0.8205128205128205,
+    "S3b": {
+     "R1-intuition": {
+      "acc": 0.74,
+      "by_quantity": {
+       "always": 0.8333333333333334,
+       "never": 0.967741935483871,
+       "sometimes": 0.0,
+       "usually": 0.5
+      }
+     },
+     "R2-logic": {
+      "acc": 0.65,
+      "by_quantity": {
+       "always": 0.75,
+       "never": 0.8709677419354839,
+       "sometimes": 0.0,
+       "usually": 0.25
+      }
+     },
+     "R3-logic-overrides": {
+      "acc": 0.65,
+      "by_quantity": {
+       "always": 0.75,
+       "never": 0.8709677419354839,
+       "sometimes": 0.0,
+       "usually": 0.25
+      }
+     },
+     "R4-conflict-unknown": {
+      "acc": 0.68,
+      "by_quantity": {
+       "always": 0.75,
+       "never": 0.8709677419354839,
+       "sometimes": 0.16666666666666666,
+       "usually": 0.25
+      }
+     }
+    },
+    "S3b-conflict-rate-by-quantity": {
+     "always": 0.08333333333333333,
+     "never": 0.0967741935483871,
+     "sometimes": 0.16666666666666666,
+     "usually": 0.25
+    },
+    "S4a-conflict-rate": 0.4772727272727273,
+    "S4a-u-rate": {
+     "R2-logic": 0.36363636363636365,
+     "R3-logic-overrides": 0.0,
+     "R4-conflict-unknown": 0.4772727272727273
+    },
+    "S4b-P7-conflict-rate": 0.45454545454545453,
+    "S4b-P7-u-rate": {
+     "R2-logic": 0.45454545454545453,
+     "R3-logic-overrides": 0.0,
+     "R4-conflict-unknown": 0.45454545454545453
+    },
+    "conflict-flags-intuition-errors": {
+     "binary_auroc": 0.5925996413278191,
+     "conflict_rate": 0.11961392623233368,
+     "error_rate": 0.15339538090313684,
+     "graded_auroc": 0.7250512388829924
+    },
+    "control-conflict-rate": 0.10826064648537712,
+    "control-u-rate": {
+     "R2-logic": 0.0015392508978963571,
+     "R3-logic-overrides": 0.0,
+     "R4-conflict-unknown": 0.10826064648537712
+    },
+    "fit-anon": {
+     "R1-intuition": {
+      "acc": 0.655,
+      "by_quantity": {
+       "always": 0.8461538461538461,
+       "never": 1.0,
+       "sometimes": 0.0,
+       "usually": 0.7222222222222222
+      }
+     },
+     "R2-logic": {
+      "acc": 1.0,
+      "by_quantity": {
+       "always": 1.0,
+       "never": 1.0,
+       "sometimes": 1.0,
+       "usually": 1.0
+      }
+     },
+     "R3-logic-overrides": {
+      "acc": 0.7,
+      "by_quantity": {
+       "always": 1.0,
+       "never": 1.0,
+       "sometimes": 0.0,
+       "usually": 1.0
+      }
+     },
+     "R4-conflict-unknown": {
+      "acc": 0.955,
+      "by_quantity": {
+       "always": 0.8461538461538461,
+       "never": 1.0,
+       "sometimes": 1.0,
+       "usually": 0.7222222222222222
+      }
+     }
+    },
+    "fit-anon-conflict-rate-by-quantity": {
+     "always": 0.15384615384615385,
+     "never": 0.0,
+     "sometimes": 1.0,
+     "usually": 0.2777777777777778
+    },
+    "fit-connectives": 1.0,
+    "fit-individual": {
+     "R1-intuition": 0.9995282383070494,
+     "R2-logic": 0.9780515978527125,
+     "R3-logic-overrides": 0.9813904978234204,
+     "R4-conflict-unknown": 0.9779842033251481
+    },
+    "fit-kind": 1.0
+   }
+  }
+ },
+ "status": "dual-route truth v1",
+ "steps": 3000
+}
