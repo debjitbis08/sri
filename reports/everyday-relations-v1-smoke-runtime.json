@@ -1,0 +1,99 @@
+{
+ "aggregate_worker_cpu_seconds": 43.901529607,
+ "children_peak_rss_kb": 300856,
+ "command": "/home/debjit/code/sri/experiments/everyday_relations.py main",
+ "contract_sha256": "6e0427113d65c5ddca307a9076f782d7d26565f698a66e02b015ffd3bd440db6",
+ "cpu": "x86_64",
+ "device": "cpu",
+ "dirty": true,
+ "dtype": "float32",
+ "numpy": "2.5.4",
+ "os": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "parent_peak_rss_kb": 300856,
+ "prior_baseline": {
+  "cpu_seconds": 0.03825100199999998,
+  "wall_seconds": 0.03825397096807137
+ },
+ "python": "3.12.3",
+ "revision": "030a155db6778539b9a9eda5e55aeb0b20d59801",
+ "rss_convention": "ru_maxrss in KiB per process; children is the largest single child",
+ "runner_sha256": "b4e0f767dc657836715f6caab0327e72425c14e4f72e220db6f6454718defa88",
+ "scope": "nondeterministic timing",
+ "tasks": {
+  "complex/real/seed400": {
+   "checkpoint_bytes": 53965,
+   "cpu_seconds": 3.71224578,
+   "fit_steps_per_fast_map": 50,
+   "optimizer_steps": 100,
+   "params": 12992,
+   "peak_rss_kb": 276780,
+   "trained_queries": 6234,
+   "wall_seconds": 3.7174500079709105
+  },
+  "flat/real/seed400": {
+   "checkpoint_bytes": 103373,
+   "cpu_seconds": 7.129136964,
+   "fit_steps_per_fast_map": 50,
+   "optimizer_steps": 100,
+   "params": 25069,
+   "peak_rss_kb": 285856,
+   "trained_queries": 6234,
+   "wall_seconds": 7.1296018729917705
+  },
+  "flat/shuffled/seed400": {
+   "checkpoint_bytes": 103421,
+   "cpu_seconds": 6.722382613,
+   "fit_steps_per_fast_map": 50,
+   "optimizer_steps": 100,
+   "params": 25069,
+   "peak_rss_kb": 284256,
+   "trained_queries": 6234,
+   "wall_seconds": 6.727612189017236
+  },
+  "two-16/real/seed400": {
+   "checkpoint_bytes": 59845,
+   "cpu_seconds": 4.978937624,
+   "fit_steps_per_fast_map": 50,
+   "optimizer_steps": 100,
+   "params": 13889,
+   "peak_rss_kb": 280756,
+   "trained_queries": 6234,
+   "wall_seconds": 4.979477393964771
+  },
+  "two-64/real/seed400": {
+   "checkpoint_bytes": 193861,
+   "cpu_seconds": 8.041636002999999,
+   "fit_steps_per_fast_map": 50,
+   "optimizer_steps": 100,
+   "params": 47393,
+   "peak_rss_kb": 286152,
+   "trained_queries": 6234,
+   "wall_seconds": 8.045182352012489
+  },
+  "two/real/seed400": {
+   "checkpoint_bytes": 104469,
+   "cpu_seconds": 6.906017748,
+   "fit_steps_per_fast_map": 50,
+   "optimizer_steps": 100,
+   "params": 25057,
+   "peak_rss_kb": 280076,
+   "trained_queries": 6234,
+   "wall_seconds": 6.907860604987945
+  },
+  "two/shuffled/seed400": {
+   "checkpoint_bytes": 104533,
+   "cpu_seconds": 6.411172875,
+   "fit_steps_per_fast_map": 50,
+   "optimizer_steps": 100,
+   "params": 25057,
+   "peak_rss_kb": 282920,
+   "trained_queries": 6234,
+   "wall_seconds": 6.411679856013507
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "wall_seconds": 8.173378656967543,
+ "workers": 7,
+ "world_sha256": "bcfe53a88d7e38f53ec9251dcdd8455b5614d760b860527bebb37d3c5b80b5f8"
+}

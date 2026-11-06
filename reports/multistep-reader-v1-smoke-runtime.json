@@ -1,0 +1,109 @@
+{
+ "aggregate_worker_cpu_seconds": 167.121356754,
+ "children_peak_rss_kb": 957104,
+ "command": "/home/debjit/code/sri/experiments/multistep_reader.py main",
+ "contract_sha256": "bfce3f5761a74204f9d256ae5b8d3426ed6ec5c79770798163017fb7370fbd43",
+ "cpu": "x86_64",
+ "device": "cpu",
+ "dirty": true,
+ "dtype": "float32",
+ "numpy": "2.5.4",
+ "os": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "parent_peak_rss_kb": 298896,
+ "python": "3.12.3",
+ "revision": "1551715d55b238f5b59bc272371ebe08b8128f1a",
+ "rss_convention": "ru_maxrss in KiB per process; children is the largest single child",
+ "runner_sha256": "6b454b703db4d78f227f5cecd89a7defc17b7378e2506226238ae0cc17ba47da",
+ "scope": "nondeterministic timing",
+ "tasks": {
+  "pred-loop/seed450": {
+   "checkpoint_bytes": 282062,
+   "cpu_seconds": 83.266380913,
+   "fit_steps": 50,
+   "inference": {
+    "includes": "forward only, batched, CPU float32",
+    "median_seconds_per_1000": 0.013658576994203031,
+    "repeats": 5,
+    "spread": [
+     0.013626217027194798,
+     0.013843389984685928
+    ],
+    "threads": 1
+   },
+   "optimizer_steps": 60,
+   "params": 68352,
+   "peak_rss_kb": 957104,
+   "train_cpu_seconds": 81.951392579,
+   "trained_statements": 17610,
+   "wall_seconds": 83.28629618999548
+  },
+  "pred-one/seed450": {
+   "checkpoint_bytes": 143399,
+   "cpu_seconds": 11.260975203000001,
+   "fit_steps": 50,
+   "inference": {
+    "includes": "forward only, batched, CPU float32",
+    "median_seconds_per_1000": 0.0014089620090089738,
+    "repeats": 5,
+    "spread": [
+     0.0011192979873158038,
+     0.0015431239735335112
+    ],
+    "threads": 1
+   },
+   "optimizer_steps": 60,
+   "params": 34593,
+   "peak_rss_kb": 364944,
+   "train_cpu_seconds": 10.829676423999999,
+   "trained_statements": 17610,
+   "wall_seconds": 11.263800959044602
+  },
+  "unit-loop/seed450": {
+   "checkpoint_bytes": 304419,
+   "cpu_seconds": 64.50601572699999,
+   "fit_steps": 50,
+   "inference": {
+    "includes": "forward only, batched, CPU float32",
+    "median_seconds_per_1000": 0.013737678993493319,
+    "repeats": 5,
+    "spread": [
+     0.012818904011510313,
+     0.014912616985384375
+    ],
+    "threads": 1
+   },
+   "optimizer_steps": 60,
+   "params": 73713,
+   "peak_rss_kb": 780860,
+   "train_cpu_seconds": 63.244426807,
+   "trained_statements": 17610,
+   "wall_seconds": 64.52183578599943
+  },
+  "unit-one/seed450": {
+   "checkpoint_bytes": 122325,
+   "cpu_seconds": 8.087984911000001,
+   "fit_steps": 50,
+   "inference": {
+    "includes": "forward only, batched, CPU float32",
+    "median_seconds_per_1000": 0.000669509987346828,
+    "repeats": 5,
+    "spread": [
+     0.0006669710273854434,
+     0.0007053709705360234
+    ],
+    "threads": 1
+   },
+   "optimizer_steps": 60,
+   "params": 29521,
+   "peak_rss_kb": 336420,
+   "train_cpu_seconds": 7.780006885,
+   "trained_statements": 17610,
+   "wall_seconds": 8.092667164979503
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "wall_seconds": 83.41177448496455,
+ "workers": 4,
+ "world_sha256": "ecbf67d4aaac43095f8e9421eaccecca5e80335a583fba7078d70eb2993ff96b"
+}

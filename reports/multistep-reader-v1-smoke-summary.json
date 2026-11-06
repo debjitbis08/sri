@@ -1,0 +1,1271 @@
+{
+ "pred-loop": {
+  "fast_mapping": {
+   "blick-bal-acc": 0.66,
+   "dax-always": 0.8,
+   "dax-never": 0.33,
+   "dax-other-classes-rejected": 1.0,
+   "dax-sometimes": 0.11,
+   "dax-usually": 1.0
+  },
+  "params": 68352,
+  "tests": {
+   "G1": {
+    "auroc": 0.72,
+    "bal_acc": 0.67,
+    "n": 202.0,
+    "tnr": 0.66,
+    "tpr": 0.68,
+    "u_rate": 0.0
+   },
+   "G2": {
+    "auroc": 0.51,
+    "bal_acc": 0.56,
+    "n": 268.0,
+    "tnr": 0.41,
+    "tpr": 0.71,
+    "u_rate": 0.03
+   },
+   "G3": {
+    "auroc": 0.69,
+    "bal_acc": 0.49,
+    "n": 246.0,
+    "tnr": 0.71,
+    "tpr": 0.27,
+    "u_rate": 0.02
+   },
+   "G4": {
+    "auroc": 0.57,
+    "bal_acc": 0.59,
+    "n": 47.0,
+    "tnr": 0.31,
+    "tpr": 0.88,
+    "u_rate": 0.0
+   },
+   "L1-anc": {
+    "auroc": 0.67,
+    "bal_acc": 0.61,
+    "n": 36.0,
+    "tnr": 0.83,
+    "tpr": 0.39,
+    "u_rate": 0.0
+   },
+   "L1-anc-by": {
+    "3": 0.61,
+    "4": 0.58,
+    "5": 0.67
+   },
+   "L1-anc-by-T6": {
+    "3": 0.61,
+    "4": 0.58,
+    "5": 0.67
+   },
+   "L1-kind": {
+    "auroc": 0.49,
+    "bal_acc": 0.54,
+    "n": 94.0,
+    "tnr": 0.42,
+    "tpr": 0.67,
+    "u_rate": 0.0
+   },
+   "L1-kind-by": {
+    "3": 0.5,
+    "4": 0.59
+   },
+   "L1-kind-by-T6": {
+    "3": 0.5,
+    "4": 0.59
+   },
+   "L1-size": {
+    "auroc": 0.5,
+    "bal_acc": 0.46,
+    "n": 180.0,
+    "tnr": 0.17,
+    "tpr": 0.76,
+    "u_rate": 0.0
+   },
+   "L1-size-by": {
+    "10": 0.5,
+    "11": 0.25,
+    "3": 0.44,
+    "4": 0.44,
+    "5": 0.5,
+    "6": 0.46,
+    "7": 0.5,
+    "8": 0.44,
+    "9": 0.5
+   },
+   "L1-size-by-T6": {
+    "10": 0.5,
+    "11": 0.25,
+    "3": 0.44,
+    "4": 0.44,
+    "5": 0.5,
+    "6": 0.46,
+    "7": 0.5,
+    "8": 0.44,
+    "9": 0.5
+   },
+   "L2-named": {
+    "auroc": 0.62,
+    "bal_acc": 0.61,
+    "n": 156.0,
+    "tnr": 0.78,
+    "tpr": 0.44,
+    "u_rate": 0.0
+   },
+   "L2-named-by": {
+    "named-can": 0.61,
+    "named-has": 0.51,
+    "named-kind": 0.72
+   },
+   "L2-named-by-T6": {
+    "named-can": 0.61,
+    "named-has": 0.51,
+    "named-kind": 0.72
+   },
+   "L2-x": {
+    "auroc": 0.55,
+    "bal_acc": 0.49,
+    "n": 182.0,
+    "tnr": 0.65,
+    "tpr": 0.32,
+    "u_rate": 0.05
+   },
+   "P1": {
+    "auroc": 0.52,
+    "bal_acc": 0.54,
+    "n": 174.0,
+    "tnr": 0.59,
+    "tpr": 0.49,
+    "u_rate": 0.02
+   },
+   "P1-default": {
+    "auroc": 0.51,
+    "bal_acc": 0.54,
+    "n": 155.0,
+    "tnr": 0.58,
+    "tpr": 0.5,
+    "u_rate": 0.01
+   },
+   "P1-hierarchy": {
+    "auroc": 0.25,
+    "bal_acc": 0.5,
+    "n": 10.0,
+    "tnr": 0.0,
+    "tpr": 1.0,
+    "u_rate": 0.0
+   },
+   "P1-specific": {
+    "auroc": 0.85,
+    "bal_acc": 0.62,
+    "n": 14.0,
+    "tnr": 0.75,
+    "tpr": 0.5,
+    "u_rate": 0.14
+   },
+   "P2": {
+    "auroc": 0.57,
+    "bal_acc": 0.58,
+    "n": 1223.0,
+    "tnr": 0.44,
+    "tpr": 0.73,
+    "u_rate": 0.0
+   },
+   "P3": {
+    "auroc": 0.49,
+    "bal_acc": 0.48,
+    "n": 350.0,
+    "tnr": 0.52,
+    "tpr": 0.43,
+    "u_rate": 0.0
+   },
+   "P4": {
+    "auroc": 0.49,
+    "bal_acc": 0.53,
+    "n": 144.0,
+    "tnr": 0.33,
+    "tpr": 0.74,
+    "u_rate": 0.0
+   },
+   "P5": {
+    "auroc": 0.41,
+    "bal_acc": 0.4,
+    "n": 48.0,
+    "tnr": 0.3,
+    "tpr": 0.5,
+    "u_rate": 0.0
+   },
+   "P6-anc": {
+    "auroc": 0.62,
+    "bal_acc": 0.68,
+    "n": 83.0,
+    "tnr": 0.53,
+    "tpr": 0.83,
+    "u_rate": 0.0
+   },
+   "P6-colour": {
+    "auroc": 0.62,
+    "bal_acc": 0.56,
+    "n": 224.0,
+    "tnr": 0.52,
+    "tpr": 0.6,
+    "u_rate": 0.0
+   },
+   "P6-grandparent": {
+    "auroc": 0.35,
+    "bal_acc": 0.38,
+    "n": 24.0,
+    "tnr": 0.25,
+    "tpr": 0.5,
+    "u_rate": 0.0
+   },
+   "S2": {
+    "acc": 0.49,
+    "mean_recall": 0.37,
+    "per_value": {
+     "always": 0.0,
+     "never": 0.57,
+     "sometimes": 0.67,
+     "usually": 0.25
+    },
+    "pred_counts": {
+     "F": 0.0,
+     "T": 0.0,
+     "U": 0.0,
+     "always": 5.0,
+     "never": 19.0,
+     "sometimes": 9.0,
+     "usually": 6.0
+    }
+   },
+   "S3b": {
+    "acc": 0.6,
+    "mean_recall": 0.45,
+    "per_value": {
+     "F": 0.79,
+     "T": 0.55,
+     "U": 0.0
+    },
+    "pred_counts": {
+     "F": 64.0,
+     "T": 34.0,
+     "U": 2.0,
+     "always": 0.0,
+     "never": 0.0,
+     "sometimes": 0.0,
+     "usually": 0.0
+    }
+   },
+   "S3b-by-quantity": {
+    "always": 0.42,
+    "never": 0.79,
+    "sometimes": 0.0,
+    "usually": 0.75
+   },
+   "S4-control-u-rate": 0.0,
+   "S4a": {
+    "u_rate": 0.0
+   },
+   "S4b-P7": {
+    "u_rate": 0.0
+   },
+   "fit-anon": {
+    "acc": 1.0,
+    "mean_recall": 1.0,
+    "per_value": {
+     "F": 1.0,
+     "T": 1.0,
+     "U": 1.0
+    },
+    "pred_counts": {
+     "F": 96.0,
+     "T": 44.0,
+     "U": 60.0,
+     "always": 0.0,
+     "never": 0.0,
+     "sometimes": 0.0,
+     "usually": 0.0
+    }
+   },
+   "fit-anon-by-quantity": {
+    "always": 1.0,
+    "never": 1.0,
+    "sometimes": 1.0,
+    "usually": 1.0
+   },
+   "fit-individual": {
+    "auroc": 0.66,
+    "bal_acc": 0.61,
+    "n": 16270.0,
+    "tnr": 0.5,
+    "tpr": 0.72,
+    "u_rate": 0.0
+   },
+   "inspect": {
+    "L2-named-expected-steps": 0.34,
+    "L2-named-first-produced-is-middle": 0.0,
+    "L2-named-first-produced-top": {
+     "animal": 18.0,
+     "green": 17.0,
+     "owl": 21.0,
+     "run-w": 85.0,
+     "swim-w": 8.0
+    },
+    "S3b-expected-steps": 0.1,
+    "S3b-first-produced-is-middle": 0.0,
+    "S3b-first-produced-top": {
+     "F": 44.0,
+     "animal": 6.0,
+     "swim": 50.0
+    },
+    "expected-steps-by-length": {
+     "10": 0.39,
+     "2": 0.41,
+     "3": 0.45,
+     "4": 0.14,
+     "5": 0.13,
+     "6": 0.18,
+     "7": 0.19,
+     "8": 0.11,
+     "9": 0.3
+    },
+    "forced-stop-L1-anc": {
+     "0": 0.53,
+     "1": 0.56,
+     "2": 0.53,
+     "3": 0.5,
+     "4": 0.56
+    },
+    "forced-stop-L1-kind": {
+     "0": 0.56,
+     "1": 0.48,
+     "2": 0.48,
+     "3": 0.51,
+     "4": 0.54
+    },
+    "forced-stop-L1-size": {
+     "0": 0.46,
+     "1": 0.46,
+     "2": 0.49,
+     "3": 0.49,
+     "4": 0.47
+    },
+    "forced-stop-L2-named": {
+     "0": 0.6,
+     "1": 0.66,
+     "2": 0.66,
+     "3": 0.64,
+     "4": 0.65
+    },
+    "forced-stop-P6-grandparent": {
+     "0": 0.38,
+     "1": 0.6,
+     "2": 0.55,
+     "3": 0.5,
+     "4": 0.5
+    },
+    "forced-stop-S3b": {
+     "0": 0.59,
+     "1": 0.33,
+     "2": 0.57,
+     "3": 0.56,
+     "4": 0.59
+    },
+    "halting-vs-length-spearman": -0.26
+   },
+   "val-individual": {
+    "auroc": 0.66,
+    "bal_acc": 0.6,
+    "n": 857.0,
+    "tnr": 0.48,
+    "tpr": 0.73,
+    "u_rate": 0.0
+   }
+  }
+ },
+ "pred-one": {
+  "fast_mapping": {
+   "blick-bal-acc": 0.57,
+   "dax-always": 1.0,
+   "dax-never": 0.78,
+   "dax-other-classes-rejected": 1.0,
+   "dax-sometimes": 0.33,
+   "dax-usually": 1.0
+  },
+  "params": 34593,
+  "tests": {
+   "G1": {
+    "auroc": 0.7,
+    "bal_acc": 0.69,
+    "n": 202.0,
+    "tnr": 0.68,
+    "tpr": 0.7,
+    "u_rate": 0.0
+   },
+   "G2": {
+    "auroc": 0.73,
+    "bal_acc": 0.65,
+    "n": 268.0,
+    "tnr": 0.76,
+    "tpr": 0.55,
+    "u_rate": 0.0
+   },
+   "G3": {
+    "auroc": 0.73,
+    "bal_acc": 0.67,
+    "n": 246.0,
+    "tnr": 0.76,
+    "tpr": 0.58,
+    "u_rate": 0.0
+   },
+   "G4": {
+    "auroc": 0.62,
+    "bal_acc": 0.61,
+    "n": 47.0,
+    "tnr": 0.59,
+    "tpr": 0.62,
+    "u_rate": 0.0
+   },
+   "L1-anc": {
+    "auroc": 0.67,
+    "bal_acc": 0.61,
+    "n": 36.0,
+    "tnr": 0.67,
+    "tpr": 0.56,
+    "u_rate": 0.0
+   },
+   "L1-anc-by": {
+    "3": 0.72,
+    "4": 0.5,
+    "5": 0.5
+   },
+   "L1-kind": {
+    "auroc": 0.48,
+    "bal_acc": 0.52,
+    "n": 94.0,
+    "tnr": 0.12,
+    "tpr": 0.91,
+    "u_rate": 0.0
+   },
+   "L1-kind-by": {
+    "3": 0.5,
+    "4": 0.54
+   },
+   "L1-size": {
+    "auroc": 0.54,
+    "bal_acc": 0.53,
+    "n": 180.0,
+    "tnr": 0.6,
+    "tpr": 0.46,
+    "u_rate": 0.0
+   },
+   "L1-size-by": {
+    "10": 0.62,
+    "11": 0.75,
+    "3": 0.5,
+    "4": 0.59,
+    "5": 0.5,
+    "6": 0.46,
+    "7": 0.5,
+    "8": 0.5,
+    "9": 0.58
+   },
+   "L2-named": {
+    "auroc": 0.72,
+    "bal_acc": 0.7,
+    "n": 156.0,
+    "tnr": 0.79,
+    "tpr": 0.62,
+    "u_rate": 0.0
+   },
+   "L2-named-by": {
+    "named-can": 0.63,
+    "named-has": 0.63,
+    "named-kind": 0.78
+   },
+   "L2-x": {
+    "auroc": 0.64,
+    "bal_acc": 0.62,
+    "n": 182.0,
+    "tnr": 0.71,
+    "tpr": 0.53,
+    "u_rate": 0.01
+   },
+   "P1": {
+    "auroc": 0.5,
+    "bal_acc": 0.48,
+    "n": 174.0,
+    "tnr": 0.54,
+    "tpr": 0.41,
+    "u_rate": 0.02
+   },
+   "P1-default": {
+    "auroc": 0.5,
+    "bal_acc": 0.48,
+    "n": 155.0,
+    "tnr": 0.54,
+    "tpr": 0.43,
+    "u_rate": 0.01
+   },
+   "P1-hierarchy": {
+    "auroc": 0.12,
+    "bal_acc": 0.5,
+    "n": 10.0,
+    "tnr": 0.0,
+    "tpr": 1.0,
+    "u_rate": 0.0
+   },
+   "P1-specific": {
+    "auroc": 0.62,
+    "bal_acc": 0.65,
+    "n": 14.0,
+    "tnr": 1.0,
+    "tpr": 0.3,
+    "u_rate": 0.14
+   },
+   "P2": {
+    "auroc": 0.6,
+    "bal_acc": 0.59,
+    "n": 1223.0,
+    "tnr": 0.57,
+    "tpr": 0.61,
+    "u_rate": 0.01
+   },
+   "P3": {
+    "auroc": 0.42,
+    "bal_acc": 0.4,
+    "n": 350.0,
+    "tnr": 0.49,
+    "tpr": 0.31,
+    "u_rate": 0.0
+   },
+   "P4": {
+    "auroc": 0.52,
+    "bal_acc": 0.49,
+    "n": 144.0,
+    "tnr": 0.54,
+    "tpr": 0.44,
+    "u_rate": 0.0
+   },
+   "P5": {
+    "auroc": 0.26,
+    "bal_acc": 0.28,
+    "n": 48.0,
+    "tnr": 0.57,
+    "tpr": 0.0,
+    "u_rate": 0.0
+   },
+   "P6-anc": {
+    "auroc": 0.6,
+    "bal_acc": 0.59,
+    "n": 83.0,
+    "tnr": 0.51,
+    "tpr": 0.67,
+    "u_rate": 0.0
+   },
+   "P6-colour": {
+    "auroc": 0.61,
+    "bal_acc": 0.6,
+    "n": 224.0,
+    "tnr": 0.5,
+    "tpr": 0.7,
+    "u_rate": 0.0
+   },
+   "P6-grandparent": {
+    "auroc": 0.34,
+    "bal_acc": 0.47,
+    "n": 24.0,
+    "tnr": 0.7,
+    "tpr": 0.25,
+    "u_rate": 0.0
+   },
+   "S2": {
+    "acc": 0.59,
+    "mean_recall": 0.45,
+    "per_value": {
+     "always": 0.0,
+     "never": 0.67,
+     "sometimes": 0.89,
+     "usually": 0.25
+    },
+    "pred_counts": {
+     "F": 0.0,
+     "T": 0.0,
+     "U": 0.0,
+     "always": 4.0,
+     "never": 21.0,
+     "sometimes": 12.0,
+     "usually": 2.0
+    }
+   },
+   "S3-default": {
+    "acc": 0.41,
+    "mean_recall": 0.36,
+    "per_value": {
+     "F": 0.54,
+     "T": 0.44,
+     "U": 0.1
+    },
+    "pred_counts": {
+     "F": 84.0,
+     "T": 62.0,
+     "U": 4.0,
+     "always": 0.0,
+     "never": 0.0,
+     "sometimes": 0.0,
+     "usually": 0.0
+    }
+   },
+   "S3-default-by-quantity": {
+    "always": 0.47,
+    "never": 0.54,
+    "sometimes": 0.1,
+    "usually": 0.38
+   },
+   "S3b": {
+    "acc": 0.63,
+    "mean_recall": 0.44,
+    "per_value": {
+     "F": 0.87,
+     "T": 0.45,
+     "U": 0.0
+    },
+    "pred_counts": {
+     "F": 76.0,
+     "T": 22.0,
+     "U": 2.0,
+     "always": 0.0,
+     "never": 0.0,
+     "sometimes": 0.0,
+     "usually": 0.0
+    }
+   },
+   "S3b-by-quantity": {
+    "always": 0.33,
+    "never": 0.87,
+    "sometimes": 0.0,
+    "usually": 0.62
+   },
+   "S4-control-u-rate": 0.01,
+   "S4a": {
+    "n": 44.0,
+    "u_rate": 0.07
+   },
+   "S4b-P7": {
+    "n": 33.0,
+    "u_rate": 0.18
+   },
+   "connectives": 1.0,
+   "fill-hits1": 0.61,
+   "fit-anon": {
+    "acc": 0.99,
+    "mean_recall": 1.0,
+    "per_value": {
+     "F": 0.99,
+     "T": 1.0,
+     "U": 1.0
+    },
+    "pred_counts": {
+     "F": 95.0,
+     "T": 45.0,
+     "U": 60.0,
+     "always": 0.0,
+     "never": 0.0,
+     "sometimes": 0.0,
+     "usually": 0.0
+    }
+   },
+   "fit-anon-by-quantity": {
+    "always": 1.0,
+    "never": 0.99,
+    "sometimes": 1.0,
+    "usually": 1.0
+   },
+   "fit-individual": {
+    "auroc": 0.68,
+    "bal_acc": 0.63,
+    "n": 16270.0,
+    "tnr": 0.6,
+    "tpr": 0.67,
+    "u_rate": 0.01
+   },
+   "fit-kind": {
+    "acc": 0.98,
+    "mean_recall": 0.99,
+    "per_value": {
+     "always": 1.0,
+     "never": 0.97,
+     "sometimes": 1.0,
+     "usually": 1.0
+    },
+    "pred_counts": {
+     "F": 0.0,
+     "T": 0.0,
+     "U": 0.0,
+     "always": 14.0,
+     "never": 56.0,
+     "sometimes": 32.0,
+     "usually": 9.0
+    }
+   },
+   "fit-unknown-colour": {
+    "n": 231.0,
+    "u_rate": 0.24
+   },
+   "val-individual": {
+    "auroc": 0.61,
+    "bal_acc": 0.56,
+    "n": 857.0,
+    "tnr": 0.59,
+    "tpr": 0.53,
+    "u_rate": 0.0
+   }
+  }
+ },
+ "unit-loop": {
+  "fast_mapping": {
+   "blick-bal-acc": 0.8,
+   "dax-always": 0.8,
+   "dax-never": 0.56,
+   "dax-other-classes-rejected": 1.0,
+   "dax-usually": 0.5
+  },
+  "params": 73713,
+  "tests": {
+   "G1": {
+    "acc": 0.9,
+    "auroc": 0.96,
+    "bal_acc": 0.84,
+    "n": 202.0,
+    "n_pos": 50.0,
+    "tnr": 0.95,
+    "tpr": 0.74
+   },
+   "G2": {
+    "acc": 0.85,
+    "auroc": 0.75,
+    "bal_acc": 0.59,
+    "n": 268.0,
+    "n_pos": 31.0,
+    "tnr": 0.93,
+    "tpr": 0.26
+   },
+   "G3": {
+    "acc": 0.85,
+    "auroc": 0.84,
+    "bal_acc": 0.69,
+    "n": 246.0,
+    "n_pos": 26.0,
+    "tnr": 0.89,
+    "tpr": 0.5
+   },
+   "G4": {
+    "acc": 0.23,
+    "auroc": 0.38,
+    "bal_acc": 0.39,
+    "n": 47.0,
+    "n_pos": 8.0,
+    "tnr": 0.15,
+    "tpr": 0.62
+   },
+   "L1-anc": {
+    "acc": 0.58,
+    "auroc": 0.89,
+    "bal_acc": 0.58,
+    "n": 36.0,
+    "n_pos": 18.0,
+    "tnr": 1.0,
+    "tpr": 0.17
+   },
+   "L1-anc-by": {
+    "3": 0.61,
+    "4": 0.5,
+    "5": 0.67
+   },
+   "L1-anc-by-T6": {
+    "3": 0.61,
+    "4": 0.5,
+    "5": 0.67
+   },
+   "L1-kind": {
+    "acc": 0.62,
+    "auroc": 0.62,
+    "bal_acc": 0.58,
+    "n": 94.0,
+    "n_pos": 70.0,
+    "tnr": 0.5,
+    "tpr": 0.66
+   },
+   "L1-kind-by": {
+    "3": 0.57,
+    "4": 0.59
+   },
+   "L1-kind-by-T6": {
+    "3": 0.57,
+    "4": 0.59
+   },
+   "L1-size": {
+    "acc": 0.53,
+    "auroc": 0.5,
+    "bal_acc": 0.53,
+    "n": 180.0,
+    "n_pos": 90.0,
+    "tnr": 0.82,
+    "tpr": 0.23
+   },
+   "L1-size-by": {
+    "10": 0.5,
+    "11": 0.5,
+    "3": 0.5,
+    "4": 0.56,
+    "5": 0.57,
+    "6": 0.54,
+    "7": 0.5,
+    "8": 0.5,
+    "9": 0.5
+   },
+   "L1-size-by-T6": {
+    "10": 0.5,
+    "11": 0.5,
+    "3": 0.5,
+    "4": 0.56,
+    "5": 0.57,
+    "6": 0.54,
+    "7": 0.5,
+    "8": 0.5,
+    "9": 0.5
+   },
+   "L2-named": {
+    "acc": 0.78,
+    "auroc": 0.84,
+    "bal_acc": 0.7,
+    "n": 156.0,
+    "n_pos": 52.0,
+    "tnr": 0.95,
+    "tpr": 0.44
+   },
+   "L2-named-by": {
+    "named-can": 0.75,
+    "named-has": 0.65,
+    "named-kind": 0.73
+   },
+   "L2-named-by-T6": {
+    "named-can": 0.75,
+    "named-has": 0.65,
+    "named-kind": 0.73
+   },
+   "L2-x": {
+    "acc": 0.7,
+    "auroc": 0.63,
+    "bal_acc": 0.61,
+    "n": 182.0,
+    "n_pos": 59.0,
+    "tnr": 0.87,
+    "tpr": 0.36
+   },
+   "P1": {
+    "acc": 0.73,
+    "auroc": 0.69,
+    "bal_acc": 0.61,
+    "n": 174.0,
+    "n_pos": 41.0,
+    "tnr": 0.83,
+    "tpr": 0.39
+   },
+   "P1-default": {
+    "acc": 0.77,
+    "auroc": 0.74,
+    "bal_acc": 0.66,
+    "n": 155.0,
+    "n_pos": 28.0,
+    "tnr": 0.83,
+    "tpr": 0.5
+   },
+   "P1-hierarchy": {
+    "acc": 0.5,
+    "auroc": 0.67,
+    "bal_acc": 0.42,
+    "n": 10.0,
+    "n_pos": 6.0,
+    "tnr": 0.0,
+    "tpr": 0.83
+   },
+   "P1-specific": {
+    "acc": 0.43,
+    "auroc": 0.55,
+    "bal_acc": 0.6,
+    "n": 14.0,
+    "n_pos": 10.0,
+    "tnr": 1.0,
+    "tpr": 0.2
+   },
+   "P2": {
+    "acc": 0.75,
+    "auroc": 0.68,
+    "bal_acc": 0.57,
+    "n": 1223.0,
+    "n_pos": 263.0,
+    "tnr": 0.88,
+    "tpr": 0.27
+   },
+   "P3": {
+    "acc": 0.7,
+    "auroc": 0.58,
+    "bal_acc": 0.45,
+    "n": 350.0,
+    "n_pos": 51.0,
+    "tnr": 0.8,
+    "tpr": 0.1
+   },
+   "P4": {
+    "acc": 0.49,
+    "auroc": 0.51,
+    "bal_acc": 0.49,
+    "n": 144.0,
+    "n_pos": 72.0,
+    "tnr": 0.81,
+    "tpr": 0.18
+   },
+   "P5": {
+    "acc": 0.85,
+    "auroc": 0.47,
+    "bal_acc": 0.47,
+    "n": 48.0,
+    "n_pos": 4.0,
+    "tnr": 0.93,
+    "tpr": 0.0
+   },
+   "P6-anc": {
+    "acc": 0.93,
+    "auroc": 0.81,
+    "bal_acc": 0.65,
+    "n": 83.0,
+    "n_pos": 6.0,
+    "tnr": 0.97,
+    "tpr": 0.33
+   },
+   "P6-colour": {
+    "acc": 0.82,
+    "auroc": 0.46,
+    "bal_acc": 0.47,
+    "n": 224.0,
+    "n_pos": 20.0,
+    "tnr": 0.89,
+    "tpr": 0.05
+   },
+   "P6-grandparent": {
+    "acc": 0.71,
+    "auroc": 0.66,
+    "bal_acc": 0.42,
+    "n": 24.0,
+    "n_pos": 4.0,
+    "tnr": 0.85,
+    "tpr": 0.0
+   },
+   "fit-individual": {
+    "acc": 0.89,
+    "auroc": 0.95,
+    "bal_acc": 0.88,
+    "n": 16270.0,
+    "n_pos": 1454.0,
+    "tnr": 0.9,
+    "tpr": 0.87
+   },
+   "inspect": {
+    "L2-named-expected-steps": 0.1,
+    "L2-named-first-produced-is-middle": 0.52,
+    "L2-named-first-produced-top": {
+     "cat": 22.0,
+     "fly-w": 19.0,
+     "horse": 26.0,
+     "lion": 26.0,
+     "swim-w": 52.0
+    },
+    "S3b-expected-steps": 0.49,
+    "S3b-first-produced-is-middle": 0.0,
+    "S3b-first-produced-top": {
+     "arthur": 17.0,
+     "crow": 14.0,
+     "lemon": 25.0,
+     "lineb6": 25.0,
+     "trees": 11.0
+    },
+    "expected-steps-by-length": {
+     "10": 0.15,
+     "2": 0.08,
+     "3": 0.07,
+     "4": 0.12,
+     "5": 0.17,
+     "6": 0.16,
+     "7": 0.13,
+     "8": 0.21,
+     "9": 0.3
+    },
+    "forced-stop-L1-anc": {
+     "0": 0.58,
+     "1": 0.53,
+     "2": 0.56,
+     "3": 0.47,
+     "4": 0.56
+    },
+    "forced-stop-L1-kind": {
+     "0": 0.58,
+     "1": 0.7,
+     "2": 0.7,
+     "3": 0.79,
+     "4": 0.68
+    },
+    "forced-stop-L1-size": {
+     "0": 0.52,
+     "1": 0.48,
+     "2": 0.48,
+     "3": 0.51,
+     "4": 0.52
+    },
+    "forced-stop-L2-named": {
+     "0": 0.69,
+     "1": 0.73,
+     "2": 0.78,
+     "3": 0.73,
+     "4": 0.68
+    },
+    "forced-stop-P6-grandparent": {
+     "0": 0.42,
+     "1": 0.62,
+     "2": 0.6,
+     "3": 0.47,
+     "4": 0.47
+    },
+    "forced-stop-S3b": {},
+    "halting-vs-length-spearman": 0.09
+   },
+   "val-individual": {
+    "acc": 0.83,
+    "auroc": 0.76,
+    "bal_acc": 0.68,
+    "n": 857.0,
+    "n_pos": 64.0,
+    "tnr": 0.86,
+    "tpr": 0.5
+   }
+  }
+ },
+ "unit-one": {
+  "fast_mapping": {
+   "blick-bal-acc": 0.54,
+   "dax-always": 0.8,
+   "dax-never": 0.67,
+   "dax-other-classes-rejected": 1.0,
+   "dax-usually": 0.5
+  },
+  "params": 29521,
+  "tests": {
+   "G1": {
+    "acc": 0.94,
+    "auroc": 0.99,
+    "bal_acc": 0.91,
+    "n": 202.0,
+    "n_pos": 50.0,
+    "tnr": 0.97,
+    "tpr": 0.86
+   },
+   "G2": {
+    "acc": 0.91,
+    "auroc": 0.86,
+    "bal_acc": 0.71,
+    "n": 268.0,
+    "n_pos": 31.0,
+    "tnr": 0.97,
+    "tpr": 0.45
+   },
+   "G3": {
+    "acc": 0.9,
+    "auroc": 0.93,
+    "bal_acc": 0.72,
+    "n": 246.0,
+    "n_pos": 26.0,
+    "tnr": 0.95,
+    "tpr": 0.5
+   },
+   "G4": {
+    "acc": 0.7,
+    "auroc": 0.61,
+    "bal_acc": 0.52,
+    "n": 47.0,
+    "n_pos": 8.0,
+    "tnr": 0.79,
+    "tpr": 0.25
+   },
+   "L1-anc": {
+    "acc": 0.47,
+    "auroc": 0.78,
+    "bal_acc": 0.47,
+    "n": 36.0,
+    "n_pos": 18.0,
+    "tnr": 0.94,
+    "tpr": 0.0
+   },
+   "L1-anc-by": {
+    "3": 0.44,
+    "4": 0.5,
+    "5": 0.5
+   },
+   "L1-kind": {
+    "acc": 0.44,
+    "auroc": 0.62,
+    "bal_acc": 0.54,
+    "n": 94.0,
+    "n_pos": 70.0,
+    "tnr": 0.75,
+    "tpr": 0.33
+   },
+   "L1-kind-by": {
+    "3": 0.58,
+    "4": 0.5
+   },
+   "L1-size": {
+    "acc": 0.73,
+    "auroc": 0.81,
+    "bal_acc": 0.73,
+    "n": 180.0,
+    "n_pos": 90.0,
+    "tnr": 0.98,
+    "tpr": 0.48
+   },
+   "L1-size-by": {
+    "10": 0.75,
+    "11": 0.75,
+    "3": 0.64,
+    "4": 0.75,
+    "5": 0.75,
+    "6": 0.79,
+    "7": 0.75,
+    "8": 0.69,
+    "9": 0.75
+   },
+   "L2-named": {
+    "acc": 0.78,
+    "auroc": 0.82,
+    "bal_acc": 0.73,
+    "n": 156.0,
+    "n_pos": 52.0,
+    "tnr": 0.87,
+    "tpr": 0.6
+   },
+   "L2-named-by": {
+    "named-can": 0.56,
+    "named-has": 0.67,
+    "named-kind": 0.83
+   },
+   "L2-x": {
+    "acc": 0.73,
+    "auroc": 0.69,
+    "bal_acc": 0.68,
+    "n": 182.0,
+    "n_pos": 59.0,
+    "tnr": 0.82,
+    "tpr": 0.54
+   },
+   "P1": {
+    "acc": 0.66,
+    "auroc": 0.57,
+    "bal_acc": 0.53,
+    "n": 174.0,
+    "n_pos": 41.0,
+    "tnr": 0.78,
+    "tpr": 0.27
+   },
+   "P1-default": {
+    "acc": 0.69,
+    "auroc": 0.57,
+    "bal_acc": 0.53,
+    "n": 155.0,
+    "n_pos": 28.0,
+    "tnr": 0.78,
+    "tpr": 0.29
+   },
+   "P1-hierarchy": {
+    "acc": 0.7,
+    "auroc": 0.83,
+    "bal_acc": 0.71,
+    "n": 10.0,
+    "n_pos": 6.0,
+    "tnr": 0.75,
+    "tpr": 0.67
+   },
+   "P1-specific": {
+    "acc": 0.43,
+    "auroc": 0.33,
+    "bal_acc": 0.53,
+    "n": 14.0,
+    "n_pos": 10.0,
+    "tnr": 0.75,
+    "tpr": 0.3
+   },
+   "P2": {
+    "acc": 0.75,
+    "auroc": 0.71,
+    "bal_acc": 0.62,
+    "n": 1223.0,
+    "n_pos": 263.0,
+    "tnr": 0.84,
+    "tpr": 0.4
+   },
+   "P3": {
+    "acc": 0.83,
+    "auroc": 0.7,
+    "bal_acc": 0.58,
+    "n": 350.0,
+    "n_pos": 51.0,
+    "tnr": 0.93,
+    "tpr": 0.24
+   },
+   "P4": {
+    "acc": 0.66,
+    "auroc": 0.78,
+    "bal_acc": 0.66,
+    "n": 144.0,
+    "n_pos": 72.0,
+    "tnr": 0.96,
+    "tpr": 0.36
+   },
+   "P5": {
+    "acc": 0.79,
+    "auroc": 0.25,
+    "bal_acc": 0.43,
+    "n": 48.0,
+    "n_pos": 4.0,
+    "tnr": 0.86,
+    "tpr": 0.0
+   },
+   "P6-anc": {
+    "acc": 0.93,
+    "auroc": 0.88,
+    "bal_acc": 0.58,
+    "n": 83.0,
+    "n_pos": 6.0,
+    "tnr": 0.99,
+    "tpr": 0.17
+   },
+   "P6-colour": {
+    "acc": 0.86,
+    "auroc": 0.53,
+    "bal_acc": 0.47,
+    "n": 224.0,
+    "n_pos": 20.0,
+    "tnr": 0.94,
+    "tpr": 0.0
+   },
+   "P6-grandparent": {
+    "acc": 0.83,
+    "auroc": 0.9,
+    "bal_acc": 0.5,
+    "n": 24.0,
+    "n_pos": 4.0,
+    "tnr": 1.0,
+    "tpr": 0.0
+   }
+  }
+ }
+}

@@ -1,0 +1,55 @@
+{
+ "aggregate_worker_cpu_seconds": 94.126717452,
+ "children_peak_rss_kb": 698976,
+ "command": "/home/debjit/code/sri/experiments/conflict_loop.py main",
+ "contract_sha256": "1fbcfc159cac9b6b0092308df1485213eae7874a49495b18035b0aab0bedf7c2",
+ "cpu": "x86_64",
+ "device": "cpu",
+ "dirty": true,
+ "dtype": "float32",
+ "numpy": "2.5.4",
+ "os": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "parent_peak_rss_kb": 299240,
+ "python": "3.12.3",
+ "revision": "a9cf7d3f4303c807ac95aa007f7e85e9c02ac70d",
+ "rss_convention": "ru_maxrss in KiB per process; children is the largest single child",
+ "runner_sha256": "395bdb6d31894c95e78b860d72ba76c7b1cefe95f60e943d2e49dda302347785",
+ "scope": "nondeterministic timing",
+ "tasks": {
+  "arbiter/seed450": {
+   "arbiter_steps": 50,
+   "checkpoint_bytes": 443646,
+   "cpu_seconds": 16.228857707,
+   "optimizer_steps": 60,
+   "params": 107017,
+   "peak_rss_kb": 403416,
+   "train_cpu_seconds": 15.933510552000001,
+   "wall_seconds": 16.23952448903583
+  },
+  "conflict-loop-told/seed450": {
+   "arbiter_steps": 50,
+   "checkpoint_bytes": 444293,
+   "cpu_seconds": 39.072503049999995,
+   "optimizer_steps": 60,
+   "params": 107017,
+   "peak_rss_kb": 687528,
+   "train_cpu_seconds": 38.721359989,
+   "wall_seconds": 39.08229611499701
+  },
+  "conflict-loop/seed450": {
+   "arbiter_steps": 50,
+   "checkpoint_bytes": 443964,
+   "cpu_seconds": 38.825356695,
+   "optimizer_steps": 60,
+   "params": 107017,
+   "peak_rss_kb": 698976,
+   "train_cpu_seconds": 38.451793214,
+   "wall_seconds": 38.83659608499147
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "wall_seconds": 39.17436797200935,
+ "workers": 3,
+ "world_sha256": "becebd0f5ab0d4d28653d53708f359243907425b08036af87775b8c8e1dfc4ef"
+}

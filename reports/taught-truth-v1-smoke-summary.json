@@ -1,0 +1,513 @@
+{
+ "pred": {
+  "dax": {
+   "always": 1.0,
+   "never": 0.67,
+   "other_classes_rejected": 1.0,
+   "sometimes": 0.22,
+   "usually": 1.0
+  },
+  "params": 33809,
+  "tests": {
+   "G1": {
+    "auroc": 0.85,
+    "bal_acc": 0.74,
+    "tnr": 0.78,
+    "tpr": 0.7,
+    "u_rate": 0.0
+   },
+   "G2": {
+    "auroc": 0.77,
+    "bal_acc": 0.62,
+    "tnr": 0.84,
+    "tpr": 0.39,
+    "u_rate": 0.01
+   },
+   "G3": {
+    "auroc": 0.88,
+    "bal_acc": 0.67,
+    "tnr": 0.88,
+    "tpr": 0.46,
+    "u_rate": 0.01
+   },
+   "G4": {
+    "auroc": 0.55,
+    "bal_acc": 0.46,
+    "tnr": 0.54,
+    "tpr": 0.38,
+    "u_rate": 0.0
+   },
+   "P1": {
+    "auroc": 0.52,
+    "bal_acc": 0.51,
+    "tnr": 0.59,
+    "tpr": 0.44,
+    "u_rate": 0.03
+   },
+   "P1-default": {
+    "auroc": 0.56,
+    "bal_acc": 0.56,
+    "tnr": 0.59,
+    "tpr": 0.54,
+    "u_rate": 0.02
+   },
+   "P1-hierarchy": {
+    "auroc": 0.21,
+    "bal_acc": 0.5,
+    "tnr": 0.0,
+    "tpr": 1.0,
+    "u_rate": 0.0
+   },
+   "P1-specific": {
+    "auroc": 0.35,
+    "bal_acc": 0.23,
+    "tnr": 0.25,
+    "tpr": 0.2,
+    "u_rate": 0.14
+   },
+   "P2": {
+    "auroc": 0.64,
+    "bal_acc": 0.6,
+    "tnr": 0.64,
+    "tpr": 0.57,
+    "u_rate": 0.0
+   },
+   "P3": {
+    "auroc": 0.69,
+    "bal_acc": 0.62,
+    "tnr": 0.88,
+    "tpr": 0.36,
+    "u_rate": 0.0
+   },
+   "P4": {
+    "auroc": 0.59,
+    "bal_acc": 0.56,
+    "tnr": 0.71,
+    "tpr": 0.4,
+    "u_rate": 0.01
+   },
+   "P5": {
+    "auroc": 0.42,
+    "bal_acc": 0.42,
+    "tnr": 0.84,
+    "tpr": 0.0,
+    "u_rate": 0.0
+   },
+   "P6-colour": {
+    "auroc": 0.52,
+    "bal_acc": 0.58,
+    "tnr": 0.9,
+    "tpr": 0.25,
+    "u_rate": 0.0
+   },
+   "P6-grandparent": {
+    "auroc": 0.42,
+    "bal_acc": 0.5,
+    "tnr": 1.0,
+    "tpr": 0.0,
+    "u_rate": 0.0
+   },
+   "S2": {
+    "acc": 0.69,
+    "mean_recall": 0.51,
+    "per_value": {
+     "always": 0.4,
+     "never": 0.86,
+     "sometimes": 0.78,
+     "usually": 0.0
+    }
+   },
+   "S3-default": {
+    "acc": 0.49,
+    "mean_recall": 0.43,
+    "per_value": {
+     "F": 0.66,
+     "T": 0.53,
+     "U": 0.1
+    }
+   },
+   "S3-default-by-quantity": {
+    "always": 0.47,
+    "never": 0.66,
+    "sometimes": 0.1,
+    "usually": 0.62
+   },
+   "S3b": {
+    "acc": 0.46,
+    "mean_recall": 0.39,
+    "per_value": {
+     "F": 0.55,
+     "T": 0.5,
+     "U": 0.11
+    }
+   },
+   "S3b-by-quantity": {
+    "always": 0.58,
+    "never": 0.55,
+    "sometimes": 0.11,
+    "usually": 0.38
+   },
+   "S4-control-u-rate": 0.0,
+   "S4a": {
+    "u_rate": 0.45
+   },
+   "S4b-P7": {
+    "u_rate": 0.42
+   },
+   "connectives": 1.0,
+   "fill-hits1": 0.94,
+   "fit-anon": {
+    "acc": 1.0,
+    "mean_recall": 1.0,
+    "per_value": {
+     "F": 1.0,
+     "T": 1.0,
+     "U": 1.0
+    }
+   },
+   "fit-anon-by-quantity": {
+    "always": 1.0,
+    "never": 1.0,
+    "sometimes": 1.0,
+    "usually": 1.0
+   },
+   "fit-individual": {
+    "auroc": 0.84,
+    "bal_acc": 0.76,
+    "tnr": 0.74,
+    "tpr": 0.78,
+    "u_rate": 0.0
+   },
+   "fit-kind": {
+    "acc": 1.0,
+    "mean_recall": 1.0,
+    "per_value": {
+     "always": 1.0,
+     "never": 1.0,
+     "sometimes": 1.0,
+     "usually": 1.0
+    }
+   },
+   "fit-unknown-colour": {
+    "u_rate": 0.67
+   },
+   "val-individual": {
+    "auroc": 0.62,
+    "bal_acc": 0.54,
+    "tnr": 0.68,
+    "tpr": 0.39,
+    "u_rate": 0.01
+   }
+  }
+ },
+ "pred-flat": {
+  "dax": {
+   "always": 0.8,
+   "never": 0.44,
+   "other_classes_rejected": 1.0,
+   "sometimes": 0.0,
+   "usually": 0.5
+  },
+  "params": 23409,
+  "tests": {
+   "G1": {
+    "auroc": 0.9,
+    "bal_acc": 0.8,
+    "tnr": 0.79,
+    "tpr": 0.82,
+    "u_rate": 0.0
+   },
+   "G2": {
+    "auroc": 0.84,
+    "bal_acc": 0.68,
+    "tnr": 0.87,
+    "tpr": 0.48,
+    "u_rate": 0.0
+   },
+   "G3": {
+    "auroc": 0.76,
+    "bal_acc": 0.65,
+    "tnr": 0.68,
+    "tpr": 0.62,
+    "u_rate": 0.0
+   },
+   "G4": {
+    "auroc": 0.58,
+    "bal_acc": 0.54,
+    "tnr": 0.59,
+    "tpr": 0.5,
+    "u_rate": 0.0
+   },
+   "P1": {
+    "auroc": 0.53,
+    "bal_acc": 0.42,
+    "tnr": 0.58,
+    "tpr": 0.27,
+    "u_rate": 0.06
+   },
+   "P1-default": {
+    "auroc": 0.55,
+    "bal_acc": 0.43,
+    "tnr": 0.58,
+    "tpr": 0.29,
+    "u_rate": 0.05
+   },
+   "P1-hierarchy": {
+    "auroc": 0.67,
+    "bal_acc": 0.5,
+    "tnr": 0.0,
+    "tpr": 1.0,
+    "u_rate": 0.0
+   },
+   "P1-specific": {
+    "auroc": 0.57,
+    "bal_acc": 0.3,
+    "tnr": 0.5,
+    "tpr": 0.1,
+    "u_rate": 0.14
+   },
+   "P2": {
+    "auroc": 0.59,
+    "bal_acc": 0.57,
+    "tnr": 0.61,
+    "tpr": 0.53,
+    "u_rate": 0.0
+   },
+   "P3": {
+    "auroc": 0.64,
+    "bal_acc": 0.59,
+    "tnr": 0.7,
+    "tpr": 0.48,
+    "u_rate": 0.0
+   },
+   "P4": {
+    "auroc": 0.5,
+    "bal_acc": 0.48,
+    "tnr": 0.62,
+    "tpr": 0.33,
+    "u_rate": 0.0
+   },
+   "P5": {
+    "auroc": 0.29,
+    "bal_acc": 0.32,
+    "tnr": 0.64,
+    "tpr": 0.0,
+    "u_rate": 0.0
+   },
+   "P6-colour": {
+    "auroc": 0.56,
+    "bal_acc": 0.52,
+    "tnr": 0.64,
+    "tpr": 0.4,
+    "u_rate": 0.0
+   },
+   "P6-grandparent": {
+    "auroc": 0.64,
+    "bal_acc": 0.55,
+    "tnr": 0.85,
+    "tpr": 0.25,
+    "u_rate": 0.0
+   },
+   "S2": {
+    "acc": 0.46,
+    "mean_recall": 0.28,
+    "per_value": {
+     "always": 0.0,
+     "never": 0.67,
+     "sometimes": 0.44,
+     "usually": 0.0
+    }
+   },
+   "S3-default": {
+    "acc": 0.47,
+    "mean_recall": 0.39,
+    "per_value": {
+     "F": 0.66,
+     "T": 0.34,
+     "U": 0.18
+    }
+   },
+   "S3-default-by-quantity": {
+    "always": 0.26,
+    "never": 0.66,
+    "sometimes": 0.18,
+    "usually": 0.46
+   },
+   "S3b": {
+    "acc": 0.5,
+    "mean_recall": 0.34,
+    "per_value": {
+     "F": 0.71,
+     "T": 0.25,
+     "U": 0.06
+    }
+   },
+   "S3b-by-quantity": {
+    "always": 0.25,
+    "never": 0.71,
+    "sometimes": 0.06,
+    "usually": 0.25
+   },
+   "S4-control-u-rate": 0.01,
+   "S4a": {
+    "u_rate": 0.09
+   },
+   "S4b-P7": {
+    "u_rate": 0.15
+   },
+   "connectives": 1.0,
+   "fill-hits1": 0.98,
+   "fit-anon": {
+    "acc": 1.0,
+    "mean_recall": 1.0,
+    "per_value": {
+     "F": 1.0,
+     "T": 1.0,
+     "U": 1.0
+    }
+   },
+   "fit-anon-by-quantity": {
+    "always": 1.0,
+    "never": 1.0,
+    "sometimes": 1.0,
+    "usually": 1.0
+   },
+   "fit-individual": {
+    "auroc": 0.83,
+    "bal_acc": 0.76,
+    "tnr": 0.75,
+    "tpr": 0.77,
+    "u_rate": 0.0
+   },
+   "fit-kind": {
+    "acc": 1.0,
+    "mean_recall": 1.0,
+    "per_value": {
+     "always": 1.0,
+     "never": 1.0,
+     "sometimes": 1.0,
+     "usually": 1.0
+    }
+   },
+   "fit-unknown-colour": {
+    "u_rate": 0.45
+   },
+   "val-individual": {
+    "auroc": 0.66,
+    "bal_acc": 0.6,
+    "tnr": 0.7,
+    "tpr": 0.49,
+    "u_rate": 0.01
+   }
+  }
+ },
+ "unit": {
+  "dax": {
+   "always": 0.6,
+   "never": 0.78,
+   "other_classes_rejected": 1.0,
+   "usually": 0.5
+  },
+  "params": 28737,
+  "tests": {
+   "G1": {
+    "acc": 0.95,
+    "auroc": 0.98,
+    "bal_acc": 0.93,
+    "tnr": 0.96,
+    "tpr": 0.9
+   },
+   "G2": {
+    "acc": 0.89,
+    "auroc": 0.77,
+    "bal_acc": 0.62,
+    "tnr": 0.97,
+    "tpr": 0.26
+   },
+   "G3": {
+    "acc": 0.85,
+    "auroc": 0.89,
+    "bal_acc": 0.68,
+    "tnr": 0.9,
+    "tpr": 0.46
+   },
+   "G4": {
+    "acc": 0.74,
+    "auroc": 0.54,
+    "bal_acc": 0.55,
+    "tnr": 0.85,
+    "tpr": 0.25
+   },
+   "P1": {
+    "acc": 0.74,
+    "auroc": 0.64,
+    "bal_acc": 0.57,
+    "tnr": 0.89,
+    "tpr": 0.24
+   },
+   "P1-default": {
+    "acc": 0.79,
+    "auroc": 0.69,
+    "bal_acc": 0.62,
+    "tnr": 0.89,
+    "tpr": 0.36
+   },
+   "P1-hierarchy": {
+    "acc": 0.4,
+    "auroc": 0.29,
+    "bal_acc": 0.38,
+    "tnr": 0.25,
+    "tpr": 0.5
+   },
+   "P1-specific": {
+    "acc": 0.21,
+    "auroc": 0.28,
+    "bal_acc": 0.38,
+    "tnr": 0.75,
+    "tpr": 0.0
+   },
+   "P2": {
+    "acc": 0.79,
+    "auroc": 0.76,
+    "bal_acc": 0.65,
+    "tnr": 0.9,
+    "tpr": 0.4
+   },
+   "P3": {
+    "acc": 0.89,
+    "auroc": 0.85,
+    "bal_acc": 0.74,
+    "tnr": 0.99,
+    "tpr": 0.49
+   },
+   "P4": {
+    "acc": 0.74,
+    "auroc": 0.84,
+    "bal_acc": 0.74,
+    "tnr": 0.83,
+    "tpr": 0.65
+   },
+   "P5": {
+    "acc": 0.81,
+    "auroc": 0.41,
+    "bal_acc": 0.44,
+    "tnr": 0.89,
+    "tpr": 0.0
+   },
+   "P6-colour": {
+    "acc": 0.79,
+    "auroc": 0.44,
+    "bal_acc": 0.46,
+    "tnr": 0.86,
+    "tpr": 0.05
+   },
+   "P6-grandparent": {
+    "acc": 0.83,
+    "auroc": 0.72,
+    "bal_acc": 0.5,
+    "tnr": 1.0,
+    "tpr": 0.0
+   }
+  }
+ }
+}

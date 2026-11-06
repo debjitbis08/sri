@@ -1,0 +1,47 @@
+{
+ "aggregate_worker_cpu_seconds": 22.127293662,
+ "children_peak_rss_kb": 400356,
+ "command": "/home/debjit/code/sri/experiments/dual_route_truth.py main",
+ "contract_sha256": "25b4a7e07f8d8578eeec83fe0b1eb093f2fe1503d937565a6643c4546229f903",
+ "cpu": "x86_64",
+ "device": "cpu",
+ "dirty": true,
+ "dtype": "float32",
+ "numpy": "2.5.4",
+ "os": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "parent_peak_rss_kb": 299520,
+ "python": "3.12.3",
+ "revision": "33f3805ff9f8e474eb8e042ad6a013b7a2af63db",
+ "rss_convention": "ru_maxrss in KiB per process; children is the largest single child",
+ "runner_sha256": "e92ec2181f7d76116771a9e99b0d3cb1d01c589a9ea5ee78d56f1d526f9f6e9e",
+ "scope": "nondeterministic timing",
+ "tasks": {
+  "dual-separate/seed450": {
+   "checkpoint_bytes": 304908,
+   "cpu_seconds": 10.890094861,
+   "fit_steps": 50,
+   "optimizer_steps": 60,
+   "params": 73590,
+   "peak_rss_kb": 397544,
+   "train_cpu_seconds": 10.554950382,
+   "trained_statements": 17610,
+   "wall_seconds": 10.892728482955135
+  },
+  "dual-shared/seed450": {
+   "checkpoint_bytes": 269680,
+   "cpu_seconds": 11.237198801,
+   "fit_steps": 50,
+   "optimizer_steps": 60,
+   "params": 64966,
+   "peak_rss_kb": 400356,
+   "train_cpu_seconds": 10.979940177,
+   "trained_statements": 17610,
+   "wall_seconds": 11.239597076026257
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "wall_seconds": 11.28850738296751,
+ "workers": 2,
+ "world_sha256": "ecbf67d4aaac43095f8e9421eaccecca5e80335a583fba7078d70eb2993ff96b"
+}

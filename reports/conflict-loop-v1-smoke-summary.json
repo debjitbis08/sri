@@ -1,0 +1,908 @@
+{
+ "arbiter": {
+  "dax": {
+   "always": {
+    "arbiter": 0.8,
+    "intuition": 0.4,
+    "logic-final": 0.6,
+    "logic-step0": 0.6,
+    "trigger_rate": 0.0
+   },
+   "never": {
+    "arbiter": 0.667,
+    "intuition": 0.667,
+    "logic-final": 0.889,
+    "logic-step0": 0.889,
+    "trigger_rate": 0.0
+   },
+   "sometimes": {
+    "arbiter": 0.667,
+    "intuition": 0.0,
+    "logic-final": 0.778,
+    "logic-step0": 0.778,
+    "trigger_rate": 0.0
+   },
+   "usually": {
+    "arbiter": 0.5,
+    "intuition": 0.5,
+    "logic-final": 1.0,
+    "logic-step0": 1.0,
+    "trigger_rate": 0.0
+   }
+  },
+  "final_triggered": {
+   "loss": 0.491,
+   "step": 60.0,
+   "triggered": 0.0,
+   "triggered_withheld": 0.0,
+   "wall": 15.845,
+   "withheld": 0.0
+  },
+  "params": 107017,
+  "tests": {
+   "G2": {
+    "arbiter": 0.726,
+    "arbiter_u_rate": 0.097,
+    "expected_steps_triggered": null,
+    "intuition": 0.745,
+    "intuition_auroc": 0.844,
+    "logic-final": 0.557,
+    "logic-step0": 0.557,
+    "logic_final_auroc": 0.721,
+    "logic_step0_auroc": 0.721,
+    "trigger_rate": 0.0
+   },
+   "G4": {
+    "arbiter": 0.319,
+    "arbiter_u_rate": 0.277,
+    "expected_steps_triggered": null,
+    "intuition": 0.46,
+    "intuition_auroc": 0.42,
+    "logic-final": 0.393,
+    "logic-step0": 0.393,
+    "logic_final_auroc": 0.526,
+    "logic_step0_auroc": 0.526,
+    "trigger_rate": 0.0
+   },
+   "L1-anc": {
+    "arbiter": 0.472,
+    "arbiter_by_length": {
+     "3": 0.389,
+     "4": 0.5,
+     "5": 0.667
+    },
+    "arbiter_u_rate": 0.278,
+    "expected_steps_triggered": null,
+    "intuition": 0.528,
+    "intuition_auroc": 0.815,
+    "logic-final": 0.583,
+    "logic-step0": 0.583,
+    "logic_final_auroc": 0.698,
+    "logic_final_by_length": {
+     "3": 0.444,
+     "4": 0.75,
+     "5": 0.667
+    },
+    "logic_step0_auroc": 0.698,
+    "steps_by_length": {},
+    "trigger_rate": 0.0
+   },
+   "L1-kind": {
+    "arbiter": 0.318,
+    "arbiter_by_length": {
+     "3": 0.314,
+     "4": 0.321
+    },
+    "arbiter_u_rate": 0.532,
+    "expected_steps_triggered": null,
+    "intuition": 0.581,
+    "intuition_auroc": 0.649,
+    "logic-final": 0.569,
+    "logic-step0": 0.569,
+    "logic_final_auroc": 0.577,
+    "logic_final_by_length": {
+     "3": 0.5,
+     "4": 0.638
+    },
+    "logic_step0_auroc": 0.577,
+    "steps_by_length": {},
+    "trigger_rate": 0.0
+   },
+   "L1-size": {
+    "arbiter": 0.744,
+    "arbiter_by_length": {
+     "10": 1.0,
+     "11": 0.75,
+     "3": 0.583,
+     "4": 0.75,
+     "5": 0.786,
+     "6": 0.75,
+     "7": 0.7,
+     "8": 0.875,
+     "9": 0.833
+    },
+    "arbiter_u_rate": 0.033,
+    "expected_steps_triggered": null,
+    "intuition": 0.728,
+    "intuition_auroc": 0.889,
+    "logic-final": 0.6,
+    "logic-step0": 0.6,
+    "logic_final_auroc": 0.692,
+    "logic_final_by_length": {
+     "10": 0.75,
+     "11": 0.5,
+     "3": 0.556,
+     "4": 0.625,
+     "5": 0.571,
+     "6": 0.708,
+     "7": 0.6,
+     "8": 0.562,
+     "9": 0.5
+    },
+    "logic_step0_auroc": 0.692,
+    "steps_by_length": {},
+    "trigger_rate": 0.0
+   },
+   "L2-named": {
+    "arbiter": 0.697,
+    "arbiter_u_rate": 0.103,
+    "expected_steps_triggered": null,
+    "intuition": 0.716,
+    "intuition_auroc": 0.81,
+    "logic-final": 0.62,
+    "logic-step0": 0.62,
+    "logic_final_auroc": 0.719,
+    "logic_step0_auroc": 0.719,
+    "trigger_rate": 0.0
+   },
+   "P1-default": {
+    "arbiter": 0.435,
+    "arbiter_u_rate": 0.29,
+    "expected_steps_triggered": null,
+    "intuition": 0.584,
+    "intuition_auroc": 0.572,
+    "logic-final": 0.469,
+    "logic-step0": 0.469,
+    "logic_final_auroc": 0.649,
+    "logic_step0_auroc": 0.649,
+    "trigger_rate": 0.0
+   },
+   "P2": {
+    "arbiter": 0.594,
+    "arbiter_u_rate": 0.073,
+    "expected_steps_triggered": null,
+    "intuition": 0.622,
+    "intuition_auroc": 0.691,
+    "logic-final": 0.485,
+    "logic-step0": 0.485,
+    "logic_final_auroc": 0.543,
+    "logic_step0_auroc": 0.543,
+    "trigger_rate": 0.0
+   },
+   "P3": {
+    "arbiter": 0.587,
+    "arbiter_u_rate": 0.129,
+    "expected_steps_triggered": null,
+    "intuition": 0.651,
+    "intuition_auroc": 0.745,
+    "logic-final": 0.463,
+    "logic-step0": 0.463,
+    "logic_final_auroc": 0.539,
+    "logic_step0_auroc": 0.539,
+    "trigger_rate": 0.0
+   },
+   "P4": {
+    "arbiter": 0.542,
+    "arbiter_u_rate": 0.118,
+    "expected_steps_triggered": null,
+    "intuition": 0.625,
+    "intuition_auroc": 0.656,
+    "logic-final": 0.417,
+    "logic-step0": 0.417,
+    "logic_final_auroc": 0.492,
+    "logic_step0_auroc": 0.492,
+    "trigger_rate": 0.0
+   },
+   "P6-colour": {
+    "arbiter": 0.42,
+    "arbiter_u_rate": 0.174,
+    "expected_steps_triggered": null,
+    "intuition": 0.513,
+    "intuition_auroc": 0.545,
+    "logic-final": 0.435,
+    "logic-step0": 0.435,
+    "logic_final_auroc": 0.533,
+    "logic_step0_auroc": 0.533,
+    "trigger_rate": 0.0
+   },
+   "P6-grandparent": {
+    "arbiter": 0.5,
+    "arbiter_u_rate": 0.0,
+    "expected_steps_triggered": null,
+    "intuition": 0.5,
+    "intuition_auroc": 0.65,
+    "logic-final": 0.45,
+    "logic-step0": 0.45,
+    "logic_final_auroc": 0.325,
+    "logic_step0_auroc": 0.325,
+    "trigger_rate": 0.0
+   },
+   "S3b": {
+    "arbiter": {
+     "always": 0.5,
+     "never": 0.581,
+     "sometimes": 0.722,
+     "usually": 0.375
+    },
+    "intuition": {
+     "always": 0.5,
+     "never": 0.935,
+     "sometimes": 0.0,
+     "usually": 0.625
+    },
+    "logic-final": {
+     "always": 0.75,
+     "never": 0.516,
+     "sometimes": 0.333,
+     "usually": 0.625
+    },
+    "logic-step0": {
+     "always": 0.75,
+     "never": 0.516,
+     "sometimes": 0.333,
+     "usually": 0.625
+    }
+   },
+   "S3b-trigger-rate": 0.0,
+   "S4a-trigger-rate": 0.0,
+   "S4a-u-rate": {
+    "arbiter": 0.455,
+    "logic-final": 0.25,
+    "logic-step0": 0.25
+   },
+   "S4b-P7-trigger-rate": 0.0,
+   "S4b-P7-u-rate": {
+    "arbiter": 0.273,
+    "logic-final": 0.394,
+    "logic-step0": 0.394
+   },
+   "conflict-flags-intuition-errors": {
+    "error_rate": 0.25,
+    "graded_auroc": 0.527
+   },
+   "control-trigger-rate": 0.0,
+   "control-u-rate": {
+    "arbiter": 0.115,
+    "logic-final": 0.064,
+    "logic-step0": 0.064
+   },
+   "told-chain-fit": {
+    "arbiter": 0.877,
+    "intuition": 0.994,
+    "logic-final": 0.648,
+    "logic-step0": 0.648,
+    "trigger_rate": 0.0
+   }
+  }
+ },
+ "conflict-loop": {
+  "dax": {
+   "always": {
+    "arbiter": 0.8,
+    "intuition": 0.4,
+    "logic-final": 0.6,
+    "logic-step0": 0.6,
+    "trigger_rate": 0.2
+   },
+   "never": {
+    "arbiter": 0.556,
+    "intuition": 0.667,
+    "logic-final": 0.556,
+    "logic-step0": 0.333,
+    "trigger_rate": 0.667
+   },
+   "sometimes": {
+    "arbiter": 0.556,
+    "intuition": 0.0,
+    "logic-final": 0.556,
+    "logic-step0": 0.556,
+    "trigger_rate": 0.778
+   },
+   "usually": {
+    "arbiter": 0.5,
+    "intuition": 0.5,
+    "logic-final": 1.0,
+    "logic-step0": 1.0,
+    "trigger_rate": 0.5
+   }
+  },
+  "final_triggered": {
+   "loss": 0.509,
+   "step": 60.0,
+   "triggered": 11565.0,
+   "triggered_withheld": 912.0,
+   "wall": 38.368,
+   "withheld": 1560.0
+  },
+  "params": 107017,
+  "tests": {
+   "G2": {
+    "arbiter": 0.701,
+    "arbiter_u_rate": 0.131,
+    "expected_steps_triggered": 0.621,
+    "intuition": 0.745,
+    "intuition_auroc": 0.844,
+    "logic-final": 0.572,
+    "logic-step0": 0.459,
+    "logic_final_auroc": 0.761,
+    "logic_step0_auroc": 0.572,
+    "trigger_rate": 0.481
+   },
+   "G4": {
+    "arbiter": 0.332,
+    "arbiter_u_rate": 0.234,
+    "expected_steps_triggered": 0.601,
+    "intuition": 0.46,
+    "intuition_auroc": 0.42,
+    "logic-final": 0.381,
+    "logic-step0": 0.357,
+    "logic_final_auroc": 0.567,
+    "logic_step0_auroc": 0.554,
+    "trigger_rate": 0.468
+   },
+   "L1-anc": {
+    "arbiter": 0.556,
+    "arbiter_by_length": {
+     "3": 0.5,
+     "4": 0.583,
+     "5": 0.667
+    },
+    "arbiter_u_rate": 0.222,
+    "expected_steps_triggered": 0.682,
+    "intuition": 0.528,
+    "intuition_auroc": 0.815,
+    "logic-final": 0.694,
+    "logic-step0": 0.528,
+    "logic_final_auroc": 0.796,
+    "logic_final_by_length": {
+     "3": 0.611,
+     "4": 0.833,
+     "5": 0.667
+    },
+    "logic_step0_auroc": 0.796,
+    "steps_by_length": {
+     "3": 0.676,
+     "4": 0.681,
+     "5": 0.703
+    },
+    "trigger_rate": 0.694
+   },
+   "L1-kind": {
+    "arbiter": 0.451,
+    "arbiter_by_length": {
+     "3": 0.386,
+     "4": 0.515
+    },
+    "arbiter_u_rate": 0.34,
+    "expected_steps_triggered": 0.739,
+    "intuition": 0.581,
+    "intuition_auroc": 0.649,
+    "logic-final": 0.643,
+    "logic-step0": 0.65,
+    "logic_final_auroc": 0.591,
+    "logic_final_by_length": {
+     "3": 0.5,
+     "4": 0.787
+    },
+    "logic_step0_auroc": 0.616,
+    "steps_by_length": {
+     "3": 0.89,
+     "4": 0.609
+    },
+    "trigger_rate": 0.574
+   },
+   "L1-size": {
+    "arbiter": 0.733,
+    "arbiter_by_length": {
+     "10": 0.875,
+     "11": 0.75,
+     "3": 0.611,
+     "4": 0.781,
+     "5": 0.786,
+     "6": 0.708,
+     "7": 0.65,
+     "8": 0.812,
+     "9": 0.833
+    },
+    "arbiter_u_rate": 0.039,
+    "expected_steps_triggered": 0.765,
+    "intuition": 0.728,
+    "intuition_auroc": 0.889,
+    "logic-final": 0.567,
+    "logic-step0": 0.539,
+    "logic_final_auroc": 0.67,
+    "logic_final_by_length": {
+     "10": 0.625,
+     "11": 0.5,
+     "3": 0.611,
+     "4": 0.531,
+     "5": 0.464,
+     "6": 0.667,
+     "7": 0.55,
+     "8": 0.625,
+     "9": 0.5
+    },
+    "logic_step0_auroc": 0.616,
+    "steps_by_length": {
+     "10": 0.756,
+     "11": 0.843,
+     "3": 0.767,
+     "4": 0.774,
+     "5": 0.756,
+     "6": 0.767,
+     "7": 0.751,
+     "8": 0.768,
+     "9": 0.743
+    },
+    "trigger_rate": 0.772
+   },
+   "L2-named": {
+    "arbiter": 0.615,
+    "arbiter_u_rate": 0.167,
+    "expected_steps_triggered": 0.598,
+    "first_produced_is_middle": 0.345,
+    "intuition": 0.716,
+    "intuition_auroc": 0.81,
+    "logic-final": 0.582,
+    "logic-step0": 0.543,
+    "logic_final_auroc": 0.716,
+    "logic_step0_auroc": 0.623,
+    "trigger_rate": 0.558
+   },
+   "P1-default": {
+    "arbiter": 0.427,
+    "arbiter_u_rate": 0.29,
+    "expected_steps_triggered": 0.658,
+    "intuition": 0.584,
+    "intuition_auroc": 0.572,
+    "logic-final": 0.554,
+    "logic-step0": 0.505,
+    "logic_final_auroc": 0.71,
+    "logic_step0_auroc": 0.684,
+    "trigger_rate": 0.697
+   },
+   "P2": {
+    "arbiter": 0.563,
+    "arbiter_u_rate": 0.13,
+    "expected_steps_triggered": 0.705,
+    "intuition": 0.622,
+    "intuition_auroc": 0.691,
+    "logic-final": 0.475,
+    "logic-step0": 0.476,
+    "logic_final_auroc": 0.554,
+    "logic_step0_auroc": 0.513,
+    "trigger_rate": 0.711
+   },
+   "P3": {
+    "arbiter": 0.516,
+    "arbiter_u_rate": 0.246,
+    "expected_steps_triggered": 0.719,
+    "intuition": 0.651,
+    "intuition_auroc": 0.745,
+    "logic-final": 0.383,
+    "logic-step0": 0.393,
+    "logic_final_auroc": 0.445,
+    "logic_step0_auroc": 0.397,
+    "trigger_rate": 0.786
+   },
+   "P4": {
+    "arbiter": 0.514,
+    "arbiter_u_rate": 0.153,
+    "expected_steps_triggered": 0.66,
+    "intuition": 0.625,
+    "intuition_auroc": 0.656,
+    "logic-final": 0.389,
+    "logic-step0": 0.41,
+    "logic_final_auroc": 0.492,
+    "logic_step0_auroc": 0.474,
+    "trigger_rate": 0.819
+   },
+   "P6-colour": {
+    "arbiter": 0.447,
+    "arbiter_u_rate": 0.107,
+    "expected_steps_triggered": 0.667,
+    "intuition": 0.513,
+    "intuition_auroc": 0.545,
+    "logic-final": 0.409,
+    "logic-step0": 0.381,
+    "logic_final_auroc": 0.505,
+    "logic_step0_auroc": 0.487,
+    "trigger_rate": 0.464
+   },
+   "P6-grandparent": {
+    "arbiter": 0.4,
+    "arbiter_u_rate": 0.125,
+    "expected_steps_triggered": 0.788,
+    "first_produced_is_middle": 0.0,
+    "intuition": 0.5,
+    "intuition_auroc": 0.65,
+    "logic-final": 0.25,
+    "logic-step0": 0.275,
+    "logic_final_auroc": 0.463,
+    "logic_step0_auroc": 0.637,
+    "trigger_rate": 0.625
+   },
+   "S3b": {
+    "arbiter": {
+     "always": 0.5,
+     "never": 0.694,
+     "sometimes": 0.556,
+     "usually": 0.75
+    },
+    "intuition": {
+     "always": 0.5,
+     "never": 0.935,
+     "sometimes": 0.0,
+     "usually": 0.625
+    },
+    "logic-final": {
+     "always": 0.667,
+     "never": 0.613,
+     "sometimes": 0.5,
+     "usually": 0.5
+    },
+    "logic-step0": {
+     "always": 0.583,
+     "never": 0.677,
+     "sometimes": 0.611,
+     "usually": 0.125
+    }
+   },
+   "S3b-first-produced-is-class": 0.0,
+   "S3b-trigger-rate": 0.54,
+   "S4a-trigger-rate": 0.75,
+   "S4a-u-rate": {
+    "arbiter": 0.182,
+    "logic-final": 0.182,
+    "logic-step0": 0.295
+   },
+   "S4b-P7-trigger-rate": 0.727,
+   "S4b-P7-u-rate": {
+    "arbiter": 0.242,
+    "logic-final": 0.242,
+    "logic-step0": 0.364
+   },
+   "conflict-flags-intuition-errors": {
+    "error_rate": 0.25,
+    "graded_auroc": 0.521
+   },
+   "control-trigger-rate": 0.706,
+   "control-u-rate": {
+    "arbiter": 0.166,
+    "logic-final": 0.062,
+    "logic-step0": 0.069
+   },
+   "told-chain-fit": {
+    "arbiter": 0.867,
+    "intuition": 0.993,
+    "logic-final": 0.598,
+    "logic-step0": 0.578,
+    "trigger_rate": 0.599
+   },
+   "withheld-fit": {
+    "arbiter": 0.862,
+    "intuition": 0.995,
+    "logic-final": 0.595,
+    "logic-step0": 0.519,
+    "trigger_rate": 0.583,
+    "trigger_rate_true": 0.676
+   }
+  }
+ },
+ "conflict-loop-told": {
+  "dax": {
+   "always": {
+    "arbiter": 0.6,
+    "intuition": 0.4,
+    "logic-final": 0.8,
+    "logic-step0": 0.8,
+    "trigger_rate": 0.2
+   },
+   "never": {
+    "arbiter": 0.556,
+    "intuition": 0.667,
+    "logic-final": 0.556,
+    "logic-step0": 0.444,
+    "trigger_rate": 0.444
+   },
+   "sometimes": {
+    "arbiter": 0.333,
+    "intuition": 0.0,
+    "logic-final": 0.444,
+    "logic-step0": 0.556,
+    "trigger_rate": 0.778
+   },
+   "usually": {
+    "arbiter": 0.5,
+    "intuition": 0.5,
+    "logic-final": 1.0,
+    "logic-step0": 1.0,
+    "trigger_rate": 0.5
+   }
+  },
+  "final_triggered": {
+   "loss": 0.503,
+   "step": 60.0,
+   "triggered": 11498.0,
+   "triggered_withheld": 0.0,
+   "wall": 38.633,
+   "withheld": 0.0
+  },
+  "params": 107017,
+  "tests": {
+   "G2": {
+    "arbiter": 0.711,
+    "arbiter_u_rate": 0.16,
+    "expected_steps_triggered": 0.627,
+    "intuition": 0.745,
+    "intuition_auroc": 0.844,
+    "logic-final": 0.589,
+    "logic-step0": 0.462,
+    "logic_final_auroc": 0.763,
+    "logic_step0_auroc": 0.584,
+    "trigger_rate": 0.504
+   },
+   "G4": {
+    "arbiter": 0.357,
+    "arbiter_u_rate": 0.191,
+    "expected_steps_triggered": 0.615,
+    "intuition": 0.46,
+    "intuition_auroc": 0.42,
+    "logic-final": 0.407,
+    "logic-step0": 0.42,
+    "logic_final_auroc": 0.587,
+    "logic_step0_auroc": 0.561,
+    "trigger_rate": 0.404
+   },
+   "L1-anc": {
+    "arbiter": 0.472,
+    "arbiter_by_length": {
+     "3": 0.389,
+     "4": 0.5,
+     "5": 0.667
+    },
+    "arbiter_u_rate": 0.306,
+    "expected_steps_triggered": 0.659,
+    "intuition": 0.528,
+    "intuition_auroc": 0.815,
+    "logic-final": 0.75,
+    "logic-step0": 0.639,
+    "logic_final_auroc": 0.818,
+    "logic_final_by_length": {
+     "3": 0.667,
+     "4": 0.833,
+     "5": 0.833
+    },
+    "logic_step0_auroc": 0.815,
+    "steps_by_length": {
+     "3": 0.657,
+     "4": 0.648,
+     "5": 0.688
+    },
+    "trigger_rate": 0.667
+   },
+   "L1-kind": {
+    "arbiter": 0.436,
+    "arbiter_by_length": {
+     "3": 0.357,
+     "4": 0.515
+    },
+    "arbiter_u_rate": 0.404,
+    "expected_steps_triggered": 0.736,
+    "intuition": 0.581,
+    "intuition_auroc": 0.649,
+    "logic-final": 0.623,
+    "logic-step0": 0.63,
+    "logic_final_auroc": 0.607,
+    "logic_final_by_length": {
+     "3": 0.5,
+     "4": 0.746
+    },
+    "logic_step0_auroc": 0.633,
+    "steps_by_length": {
+     "3": 0.921,
+     "4": 0.596
+    },
+    "trigger_rate": 0.617
+   },
+   "L1-size": {
+    "arbiter": 0.717,
+    "arbiter_by_length": {
+     "10": 0.875,
+     "11": 0.75,
+     "3": 0.611,
+     "4": 0.719,
+     "5": 0.786,
+     "6": 0.667,
+     "7": 0.65,
+     "8": 0.812,
+     "9": 0.833
+    },
+    "arbiter_u_rate": 0.078,
+    "expected_steps_triggered": 0.782,
+    "intuition": 0.728,
+    "intuition_auroc": 0.889,
+    "logic-final": 0.539,
+    "logic-step0": 0.572,
+    "logic_final_auroc": 0.633,
+    "logic_final_by_length": {
+     "10": 0.625,
+     "11": 0.5,
+     "3": 0.5,
+     "4": 0.594,
+     "5": 0.536,
+     "6": 0.542,
+     "7": 0.45,
+     "8": 0.688,
+     "9": 0.417
+    },
+    "logic_step0_auroc": 0.596,
+    "steps_by_length": {
+     "10": 0.763,
+     "11": 0.843,
+     "3": 0.785,
+     "4": 0.782,
+     "5": 0.772,
+     "6": 0.794,
+     "7": 0.774,
+     "8": 0.798,
+     "9": 0.752
+    },
+    "trigger_rate": 0.767
+   },
+   "L2-named": {
+    "arbiter": 0.659,
+    "arbiter_u_rate": 0.135,
+    "expected_steps_triggered": 0.63,
+    "first_produced_is_middle": 0.345,
+    "intuition": 0.716,
+    "intuition_auroc": 0.81,
+    "logic-final": 0.572,
+    "logic-step0": 0.567,
+    "logic_final_auroc": 0.727,
+    "logic_step0_auroc": 0.646,
+    "trigger_rate": 0.538
+   },
+   "P1-default": {
+    "arbiter": 0.439,
+    "arbiter_u_rate": 0.297,
+    "expected_steps_triggered": 0.662,
+    "intuition": 0.584,
+    "intuition_auroc": 0.572,
+    "logic-final": 0.556,
+    "logic-step0": 0.521,
+    "logic_final_auroc": 0.705,
+    "logic_step0_auroc": 0.673,
+    "trigger_rate": 0.716
+   },
+   "P2": {
+    "arbiter": 0.535,
+    "arbiter_u_rate": 0.192,
+    "expected_steps_triggered": 0.698,
+    "intuition": 0.622,
+    "intuition_auroc": 0.691,
+    "logic-final": 0.489,
+    "logic-step0": 0.491,
+    "logic_final_auroc": 0.562,
+    "logic_step0_auroc": 0.521,
+    "trigger_rate": 0.712
+   },
+   "P3": {
+    "arbiter": 0.516,
+    "arbiter_u_rate": 0.289,
+    "expected_steps_triggered": 0.743,
+    "intuition": 0.651,
+    "intuition_auroc": 0.745,
+    "logic-final": 0.357,
+    "logic-step0": 0.399,
+    "logic_final_auroc": 0.45,
+    "logic_step0_auroc": 0.381,
+    "trigger_rate": 0.783
+   },
+   "P4": {
+    "arbiter": 0.5,
+    "arbiter_u_rate": 0.194,
+    "expected_steps_triggered": 0.65,
+    "intuition": 0.625,
+    "intuition_auroc": 0.656,
+    "logic-final": 0.417,
+    "logic-step0": 0.41,
+    "logic_final_auroc": 0.515,
+    "logic_step0_auroc": 0.483,
+    "trigger_rate": 0.819
+   },
+   "P6-colour": {
+    "arbiter": 0.412,
+    "arbiter_u_rate": 0.179,
+    "expected_steps_triggered": 0.659,
+    "intuition": 0.513,
+    "intuition_auroc": 0.545,
+    "logic-final": 0.429,
+    "logic-step0": 0.389,
+    "logic_final_auroc": 0.487,
+    "logic_step0_auroc": 0.481,
+    "trigger_rate": 0.482
+   },
+   "P6-grandparent": {
+    "arbiter": 0.45,
+    "arbiter_u_rate": 0.083,
+    "expected_steps_triggered": 0.772,
+    "first_produced_is_middle": 0.0,
+    "intuition": 0.5,
+    "intuition_auroc": 0.65,
+    "logic-final": 0.3,
+    "logic-step0": 0.55,
+    "logic_final_auroc": 0.5,
+    "logic_step0_auroc": 0.613,
+    "trigger_rate": 0.583
+   },
+   "S3b": {
+    "arbiter": {
+     "always": 0.5,
+     "never": 0.677,
+     "sometimes": 0.444,
+     "usually": 0.375
+    },
+    "intuition": {
+     "always": 0.5,
+     "never": 0.935,
+     "sometimes": 0.0,
+     "usually": 0.625
+    },
+    "logic-final": {
+     "always": 0.583,
+     "never": 0.661,
+     "sometimes": 0.5,
+     "usually": 0.5
+    },
+    "logic-step0": {
+     "always": 0.583,
+     "never": 0.613,
+     "sometimes": 0.556,
+     "usually": 0.25
+    }
+   },
+   "S3b-first-produced-is-class": 0.0,
+   "S3b-trigger-rate": 0.56,
+   "S4a-trigger-rate": 0.727,
+   "S4a-u-rate": {
+    "arbiter": 0.159,
+    "logic-final": 0.205,
+    "logic-step0": 0.318
+   },
+   "S4b-P7-trigger-rate": 0.758,
+   "S4b-P7-u-rate": {
+    "arbiter": 0.212,
+    "logic-final": 0.242,
+    "logic-step0": 0.394
+   },
+   "conflict-flags-intuition-errors": {
+    "error_rate": 0.25,
+    "graded_auroc": 0.506
+   },
+   "control-trigger-rate": 0.711,
+   "control-u-rate": {
+    "arbiter": 0.213,
+    "logic-final": 0.052,
+    "logic-step0": 0.065
+   },
+   "told-chain-fit": {
+    "arbiter": 0.869,
+    "intuition": 0.994,
+    "logic-final": 0.652,
+    "logic-step0": 0.593,
+    "trigger_rate": 0.579
+   }
+  }
+ }
+}
