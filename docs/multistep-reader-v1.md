@@ -1,6 +1,7 @@
 # Multi-step reader v1: a generative loop on the taught-truth reader
 
-Status: **draft contract, 2026-11-06 (second draft). Not frozen; awaiting user review.** Stage 2 of 2 after
+Status: **contract frozen 2026-11-06** (second draft), after the user's review: proceed as drafted, with the scripted
+step roles, the fixed rescale and the two-network `unit-loop`. Stage 2 of 2 after
 [taught truth v1](taught-truth-v1-results.md). The first draft (commit d77e911), with fetch by attention over entities,
 was replaced on the user's direction. It is kept in git history.
 
@@ -172,9 +173,42 @@ the generative loop:
 - If the smoke run projects more than 2 h wall, training steps are lowered together for all arms and recorded.
 - Stored: reports; checkpoints in `runs/` (not tracked). No tuning: T, the halting prior and the rescale are fixed here.
 
-## Open decisions for the user
+## Decisions and implementation (recorded at freezing)
 
-1. **The rescale of a produced code** (to the mean entity norm): a small fixed choice, stated above. Acceptable, or
-   should the loop learn its own scale?
-2. **`unit-loop` with a separate producer P′:** this is the fair "built-in truth" comparison, but it is two networks
-   against one. Keep it as the comparison?
+- **User (2026-11-06):** proceed with Option 2 (produce the code) and the step roles as drafted. The rescale to the mean
+  entity norm and `unit-loop`'s separate producer P′ are accepted as drafted.
+- **Statements:** `src/everyday_truth_v2.py` (tests `tests/test_everyday_truth_v2.py`); runner `experiments/multistep_reader.py`.
+  22,865 statements, 246 entities, 47 relations, 704 fill-the-tail rows.
+- **Test sizes:**
+  - L1-kind: 94 (depth 3: 47, depth 4: 47; the negatives are non-living things);
+  - L1-anc: 36 (depth 3–5 and their reverses);
+  - L1-size: 180 (distance 3–11, both comparatives);
+  - L2-named: 156 (6 held-out words).
+- **Kept out but read separately:**
+  - L2-x (182): the `named-*` rows of words whose animal is a P1 animal or a G2/G3 word; training them would leak
+    held-out facts;
+  - P6-anc (83): the `ancestor-of` rows touching tree B's colin, which would leak P6 grandparent.
+- **Known shortcuts, recorded:**
+  - `kind-of(x, animal)` at depth 3 parallels the trained `is-a(x, animal)`, so depth 4 (`living-thing`) is the clean
+    length read;
+  - P3's `smaller-than` rows at size distance ≥ 3 moved to L1-size (P3 is now 350 rows).
+- **Loop details:**
+  - The loop is trained on every value statement and fill row. Fill rows are answered against all entities.
+  - PonderNet halting, with the remainder at T assigned to the last step.
+  - `unit-loop` uses BCE on the mixed probability over T/F individual statements. Its producer P′ is also trained
+    directly on the fill rows (cosine cross-entropy over entities; that group weighted 1/6, like one statement group).
+- **Parameters:** `pred-one` 34,593; `pred-loop` 68,352; `unit-one` 29,521; `unit-loop` 73,713. The loops' controllers
+  (relation choices over 47 relations, GRU 64) roughly double the count.
+- **Smoke (60 steps, 4 runs):**
+  - training CPU 82 s (`pred-loop`), 63 s (`unit-loop`), 11 s (`pred-one`), 8 s (`unit-one`);
+  - projected for 3,000 steps: 68, 53, 9 and 7 CPU min per run; about 9 CPU h in all, about 1.3 h wall on 8 workers;
+  - inference: 13.7 ms per 1,000 statements for the loops, 1.4 ms (`pred-one`) and 0.7 ms (`unit-one`);
+    1 thread, forward only.
+
+## Commands
+
+```
+.venv/bin/python -m unittest tests.test_everyday_truth_v2
+EV_WORKERS=8 .venv/bin/python -m experiments.multistep_reader main      # rerun resumes
+.venv/bin/python -m experiments.multistep_reader summary
+```
