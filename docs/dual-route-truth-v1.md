@@ -1,6 +1,6 @@
 # Dual-route truth v1: intuitive verdicts and taught logic in one currency
 
-Status: **draft contract, 2026-11-06. Not frozen; awaiting user review.**
+Status: **contract frozen 2026-11-06**, after the user's review: fixed rules first; shared and separate codes as drafted.
 
 ## User direction (2026-11-06)
 
@@ -143,9 +143,29 @@ truth v1.
 - The runner logs progress every 250 steps.
 - Stored: reports; checkpoints in `runs/` (not tracked). No tuning.
 
-## Open decisions for the user
+## Decisions and implementation (recorded at freezing)
 
-1. **Arbitration.** Fixed rules R1–R4 compared in v1, as drafted? Or should a learned arbiter be included already?
-   It would learn when to trust which route; a fixed rule is easier to interpret first.
-2. **Shared codes.** Should both routes see one representation of the world, as drafted? Or should intuition and logic
-   each keep their own (`dual-separate` as the main design, not only a control)?
+- **User (2026-11-06):** fixed combination rules (R1–R4) first, with no learned arbiter. Shared codes as the design,
+  with `dual-separate` as the control.
+- **Runner:** `experiments/dual_route_truth.py`.
+- **Losses:**
+  - Intuition: BCE on individual T/F statements, balanced per relation (as the unit).
+  - Logic, with the same group weights as taught truth v1:
+    - support BCE on individual, anonymous and anonymous-`is-a` statements;
+    - code-head cross-entropy over the 4 quantity codes (kind) and over all entities (fill-the-tail);
+    - the connective operator's BCE on the K3 corners.
+  - Intuition and logic are summed with equal weight.
+- **Logic state:** T if s⁺ > ½ ≥ s⁻; F if s⁻ > ½ ≥ s⁺; D if both > ½; U otherwise.
+- **The graded disagreement score** is |σ(u) − s⁺| + |(1 − σ(u)) − s⁻|.
+- **The dax** is fitted through both routes ("is a bird" = T: intuition BCE, logic support (1, 0)). In `dual-separate`,
+  one code per route, each with its own prior.
+- **Parameters:** `dual-separate` 73,590; `dual-shared` recorded in the runtime file.
+- **Smoke run** (60 steps, 2 runs, 2 workers): 14 s wall. Projected for 3,000 steps: about 5 min per run, far below the
+  declared 40, because the routes are one-pass. 8 runs on 6 workers.
+
+## Commands
+
+```
+EV_WORKERS=6 .venv/bin/python -m experiments.dual_route_truth main      # rerun resumes
+.venv/bin/python -m experiments.dual_route_truth summary
+```
