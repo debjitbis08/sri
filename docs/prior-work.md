@@ -13,14 +13,69 @@ learning taxonomy (replay, regularization, parameter isolation): EWC and synapti
 replay, residual adapters; plus drift compensation, relative representations, shift detection, hubness and savings.
 Sources **[abstract]** or search excerpts; section below.
 
+2026-11-05: [moving-representation notes](moving-representation-notes.md) separate coherent relabelling (the one shift internal checks cannot see) from unconstrained movement of kinds far from the loss, and place every remedy in one of three families: stop the movement, keep evidence, or make consumers coordinate-independent. Reviewed twice the same day: senses are frozen and memory keyed on them does not drift, so the problem sits in the core's object encoder; within-kind resolution survives in the codes but comes mostly from the frozen senses; context normalization half helps and the rest of the bend is not affine; routing by sense code is partly tested, with known failures on blended streams. Local results **[read: local results]**; representational-drift, penalty and adapter sources **[familiar]**, no search run; the three-family argument, the savings test, the core frame with per-kind registration and the population-level drift signal **[derived]**; the collision check **[proposal]**. Section below. No experiment run.
+
 2026-11-05: [consistency critic v1](consistency-critic-v1.md) maps the critic to dependency networks and masked
 prediction, probe selection to top-k gating and active feature acquisition, repair to BeliefBank/ConCoRD (symbolic
 solvers, given relations), self-training and Learning without Forgetting, and asking to active learning and its sampling
 bias. Sources **[abstract]** from searches recorded in the section below; implications **[derived]**.
 
+2026-11-05: [learned consistency critic](learned-consistency-critic-notes.md)
+records the proposed operator-output monitor and offline encoder repair.
+SPEN and confidence calibration are **[abstract]** analogues; limits of pair-only
+inputs, anchor preservation and positive-only energy training are **[derived]**.
+Masked conditional prediction is an untested alternative. No experiment run.
+
+2026-11-05: [equality goal analysis](equality-goal-analysis.md) separates learned
+pair classification from geometric alignment and numerical substitutability.
+Implementation implications are **[derived]**, v2 observations **[read: local
+results]**, and Khosla et al.'s supervised contrastive learning **[abstract]**.
+Reader diagnostics and alignment controls are proposals, not tested remedies.
+No new contract or training run.
+
+2026-11-04: [shared output v1 contract](shared-output-v1-contract.md) (draft) maps a query
+encoder with one shared candidate scorer to 1-N knowledge-graph scoring (ConvE), cross-encoders
+and energy-based scoring, next-item scoring to contrastive predictive coding, abstention to
+selective classification and open-set rejection, and naming-only transfer to acquired
+equivalence and SCAN's add-primitive split. All sources are **[familiar]**; no new search was
+run. The prediction that a shared scorer alone does not make a name substitutable is
+**[derived]**. Section below.
+
+2026-11-04: [shared relational expression interface](relational-expression-core-design.md)
+maps the existing tasks to relational queries and distinguishes learned grounding
+from supplied inverse/composition rules. miniKanren's project introduction is
+**[read]**; λProlog's project search summary and the LTN, Neural Theorem Provers,
+and TensorLog abstracts are **[abstract]**. Finite-query semantics and cost bounds
+are **[derived]**; improved transfer/retention through shared scoring is
+**[analogy]**, not an established result. The note proposes an unchanged-comparator
+baseline before a naming-only transfer contract. No training was run.
+
+2026-11-04: [mathematical analysis of the relearning loss](relearning-loss-analysis-v1.md)
+derives the distance-loss gradients, tests scale invariance counterexamples, and
+proposes a local geometry-constrained update. NormFace is **[abstract]** and OGD
+is **[read: abstract and section 3 excerpt]**; transfer to this architecture is
+**[analogy]**, not an established remedy. Deterministic toy checks and their
+separate computation receipt accompany the derivations. No training was run.
+
 2026-11-03: [general frozen encoder](general-frozen-encoder.md) records Baradad et al. 2021, Asano et al. 2019, Yosinski et al. 2014 and DINOv2 at **[abstract]** level on which training images give general features; a pretrained general encoder is named there as a cheaper alternative to test.
 
 2026-11-03: [reading notes on memory through a learning encoder](natural-memory-prior-work.md) cover MoCo and SDC at **[read]** level, self-healing codes through a summarizing tool, and Expert Gate, Progressive Networks and REMIND at **[abstract]** level, for the [natural-image memory pilot](natural-memory-v1-pilot.md).
+
+2026-11-01: [completed core versus language models](completed-core-versus-language-models.md)
+compares the proposed system with documented dense, MoE and test-time-memory
+model families. Llama 3, DeepSeek-V3, Titans and ATLAS are reviewed at
+**[abstract]** level. Feature-level sparsity is distinguished from expert routing;
+stable continual learning and modular reuse remain hypotheses, not established
+advantages or novelty claims.
+
+2026-11-01: [core generality, context and sensory features](core-generality-context-and-perception.md)
+consolidates the exploratory discussion of code spaces, sparse readers,
+counting specialization, grammar, geometric relations and perception. It links
+the topic-specific theory and source reviews, records the user's context/memory
+and feature-extraction observations, and distinguishes architectural possibility
+from learned capability. Geometry and perception claims are task-sufficiency
+arguments (**[derived]**), not a survey establishing solved perception. No new
+experiment or architecture decision is recorded.
 
 On 2026-10-29, [two-module graded expressivity analysis](two-module-graded-expressivity-analysis.md)
 compared reciprocal quadratic modules with linear bottleneck networks, and
@@ -72,6 +127,42 @@ this architecture differs) and **hypothesis** (what the project infers, still
 untested).
 
 ## Fan-in pressure
+
+2026-11-01: [grammar learning extension notes](grammar-learning-extension-notes.md)
+derive the two-item history obstruction and a distinguishable-prefix memory lower
+bound for typed brackets (**[derived]**). Primary abstracts on finite-precision
+RNNs, self-attention limits, differentiable stacks, BLiMP and COGS are recorded
+as **[abstract]**, with architecture differences explicit. Contextual state and
+appropriate outputs are distinguished from optional structured memory and the
+untested sparse-disruption hypothesis. No scaling or grammar-learning result
+is claimed.
+
+2026-11-01: [sparse-reader hypothesis properties](sparse-reader-hypothesis-properties.md)
+derives the exact first-layer-sparse/two-ReLU reader form, dense containment,
+nullspace and mask-matching rank tests, finite line-region bounds, a realizable
+three-cycle, coordinate reparameterizations, parameter/mask counts and conditional
+Lipschitz bounds (**[derived]**). Bartlett et al. (2019), Theorem 7 statement,
+was **[read]** for general capacity upper bounds; Montufar et al. (2014) was
+reviewed at **[abstract]** level. The note distinguishes fixed codes from learned
+encoders and representability from optimizer preference; no checkpoint audit or
+generalization certificate is claimed.
+
+2026-11-01: [counting specialization and generalization](counting-specialization-generalization.md)
+audits earlier ordinal heads versus current generic codes and counting-specific
+evidence. It records **[abstract]** reviews of capacity bounds, PAC-Bayes,
+multi-task bias learning, domain adaptation and random-label fitting. A finite
+class bound, evidence-ambiguity test, code-collision obstruction and scalar-order
+counterexample are **[derived]** with explicit assumptions. Proposed whole-task
+holdouts are unrun; no generalization certificate is claimed.
+
+2026-11-01: [code space versus sparse readers](code-space-reader-analysis.md)
+separates representation accessibility from reader effects and their interaction.
+Orthogonal-basis invariance of dense readouts and basis dependence of sparse
+readouts are **[derived]**. Primary abstracts of dropout, disentanglement limits
+and random features were reviewed (**[abstract]**); their relevance to this
+network remains **[analogy]**. The note proposes frozen-code reader refits and
+rotations before new code-family training, and records alternatives, confounds
+and computation requirements. No new results or contract are claimed.
 
 2026-10-30 user-supplied reading: [forget-and-relearn and iterated learning](forget-relearn-iterated-learning-notes.md)
 records selected primary-source sections of Zhou et al. (2022), Kirby et al.
@@ -1823,6 +1914,127 @@ Search date 2026-11-01, after the [long-term memory pilot](long-term-memory-v1-p
 - **Multi-timescale synapses.** [Benna and Fusi, 2016](https://www.nature.com/articles/nn.4401) **[search record]**: synapses with several internal variables store many memories over long timescales, capacity roughly linear in synapses. **[hypothesis]** Hope's low-frequency blocks are a coarser relative.
 - **Replay.** [Shin et al., 2017](https://arxiv.org/abs/1705.08690) **[abstract]**: a generator interleaves synthetic past data, storing none. Retention remedies found bounded rehearsal effective here, on marked pairs.
 
+Follow-up reading, 2026-11-01: [sparse local memory notes](sparse-local-memory-notes.md)
+records primary-paper excerpts for SDMLP, FlyModel and Elephant, and maps the
+user's unit-vector routing proposal to address/content memory. Distinguishes
+sparse activation from local parameter updates, records static-manifold and
+optimizer limitations, and states the conditions under which disjoint writes
+protect old reads. No experiment frozen.
+
+The [shared-core sparse memory draft](shared-core-sparse-memory-v1-contract.md)
+first asks whether one core can hold both relations and the identity of new
+symbols, since a code trained only on relations read 0.11 and 0.14 on 90-way
+identity on existing caches (seeds 392, 393; exploratory). It then tests local
+content writes with learned addresses on an address code that passes: units are
+allocated on mismatch by a vigilance threshold, and addresses follow the cues
+they take. Protection of old reads is derived and conditional. Associative
+retrieval is deferred to its own contract. The closest established methods are
+adaptive resonance theory and leader clustering for the addresses and Kanerva's
+sparse distributed memory for the fixed-address reference, all **[familiar; read
+before use]**.
+
+## Shared output scorer and naming-only transfer
+
+Added 2026-11-04, for the [shared output v1 contract](shared-output-v1-contract.md). Every
+source is **[familiar]** (recalled, not re-read for this entry).
+
+**What the sources showed.**
+- **1-N scoring in knowledge-graph completion.** ConvE (Dettmers et al. 2018) encodes
+  (head, relation) once and scores every entity through one scorer. TransE (Bordes et al. 2013)
+  and NTN (Socher et al. 2013) define other shared scoring functions over triples.
+- **Cross-encoders** (Humeau et al. 2020) score a query and a candidate jointly. They are more
+  accurate than separate embeddings and cost one pass per candidate, hence retrieve-then-rerank.
+- **Contrastive predictive coding** (van den Oord et al. 2018) scores candidates for the next
+  item instead of regressing its embedding.
+- **Selective classification** (Chow 1970; Geifman and El-Yaniv 2017) and **open-set rejection**
+  (Scheirer et al. 2013): abstention at a threshold. Softmax scores are overconfident off the
+  training distribution (Hendrycks and Gimpel 2017).
+- **Acquired equivalence** (Honey and Hall 1989) and **stimulus equivalence** (Sidman and Tailby
+  1982): stimuli trained to a common outcome come to share other associations.
+- **SCAN add-primitive** (Lake and Baroni 2018): sequence models taught a primitive in isolation
+  failed to compose it. Meta-learning across many such episodes succeeded (Lake and Baroni
+  2023).
+- **Inductive entity embedding** from a few links (Hamaguchi et al. 2017).
+- **Key–value memory reading** (Sukhbaatar et al. 2015; Miller et al. 2016) and **modern Hopfield networks** (Ramsauer et al. 2020):
+  a read returns a weighted stored value in the space of the stored patterns, which can feed the next hop. Entity linking resolves a
+  mention to an entity before querying its relations.
+- **Representation-mediated learning** (Holland 1981): a stimulus that evokes another's representation inherits its associations,
+  the proposed mechanism of acquired equivalence.
+
+**How the setting differs.** These are symbolic entities or text tokens, not perceptual codes
+through a sparse core. There is no continual relearning in these sources. The equivalence
+studies are behavioural.
+
+**Program implications.**
+- **[derived]** A shared scorer gives recall and verification one logit, so their agreement
+  holds by construction. It does not tie the slot a name was taught in (the `same` source) to the
+  slot it is tested in (the history's current item). Transfer therefore still depends on the
+  name's code being substitutable. The contract measures this with a substitution bound and a
+  nearest-count diagnostic.
+- **[derived]** A scorer removes the squared-distance pull of candidates toward a predicted
+  point, which is the relearning contraction route identified locally. It may move
+  interference into the shared scorer.
+- **[derived]** Routing every relational slot through identification (a grounded participant state) holds substitutivity by
+  structure: a name inherits relations to the degree it is identified. Stage 0 supports this as local evidence: grounded 0.56 / 0.50
+  against raw 0.39 / 0.27 ([stage 0](shared-output-v1-stage0.md)).
+- **[analogy]** Acquired equivalence suggests that equality training can carry other
+  associations to the new item. Whether it does in this core is the open question.
+
+### Pilot follow-up: preserve identification before redesigning training
+
+Discussion 2026-11-04; proposals, not a frozen contract or authorization to run.
+
+- **[read: local pilot write-up]** The [pilot](shared-output-v1-pilot.md) reports
+  that replacing names with recalled participants at evaluation raises block-3
+  `gp` N1 from 0.47 to 0.77. Grounding throughout training damages familiar
+  continuation. Gradient starvation and soft-read blurring remain confounded.
+- **[derived]** First compare direct, learned-participant and harness-supplied
+  correct-participant reads on the same existing checkpoints at every read point.
+  The last is a diagnostic control, not an available model capability. This can
+  separate identification failures from failures downstream without retraining.
+- **[abstract]** Chaudhry et al., [On Tiny Episodic Memories in Continual
+  Learning](https://arxiv.org/abs/1902.10486), studies replay from small episodic
+  memories. Search on 2026-11-04: `site.arxiv.org continual learning experience
+  replay tiny episodic memories 2019`; abstract-level search result reviewed.
+  This is a standard retention baseline, not evidence that replay solves this
+  core's naming problem or rejection of unfamiliar symbols.
+- **[analogy / untested]** Compare raw training with and without replay of
+  naming-only matching evidence, using frozen sensory traces rather than images.
+  Evaluate both direct and grounded reads; keep names out of relational teaching.
+  Match total update and row budgets, disclose replay exposures and retained bytes,
+  and report selection/training/read costs separately under the computation rules.
+  Diagnose grounded-training failures separately if that architecture remains a
+  research objective. No confirmation criteria are set by this discussion.
+
+**Added 2026-11-04 for the [K arms](shared-output-v1-k-arms.md)** (all **[familiar]**).
+- **Bi-encoders** (DSSM, Huang et al. 2013; dense passage retrieval, Karpukhin et al. 2020) score ⟨Q(query), K(candidate)⟩:
+  cheaper over many candidates than cross-encoders and less accurate (Humeau et al. 2020).
+- **Shared embeddings across positions.** Siamese verification (Bromley et al. 1993) and contrastive metric learning (Chopra,
+  Hadsell and LeCun 2005) use one encoder on both sides of a sameness judgment. TransE, DistMult (Yang et al. 2015) and ComplEx
+  (Trouillon et al. 2016) share an entity's embedding across head, tail and candidate positions, which is how evidence about an
+  entity in one position reaches a query in another.
+- **[derived]** A key tower over candidates alone does not reach the query slot a name is tested in. One K applied to slots
+  and candidates does: the sameness loss then acts in the space every relation reads.
+- **Known failures:** collapse of a shared encoder under sameness alone; symmetric scores when the query ignores slot order; a
+  dot product accepts one half-space per query, which limits relations with separated valid fillers.
+
+## Relation codes, relational bottleneck and context normalization
+
+Added 2026-11-05 for [relation codes check v1](relation-codes-check-v1.md). [familiar] sources, recalled.
+- **Relations as offsets in entity space:** TransE (Bordes et al. 2013), word2vec analogies. A relation code computed from two
+  entity codes inherits any distortion of those codes; part A measured this (pair relation reads equal identity reads).
+- **Separate relational processing:** Relation Networks (Santoro et al. 2017); ESBN (Webb, Sinha and Cohen 2021) keeps a key
+  pathway that never sees object features; CoRelNet (Kerg et al. 2022) and the relational bottleneck (Webb et al. 2023) pass on
+  only similarities between objects; Abstractors (Altabaa et al. 2023). All report out-of-distribution generalization of
+  relational rules to new objects.
+- **Temporal context normalization** (Webb et al. 2020): standardizing embeddings over a task context lets relational rules
+  extrapolate. It removes a per-context shift and scale, which matches the bend measured in the two-script reads.
+- **One space or two:** tensor product representations (Smolensky 1990) bind roles and fillers from separate spaces; holographic
+  reduced representations (Plate 1995) bind in one. The Tolman–Eichenbaum Machine (Whittington et al. 2020) learns a structural
+  code once and binds new sensory objects to it.
+- **[program implication, measured]** what survives interference in the pilot is order within a kind's set, not pair relations;
+  context-level structure is the candidate to store.
+
 ## Consistency critic, probe selection and asking
 
 Added 2026-11-05 for [consistency critic v1](consistency-critic-v1.md); design notes in
@@ -1884,6 +2096,56 @@ texts read.
   baseline detecting misclassified`; `Lakkaraju unknown unknowns AAAI 2017`; `Jiang Kim Guan Gupta To Trust Or Not To Trust`.
   For [consistency critic v1 follow-up](consistency-critic-v1-confident.md).
 
+## Moving representations, representational drift and registration (added 2026-11-05)
+
+For the [moving-representation notes](moving-representation-notes.md). All sources **[familiar]**, recalled and not
+re-read; read before a contract cites them.
+
+- **Representational drift with stable behaviour.** Driscoll et al. 2017 (parietal cortex, Cell), Schoonover et al. 2021
+  (piriform, Nature), Deitch, Rubin and Ziv 2021 (visual cortex, Current Biology) and Marks and Goard 2021 (visual cortex,
+  Nature Communications) report single-unit tuning changing over days to weeks while the animal's behaviour is stable.
+  Rule et al. 2020 (eLife) show the drift concentrates in directions orthogonal to a stable linear readout, so task
+  information survives in a changing population. Masset, Qin and Zavatone-Veth 2022 review proposed functions.
+  **[derived]** The analogue here: relations learned on a slow core frame are the readout, and what moves is the core's
+  own object encoder on frozen sense codes. Locally the [two-script reads](two-script-reads-v1.md) and
+  [relation codes check](relation-codes-check-v1.md) show the reading against collections failing while the codes
+  stay separable, and order surviving one block back only, so the analogue is partial.
+- **Drift as implicit regularization.** Ratzon, Derdikman and Barak 2024 (eLife): noise in learning walks the solution
+  along flat directions of the loss, so pinned directions are those the loss constrains. **[derived]** Kinds far from
+  the present loss are flat; near kinds are partly pinned through shared features, which matches the
+  [drift measurement](sense-drift-structure-v1.md) (near-family maps predict 0.52–0.86 of movement after a change, far
+  ones none) and the [natural-image pilot](natural-memory-v1-pilot.md).
+- **Self-healing codes.** Rule and O'Leary 2022: a Hebbian and homeostatic readout tracks drift if the coarse geometry of
+  the variable is preserved (in [reading notes](natural-memory-prior-work.md)). **[derived]** Coarse geometry is kept
+  one block back and not two in the relation codes check.
+- **Weight-importance against output-distillation penalties.** Kirkpatrick et al. 2017 (EWC) and Zenke, Poole and
+  Ganguli 2017 (SI) act on weights; Li and Hoiem 2016 (LwF) distils outputs on present data. **[derived]** They should be
+  predicted differently here: a weight penalty can pin a far absent kind, output distillation only where present data
+  shares its features. Not run in this program; the [retention remedies contract](retention-remedies-v1-contract.md)
+  excluded them. Known failure: protection degrades as the number of tasks grows, and importance estimates assume the
+  old data distribution. The target is the core's object encoder, since the senses are frozen.
+- **Adapters and routing.** Rebuffi, Bilen and Vedaldi 2017 (residual adapters) and Aljundi et al. 2017 (Expert Gate,
+  in reading notes): per-domain parameters on a shared trunk avoid forgetting but need the domain at test time, chosen
+  by a gate. **[read: local results]** Routing by frozen sense code is partly tested here: label-free centres read like
+  told ones on streams where kinds arrive in runs ([adapt pilot](sense-adapt-v1-pilot.md)), and no growth rule matches
+  one centre per kind on all four stress streams, with batch-mean rules failing on interleaved and gradual streams
+  ([growth pilot](sense-growth-v1-pilot.md)). **[derived]** A registration per kind is this family and inherits that
+  cost.
+- **Registration of embedding spaces.** Conneau et al. 2018 (Procrustes alignment of word-embedding spaces, with a small
+  seed dictionary or none); Mikolov, Le and Sutskever 2013 (linear maps between languages); Webb et al. 2020 (context
+  normalization, the unsupervised per-kind affine case already in `src/relation_codes.py`); Shen et al. 2020 (backward
+  compatibility as a training objective, in reading notes). **[read: local results]** Context normalization half helps
+  in the relation codes check (`two-ctx` 0.62 against `two` 0.50; `count-ctx` 0.46 against `count` 0.69), which says the
+  rest of the bend is not affine; codes stay 0.99 separable with labels, and 0.84–0.87 for untaught Thai
+  ([equality diagnostics v2](equality-diagnostics-v2.md)). **[derived]** The informative test is savings: labels needed
+  by a per-kind map for a taught, drifted script against an untaught one, from core and from sense codes.
+- **Unmatched versus stale.** **[derived]** For one item, novelty and staleness give the same internal signal (nothing
+  matches well); open-set rejection baselines (Hendrycks and Gimpel 2017, in the critic section) detect the signal but
+  cannot name its cause. At the population level they separate: many once well-matched readings losing margin together
+  is drift. With memory keyed on frozen senses ([sense stable pilot](sense-stable-v1-pilot.md): 0 of 5,400 reads drift),
+  the place to measure it is the core's readings. The single case needs outside evidence: a second sense, rehearsal, or
+  asking.
+
 ## Drift remedies: regularization, rehearsal and per-kind adapters
 
 Added 2026-11-05 for [drift remedies v1](drift-remedies-v1.md), from the [moving-representation notes](moving-representation-notes.md).
@@ -1934,3 +2196,12 @@ catastrophic forgetting`. Abstracts and search excerpts inspected; no full texts
 - **Savings.** **[search excerpts]** The relearning savings measure (Hetherington and Seidenberg, in [French
   1999](https://lead.ube.fr/wp-content/uploads/2023/09/000282-catastrophic-forgetting-in-connectionist-networks.pdf)) asks how
   quickly forgotten associations are retrained. French notes not all forgetting is "shallow" in this sense.
+
+## Everyday relations: knowledge-base completion and semantic development (added 2026-11-05)
+
+Survey for [everyday relations v1](everyday-relations-v1.md); the sources and evidence tags are in that contract's prior work
+section. In short: the study is small closed-world knowledge-base completion (Hinton's family trees; Socher et al. 2013;
+ComplEx). Progressive differentiation and overgeneralization of exceptions are predicted by Rogers and McClelland (2004) and,
+exactly for deep linear networks, by Saxe, McClelland and Ganguli (2019). Kemp and Tenenbaum (2008) is the built-in-form
+alternative the program excludes. Composition (CLUTRR) is the expected weak point of single-hop scorers. Locally, generic
+relations v1 predicts weak fast mapping through a generic reader.

@@ -1,0 +1,42 @@
+{
+ "aggregate_worker_cpu_seconds": 4.599341969,
+ "children_peak_rss_kb": 1887152,
+ "command": "/home/debjit/code/sri/experiments/consistency_critic_v1.py",
+ "contract_sha256": "d5073ad8eb4401be3287d88788f967e8cdb48616c4643075e995b4525eb7ac1a",
+ "cpu": "x86_64",
+ "device": "cpu",
+ "dirty": true,
+ "dtype": "float32",
+ "module_sha256": "ac6baab5f362578fa30b3e54dcce2a0698fc6d5e162d265a59150c5218c1d773",
+ "numpy": "2.5.4",
+ "python": "3.12.3",
+ "revision": "ad66354c29ae5a301c5f0822bdf6913641de622e",
+ "runner_sha256": "d7f4faf113ae841e3bf4c6b0d2c4236dcd734adc292f1a3f5e71c706cd5fd644",
+ "scope": "nondeterministic timing",
+ "tasks": {
+  "two-ctx-enbuf/seed300/block3": {
+   "critic": {
+    "cpu_seconds": 0.09568970999999998,
+    "wall_seconds": 0.09570574201643467
+   },
+   "evaluate": {
+    "cpu_seconds": 3.986491399,
+    "wall_seconds": 3.987228572019376
+   },
+   "peak_rss_kb": 1674836,
+   "resumed": true,
+   "selectors": {
+    "cpu_seconds": 0.380215056,
+    "wall_seconds": 0.38030691898893565
+   },
+   "tables": {
+    "cpu_seconds": 0.136945804,
+    "wall_seconds": 0.13696080399677157
+   }
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "wall_seconds": 28.96178447001148,
+ "workers": 12
+}

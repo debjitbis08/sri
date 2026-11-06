@@ -1,0 +1,32 @@
+{
+  "status": "analytic toy checks; not evidence of full-system efficacy",
+  "seed": 42,
+  "dtype": "float64",
+  "candidate_gradient_max_error": 1.1102230246251565e-16,
+  "joint_scale_derivative_error": 3.552713678800501e-15,
+  "individual_normalization_distinct_codes_on_positive_line": 1,
+  "nonhomogeneous_predictor_scale_error": 1.5,
+  "proposal_constraint_derivatives": [
+    -1.3857775897765083,
+    0.31418902137116944
+  ],
+  "corrected_constraint_derivatives": [
+    0.0,
+    -3.8163916471489756e-17
+  ],
+  "retained_update_norm": 1.8214238204217965,
+  "finite_step_changes": {
+    "0.01": {
+      "log_spread_change": 4.495104536461625e-05,
+      "alignment_error_change": 0.00012936921522652134
+    },
+    "0.001": {
+      "log_spread_change": 4.4952045596957646e-07,
+      "alignment_error_change": 1.293692152265491e-06
+    },
+    "0.0001": {
+      "log_spread_change": 4.495205541132918e-09,
+      "alignment_error_change": 1.293692150627912e-08
+    }
+  }
+}

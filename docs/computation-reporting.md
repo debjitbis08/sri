@@ -63,5 +63,11 @@ checks should record their own cost, but need not run a large timing sweep.
 
 - [CPU against GPU benchmark v1](cpu-gpu-benchmark-v1.md) (2026-10-30): a training step
   shaped like the sequence and fan-in pilots, on the Ryzen 5 3600 and GTX 1650. The GPU is
-  about 5–6× faster than six CPU workers at batch 270 on the benchmark step; the real
-  pilot's gain is not yet measured.
+  about 5–6× faster than six CPU workers at batch 270 on the benchmark step.
+- [Real fan-in pilot timing](gpu-timing-fan-in-v1.md) (2026-10-30): about 1.6×
+  aggregate throughput gain with six GPU processes against the historical CPU
+  run, with substantial host overhead. This is a limited training comparison,
+  not a CPU inference-efficiency result.
+- [CPU efficiency as an architectural constraint](cpu-efficiency-design-constraint.md)
+  (2026-11-01): distinguishes inference, continued learning and initial training;
+  records that CPU viability remains unestablished and must constrain design.
