@@ -386,3 +386,9 @@ Seed 450 only. Nothing here is a result of the study.
    for confirmed hops. So the choice among about 43 relations is barely trained. The contract's signals do not reward
    the relation on a found path.
 7. **Not run:** the main stage. Phase 1 of seed 450 with the fallback is in `runs/` (6.7 CPU min).
+8. **Amendment on the user's direction ("continue to the next step after the fixes"): the relation and direction on a
+   found path are positives at their choice points,** like the entity (cross-entropy on the masked relation logits and
+   the direction logits). Probe, 250 steps: found on true rows 0.14 at step 25, 0.26 at 125, 0.22 at 250 (false rows
+   0.004–0.039). Still below the 0.3 threshold of prediction 10, but rising from 0.04 untrained. The user directed the
+   main run to proceed; the threshold miss is recorded here and the run's training logs report found rates every 100
+   steps.

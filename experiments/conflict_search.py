@@ -219,8 +219,10 @@ def search(model, a, r, b, mode, trace, start_codes=None, train=False, rel_oracl
             rel_mask = torch.stack([avail[x] if x >= 0 else live[i][2] for i, x in zip(idx, nd)])
             if rel_oracle is not None:      # diagnostic only: restrict to the question's base relations
                 rel_mask = rel_mask & rel_oracle[r[idx]]
-            ridx, rc, _ = straight_through(model.w_rel(z), R_L, sample=train, mask=rel_mask)
-            dprob = torch.softmax(model.w_dir(z), 1)
+            rel_logits = model.w_rel(z).masked_fill(~rel_mask, -1e9)
+            ridx, rc, _ = straight_through(rel_logits, R_L, sample=train)
+            dlog = model.w_dir(z)
+            dprob = torch.softmax(dlog, 1)
             dsel = torch.multinomial(dprob.detach(), 1)[:, 0] if train else dprob.argmax(1)
             logits = model.q_scale.exp() * F.normalize(model.q(z), dim=1) @ E_norm.T
             with torch.no_grad():
@@ -259,7 +261,7 @@ def search(model, a, r, b, mode, trace, start_codes=None, train=False, rel_oracl
                     m = int(lm[k].argmax())
                 fr.left -= 1
                 fr.ridx, fr.rc, fr.dprob, fr.dir = int(ridx[k]), rc[k], dprob[k], int(dsel[k])
-                fr.tries.append((logits[k], m))
+                fr.tries.append((logits[k], m, rel_logits[k], int(ridx[k]), dlog[k], int(dsel[k])))
                 row.cand = m
                 row.tries += 1
         need = []
@@ -311,10 +313,13 @@ def search(model, a, r, b, mode, trace, start_codes=None, train=False, rel_oracl
                     if train:
                         for hp in row.path[0] + row.path[1]:
                             f2, pos = hp[0], hp[1]
-                            lg, _ = f2.tries[-1]
+                            lg, _, rl, ri, dl, di = f2.tries[-1]
                             neg = [x for x in f2.tried if x != pos]
                             cand = torch.tensor([pos] + neg)
                             rank_terms.append(F.cross_entropy(lg[cand][None], torch.zeros(1, dtype=torch.long)))
+                            # amendment: the relation and direction on a found path are positives too
+                            rank_terms.append(F.cross_entropy(rl[None], torch.tensor([ri])))
+                            rank_terms.append(F.cross_entropy(dl[None], torch.tensor([di])))
                     continue
                 if row.depth[0] + row.depth[1] + 1 < D_MAX:
                     fr.confirmed.append(m)
