@@ -1,0 +1,361 @@
+{
+ "aggregate_worker_cpu_seconds": 108579.758094955,
+ "children_peak_rss_kb": 1005576,
+ "command": "/home/debjit/code/sri/experiments/multistep_reader.py main",
+ "contract_sha256": "2c2705de3a38ba8b7233fa6e404202077eb743f8a951da1b007d69a9f39b861e",
+ "cpu": "x86_64",
+ "device": "cpu",
+ "dirty": true,
+ "dtype": "float32",
+ "numpy": "2.5.4",
+ "os": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "parent_peak_rss_kb": 299336,
+ "python": "3.12.3",
+ "revision": "97627185239d4bce6b34ac042775c2b19e9b3871",
+ "rss_convention": "ru_maxrss in KiB per process; children is the largest single child",
+ "runner_sha256": "6b454b703db4d78f227f5cecd89a7defc17b7378e2506226238ae0cc17ba47da",
+ "scope": "nondeterministic timing",
+ "tasks": {
+  "pred-loop/seed450": {
+   "checkpoint_bytes": 282062,
+   "cpu_seconds": 14453.69257247,
+   "fit_steps": 500,
+   "inference": {
+    "includes": "forward only, batched, CPU float32",
+    "median_seconds_per_1000": 0.013701893971301615,
+    "repeats": 5,
+    "spread": [
+     0.013645543018355966,
+     0.013715734996367246
+    ],
+    "threads": 1
+   },
+   "optimizer_steps": 3000,
+   "params": 68352,
+   "peak_rss_kb": 1002764,
+   "train_cpu_seconds": 14448.661270374,
+   "trained_statements": 17610,
+   "wall_seconds": 14456.94652944099
+  },
+  "pred-loop/seed451": {
+   "checkpoint_bytes": 282062,
+   "cpu_seconds": 14300.043003575,
+   "fit_steps": 500,
+   "inference": {
+    "includes": "forward only, batched, CPU float32",
+    "median_seconds_per_1000": 0.024623429984785616,
+    "repeats": 5,
+    "spread": [
+     0.020389287965372205,
+     0.02665728295687586
+    ],
+    "threads": 1
+   },
+   "optimizer_steps": 3000,
+   "params": 68352,
+   "peak_rss_kb": 1005576,
+   "train_cpu_seconds": 14292.224024938,
+   "trained_statements": 17610,
+   "wall_seconds": 14303.379925926041
+  },
+  "pred-loop/seed452": {
+   "checkpoint_bytes": 282062,
+   "cpu_seconds": 14361.511691448999,
+   "fit_steps": 500,
+   "inference": {
+    "includes": "forward only, batched, CPU float32",
+    "median_seconds_per_1000": 0.01848854694981128,
+    "repeats": 5,
+    "spread": [
+     0.018099459004588425,
+     0.019540719978976995
+    ],
+    "threads": 1
+   },
+   "optimizer_steps": 3000,
+   "params": 68352,
+   "peak_rss_kb": 1002720,
+   "train_cpu_seconds": 14355.085233221,
+   "trained_statements": 17610,
+   "wall_seconds": 14364.455329057004
+  },
+  "pred-loop/seed453": {
+   "checkpoint_bytes": 282062,
+   "cpu_seconds": 14189.403010493,
+   "fit_steps": 500,
+   "inference": {
+    "includes": "forward only, batched, CPU float32",
+    "median_seconds_per_1000": 0.025400046026334167,
+    "repeats": 5,
+    "spread": [
+     0.02412618900416419,
+     0.027471410983707756
+    ],
+    "threads": 1
+   },
+   "optimizer_steps": 3000,
+   "params": 68352,
+   "peak_rss_kb": 995564,
+   "train_cpu_seconds": 14181.151741265001,
+   "trained_statements": 17610,
+   "wall_seconds": 14193.111593575974
+  },
+  "pred-one/seed450": {
+   "checkpoint_bytes": 143399,
+   "cpu_seconds": 1427.1471345329999,
+   "fit_steps": 500,
+   "inference": {
+    "includes": "forward only, batched, CPU float32",
+    "median_seconds_per_1000": 0.002599491039291024,
+    "repeats": 5,
+    "spread": [
+     0.0017532439669594169,
+     0.0043593039736151695
+    ],
+    "threads": 1
+   },
+   "optimizer_steps": 3000,
+   "params": 34593,
+   "peak_rss_kb": 375740,
+   "train_cpu_seconds": 1424.466981894,
+   "trained_statements": 17610,
+   "wall_seconds": 1427.462488470017
+  },
+  "pred-one/seed451": {
+   "checkpoint_bytes": 143399,
+   "cpu_seconds": 1099.6179894539998,
+   "fit_steps": 500,
+   "inference": {
+    "includes": "forward only, batched, CPU float32",
+    "median_seconds_per_1000": 0.0019601379754021764,
+    "repeats": 5,
+    "spread": [
+     0.0018782659899443388,
+     0.0026942219701595604
+    ],
+    "threads": 1
+   },
+   "optimizer_steps": 3000,
+   "params": 34593,
+   "peak_rss_kb": 383304,
+   "train_cpu_seconds": 1096.944947389,
+   "trained_statements": 17610,
+   "wall_seconds": 1099.9272085039993
+  },
+  "pred-one/seed452": {
+   "checkpoint_bytes": 143399,
+   "cpu_seconds": 1077.261505648,
+   "fit_steps": 500,
+   "inference": {
+    "includes": "forward only, batched, CPU float32",
+    "median_seconds_per_1000": 0.00112227100180462,
+    "repeats": 5,
+    "spread": [
+     0.0010919810156337917,
+     0.0012581649934872985
+    ],
+    "threads": 1
+   },
+   "optimizer_steps": 3000,
+   "params": 34593,
+   "peak_rss_kb": 375372,
+   "train_cpu_seconds": 1075.951275357,
+   "trained_statements": 17610,
+   "wall_seconds": 1077.468234748987
+  },
+  "pred-one/seed453": {
+   "checkpoint_bytes": 143399,
+   "cpu_seconds": 955.8100962359999,
+   "fit_steps": 500,
+   "inference": {
+    "includes": "forward only, batched, CPU float32",
+    "median_seconds_per_1000": 0.0010828999802470207,
+    "repeats": 5,
+    "spread": [
+     0.0010650900076143444,
+     0.0012510340311564505
+    ],
+    "threads": 1
+   },
+   "optimizer_steps": 3000,
+   "params": 34593,
+   "peak_rss_kb": 375332,
+   "train_cpu_seconds": 954.4364245749999,
+   "trained_statements": 17610,
+   "wall_seconds": 956.0944319989649
+  },
+  "unit-loop/seed450": {
+   "checkpoint_bytes": 304419,
+   "cpu_seconds": 10966.194685234,
+   "fit_steps": 500,
+   "inference": {
+    "includes": "forward only, batched, CPU float32",
+    "median_seconds_per_1000": 0.020502261992078274,
+    "repeats": 5,
+    "spread": [
+     0.01966740598436445,
+     0.0212587570422329
+    ],
+    "threads": 1
+   },
+   "optimizer_steps": 3000,
+   "params": 73713,
+   "peak_rss_kb": 790576,
+   "train_cpu_seconds": 10960.346199127,
+   "trained_statements": 17610,
+   "wall_seconds": 10968.416667806974
+  },
+  "unit-loop/seed451": {
+   "checkpoint_bytes": 304419,
+   "cpu_seconds": 10407.492357945,
+   "fit_steps": 500,
+   "inference": {
+    "includes": "forward only, batched, CPU float32",
+    "median_seconds_per_1000": 0.020747996983118355,
+    "repeats": 5,
+    "spread": [
+     0.019367349974345416,
+     0.0222494860063307
+    ],
+    "threads": 1
+   },
+   "optimizer_steps": 3000,
+   "params": 73713,
+   "peak_rss_kb": 796736,
+   "train_cpu_seconds": 10401.594371906,
+   "trained_statements": 17610,
+   "wall_seconds": 10409.44306197
+  },
+  "unit-loop/seed452": {
+   "checkpoint_bytes": 304419,
+   "cpu_seconds": 11478.781918119,
+   "fit_steps": 500,
+   "inference": {
+    "includes": "forward only, batched, CPU float32",
+    "median_seconds_per_1000": 0.020854574046097696,
+    "repeats": 5,
+    "spread": [
+     0.01889540604315698,
+     0.02242603403283283
+    ],
+    "threads": 1
+   },
+   "optimizer_steps": 3000,
+   "params": 73713,
+   "peak_rss_kb": 778292,
+   "train_cpu_seconds": 11472.821830649,
+   "trained_statements": 17610,
+   "wall_seconds": 11481.680529492965
+  },
+  "unit-loop/seed453": {
+   "checkpoint_bytes": 304419,
+   "cpu_seconds": 10956.981734608,
+   "fit_steps": 500,
+   "inference": {
+    "includes": "forward only, batched, CPU float32",
+    "median_seconds_per_1000": 0.018954542989376932,
+    "repeats": 5,
+    "spread": [
+     0.018482723040506244,
+     0.02234239800600335
+    ],
+    "threads": 1
+   },
+   "optimizer_steps": 3000,
+   "params": 73713,
+   "peak_rss_kb": 791196,
+   "train_cpu_seconds": 10951.188834156,
+   "trained_statements": 17610,
+   "wall_seconds": 10959.016067194985
+  },
+  "unit-one/seed450": {
+   "checkpoint_bytes": 122325,
+   "cpu_seconds": 772.056663034,
+   "fit_steps": 500,
+   "inference": {
+    "includes": "forward only, batched, CPU float32",
+    "median_seconds_per_1000": 0.0007611940382048488,
+    "repeats": 5,
+    "spread": [
+     0.0007197940140031278,
+     0.0008604159811511636
+    ],
+    "threads": 1
+   },
+   "optimizer_steps": 3000,
+   "params": 29521,
+   "peak_rss_kb": 345292,
+   "train_cpu_seconds": 770.9921898680001,
+   "trained_statements": 17610,
+   "wall_seconds": 772.2229714780115
+  },
+  "unit-one/seed451": {
+   "checkpoint_bytes": 122325,
+   "cpu_seconds": 641.531514768,
+   "fit_steps": 500,
+   "inference": {
+    "includes": "forward only, batched, CPU float32",
+    "median_seconds_per_1000": 0.0007035229937173426,
+    "repeats": 5,
+    "spread": [
+     0.000698134012054652,
+     0.0007327329949475825
+    ],
+    "threads": 1
+   },
+   "optimizer_steps": 3000,
+   "params": 29521,
+   "peak_rss_kb": 353320,
+   "train_cpu_seconds": 640.764050239,
+   "trained_statements": 17610,
+   "wall_seconds": 641.5824216509936
+  },
+  "unit-one/seed452": {
+   "checkpoint_bytes": 122325,
+   "cpu_seconds": 860.241509536,
+   "fit_steps": 500,
+   "inference": {
+    "includes": "forward only, batched, CPU float32",
+    "median_seconds_per_1000": 0.0007255240343511105,
+    "repeats": 5,
+    "spread": [
+     0.0006974930292926729,
+     0.0007628949824720621
+    ],
+    "threads": 1
+   },
+   "optimizer_steps": 3000,
+   "params": 29521,
+   "peak_rss_kb": 365508,
+   "train_cpu_seconds": 859.182173004,
+   "trained_statements": 17610,
+   "wall_seconds": 860.5399723570445
+  },
+  "unit-one/seed453": {
+   "checkpoint_bytes": 122325,
+   "cpu_seconds": 631.990707853,
+   "fit_steps": 500,
+   "inference": {
+    "includes": "forward only, batched, CPU float32",
+    "median_seconds_per_1000": 0.000713412999175489,
+    "repeats": 5,
+    "spread": [
+     0.0006805930170230567,
+     0.0007268040208145976
+    ],
+    "threads": 1
+   },
+   "optimizer_steps": 3000,
+   "params": 29521,
+   "peak_rss_kb": 345384,
+   "train_cpu_seconds": 630.8866506740001,
+   "trained_statements": 17610,
+   "wall_seconds": 632.1646832650295
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "wall_seconds": 14457.100168176054,
+ "workers": 8,
+ "world_sha256": "ecbf67d4aaac43095f8e9421eaccecca5e80335a583fba7078d70eb2993ff96b"
+}
