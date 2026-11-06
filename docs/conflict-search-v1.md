@@ -351,3 +351,38 @@ against `src/everyday_truth_v2.py`.
 - **Pre-registered R_L check:** the smoke run records logic's step-0 support and the trigger rate on withheld-relation
   training rows where intuition is confident; the fallback target is a constant in the runner, off unless the check
   fails, and its setting is recorded in the results.
+
+## Smoke-stage record (2026-11-06, after freezing; main run not started)
+
+Seed 450 only. Nothing here is a result of the study.
+
+1. **Pre-registered R_L check failed; the fallback was taken.** Without it, the frozen one-pass answered a confident F on
+   0.93 of withheld-relation training rows, and the trigger fired on 0.13. With the no-support target, the trigger fires
+   on 1.00 (logic answers U on all 3,121 rows). `WITHHELD_NO_SUPPORT = True` in the runner.
+2. **The hop check is sound.** On trained base facts both routes confirm 1.00 of true and 0.00 of false; on all base
+   facts 0.90 and 0.002. From a person, logic relates about 6 entities by `parent-of`, mostly non-people (never-seen
+   type combinations), and both routes together confirm about 1.2 (true children 0.93).
+3. **Amendment: the action space is the frozen reader's edges** (the change held for v2 in the second review, taken
+   because every true training row exhausted). The relation is chosen among those under which logic relates the node to
+   some entity (about 43 of 47 per entity, so this barely narrows it); candidates are the entities logic relates under
+   the chosen relation and direction; Q orders them. Relation, direction and candidate are sampled in training and
+   taken by argmax at test. The edge table is computed once per model, since the readers are frozen.
+4. **Bug fixed: the target was excluded from the candidates.** The mask excluded both frontier nodes; in the forward
+   walk the other frontier is b, so b could never be proposed and no path could be found. Now only the current side's
+   node and path are excluded. Before the fix every probe found 0 paths, even with the base relations given.
+5. **Stopping rule (prediction 10) fires on the probe.** `bt-forward`, 250 phase-2 steps:
+
+   | Step | Found, true rows | Found, false rows | Ranking loss |
+   |---|---|---|---|
+   | 0 (untrained) | 0.04 | 0.005 | — |
+   | 25 | 0.12 | 0.008 | 0.24 |
+   | 100 | 0.11 | 0.027 | 0.24 |
+   | 250 | 0.15 | 0.023 | 0.09 |
+
+   With the question's base relations given (diagnostic hook `rel_oracle`, untrained controller): 0.11 of true rows,
+   0.025 of false.
+6. **Diagnosis.** The ranking loss trains only the entity proposer Q and falls, but found paths do not grow. The relation
+   choice gets gradient only through the outcome loss, via the product of hop supports on found paths, which are near 1
+   for confirmed hops. So the choice among about 43 relations is barely trained. The contract's signals do not reward
+   the relation on a found path.
+7. **Not run:** the main stage. Phase 1 of seed 450 with the fallback is in `runs/` (6.7 CPU min).
