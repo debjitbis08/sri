@@ -151,3 +151,91 @@ run with `experiments/durable.py`.
 
     EV_WORKERS=6 .venv/bin/python -m experiments.relations_as_objects       # rerun to resume
     .venv/bin/python -m experiments.relations_as_objects summary
+
+## Results (2026-11-07)
+
+Run at revision `cee8ece`, 12 runs, 6 workers, 21 min wall. Means over seeds 450–453 and over the held-out relations
+of each type. Balanced accuracy counts U as wrong (chance 0.5).
+
+### Training fits everything
+
+| Arm | trained synthetic relations | relations-among-relations facts (ρ₁…ρ₅) | world T/F tests, logic / intuition |
+|---|---|---|---|
+| `map` | 0.985 | 0.999–1.000 | 0.620 / 0.643 |
+| `nomap` | 0.974 | 0.994–1.000 | 0.633 / 0.645 |
+| `merged` | 0.982 | 1.000 | 0.640 / 0.635 |
+
+### Introducing a held-out relation does not work in any arm
+
+Logic, balanced accuracy on the held-out relation's instances:
+
+| Held-out type | arm | k = 0: `rho` / `none` / `shuffled` | k = 4: `rho` / `none` / `shuffled` | intuition, k = 4 |
+|---|---|---|---|---|
+| inverse + synonym (7) | `map` | 0.52 / 0.52 / 0.52 | 0.59 / 0.60 / 0.57 | 0.57 |
+| | `nomap` | 0.52 / 0.52 / 0.52 | 0.55 / 0.55 / 0.55 | 0.57 |
+| | `merged` | 0.52 / 0.51 / 0.51 | 0.55 / 0.56 / 0.54 | 0.56 |
+| real inverse (`child-of`, `darker-than`) | `map` | 0.42 / 0.42 / 0.41 | 0.50 / 0.49 / 0.51 | 0.55 |
+| broad (2) | `map` | 0.57 / 0.56 / 0.57 | 0.69 / 0.67 / 0.64 | 0.66 |
+| narrow (2) | `map` | 0.57 / 0.54 / 0.56 | 0.69 / 0.69 / 0.64 | 0.69 |
+| symmetric (2) | `map` | 0.51 / 0.53 / 0.51 | 0.54 / 0.52 / 0.56 | 0.59 |
+
+Applicability at k = 0 (`map`, inverse + synonym): `rho` recognizes 0.83 of out-of-type triples as meaningless but
+keeps only 0.44 of in-type facts meaningful; `none` 0.86 and 0.30. That is a default toward "meaningless" for an
+unknown relation, with a small shift from the type statements, not recognition. Implication subsets: broad, T recall
+where the narrow relation holds, 0.81 (`rho`) against 0.76 (`none`) at k = 4; narrow, F recall where the broad relation
+fails, 0.89–0.97 in every condition, because an unknown relation defaults to F.
+
+### Why: relation facts do not pin down a relation's behaviour
+
+A diagnostic after the run (`map`, seed 450, trained relations only): each trained relation's object code was refitted
+from scratch using only its ρ-facts, as at test. The refitted codes satisfy the ρ-facts (0.993–1.000) but land
+elsewhere (cosine to the trained code −0.11 to 0.76). Their behaviour comes back only partly:
+
+| Relation type (trained) | instances, trained code | instances, code refitted from ρ-facts |
+|---|---|---|
+| inverse (8) | 0.99–1.00 | 0.51–0.83 (mean 0.72) |
+| synonym (5) | 1.00 | 0.65–0.94 (mean 0.77) |
+| broad / narrow (12) | 0.98–1.00 | 0.51–0.66 (mean 0.58) |
+
+For comparison, using the partner's trained code as the new relation's code gives synonyms 0.99–1.00 and inverses
+0.46–0.98. A relation's meaning sits in its code because its instances shaped it. Many codes satisfy its ρ-facts, and
+the reader's judgement of ρ-facts does not constrain the code to the region that behaves correctly. The introduction
+pressure (dropping a relation's instances in 30% of steps) never required a code determined by ρ-facts alone to
+produce behaviour. Every trained relation's code was still fitted to its instances in the other steps.
+
+### Against the predictions
+
+1. **Held, within numerical noise.** In `nomap`, `rho` = `none` = `shuffled` to within 0.002. The fitting batches differ
+   (instances alone or with ρ-facts), so floating-point sums differ; the semantics are equal.
+2. **Failed.** `map`, k = 0, inverse + synonym: `rho` 0.52 against `none` 0.52 (predicted ≥ 0.2 gain, ≥ 0.7).
+3. **Failed.** `shuffled` equals `rho` (0.52), so which ρ is stated carries nothing at test.
+4. **Failed.** 0.83 recognized, but with 0.44 of in-type facts kept: a default, not a judgement.
+5. **Not informative.** Real and synthetic held-out relations are both at or below chance at k = 0.
+6. **Failed, against the user's concern.** `merged` is not worse: world tests 0.640 against 0.620 (`map`) and 0.633
+   (`nomap`); held-out relations alike. One space did not hurt in this setup.
+7. **Uninformative.** Implication subsets move by at most 0.05 with ρ-facts.
+
+### What this means
+
+- **Relations among relations can be learned as facts** (fitted to 0.999–1.000), and a relation can be an object of
+  statements. But **learning to state them is not learning to use them.** This is the is-a result of type meanings v1
+  again, now at the level of relations, and the map did not change it.
+- **A map from object code to behaviour is not enough.** It links them, but the object code is fixed by the instances,
+  and the ρ-facts are only one more constraint on it.
+- **The training has to contain the situation the test asks for:** a relation whose code is derived only from what is
+  said about it, then judged on its instances. Two established forms:
+  - **amortized introduction:** an encoder computes a fresh relation's code from its ρ-statements (for example,
+    attention over (ρ, partner object code) pairs), trained end to end on the instance answers of relations it
+    introduces;
+  - **gradient-based meta-learning:** the test-time fit itself is trained (MAML-style, backpropagating through the fit).
+
+  Either makes "what is said about it" the only path to a relation's behaviour in those episodes.
+- **The k-shot baseline is weak too** (0.55–0.69 with 4 pairs, intuition alike), so new relations are hard here even
+  from examples.
+
+### Computation (measured)
+
+`reports/relations-as-objects-v1-runtime.json`. Per run: world build 3 CPU s; training 454–537 CPU s (above the
+declared 3–6 min, at six parallel workers); test fits 101–122 CPU s (135 fits × 500 steps); 75,652–80,116 parameters;
+peak RSS 0.51 GB. Total 7,257 CPU s (2.0 CPU h), 21 min wall, within the declared 20–40 min. The post-run refit
+diagnostic added about 4 CPU min. No tuning.
