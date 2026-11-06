@@ -15,7 +15,7 @@ form of memory does it need: the previous step only, a carried summary, or a loo
 
 A **program** is a found path's sequence of steps, each a relation and a direction, between START and END markers,
 together with the question's relation q. Hop truth is the existing two-route check and is not repeated. Every candidate
-path runs over facts the frozen reader confirms, using permitted relations only (the 32 of
+path runs over facts the frozen reader confirms, using permitted relations only (the 33 of
 [the diagnostics](conflict-search-diagnostics-v1.md)). Relation and direction embeddings belong to the critic and are
 learned. No proof definition is given to it; those are used only to score it.
 

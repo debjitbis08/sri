@@ -1,0 +1,65 @@
+{
+ "aggregate_worker_cpu_seconds": 152.01956493900002,
+ "children_peak_rss_kb": 490244,
+ "command": "/home/debjit/code/sri/experiments/type_meanings.py",
+ "contract_sha256": "e642f6ca3e592bb2497118c193d72006a1bf9884f9284ba4e8555dd98c0f8b3c",
+ "cpu": "x86_64",
+ "device": "cpu",
+ "dirty": false,
+ "dtype": "float32",
+ "numpy": "2.5.4",
+ "os": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "parent_peak_rss_kb": 298424,
+ "python": "3.12.3",
+ "revision": "ed235035c3cfb4d8ae782720ba3577cab1da9359",
+ "rss_convention": "ru_maxrss in KiB per process; children is the largest single child",
+ "runner_sha256": "dbe9502efae698b6aecfc2d6bdeaa2950a9d49edbff2a09cece962e41ec75efb",
+ "scope": "nondeterministic timing",
+ "tasks": {
+  "base/seed450": {
+   "checkpoint_bytes": 334343,
+   "cpu_seconds": 37.054223111000006,
+   "params": 80631,
+   "peak_rss_kb": 489524,
+   "reads_cpu_seconds": 14.610721589000004,
+   "steps": 60,
+   "train_cpu_seconds": 19.918367609,
+   "wall_seconds": 37.06625513799918
+  },
+  "isa+meaningless/seed450": {
+   "checkpoint_bytes": 334858,
+   "cpu_seconds": 39.661521369000006,
+   "params": 80631,
+   "peak_rss_kb": 490192,
+   "reads_cpu_seconds": 11.987587830999995,
+   "steps": 60,
+   "train_cpu_seconds": 25.256502234000003,
+   "wall_seconds": 39.68267469899911
+  },
+  "isa/seed450": {
+   "checkpoint_bytes": 334302,
+   "cpu_seconds": 38.738342601999996,
+   "params": 80631,
+   "peak_rss_kb": 490244,
+   "reads_cpu_seconds": 13.002064556,
+   "steps": 60,
+   "train_cpu_seconds": 23.409056794,
+   "wall_seconds": 38.7723545810004
+  },
+  "meaningless/seed450": {
+   "checkpoint_bytes": 334630,
+   "cpu_seconds": 36.565477857000005,
+   "params": 80631,
+   "peak_rss_kb": 489360,
+   "reads_cpu_seconds": 14.362663511999997,
+   "steps": 60,
+   "train_cpu_seconds": 19.842132243000002,
+   "wall_seconds": 36.574926244999006
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "wall_seconds": 39.746493774000555,
+ "workers": 4,
+ "world_sha256": "becebd0f5ab0d4d28653d53708f359243907425b08036af87775b8c8e1dfc4ef"
+}

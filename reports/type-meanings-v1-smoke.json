@@ -1,0 +1,737 @@
+{
+ "results": {
+  "base/seed450": {
+   "arm": "base",
+   "categories": {
+    "ability": 5,
+    "body-part": 11,
+    "colour": 11,
+    "food": 5,
+    "habitat": 4,
+    "object": 22,
+    "person": 42,
+    "property": 16,
+    "sound": 16,
+    "substance": 6
+   },
+   "checkpoint": {
+    "file": "runs/type-meanings-v1-smoke/base-seed450.pt",
+    "sha256": "eb10d9f177799fe92f08661ebeaf6839587295cfbc616ff530b8895180446443"
+   },
+   "log": [
+    {
+     "applicability": 0.004503276199102402,
+     "loss": 1.8262484073638916,
+     "step": 20,
+     "wall": 6.429361896000046
+    },
+    {
+     "applicability": 1.9061855709878728e-05,
+     "loss": 1.0254830121994019,
+     "step": 40,
+     "wall": 12.71959702300046
+    },
+    {
+     "applicability": 1.1235015335842036e-05,
+     "loss": 0.4590968191623688,
+     "step": 60,
+     "wall": 19.866917683000793
+    }
+   ],
+   "n_isa_rows": 0,
+   "n_meaningless_train": 0,
+   "object_members": [
+    "apple",
+    "banana",
+    "carrot",
+    "cherry",
+    "chocolate",
+    "cloud",
+    "coal",
+    "feather",
+    "grape",
+    "grass",
+    "leaf",
+    "lemon",
+    "night-sky",
+    "plum",
+    "sea",
+    "sky",
+    "snow",
+    "strawberry",
+    "sun",
+    "tangerine",
+    "thunder",
+    "tomato"
+   ],
+   "reads": {
+    "M_sets": {
+     "M-cat": {
+      "confirmed": 0.027333333333333334,
+      "confirmed_gated": 0.027333333333333334,
+      "n": 3000,
+      "recognized": 0.0
+     },
+     "M-in": {
+      "confirmed": 0.034333333333333334,
+      "confirmed_gated": 0.034333333333333334,
+      "n": 3000,
+      "recognized": 0.0
+     },
+     "M-rel": {
+      "confirmed": 0.044333333333333336,
+      "confirmed_gated": 0.044333333333333336,
+      "n": 3000,
+      "recognized": 0.0
+     }
+    },
+    "cow_parent_of_moo": {
+     "app": 0.9999961853027344,
+     "confirmed": 0.0,
+     "sig": 0.965286374092102,
+     "sm": 0.7526317834854126,
+     "sp": 0.27826470136642456
+    },
+    "full_graph": {
+     "meaningless_confirmed": 48818,
+     "meaningless_confirmed_gated": 48818,
+     "meaningless_total": 1567101,
+     "true_confirmed": 346,
+     "true_confirmed_gated": 346,
+     "true_total": 1690
+    },
+    "sound_isa": {
+     "support_false": 0.24068205058574677,
+     "support_true": 0.05103854835033417
+    },
+    "taught_kept_meaningful": 1.0,
+    "taught_kept_meaningful_true": 1.0,
+    "truth": {
+     "G2": {
+      "intuition": 0.7425479787668436,
+      "logic": 0.5469579420171499,
+      "logic_with_M": 0.5469579420171499,
+      "meaningless_rate": 0.0
+     },
+     "G4": {
+      "intuition": 0.5224358974358974,
+      "logic": 0.328525641025641,
+      "logic_with_M": 0.328525641025641,
+      "meaningless_rate": 0.0
+     },
+     "L1-anc": {
+      "intuition": 0.5277777777777778,
+      "logic": 0.1388888888888889,
+      "logic_with_M": 0.1388888888888889,
+      "meaningless_rate": 0.0
+     },
+     "L1-kind": {
+      "intuition": 0.6446428571428572,
+      "logic": 0.3,
+      "logic_with_M": 0.3,
+      "meaningless_rate": 0.0
+     },
+     "L1-size": {
+      "intuition": 0.8388888888888888,
+      "logic": 0.03888888888888889,
+      "logic_with_M": 0.03888888888888889,
+      "meaningless_rate": 0.0
+     },
+     "L2-named": {
+      "intuition": 0.6971153846153846,
+      "logic": 0.1826923076923077,
+      "logic_with_M": 0.1826923076923077,
+      "meaningless_rate": 0.0
+     },
+     "P1-default": {
+      "intuition": 0.5646794150731158,
+      "logic": 0.37935883014623173,
+      "logic_with_M": 0.37935883014623173,
+      "meaningless_rate": 0.0
+     },
+     "P2": {
+      "intuition": 0.6413913973384031,
+      "logic": 0.35644011406844106,
+      "logic_with_M": 0.35644011406844106,
+      "meaningless_rate": 0.0
+     },
+     "P3": {
+      "intuition": 0.6430257721817825,
+      "logic": 0.38307429995409537,
+      "logic_with_M": 0.38307429995409537,
+      "meaningless_rate": 0.0
+     },
+     "P4": {
+      "intuition": 0.5555555555555556,
+      "logic": 0.4444444444444444,
+      "logic_with_M": 0.4444444444444444,
+      "meaningless_rate": 0.0
+     },
+     "P6-colour": {
+      "intuition": 0.5534313725490196,
+      "logic": 0.047058823529411764,
+      "logic_with_M": 0.047058823529411764,
+      "meaningless_rate": 0.0
+     },
+     "P6-grandparent": {
+      "intuition": 0.5,
+      "logic": 0.375,
+      "logic_with_M": 0.375,
+      "meaningless_rate": 0.0
+     }
+    }
+   },
+   "seed": 450
+  },
+  "isa+meaningless/seed450": {
+   "arm": "isa+meaningless",
+   "categories": {
+    "ability": 5,
+    "body-part": 11,
+    "colour": 11,
+    "food": 5,
+    "habitat": 4,
+    "object": 22,
+    "person": 42,
+    "property": 16,
+    "sound": 16,
+    "substance": 6
+   },
+   "checkpoint": {
+    "file": "runs/type-meanings-v1-smoke/isa+meaningless-seed450.pt",
+    "sha256": "ee06731c00c47208aa4696bb51d15be04775c980e49a2add1d1d736d747c2c92"
+   },
+   "log": [
+    {
+     "applicability": 0.29179951548576355,
+     "loss": 2.0877525806427,
+     "step": 20,
+     "wall": 8.118794002999493
+    },
+    {
+     "applicability": 0.22458136081695557,
+     "loss": 1.2076098918914795,
+     "step": 40,
+     "wall": 16.13873331799914
+    },
+    {
+     "applicability": 0.13652972877025604,
+     "loss": 0.5563775300979614,
+     "step": 60,
+     "wall": 25.189170371999353
+    }
+   ],
+   "n_isa_rows": 1606,
+   "n_meaningless_train": 2700,
+   "object_members": [
+    "apple",
+    "banana",
+    "carrot",
+    "cherry",
+    "chocolate",
+    "cloud",
+    "coal",
+    "feather",
+    "grape",
+    "grass",
+    "leaf",
+    "lemon",
+    "night-sky",
+    "plum",
+    "sea",
+    "sky",
+    "snow",
+    "strawberry",
+    "sun",
+    "tangerine",
+    "thunder",
+    "tomato"
+   ],
+   "reads": {
+    "M_sets": {
+     "M-cat": {
+      "confirmed": 0.03766666666666667,
+      "confirmed_gated": 0.007,
+      "n": 3000,
+      "recognized": 0.8733333333333333
+     },
+     "M-in": {
+      "confirmed": 0.04933333333333333,
+      "confirmed_gated": 0.008333333333333333,
+      "n": 3000,
+      "recognized": 0.837
+     },
+     "M-rel": {
+      "confirmed": 0.043666666666666666,
+      "confirmed_gated": 0.031,
+      "n": 3000,
+      "recognized": 0.283
+     }
+    },
+    "cow_parent_of_moo": {
+     "app": 0.7695642113685608,
+     "confirmed": 0.0,
+     "sig": 0.9961799383163452,
+     "sm": 0.47602197527885437,
+     "sp": 0.48653122782707214
+    },
+    "full_graph": {
+     "meaningless_confirmed": 77307,
+     "meaningless_confirmed_gated": 18865,
+     "meaningless_total": 1567101,
+     "true_confirmed": 331,
+     "true_confirmed_gated": 250,
+     "true_total": 1690
+    },
+    "sound_isa": {
+     "support_false": 0.3309255838394165,
+     "support_true": 0.16781601309776306
+    },
+    "taught_kept_meaningful": 0.8559935095666283,
+    "taught_kept_meaningful_true": 0.7982248520710059,
+    "truth": {
+     "G2": {
+      "intuition": 0.8260514495712535,
+      "logic": 0.5670341636041922,
+      "logic_with_M": 0.5186470668299986,
+      "meaningless_rate": 0.011194029850746268
+     },
+     "G4": {
+      "intuition": 0.4967948717948718,
+      "logic": 0.46474358974358976,
+      "logic_with_M": 0.46474358974358976,
+      "meaningless_rate": 0.0
+     },
+     "L1-anc": {
+      "intuition": 0.5277777777777778,
+      "logic": 0.05555555555555555,
+      "logic_with_M": 0.05555555555555555,
+      "meaningless_rate": 0.0
+     },
+     "L1-kind": {
+      "intuition": 0.6571428571428571,
+      "logic": 0.19285714285714287,
+      "logic_with_M": 0.19285714285714287,
+      "meaningless_rate": 0.0
+     },
+     "L1-size": {
+      "intuition": 0.8222222222222222,
+      "logic": 0.005555555555555556,
+      "logic_with_M": 0.005555555555555556,
+      "meaningless_rate": 0.0
+     },
+     "L2-named": {
+      "intuition": 0.7211538461538461,
+      "logic": 0.125,
+      "logic_with_M": 0.09134615384615385,
+      "meaningless_rate": 0.3076923076923077
+     },
+     "P1-default": {
+      "intuition": 0.5428852643419573,
+      "logic": 0.4014341957255343,
+      "logic_with_M": 0.26701349831271093,
+      "meaningless_rate": 0.23225806451612904
+     },
+     "P2": {
+      "intuition": 0.6308955164765526,
+      "logic": 0.35935717680608364,
+      "logic_with_M": 0.3351116920152091,
+      "meaningless_rate": 0.08013082583810302
+     },
+     "P3": {
+      "intuition": 0.6367958554659322,
+      "logic": 0.341792904452751,
+      "logic_with_M": 0.18378254311758146,
+      "meaningless_rate": 0.24571428571428572
+     },
+     "P4": {
+      "intuition": 0.5208333333333333,
+      "logic": 0.4305555555555556,
+      "logic_with_M": 0.006944444444444444,
+      "meaningless_rate": 0.9861111111111112
+     },
+     "P6-colour": {
+      "intuition": 0.5681372549019608,
+      "logic": 0.03235294117647059,
+      "logic_with_M": 0.03235294117647059,
+      "meaningless_rate": 0.004464285714285714
+     },
+     "P6-grandparent": {
+      "intuition": 0.5,
+      "logic": 0.45,
+      "logic_with_M": 0.45,
+      "meaningless_rate": 0.08333333333333333
+     }
+    }
+   },
+   "seed": 450
+  },
+  "isa/seed450": {
+   "arm": "isa",
+   "categories": {
+    "ability": 5,
+    "body-part": 11,
+    "colour": 11,
+    "food": 5,
+    "habitat": 4,
+    "object": 22,
+    "person": 42,
+    "property": 16,
+    "sound": 16,
+    "substance": 6
+   },
+   "checkpoint": {
+    "file": "runs/type-meanings-v1-smoke/isa-seed450.pt",
+    "sha256": "5f42247d1916e3b7f602e47afee4a0a68b700ee4805eea2717a1af371d9d64ab"
+   },
+   "log": [
+    {
+     "applicability": 0.004504858050495386,
+     "loss": 1.826375126838684,
+     "step": 20,
+     "wall": 7.151819614999113
+    },
+    {
+     "applicability": 2.060426413663663e-05,
+     "loss": 1.022560477256775,
+     "step": 40,
+     "wall": 15.014139291999527
+    },
+    {
+     "applicability": 1.2332056030572858e-05,
+     "loss": 0.467190146446228,
+     "step": 60,
+     "wall": 23.358895513998505
+    }
+   ],
+   "n_isa_rows": 1606,
+   "n_meaningless_train": 0,
+   "object_members": [
+    "apple",
+    "banana",
+    "carrot",
+    "cherry",
+    "chocolate",
+    "cloud",
+    "coal",
+    "feather",
+    "grape",
+    "grass",
+    "leaf",
+    "lemon",
+    "night-sky",
+    "plum",
+    "sea",
+    "sky",
+    "snow",
+    "strawberry",
+    "sun",
+    "tangerine",
+    "thunder",
+    "tomato"
+   ],
+   "reads": {
+    "M_sets": {
+     "M-cat": {
+      "confirmed": 0.028333333333333332,
+      "confirmed_gated": 0.028333333333333332,
+      "n": 3000,
+      "recognized": 0.0
+     },
+     "M-in": {
+      "confirmed": 0.036,
+      "confirmed_gated": 0.036,
+      "n": 3000,
+      "recognized": 0.0
+     },
+     "M-rel": {
+      "confirmed": 0.035666666666666666,
+      "confirmed_gated": 0.035666666666666666,
+      "n": 3000,
+      "recognized": 0.0
+     }
+    },
+    "cow_parent_of_moo": {
+     "app": 0.9999929666519165,
+     "confirmed": 0.0,
+     "sig": 0.9961799383163452,
+     "sm": 0.7695242166519165,
+     "sp": 0.25976693630218506
+    },
+    "full_graph": {
+     "meaningless_confirmed": 51718,
+     "meaningless_confirmed_gated": 51718,
+     "meaningless_total": 1567101,
+     "true_confirmed": 370,
+     "true_confirmed_gated": 370,
+     "true_total": 1690
+    },
+    "sound_isa": {
+     "support_false": 0.2840936481952667,
+     "support_true": 0.15413182973861694
+    },
+    "taught_kept_meaningful": 1.0,
+    "taught_kept_meaningful_true": 1.0,
+    "truth": {
+     "G2": {
+      "intuition": 0.8260514495712535,
+      "logic": 0.4978222403702191,
+      "logic_with_M": 0.4978222403702191,
+      "meaningless_rate": 0.0
+     },
+     "G4": {
+      "intuition": 0.4967948717948718,
+      "logic": 0.35416666666666663,
+      "logic_with_M": 0.35416666666666663,
+      "meaningless_rate": 0.0
+     },
+     "L1-anc": {
+      "intuition": 0.5277777777777778,
+      "logic": 0.1388888888888889,
+      "logic_with_M": 0.1388888888888889,
+      "meaningless_rate": 0.0
+     },
+     "L1-kind": {
+      "intuition": 0.6571428571428571,
+      "logic": 0.3142857142857143,
+      "logic_with_M": 0.3142857142857143,
+      "meaningless_rate": 0.0
+     },
+     "L1-size": {
+      "intuition": 0.8222222222222222,
+      "logic": 0.04444444444444444,
+      "logic_with_M": 0.04444444444444444,
+      "meaningless_rate": 0.0
+     },
+     "L2-named": {
+      "intuition": 0.7211538461538461,
+      "logic": 0.19230769230769232,
+      "logic_with_M": 0.19230769230769232,
+      "meaningless_rate": 0.0
+     },
+     "P1-default": {
+      "intuition": 0.5428852643419573,
+      "logic": 0.375421822272216,
+      "logic_with_M": 0.375421822272216,
+      "meaningless_rate": 0.0
+     },
+     "P2": {
+      "intuition": 0.6308955164765526,
+      "logic": 0.3572738434727503,
+      "logic_with_M": 0.3572738434727503,
+      "meaningless_rate": 0.0
+     },
+     "P3": {
+      "intuition": 0.6367958554659322,
+      "logic": 0.39310774477014887,
+      "logic_with_M": 0.39310774477014887,
+      "meaningless_rate": 0.0
+     },
+     "P4": {
+      "intuition": 0.5208333333333333,
+      "logic": 0.4513888888888889,
+      "logic_with_M": 0.4513888888888889,
+      "meaningless_rate": 0.0
+     },
+     "P6-colour": {
+      "intuition": 0.5681372549019608,
+      "logic": 0.0696078431372549,
+      "logic_with_M": 0.0696078431372549,
+      "meaningless_rate": 0.0
+     },
+     "P6-grandparent": {
+      "intuition": 0.5,
+      "logic": 0.35,
+      "logic_with_M": 0.35,
+      "meaningless_rate": 0.0
+     }
+    }
+   },
+   "seed": 450
+  },
+  "meaningless/seed450": {
+   "arm": "meaningless",
+   "categories": {
+    "ability": 5,
+    "body-part": 11,
+    "colour": 11,
+    "food": 5,
+    "habitat": 4,
+    "object": 22,
+    "person": 42,
+    "property": 16,
+    "sound": 16,
+    "substance": 6
+   },
+   "checkpoint": {
+    "file": "runs/type-meanings-v1-smoke/meaningless-seed450.pt",
+    "sha256": "40cda4f7718a72d595cd2dec08eda2cc4ebb14af8531d3d0f460a2d7c11bd7ed"
+   },
+   "log": [
+    {
+     "applicability": 0.2938440144062042,
+     "loss": 2.087646007537842,
+     "step": 20,
+     "wall": 7.370231031000003
+    },
+    {
+     "applicability": 0.21443897485733032,
+     "loss": 1.199378252029419,
+     "step": 40,
+     "wall": 13.874216426000203
+    },
+    {
+     "applicability": 0.11500580608844757,
+     "loss": 0.5274245738983154,
+     "step": 60,
+     "wall": 19.787720766000348
+    }
+   ],
+   "n_isa_rows": 0,
+   "n_meaningless_train": 2700,
+   "object_members": [
+    "apple",
+    "banana",
+    "carrot",
+    "cherry",
+    "chocolate",
+    "cloud",
+    "coal",
+    "feather",
+    "grape",
+    "grass",
+    "leaf",
+    "lemon",
+    "night-sky",
+    "plum",
+    "sea",
+    "sky",
+    "snow",
+    "strawberry",
+    "sun",
+    "tangerine",
+    "thunder",
+    "tomato"
+   ],
+   "reads": {
+    "M_sets": {
+     "M-cat": {
+      "confirmed": 0.033666666666666664,
+      "confirmed_gated": 0.003,
+      "n": 3000,
+      "recognized": 0.878
+     },
+     "M-in": {
+      "confirmed": 0.042666666666666665,
+      "confirmed_gated": 0.006666666666666667,
+      "n": 3000,
+      "recognized": 0.867
+     },
+     "M-rel": {
+      "confirmed": 0.04933333333333333,
+      "confirmed_gated": 0.035666666666666666,
+      "n": 3000,
+      "recognized": 0.2926666666666667
+     }
+    },
+    "cow_parent_of_moo": {
+     "app": 0.8808614015579224,
+     "confirmed": 0.0,
+     "sig": 0.965286374092102,
+     "sm": 0.39577239751815796,
+     "sp": 0.5776892900466919
+    },
+    "full_graph": {
+     "meaningless_confirmed": 66403,
+     "meaningless_confirmed_gated": 17258,
+     "meaningless_total": 1567101,
+     "true_confirmed": 348,
+     "true_confirmed_gated": 280,
+     "true_total": 1690
+    },
+    "sound_isa": {
+     "support_false": 0.3579724431037903,
+     "support_true": 0.060453444719314575
+    },
+    "taught_kept_meaningful": 0.8733013318910148,
+    "taught_kept_meaningful_true": 0.8284023668639053,
+    "truth": {
+     "G2": {
+      "intuition": 0.7425479787668436,
+      "logic": 0.5207567714713488,
+      "logic_with_M": 0.5059888389818974,
+      "meaningless_rate": 0.029850746268656716
+     },
+     "G4": {
+      "intuition": 0.5224358974358974,
+      "logic": 0.3894230769230769,
+      "logic_with_M": 0.3894230769230769,
+      "meaningless_rate": 0.0
+     },
+     "L1-anc": {
+      "intuition": 0.5277777777777778,
+      "logic": 0.08333333333333333,
+      "logic_with_M": 0.08333333333333333,
+      "meaningless_rate": 0.0
+     },
+     "L1-kind": {
+      "intuition": 0.6446428571428572,
+      "logic": 0.19285714285714287,
+      "logic_with_M": 0.19285714285714287,
+      "meaningless_rate": 0.0
+     },
+     "L1-size": {
+      "intuition": 0.8388888888888888,
+      "logic": 0.005555555555555556,
+      "logic_with_M": 0.005555555555555556,
+      "meaningless_rate": 0.0
+     },
+     "L2-named": {
+      "intuition": 0.6971153846153846,
+      "logic": 0.1298076923076923,
+      "logic_with_M": 0.11538461538461539,
+      "meaningless_rate": 0.14743589743589744
+     },
+     "P1-default": {
+      "intuition": 0.5646794150731158,
+      "logic": 0.41535433070866146,
+      "logic_with_M": 0.2630764904386952,
+      "meaningless_rate": 0.24516129032258063
+     },
+     "P2": {
+      "intuition": 0.6413913973384031,
+      "logic": 0.36159695817490495,
+      "logic_with_M": 0.3321173954372624,
+      "meaningless_rate": 0.07931316434995912
+     },
+     "P3": {
+      "intuition": 0.6430257721817825,
+      "logic": 0.361859794084858,
+      "logic_with_M": 0.247852318184799,
+      "meaningless_rate": 0.2342857142857143
+     },
+     "P4": {
+      "intuition": 0.5555555555555556,
+      "logic": 0.4722222222222222,
+      "logic_with_M": 0.006944444444444444,
+      "meaningless_rate": 0.9930555555555556
+     },
+     "P6-colour": {
+      "intuition": 0.5534313725490196,
+      "logic": 0.029901960784313727,
+      "logic_with_M": 0.029901960784313727,
+      "meaningless_rate": 0.0
+     },
+     "P6-grandparent": {
+      "intuition": 0.5,
+      "logic": 0.45,
+      "logic_with_M": 0.45,
+      "meaningless_rate": 0.0
+     }
+    }
+   },
+   "seed": 450
+  }
+ },
+ "status": "type meanings v1 (smoke)"
+}

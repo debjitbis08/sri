@@ -18,7 +18,7 @@ the system, which stays purely neural.
 
 ## Definitions
 
-**Permitted hop relations (32):** relations with taught individual facts, minus the nine withheld relations
+**Permitted hop relations (33; first written as 32 and corrected 2026-11-06, the runner always used 33):** relations with taught individual facts, minus the nine withheld relations
 (`grandparent-of`, `ancestor-of`, `kind-of`, `bigger-than`, `smaller-than`, `named-can`, `named-has`, `named-kind`,
 `same-colour-as`), the grammar relations (`good-phrase`, `makes-sense`) and the connectives (`not`, `and`, `or`).
 

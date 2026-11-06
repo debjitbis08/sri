@@ -1,0 +1,490 @@
+{
+ "base": {
+  "M_sets": {
+   "M-cat": {
+    "confirmed": 0.027,
+    "confirmed_gated": 0.027,
+    "recognized": 0.0
+   },
+   "M-in": {
+    "confirmed": 0.034,
+    "confirmed_gated": 0.034,
+    "recognized": 0.0
+   },
+   "M-rel": {
+    "confirmed": 0.044,
+    "confirmed_gated": 0.044,
+    "recognized": 0.0
+   }
+  },
+  "cow_parent_of_moo": {
+   "app": 1.0,
+   "sig": 0.965,
+   "sp": 0.278
+  },
+  "full_graph": {
+   "meaningless_confirmed": 48818.0,
+   "meaningless_confirmed_gated": 48818.0,
+   "meaningless_total": 1567101.0,
+   "true_confirmed": 346.0,
+   "true_confirmed_gated": 346.0,
+   "true_total": 1690.0
+  },
+  "per_seed_recognized": {
+   "M-cat": [
+    0.0
+   ],
+   "M-in": [
+    0.0
+   ],
+   "M-rel": [
+    0.0
+   ]
+  },
+  "sound_isa": {
+   "support_false": 0.241,
+   "support_true": 0.051
+  },
+  "taught_kept_meaningful": 1.0,
+  "truth": {
+   "G2": {
+    "intuition": 0.743,
+    "logic": 0.547,
+    "logic_with_M": 0.547,
+    "meaningless_rate": 0.0
+   },
+   "G4": {
+    "intuition": 0.522,
+    "logic": 0.329,
+    "logic_with_M": 0.329,
+    "meaningless_rate": 0.0
+   },
+   "L1-anc": {
+    "intuition": 0.528,
+    "logic": 0.139,
+    "logic_with_M": 0.139,
+    "meaningless_rate": 0.0
+   },
+   "L1-kind": {
+    "intuition": 0.645,
+    "logic": 0.3,
+    "logic_with_M": 0.3,
+    "meaningless_rate": 0.0
+   },
+   "L1-size": {
+    "intuition": 0.839,
+    "logic": 0.039,
+    "logic_with_M": 0.039,
+    "meaningless_rate": 0.0
+   },
+   "L2-named": {
+    "intuition": 0.697,
+    "logic": 0.183,
+    "logic_with_M": 0.183,
+    "meaningless_rate": 0.0
+   },
+   "P1-default": {
+    "intuition": 0.565,
+    "logic": 0.379,
+    "logic_with_M": 0.379,
+    "meaningless_rate": 0.0
+   },
+   "P2": {
+    "intuition": 0.641,
+    "logic": 0.356,
+    "logic_with_M": 0.356,
+    "meaningless_rate": 0.0
+   },
+   "P3": {
+    "intuition": 0.643,
+    "logic": 0.383,
+    "logic_with_M": 0.383,
+    "meaningless_rate": 0.0
+   },
+   "P4": {
+    "intuition": 0.556,
+    "logic": 0.444,
+    "logic_with_M": 0.444,
+    "meaningless_rate": 0.0
+   },
+   "P6-colour": {
+    "intuition": 0.553,
+    "logic": 0.047,
+    "logic_with_M": 0.047,
+    "meaningless_rate": 0.0
+   },
+   "P6-grandparent": {
+    "intuition": 0.5,
+    "logic": 0.375,
+    "logic_with_M": 0.375,
+    "meaningless_rate": 0.0
+   }
+  }
+ },
+ "isa": {
+  "M_sets": {
+   "M-cat": {
+    "confirmed": 0.028,
+    "confirmed_gated": 0.028,
+    "recognized": 0.0
+   },
+   "M-in": {
+    "confirmed": 0.036,
+    "confirmed_gated": 0.036,
+    "recognized": 0.0
+   },
+   "M-rel": {
+    "confirmed": 0.036,
+    "confirmed_gated": 0.036,
+    "recognized": 0.0
+   }
+  },
+  "cow_parent_of_moo": {
+   "app": 1.0,
+   "sig": 0.996,
+   "sp": 0.26
+  },
+  "full_graph": {
+   "meaningless_confirmed": 51718.0,
+   "meaningless_confirmed_gated": 51718.0,
+   "meaningless_total": 1567101.0,
+   "true_confirmed": 370.0,
+   "true_confirmed_gated": 370.0,
+   "true_total": 1690.0
+  },
+  "per_seed_recognized": {
+   "M-cat": [
+    0.0
+   ],
+   "M-in": [
+    0.0
+   ],
+   "M-rel": [
+    0.0
+   ]
+  },
+  "sound_isa": {
+   "support_false": 0.284,
+   "support_true": 0.154
+  },
+  "taught_kept_meaningful": 1.0,
+  "truth": {
+   "G2": {
+    "intuition": 0.826,
+    "logic": 0.498,
+    "logic_with_M": 0.498,
+    "meaningless_rate": 0.0
+   },
+   "G4": {
+    "intuition": 0.497,
+    "logic": 0.354,
+    "logic_with_M": 0.354,
+    "meaningless_rate": 0.0
+   },
+   "L1-anc": {
+    "intuition": 0.528,
+    "logic": 0.139,
+    "logic_with_M": 0.139,
+    "meaningless_rate": 0.0
+   },
+   "L1-kind": {
+    "intuition": 0.657,
+    "logic": 0.314,
+    "logic_with_M": 0.314,
+    "meaningless_rate": 0.0
+   },
+   "L1-size": {
+    "intuition": 0.822,
+    "logic": 0.044,
+    "logic_with_M": 0.044,
+    "meaningless_rate": 0.0
+   },
+   "L2-named": {
+    "intuition": 0.721,
+    "logic": 0.192,
+    "logic_with_M": 0.192,
+    "meaningless_rate": 0.0
+   },
+   "P1-default": {
+    "intuition": 0.543,
+    "logic": 0.375,
+    "logic_with_M": 0.375,
+    "meaningless_rate": 0.0
+   },
+   "P2": {
+    "intuition": 0.631,
+    "logic": 0.357,
+    "logic_with_M": 0.357,
+    "meaningless_rate": 0.0
+   },
+   "P3": {
+    "intuition": 0.637,
+    "logic": 0.393,
+    "logic_with_M": 0.393,
+    "meaningless_rate": 0.0
+   },
+   "P4": {
+    "intuition": 0.521,
+    "logic": 0.451,
+    "logic_with_M": 0.451,
+    "meaningless_rate": 0.0
+   },
+   "P6-colour": {
+    "intuition": 0.568,
+    "logic": 0.07,
+    "logic_with_M": 0.07,
+    "meaningless_rate": 0.0
+   },
+   "P6-grandparent": {
+    "intuition": 0.5,
+    "logic": 0.35,
+    "logic_with_M": 0.35,
+    "meaningless_rate": 0.0
+   }
+  }
+ },
+ "isa+meaningless": {
+  "M_sets": {
+   "M-cat": {
+    "confirmed": 0.038,
+    "confirmed_gated": 0.007,
+    "recognized": 0.873
+   },
+   "M-in": {
+    "confirmed": 0.049,
+    "confirmed_gated": 0.008,
+    "recognized": 0.837
+   },
+   "M-rel": {
+    "confirmed": 0.044,
+    "confirmed_gated": 0.031,
+    "recognized": 0.283
+   }
+  },
+  "cow_parent_of_moo": {
+   "app": 0.77,
+   "sig": 0.996,
+   "sp": 0.487
+  },
+  "full_graph": {
+   "meaningless_confirmed": 77307.0,
+   "meaningless_confirmed_gated": 18865.0,
+   "meaningless_total": 1567101.0,
+   "true_confirmed": 331.0,
+   "true_confirmed_gated": 250.0,
+   "true_total": 1690.0
+  },
+  "per_seed_recognized": {
+   "M-cat": [
+    0.873
+   ],
+   "M-in": [
+    0.837
+   ],
+   "M-rel": [
+    0.283
+   ]
+  },
+  "sound_isa": {
+   "support_false": 0.331,
+   "support_true": 0.168
+  },
+  "taught_kept_meaningful": 0.856,
+  "truth": {
+   "G2": {
+    "intuition": 0.826,
+    "logic": 0.567,
+    "logic_with_M": 0.519,
+    "meaningless_rate": 0.011
+   },
+   "G4": {
+    "intuition": 0.497,
+    "logic": 0.465,
+    "logic_with_M": 0.465,
+    "meaningless_rate": 0.0
+   },
+   "L1-anc": {
+    "intuition": 0.528,
+    "logic": 0.056,
+    "logic_with_M": 0.056,
+    "meaningless_rate": 0.0
+   },
+   "L1-kind": {
+    "intuition": 0.657,
+    "logic": 0.193,
+    "logic_with_M": 0.193,
+    "meaningless_rate": 0.0
+   },
+   "L1-size": {
+    "intuition": 0.822,
+    "logic": 0.006,
+    "logic_with_M": 0.006,
+    "meaningless_rate": 0.0
+   },
+   "L2-named": {
+    "intuition": 0.721,
+    "logic": 0.125,
+    "logic_with_M": 0.091,
+    "meaningless_rate": 0.308
+   },
+   "P1-default": {
+    "intuition": 0.543,
+    "logic": 0.401,
+    "logic_with_M": 0.267,
+    "meaningless_rate": 0.232
+   },
+   "P2": {
+    "intuition": 0.631,
+    "logic": 0.359,
+    "logic_with_M": 0.335,
+    "meaningless_rate": 0.08
+   },
+   "P3": {
+    "intuition": 0.637,
+    "logic": 0.342,
+    "logic_with_M": 0.184,
+    "meaningless_rate": 0.246
+   },
+   "P4": {
+    "intuition": 0.521,
+    "logic": 0.431,
+    "logic_with_M": 0.007,
+    "meaningless_rate": 0.986
+   },
+   "P6-colour": {
+    "intuition": 0.568,
+    "logic": 0.032,
+    "logic_with_M": 0.032,
+    "meaningless_rate": 0.004
+   },
+   "P6-grandparent": {
+    "intuition": 0.5,
+    "logic": 0.45,
+    "logic_with_M": 0.45,
+    "meaningless_rate": 0.083
+   }
+  }
+ },
+ "meaningless": {
+  "M_sets": {
+   "M-cat": {
+    "confirmed": 0.034,
+    "confirmed_gated": 0.003,
+    "recognized": 0.878
+   },
+   "M-in": {
+    "confirmed": 0.043,
+    "confirmed_gated": 0.007,
+    "recognized": 0.867
+   },
+   "M-rel": {
+    "confirmed": 0.049,
+    "confirmed_gated": 0.036,
+    "recognized": 0.293
+   }
+  },
+  "cow_parent_of_moo": {
+   "app": 0.881,
+   "sig": 0.965,
+   "sp": 0.578
+  },
+  "full_graph": {
+   "meaningless_confirmed": 66403.0,
+   "meaningless_confirmed_gated": 17258.0,
+   "meaningless_total": 1567101.0,
+   "true_confirmed": 348.0,
+   "true_confirmed_gated": 280.0,
+   "true_total": 1690.0
+  },
+  "per_seed_recognized": {
+   "M-cat": [
+    0.878
+   ],
+   "M-in": [
+    0.867
+   ],
+   "M-rel": [
+    0.293
+   ]
+  },
+  "sound_isa": {
+   "support_false": 0.358,
+   "support_true": 0.06
+  },
+  "taught_kept_meaningful": 0.873,
+  "truth": {
+   "G2": {
+    "intuition": 0.743,
+    "logic": 0.521,
+    "logic_with_M": 0.506,
+    "meaningless_rate": 0.03
+   },
+   "G4": {
+    "intuition": 0.522,
+    "logic": 0.389,
+    "logic_with_M": 0.389,
+    "meaningless_rate": 0.0
+   },
+   "L1-anc": {
+    "intuition": 0.528,
+    "logic": 0.083,
+    "logic_with_M": 0.083,
+    "meaningless_rate": 0.0
+   },
+   "L1-kind": {
+    "intuition": 0.645,
+    "logic": 0.193,
+    "logic_with_M": 0.193,
+    "meaningless_rate": 0.0
+   },
+   "L1-size": {
+    "intuition": 0.839,
+    "logic": 0.006,
+    "logic_with_M": 0.006,
+    "meaningless_rate": 0.0
+   },
+   "L2-named": {
+    "intuition": 0.697,
+    "logic": 0.13,
+    "logic_with_M": 0.115,
+    "meaningless_rate": 0.147
+   },
+   "P1-default": {
+    "intuition": 0.565,
+    "logic": 0.415,
+    "logic_with_M": 0.263,
+    "meaningless_rate": 0.245
+   },
+   "P2": {
+    "intuition": 0.641,
+    "logic": 0.362,
+    "logic_with_M": 0.332,
+    "meaningless_rate": 0.079
+   },
+   "P3": {
+    "intuition": 0.643,
+    "logic": 0.362,
+    "logic_with_M": 0.248,
+    "meaningless_rate": 0.234
+   },
+   "P4": {
+    "intuition": 0.556,
+    "logic": 0.472,
+    "logic_with_M": 0.007,
+    "meaningless_rate": 0.993
+   },
+   "P6-colour": {
+    "intuition": 0.553,
+    "logic": 0.03,
+    "logic_with_M": 0.03,
+    "meaningless_rate": 0.0
+   },
+   "P6-grandparent": {
+    "intuition": 0.5,
+    "logic": 0.45,
+    "logic_with_M": 0.45,
+    "meaningless_rate": 0.0
+   }
+  }
+ }
+}
