@@ -174,3 +174,10 @@ The reader rejects 98% of type-violating facts, so it is not blind to the combin
 as often as taught false facts. They are 130 times as many as the taught pairs, so the 2% outnumbers the true facts 32
 to 1. Leakage is highest for relations whose domain spans many kinds of entity: `lives-with` 0.14, `brighter-than` 0.07,
 `lighter-than` 0.055. A search selects exactly these edges, because it looks for any edge that reaches b.
+
+Leakage does not depend on how much the reader knows about an entity. The Spearman correlation between an entity's
+confirmed untaught facts and the number of relations it was taught in is −0.007 (seed 450). Entities taught in one
+relation average 339 leaked facts; those taught in 9–47 relations average 477. The most leaking entities are `tail`
+(2 relations), `animal`, `vertebrate`, then `whale`, `horse` and `cheetah` (17–23 relations). `moo` is taught only as
+the object of `says` (1 true, 17 false). More facts of the current kind do not stop the leak: the reader does not use
+what it knows about an entity to decide whether a relation can apply to it.
