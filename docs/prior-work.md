@@ -2241,3 +2241,10 @@ No search run on 2026-11-06; sources **[familiar]**, local results **[read: loca
   1984): a fixed stack discipline with learned contents, and exclusion of tried candidates.
 - **CLUTRR** (Sinha et al. 2019): facts given at question time force composition; lookup-table models fail on held-out
   chain lengths. Not the draft; the study after it, where the search step becomes a memory hop.
+- **Path Ranking Algorithm** (Lao and Cohen 2010) **[familiar]** and the learned-walker literature's exhaustive
+  baselines: unguided path enumeration between two entities finds many spurious paths, and with a known rule and a
+  correct graph a bounded exhaustive search finds every proof within its depth. **[read: local results]** Conflict
+  search diagnostics v1 confirms both on the frozen v1 reader graph: unguided BFS within 5 hops connects 0.97 of false
+  pairs; the right program with exhaustive search finds valid proofs for 0.77 of true withheld rows, against 0.13–0.36
+  for the trained walkers. Implication: separate learning the program from executing it, and measure the reader graph
+  before judging a controller.
