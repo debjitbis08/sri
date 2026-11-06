@@ -27,8 +27,15 @@ The user rules out the definition, so it must be learned behaviour.
 
 ## What "relations as objects" means here
 
-1. **One space.** Relations get codes in the same space as entities, and the reader takes the relation as an object
-   code. Today relations have their own tables (`R_I`, `R_L`, 16 dims) separate from entities (`E_I`, `E_L`).
+1. **Two views of each relation, linked by a learned map (revised on the user's question, 2026-11-06).** Today relations
+   have their own tables (`R_I`, `R_L`, 16 dims) separate from entities (`E_I`, `E_L`). Merging them into one space
+   could hurt: in dual-route truth v1, shared codes damaged intuition (grandparent 1.00 → 0.53), and entities and
+   relations do different jobs in the reader. Instead, each relation keeps an **operator code** (the relation slot)
+   and gains an **object code** in the entity space (used when the relation is an argument). The operator is derived
+   from the object: R_op = f(R_obj), with f learned. Facts about a relation shape its object code, and f turns them
+   into behaviour. A relation introduced only through its relations to others gets its behaviour through f. The
+   "must be used" pressure is then structural. Intuition keeps its own separate codes. The merged single space is a
+   control, not the proposal.
 2. **Relations can be arguments.** Statements may take relations as subject or object:
    `parent-of ρ₁ child-of`, `lives-with ρ₁ lives-with`, `parent-of ρ₂ ancestor-of`, `parent-of ρ₃ person`. The
    relations among relations (ρ₁, ρ₂, …) are arbitrary tokens, like every other relation. No name or property is
@@ -90,8 +97,11 @@ categories, read through the meaningless output). Each with k = 0, 1 and 4 insta
 - ρ-facts **removed at test** after training with them (is the meaning used, or only absorbed into codes?);
 - the relation taught with all its instances (the upper bound).
 
-**Architecture change:** a shared code table for entities and relations, with the reader's relation slot reading
-that table. Everything else stays as in conflict search v1's phase 1, including the applicability output.
+**Architecture arms:** (1) separate tables with the learned map R_op = f(R_obj) (proposed); (2) separate tables
+without the map (today's model, where facts about a relation cannot change its behaviour); (3) one merged table (the
+user's concern, as a control). Everything else stays as in conflict search v1's phase 1, including the applicability
+output. Prior work for the map: generating a relation's parameters from a description (hypernetworks; zero-shot
+relation models) **[familiar]**.
 
 ## Open for the user
 
