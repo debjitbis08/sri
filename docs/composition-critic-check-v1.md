@@ -156,3 +156,21 @@ there are no hallucinated people-to-people `parent-of` edges to exploit.
 evaluation 2–6 CPU s. Total 8,380 CPU s (2.3 CPU h), 36 min wall. The declared 5–10 min wall was too low by about 4×:
 the single-seed timing was taken at 100 steps with one process, and four parallel workers ran about 2× slower per step.
 The inspection rerun (pairwise, seed 450, 4 threads) and the graph-label count added about 6 CPU min. No tuning.
+
+### Follow-up: type-level reading of the untaught facts
+
+For each permitted relation, the fixture labels its whole domain × range: every pair of entities that ever appears as
+subject and object of the relation is taught true or false. So **every untaught fact is outside the relation's types**
+(the subject was never a subject of that relation, or the object never its object). Confirmation rates of the
+both-route check, seed 450 (seed 453 alike):
+
+| Facts | Confirmed |
+|---|---|
+| taught true (train and test) | 0.740 (1,251 / 1,690) |
+| taught false | 0.004 (54 / 13,101) |
+| untaught, outside the relation's types | 0.020 (40,210 / 1,974,490) |
+
+The reader rejects 98% of type-violating facts, so it is not blind to the combinations. But it confirms them five times
+as often as taught false facts. They are 130 times as many as the taught pairs, so the 2% outnumbers the true facts 32
+to 1. Leakage is highest for relations whose domain spans many kinds of entity: `lives-with` 0.14, `brighter-than` 0.07,
+`lighter-than` 0.055. A search selects exactly these edges, because it looks for any edge that reaches b.
