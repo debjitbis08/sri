@@ -213,3 +213,110 @@ relations, so its size grows with nothing. More relations give more practice epi
 - **Tuning:** none. Every constant is fixed here.
 - **Resumability:** per run, with `experiments/durable.py`. The runtime JSON follows `computation-reporting.md`:
   world build (including virtual descriptions), training, and test, by phase.
+
+## Commands
+
+    EV_WORKERS=6 .venv/bin/python -m experiments.amortized_introduction       # rerun to resume
+    .venv/bin/python -m experiments.amortized_introduction summary
+
+## Results (2026-11-07)
+
+Run at revision `1e9100d`, 12 runs, 6 workers, 23 min wall. Means over seeds 450–453 and over the held-out relations
+of each type. Balanced accuracy, U counted wrong (chance 0.5).
+
+### Training and costs
+
+Trained synthetic relations through stored codes 0.98–0.99 in every arm. World T/F tests (logic, mean) 0.631
+(`episodes`), 0.634 (`virtual`), 0.624 (`regress`) against v1 `nomap` 0.633. Trained relations introduced through the
+encoder reach 0.91–0.94 (stored codes 0.93–0.95); trained inverses and synonyms 0.95–1.00 in both sets.
+
+### Held-out relations, logic, from the description alone (k = 0) and with 4 pairs
+
+| Held-out type | arm | `rho` k0 | `shuffled` k0 | `none` k0 | `rho` k4 | `none` k4 | intuition k4 |
+|---|---|---|---|---|---|---|---|
+| synonym (3) | `episodes` | **0.70** | 0.56 | 0.58 | 0.78 | 0.69 | 0.65 |
+| | `virtual` | **0.73** | 0.61 | 0.60 | 0.76 | 0.68 | 0.65 |
+| | `regress` | 0.57 | 0.54 | 0.55 | 0.66 | 0.65 | 0.65 |
+| inverse (4) | `episodes` | 0.50 | 0.50 | 0.50 | 0.51 | 0.51 | 0.53 |
+| | `virtual` | 0.50 | 0.51 | 0.50 | 0.51 | 0.50 | 0.53 |
+| | `regress` | 0.50 | 0.50 | 0.50 | 0.51 | 0.50 | 0.53 |
+| real inverse (`child-of`, `darker-than`) | `episodes` | 0.43 | 0.40 | 0.40 | 0.53 | 0.54 | 0.55 |
+| | `virtual` | 0.52 | 0.36 | 0.43 | 0.66 | 0.61 | 0.55 |
+| broad (2) | `episodes` | **0.77** | 0.70 | 0.63 | 0.76 | 0.69 | 0.63 |
+| | `virtual` | 0.76 | 0.63 | 0.61 | 0.72 | 0.66 | 0.63 |
+| narrow (2) | `episodes` | 0.71 | 0.58 | 0.59 | 0.71 | 0.67 | 0.62 |
+| | `virtual` | 0.69 | 0.65 | 0.64 | 0.70 | 0.68 | 0.62 |
+| symmetric (2) | every arm | 0.48–0.52 | | | 0.46–0.56 | | 0.55 |
+
+Entailed subsets (`episodes`, k = 0): broad, T recall where the narrow partner holds, 0.94 (`none` 0.54); narrow, F
+recall where the broad partner fails, 0.92 (`none` 0.96: an unknown relation defaults to F). Symmetric reverses at k
+= 4: 0.43–0.54, so a stated self-inverse is not used either.
+
+Applicability, `rho` k0, synthetic inverse + synonym: recognized 0.84 and kept meaningful 0.83 (`episodes`), 0.84 and
+0.81 (`virtual`); `none` 0.86 and 0.23–0.26 (a default toward meaningless). Broad and narrow 0.85–0.90 and 0.89–1.00.
+Real inverses keep only 0.44–0.49.
+
+### Virtual relations: copying generalizes, reversing does not
+
+| Arm | copy, set B (`rho` / `shuffled`) | copy, set A | inverse, set B | inverse, set A |
+|---|---|---|---|---|
+| `episodes` | 0.82 / 0.68 | 0.87 | 0.64 / 0.55 | 0.65 |
+| `virtual` | 0.85 / 0.70 | 0.95 | 0.68 / 0.57 | 0.90 |
+| `regress` | 0.72 / 0.64 | 0.80 | 0.60 / 0.54 | 0.62 |
+
+A diagnostic after the run splits inverse-of-Q by whether its description also has a "same pairs" (ρ₃) partner,
+because Q's own inverse is a trained relation. That partner makes copying enough. Seed 450 descriptions, four seeds of
+reads:
+
+| Arm | set B, with ρ₃ partner (23) | set B, without (29) | set A, with (17) | set A, without (22) |
+|---|---|---|---|---|
+| `episodes` | 0.81 | 0.51 | 0.86 | 0.50 |
+| `virtual` | 0.84 | **0.55** | 0.97 | **0.84** |
+| `regress` | 0.72 | 0.50 | 0.77 | 0.50 |
+
+Reversal is learned only for the partners practised (set A, `virtual`, 0.84) and not carried to new ones (set B 0.55,
+held-out synthetic inverses 0.50). This is the memorization failure the contract named, for inverses only.
+
+### Against the predictions
+
+1. **Held.** Symmetric held-out relations at chance (0.48–0.52).
+2. **Failed.** `virtual`, inverse + synonym, k = 0: 0.60 against `none` 0.54 (predicted ≥ 0.75, ≥ 0.2 gain). Synonyms
+   alone 0.73 against 0.60; inverses 0.50.
+3. **Direction held, threshold failed.** Shuffling costs synonyms 0.12–0.14, broad 0.07–0.13, narrow 0.04–0.13
+   (predicted ≥ 0.15).
+4. **Failed.** Set-B copies 0.85, at the threshold, within 0.10 of set A; set-B inverses 0.68 against set A 0.90.
+   Without the copy route, 0.55 against 0.84: memorized.
+5. **Mostly held.** `episodes`: synonyms 0.70 (predicted ≥ 0.75), inverses 0.50 (< 0.65), gap between trained
+   inverses introduced through the encoder (0.96–1.00) and held-out ones (0.50) ≥ 0.2.
+6. **Failed on the stated measure, held on synonyms.** `regress` below `episodes` by 0.06 on inverse + synonym
+   (predicted ≥ 0.1); by 0.13 on synonyms, 0.10 on set-B copies, 0.11 on broad.
+7. **Held for synthetic relations, failed for real inverses.** Recognized 0.84 and kept 0.81–0.83; real inverses keep
+   0.44–0.49.
+8. **Failed.** k = 4: `rho` + fit 0.62 against `none` 0.58–0.59 on inverse + synonym (synonyms 0.76–0.78 against
+   0.68–0.69).
+9. **Held.** World tests within 0.01 of v1.
+
+### What this means
+
+- **Practising application works where the application is a pass-through.** A new relation described as the same as
+  (ρ₃) or contained in (ρ₂) a known one now behaves like it: synonyms 0.70–0.73 from the description alone, broad
+  relations' entailed instances 0.94, applicability judged instead of defaulted. v1 had none of this (0.52 with or
+  without relation facts). Training on behaviour beats regressing onto stored codes for these relations (0.13 on
+  synonyms).
+- **Reversal does not generalize in code space.** An inverse needs the partner's code turned into a different code
+  that answers (b, a) as the partner answers (a, b). The encoder learned that only as a lookup for partners it
+  practised on, even with 78 virtual relations. Nothing in the reader makes "swap the arguments" a map that applies to
+  codes it has not seen. Copying needs no transform, so attention passes the partner through.
+- **This points at applying rules to facts, not compressing them into a relation code.** At the level of facts, the
+  inverse rule is trivial: to answer C(a, b), check P(b, a). It is a variable binding, not a code transform. The agreed
+  next study (→ and modus ponens with variables, trained on 1–2 steps and tested on longer chains) works at that
+  level.
+
+### Computation (measured)
+
+`reports/amortized-introduction-v1-runtime.json`. Per run: world build with descriptions 6–7 CPU s; training 605–722
+CPU s (`virtual` the most, about 10% above `episodes`), above the declared 6–7 min alone because six workers ran in
+parallel; test 13–15 CPU s (45 fits, 407 encoder reads). Encoder inference: one pass per relation, versus v1's
+500-step fit (101–122 CPU s for 135 fits). 110,668 parameters (35,016 encoder); peak RSS 0.51 GB per worker. Total
+8,081 CPU s (2.2 CPU h), 23 min wall, within the declared 25–40 min. The post-run split took under a minute. No
+tuning.

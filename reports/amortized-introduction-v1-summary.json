@@ -1,0 +1,1211 @@
+{
+ "episodes": {
+  "held": {
+   "broad": {
+    "intuition/k4": {
+     "bal": 0.627,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": null,
+     "recognized_meaningless": null,
+     "reverse_acc": null
+    },
+    "none/k0": {
+     "bal": 0.634,
+     "implied_F_recall": null,
+     "implied_T_recall": 0.543,
+     "kept_meaningful": 0.482,
+     "recognized_meaningless": 0.867,
+     "reverse_acc": null
+    },
+    "none/k4": {
+     "bal": 0.691,
+     "implied_F_recall": null,
+     "implied_T_recall": 0.754,
+     "kept_meaningful": 0.917,
+     "recognized_meaningless": 0.84,
+     "reverse_acc": null
+    },
+    "rho/k0": {
+     "bal": 0.773,
+     "implied_F_recall": null,
+     "implied_T_recall": 0.938,
+     "kept_meaningful": 0.996,
+     "recognized_meaningless": 0.85,
+     "reverse_acc": null
+    },
+    "rho/k4": {
+     "bal": 0.758,
+     "implied_F_recall": null,
+     "implied_T_recall": 0.954,
+     "kept_meaningful": 0.99,
+     "recognized_meaningless": 0.834,
+     "reverse_acc": null
+    },
+    "shuffled/k0": {
+     "bal": 0.699,
+     "implied_F_recall": null,
+     "implied_T_recall": 0.822,
+     "kept_meaningful": 0.973,
+     "recognized_meaningless": 0.863,
+     "reverse_acc": null
+    }
+   },
+   "inverse (synthetic)": {
+    "intuition/k4": {
+     "bal": 0.533,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": null,
+     "recognized_meaningless": null,
+     "reverse_acc": null
+    },
+    "none/k0": {
+     "bal": 0.501,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.165,
+     "recognized_meaningless": 0.854,
+     "reverse_acc": null
+    },
+    "none/k4": {
+     "bal": 0.512,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.876,
+     "recognized_meaningless": 0.697,
+     "reverse_acc": null
+    },
+    "rho/k0": {
+     "bal": 0.499,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.761,
+     "recognized_meaningless": 0.842,
+     "reverse_acc": null
+    },
+    "rho/k4": {
+     "bal": 0.506,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.939,
+     "recognized_meaningless": 0.739,
+     "reverse_acc": null
+    },
+    "shuffled/k0": {
+     "bal": 0.495,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.3,
+     "recognized_meaningless": 0.78,
+     "reverse_acc": null
+    }
+   },
+   "inverse+synonym (synthetic)": {
+    "intuition/k4": {
+     "bal": 0.584,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": null,
+     "recognized_meaningless": null,
+     "reverse_acc": null
+    },
+    "none/k0": {
+     "bal": 0.535,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.23,
+     "recognized_meaningless": 0.858,
+     "reverse_acc": null
+    },
+    "none/k4": {
+     "bal": 0.587,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.896,
+     "recognized_meaningless": 0.765,
+     "reverse_acc": null
+    },
+    "rho/k0": {
+     "bal": 0.587,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.834,
+     "recognized_meaningless": 0.843,
+     "reverse_acc": null
+    },
+    "rho/k4": {
+     "bal": 0.622,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.956,
+     "recognized_meaningless": 0.794,
+     "reverse_acc": null
+    },
+    "shuffled/k0": {
+     "bal": 0.524,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.314,
+     "recognized_meaningless": 0.81,
+     "reverse_acc": null
+    }
+   },
+   "narrow": {
+    "intuition/k4": {
+     "bal": 0.617,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": null,
+     "recognized_meaningless": null,
+     "reverse_acc": null
+    },
+    "none/k0": {
+     "bal": 0.593,
+     "implied_F_recall": 0.961,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.33,
+     "recognized_meaningless": 0.85,
+     "reverse_acc": null
+    },
+    "none/k4": {
+     "bal": 0.674,
+     "implied_F_recall": 0.929,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.926,
+     "recognized_meaningless": 0.763,
+     "reverse_acc": null
+    },
+    "rho/k0": {
+     "bal": 0.707,
+     "implied_F_recall": 0.924,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.974,
+     "recognized_meaningless": 0.891,
+     "reverse_acc": null
+    },
+    "rho/k4": {
+     "bal": 0.708,
+     "implied_F_recall": 0.91,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.959,
+     "recognized_meaningless": 0.867,
+     "reverse_acc": null
+    },
+    "shuffled/k0": {
+     "bal": 0.583,
+     "implied_F_recall": 0.966,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.211,
+     "recognized_meaningless": 0.882,
+     "reverse_acc": null
+    }
+   },
+   "real inverse": {
+    "intuition/k4": {
+     "bal": 0.545,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": null,
+     "recognized_meaningless": null,
+     "reverse_acc": null
+    },
+    "none/k0": {
+     "bal": 0.399,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.321,
+     "recognized_meaningless": 0.857,
+     "reverse_acc": null
+    },
+    "none/k4": {
+     "bal": 0.536,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.861,
+     "recognized_meaningless": 0.73,
+     "reverse_acc": null
+    },
+    "rho/k0": {
+     "bal": 0.432,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.489,
+     "recognized_meaningless": 0.843,
+     "reverse_acc": null
+    },
+    "rho/k4": {
+     "bal": 0.529,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.921,
+     "recognized_meaningless": 0.792,
+     "reverse_acc": null
+    },
+    "shuffled/k0": {
+     "bal": 0.401,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.797,
+     "recognized_meaningless": 0.723,
+     "reverse_acc": null
+    }
+   },
+   "symmetric": {
+    "intuition/k4": {
+     "bal": 0.547,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": null,
+     "recognized_meaningless": null,
+     "reverse_acc": null
+    },
+    "none/k0": {
+     "bal": 0.556,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.669,
+     "recognized_meaningless": 0.865,
+     "reverse_acc": null
+    },
+    "none/k4": {
+     "bal": 0.464,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.883,
+     "recognized_meaningless": 0.831,
+     "reverse_acc": 0.474
+    },
+    "rho/k0": {
+     "bal": 0.509,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.917,
+     "recognized_meaningless": 0.925,
+     "reverse_acc": null
+    },
+    "rho/k4": {
+     "bal": 0.464,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.923,
+     "recognized_meaningless": 0.904,
+     "reverse_acc": 0.479
+    },
+    "shuffled/k0": {
+     "bal": 0.519,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.921,
+     "recognized_meaningless": 0.9,
+     "reverse_acc": null
+    }
+   },
+   "synonym (synthetic)": {
+    "intuition/k4": {
+     "bal": 0.652,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": null,
+     "recognized_meaningless": null,
+     "reverse_acc": null
+    },
+    "none/k0": {
+     "bal": 0.582,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.317,
+     "recognized_meaningless": 0.863,
+     "reverse_acc": null
+    },
+    "none/k4": {
+     "bal": 0.687,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.921,
+     "recognized_meaningless": 0.855,
+     "reverse_acc": null
+    },
+    "rho/k0": {
+     "bal": 0.704,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.932,
+     "recognized_meaningless": 0.845,
+     "reverse_acc": null
+    },
+    "rho/k4": {
+     "bal": 0.776,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.978,
+     "recognized_meaningless": 0.868,
+     "reverse_acc": null
+    },
+    "shuffled/k0": {
+     "bal": 0.563,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.332,
+     "recognized_meaningless": 0.851,
+     "reverse_acc": null
+    }
+   }
+  },
+  "trained_intro": {
+   "A/all": {
+    "encoded": 0.93,
+    "stored": 0.94
+   },
+   "A/inverse": {
+    "encoded": 1.0,
+    "stored": 1.0
+   },
+   "A/synonym": {
+    "encoded": 0.999,
+    "stored": 1.0
+   },
+   "B/all": {
+    "encoded": 0.911,
+    "stored": 0.928
+   },
+   "B/inverse": {
+    "encoded": 0.963,
+    "stored": 0.985
+   },
+   "B/synonym": {
+    "encoded": 0.945,
+    "stored": 0.972
+   }
+  },
+  "trained_synthetic_mean": 0.984,
+  "virtual_A": {
+   "copy": {
+    "rho": 0.87,
+    "shuffled": null
+   },
+   "inverse": {
+    "rho": 0.654,
+    "shuffled": null
+   }
+  },
+  "virtual_B": {
+   "copy": {
+    "rho": 0.818,
+    "shuffled": 0.683
+   },
+   "inverse": {
+    "rho": 0.643,
+    "shuffled": 0.552
+   }
+  },
+  "world_intuition_mean": 0.633,
+  "world_logic_mean": 0.631
+ },
+ "regress": {
+  "held": {
+   "broad": {
+    "intuition/k4": {
+     "bal": 0.627,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": null,
+     "recognized_meaningless": null,
+     "reverse_acc": null
+    },
+    "none/k0": {
+     "bal": 0.589,
+     "implied_F_recall": null,
+     "implied_T_recall": 0.449,
+     "kept_meaningful": 0.537,
+     "recognized_meaningless": 0.819,
+     "reverse_acc": null
+    },
+    "none/k4": {
+     "bal": 0.652,
+     "implied_F_recall": null,
+     "implied_T_recall": 0.762,
+     "kept_meaningful": 0.95,
+     "recognized_meaningless": 0.684,
+     "reverse_acc": null
+    },
+    "rho/k0": {
+     "bal": 0.666,
+     "implied_F_recall": null,
+     "implied_T_recall": 0.7,
+     "kept_meaningful": 0.867,
+     "recognized_meaningless": 0.766,
+     "reverse_acc": null
+    },
+    "rho/k4": {
+     "bal": 0.68,
+     "implied_F_recall": null,
+     "implied_T_recall": 0.84,
+     "kept_meaningful": 0.966,
+     "recognized_meaningless": 0.745,
+     "reverse_acc": null
+    },
+    "shuffled/k0": {
+     "bal": 0.609,
+     "implied_F_recall": null,
+     "implied_T_recall": 0.568,
+     "kept_meaningful": 0.855,
+     "recognized_meaningless": 0.75,
+     "reverse_acc": null
+    }
+   },
+   "inverse (synthetic)": {
+    "intuition/k4": {
+     "bal": 0.533,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": null,
+     "recognized_meaningless": null,
+     "reverse_acc": null
+    },
+    "none/k0": {
+     "bal": 0.503,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.38,
+     "recognized_meaningless": 0.803,
+     "reverse_acc": null
+    },
+    "none/k4": {
+     "bal": 0.499,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.905,
+     "recognized_meaningless": 0.593,
+     "reverse_acc": null
+    },
+    "rho/k0": {
+     "bal": 0.499,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.681,
+     "recognized_meaningless": 0.817,
+     "reverse_acc": null
+    },
+    "rho/k4": {
+     "bal": 0.513,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.931,
+     "recognized_meaningless": 0.711,
+     "reverse_acc": null
+    },
+    "shuffled/k0": {
+     "bal": 0.503,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.376,
+     "recognized_meaningless": 0.737,
+     "reverse_acc": null
+    }
+   },
+   "inverse+synonym (synthetic)": {
+    "intuition/k4": {
+     "bal": 0.584,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": null,
+     "recognized_meaningless": null,
+     "reverse_acc": null
+    },
+    "none/k0": {
+     "bal": 0.524,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.402,
+     "recognized_meaningless": 0.808,
+     "reverse_acc": null
+    },
+    "none/k4": {
+     "bal": 0.562,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.921,
+     "recognized_meaningless": 0.652,
+     "reverse_acc": null
+    },
+    "rho/k0": {
+     "bal": 0.531,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.747,
+     "recognized_meaningless": 0.797,
+     "reverse_acc": null
+    },
+    "rho/k4": {
+     "bal": 0.577,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.947,
+     "recognized_meaningless": 0.706,
+     "reverse_acc": null
+    },
+    "shuffled/k0": {
+     "bal": 0.52,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.404,
+     "recognized_meaningless": 0.771,
+     "reverse_acc": null
+    }
+   },
+   "narrow": {
+    "intuition/k4": {
+     "bal": 0.617,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": null,
+     "recognized_meaningless": null,
+     "reverse_acc": null
+    },
+    "none/k0": {
+     "bal": 0.593,
+     "implied_F_recall": 0.959,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.436,
+     "recognized_meaningless": 0.81,
+     "reverse_acc": null
+    },
+    "none/k4": {
+     "bal": 0.677,
+     "implied_F_recall": 0.902,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.937,
+     "recognized_meaningless": 0.738,
+     "reverse_acc": null
+    },
+    "rho/k0": {
+     "bal": 0.687,
+     "implied_F_recall": 0.878,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.8,
+     "recognized_meaningless": 0.818,
+     "reverse_acc": null
+    },
+    "rho/k4": {
+     "bal": 0.722,
+     "implied_F_recall": 0.876,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.969,
+     "recognized_meaningless": 0.821,
+     "reverse_acc": null
+    },
+    "shuffled/k0": {
+     "bal": 0.55,
+     "implied_F_recall": 0.936,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.456,
+     "recognized_meaningless": 0.839,
+     "reverse_acc": null
+    }
+   },
+   "real inverse": {
+    "intuition/k4": {
+     "bal": 0.545,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": null,
+     "recognized_meaningless": null,
+     "reverse_acc": null
+    },
+    "none/k0": {
+     "bal": 0.465,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.198,
+     "recognized_meaningless": 0.821,
+     "reverse_acc": null
+    },
+    "none/k4": {
+     "bal": 0.518,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.945,
+     "recognized_meaningless": 0.752,
+     "reverse_acc": null
+    },
+    "rho/k0": {
+     "bal": 0.44,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.636,
+     "recognized_meaningless": 0.648,
+     "reverse_acc": null
+    },
+    "rho/k4": {
+     "bal": 0.523,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.954,
+     "recognized_meaningless": 0.75,
+     "reverse_acc": null
+    },
+    "shuffled/k0": {
+     "bal": 0.46,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.737,
+     "recognized_meaningless": 0.613,
+     "reverse_acc": null
+    }
+   },
+   "symmetric": {
+    "intuition/k4": {
+     "bal": 0.547,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": null,
+     "recognized_meaningless": null,
+     "reverse_acc": null
+    },
+    "none/k0": {
+     "bal": 0.484,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.733,
+     "recognized_meaningless": 0.816,
+     "reverse_acc": null
+    },
+    "none/k4": {
+     "bal": 0.522,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.937,
+     "recognized_meaningless": 0.728,
+     "reverse_acc": 0.484
+    },
+    "rho/k0": {
+     "bal": 0.481,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.852,
+     "recognized_meaningless": 0.88,
+     "reverse_acc": null
+    },
+    "rho/k4": {
+     "bal": 0.5,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.911,
+     "recognized_meaningless": 0.849,
+     "reverse_acc": 0.427
+    },
+    "shuffled/k0": {
+     "bal": 0.528,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.775,
+     "recognized_meaningless": 0.815,
+     "reverse_acc": null
+    }
+   },
+   "synonym (synthetic)": {
+    "intuition/k4": {
+     "bal": 0.652,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": null,
+     "recognized_meaningless": null,
+     "reverse_acc": null
+    },
+    "none/k0": {
+     "bal": 0.552,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.431,
+     "recognized_meaningless": 0.816,
+     "reverse_acc": null
+    },
+    "none/k4": {
+     "bal": 0.646,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.943,
+     "recognized_meaningless": 0.73,
+     "reverse_acc": null
+    },
+    "rho/k0": {
+     "bal": 0.574,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.834,
+     "recognized_meaningless": 0.771,
+     "reverse_acc": null
+    },
+    "rho/k4": {
+     "bal": 0.662,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.969,
+     "recognized_meaningless": 0.7,
+     "reverse_acc": null
+    },
+    "shuffled/k0": {
+     "bal": 0.542,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.44,
+     "recognized_meaningless": 0.816,
+     "reverse_acc": null
+    }
+   }
+  },
+  "trained_intro": {
+   "A/all": {
+    "encoded": 0.927,
+    "stored": 0.937
+   },
+   "A/inverse": {
+    "encoded": 0.999,
+    "stored": 1.0
+   },
+   "A/synonym": {
+    "encoded": 0.999,
+    "stored": 1.0
+   },
+   "B/all": {
+    "encoded": 0.882,
+    "stored": 0.93
+   },
+   "B/inverse": {
+    "encoded": 0.951,
+    "stored": 0.988
+   },
+   "B/synonym": {
+    "encoded": 0.945,
+    "stored": 0.973
+   }
+  },
+  "trained_synthetic_mean": 0.986,
+  "virtual_A": {
+   "copy": {
+    "rho": 0.804,
+    "shuffled": null
+   },
+   "inverse": {
+    "rho": 0.617,
+    "shuffled": null
+   }
+  },
+  "virtual_B": {
+   "copy": {
+    "rho": 0.719,
+    "shuffled": 0.637
+   },
+   "inverse": {
+    "rho": 0.596,
+    "shuffled": 0.543
+   }
+  },
+  "world_intuition_mean": 0.633,
+  "world_logic_mean": 0.624
+ },
+ "virtual": {
+  "held": {
+   "broad": {
+    "intuition/k4": {
+     "bal": 0.627,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": null,
+     "recognized_meaningless": null,
+     "reverse_acc": null
+    },
+    "none/k0": {
+     "bal": 0.608,
+     "implied_F_recall": null,
+     "implied_T_recall": 0.489,
+     "kept_meaningful": 0.446,
+     "recognized_meaningless": 0.875,
+     "reverse_acc": null
+    },
+    "none/k4": {
+     "bal": 0.657,
+     "implied_F_recall": null,
+     "implied_T_recall": 0.771,
+     "kept_meaningful": 0.923,
+     "recognized_meaningless": 0.775,
+     "reverse_acc": null
+    },
+    "rho/k0": {
+     "bal": 0.757,
+     "implied_F_recall": null,
+     "implied_T_recall": 0.912,
+     "kept_meaningful": 0.909,
+     "recognized_meaningless": 0.849,
+     "reverse_acc": null
+    },
+    "rho/k4": {
+     "bal": 0.716,
+     "implied_F_recall": null,
+     "implied_T_recall": 0.939,
+     "kept_meaningful": 0.966,
+     "recognized_meaningless": 0.797,
+     "reverse_acc": null
+    },
+    "shuffled/k0": {
+     "bal": 0.63,
+     "implied_F_recall": null,
+     "implied_T_recall": 0.708,
+     "kept_meaningful": 0.617,
+     "recognized_meaningless": 0.894,
+     "reverse_acc": null
+    }
+   },
+   "inverse (synthetic)": {
+    "intuition/k4": {
+     "bal": 0.533,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": null,
+     "recognized_meaningless": null,
+     "reverse_acc": null
+    },
+    "none/k0": {
+     "bal": 0.497,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.226,
+     "recognized_meaningless": 0.854,
+     "reverse_acc": null
+    },
+    "none/k4": {
+     "bal": 0.497,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.887,
+     "recognized_meaningless": 0.666,
+     "reverse_acc": null
+    },
+    "rho/k0": {
+     "bal": 0.504,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.736,
+     "recognized_meaningless": 0.82,
+     "reverse_acc": null
+    },
+    "rho/k4": {
+     "bal": 0.509,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.904,
+     "recognized_meaningless": 0.753,
+     "reverse_acc": null
+    },
+    "shuffled/k0": {
+     "bal": 0.509,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.32,
+     "recognized_meaningless": 0.82,
+     "reverse_acc": null
+    }
+   },
+   "inverse+synonym (synthetic)": {
+    "intuition/k4": {
+     "bal": 0.584,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": null,
+     "recognized_meaningless": null,
+     "reverse_acc": null
+    },
+    "none/k0": {
+     "bal": 0.539,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.264,
+     "recognized_meaningless": 0.863,
+     "reverse_acc": null
+    },
+    "none/k4": {
+     "bal": 0.575,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.907,
+     "recognized_meaningless": 0.735,
+     "reverse_acc": null
+    },
+    "rho/k0": {
+     "bal": 0.602,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.811,
+     "recognized_meaningless": 0.839,
+     "reverse_acc": null
+    },
+    "rho/k4": {
+     "bal": 0.616,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.934,
+     "recognized_meaningless": 0.794,
+     "reverse_acc": null
+    },
+    "shuffled/k0": {
+     "bal": 0.552,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.388,
+     "recognized_meaningless": 0.849,
+     "reverse_acc": null
+    }
+   },
+   "narrow": {
+    "intuition/k4": {
+     "bal": 0.617,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": null,
+     "recognized_meaningless": null,
+     "reverse_acc": null
+    },
+    "none/k0": {
+     "bal": 0.644,
+     "implied_F_recall": 0.955,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.339,
+     "recognized_meaningless": 0.869,
+     "reverse_acc": null
+    },
+    "none/k4": {
+     "bal": 0.677,
+     "implied_F_recall": 0.92,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.941,
+     "recognized_meaningless": 0.799,
+     "reverse_acc": null
+    },
+    "rho/k0": {
+     "bal": 0.692,
+     "implied_F_recall": 0.909,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.886,
+     "recognized_meaningless": 0.895,
+     "reverse_acc": null
+    },
+    "rho/k4": {
+     "bal": 0.7,
+     "implied_F_recall": 0.898,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.982,
+     "recognized_meaningless": 0.87,
+     "reverse_acc": null
+    },
+    "shuffled/k0": {
+     "bal": 0.653,
+     "implied_F_recall": 0.85,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.355,
+     "recognized_meaningless": 0.91,
+     "reverse_acc": null
+    }
+   },
+   "real inverse": {
+    "intuition/k4": {
+     "bal": 0.545,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": null,
+     "recognized_meaningless": null,
+     "reverse_acc": null
+    },
+    "none/k0": {
+     "bal": 0.434,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.251,
+     "recognized_meaningless": 0.873,
+     "reverse_acc": null
+    },
+    "none/k4": {
+     "bal": 0.606,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.885,
+     "recognized_meaningless": 0.758,
+     "reverse_acc": null
+    },
+    "rho/k0": {
+     "bal": 0.52,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.443,
+     "recognized_meaningless": 0.873,
+     "reverse_acc": null
+    },
+    "rho/k4": {
+     "bal": 0.658,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.811,
+     "recognized_meaningless": 0.816,
+     "reverse_acc": null
+    },
+    "shuffled/k0": {
+     "bal": 0.356,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.927,
+     "recognized_meaningless": 0.739,
+     "reverse_acc": null
+    }
+   },
+   "symmetric": {
+    "intuition/k4": {
+     "bal": 0.547,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": null,
+     "recognized_meaningless": null,
+     "reverse_acc": null
+    },
+    "none/k0": {
+     "bal": 0.538,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.638,
+     "recognized_meaningless": 0.877,
+     "reverse_acc": null
+    },
+    "none/k4": {
+     "bal": 0.526,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.84,
+     "recognized_meaningless": 0.872,
+     "reverse_acc": 0.536
+    },
+    "rho/k0": {
+     "bal": 0.516,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.862,
+     "recognized_meaningless": 0.893,
+     "reverse_acc": null
+    },
+    "rho/k4": {
+     "bal": 0.555,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.885,
+     "recognized_meaningless": 0.867,
+     "reverse_acc": 0.51
+    },
+    "shuffled/k0": {
+     "bal": 0.522,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.877,
+     "recognized_meaningless": 0.806,
+     "reverse_acc": null
+    }
+   },
+   "synonym (synthetic)": {
+    "intuition/k4": {
+     "bal": 0.652,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": null,
+     "recognized_meaningless": null,
+     "reverse_acc": null
+    },
+    "none/k0": {
+     "bal": 0.596,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.315,
+     "recognized_meaningless": 0.876,
+     "reverse_acc": null
+    },
+    "none/k4": {
+     "bal": 0.679,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.934,
+     "recognized_meaningless": 0.828,
+     "reverse_acc": null
+    },
+    "rho/k0": {
+     "bal": 0.733,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.91,
+     "recognized_meaningless": 0.864,
+     "reverse_acc": null
+    },
+    "rho/k4": {
+     "bal": 0.758,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.975,
+     "recognized_meaningless": 0.848,
+     "reverse_acc": null
+    },
+    "shuffled/k0": {
+     "bal": 0.609,
+     "implied_F_recall": null,
+     "implied_T_recall": null,
+     "kept_meaningful": 0.479,
+     "recognized_meaningless": 0.888,
+     "reverse_acc": null
+    }
+   }
+  },
+  "trained_intro": {
+   "A/all": {
+    "encoded": 0.941,
+    "stored": 0.946
+   },
+   "A/inverse": {
+    "encoded": 1.0,
+    "stored": 1.0
+   },
+   "A/synonym": {
+    "encoded": 0.999,
+    "stored": 1.0
+   },
+   "B/all": {
+    "encoded": 0.91,
+    "stored": 0.927
+   },
+   "B/inverse": {
+    "encoded": 0.956,
+    "stored": 0.977
+   },
+   "B/synonym": {
+    "encoded": 0.935,
+    "stored": 0.96
+   }
+  },
+  "trained_synthetic_mean": 0.978,
+  "virtual_A": {
+   "copy": {
+    "rho": 0.95,
+    "shuffled": null
+   },
+   "inverse": {
+    "rho": 0.896,
+    "shuffled": null
+   }
+  },
+  "virtual_B": {
+   "copy": {
+    "rho": 0.847,
+    "shuffled": 0.701
+   },
+   "inverse": {
+    "rho": 0.678,
+    "shuffled": 0.565
+   }
+  },
+  "world_intuition_mean": 0.633,
+  "world_logic_mean": 0.634
+ }
+}
