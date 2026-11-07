@@ -1,6 +1,7 @@
 # Amortized introduction v1: training a system to apply what is said about a new relation
 
-**Contract draft, 2026-11-07, not frozen.** Follows [relations as objects v1](relations-as-objects-v1.md) and the
+**Contract, frozen 2026-11-07 before the run** (user: "Ok go ahead"). The user added a direction for what follows:
+train the application on small examples and test it on larger ones. This run does not test that. Follows [relations as objects v1](relations-as-objects-v1.md) and the
 [learning to apply relations](relations-application-notes.md) note. The user's direction (2026-11-07): learning the
 theory is not enough, the system must practise applying it; try amortized introduction. The design is mine, not
 externally reviewed. Planned runner `experiments/amortized_introduction.py`; reports
