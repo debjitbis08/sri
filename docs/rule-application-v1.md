@@ -1,6 +1,6 @@
 # Rule application v1: learning modus ponens with variables on short chains, testing on long ones
 
-**Contract draft, 2026-11-07, revised after one external review, not frozen.** The user's direction (2026-11-07): teach
+**Contract, frozen 2026-11-07 before the run** (user: "Ya freeze, implement and run"), after one external review. The user's direction (2026-11-07): teach
 first-order rules as meta rules instead of inventing relation tokens. The base is `p → q` and modus ponens with
 variables, and every relation rule is an ordinary implication the system is told. Train on 1–2 step applications; test
 on problems needing more than 2 steps, with different relations and with relations taught earlier ("remember our
