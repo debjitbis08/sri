@@ -297,3 +297,136 @@ that is later work.
 - **Workers: 5, not 6.** Peak memory at the smoke stage was 0.95 GB (`rules`) and 1.46 GB (`rules-nogate`), on a
   15 GB machine.
 - **Smoke-stage speeds:** critic training 0.9 CPU s per step (`rules`), 2.0 s (`rules-nogate`, denser graph).
+
+## Commands
+
+    EV_WORKERS=5 .venv/bin/python -m experiments.rule_guided_search       # rerun to resume
+    .venv/bin/python -m experiments.rule_guided_search summary
+
+## Results (2026-11-07)
+
+Run at revision `04eab33`, 12 runs, 5 workers, 2.2 h wall. Means over seeds 450–453; taxonomy counts summed over
+seeds. Balanced accuracy per proof length = mean of T recall at that length and F recall overall.
+
+### The told-rules critic did not learn a local check that composes
+
+Supplied valid programs accepted by the critic (taught chains: one valid program per length; synthetic: 20 rule sets,
+up to 200 valid programs per length), against 200 random spurious programs per length:
+
+| Arm | taught `ancestor-of` valid, length 1 / 2–12 | synthetic valid, length 1 / 2 / 3–6 | spurious, length 1 / ≥ 2 |
+|---|---|---|---|
+| `rules` | 1.00 / 0.25 (1 seed of 4) | 0.51 / 0.08 / 0.00 | 0.05–0.36 / ≤ 0.01 |
+| `rules-nogate` | 0.50 / 0.00 | 0.26 / 0.00 / 0.00 | 0.11–0.18 / ≤ 0.004 |
+| `question` | **1.00 / 1.00** | — | 0.00–0.04 / 0.00 |
+
+Even at the trained length, `rules` accepts only 0.08 of valid 2-step synthetic programs. Training loss was still
+falling at 1,500 steps (0.14–0.34; `question` 0.03–0.11).
+
+### Taught chains on the oracle graph
+
+| Relation | `rules` | `rules-nogate` | `question` |
+|---|---|---|---|
+| `ancestor-of`, length 1 / 2–6 | 0.97 / 0.51–0.57 | 0.73 / 0.48 | **1.00 / 1.00** (held half 1.00) |
+| `bigger-than`, 1 / 2–12 | 0.64 / 0.38–0.52 | 0.78 / 0.41–0.57 | 0.71 / 0.58–0.64 |
+| `smaller-than`, 1 / 2–12 | 0.52 / 0.43–0.48 | 0.76 / 0.38–0.48 | 0.67 / 0.55–0.58 |
+| is-a, 1 / 2–4 | 0.48 / 0.35 | 0.71 / 0.46 | 0.87 / 0.50 |
+| `grandparent-of` (2) | 0.78 | 0.48 | 0.98 |
+| `child-of` (1) | 0.97 | 0.99 | 1.00 |
+
+**Failure taxonomy** (`rules`, oracle graph, T questions, lengths ≥ 2): `ancestor-of`: 32 found, 14 lost, 138 rejected.
+is-a: 420 rejected of 420. `bigger-than`: 132 found, 9 lost, 79 rejected. The found `bigger-than` paths are not valid
+proofs (validity 0.00 at lengths ≥ 2): its F recall is 0.32, so it accepts most pairs through spurious programs. The
+critic, not the beam, is the main loss. `question` loses nothing on `ancestor-of`: all 340 found, every path valid.
+
+### Confirmed graph (the system's knowledge)
+
+| Relation | knowledge ceiling (confirmed closure) T / F recall | `rules` | `question` |
+|---|---|---|---|
+| `ancestor-of` | 0.93 / 1.00 | 0.93 at length 1, 0.44–0.60 beyond | 0.96 → 0.85 from length 1 to 6, validity 1.00 |
+| `bigger-than` | 0.91 / 1.00 | 0.42–0.60 | 0.68–0.93 |
+| is-a | 0.75 / 0.75 | 0.51–0.75 (validity ≤ 0.01) | 0.66–0.93 |
+
+On the confirmed graph, is-a scores higher than on the oracle graph in every arm, through invalid paths over
+hallucinated edges. `question` on `ancestor-of` reaches its knowledge ceiling with valid proofs.
+
+### Synthetic rule sets (fresh rules, `rules` arm)
+
+Quotas filled: 100 questions at each length 1–4, and 54 at lengths 5–6.
+
+| Graph | balanced accuracy, length 1 / 2 / 3 / 4 / 5–6 | F recall | proof validity, length 1 / 2 / 3 / 4–6 |
+|---|---|---|---|
+| oracle | 0.79 / 0.69 / 0.68 / 0.67 / 0.66 | 0.95 | 0.65 / 0.02 / 0.11 / 0.00 |
+| confirmed | 0.78 / 0.73 / 0.71 / 0.68 / 0.77 | 0.74 | 0.25 / 0.00 / 0.05 / 0.00 |
+
+Accuracy holds across length only because accepted paths are not proofs. The beam loses 0.25 of what the exhaustive
+reference finds on the oracle graph (274 of 1,101). Returns cost almost nothing (≤ 0.005). On the confirmed graph, the
+product policy would reject 0.23–0.43 of accepted paths.
+
+### Rule edits (oracle graph): told rules move answers; the example-trained critic ignores them
+
+| Arm | taught `ancestor-of` flipped correct (e1 / e2 / e3) | synthetic flipped correct (e1 / e2 / e3) | irrelevant edits unchanged (taught `ancestor-of`; synthetic) |
+|---|---|---|---|
+| `rules` | 0.50 / 0.47 / 0.71 | 0.52 / 0.82 / 0.46 | 0.96–1.00; 0.81–0.85 |
+| `rules-nogate` | 0.74 / 0.76 / 0.78 | **0.81 / 0.82 / 0.80** | 0.97–1.00; 0.87–0.91 |
+| `question` | 0.00 / 0.00 / 0.00 | — | 1.00 |
+
+### Hop level
+
+The gate cuts unlabelled confirmed edges from 470 k to 94 k (5.0×). True edges stay at 6.2 k, false at 1.5 k.
+Training coverage: 0.93–0.95 of oracle-T questions of length ≤ 2 have a confirmed proof of length ≤ 2 (`question`:
+0.82–0.90).
+
+### Against the predictions
+
+1. **Failed** except `child-of`. Supplied valid proofs are accepted only at length 1.
+2. **Held for `rules`** (counting F recall 0.35). `question` 0.00. `rules-nogate` 1.00, but only because it accepts no
+   `grandparent-of` at all.
+3. **Failed.** `smaller-than` 0.43–0.52, is-a 0.35–0.48 on the oracle graph.
+4. **Failed.** The gap to the knowledge ceiling is the critic's rejections, not missing proofs.
+5. **Half held.** Unlabelled edges cut 5.0×. Proof validity on the confirmed graph is higher with the gate on taught
+   `ancestor-of` at length 1 (0.95 against 0.29), but neither arm has valid proofs beyond length 2.
+6. **Failed.** Flipped 0.46–0.82; irrelevant edits keep 0.72–1.00.
+7. **Opposite on accuracy, held on edits.** `question` is far above `rules` on taught relations (`ancestor-of` 1.00 at
+   every length), and follows no edit (0.00).
+8. **Failed in substance.** Accuracy holds across length, but through invalid paths. The beam loses 0.25.
+9. **Failed.** `conj` reaches 0.66–0.75 through spurious paths, not near chance.
+
+### What this means
+
+- **Conditioning the critic on told rules did not give a working step check.** It accepts valid programs only at
+  length 1, even at trained length 2 (0.08 synthetic). Where it answers correctly beyond one hop, the accepted paths
+  are mostly not proofs.
+- **The example-trained critic reproduces the critic check, and more.** `ancestor-of` is exact at every length on both
+  graphs, with every accepted path a valid proof, and it reaches the knowledge ceiling. It also follows no rule:
+  changing the rule changes nothing.
+- **Told rules do move answers.** `rules-nogate` follows 0.80–0.82 of flipped synthetic answers. So the rules reach
+  the critic but do not yet define a check that composes.
+- **Likely causes, not separated by this run:**
+  - (a) multiple-instance training on the confirmed graph, where true questions have spurious short witnesses over
+    hallucinated edges. That is the critic check's failure outside `ancestor-of`. `question` succeeds on the one
+    relation whose graph has no hallucinated people-to-people edges;
+  - (b) the harder task: 300 rule sets with fresh derived symbols, against one fixed relation per context;
+  - (c) training not converged (loss still falling).
+- **Measured knowledge limit:** with perfect application, the system's own facts support `ancestor-of` and
+  `bigger-than` to 0.91–0.93 and is-a to 0.75.
+- **Candidates for the next step**, not chosen:
+  - train the rule critic on the oracle graph (clean witnesses), then evaluate on both graphs;
+  - train longer;
+  - fewer, simpler rule forms first (linear chains), then widen.
+
+### Computation (measured)
+
+`reports/rule-guided-search-v1-runtime.json`. Per run, CPU s:
+
+| Phase | `rules` | `rules-nogate` | `question` |
+|---|---|---|---|
+| graph construction | 59–60 | 41–60 | 57–64 |
+| training candidates | 15–16 | 65–96 | 3 |
+| critic training | 2,118–2,254 | 4,962–6,074 | 497–539 |
+| synthetic tests, including exhaustive references | 63–219 | 65–122 | — |
+| taught tests | 5–80 | 7–11 | 4–5 |
+
+- **Candidate programs per run:** 16.4 M (`rules`), 77.6 M (`rules-nogate`), 2.5 M (`question`).
+- **Critic parameters:** 33,849.
+- **Peak RSS:** 0.52–1.71 GB per worker.
+- **Total:** 34,496 CPU s (9.6 CPU h), 8,008 s wall, within the declared 1.5–3 h. No tuning.
