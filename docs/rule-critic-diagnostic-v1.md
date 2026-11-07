@@ -128,3 +128,17 @@ candidate enumeration: O(programs) per rule set. The MIL conditions cost as in v
 - **Reads:** a few minutes per checkpoint.
 - **Totals:** about 1 h wall on 5 workers. No tuning.
 - **Runtime JSON:** by phase and checkpoint.
+
+## Implementation (recorded before the main run)
+
+- **Runner:** `experiments/rule_critic_diagnostic.py`. It reuses rule-guided search v1's readers, graphs, rule encoder,
+  MLP critic, candidate enumeration and beam.
+- **Relation split:** seed 2029, the same for every run seed. `parent-of` and `just-bigger-than` are forced into the
+  held-out relations.
+- **Held-out instance per training relation:** seed 2030.
+- **`direct` batches:** per rule set, both valid programs (R and R·R, oriented) and two fresh negatives each step: one
+  random and one hard of a random kind, each of length 1–2.
+- **"Where errors occur"** uses the first check that fails, for rejected valid programs. For accepted negatives it uses
+  the first check that the perfect pairwise table (START→R*, R*→R*, R*→END) would reject.
+- **Smoke speeds:** after vectorizing program scoring, 0.83 CPU s per step (`confirmed-mil`); the smoke reads were
+  unchanged by the vectorization.
