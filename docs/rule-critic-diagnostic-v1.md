@@ -1,6 +1,6 @@
 # Rule critic diagnostic v1: can the told-rules critic learn a composing step check?
 
-**Contract draft, 2026-11-07, not frozen.** It follows [rule-guided search v1](rule-guided-search-v1.md), where the
+**Contract, frozen 2026-11-07 before the run** (user: "continue" after the draft). It follows [rule-guided search v1](rule-guided-search-v1.md), where the
 told-rules critic accepted valid programs only at length 1, and an external suggestion pasted by the user: a small
 diagnostic of the same rule encoder and MLP critic, before another full search experiment. Its three possible causes
 (spurious witnesses on the confirmed graph, the harder fresh-rule task, unconverged training) are separated here. The
