@@ -396,8 +396,10 @@ Training coverage: 0.93–0.95 of oracle-T questions of length ≤ 2 have a conf
 - **Conditioning the critic on told rules did not give a working step check.** It accepts valid programs only at
   length 1, even at trained length 2 (0.08 synthetic). Where it answers correctly beyond one hop, the accepted paths
   are mostly not proofs.
-- **The example-trained critic reproduces the critic check, and more.** `ancestor-of` is exact at every length on both
-  graphs, with every accepted path a valid proof, and it reaches the knowledge ceiling. It also follows no rule:
+- **The example-trained critic reproduces the critic check, and more.** `ancestor-of` is exact at every length on the
+  oracle graph. On the confirmed graph it is limited only by knowledge coverage: T recall 0.96 falling to 0.75 with
+  length, and every miss is a question with no proof in the graph (none lost, none rejected). Every accepted path is a
+  valid proof. (Corrected after an external comment; the first wording said "exact on both graphs".) It also follows no rule:
   changing the rule changes nothing.
 - **Told rules do move answers.** `rules-nogate` follows 0.80–0.82 of flipped synthetic answers. So the rules reach
   the critic but do not yet define a check that composes.
