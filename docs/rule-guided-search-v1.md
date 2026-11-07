@@ -259,3 +259,41 @@ that is later work.
 - **Tuning:** none.
 - **Runtime JSON:** by phase (graph construction, closures, candidates, critic training, each test family, the
   exhaustive reference).
+
+## Implementation (recorded before the main run)
+
+- **Runner:** `experiments/rule_guided_search.py`.
+- **Critic is an MLP.** In smoke development I briefly replaced it with a factorized bilinear form to save cost. The
+  user preferred an MLP, so it was reverted before any run to the contract's form: c_t = σ(MLP([rule context attended
+  by step t; step t−1; step t])), 64 hidden. The critic is trained, not frozen; only the readers are frozen. Training scores each distinct (previous step, next step) pair of
+  a rule set once and reuses it across that rule set's programs. That is computation only; the function is unchanged.
+  Measured: 0.7 CPU s per step; about 2,400 candidate programs per question.
+- **Confirmed hop:** logic's state is T (support for > 0.5, against ≤ 0.5), and intuition's verdict is T (agreement).
+  With the gate, applicability > 0.5 too. Self-hops are excluded.
+- **Hop vocabulary:** one vocabulary for all tasks. Reader-trained relations with true facts (86 here), minus the union
+  of the excluded sets (`ancestor-of`, `grandparent-of`, `child-of`, `bigger-than`, `smaller-than`, `is-a`). The ρ
+  tokens and `child-of` are untrained and so absent anyway. It removes at least what each task's row excludes.
+  `kind-of` is replaced by its immediate restriction in every graph.
+- **Derivations keep self-atoms** H(x, x), since they feed later rules; only questions exclude a = b. The closure was
+  checked against rule application v1's generator on 200 random problems. Proof lengths equal the closure on
+  path-only rule sets and stay inside it when `conj` is present.
+- **Taught edit e2:** `child-of` is not a hop (untrained, and a test target), so `ancestor-of` from `spouse-of` replaces
+  "`ancestor-of` from `child-of`". The irrelevant edit i3 is an extra derived relation defined from a body relation
+  that the asked relation never uses.
+- **Edits are evaluated on the oracle graph,** so that they measure rule-following, not knowledge.
+- **`question` arm:** trained on the half of each taught task's 1–2-hop questions outside a fixed mask. Reads are
+  reported on all pairs and on the held half; the held half is reported for every arm.
+- **Exhaustive references:** the no-return reference is a depth-first search capped at 20,000 expansions per start,
+  with truncations counted. The returns-allowed reference is exact reachability over (entity, previous step) states.
+- **Synthetic reference coverage:** the exhaustive references run for every synthetic rule set. The cap bounds their
+  cost, and truncation is reported.
+- **Smoke-stage measurement:** in 40 rule sets, 483 k oracle-F pairs become T when the rules are closed over the gated
+  confirmed graph, and are excluded from training as specified. This is the scale of knowledge damage the
+  confirmed-graph reads will show.
+- **Cost fixes found in the smoke stage:**
+  - proof lengths: the fixed-point loop runs over one-atom rules only, since a two-atom rule at length k uses only
+    shorter lengths. Rechecked against the closure on 200 problems. Training labels use lengths ≤ 2 only;
+  - matrix libraries run single-threaded in each worker.
+- **Workers: 5, not 6.** Peak memory at the smoke stage was 0.95 GB (`rules`) and 1.46 GB (`rules-nogate`), on a
+  15 GB machine.
+- **Smoke-stage speeds:** critic training 0.9 CPU s per step (`rules`), 2.0 s (`rules-nogate`, denser graph).
