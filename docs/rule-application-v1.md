@@ -310,3 +310,140 @@ inside the loop, which is not tested here. The network's size does not grow with
 - **Runtime JSON** (per `computation-reporting.md`), by phase: problem generation (with rejection counts), training,
   each test family, and reader passes. The `reader` condition depends on the untracked checkpoints
   `runs/amortized-introduction-v1/virtual-seed45{0..3}.pt`, whose sha256 are in that study's report.
+
+## Commands
+
+    EV_WORKERS=6 .venv/bin/python -m experiments.rule_application       # rerun to resume
+    .venv/bin/python -m experiments.rule_application summary
+
+## Results (2026-11-07)
+
+Run at revision `9b2720f`, 12 runs, 6 workers, 1.75 h wall. Means over seeds 460–463. Balanced accuracy per depth =
+mean of T recall at that depth and F recall over the non-derived atoms of derived relations.
+
+### The networks did not learn the task at the trained depth
+
+Training-batch balanced accuracy (base atoms included) was still rising at step 6,000: 0.86 (`edge-loop`), 0.90
+(`edge-untied`), 0.85 (`pair-loop`). On fresh in-distribution problems (depth ≤ 2):
+
+| Arm (T) | depth 1 | depth 2 | T recall d1 / d2 | F recall |
+|---|---|---|---|---|
+| `edge-loop` (4) | 0.75 | 0.67 | | |
+| `edge-loop` (16) | 0.68 | 0.61 | 0.62 / 0.49 | 0.73 |
+| `edge-untied` (4 layers) | **0.83** | **0.73** | 0.88 / 0.67 | 0.79 |
+| `pair-loop` (16) | 0.63 | 0.58 | 0.64 / 0.54 | 0.62 |
+
+Synthetic test, depths 3–6, is near chance in every arm (0.53–0.58). T recall falls from 0.39–0.49 at depth 3 to
+0.35–0.48 at depth 6. More entities (12–16, depth ≤ 2) cost 0.02–0.05.
+
+### Taught relations, `oracle` facts: exactly the trained depths, nothing beyond
+
+| Relation | arm | depth 1 | depth 2 | depths ≥ 3 | world labels |
+|---|---|---|---|---|---|
+| `bigger-than` (1–11) | `edge-untied` | 1.00 | 1.00 | 0.50 (T recall 0.00) | 0.66 |
+| | `edge-loop` T16 | 0.94 | 0.51 | 0.44 | 0.55 |
+| `ancestor-of` (1–5) | `edge-untied` | 0.98 | 0.93 | 0.48 | 0.86 |
+| | `edge-loop` T16 | 0.99 | 0.49 | 0.49 | 0.72 |
+| is-a (1–4) | `edge-untied` | 0.99 | 0.99 | 0.49 | 0.72 |
+| | `edge-loop` T16 | 0.98 | 0.61 | 0.48 | 0.67 |
+| `smaller-than` (2–12) | `edge-untied` | | 0.95 | 0.45–0.66 | 0.56 |
+| `grandparent-of` (1) | `edge-untied` / `edge-loop` | 0.99 / 0.75 | | | 0.98 / 0.74 |
+| `child-of` (1) | `edge-untied` / `edge-loop` | 0.99 / 0.99 | | | 0.98 / 0.98 |
+
+`pair-loop` is like `edge-loop` or worse (`grandparent-of` 0.47). The oracle closures match the world's labels except
+6 of 281 is-a pairs.
+
+**Diagnostic after the run** (`edge-loop`, seeds 460–461, T = 1…8 on the taught chains): depth-1 recall is 1.00 at
+every T ≥ 2. Depth 2 reaches at most 0.6–0.9 at T = 3–4 and 0 elsewhere. Depths ≥ 3 are 0 at every T. The tied loop
+applies the one-step rule and almost never the recursive one. Extra loops do not extend its reach, and F recall falls
+with T (bigger-than 1.00 at T = 2, 0.72 at T = 8).
+
+### Answers do not follow rule changes in synthetic problems
+
+| Arm | relevant edits: flipped atoms correct (e1 / e2 / e3) | irrelevant edits: answers unchanged (fresh vectors / dead rule / unused relation) |
+|---|---|---|
+| `edge-loop` | 0.50 / 0.50 / 0.44 | 0.65 / 0.90 / 0.84 |
+| `edge-untied` | 0.54 / 0.52 / 0.42 | 0.71 / 0.93 / 0.88 |
+| `pair-loop` | 0.53 / 0.52 / 0.48 | 0.59 / 0.87 / 0.83 |
+
+On taught problems, `edge-untied` keeps 0.95–1.00 of answers under fresh vectors and dead rules, and follows some
+edits: is-a with swapped kind arguments 0.92, `child-of` 1.00, `ancestor-of` from `child-of` 0.75. Head swaps
+0.25–0.59.
+
+### Reader: hop level and knowledge damage
+
+| Base relation | reader precision / recall (raw) | after immediate reduction |
+|---|---|---|
+| `parent-of` | 0.72 / 0.97 | |
+| `just-bigger-than` | 0.90 / 0.95 | |
+| `kind-of` (all memberships) | 0.33 / 0.75 | 0.08 / 0.10 |
+| `subkind-of` | 0.04 / 0.92 | |
+
+Knowledge damage, exact closure of the reader's facts against the oracle (T recall by depth, F recall):
+
+- `ancestor-of`: 0.97 → 0.83 from depth 1 to 5, F 0.98;
+- `bigger-than`: 0.96 → 0.75 from depth 1 to 11, F 0.98;
+- is-a: 0.43–0.46, F 0.60. The reader's false `subkind-of` links remove true immediate memberships and add false
+  chains.
+
+With perfect application, the system's own knowledge would support `ancestor-of` and `bigger-than` chains well and
+is-a poorly. The network on reader facts against `reader-closure` follows its `oracle` pattern: depth 1 0.86–0.96,
+deeper at chance.
+
+### Against the predictions
+
+1. **Failed.** `edge-loop` T16, depths 3–4: 0.55 / 0.54; 5–6: 0.54 / 0.53. Connected negatives 0.71 (path 1–2), 0.93
+   (3–4). Longer-path buckets are empty: synthetic graphs with up to 16 entities have no long undirected paths.
+2. **Failed.** Extra loops hurt: depths 5–6 0.537 / 0.532 at T16 against 0.540 / 0.532 at T4; depth ≤ 2 falls
+   0.06–0.07.
+3. **Held except depth 1.** Tied at T = 4 against untied: 0.054, 0.026, 0.011, 0.010 below on depths 1–4.
+4. **Failed.** `pair-loop` equals `edge-loop` at depths 3–6 (both at chance).
+5. **Failed beyond the trained depth.** `edge-untied` meets the thresholds at depths 1–2 (0.93–1.00), every arm is at
+   chance beyond that.
+6. **Not testable beyond depth 1.** Depth 1 on reader facts 0.86–0.96 against 0.98–0.99 on oracle facts; deeper both
+   at chance.
+7. **Failed.** Flipped atoms 0.42–0.54; irrelevant edits keep 0.59–0.93.
+8. **Failed.** `edge-loop` depth ≤ 2 loses 0.06–0.07 from T = 4 to 16.
+9. **Failed.** Held-out form, T recall 0.44 (T16) to 0.60 (T4).
+10. **Failed.** In distribution 0.63–0.83 at depth 1, 0.58–0.73 at depth 2 (predicted ≥ 0.97).
+
+### What this means
+
+- **The question was not reached.** Depth generalization needs a network that has learned 1–2 step application. None
+  had: the best is 0.83 / 0.73 in distribution, with training still improving. Every deeper read inherits that.
+- **Where application was learned, it was learned as a fixed depth, not a repeatable step.** On clean taught chains,
+  the untied network is exact at depths 1–2 (`bigger-than` 1.00 / 1.00, is-a 0.99 / 0.99) and says T to nothing at
+  depth 3. It learned "apply the rules up to twice". That matches the length-generalization failure of fixed-depth
+  networks.
+- **The tied loop never became an iteration.** It applies one-step rules and not the recursion, and running it longer
+  degrades it. Random T in 2–4 with loss only at the end never required step k to do the k-th application. A network
+  can satisfy that loss by finishing early and then holding still, or by not iterating at all. Looped Transformers
+  supply each example's step count, and this study did not. That difference is the most likely cause, but untested.
+- **The synthetic problems are much harder than the taught ones.** Many interacting rules over dense random facts. The
+  untied network solves clean taught chains at depth ≤ 2, but only 0.73 of synthetic depth-2 atoms.
+- **The reader's knowledge is a separate limit.** Its closure supports `ancestor-of` and `bigger-than` chains to
+  0.75–0.97 and is-a only to 0.43–0.46, because of false `subkind-of` links. This is the hop level found in conflict
+  search, now measured as damage.
+- **Candidates for the next step**, not chosen:
+  - per-step supervision (atoms of depth ≤ k labelled T after loop k), which is what makes looped models iterate;
+  - longer training, or a curriculum (depth 1 first);
+  - simpler synthetic problems (fewer interacting rules, sparser facts);
+  - a stopping signal.
+
+### Computation (measured)
+
+`reports/rule-application-v1-runtime.json`. Per run:
+
+| Phase | `edge-loop` | `edge-untied` | `pair-loop` |
+|---|---|---|---|
+| training, CPU s | 2,657–2,663 | 2,718–3,406 | 1,667–1,678 |
+| synthetic reads | 382–404 | 26–50 | 150–165 |
+| edit reads | 250–255 | 34–57 | 81–115 |
+| taught reads (including reader passes) | 29–34 | 9–12 | 20–22 |
+
+- **Training includes problem generation:** about 400 CPU s per run, about 953 k attempts for 192 k problems.
+- **Test generation:** 73–85 CPU s.
+- **Parameters:** 138,793 / 401,257 / 130,473.
+- **Peak RSS:** 0.66–0.75 GB per worker.
+- **Total:** 34,736 CPU s (9.6 CPU h), 6,284 s wall, within the declared 1–2.5 h.
+- **Diagnostic after the run:** about 2 CPU min. No tuning.
