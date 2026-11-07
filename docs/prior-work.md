@@ -8,6 +8,12 @@ studies are not yet reviewed.
 
 ## Search record and evidence levels
 
+2026-11-07: [rule application v1 interpretation](rule-application-v1-interpretation.md) follows `ac74065`:
+acquisition failed before depth generalization could be isolated **[read: local results/code]**. Missing iteration
+pressure is unconfirmed **[derived]**; staged one-step acquisition and intermediate-consequence teaching are
+**[proposal]**. Fan et al. provide stopping-count supervision, not intermediate-state targets **[read: §4.1–4.2]**.
+No new experiment or contract.
+
 2026-11-07: [rule application v1 review](rule-application-v1-review.md) checks draft `3105e68`.
 **[read: primary-source sections]** Edge Transformer ties weights by default; Fan et al. train with supplied
 stopping counts and input injection. These correct/qualify the earlier abstract-level account below.
@@ -19,6 +25,11 @@ No contract changes or experiments run.
 fresh-code introduction episodes, query-conditioned use of partner evidence, and counterfactual application
 checks. Local diagnosis **[read: local code and results]**; design arguments **[derived]** and proposed reader
 **[analogy]**; MAML and Neural LP **[abstract]**, with searches and limits recorded in the note. No new run or contract.
+
+2026-11-07: [rule-guided search v1](rule-guided-search-v1.md) (draft) builds on our components (frozen readers, conflict
+search's committed walk and hop check, the pairwise composition critic) and adopts small established pieces: MINERVA's
+test-time beam, rule execution as relation-sequence following (TensorLog, Neural LP), type constraints on arguments
+(Krompaß et al. 2015), all **[familiar]**. The critic's context becomes the told rules.
 
 2026-11-07: [rule application v1](rule-application-v1.md) (draft, revised after one external review: Edge Transformer ties weights by default; Fan et al. supply step counts and inject the input, §§ read) maps the design to the Edge Transformer (pair states,
 triangular attention; [Bergen et al. 2021](https://arxiv.org/abs/2112.00578)) looped with shared weights ([Looped
