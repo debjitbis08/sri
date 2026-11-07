@@ -179,11 +179,14 @@ def train(critic, cond, rsets, qs, rd, seed, on_ckpt):
                 progs = [(s, -1), (s, s)]
                 labels = [1., 1.]
                 for kind in ('random', NEG_KINDS[rng.integers(4)]):
-                    for _ in range(10):
-                        k = int(rng.integers(1, 3))
+                    p = None
+                    for _ in range(20):
+                        k = 2 if kind == 'splice' else int(rng.integers(1, 3))
                         p = neg_program(kind, k, s, rd, rng)
                         if p is not None:
                             break
+                    if p is None:
+                        continue
                     progs.append(tuple(p) + (-1,) * (2 - len(p))); labels.append(0.)
                 lp = prog_logp(critic, rs, E, progs)
                 total = total + F.binary_cross_entropy(lp.exp().clamp(1e-6, 1 - 1e-6), torch.as_tensor(labels), reduction='sum')

@@ -142,3 +142,6 @@ candidate enumeration: O(programs) per rule set. The MIL conditions cost as in v
   the first check that the perfect pairwise table (START→R*, R*→R*, R*→END) would reject.
 - **Smoke speeds:** after vectorizing program scoring, 0.83 CPU s per step (`confirmed-mil`); the smoke reads were
   unchanged by the vectorization.
+- **Bug fixed during the main run:** a `direct` splice negative needs length 2, and the retry loop could draw length 1
+  repeatedly and crash. Splices now always have length 2. The MIL runs had finished and were kept; only `direct` was
+  rerun.
