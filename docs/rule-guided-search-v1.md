@@ -1,174 +1,261 @@
 # Rule-guided search v1: told rules steer the walker and the composition critic
 
-**Contract draft, 2026-11-07, not frozen.** User direction, 2026-11-07: rule application v1 replaced the component
-structure we were developing with a new architecture, and that should not have happened. The architecture is built
-part by part: take smaller established components from the literature and integrate them with ours, build only what
-is missing. This study extends the relational components we have. It stays on the dense testbed until stable
-(a standing direction; integration comes later). The rules are the agreed
-base: `p → q` with variables, modus ponens, each relation rule an implication the system is told. Train on 1–2 step
-problems; test on longer ones, on different relations and on relations taught earlier. Planned runner
-`experiments/rule_guided_search.py`; reports `reports/rule-guided-search-v1{,-summary,-runtime}.json`.
+**Contract draft, 2026-11-07, revised after one external review, not frozen.** User direction, 2026-11-07: rule
+application v1 replaced the component structure we were developing with a new architecture, and that should not have
+happened. The architecture is built part by part: take smaller established components from the literature and
+integrate them with ours; build only what is missing. This study extends the relational components we have, on the
+dense testbed (a standing direction: integration comes later). The rules are the agreed base: `p → q` with variables,
+modus ponens, each relation rule an implication the system is told. Train on short problems; test on longer ones, on
+different relations and on relations taught earlier.
+
+The review (pasted by the user, 2026-11-07) raised seven points, all confirmed and addressed here:
+
+1. The readers were trained on `ancestor-of`, `grandparent-of`, `bigger-than`, `smaller-than` and `is-a`, so the
+   graph contained the answer relations. There is now a hop vocabulary for each task.
+2. A conjunction rule cannot be followed as a path. The pilot is restricted to a path fragment, with conjunction as a
+   diagnostic.
+3. Two derivation rounds can need 4 hops. Proof length is now counted in hops, and training questions are chosen by it.
+4. Multiplying supports rejects long valid proofs (0.9¹¹ = 0.31). Acceptance is now local and separate from ranking.
+5. The beam can lose the correct branch. There is an exhaustive reference, supplied-proof evaluation, and a failure
+   taxonomy.
+6. The graph used for training and for evaluation was unspecified. Both are now fixed, and the closure is recomputed on
+   the new confirmed graph.
+7. Quotas and costs are now complete.
+
+Planned runner `experiments/rule_guided_search.py`; reports `reports/rule-guided-search-v1{,-summary,-runtime}.json`.
 
 ## Components
 
 | Component | Source | Role here | Status |
 |---|---|---|---|
-| logic and intuition readers, applicability head | ours: dual-route truth, type meanings, [amortized introduction v1](amortized-introduction-v1.md) | check every hop; mark meaningless hops | **reused frozen**: the `virtual` checkpoints of seeds 450–453, the same readers whose knowledge damage rule application v1 measured |
-| hop check `ask(x, ρ, y)` | ours: [conflict search v1](conflict-search-v1.md) | a hop is confirmed when both routes agree and logic supports it | **extended:** also requires applicability > 0.5 (type constraint) |
-| committed walk, one middle at a time, inhibition of return, budget | ours: conflict search v1 | the search discipline | **reused** |
-| pairwise composition critic c_t = f(context, step t−1, step t), program score ∏ c_t, multiple-instance training on question labels | ours: [composition critic check v1](composition-critic-check-v1.md), where it generalized ancestor from ≤ 2 to 3–5 steps | decides which step may follow which | **extended:** context is the told rules instead of the question's relation code |
+| logic and intuition readers, applicability head | ours: dual-route truth, type meanings, [amortized introduction v1](amortized-introduction-v1.md) | check every hop; mark meaningless hops | **reused frozen**: the `virtual` checkpoints of seeds 450–453 |
+| hop check `ask(x, ρ, y)` | ours: [conflict search v1](conflict-search-v1.md) | a hop is confirmed when both routes agree and logic supports it | **extended:** also requires applicability > 0.5 |
+| committed walk, inhibition of return, budget | ours: conflict search v1 | the search discipline | **reused** |
+| pairwise composition critic over steps, multiple-instance training on question labels | ours: [composition critic check v1](composition-critic-check-v1.md) | decides which step may follow which | **extended:** context is the told rules instead of the question's relation code |
 | rule encoder (atoms of relation, variable and role, summed per rule) | ours: [rule application v1](rule-application-v1.md) | turns told formulas into the critic's context | **reused**, with the readers' relation codes as symbols |
-| beam search over a knowledge graph with a learned step scorer | literature: MINERVA's test-time beam (Das et al. 2018); path following for rules in TensorLog / Neural LP (Cohen 2016; Yang et al. 2017) | replaces the learned entity proposer, which was conflict search's main loss (recall 0.13–0.36 against 0.77 for the right program run exhaustively) | **adopted** |
-| type constraints on relation arguments | literature: type-constrained KG embeddings (Krompaß et al. 2015) | cuts the hallucinated edges (`cow parent-of moo`) that made 97% of the confirmed graph untaught | **adopted**, through our own applicability head |
+| beam search over a knowledge graph with a learned step scorer | literature: MINERVA's test-time beam (Das et al. 2018) | replaces the learned entity proposer, conflict search's main loss | **adopted** |
+| rule execution as following relation sequences | literature: TensorLog (Cohen 2016), Neural LP (Yang et al. 2017) | what a valid proof of a chain rule is | **adopted** as the definition; the symbolic execution is the oracle only |
+| type constraints on arguments | literature: type-constrained KG embeddings (Krompaß et al. 2015) | cuts hallucinated edges | **adopted** through our applicability head |
 
-Nothing here is new except the conditioning of the critic on rules and the joining of the pieces.
+The only new parts are the critic's conditioning on rules and the joining of the pieces. The literature supports the
+pieces, not the combination: MINERVA learns navigation and TensorLog compiles inference, and neither establishes that a
+critic seeing only the last step implements rule application. That is what this study tests.
 
-## Why this should iterate where rule application v1 did not
+## Supported fragment
 
-The critic only judges whether step t may follow step t−1 under the told rules. A chain of length k is the same check
-k times. That is how the composition critic generalized ancestor from 2 to 5 steps. Depth is not something the network
-must learn to repeat: the walk repeats, and each step is checked locally (bigram constraints, which carry to any
-length; [prior work](prior-work.md), grammatical inference). Rule application v1 had no such structure and learned a
-fixed depth.
+A proof the walk can represent is a sequence of hops a → … → b, each a base relation in either direction. The pilot
+uses rules whose every proof has that form:
 
-## World and questions
+- `sub`, `inv`;
+- `chain1`–`chain4` (two atoms sharing a middle variable, any orientation);
+- recursive `lin-l`, `lin-r`, `trans`, `sym`.
 
-- **World:** amortized introduction v1's world (`relations_as_objects.World`): the everyday world with category facts,
-  62 synthetic relations and the same splits.
-- **Base relations** (hops) are relations the readers were trained on. The search walks only base relations, in either
-  direction.
-- **Derived relations** are defined only by told rules. Their truth is the closure of the world's true base facts under
-  the rules (the generator of rule application v1, as data and evaluation oracle only).
-- **Training rules:** 300 rule sets per seed, each defining 1–2 derived relations with fresh symbols. Rules are drawn
-  from rule application v1's forms, with body relations sampled from the trained base relations, real and synthetic.
-  Five rules are excluded: the exact taught rules of the test (`ancestor-of`, `bigger-than`, `smaller-than`, is-a,
-  `grandparent-of`, `child-of`).
-- **Training questions:** for each rule set, up to 20 T pairs whose shortest derivation is ≤ 2 steps, and the same
-  number of F pairs. Half of the F pairs are connected negatives: the entities are joined by a path of confirmed facts,
-  but not through the rules.
-- **Test questions:**
-  - **taught rules:** `ancestor-of` (via `parent-of`, depths 1–5), `bigger-than` (via `just-bigger-than`, 1–11),
-    `smaller-than` (through `bigger-than` reversed, 1–11), is-a (immediate `kind-of` plus `subkind-of`, 1–4),
-    `grandparent-of` (2), `child-of` (1). Every labelled pair of the entities involved;
-  - **synthetic:** 100 fresh rule sets per seed, depths 1–6 where the closure has them;
-  - **rule edits:** as in rule application v1. Swap a body atom's arguments, replace a body relation, swap the head;
-    irrelevant edits are fresh symbols, a dead rule and an unused relation.
+Excluded from the main pilot:
 
-## Search (frozen readers, learned critic)
+- **`conj`** (A(x, y) ∧ B(x, y) → H(x, y)): checks two facts about the same endpoints. It is a diagnostic with 50 rule
+  sets per seed, expected to fail.
+- **Questions with a = b.**
+- **Proofs that must revisit an entity.** The walk forbids returns. The exhaustive reference, which allows returns,
+  counts the T questions this costs.
+- **Counting rules** such as `grandparent-of` = `parent-of` ∘ `parent-of` are in the fragment, but a pairwise check
+  cannot count. They are tested and expected to over-accept.
+
+## Hop vocabulary per task (what the walk may step on)
+
+Base relations are reader-trained relations minus an excluded set. The asked relation, intermediate derived relations
+and relations defined from them are never hops:
+
+| Task | Excluded from hops |
+|---|---|
+| family (`ancestor-of`, `grandparent-of`, `child-of`) | `ancestor-of`, `grandparent-of`, `child-of` |
+| size (`bigger-than`, `smaller-than`) | `bigger-than`, `smaller-than` |
+| is-a | `is-a`; `kind-of` is replaced by its immediate restriction (below) |
+| training and synthetic rule sets | all of the above, plus the ρ tokens (never trained) |
+
+In every task, the derived relations of the rules are fresh symbols, never graph relations.
+
+**Immediate `kind-of`:** in the confirmed graph, an edge kind-of(x, d) is dropped when another confirmed kind-of(x, c)
+reaches d through the confirmed `subkind-of` closure. The oracle graph uses the world's immediate memberships
+(dog → mammal), as in rule application v1.
+
+## Graphs, labels and proof length
+
+- **Confirmed graph** (the system's knowledge): for each base relation, direction and entity pair, `ask` is computed once
+  per seed. Both routes agree, logic support > 0.5, applicability > 0.5.
+- **Oracle graph:** the world's true base facts.
+- **Labels** are always the world truth: the oracle graph closed under the rules (rule application v1's generator,
+  data only).
+- **Proof length:** the minimum number of hops of a valid proof, computed exactly by a min-plus closure in which a base
+  fact costs 1 hop, a rule application sums its body's hops, and the minimum is kept over derivations. It is computed
+  on the oracle graph (for reads) and on the confirmed graph (for coverage). Derivation depth (rounds) is reported
+  beside it. The taught chains have equal depth and hop count except is-a (one `kind-of` hop plus `subkind-of` hops).
+- **Confirmed closure:** the confirmed graph closed under the rules, recomputed for this study's gated graph. It is the
+  knowledge ceiling: what perfect application would give with the system's facts.
+- **Validity of a program:** a walk is a valid proof iff the asked relation holds between its ends when the rules are
+  closed over only the walk's own edges. This is exact, and it is an evaluation read only.
+
+## Training (critic trained on the confirmed graph)
+
+- **Rule sets:** 300 per seed, each defining 1–2 derived relations. Forms are drawn from the fragment, uniformly over
+  the 6 seed forms, plus one recursive form with probability 0.5 per derived relation. Body relations are sampled from
+  the training hop vocabulary (real and synthetic).
+- **Questions per rule set:** up to 20 T and 20 F, entities of the body relations' categories.
+  - **T questions** have oracle proof length ≤ 2 **and** confirmed proof length ≤ 2, so a valid candidate exists in the
+    training graph. Coverage before this filter (the share of oracle-T, length ≤ 2 questions with a confirmed proof of
+    length ≤ 2) is reported.
+  - **F questions** are oracle-F. Those that the confirmed closure makes T, through the reader's false facts, are
+    excluded and counted, so the critic is never taught to reject a valid composition.
+  - Half of the F questions are connected negatives: the ends are joined by a confirmed path of ≤ 2 hops.
+- **Candidates:** every walk of 1–2 hops from a to b in the confirmed graph, over the training hop vocabulary,
+  enumerated by boolean products. This exhaustive enumeration disables the beam, top-k and any learned pruning; it is
+  a training-time candidate generator, as in the critic check.
+- **Loss:** a question's score is the maximum over its candidates of ∏ c_t (at most 3 checks including END), with
+  binary cross-entropy against the label. 1,500 Adam steps, lr 3e-3, 256 T and 256 F questions per step.
+- **Critic:** c_t = σ(MLP([rule-set context attended by the step; step t−1; step t])), 64 hidden. A step is [relation
+  code R_L (frozen), direction, START/END flags]. The rule tokens follow rule application v1: base relations given by
+  their R_L codes, derived relations by fresh symbols, the asked relation flagged.
+
+## Search at test
 
 ```
-search(a, b, rules):                         beam of committed paths, each from a
-    beam = [(a, START, score 1)]
-    for depth in 1..D_max:
-        for each path (node, last, s) in beam:
-            for each step σ = (relation ρ, direction):         ρ over base relations
-                c = critic(rules, last, σ)
-                if c < 0.5: skip
-                for m in confirmed(node, σ), not yet on the path, top k by logic support:
-                    extend: (m, σ, s · c · support)
-        if an extension reaches b: score it with critic(rules, σ, END); keep the best found
-        beam = best W extensions
-    answer T iff best found score > 0.5
+beam = [(a, START)]                                  ranking score: Σ log c_t (critic only)
+for hop in 1..D_max (= 12):
+    for each path (node, last) in beam:
+        for each step σ = (ρ, direction), ρ in the task's hop vocabulary:
+            c = critic(rules, last, σ);  if c ≤ 0.5: skip
+            for m in confirmed(node, σ), m not on the path:
+                extend; if m == b: check critic(rules, σ, END)
+    beam = best W extensions by ranking score (ties: fixed random order per seed)
+answer T iff some path to b has every c_t > 0.5 (including END)
 ```
 
-- **Confirmed graph:** for each base relation, direction and entity pair, `ask` is computed once per seed. Both routes
-  agree, logic support > 0.5, applicability > 0.5. The graph is fixed during search: the readers never change.
-- **Constants:** W = 8 paths, k = 4 entities per step, D_max = 12. Budget = expansions scored, reported.
-- **No learned entity proposer.** Entities come from the confirmed graph, ranked by the readers' support. The only
-  learned choice is which step may follow, and that is the critic's.
+- **Acceptance is local:** a proof is accepted when every step and END pass the critic. Hops are already thresholded by
+  `ask`. Supports never multiply into acceptance, so length alone cannot reject a proof. The product policy (∏ c_t ×
+  supports > 0.5) is reported as a diagnostic, with the ceiling it imposes on valid confirmed proofs by length.
+- **Entities:** every confirmed successor. There is no top-k; the beam (W = 16) is the only pruning.
+- **Exhaustive reference:** the same search with an unlimited beam (critic-pruned, all successors), up to 12 hops on the
+  taught tasks and up to 4 hops on synthetic rule sets. The same reference with returns allowed counts what no-return
+  costs.
+- **Supplied proof:** for each T question with a valid proof in the graph, the critic's verdict on the shortest one.
 
-## Critic training
+## Test sets (per seed)
 
-- **Candidates:** for each training question, every program of at most 2 steps connecting a to b in the confirmed
-  graph. This is the beam search with an unlimited beam at depth 2. It is a training-time candidate generator, as in
-  the critic check.
-- **Loss:** question score = maximum program score; binary cross-entropy against the label (multiple-instance).
-- **Training:** 1,500 Adam steps, lr 3e-3, 256 T and 256 F questions per step.
-- **Critic:** c_t = σ(MLP([rule-set encoding attended by the step's relation code; step t−1; step t])), 64 hidden. A
-  step is [relation code R_L (frozen), direction, START/END flags]. The rule-set encoding: rule tokens as in rule
-  application v1, with base relations given by their R_L codes, derived relations by fresh symbols, and the asked
-  relation flagged.
+- **Taught rules,** every labelled pair of the entities involved:
+  - `ancestor-of`: `parent-of` hops, lengths 1–5;
+  - `bigger-than`: `just-bigger-than`, 1–11;
+  - `smaller-than`: through `bigger-than` reversed, 1–11;
+  - is-a: immediate `kind-of` plus `subkind-of`, 1–4;
+  - `grandparent-of`: 2;
+  - `child-of`: 1.
+- **Synthetic:** 100 fresh rule sets. Quotas of oracle T questions by proof length 1, 2, 3, 4, 5–6: 100 each (pooled
+  over rule sets), and as many F questions, half of them connected negatives. Shortfalls are reported, and buckets
+  under 30 questions are marked uninformative.
+- **Rule edits** (taught rules, and the first 300 synthetic questions):
+  - relevant: swap a body atom's arguments, replace a body relation with another hop relation, swap the head. Taught
+    examples: `ancestor-of` from `child-of`, `bigger-than` from `just-bigger-than` reversed;
+  - irrelevant: fresh symbols for derived relations, a dead rule (body relation with no facts), an unused extra rule.
+- **`conj` diagnostic:** 50 rule sets.
 
-## Arms (seeds 450–453, matching the reader checkpoints)
+## Arms (seeds 450–453)
 
-| Arm | Hop check | Critic context |
-|---|---|---|
-| `rules` | both routes + applicability | told rules |
-| `rules-nogate` | both routes only (conflict search's check) | told rules |
-| `question` | both routes + applicability | the question's relation code only, as in the critic check; trained on the taught relations' training questions instead of rules (learned from examples, not told) |
+| Arm | Hop check | Critic context | Critic trained on |
+|---|---|---|---|
+| `rules` | both routes + applicability | told rules | training rule sets, confirmed graph |
+| `rules-nogate` | both routes (conflict search's check) | told rules | the same, on its own ungated graph |
+| `question` | both routes + applicability | the question's relation code, as in the critic check | the taught relations' training-split questions, 1–2 hops (learned from examples, not told) |
 
-Each arm is also run with the **oracle graph** in place of the confirmed graph. These are the world's true base facts,
-which separates applying the rules from knowing the facts, as `oracle` and `reader-closure` did in rule application v1.
+Every arm is evaluated on its confirmed graph and on the oracle graph, with the same trained critic. Only the
+evaluation graph changes.
 
-## Reads (four seeds; by depth wherever depth exists)
+## Reads (four seeds; by proof length)
 
-1. **Answer:** balanced accuracy per depth; T recall per depth; F recall overall and on connected negatives.
-2. **Composition:** critic acceptance of the valid program and of spurious programs, by length. Program AUROC.
-3. **Proof validity:** the share of found best paths on T questions that are valid derivations under the rules on true
-   facts. This is the oracle check, an evaluation read only.
-4. **Hop:** the confirmed graph's composition (labelled true, labelled false, unlabelled) with and without the
-   applicability gate. Conflict search found 40 k unlabelled against 1.3 k true.
-5. **Rule edits:** flipped answers correct, and answers unchanged under irrelevant edits.
-6. **Cost:** expansions per question by depth.
-7. **Reference:** intuition's one-pass verdict on the taught relations it was trained on.
+1. **Answer:** balanced accuracy and T recall per proof length; F recall overall and on connected negatives.
+2. **Failure taxonomy** for each T question:
+   - no valid proof in the graph;
+   - a proof exists but the beam lost it (the exhaustive reference finds an accepted one);
+   - a found or supplied proof is rejected by the critic.
 
-## Predictions
+   The shares by proof length.
+3. **Composition:** critic acceptance of supplied valid proofs and of spurious programs, by length. Program AUROC.
+4. **Proof validity:** the share of accepted paths on T questions that are valid proofs.
+5. **Hop:** the confirmed graph's composition (labelled true, labelled false, unlabelled) with and without the gate.
+   Coverage of training T questions. The confirmed closure against the oracle (knowledge ceiling) by length.
+6. **Rule edits:** flipped answers correct; answers unchanged under irrelevant edits.
+7. **Diagnostics:**
+   - the product-policy ceiling;
+   - no-return cost;
+   - the `conj` sets;
+   - counting (`grandparent-of` on 3–4-hop `parent-of` pairs).
+8. **Cost:** expansions and critic calls per question by length, beam and exhaustive.
+9. **Reference:** intuition's one-pass verdict on the taught relations it was trained on.
 
-1. **[derived from the critic check]** `rules`, oracle graph: `ancestor-of` ≥ 0.9 at depths 1–5, `bigger-than` ≥ 0.9
-   at 1–11, `child-of` ≥ 0.9. All of these are linear chains a pairwise check covers.
-2. **[derived]** `grandparent-of` over-accepts. A pairwise check cannot count, so great-grandparents pass (the critic
-   check's counting result). F recall on 3–4-step `parent-of` pairs < 0.5. This is a known limit, not a target.
-3. **[hypothesis]** `smaller-than` and is-a ≥ 0.8 on the oracle graph. They need a reversed direction (`smaller-than`)
-   or a change of relation after the first step (is-a), both still bigram patterns.
-4. **[hypothesis]** On the confirmed graph, answers fall to about the knowledge damage of rule application v1:
-   `ancestor-of` and `bigger-than` within 0.1 of their `reader-closure`, is-a poor.
-5. **[hypothesis]** The applicability gate cuts unlabelled confirmed facts ≥ 3× (type meanings v1: 3.6×) and raises
-   proof validity ≥ 0.2 over `rules-nogate`.
-6. **[hypothesis]** Rule edits: flipped answers ≥ 0.8 correct on linear-chain rules; ≥ 0.95 unchanged under
-   irrelevant edits.
-7. **[hypothesis]** `question` matches `rules` on taught relations it was trained on, but cannot follow edits (flipped
-   ≈ unchanged). Told rules are what make the answer follow the rule.
-8. **[hypothesis]** Synthetic fresh rule sets, oracle graph: depth 3–6 within 0.1 of depth 1–2 for linear-chain rules.
+## Predictions (all hypotheses)
+
+1. `rules`, oracle graph: `ancestor-of` and `bigger-than` ≥ 0.9 balanced accuracy at every length; `child-of` ≥ 0.9.
+   Supplied valid proofs accepted ≥ 0.9 at every length (the critic check's pattern, now with told rules).
+2. `grandparent-of` over-accepts: F recall < 0.5 on 3–4-hop `parent-of` pairs.
+3. `smaller-than` and is-a ≥ 0.8 on the oracle graph.
+4. Confirmed graph: within 0.1 of the confirmed closure for `ancestor-of` and `bigger-than`. The remaining gap falls
+   mostly in "no proof in the graph", not "lost" or "rejected".
+5. The gate cuts unlabelled confirmed facts ≥ 3× and raises proof validity ≥ 0.2 over `rules-nogate`.
+6. Rule edits: flipped answers ≥ 0.8 correct on the taught linear chains; irrelevant edits leave ≥ 0.95 unchanged.
+7. `question` is within 0.05 of `rules` on taught relations at lengths 1–2, but follows edits no better than chance
+   (flipped ≤ 0.6).
+8. Synthetic, oracle graph: lengths 3–6 within 0.1 of lengths 1–2 for linear recursive rules. The beam loses ≤ 0.05
+   of what the exhaustive reference finds.
+9. `conj` rule sets near chance, as expected.
 
 ## Prior work
 
-Searches of 2026-11-07 recorded in [rule application v1](rule-application-v1.md) and the conflict-search contract.
-Added here, all **[familiar]**: MINERVA's test-time beam (Das et al. 2018); TensorLog (Cohen 2016) and Neural LP (Yang
-et al. 2017), which execute chain rules by following relation sequences over the knowledge base; type-constrained KG
-embeddings (Krompaß et al. 2015); grammar-constrained decoding, where a transition model limits which token may follow
-which.
+Searches of 2026-11-07 are recorded in [rule application v1](rule-application-v1.md) and conflict search. Added here,
+all **[familiar]**, except the two papers the review linked, which are cited for their scope only:
 
-- **Correspondence:** executing a told chain rule is following its relation sequence. TensorLog does that with matrix
-  products over a symbolic KB. Here, hops are neural reader checks, and which relation may follow which is a learned,
-  rule-conditioned local check.
-- **Predicted by theory:** bigram (pairwise) constraints extend to any length and cannot count. The critic check
-  confirmed both (ancestor 3–5 accepted; no counting).
+- MINERVA ([Das et al. 2018](https://arxiv.org/abs/1711.05851)): a learned walker with a test-time beam;
+- TensorLog ([Cohen 2016](https://arxiv.org/abs/1605.06523)): compiles logical inference into differentiable
+  operations;
+- Neural LP;
+- type-constrained KG embeddings (Krompaß et al. 2015);
+- grammar-constrained decoding.
+
+- **Predicted by theory:** pairwise (bigram) constraints extend to any length and cannot count. The critic check
+  confirmed both. Path-following covers exactly chain-like rules, not conjunctions over the same endpoints.
 - **Known failures:**
-  - hallucinated confirmed edges, which the gate addresses and read 4 measures;
-  - a proposer missing true middles, avoided by taking entities from the confirmed graph;
-  - critics that win on true questions through nonsense witnesses (the critic check outside ancestor), measured by
-    proof validity (read 3) and connected negatives;
-  - counting rules (prediction 2).
-- **Excluded alternative:** symbolic execution of the rules, TensorLog-style exact matrix chaining over true facts. It
-  is the oracle, not a component (purely neural).
-- **What this adds:** rule-conditioned composition checking over the system's own neural knowledge, and whether told
-  rules (not examples) make answers follow the rule.
+  - hallucinated confirmed edges (gate; read 5);
+  - lost branches (beam against exhaustive; read 2);
+  - nonsense witnesses (proof validity, connected negatives);
+  - shortcut hop relations (excluded per task);
+  - multiplicative length penalty (local acceptance; the product policy as diagnostic);
+  - counting and conjunction (diagnostics).
+- **Excluded alternative:** symbolic execution of the rules is the oracle, not a component (purely neural).
+- **What this adds:** rule-conditioned local composition checks over the system's own neural knowledge, and whether
+  told rules make answers follow the rule.
 
 ## Scale
 
-- **Confirmed graph:** O(R · N²) reader checks once (R base relations, N entities): 100 × 256² ≈ 6.5 M here. At scale it
-  is computed lazily per hop: O(N) checks per expansion, or retrieval by attention from memory.
-- **Search per question:** O(D_max · W · S · k), with S the steps scored per expansion (base relations × 2 directions).
-  Grows linearly with depth.
-- **Critic:** size independent of N, R and depth.
-- **Counting rules** need a state beyond the last step. That is later work.
+| Part | Time | Storage |
+|---|---|---|
+| confirmed graph, built once | O(R · N²) reader checks | R · N² · 2 directions bits + float32 supports: about 26 MB here |
+| candidate enumeration (training) | O(Q · R · N) per question by boolean products | O(candidates) |
+| search per question | O(D_max · W · S) critic calls (S = hop relations × 2 directions) + successor lookups | O(W · D_max) paths |
+| critic and rule encoder | size independent of N, R and length | |
+
+The rule encoding costs O(atoms) per question and is cached per rule set. At scale, the graph is computed lazily per
+hop (O(N) checks per expansion) or retrieved from memory. Counting and conjunction need state beyond the last step;
+that is later work.
 
 ## Computation (declared, estimates)
 
-- **Confirmed graph:** about 6.5 M × 3 reader passes at about 25 k MAC each, about 0.5 TMAC. 2–5 CPU min per seed.
-- **Candidates:** 2-step programs for about 12 k training questions, by boolean products. A few CPU min.
-- **Critic training:** 1,500 steps. 2–5 CPU min.
-- **Test:** about 5 k questions × up to 12 × 8 × 200 critic calls. 10–30 CPU min per run.
-- **Totals:** 3 arms × 2 graphs × 4 seeds; the confirmed graph is shared per seed. About 1–2 h wall on 6 workers.
+- **Confirmed graph:** about 100 relations × 256² × 3 passes ≈ 20 M reader evaluations at about 25 k MAC: 2–5 CPU min
+  per seed, per gate setting.
+- **Supports and graph storage:** about 26 MB per graph.
+- **Candidates:** about 12 k training questions per seed, about 500 programs each: about 6 M short programs (about
+  100 MB as int16).
+- **Critic:** about 30 k parameters, plus Adam state (2× parameters); 1,500 steps, 2–5 CPU min.
+- **Test:**
+  - beam: about 4 k questions × 12 hops × 16 paths × about 200 steps scored;
+  - exhaustive reference on the taught and short synthetic questions;
+  - 15–40 CPU min per run.
+- **Totals:** 3 arms × 4 seeds, each with confirmed and oracle evaluation, about 1.5–3 h wall on 6 workers.
 - **Tuning:** none.
-- **Runtime JSON:** by phase.
+- **Runtime JSON:** by phase (graph construction, closures, candidates, critic training, each test family, the
+  exhaustive reference).

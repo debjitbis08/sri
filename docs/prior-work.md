@@ -8,6 +8,11 @@ studies are not yet reviewed.
 
 ## Search record and evidence levels
 
+2026-11-07: [rule-guided search v1 review](rule-guided-search-v1-review.md) checks `ce96295`.
+MINERVA and TensorLog **[abstract]**; target-hop leakage and earlier absent-witness failures **[read: local sources]**;
+path-versus-proof expressivity, proof-depth/candidate mismatch, product-score length penalties and incomplete
+beam search **[derived]**. These limit what the proposed component integration would establish. No run or contract edit.
+
 2026-11-07: [rule application v1 interpretation](rule-application-v1-interpretation.md) follows `ac74065`:
 acquisition failed before depth generalization could be isolated **[read: local results/code]**. Missing iteration
 pressure is unconfirmed **[derived]**; staged one-step acquisition and intermediate-consequence teaching are
@@ -26,7 +31,7 @@ fresh-code introduction episodes, query-conditioned use of partner evidence, and
 checks. Local diagnosis **[read: local code and results]**; design arguments **[derived]** and proposed reader
 **[analogy]**; MAML and Neural LP **[abstract]**, with searches and limits recorded in the note. No new run or contract.
 
-2026-11-07: [rule-guided search v1](rule-guided-search-v1.md) (draft) builds on our components (frozen readers, conflict
+2026-11-07: [rule-guided search v1](rule-guided-search-v1.md) (draft, revised after one external review) builds on our components (frozen readers, conflict
 search's committed walk and hop check, the pairwise composition critic) and adopts small established pieces: MINERVA's
 test-time beam, rule execution as relation-sequence following (TensorLog, Neural LP), type constraints on arguments
 (Krompaß et al. 2015), all **[familiar]**. The critic's context becomes the told rules.
