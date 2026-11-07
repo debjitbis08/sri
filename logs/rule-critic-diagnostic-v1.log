@@ -1,0 +1,40 @@
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 48, in mapstar
+    return list(map(*args))
+           ^^^^^^^^^^^^^^^^
+  File "/home/debjit/code/sri/experiments/durable.py", line 70, in __call__
+    key, res, rt = self.run(task)
+                   ^^^^^^^^^^^^^^
+  File "/home/debjit/code/sri/experiments/rule_critic_diagnostic.py", line 363, in task
+    res, rt = run(*t)
+              ^^^^^^^
+  File "/home/debjit/code/sri/experiments/rule_critic_diagnostic.py", line 342, in run
+    log = train(critic, cond, rsets, qs, rd, seed, on_ckpt)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/debjit/code/sri/experiments/rule_critic_diagnostic.py", line 187, in train
+    progs.append(tuple(p) + (-1,) * (2 - len(p))); labels.append(0.)
+                 ^^^^^^^^
+TypeError: 'NoneType' object is not iterable
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/debjit/code/sri/experiments/rule_critic_diagnostic.py", line 431, in <module>
+    main()
+  File "/home/debjit/code/sri/experiments/rule_critic_diagnostic.py", line 374, in main
+    out = pool.map(DUR.durable(task, RUNS / 'done', '{0}-seed{1}'), tasks, chunksize=1)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 367, in map
+    return self._map_async(func, iterable, mapstar, chunksize).get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/multiprocessing/pool.py", line 774, in get
+    raise self._value
+TypeError: 'NoneType' object is not iterable

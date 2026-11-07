@@ -1,0 +1,6679 @@
+{
+ "question": {
+  "hop_composition": {
+   "confirmed": {
+    "false": 1541,
+    "true": 6231,
+    "unlabelled": 93906
+   },
+   "gated": {
+    "false": 1541,
+    "true": 6231,
+    "unlabelled": 93906
+   },
+   "ungated": {
+    "false": 1543,
+    "true": 6208,
+    "unlabelled": 470376
+   }
+  },
+  "taught": {
+   "ancestor-of": {
+    "confirmed": {
+     "F_recall": 0.961,
+     "T_recall": {
+      "1": 0.949,
+      "2": 0.929,
+      "3": 0.667,
+      "4": 0.5,
+      "5-6": 0.333,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.955,
+      "2": 0.945,
+      "3": 0.814,
+      "4": 0.731,
+      "5-6": 0.647,
+      "7-12": null
+     },
+     "conn_F_recall": 0.961,
+     "proof_validity": {
+      "1": 0.973,
+      "2": 0.577,
+      "3": 1.0,
+      "4": 1.0,
+      "5-6": 1.0,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 36,
+       "lost": 0,
+       "no-proof": 3,
+       "rejected": 0
+      },
+      "2": {
+       "found": 25,
+       "lost": 0,
+       "no-proof": 3,
+       "rejected": 0
+      },
+      "3": {
+       "found": 6,
+       "lost": 0,
+       "no-proof": 3,
+       "rejected": 0
+      },
+      "4": {
+       "found": 3,
+       "lost": 0,
+       "no-proof": 3,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 1,
+       "lost": 0,
+       "no-proof": 2,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "confirmed_closure": {
+     "F_recall": 1.0,
+     "T_recall": 0.835
+    },
+    "confirmed_held_half": {
+     "F_recall": 0.957,
+     "T_recall": {
+      "1": 0.96,
+      "2": 0.923,
+      "3": 0.333,
+      "4": 1.0,
+      "5-6": 0.0,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.959,
+      "2": 0.94,
+      "3": 0.645,
+      "4": 0.979,
+      "5-6": 0.479,
+      "7-12": null
+     },
+     "conn_F_recall": 0.957,
+     "proof_validity": {
+      "1": 1.0,
+      "2": 0.667,
+      "3": 1.0,
+      "4": 1.0,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.229,
+      "unchanged_answer_rate": 1.0
+     },
+     "e2-body-rel": {
+      "flipped_correct": 0.0,
+      "unchanged_answer_rate": 1.0
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.368,
+      "unchanged_answer_rate": 1.0
+     },
+     "i1-fresh-symbols": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i3-unused-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     }
+    },
+    "intuition_bal": 0.843,
+    "language": {
+     "1": {
+      "spurious_accepted": 0.06,
+      "valid_accepted": 1.0
+     },
+     "10": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 1.0
+     },
+     "11": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 1.0
+     },
+     "12": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 1.0
+     },
+     "2": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 1.0
+     },
+     "3": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 1.0
+     },
+     "4": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 1.0
+     },
+     "5": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 1.0
+     },
+     "6": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 1.0
+     },
+     "7": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 1.0
+     },
+     "8": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 1.0
+     },
+     "9": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 1.0
+     }
+    },
+    "oracle": {
+     "F_recall": 0.97,
+     "T_recall": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 1.0,
+      "4": 1.0,
+      "5-6": 1.0,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.985,
+      "2": 0.985,
+      "3": 0.985,
+      "4": 0.985,
+      "5-6": 0.985,
+      "7-12": null
+     },
+     "conn_F_recall": 0.97,
+     "proof_validity": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 1.0,
+      "4": 1.0,
+      "5-6": 1.0,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 39,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 28,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 9,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 6,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 3,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "oracle_held_half": {
+     "F_recall": 0.968,
+     "T_recall": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 1.0,
+      "4": 1.0,
+      "5-6": 1.0,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.984,
+      "2": 0.984,
+      "3": 0.984,
+      "4": 0.984,
+      "5-6": 0.984,
+      "7-12": null
+     },
+     "conn_F_recall": 0.968,
+     "proof_validity": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 1.0,
+      "4": 1.0,
+      "5-6": 1.0,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    }
+   },
+   "bigger-than": {
+    "confirmed": {
+     "F_recall": 0.742,
+     "T_recall": {
+      "1": 1.0,
+      "2": 0.4,
+      "3": 0.333,
+      "4": 0.125,
+      "5-6": 0.154,
+      "7-12": 0.0
+     },
+     "bal": {
+      "1": 0.871,
+      "2": 0.571,
+      "3": 0.538,
+      "4": 0.434,
+      "5-6": 0.448,
+      "7-12": 0.371
+     },
+     "conn_F_recall": 0.742,
+     "proof_validity": {
+      "1": 0.364,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": 0.0,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 9,
+       "lost": 0,
+       "no-proof": 2,
+       "rejected": 0
+      },
+      "2": {
+       "found": 2,
+       "lost": 0,
+       "no-proof": 4,
+       "rejected": 4
+      },
+      "3": {
+       "found": 2,
+       "lost": 0,
+       "no-proof": 4,
+       "rejected": 3
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 4,
+       "rejected": 4
+      },
+      "5-6": {
+       "found": 2,
+       "lost": 0,
+       "no-proof": 6,
+       "rejected": 5
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 5,
+       "rejected": 10
+      }
+     }
+    },
+    "confirmed_closure": {
+     "F_recall": 1.0,
+     "T_recall": 0.621
+    },
+    "confirmed_held_half": {
+     "F_recall": 0.714,
+     "T_recall": {
+      "1": 1.0,
+      "2": 0.4,
+      "3": 0.2,
+      "4": 0.0,
+      "5-6": 0.2,
+      "7-12": 0.0
+     },
+     "bal": {
+      "1": 0.857,
+      "2": 0.557,
+      "3": 0.457,
+      "4": 0.357,
+      "5-6": 0.457,
+      "7-12": 0.357
+     },
+     "conn_F_recall": 0.714,
+     "proof_validity": {
+      "1": 0.286,
+      "2": 0.0,
+      "3": 0.0,
+      "4": null,
+      "5-6": 0.0,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.417,
+      "unchanged_answer_rate": null
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.455,
+      "unchanged_answer_rate": 1.0
+     },
+     "i1-fresh-symbols": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i3-unused-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     }
+    },
+    "intuition_bal": 0.826,
+    "language": {
+     "1": {
+      "spurious_accepted": 0.075,
+      "valid_accepted": 1.0
+     },
+     "10": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "11": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "12": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "2": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "3": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "4": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "5": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "6": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "7": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "8": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "9": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     }
+    },
+    "oracle": {
+     "F_recall": 1.0,
+     "T_recall": {
+      "1": 1.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": 0.0,
+      "7-12": 0.0
+     },
+     "bal": {
+      "1": 1.0,
+      "2": 0.5,
+      "3": 0.5,
+      "4": 0.5,
+      "5-6": 0.5,
+      "7-12": 0.5
+     },
+     "conn_F_recall": 1.0,
+     "proof_validity": {
+      "1": 1.0,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 11,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 10
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 9
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 8
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 13
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 15
+      }
+     }
+    },
+    "oracle_held_half": {
+     "F_recall": 1.0,
+     "T_recall": {
+      "1": 1.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": 0.0,
+      "7-12": 0.0
+     },
+     "bal": {
+      "1": 1.0,
+      "2": 0.5,
+      "3": 0.5,
+      "4": 0.5,
+      "5-6": 0.5,
+      "7-12": 0.5
+     },
+     "conn_F_recall": 1.0,
+     "proof_validity": {
+      "1": 1.0,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    }
+   },
+   "child-of": {
+    "confirmed": {
+     "F_recall": 0.901,
+     "T_recall": {
+      "1": 0.923,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.912,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.901,
+     "proof_validity": {
+      "1": 0.972,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 36,
+       "lost": 0,
+       "no-proof": 3,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "confirmed_closure": {
+     "F_recall": 0.997,
+     "T_recall": 0.923
+    },
+    "confirmed_held_half": {
+     "F_recall": 0.892,
+     "T_recall": {
+      "1": 1.0,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.946,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.892,
+     "proof_validity": {
+      "1": 0.944,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.5,
+      "unchanged_answer_rate": 1.0
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.5,
+      "unchanged_answer_rate": 1.0
+     },
+     "i1-fresh-symbols": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i3-unused-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     }
+    },
+    "intuition_bal": 0.472,
+    "language": {
+     "1": {
+      "spurious_accepted": 0.096,
+      "valid_accepted": 1.0
+     },
+     "10": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "11": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "12": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "2": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "3": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "4": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "5": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "6": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "7": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "8": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "9": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     }
+    },
+    "oracle": {
+     "F_recall": 0.929,
+     "T_recall": {
+      "1": 1.0,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.965,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.929,
+     "proof_validity": {
+      "1": 1.0,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 39,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "oracle_held_half": {
+     "F_recall": 0.922,
+     "T_recall": {
+      "1": 1.0,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.961,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.922,
+     "proof_validity": {
+      "1": 1.0,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    }
+   },
+   "grandparent-of": {
+    "confirmed": {
+     "F_recall": 0.935,
+     "T_recall": {
+      "1": null,
+      "2": 0.929,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": null,
+      "2": 0.932,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.935,
+     "proof_validity": {
+      "1": null,
+      "2": 0.538,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 25,
+       "lost": 0,
+       "no-proof": 3,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "confirmed_closure": {
+     "F_recall": 0.998,
+     "T_recall": 0.893
+    },
+    "confirmed_held_half": {
+     "F_recall": 0.951,
+     "T_recall": {
+      "1": null,
+      "2": 0.846,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": null,
+      "2": 0.898,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.951,
+     "proof_validity": {
+      "1": null,
+      "2": 0.455,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "counting_F_recall_3_4": 0.0,
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.0,
+      "unchanged_answer_rate": 1.0
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.0,
+      "unchanged_answer_rate": 1.0
+     },
+     "i1-fresh-symbols": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i3-unused-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     }
+    },
+    "intuition_bal": 0.712,
+    "language": {
+     "1": {
+      "spurious_accepted": 0.015,
+      "valid_accepted": null
+     },
+     "10": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "11": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "12": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "2": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 1.0
+     },
+     "3": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "4": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "5": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "6": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "7": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "8": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "9": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     }
+    },
+    "oracle": {
+     "F_recall": 0.93,
+     "T_recall": {
+      "1": null,
+      "2": 1.0,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": null,
+      "2": 0.965,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.93,
+     "proof_validity": {
+      "1": null,
+      "2": 1.0,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 28,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "oracle_held_half": {
+     "F_recall": 0.946,
+     "T_recall": {
+      "1": null,
+      "2": 1.0,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": null,
+      "2": 0.973,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.946,
+     "proof_validity": {
+      "1": null,
+      "2": 1.0,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    }
+   },
+   "is-a": {
+    "confirmed": {
+     "F_recall": 0.868,
+     "T_recall": {
+      "1": 0.943,
+      "2": 1.0,
+      "3": 0.657,
+      "4": 0.286,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.906,
+      "2": 0.934,
+      "3": 0.763,
+      "4": 0.577,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.868,
+     "proof_validity": {
+      "1": 0.455,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.4,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 30,
+       "lost": 0,
+       "no-proof": 5,
+       "rejected": 0
+      },
+      "2": {
+       "found": 34,
+       "lost": 0,
+       "no-proof": 1,
+       "rejected": 0
+      },
+      "3": {
+       "found": 22,
+       "lost": 0,
+       "no-proof": 1,
+       "rejected": 12
+      },
+      "4": {
+       "found": 8,
+       "lost": 0,
+       "no-proof": 18,
+       "rejected": 9
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "confirmed_closure": {
+     "F_recall": 0.848,
+     "T_recall": 0.821
+    },
+    "confirmed_held_half": {
+     "F_recall": 0.862,
+     "T_recall": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 0.647,
+      "4": 0.214,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.931,
+      "2": 0.931,
+      "3": 0.755,
+      "4": 0.538,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.862,
+     "proof_validity": {
+      "1": 0.583,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.667,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.6,
+      "unchanged_answer_rate": 1.0
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.6,
+      "unchanged_answer_rate": 1.0
+     },
+     "i1-fresh-symbols": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i3-unused-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     }
+    },
+    "intuition_bal": 0.82,
+    "language": {
+     "1": {
+      "spurious_accepted": 0.075,
+      "valid_accepted": 1.0
+     },
+     "10": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "11": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "12": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "2": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "3": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "4": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "5": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "6": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "7": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "8": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "9": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     }
+    },
+    "oracle": {
+     "F_recall": 0.989,
+     "T_recall": {
+      "1": 1.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.995,
+      "2": 0.495,
+      "3": 0.495,
+      "4": 0.495,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.989,
+     "proof_validity": {
+      "1": 1.0,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 35,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 35
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 35
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 35
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "oracle_held_half": {
+     "F_recall": 0.987,
+     "T_recall": {
+      "1": 1.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.994,
+      "2": 0.494,
+      "3": 0.494,
+      "4": 0.494,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.987,
+     "proof_validity": {
+      "1": 1.0,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    }
+   },
+   "smaller-than": {
+    "confirmed": {
+     "F_recall": 0.682,
+     "T_recall": {
+      "1": 0.455,
+      "2": 0.2,
+      "3": 0.333,
+      "4": 0.25,
+      "5-6": 0.231,
+      "7-12": 0.133
+     },
+     "bal": {
+      "1": 0.568,
+      "2": 0.441,
+      "3": 0.508,
+      "4": 0.466,
+      "5-6": 0.456,
+      "7-12": 0.408
+     },
+     "conn_F_recall": 0.682,
+     "proof_validity": {
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": 0.0,
+      "7-12": 0.0
+     },
+     "taxonomy": {
+      "1": {
+       "found": 5,
+       "lost": 0,
+       "no-proof": 2,
+       "rejected": 4
+      },
+      "2": {
+       "found": 2,
+       "lost": 0,
+       "no-proof": 4,
+       "rejected": 4
+      },
+      "3": {
+       "found": 2,
+       "lost": 0,
+       "no-proof": 4,
+       "rejected": 3
+      },
+      "4": {
+       "found": 2,
+       "lost": 0,
+       "no-proof": 4,
+       "rejected": 2
+      },
+      "5-6": {
+       "found": 2,
+       "lost": 0,
+       "no-proof": 6,
+       "rejected": 5
+      },
+      "7-12": {
+       "found": 1,
+       "lost": 0,
+       "no-proof": 5,
+       "rejected": 9
+      }
+     }
+    },
+    "confirmed_closure": {
+     "F_recall": 1.0,
+     "T_recall": 0.621
+    },
+    "confirmed_held_half": {
+     "F_recall": 0.649,
+     "T_recall": {
+      "1": 0.375,
+      "2": 0.333,
+      "3": 0.333,
+      "4": 0.2,
+      "5-6": 0.5,
+      "7-12": 0.1
+     },
+     "bal": {
+      "1": 0.512,
+      "2": 0.491,
+      "3": 0.491,
+      "4": 0.424,
+      "5-6": 0.574,
+      "7-12": 0.374
+     },
+     "conn_F_recall": 0.649,
+     "proof_validity": {
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": 0.0,
+      "7-12": 0.0
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.583,
+      "unchanged_answer_rate": null
+     },
+     "e3-head-args": {
+      "flipped_correct": 1.0,
+      "unchanged_answer_rate": 1.0
+     },
+     "i1-fresh-symbols": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i3-unused-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     }
+    },
+    "intuition_bal": 0.758,
+    "language": {
+     "1": {
+      "spurious_accepted": 0.076,
+      "valid_accepted": 0.0
+     },
+     "10": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "11": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "12": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "2": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "3": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "4": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "5": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "6": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "7": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "8": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "9": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     }
+    },
+    "oracle": {
+     "F_recall": 0.833,
+     "T_recall": {
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": 0.0,
+      "7-12": 0.0
+     },
+     "bal": {
+      "1": 0.417,
+      "2": 0.417,
+      "3": 0.417,
+      "4": 0.417,
+      "5-6": 0.417,
+      "7-12": 0.417
+     },
+     "conn_F_recall": 0.833,
+     "proof_validity": {
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 11
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 10
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 9
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 8
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 13
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 15
+      }
+     }
+    },
+    "oracle_held_half": {
+     "F_recall": 0.811,
+     "T_recall": {
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": 0.0,
+      "7-12": 0.0
+     },
+     "bal": {
+      "1": 0.405,
+      "2": 0.405,
+      "3": 0.405,
+      "4": 0.405,
+      "5-6": 0.405,
+      "7-12": 0.405
+     },
+     "conn_F_recall": 0.811,
+     "proof_validity": {
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    }
+   }
+  },
+  "training": {
+   "F_excluded_reader_closure": 131.0,
+   "T_without_candidates": 0.0,
+   "covered": 102.0,
+   "oracle_T_short": 125.0,
+   "programs": 2577208.0,
+   "questions": 2921.0,
+   "rulesets": 6.0
+  }
+ },
+ "rules": {
+  "hop_composition": {
+   "confirmed": {
+    "false": 1541,
+    "true": 6231,
+    "unlabelled": 93906
+   },
+   "gated": {
+    "false": 1541,
+    "true": 6231,
+    "unlabelled": 93906
+   },
+   "ungated": {
+    "false": 1543,
+    "true": 6208,
+    "unlabelled": 470376
+   }
+  },
+  "synthetic": {
+   "confirmed": {
+    "F_recall": 0.353,
+    "bal": {
+     "1": 0.526,
+     "2": 0.676,
+     "3": 0.626,
+     "4": 0.576,
+     "5-6": null,
+     "7-12": null
+    },
+    "conn_F_recall": 0.353,
+    "noreturn_cost": 0.0,
+    "product_policy_fail": {
+     "1": 0.429,
+     "2": 0.1,
+     "3": 0.889,
+     "4": 0.5,
+     "5-6": null,
+     "7-12": null
+    },
+    "proof_validity": {
+     "1": 0.0,
+     "2": 0.0,
+     "3": 0.0,
+     "4": 0.0,
+     "5-6": null,
+     "7-12": null
+    },
+    "taxonomy": {
+     "1": {
+      "found": 7,
+      "lost": 0,
+      "no-proof": 2,
+      "rejected": 1
+     },
+     "2": {
+      "found": 10,
+      "lost": 0,
+      "no-proof": 0,
+      "rejected": 0
+     },
+     "3": {
+      "found": 9,
+      "lost": 1,
+      "no-proof": 0,
+      "rejected": 0
+     },
+     "4": {
+      "found": 4,
+      "lost": 0,
+      "no-proof": 0,
+      "rejected": 1
+     },
+     "5-6": {
+      "found": 0,
+      "lost": 0,
+      "no-proof": 0,
+      "rejected": 0
+     },
+     "7-12": {
+      "found": 0,
+      "lost": 0,
+      "no-proof": 0,
+      "rejected": 0
+     }
+    }
+   },
+   "conj": {
+    "F_recall": 0.96,
+    "bal_1": 0.845
+   },
+   "edits": {
+    "e1-body-args": {
+     "flipped_correct": 1.0,
+     "unchanged_answer_rate": 1.0
+    },
+    "e2-body-rel": {
+     "flipped_correct": 1.0,
+     "unchanged_answer_rate": 1.0
+    },
+    "e3-head-args": {
+     "flipped_correct": 1.0,
+     "unchanged_answer_rate": 1.0
+    },
+    "i1-fresh-symbols": {
+     "flipped_correct": null,
+     "unchanged_answer_rate": 1.0
+    },
+    "i2-dead-rule": {
+     "flipped_correct": null,
+     "unchanged_answer_rate": 0.767
+    },
+    "i3-unused-rule": {
+     "flipped_correct": null,
+     "unchanged_answer_rate": 1.0
+    }
+   },
+   "language": {
+    "1": {
+     "spurious_accepted": 0.835,
+     "valid_accepted": 0.333
+    },
+    "2": {
+     "spurious_accepted": 0.0,
+     "valid_accepted": 0.0
+    },
+    "3": {
+     "spurious_accepted": 0.0,
+     "valid_accepted": 0.0
+    },
+    "4": {
+     "spurious_accepted": 0.0,
+     "valid_accepted": 0.0
+    },
+    "5": {
+     "spurious_accepted": 0.0,
+     "valid_accepted": 0.0
+    },
+    "6": {
+     "spurious_accepted": 0.0,
+     "valid_accepted": 0.0
+    }
+   },
+   "oracle": {
+    "F_recall": 0.765,
+    "bal": {
+     "1": 0.482,
+     "2": 0.832,
+     "3": 0.482,
+     "4": 0.782,
+     "5-6": null,
+     "7-12": null
+    },
+    "conn_F_recall": 0.765,
+    "noreturn_cost": 0.0,
+    "product_policy_fail": {
+     "1": null,
+     "2": null,
+     "3": null,
+     "4": null,
+     "5-6": null,
+     "7-12": null
+    },
+    "proof_validity": {
+     "1": 0.0,
+     "2": 0.0,
+     "3": 0.0,
+     "4": 0.0,
+     "5-6": null,
+     "7-12": null
+    },
+    "taxonomy": {
+     "1": {
+      "found": 2,
+      "lost": 0,
+      "no-proof": 0,
+      "rejected": 8
+     },
+     "2": {
+      "found": 9,
+      "lost": 0,
+      "no-proof": 0,
+      "rejected": 1
+     },
+     "3": {
+      "found": 2,
+      "lost": 0,
+      "no-proof": 0,
+      "rejected": 8
+     },
+     "4": {
+      "found": 4,
+      "lost": 0,
+      "no-proof": 0,
+      "rejected": 1
+     },
+     "5-6": {
+      "found": 0,
+      "lost": 0,
+      "no-proof": 0,
+      "rejected": 0
+     },
+     "7-12": {
+      "found": 0,
+      "lost": 0,
+      "no-proof": 0,
+      "rejected": 0
+     }
+    }
+   },
+   "quota_filled": {
+    "1": 10,
+    "2": 10,
+    "3": 10,
+    "4": 5,
+    "5-6": 0
+   }
+  },
+  "taught": {
+   "ancestor-of": {
+    "confirmed": {
+     "F_recall": 0.842,
+     "T_recall": {
+      "1": 0.974,
+      "2": 0.607,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": 0.0,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.908,
+      "2": 0.724,
+      "3": 0.421,
+      "4": 0.421,
+      "5-6": 0.421,
+      "7-12": null
+     },
+     "conn_F_recall": 0.842,
+     "proof_validity": {
+      "1": 0.789,
+      "2": 0.176,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 36,
+       "lost": 0,
+       "no-proof": 3,
+       "rejected": 0
+      },
+      "2": {
+       "found": 16,
+       "lost": 1,
+       "no-proof": 3,
+       "rejected": 8
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 3,
+       "rejected": 6
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 3,
+       "rejected": 3
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 2,
+       "rejected": 1
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "confirmed_closure": {
+     "F_recall": 1.0,
+     "T_recall": 0.835
+    },
+    "confirmed_held_half": {
+     "F_recall": 0.834,
+     "T_recall": {
+      "1": 0.96,
+      "2": 0.538,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": 0.0,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.897,
+      "2": 0.686,
+      "3": 0.417,
+      "4": 0.417,
+      "5-6": 0.417,
+      "7-12": null
+     },
+     "conn_F_recall": 0.834,
+     "proof_validity": {
+      "1": 0.917,
+      "2": 0.286,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.5,
+      "unchanged_answer_rate": 1.0
+     },
+     "e2-body-rel": {
+      "flipped_correct": 0.598,
+      "unchanged_answer_rate": 1.0
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.745,
+      "unchanged_answer_rate": 1.0
+     },
+     "i1-fresh-symbols": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i3-unused-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     }
+    },
+    "intuition_bal": 0.843,
+    "language": {
+     "1": {
+      "spurious_accepted": 0.865,
+      "valid_accepted": 1.0
+     },
+     "10": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "11": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "12": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "2": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "3": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "4": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "5": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "6": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "7": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "8": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "9": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     }
+    },
+    "oracle": {
+     "F_recall": 0.952,
+     "T_recall": {
+      "1": 1.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": 0.0,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.976,
+      "2": 0.476,
+      "3": 0.476,
+      "4": 0.476,
+      "5-6": 0.476,
+      "7-12": null
+     },
+     "conn_F_recall": 0.952,
+     "proof_validity": {
+      "1": 1.0,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 39,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 28
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 9
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 6
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 3
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "oracle_held_half": {
+     "F_recall": 0.95,
+     "T_recall": {
+      "1": 1.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": 0.0,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.975,
+      "2": 0.475,
+      "3": 0.475,
+      "4": 0.475,
+      "5-6": 0.475,
+      "7-12": null
+     },
+     "conn_F_recall": 0.95,
+     "proof_validity": {
+      "1": 1.0,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    }
+   },
+   "bigger-than": {
+    "confirmed": {
+     "F_recall": 0.045,
+     "T_recall": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 0.778,
+      "4": 0.875,
+      "5-6": 1.0,
+      "7-12": 1.0
+     },
+     "bal": {
+      "1": 0.523,
+      "2": 0.523,
+      "3": 0.412,
+      "4": 0.46,
+      "5-6": 0.523,
+      "7-12": 0.523
+     },
+     "conn_F_recall": 0.045,
+     "proof_validity": {
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": 0.0,
+      "7-12": 0.0
+     },
+     "taxonomy": {
+      "1": {
+       "found": 9,
+       "lost": 0,
+       "no-proof": 2,
+       "rejected": 0
+      },
+      "2": {
+       "found": 6,
+       "lost": 0,
+       "no-proof": 4,
+       "rejected": 0
+      },
+      "3": {
+       "found": 4,
+       "lost": 0,
+       "no-proof": 4,
+       "rejected": 1
+      },
+      "4": {
+       "found": 4,
+       "lost": 0,
+       "no-proof": 4,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 7,
+       "lost": 0,
+       "no-proof": 6,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 10,
+       "lost": 0,
+       "no-proof": 5,
+       "rejected": 0
+      }
+     }
+    },
+    "confirmed_closure": {
+     "F_recall": 1.0,
+     "T_recall": 0.621
+    },
+    "confirmed_held_half": {
+     "F_recall": 0.029,
+     "T_recall": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 0.6,
+      "4": 1.0,
+      "5-6": 1.0,
+      "7-12": 1.0
+     },
+     "bal": {
+      "1": 0.514,
+      "2": 0.514,
+      "3": 0.314,
+      "4": 0.514,
+      "5-6": 0.514,
+      "7-12": 0.514
+     },
+     "conn_F_recall": 0.029,
+     "proof_validity": {
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": 0.0,
+      "7-12": 0.0
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.5,
+      "unchanged_answer_rate": null
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.545,
+      "unchanged_answer_rate": 1.0
+     },
+     "i1-fresh-symbols": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i3-unused-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     }
+    },
+    "intuition_bal": 0.826,
+    "language": {
+     "1": {
+      "spurious_accepted": 0.874,
+      "valid_accepted": 1.0
+     },
+     "10": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "11": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "12": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "2": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "3": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "4": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "5": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "6": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "7": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "8": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "9": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     }
+    },
+    "oracle": {
+     "F_recall": 0.076,
+     "T_recall": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 0.889,
+      "4": 0.875,
+      "5-6": 0.923,
+      "7-12": 0.867
+     },
+     "bal": {
+      "1": 0.538,
+      "2": 0.538,
+      "3": 0.482,
+      "4": 0.475,
+      "5-6": 0.499,
+      "7-12": 0.471
+     },
+     "conn_F_recall": 0.076,
+     "proof_validity": {
+      "1": 0.182,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": 0.0,
+      "7-12": 0.0
+     },
+     "taxonomy": {
+      "1": {
+       "found": 11,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 10,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 8,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 1
+      },
+      "4": {
+       "found": 7,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 1
+      },
+      "5-6": {
+       "found": 12,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 1
+      },
+      "7-12": {
+       "found": 13,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 2
+      }
+     }
+    },
+    "oracle_held_half": {
+     "F_recall": 0.057,
+     "T_recall": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 0.8,
+      "4": 0.75,
+      "5-6": 1.0,
+      "7-12": 0.818
+     },
+     "bal": {
+      "1": 0.529,
+      "2": 0.529,
+      "3": 0.429,
+      "4": 0.404,
+      "5-6": 0.529,
+      "7-12": 0.438
+     },
+     "conn_F_recall": 0.057,
+     "proof_validity": {
+      "1": 0.143,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": 0.0,
+      "7-12": 0.0
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    }
+   },
+   "child-of": {
+    "confirmed": {
+     "F_recall": 0.901,
+     "T_recall": {
+      "1": 0.667,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.784,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.901,
+     "proof_validity": {
+      "1": 0.0,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 24,
+       "lost": 0,
+       "no-proof": 3,
+       "rejected": 12
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "confirmed_closure": {
+     "F_recall": 0.997,
+     "T_recall": 0.923
+    },
+    "confirmed_held_half": {
+     "F_recall": 0.897,
+     "T_recall": {
+      "1": 0.611,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.754,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.897,
+     "proof_validity": {
+      "1": 0.0,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.5,
+      "unchanged_answer_rate": 1.0
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.5,
+      "unchanged_answer_rate": 1.0
+     },
+     "i1-fresh-symbols": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i3-unused-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     }
+    },
+    "intuition_bal": 0.472,
+    "language": {
+     "1": {
+      "spurious_accepted": 0.753,
+      "valid_accepted": 0.0
+     },
+     "10": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "11": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "12": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "2": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "3": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "4": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "5": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "6": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "7": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "8": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "9": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     }
+    },
+    "oracle": {
+     "F_recall": 0.982,
+     "T_recall": {
+      "1": 0.0,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.491,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.982,
+     "proof_validity": {
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 39
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "oracle_held_half": {
+     "F_recall": 0.984,
+     "T_recall": {
+      "1": 0.0,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.492,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.984,
+     "proof_validity": {
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    }
+   },
+   "grandparent-of": {
+    "confirmed": {
+     "F_recall": 0.661,
+     "T_recall": {
+      "1": null,
+      "2": 0.679,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": null,
+      "2": 0.67,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.661,
+     "proof_validity": {
+      "1": null,
+      "2": 0.0,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 17,
+       "lost": 1,
+       "no-proof": 3,
+       "rejected": 7
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "confirmed_closure": {
+     "F_recall": 0.998,
+     "T_recall": 0.893
+    },
+    "confirmed_held_half": {
+     "F_recall": 0.677,
+     "T_recall": {
+      "1": null,
+      "2": 0.769,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": null,
+      "2": 0.723,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.677,
+     "proof_validity": {
+      "1": null,
+      "2": 0.0,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "counting_F_recall_3_4": 1.0,
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.5,
+      "unchanged_answer_rate": 1.0
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.5,
+      "unchanged_answer_rate": 1.0
+     },
+     "i1-fresh-symbols": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i3-unused-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     }
+    },
+    "intuition_bal": 0.712,
+    "language": {
+     "1": {
+      "spurious_accepted": 0.89,
+      "valid_accepted": null
+     },
+     "10": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "11": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "12": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "2": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "3": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "4": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "5": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "6": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "7": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "8": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "9": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     }
+    },
+    "oracle": {
+     "F_recall": 0.926,
+     "T_recall": {
+      "1": null,
+      "2": 0.0,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": null,
+      "2": 0.463,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.926,
+     "proof_validity": {
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 28
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "oracle_held_half": {
+     "F_recall": 0.944,
+     "T_recall": {
+      "1": null,
+      "2": 0.0,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": null,
+      "2": 0.472,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.944,
+     "proof_validity": {
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    }
+   },
+   "is-a": {
+    "confirmed": {
+     "F_recall": 0.306,
+     "T_recall": {
+      "1": 0.971,
+      "2": 1.0,
+      "3": 0.886,
+      "4": 0.571,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.639,
+      "2": 0.653,
+      "3": 0.596,
+      "4": 0.439,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.306,
+     "proof_validity": {
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 30,
+       "lost": 0,
+       "no-proof": 5,
+       "rejected": 0
+      },
+      "2": {
+       "found": 34,
+       "lost": 0,
+       "no-proof": 1,
+       "rejected": 0
+      },
+      "3": {
+       "found": 30,
+       "lost": 1,
+       "no-proof": 1,
+       "rejected": 3
+      },
+      "4": {
+       "found": 11,
+       "lost": 0,
+       "no-proof": 18,
+       "rejected": 6
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "confirmed_closure": {
+     "F_recall": 0.848,
+     "T_recall": 0.821
+    },
+    "confirmed_held_half": {
+     "F_recall": 0.306,
+     "T_recall": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 0.882,
+      "4": 0.5,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.653,
+      "2": 0.653,
+      "3": 0.594,
+      "4": 0.403,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.306,
+     "proof_validity": {
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.8,
+      "unchanged_answer_rate": 1.0
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.8,
+      "unchanged_answer_rate": 1.0
+     },
+     "i1-fresh-symbols": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i3-unused-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     }
+    },
+    "intuition_bal": 0.82,
+    "language": {
+     "1": {
+      "spurious_accepted": 0.819,
+      "valid_accepted": 0.0
+     },
+     "10": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "11": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "12": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "2": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "3": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "4": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "5": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "6": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "7": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "8": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "9": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     }
+    },
+    "oracle": {
+     "F_recall": 0.64,
+     "T_recall": {
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.32,
+      "2": 0.32,
+      "3": 0.32,
+      "4": 0.32,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.64,
+     "proof_validity": {
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 35
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 35
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 35
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 35
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "oracle_held_half": {
+     "F_recall": 0.637,
+     "T_recall": {
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.319,
+      "2": 0.319,
+      "3": 0.319,
+      "4": 0.319,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.637,
+     "proof_validity": {
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    }
+   },
+   "smaller-than": {
+    "confirmed": {
+     "F_recall": 0.045,
+     "T_recall": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 0.889,
+      "4": 0.875,
+      "5-6": 0.923,
+      "7-12": 1.0
+     },
+     "bal": {
+      "1": 0.523,
+      "2": 0.523,
+      "3": 0.467,
+      "4": 0.46,
+      "5-6": 0.484,
+      "7-12": 0.523
+     },
+     "conn_F_recall": 0.045,
+     "proof_validity": {
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": 0.0,
+      "7-12": 0.0
+     },
+     "taxonomy": {
+      "1": {
+       "found": 9,
+       "lost": 0,
+       "no-proof": 2,
+       "rejected": 0
+      },
+      "2": {
+       "found": 6,
+       "lost": 0,
+       "no-proof": 4,
+       "rejected": 0
+      },
+      "3": {
+       "found": 4,
+       "lost": 0,
+       "no-proof": 4,
+       "rejected": 1
+      },
+      "4": {
+       "found": 4,
+       "lost": 0,
+       "no-proof": 4,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 6,
+       "lost": 1,
+       "no-proof": 6,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 10,
+       "lost": 0,
+       "no-proof": 5,
+       "rejected": 0
+      }
+     }
+    },
+    "confirmed_closure": {
+     "F_recall": 1.0,
+     "T_recall": 0.621
+    },
+    "confirmed_held_half": {
+     "F_recall": 0.081,
+     "T_recall": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 0.833,
+      "4": 0.8,
+      "5-6": 1.0,
+      "7-12": 1.0
+     },
+     "bal": {
+      "1": 0.541,
+      "2": 0.541,
+      "3": 0.457,
+      "4": 0.441,
+      "5-6": 0.541,
+      "7-12": 0.541
+     },
+     "conn_F_recall": 0.081,
+     "proof_validity": {
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": 0.0,
+      "7-12": 0.0
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.5,
+      "unchanged_answer_rate": null
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.545,
+      "unchanged_answer_rate": 1.0
+     },
+     "i1-fresh-symbols": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i3-unused-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     }
+    },
+    "intuition_bal": 0.758,
+    "language": {
+     "1": {
+      "spurious_accepted": 0.848,
+      "valid_accepted": 1.0
+     },
+     "10": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "11": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "12": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "2": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "3": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "4": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "5": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "6": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "7": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "8": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "9": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     }
+    },
+    "oracle": {
+     "F_recall": 0.076,
+     "T_recall": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 0.889,
+      "4": 0.875,
+      "5-6": 0.923,
+      "7-12": 0.867
+     },
+     "bal": {
+      "1": 0.538,
+      "2": 0.538,
+      "3": 0.482,
+      "4": 0.475,
+      "5-6": 0.499,
+      "7-12": 0.471
+     },
+     "conn_F_recall": 0.076,
+     "proof_validity": {
+      "1": 0.182,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": 0.0,
+      "7-12": 0.0
+     },
+     "taxonomy": {
+      "1": {
+       "found": 11,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 10,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 8,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 1
+      },
+      "4": {
+       "found": 7,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 1
+      },
+      "5-6": {
+       "found": 12,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 1
+      },
+      "7-12": {
+       "found": 13,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 2
+      }
+     }
+    },
+    "oracle_held_half": {
+     "F_recall": 0.081,
+     "T_recall": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 0.833,
+      "4": 0.8,
+      "5-6": 0.833,
+      "7-12": 0.8
+     },
+     "bal": {
+      "1": 0.541,
+      "2": 0.541,
+      "3": 0.457,
+      "4": 0.441,
+      "5-6": 0.457,
+      "7-12": 0.441
+     },
+     "conn_F_recall": 0.081,
+     "proof_validity": {
+      "1": 0.125,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": 0.0,
+      "7-12": 0.0
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    }
+   }
+  },
+  "training": {
+   "F_excluded_reader_closure": 321657.0,
+   "T_without_candidates": 0.0,
+   "covered": 5258.0,
+   "oracle_T_short": 5479.0,
+   "programs": 1848750.0,
+   "questions": 810.0,
+   "rulesets": 30.0
+  }
+ },
+ "rules-nogate": {
+  "hop_composition": {
+   "confirmed": {
+    "false": 1543,
+    "true": 6208,
+    "unlabelled": 470376
+   },
+   "gated": {
+    "false": 1541,
+    "true": 6231,
+    "unlabelled": 93906
+   },
+   "ungated": {
+    "false": 1543,
+    "true": 6208,
+    "unlabelled": 470376
+   }
+  },
+  "synthetic": {
+   "confirmed": {
+    "F_recall": 0.0,
+    "bal": {
+     "1": 0.5,
+     "2": 0.5,
+     "3": 0.5,
+     "4": 0.5,
+     "5-6": null,
+     "7-12": null
+    },
+    "conn_F_recall": 0.0,
+    "noreturn_cost": 0.0,
+    "product_policy_fail": {
+     "1": 0.9,
+     "2": 0.9,
+     "3": 0.9,
+     "4": 1.0,
+     "5-6": null,
+     "7-12": null
+    },
+    "proof_validity": {
+     "1": 0.0,
+     "2": 0.0,
+     "3": 0.0,
+     "4": 0.0,
+     "5-6": null,
+     "7-12": null
+    },
+    "taxonomy": {
+     "1": {
+      "found": 8,
+      "lost": 0,
+      "no-proof": 2,
+      "rejected": 0
+     },
+     "2": {
+      "found": 10,
+      "lost": 0,
+      "no-proof": 0,
+      "rejected": 0
+     },
+     "3": {
+      "found": 10,
+      "lost": 0,
+      "no-proof": 0,
+      "rejected": 0
+     },
+     "4": {
+      "found": 5,
+      "lost": 0,
+      "no-proof": 0,
+      "rejected": 0
+     },
+     "5-6": {
+      "found": 0,
+      "lost": 0,
+      "no-proof": 0,
+      "rejected": 0
+     },
+     "7-12": {
+      "found": 0,
+      "lost": 0,
+      "no-proof": 0,
+      "rejected": 0
+     }
+    }
+   },
+   "conj": {
+    "F_recall": 0.9,
+    "bal_1": 0.888
+   },
+   "edits": {
+    "e1-body-args": {
+     "flipped_correct": 0.0,
+     "unchanged_answer_rate": 0.966
+    },
+    "e2-body-rel": {
+     "flipped_correct": 0.0,
+     "unchanged_answer_rate": 1.0
+    },
+    "e3-head-args": {
+     "flipped_correct": 0.875,
+     "unchanged_answer_rate": 1.0
+    },
+    "i1-fresh-symbols": {
+     "flipped_correct": null,
+     "unchanged_answer_rate": 1.0
+    },
+    "i2-dead-rule": {
+     "flipped_correct": null,
+     "unchanged_answer_rate": 0.933
+    },
+    "i3-unused-rule": {
+     "flipped_correct": null,
+     "unchanged_answer_rate": 0.933
+    }
+   },
+   "language": {
+    "1": {
+     "spurious_accepted": 0.886,
+     "valid_accepted": 0.5
+    },
+    "2": {
+     "spurious_accepted": 0.009,
+     "valid_accepted": 0.0
+    },
+    "3": {
+     "spurious_accepted": 0.002,
+     "valid_accepted": 0.0
+    },
+    "4": {
+     "spurious_accepted": 0.0,
+     "valid_accepted": 0.0
+    },
+    "5": {
+     "spurious_accepted": 0.0,
+     "valid_accepted": 0.0
+    },
+    "6": {
+     "spurious_accepted": 0.0,
+     "valid_accepted": 0.0
+    }
+   },
+   "oracle": {
+    "F_recall": 0.588,
+    "bal": {
+     "1": 0.444,
+     "2": 0.444,
+     "3": 0.544,
+     "4": 0.794,
+     "5-6": null,
+     "7-12": null
+    },
+    "conn_F_recall": 0.588,
+    "noreturn_cost": 0.0,
+    "product_policy_fail": {
+     "1": null,
+     "2": null,
+     "3": null,
+     "4": null,
+     "5-6": null,
+     "7-12": null
+    },
+    "proof_validity": {
+     "1": 0.333,
+     "2": 0.0,
+     "3": 0.0,
+     "4": 0.0,
+     "5-6": null,
+     "7-12": null
+    },
+    "taxonomy": {
+     "1": {
+      "found": 3,
+      "lost": 0,
+      "no-proof": 0,
+      "rejected": 7
+     },
+     "2": {
+      "found": 3,
+      "lost": 3,
+      "no-proof": 0,
+      "rejected": 4
+     },
+     "3": {
+      "found": 5,
+      "lost": 0,
+      "no-proof": 0,
+      "rejected": 5
+     },
+     "4": {
+      "found": 5,
+      "lost": 0,
+      "no-proof": 0,
+      "rejected": 0
+     },
+     "5-6": {
+      "found": 0,
+      "lost": 0,
+      "no-proof": 0,
+      "rejected": 0
+     },
+     "7-12": {
+      "found": 0,
+      "lost": 0,
+      "no-proof": 0,
+      "rejected": 0
+     }
+    }
+   },
+   "quota_filled": {
+    "1": 10,
+    "2": 10,
+    "3": 10,
+    "4": 5,
+    "5-6": 0
+   }
+  },
+  "taught": {
+   "ancestor-of": {
+    "confirmed": {
+     "F_recall": 0.0,
+     "T_recall": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 1.0,
+      "4": 1.0,
+      "5-6": 1.0,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.5,
+      "2": 0.5,
+      "3": 0.5,
+      "4": 0.5,
+      "5-6": 0.5,
+      "7-12": null
+     },
+     "conn_F_recall": 0.0,
+     "proof_validity": {
+      "1": 0.128,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": 0.0,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 36,
+       "lost": 0,
+       "no-proof": 3,
+       "rejected": 0
+      },
+      "2": {
+       "found": 25,
+       "lost": 0,
+       "no-proof": 3,
+       "rejected": 0
+      },
+      "3": {
+       "found": 6,
+       "lost": 0,
+       "no-proof": 3,
+       "rejected": 0
+      },
+      "4": {
+       "found": 3,
+       "lost": 0,
+       "no-proof": 3,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 1,
+       "lost": 0,
+       "no-proof": 2,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "confirmed_closure": {
+     "F_recall": 0.952,
+     "T_recall": 0.835
+    },
+    "confirmed_held_half": {
+     "F_recall": 0.0,
+     "T_recall": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 1.0,
+      "4": 1.0,
+      "5-6": 1.0,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.5,
+      "2": 0.5,
+      "3": 0.5,
+      "4": 0.5,
+      "5-6": 0.5,
+      "7-12": null
+     },
+     "conn_F_recall": 0.0,
+     "proof_validity": {
+      "1": 0.16,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": 0.0,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.5,
+      "unchanged_answer_rate": 1.0
+     },
+     "e2-body-rel": {
+      "flipped_correct": 0.598,
+      "unchanged_answer_rate": 1.0
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.745,
+      "unchanged_answer_rate": 1.0
+     },
+     "i1-fresh-symbols": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i3-unused-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     }
+    },
+    "intuition_bal": 0.843,
+    "language": {
+     "1": {
+      "spurious_accepted": 0.915,
+      "valid_accepted": 1.0
+     },
+     "10": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "11": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "12": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "2": {
+      "spurious_accepted": 0.01,
+      "valid_accepted": 0.0
+     },
+     "3": {
+      "spurious_accepted": 0.005,
+      "valid_accepted": 0.0
+     },
+     "4": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "5": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "6": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "7": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "8": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "9": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     }
+    },
+    "oracle": {
+     "F_recall": 0.952,
+     "T_recall": {
+      "1": 1.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": 0.0,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.976,
+      "2": 0.476,
+      "3": 0.476,
+      "4": 0.476,
+      "5-6": 0.476,
+      "7-12": null
+     },
+     "conn_F_recall": 0.952,
+     "proof_validity": {
+      "1": 1.0,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 39,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 28
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 9
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 6
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 3
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "oracle_held_half": {
+     "F_recall": 0.95,
+     "T_recall": {
+      "1": 1.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": 0.0,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.975,
+      "2": 0.475,
+      "3": 0.475,
+      "4": 0.475,
+      "5-6": 0.475,
+      "7-12": null
+     },
+     "conn_F_recall": 0.95,
+     "proof_validity": {
+      "1": 1.0,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    }
+   },
+   "bigger-than": {
+    "confirmed": {
+     "F_recall": 0.0,
+     "T_recall": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 1.0,
+      "4": 1.0,
+      "5-6": 1.0,
+      "7-12": 1.0
+     },
+     "bal": {
+      "1": 0.5,
+      "2": 0.5,
+      "3": 0.5,
+      "4": 0.5,
+      "5-6": 0.5,
+      "7-12": 0.5
+     },
+     "conn_F_recall": 0.0,
+     "proof_validity": {
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": 0.0,
+      "7-12": 0.0
+     },
+     "taxonomy": {
+      "1": {
+       "found": 9,
+       "lost": 0,
+       "no-proof": 2,
+       "rejected": 0
+      },
+      "2": {
+       "found": 7,
+       "lost": 0,
+       "no-proof": 3,
+       "rejected": 0
+      },
+      "3": {
+       "found": 6,
+       "lost": 0,
+       "no-proof": 3,
+       "rejected": 0
+      },
+      "4": {
+       "found": 5,
+       "lost": 0,
+       "no-proof": 3,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 8,
+       "lost": 0,
+       "no-proof": 5,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 10,
+       "lost": 0,
+       "no-proof": 5,
+       "rejected": 0
+      }
+     }
+    },
+    "confirmed_closure": {
+     "F_recall": 0.955,
+     "T_recall": 0.682
+    },
+    "confirmed_held_half": {
+     "F_recall": 0.0,
+     "T_recall": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 1.0,
+      "4": 1.0,
+      "5-6": 1.0,
+      "7-12": 1.0
+     },
+     "bal": {
+      "1": 0.5,
+      "2": 0.5,
+      "3": 0.5,
+      "4": 0.5,
+      "5-6": 0.5,
+      "7-12": 0.5
+     },
+     "conn_F_recall": 0.0,
+     "proof_validity": {
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": 0.0,
+      "7-12": 0.0
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.5,
+      "unchanged_answer_rate": null
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.545,
+      "unchanged_answer_rate": 1.0
+     },
+     "i1-fresh-symbols": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i3-unused-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     }
+    },
+    "intuition_bal": 0.826,
+    "language": {
+     "1": {
+      "spurious_accepted": 0.92,
+      "valid_accepted": 1.0
+     },
+     "10": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "11": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "12": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "2": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "3": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "4": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "5": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "6": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "7": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "8": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "9": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     }
+    },
+    "oracle": {
+     "F_recall": 0.045,
+     "T_recall": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 1.0,
+      "4": 1.0,
+      "5-6": 0.923,
+      "7-12": 0.867
+     },
+     "bal": {
+      "1": 0.523,
+      "2": 0.523,
+      "3": 0.523,
+      "4": 0.523,
+      "5-6": 0.484,
+      "7-12": 0.456
+     },
+     "conn_F_recall": 0.045,
+     "proof_validity": {
+      "1": 0.182,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": 0.0,
+      "7-12": 0.0
+     },
+     "taxonomy": {
+      "1": {
+       "found": 11,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 10,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 9,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 8,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 12,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 1
+      },
+      "7-12": {
+       "found": 13,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 2
+      }
+     }
+    },
+    "oracle_held_half": {
+     "F_recall": 0.057,
+     "T_recall": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 1.0,
+      "4": 1.0,
+      "5-6": 1.0,
+      "7-12": 0.818
+     },
+     "bal": {
+      "1": 0.529,
+      "2": 0.529,
+      "3": 0.529,
+      "4": 0.529,
+      "5-6": 0.529,
+      "7-12": 0.438
+     },
+     "conn_F_recall": 0.057,
+     "proof_validity": {
+      "1": 0.143,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": 0.0,
+      "7-12": 0.0
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    }
+   },
+   "child-of": {
+    "confirmed": {
+     "F_recall": 0.0,
+     "T_recall": {
+      "1": 1.0,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.5,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.0,
+     "proof_validity": {
+      "1": 0.077,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 36,
+       "lost": 0,
+       "no-proof": 3,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "confirmed_closure": {
+     "F_recall": 0.997,
+     "T_recall": 0.923
+    },
+    "confirmed_held_half": {
+     "F_recall": 0.0,
+     "T_recall": {
+      "1": 1.0,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.5,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.0,
+     "proof_validity": {
+      "1": 0.111,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.5,
+      "unchanged_answer_rate": 1.0
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.5,
+      "unchanged_answer_rate": 1.0
+     },
+     "i1-fresh-symbols": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i3-unused-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     }
+    },
+    "intuition_bal": 0.472,
+    "language": {
+     "1": {
+      "spurious_accepted": 0.874,
+      "valid_accepted": 1.0
+     },
+     "10": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "11": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "12": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "2": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "3": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "4": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "5": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "6": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "7": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "8": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "9": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     }
+    },
+    "oracle": {
+     "F_recall": 0.954,
+     "T_recall": {
+      "1": 1.0,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.977,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.954,
+     "proof_validity": {
+      "1": 1.0,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 39,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "oracle_held_half": {
+     "F_recall": 0.954,
+     "T_recall": {
+      "1": 1.0,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.977,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.954,
+     "proof_validity": {
+      "1": 1.0,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    }
+   },
+   "grandparent-of": {
+    "confirmed": {
+     "F_recall": 0.0,
+     "T_recall": {
+      "1": null,
+      "2": 1.0,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": null,
+      "2": 0.5,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.0,
+     "proof_validity": {
+      "1": null,
+      "2": 0.0,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 25,
+       "lost": 0,
+       "no-proof": 3,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "confirmed_closure": {
+     "F_recall": 0.997,
+     "T_recall": 0.893
+    },
+    "confirmed_held_half": {
+     "F_recall": 0.0,
+     "T_recall": {
+      "1": null,
+      "2": 1.0,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": null,
+      "2": 0.5,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.0,
+     "proof_validity": {
+      "1": null,
+      "2": 0.0,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "counting_F_recall_3_4": 1.0,
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.5,
+      "unchanged_answer_rate": 1.0
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.5,
+      "unchanged_answer_rate": 1.0
+     },
+     "i1-fresh-symbols": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i3-unused-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     }
+    },
+    "intuition_bal": 0.712,
+    "language": {
+     "1": {
+      "spurious_accepted": 0.925,
+      "valid_accepted": null
+     },
+     "10": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "11": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "12": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "2": {
+      "spurious_accepted": 0.01,
+      "valid_accepted": 0.0
+     },
+     "3": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "4": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "5": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "6": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "7": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "8": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     },
+     "9": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": null
+     }
+    },
+    "oracle": {
+     "F_recall": 0.926,
+     "T_recall": {
+      "1": null,
+      "2": 0.0,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": null,
+      "2": 0.463,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.926,
+     "proof_validity": {
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 28
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "oracle_held_half": {
+     "F_recall": 0.944,
+     "T_recall": {
+      "1": null,
+      "2": 0.0,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": null,
+      "2": 0.472,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.944,
+     "proof_validity": {
+      "1": null,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    }
+   },
+   "is-a": {
+    "confirmed": {
+     "F_recall": 0.0,
+     "T_recall": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 1.0,
+      "4": 1.0,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.5,
+      "2": 0.5,
+      "3": 0.5,
+      "4": 0.5,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.0,
+     "proof_validity": {
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 26,
+       "lost": 0,
+       "no-proof": 9,
+       "rejected": 0
+      },
+      "2": {
+       "found": 26,
+       "lost": 0,
+       "no-proof": 9,
+       "rejected": 0
+      },
+      "3": {
+       "found": 26,
+       "lost": 0,
+       "no-proof": 9,
+       "rejected": 0
+      },
+      "4": {
+       "found": 26,
+       "lost": 0,
+       "no-proof": 9,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "confirmed_closure": {
+     "F_recall": 0.464,
+     "T_recall": 0.743
+    },
+    "confirmed_held_half": {
+     "F_recall": 0.0,
+     "T_recall": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 1.0,
+      "4": 1.0,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.5,
+      "2": 0.5,
+      "3": 0.5,
+      "4": 0.5,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.0,
+     "proof_validity": {
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.8,
+      "unchanged_answer_rate": 1.0
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.8,
+      "unchanged_answer_rate": 1.0
+     },
+     "i1-fresh-symbols": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i3-unused-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     }
+    },
+    "intuition_bal": 0.82,
+    "language": {
+     "1": {
+      "spurious_accepted": 0.879,
+      "valid_accepted": 1.0
+     },
+     "10": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "11": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "12": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "2": {
+      "spurious_accepted": 0.005,
+      "valid_accepted": 0.0
+     },
+     "3": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "4": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "5": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "6": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "7": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "8": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "9": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     }
+    },
+    "oracle": {
+     "F_recall": 0.561,
+     "T_recall": {
+      "1": 1.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.781,
+      "2": 0.281,
+      "3": 0.281,
+      "4": 0.281,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.561,
+     "proof_validity": {
+      "1": 1.0,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 35,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 35
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 35
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 35
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "oracle_held_half": {
+     "F_recall": 0.568,
+     "T_recall": {
+      "1": 1.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": null,
+      "7-12": null
+     },
+     "bal": {
+      "1": 0.784,
+      "2": 0.284,
+      "3": 0.284,
+      "4": 0.284,
+      "5-6": null,
+      "7-12": null
+     },
+     "conn_F_recall": 0.568,
+     "proof_validity": {
+      "1": 1.0,
+      "2": null,
+      "3": null,
+      "4": null,
+      "5-6": null,
+      "7-12": null
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    }
+   },
+   "smaller-than": {
+    "confirmed": {
+     "F_recall": 0.0,
+     "T_recall": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 1.0,
+      "4": 1.0,
+      "5-6": 1.0,
+      "7-12": 1.0
+     },
+     "bal": {
+      "1": 0.5,
+      "2": 0.5,
+      "3": 0.5,
+      "4": 0.5,
+      "5-6": 0.5,
+      "7-12": 0.5
+     },
+     "conn_F_recall": 0.0,
+     "proof_validity": {
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": 0.0,
+      "7-12": 0.0
+     },
+     "taxonomy": {
+      "1": {
+       "found": 9,
+       "lost": 0,
+       "no-proof": 2,
+       "rejected": 0
+      },
+      "2": {
+       "found": 7,
+       "lost": 0,
+       "no-proof": 3,
+       "rejected": 0
+      },
+      "3": {
+       "found": 6,
+       "lost": 0,
+       "no-proof": 3,
+       "rejected": 0
+      },
+      "4": {
+       "found": 5,
+       "lost": 0,
+       "no-proof": 3,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 8,
+       "lost": 0,
+       "no-proof": 5,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 10,
+       "lost": 0,
+       "no-proof": 5,
+       "rejected": 0
+      }
+     }
+    },
+    "confirmed_closure": {
+     "F_recall": 0.955,
+     "T_recall": 0.682
+    },
+    "confirmed_held_half": {
+     "F_recall": 0.0,
+     "T_recall": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 1.0,
+      "4": 1.0,
+      "5-6": 1.0,
+      "7-12": 1.0
+     },
+     "bal": {
+      "1": 0.5,
+      "2": 0.5,
+      "3": 0.5,
+      "4": 0.5,
+      "5-6": 0.5,
+      "7-12": 0.5
+     },
+     "conn_F_recall": 0.0,
+     "proof_validity": {
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": 0.0,
+      "7-12": 0.0
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    },
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.5,
+      "unchanged_answer_rate": null
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.545,
+      "unchanged_answer_rate": 1.0
+     },
+     "i1-fresh-symbols": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i3-unused-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     }
+    },
+    "intuition_bal": 0.758,
+    "language": {
+     "1": {
+      "spurious_accepted": 0.884,
+      "valid_accepted": 1.0
+     },
+     "10": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "11": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "12": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "2": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "3": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "4": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "5": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "6": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "7": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "8": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     },
+     "9": {
+      "spurious_accepted": 0.0,
+      "valid_accepted": 0.0
+     }
+    },
+    "oracle": {
+     "F_recall": 0.045,
+     "T_recall": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 1.0,
+      "4": 1.0,
+      "5-6": 0.923,
+      "7-12": 0.867
+     },
+     "bal": {
+      "1": 0.523,
+      "2": 0.523,
+      "3": 0.523,
+      "4": 0.523,
+      "5-6": 0.484,
+      "7-12": 0.456
+     },
+     "conn_F_recall": 0.045,
+     "proof_validity": {
+      "1": 0.182,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": 0.0,
+      "7-12": 0.0
+     },
+     "taxonomy": {
+      "1": {
+       "found": 11,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 10,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 9,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 8,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 12,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 1
+      },
+      "7-12": {
+       "found": 13,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 2
+      }
+     }
+    },
+    "oracle_held_half": {
+     "F_recall": 0.054,
+     "T_recall": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 1.0,
+      "4": 1.0,
+      "5-6": 0.833,
+      "7-12": 0.8
+     },
+     "bal": {
+      "1": 0.527,
+      "2": 0.527,
+      "3": 0.527,
+      "4": 0.527,
+      "5-6": 0.444,
+      "7-12": 0.427
+     },
+     "conn_F_recall": 0.054,
+     "proof_validity": {
+      "1": 0.125,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5-6": 0.0,
+      "7-12": 0.0
+     },
+     "taxonomy": {
+      "1": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "2": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "3": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "4": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "5-6": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      },
+      "7-12": {
+       "found": 0,
+       "lost": 0,
+       "no-proof": 0,
+       "rejected": 0
+      }
+     }
+    }
+   }
+  },
+  "training": {
+   "F_excluded_reader_closure": 976983.0,
+   "T_without_candidates": 0.0,
+   "covered": 5150.0,
+   "oracle_T_short": 5479.0,
+   "programs": 8911312.0,
+   "questions": 811.0,
+   "rulesets": 30.0
+  }
+ }
+}

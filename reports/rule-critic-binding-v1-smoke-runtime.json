@@ -1,0 +1,230 @@
+{
+ "aggregate_worker_cpu_seconds": 168.885471169,
+ "blas_configuration": "{\n  \"Compilers\": {\n    \"c\": {\n      \"name\": \"gcc\",\n      \"linker\": \"ld.bfd\",\n      \"version\": \"14.2.1\",\n      \"commands\": \"cc\"\n    },\n    \"cython\": {\n      \"name\": \"cython\",\n      \"linker\": \"cython\",\n      \"version\": \"3.3.0\",\n      \"commands\": \"cython\"\n    },\n    \"c++\": {\n      \"name\": \"gcc\",\n      \"linker\": \"ld.bfd\",\n      \"version\": \"14.2.1\",\n      \"commands\": \"c++\"\n    }\n  },\n  \"Machine Information\": {\n    \"host\": {\n      \"cpu\": \"x86_64\",\n      \"family\": \"x86_64\",\n      \"endian\": \"little\",\n      \"system\": \"linux\"\n    },\n    \"build\": {\n      \"cpu\": \"x86_64\",\n      \"family\": \"x86_64\",\n      \"endian\": \"little\",\n      \"system\": \"linux\"\n    }\n  },\n  \"Build Dependencies\": {\n    \"blas\": {\n      \"name\": \"scipy-openblas\",\n      \"found\": true,\n      \"version\": \"0.3.34.106.0\",\n      \"detection method\": \"pkgconfig\",\n      \"include directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include\",\n      \"lib directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib\",\n      \"openblas configuration\": \"OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64\",\n      \"pc file directory\": \"/project/.openblas\"\n    },\n    \"lapack\": {\n      \"name\": \"scipy-openblas\",\n      \"found\": true,\n      \"version\": \"0.3.34.106.0\",\n      \"detection method\": \"pkgconfig\",\n      \"include directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include\",\n      \"lib directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib\",\n      \"openblas configuration\": \"OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64\",\n      \"pc file directory\": \"/project/.openblas\"\n    }\n  },\n  \"Python Information\": {\n    \"path\": \"/tmp/build-env-ptu49_tp/bin/python\",\n    \"version\": \"3.12\"\n  },\n  \"SIMD Extensions\": {\n    \"baseline\": [\n      \"X86_V2\"\n    ],\n    \"found\": [\n      \"X86_V3\"\n    ],\n    \"not found\": [\n      \"X86_V4\",\n      \"AVX512_ICL\",\n      \"AVX512_SPR\"\n    ]\n  }\n}\n",
+ "children_peak_rss_kb": 512128,
+ "command": "/home/debjit/code/sri/experiments/rule_critic_binding.py",
+ "contract_sha256": "a1a42bacb366da09e9d7ecd9c07b2150c41e20040120cb94a3368d3bbd07c415",
+ "cpu": "x86_64",
+ "cpu_model": "AMD Ryzen 5 3600 6-Core Processor",
+ "device": "cpu",
+ "dirty": true,
+ "dirty_including_untracked": true,
+ "dtype": "float32",
+ "memory_limit": {
+  "address_space_rlimit_bytes": [
+   -1,
+   -1
+  ]
+ },
+ "numpy": "2.5.4",
+ "os": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "parent_peak_rss_kb": 298604,
+ "python": "3.12.3",
+ "revision": "33731d90f6f28cd6c4d54ac3a3b20d353c1b7b9e",
+ "rss_convention": "ru_maxrss in KiB per process; children is the largest single child",
+ "runner_sha256": "916e1585ddace8b7e15e773a3c6c1a2e53b1b130b43a754d4989da8e82255be3",
+ "scope": "nondeterministic timing",
+ "seed_policy": "450\u2013453; split 2029/2030; paired data RNG",
+ "selection_policy": "All arms and final checkpoint reported; no tuning or checkpoint selection",
+ "source_hashes": {
+  "experiments/rule_critic_binding.py": "916e1585ddace8b7e15e773a3c6c1a2e53b1b130b43a754d4989da8e82255be3",
+  "experiments/rule_critic_diagnostic.py": "b16fc6732195686a9a2307d11eaa56461219e96bce7a7e7343afbdd54ab98130",
+  "experiments/rule_guided_search.py": "a3f06d715fec71c5973e147e5d4b004479c42703e277a0ae110e820f7c981039"
+ },
+ "tasks": {
+  "canonical/seed450": {
+   "adam_moment_bytes_upper_bound": 270792,
+   "adam_step_counter_bytes_upper_bound": 96,
+   "audit_serialized_bytes": 39263,
+   "buffer_bytes": 18992,
+   "candidate_searches": 0,
+   "checkpoint_bytes": 163484,
+   "cpu_seconds": 37.947973546,
+   "fits": 1,
+   "gradient_bytes": 135396,
+   "independent_training_examples": 2399,
+   "inference_benchmark": null,
+   "inference_benchmark_reason": "Whole evaluation timing only; no latency or scaling claim",
+   "local_checks_scored": {
+    "evaluation": 28701911,
+    "training": 12146
+   },
+   "optimizer_steps": 100,
+   "oracle_graph_bytes": 5636096,
+   "parameter_bytes": 135396,
+   "parameters": 33849,
+   "peak_rss_kib": 512128,
+   "phases": {
+    "checkpoint_100": {
+     "cpu_seconds": 4.613923504000001,
+     "wall_seconds": 4.616555229993537
+    },
+    "checkpoint_50": {
+     "cpu_seconds": 4.637206497000001,
+     "wall_seconds": 4.640307683992432
+    },
+    "construction": {
+     "cpu_seconds": 2.6655811,
+     "wall_seconds": 2.6668683479947504
+    },
+    "final_evaluation": {
+     "cpu_seconds": 23.169711994000004,
+     "wall_seconds": 23.170730393001577
+    },
+    "save": {
+     "cpu_seconds": 0.002263441000003752,
+     "wall_seconds": 0.0022592430032091215
+    },
+    "symbolic_reference": {
+     "cpu_seconds": 0.2969116550000024,
+     "wall_seconds": 0.29690828900493216
+    },
+    "training": {
+     "cpu_seconds": 2.550090886999998,
+     "wall_seconds": 2.5509456250147196
+    }
+   },
+   "python_container_heap_bytes": null,
+   "python_container_heap_reason": "Included in RSS; not separately profiled",
+   "raw_training_examples_retained_on_disk": false,
+   "reader_parameter_bytes": 442672,
+   "rule_set_json_bytes": 26252,
+   "training_program_exposures": 6400,
+   "training_rule_sets": 30,
+   "tuning_fits": 0,
+   "wall_seconds": 37.95688329800032
+  },
+  "matching/seed450": {
+   "adam_moment_bytes_upper_bound": 109576,
+   "adam_step_counter_bytes_upper_bound": 40,
+   "audit_serialized_bytes": 39263,
+   "buffer_bytes": 20520,
+   "candidate_searches": 0,
+   "checkpoint_bytes": 80423,
+   "cpu_seconds": 92.534989899,
+   "fits": 1,
+   "gradient_bytes": 54788,
+   "independent_training_examples": 2399,
+   "inference_benchmark": null,
+   "inference_benchmark_reason": "Whole evaluation timing only; no latency or scaling claim",
+   "local_checks_scored": {
+    "evaluation": 28701911,
+    "training": 12146
+   },
+   "optimizer_steps": 100,
+   "oracle_graph_bytes": 5636096,
+   "parameter_bytes": 54788,
+   "parameters": 13697,
+   "peak_rss_kib": 512104,
+   "phases": {
+    "checkpoint_100": {
+     "cpu_seconds": 17.016900685,
+     "wall_seconds": 17.020772648989805
+    },
+    "checkpoint_50": {
+     "cpu_seconds": 20.484211362,
+     "wall_seconds": 20.49143878700852
+    },
+    "construction": {
+     "cpu_seconds": 2.9445163749999996,
+     "wall_seconds": 2.947746552003082
+    },
+    "final_evaluation": {
+     "cpu_seconds": 49.980620892,
+     "wall_seconds": 49.992205136004486
+    },
+    "save": {
+     "cpu_seconds": 0.0010631009999997332,
+     "wall_seconds": 0.001062700990587473
+    },
+    "symbolic_reference": {
+     "cpu_seconds": 0.27196334100000286,
+     "wall_seconds": 0.2720211419946281
+    },
+    "training": {
+     "cpu_seconds": 1.8287009080000018,
+     "wall_seconds": 1.8302645219955593
+    }
+   },
+   "python_container_heap_bytes": null,
+   "python_container_heap_reason": "Included in RSS; not separately profiled",
+   "raw_training_examples_retained_on_disk": false,
+   "reader_parameter_bytes": 442672,
+   "rule_set_json_bytes": 26252,
+   "training_program_exposures": 6400,
+   "training_rule_sets": 30,
+   "tuning_fits": 0,
+   "wall_seconds": 92.56253715300409
+  },
+  "original/seed450": {
+   "adam_moment_bytes_upper_bound": 270792,
+   "adam_step_counter_bytes_upper_bound": 96,
+   "audit_serialized_bytes": 39263,
+   "buffer_bytes": 18992,
+   "candidate_searches": 0,
+   "checkpoint_bytes": 163451,
+   "cpu_seconds": 38.402507724,
+   "fits": 1,
+   "gradient_bytes": 135396,
+   "independent_training_examples": 2399,
+   "inference_benchmark": null,
+   "inference_benchmark_reason": "Whole evaluation timing only; no latency or scaling claim",
+   "local_checks_scored": {
+    "evaluation": 28701911,
+    "training": 12146
+   },
+   "optimizer_steps": 100,
+   "oracle_graph_bytes": 5636096,
+   "parameter_bytes": 135396,
+   "parameters": 33849,
+   "peak_rss_kib": 511992,
+   "phases": {
+    "checkpoint_100": {
+     "cpu_seconds": 4.767727079,
+     "wall_seconds": 4.769868118004524
+    },
+    "checkpoint_50": {
+     "cpu_seconds": 4.656296907000001,
+     "wall_seconds": 4.6565548540093005
+    },
+    "construction": {
+     "cpu_seconds": 2.982767666,
+     "wall_seconds": 2.985263088005013
+    },
+    "final_evaluation": {
+     "cpu_seconds": 23.083236694,
+     "wall_seconds": 23.086640815992723
+    },
+    "save": {
+     "cpu_seconds": 0.0024397820000032766,
+     "wall_seconds": 0.002434916008496657
+    },
+    "symbolic_reference": {
+     "cpu_seconds": 0.28349141700000047,
+     "wall_seconds": 0.2835047639964614
+    },
+    "training": {
+     "cpu_seconds": 2.6175052639999983,
+     "wall_seconds": 2.617925763988751
+    }
+   },
+   "python_container_heap_bytes": null,
+   "python_container_heap_reason": "Included in RSS; not separately profiled",
+   "raw_training_examples_retained_on_disk": false,
+   "reader_parameter_bytes": 442672,
+   "rule_set_json_bytes": 26252,
+   "training_program_exposures": 6400,
+   "training_rule_sets": 30,
+   "tuning_fits": 0,
+   "wall_seconds": 38.41128560499055
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "torch_configuration": "PyTorch built with:\n  - GCC 13.3\n  - C++ Version: 202002\n  - Intel(R) oneAPI Math Kernel Library Version 2024.2-Product Build 20240605 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.12.0 (Git Hash 80afa71049cd69a3df32adcccb623b12cd7baa22)\n  - OpenMP 201511 (a.k.a. OpenMP 4.5)\n  - LAPACK is enabled (usually provided by MKL)\n  - NNPACK is enabled\n  - CPU capability usage: AVX2\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, COMMIT_SHA=5c4886908584029761b579af026dcfb627c84070, CUDA_FLAGS= -DLIBCUDACXX_ENABLE_SIMPLIFIED_COMPLEX_OPERATIONS -Xfatbin -compress-all  -Wno-deprecated-gpu-targets --expt-extended-lambda -DCUB_WRAPPED_NAMESPACE=at_cuda_detail -DDISABLE_CUSPARSE_DEPRECATED -DCUDA_HAS_FP16=1 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -DC10_NODEPRECATED, CXX_COMPILER=/opt/rh/gcc-toolset-13/root/usr/bin/c++, CXX_FLAGS= -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -DC10_NODEPRECATED -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=range-loop-construct -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=old-style-cast -faligned-new -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-dangling-reference -Wno-error=dangling-reference -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.14.1, USE_CUDA=0, USE_CUDNN=OFF, USE_CUSPARSELT=OFF, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_HIPSPARSELT=OFF, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=OFF, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, USE_XCCL=OFF, USE_XPU=OFF, \n",
+ "wall_seconds": 92.62922880500264,
+ "whole_job_peak_memory_bytes": null,
+ "whole_job_peak_memory_reason": "Only per-process ru_maxrss measured",
+ "workers": 3,
+ "world_sha256": "becebd0f5ab0d4d28653d53708f359243907425b08036af87775b8c8e1dfc4ef"
+}

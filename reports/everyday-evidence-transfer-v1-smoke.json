@@ -1,0 +1,12981 @@
+{
+ "results": {
+  "codes/seed450": {
+   "arm": "codes",
+   "bank": {
+    "attributes": [
+     [
+      "is-a",
+      "mammal",
+      0
+     ],
+     [
+      "is-a",
+      "bird",
+      0
+     ],
+     [
+      "is-a",
+      "fish",
+      0
+     ],
+     [
+      "is-a",
+      "insect",
+      0
+     ],
+     [
+      "is-a",
+      "reptile",
+      0
+     ],
+     [
+      "is-a",
+      "amphibian",
+      0
+     ],
+     [
+      "has",
+      "fur",
+      1
+     ],
+     [
+      "has",
+      "feathers",
+      1
+     ],
+     [
+      "has",
+      "scales",
+      1
+     ],
+     [
+      "has",
+      "wings",
+      1
+     ],
+     [
+      "has",
+      "fins",
+      1
+     ],
+     [
+      "has",
+      "beak",
+      1
+     ],
+     [
+      "has",
+      "tail",
+      1
+     ],
+     [
+      "has",
+      "legs0",
+      1
+     ],
+     [
+      "has",
+      "legs2",
+      1
+     ],
+     [
+      "has",
+      "legs4",
+      1
+     ],
+     [
+      "has",
+      "legs6",
+      1
+     ],
+     [
+      "can",
+      "fly",
+      2
+     ],
+     [
+      "can",
+      "swim",
+      2
+     ],
+     [
+      "can",
+      "run",
+      2
+     ],
+     [
+      "can",
+      "climb",
+      2
+     ],
+     [
+      "can",
+      "sing",
+      2
+     ],
+     [
+      "lives-in",
+      "water",
+      3
+     ],
+     [
+      "lives-in",
+      "land",
+      3
+     ],
+     [
+      "lives-in",
+      "trees",
+      3
+     ],
+     [
+      "lives-in",
+      "farm",
+      3
+     ],
+     [
+      "eats",
+      "meat",
+      4
+     ],
+     [
+      "eats",
+      "plants",
+      4
+     ],
+     [
+      "eats",
+      "seeds",
+      4
+     ],
+     [
+      "eats",
+      "bugs",
+      4
+     ],
+     [
+      "eats",
+      "nectar",
+      4
+     ]
+    ],
+    "available_test_counts": {
+     "held_structure": 144,
+     "novel_combinations": 76
+    },
+    "concepts": 396,
+    "data_bytes": 14518,
+    "descriptions": [
+     {
+      "attributes": [
+       0
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       1
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       8
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       9
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       14
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       15
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       17
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       18
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       22
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       23
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       26
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       29
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       0,
+       12
+      ],
+      "form": "and"
+     },
+     {
+      "attributes": [
+       12,
+       15
+      ],
+      "form": "and"
+     },
+     {
+      "attributes": [
+       12,
+       18
+      ],
+      "form": "and"
+     },
+     {
+      "attributes": [
+       12,
+       22
+      ],
+      "form": "and"
+     },
+     {
+      "attributes": [
+       12,
+       23
+      ],
+      "form": "and"
+     },
+     {
+      "attributes": [
+       18,
+       22
+      ],
+      "form": "and"
+     },
+     {
+      "attributes": [
+       0,
+       1
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       2
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       3
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       4
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       5
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       8
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       9
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       13
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       15
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       17
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       18
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       20
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       21
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       23
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       3
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       4
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       5
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       6
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       8
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       10
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       13
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       15
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       20
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       3
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       6
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       9
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       14
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       15
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       17
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       23
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       4
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       6
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       8
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       9
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       10
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       13
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       15
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       17
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       6
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       9
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       10
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       14
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       15
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       17
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       18
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       6
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       8
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       9
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       13
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       14
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       17
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       18
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       8
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       9
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       10
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       13
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       15
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       17
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       21
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       9
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       14
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       15
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       17
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       20
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       21
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       9,
+       10
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       9,
+       13
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       9,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       9,
+       20
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       9,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       9,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       9,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       9,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       9,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       10,
+       15
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       10,
+       17
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       10,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       10,
+       20
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       10,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       10,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       10,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       10,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       10,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       13,
+       17
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       13,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       13,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       13,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       13,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       13,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       13,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       13,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       14,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       14,
+       20
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       14,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       14,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       14,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       14,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       14,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       14,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       17
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       18
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       21
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       17,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       17,
+       20
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       17,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       17,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       17,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       17,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       17,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       18,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       18,
+       20
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       18,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       18,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       18,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       18,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       18,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       19,
+       21
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       19,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       19,
+       23
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       19,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       19,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       19,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       19,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       19,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       19,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       20,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       20,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       20,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       21,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       21,
+       23
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       21,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       21,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       21,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       22,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       22,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       22,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       22,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       22,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       22,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       22,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       23,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       23,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       23,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       23,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       23,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       23,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       24,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       24,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       24,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       24,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       24,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       25,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       25,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       25,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       25,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       26,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       26,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       26,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       26,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       27,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       27,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       27,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       28,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       29,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       9
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       10
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       12
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       13
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       14
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       17
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       18
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       20
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       22
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       24
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       28
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       1,
+       12
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       1,
+       18
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       1,
+       19
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       1,
+       22
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       1,
+       25
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       1,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       1,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       1,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       2,
+       12
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       2,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       2,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       3,
+       9
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       3,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       4,
+       12
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       4,
+       15
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       4,
+       18
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       4,
+       19
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       4,
+       22
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       4,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       4,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       4,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       5,
+       15
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       5,
+       18
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       5,
+       19
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       5,
+       22
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       5,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       9
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       12
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       14
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       15
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       17
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       18
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       24
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       28
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       8,
+       12
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       8,
+       15
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       8,
+       19
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       8,
+       20
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       8,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       8,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       8,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       9,
+       12
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       9,
+       19
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       9,
+       21
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       9,
+       22
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       9,
+       25
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       9,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       9,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       9,
+       28
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       9,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       9,
+       30
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       10,
+       12
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       10,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       10,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       10,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       13
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       14
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       15
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       17
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       18
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       19
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       20
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       21
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       22
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       24
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       25
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       28
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       13,
+       20
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       13,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       13,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       13,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       13,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       14,
+       18
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       14,
+       19
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       14,
+       22
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       14,
+       25
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       14,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       14,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       14,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       15,
+       18
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       15,
+       20
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       15,
+       22
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       15,
+       25
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       15,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       15,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       15,
+       28
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       15,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       17,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       17,
+       25
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       17,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       17,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       17,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       18,
+       19
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       18,
+       20
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       18,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       18,
+       25
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       18,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       18,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       18,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       19,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       19,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       19,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       19,
+       28
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       19,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       20,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       20,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       20,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       22,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       22,
+       25
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       22,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       22,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       22,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       23,
+       25
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       23,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       23,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       23,
+       28
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       23,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       23,
+       30
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       24,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       24,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       25,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       25,
+       28
+      ],
+      "form": "xor"
+     }
+    ],
+    "held_entities": [
+     0,
+     9,
+     11,
+     15,
+     19,
+     23,
+     28,
+     31
+    ],
+    "labels_sha256": "1a8cbf9a2882499d343510d44bf79eadfb799cf036c7a9e35f4d93ec4437ed70",
+    "names": [
+     "dog",
+     "cat",
+     "cow",
+     "horse",
+     "lion",
+     "elephant",
+     "mouse",
+     "rabbit",
+     "bat",
+     "whale",
+     "robin",
+     "sparrow",
+     "eagle",
+     "owl",
+     "duck",
+     "penguin",
+     "chicken",
+     "flamingo",
+     "crow",
+     "salmon",
+     "shark",
+     "goldfish",
+     "tuna",
+     "bee",
+     "butterfly",
+     "housefly",
+     "ant",
+     "snake",
+     "turtle",
+     "lizard",
+     "crocodile",
+     "frog",
+     "toad",
+     "newt"
+    ],
+    "raw_eligible": {
+     "and": 25,
+     "or": 365,
+     "single": 14,
+     "xor": 337
+    },
+    "test_groups": {
+     "held_structure": [
+      272,
+      275,
+      295,
+      303,
+      304,
+      322,
+      325,
+      334
+     ],
+     "novel_combinations": [
+      51,
+      86,
+      103,
+      125,
+      166,
+      167,
+      209,
+      234
+     ]
+    },
+    "train_concepts": [
+     100,
+     138,
+     35,
+     75,
+     10,
+     202,
+     201,
+     39,
+     223,
+     30,
+     68,
+     106,
+     20,
+     217,
+     44,
+     154,
+     207,
+     4,
+     211,
+     157,
+     15,
+     12,
+     122,
+     153,
+     213,
+     161,
+     97,
+     88,
+     233,
+     241,
+     31,
+     203,
+     179,
+     112,
+     45,
+     210,
+     175,
+     5,
+     55,
+     102,
+     1,
+     77,
+     74,
+     41,
+     66,
+     99,
+     164,
+     52,
+     227,
+     160,
+     250,
+     18,
+     94,
+     152,
+     130,
+     221,
+     196,
+     87,
+     118,
+     149,
+     141,
+     216,
+     158,
+     181,
+     114,
+     144,
+     124,
+     38,
+     13,
+     226,
+     8,
+     23,
+     54,
+     206,
+     134,
+     67,
+     162,
+     104,
+     32,
+     182,
+     61,
+     229,
+     17,
+     59,
+     89,
+     116,
+     115,
+     50,
+     165,
+     78,
+     65,
+     135,
+     98,
+     142,
+     119,
+     189,
+     79,
+     204,
+     90,
+     110,
+     120,
+     36,
+     240,
+     190,
+     243,
+     26,
+     117,
+     214,
+     215,
+     147,
+     174,
+     222,
+     71,
+     238,
+     47,
+     218,
+     72,
+     224,
+     9,
+     249,
+     92,
+     246,
+     208,
+     219,
+     91,
+     81,
+     101,
+     127,
+     16,
+     108,
+     151,
+     146,
+     133,
+     84,
+     137,
+     27,
+     57,
+     193,
+     177,
+     140,
+     131,
+     37,
+     48,
+     105,
+     200,
+     150,
+     25,
+     237,
+     212,
+     231,
+     236,
+     11,
+     185,
+     121,
+     6,
+     129,
+     244,
+     85,
+     191,
+     80,
+     199,
+     228,
+     58,
+     180,
+     3,
+     28,
+     7,
+     107,
+     172,
+     132,
+     188,
+     53,
+     251,
+     156,
+     168,
+     70
+    ],
+    "train_entities": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     10,
+     12,
+     13,
+     14,
+     16,
+     17,
+     18,
+     20,
+     21,
+     22,
+     24,
+     25,
+     26,
+     27,
+     29,
+     30,
+     32,
+     33
+    ],
+    "truth_sha256": "3580c0da32dd2bd779311ed0a2322d546bc4dd517dcb8d80b998756321a55a90"
+   },
+   "checkpoint": {
+    "file": "runs/everyday-evidence-transfer-v1-smoke/codes-seed450.pt",
+    "sha256": "2eadc79c4e594577300f5f4f266f24f7497cd36ef783cf13863e6914ee9678db"
+   },
+   "checkpoints": {
+    "50": {
+     "held_structure": {
+      "k8": {
+       "balanced_accuracy": 0.5,
+       "brier": 0.2503085732460022,
+       "confident_error_rate": 0.0,
+       "episode_balanced_accuracy": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+       ],
+       "query_count": 256
+      }
+     },
+     "novel_combinations": {
+      "k8": {
+       "balanced_accuracy": 0.5,
+       "brier": 0.25045061111450195,
+       "confident_error_rate": 0.0,
+       "episode_balanced_accuracy": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+       ],
+       "query_count": 256
+      }
+     }
+    }
+   },
+   "final": {
+    "held_structure": {
+     "conflict": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.25047966837882996,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 224
+     },
+     "evidence_updates": {
+      "clean_exception_location_confidence": 0.518196702003479,
+      "conflict_mean_confidence": 0.5182766318321228,
+      "conflict_mean_entropy_bits": 0.9990353584289551,
+      "exception_accuracy_after": 0.46875,
+      "exception_accuracy_before": 0.46875,
+      "exception_correct_probability_after": 0.5073474645614624,
+      "exception_correct_probability_before": 0.4989115595817566,
+      "ordinary_ba_after": 0.5,
+      "ordinary_ba_before": 0.5,
+      "ordinary_ba_drop": 0.0,
+      "reversal_complement_error": 0.03671614080667496
+     },
+     "exception": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.2497190684080124,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "k0": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.2500344216823578,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "k4": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.25028616189956665,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "k8": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.2503085732460022,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "missing": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.2503085732460022,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "noisy": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.25049465894699097,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "reversed": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.25033363699913025,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "shuffled": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.25033411383628845,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     }
+    },
+    "novel_combinations": {
+     "conflict": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.25024548172950745,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 224
+     },
+     "evidence_updates": {
+      "clean_exception_location_confidence": 0.5185149312019348,
+      "conflict_mean_confidence": 0.5184499025344849,
+      "conflict_mean_entropy_bits": 0.9990167617797852,
+      "exception_accuracy_after": 0.53125,
+      "exception_accuracy_before": 0.53125,
+      "exception_correct_probability_after": 0.5096259713172913,
+      "exception_correct_probability_before": 0.5012184977531433,
+      "ordinary_ba_after": 0.5,
+      "ordinary_ba_before": 0.5,
+      "ordinary_ba_drop": 0.0,
+      "reversal_complement_error": 0.03718283027410507
+     },
+     "exception": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.24980351328849792,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "k0": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.2500344216823578,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "k4": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.2504837214946747,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "k8": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.25045061111450195,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "missing": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.25045061111450195,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "noisy": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.25007864832878113,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "reversed": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.25026735663414,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "shuffled": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.25043320655822754,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     }
+    }
+   },
+   "log": [
+    {
+     "loss": 0.6911959648132324,
+     "step": 50
+    }
+   ],
+   "reader_sha256": "2bd859dcda613976ed0ba9e305fc9ee5c9075e9732c74960d0ec242a10b9944a",
+   "retention": {
+    "reader_hash_unchanged": true,
+    "reader_max_score_change": 0.0,
+    "stored_context_max_prediction_change": 0.0
+   },
+   "ridge": null,
+   "seed": 450,
+   "source": {
+    "accuracy": 0.9582542694497154,
+    "brier": 0.038963694125413895,
+    "reader_queries": 1054
+   }
+  },
+  "learned/seed450": {
+   "arm": "learned",
+   "bank": {
+    "attributes": [
+     [
+      "is-a",
+      "mammal",
+      0
+     ],
+     [
+      "is-a",
+      "bird",
+      0
+     ],
+     [
+      "is-a",
+      "fish",
+      0
+     ],
+     [
+      "is-a",
+      "insect",
+      0
+     ],
+     [
+      "is-a",
+      "reptile",
+      0
+     ],
+     [
+      "is-a",
+      "amphibian",
+      0
+     ],
+     [
+      "has",
+      "fur",
+      1
+     ],
+     [
+      "has",
+      "feathers",
+      1
+     ],
+     [
+      "has",
+      "scales",
+      1
+     ],
+     [
+      "has",
+      "wings",
+      1
+     ],
+     [
+      "has",
+      "fins",
+      1
+     ],
+     [
+      "has",
+      "beak",
+      1
+     ],
+     [
+      "has",
+      "tail",
+      1
+     ],
+     [
+      "has",
+      "legs0",
+      1
+     ],
+     [
+      "has",
+      "legs2",
+      1
+     ],
+     [
+      "has",
+      "legs4",
+      1
+     ],
+     [
+      "has",
+      "legs6",
+      1
+     ],
+     [
+      "can",
+      "fly",
+      2
+     ],
+     [
+      "can",
+      "swim",
+      2
+     ],
+     [
+      "can",
+      "run",
+      2
+     ],
+     [
+      "can",
+      "climb",
+      2
+     ],
+     [
+      "can",
+      "sing",
+      2
+     ],
+     [
+      "lives-in",
+      "water",
+      3
+     ],
+     [
+      "lives-in",
+      "land",
+      3
+     ],
+     [
+      "lives-in",
+      "trees",
+      3
+     ],
+     [
+      "lives-in",
+      "farm",
+      3
+     ],
+     [
+      "eats",
+      "meat",
+      4
+     ],
+     [
+      "eats",
+      "plants",
+      4
+     ],
+     [
+      "eats",
+      "seeds",
+      4
+     ],
+     [
+      "eats",
+      "bugs",
+      4
+     ],
+     [
+      "eats",
+      "nectar",
+      4
+     ]
+    ],
+    "available_test_counts": {
+     "held_structure": 144,
+     "novel_combinations": 76
+    },
+    "concepts": 396,
+    "data_bytes": 14518,
+    "descriptions": [
+     {
+      "attributes": [
+       0
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       1
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       8
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       9
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       14
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       15
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       17
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       18
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       22
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       23
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       26
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       29
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       0,
+       12
+      ],
+      "form": "and"
+     },
+     {
+      "attributes": [
+       12,
+       15
+      ],
+      "form": "and"
+     },
+     {
+      "attributes": [
+       12,
+       18
+      ],
+      "form": "and"
+     },
+     {
+      "attributes": [
+       12,
+       22
+      ],
+      "form": "and"
+     },
+     {
+      "attributes": [
+       12,
+       23
+      ],
+      "form": "and"
+     },
+     {
+      "attributes": [
+       18,
+       22
+      ],
+      "form": "and"
+     },
+     {
+      "attributes": [
+       0,
+       1
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       2
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       3
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       4
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       5
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       8
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       9
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       13
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       15
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       17
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       18
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       20
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       21
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       23
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       3
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       4
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       5
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       6
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       8
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       10
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       13
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       15
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       20
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       3
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       6
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       9
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       14
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       15
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       17
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       23
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       4
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       6
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       8
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       9
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       10
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       13
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       15
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       17
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       6
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       9
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       10
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       14
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       15
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       17
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       18
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       6
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       8
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       9
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       13
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       14
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       17
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       18
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       8
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       9
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       10
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       13
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       15
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       17
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       21
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       9
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       14
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       15
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       17
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       20
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       21
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       9,
+       10
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       9,
+       13
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       9,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       9,
+       20
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       9,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       9,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       9,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       9,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       9,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       10,
+       15
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       10,
+       17
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       10,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       10,
+       20
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       10,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       10,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       10,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       10,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       10,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       13,
+       17
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       13,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       13,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       13,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       13,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       13,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       13,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       13,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       14,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       14,
+       20
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       14,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       14,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       14,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       14,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       14,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       14,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       17
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       18
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       21
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       17,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       17,
+       20
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       17,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       17,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       17,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       17,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       17,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       18,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       18,
+       20
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       18,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       18,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       18,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       18,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       18,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       19,
+       21
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       19,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       19,
+       23
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       19,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       19,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       19,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       19,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       19,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       19,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       20,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       20,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       20,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       21,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       21,
+       23
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       21,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       21,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       21,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       22,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       22,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       22,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       22,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       22,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       22,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       22,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       23,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       23,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       23,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       23,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       23,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       23,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       24,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       24,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       24,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       24,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       24,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       25,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       25,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       25,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       25,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       26,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       26,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       26,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       26,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       27,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       27,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       27,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       28,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       29,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       9
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       10
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       12
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       13
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       14
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       17
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       18
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       20
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       22
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       24
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       28
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       1,
+       12
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       1,
+       18
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       1,
+       19
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       1,
+       22
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       1,
+       25
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       1,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       1,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       1,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       2,
+       12
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       2,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       2,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       3,
+       9
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       3,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       4,
+       12
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       4,
+       15
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       4,
+       18
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       4,
+       19
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       4,
+       22
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       4,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       4,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       4,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       5,
+       15
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       5,
+       18
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       5,
+       19
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       5,
+       22
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       5,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       9
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       12
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       14
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       15
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       17
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       18
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       24
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       28
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       8,
+       12
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       8,
+       15
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       8,
+       19
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       8,
+       20
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       8,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       8,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       8,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       9,
+       12
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       9,
+       19
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       9,
+       21
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       9,
+       22
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       9,
+       25
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       9,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       9,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       9,
+       28
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       9,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       9,
+       30
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       10,
+       12
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       10,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       10,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       10,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       13
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       14
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       15
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       17
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       18
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       19
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       20
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       21
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       22
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       24
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       25
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       28
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       13,
+       20
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       13,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       13,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       13,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       13,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       14,
+       18
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       14,
+       19
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       14,
+       22
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       14,
+       25
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       14,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       14,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       14,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       15,
+       18
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       15,
+       20
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       15,
+       22
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       15,
+       25
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       15,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       15,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       15,
+       28
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       15,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       17,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       17,
+       25
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       17,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       17,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       17,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       18,
+       19
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       18,
+       20
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       18,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       18,
+       25
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       18,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       18,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       18,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       19,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       19,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       19,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       19,
+       28
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       19,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       20,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       20,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       20,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       22,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       22,
+       25
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       22,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       22,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       22,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       23,
+       25
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       23,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       23,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       23,
+       28
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       23,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       23,
+       30
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       24,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       24,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       25,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       25,
+       28
+      ],
+      "form": "xor"
+     }
+    ],
+    "held_entities": [
+     0,
+     9,
+     11,
+     15,
+     19,
+     23,
+     28,
+     31
+    ],
+    "labels_sha256": "1a8cbf9a2882499d343510d44bf79eadfb799cf036c7a9e35f4d93ec4437ed70",
+    "names": [
+     "dog",
+     "cat",
+     "cow",
+     "horse",
+     "lion",
+     "elephant",
+     "mouse",
+     "rabbit",
+     "bat",
+     "whale",
+     "robin",
+     "sparrow",
+     "eagle",
+     "owl",
+     "duck",
+     "penguin",
+     "chicken",
+     "flamingo",
+     "crow",
+     "salmon",
+     "shark",
+     "goldfish",
+     "tuna",
+     "bee",
+     "butterfly",
+     "housefly",
+     "ant",
+     "snake",
+     "turtle",
+     "lizard",
+     "crocodile",
+     "frog",
+     "toad",
+     "newt"
+    ],
+    "raw_eligible": {
+     "and": 25,
+     "or": 365,
+     "single": 14,
+     "xor": 337
+    },
+    "test_groups": {
+     "held_structure": [
+      272,
+      275,
+      295,
+      303,
+      304,
+      322,
+      325,
+      334
+     ],
+     "novel_combinations": [
+      51,
+      86,
+      103,
+      125,
+      166,
+      167,
+      209,
+      234
+     ]
+    },
+    "train_concepts": [
+     100,
+     138,
+     35,
+     75,
+     10,
+     202,
+     201,
+     39,
+     223,
+     30,
+     68,
+     106,
+     20,
+     217,
+     44,
+     154,
+     207,
+     4,
+     211,
+     157,
+     15,
+     12,
+     122,
+     153,
+     213,
+     161,
+     97,
+     88,
+     233,
+     241,
+     31,
+     203,
+     179,
+     112,
+     45,
+     210,
+     175,
+     5,
+     55,
+     102,
+     1,
+     77,
+     74,
+     41,
+     66,
+     99,
+     164,
+     52,
+     227,
+     160,
+     250,
+     18,
+     94,
+     152,
+     130,
+     221,
+     196,
+     87,
+     118,
+     149,
+     141,
+     216,
+     158,
+     181,
+     114,
+     144,
+     124,
+     38,
+     13,
+     226,
+     8,
+     23,
+     54,
+     206,
+     134,
+     67,
+     162,
+     104,
+     32,
+     182,
+     61,
+     229,
+     17,
+     59,
+     89,
+     116,
+     115,
+     50,
+     165,
+     78,
+     65,
+     135,
+     98,
+     142,
+     119,
+     189,
+     79,
+     204,
+     90,
+     110,
+     120,
+     36,
+     240,
+     190,
+     243,
+     26,
+     117,
+     214,
+     215,
+     147,
+     174,
+     222,
+     71,
+     238,
+     47,
+     218,
+     72,
+     224,
+     9,
+     249,
+     92,
+     246,
+     208,
+     219,
+     91,
+     81,
+     101,
+     127,
+     16,
+     108,
+     151,
+     146,
+     133,
+     84,
+     137,
+     27,
+     57,
+     193,
+     177,
+     140,
+     131,
+     37,
+     48,
+     105,
+     200,
+     150,
+     25,
+     237,
+     212,
+     231,
+     236,
+     11,
+     185,
+     121,
+     6,
+     129,
+     244,
+     85,
+     191,
+     80,
+     199,
+     228,
+     58,
+     180,
+     3,
+     28,
+     7,
+     107,
+     172,
+     132,
+     188,
+     53,
+     251,
+     156,
+     168,
+     70
+    ],
+    "train_entities": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     10,
+     12,
+     13,
+     14,
+     16,
+     17,
+     18,
+     20,
+     21,
+     22,
+     24,
+     25,
+     26,
+     27,
+     29,
+     30,
+     32,
+     33
+    ],
+    "truth_sha256": "3580c0da32dd2bd779311ed0a2322d546bc4dd517dcb8d80b998756321a55a90"
+   },
+   "checkpoint": {
+    "file": "runs/everyday-evidence-transfer-v1-smoke/learned-seed450.pt",
+    "sha256": "1ab193c7d8edcad9d47cac97056b891bf229a17f540098c776f41d0a214bbdcf"
+   },
+   "checkpoints": {
+    "50": {
+     "held_structure": {
+      "k8": {
+       "balanced_accuracy": 0.5,
+       "brier": 0.2502254843711853,
+       "confident_error_rate": 0.0,
+       "episode_balanced_accuracy": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+       ],
+       "query_count": 256
+      }
+     },
+     "novel_combinations": {
+      "k8": {
+       "balanced_accuracy": 0.5,
+       "brier": 0.25016820430755615,
+       "confident_error_rate": 0.0,
+       "episode_balanced_accuracy": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+       ],
+       "query_count": 256
+      }
+     }
+    }
+   },
+   "final": {
+    "held_structure": {
+     "conflict": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.25051409006118774,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 224
+     },
+     "evidence_updates": {
+      "clean_exception_location_confidence": 0.5201581120491028,
+      "conflict_mean_confidence": 0.5206372737884521,
+      "conflict_mean_entropy_bits": 0.9987344741821289,
+      "exception_accuracy_after": 0.46875,
+      "exception_accuracy_before": 0.46875,
+      "exception_correct_probability_after": 0.5075137615203857,
+      "exception_correct_probability_before": 0.498263955116272,
+      "ordinary_ba_after": 0.5,
+      "ordinary_ba_before": 0.5,
+      "ordinary_ba_drop": 0.0,
+      "reversal_complement_error": 0.04019513726234436
+     },
+     "exception": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.24975061416625977,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "k0": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.2500755190849304,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "k4": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.2501876652240753,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "k8": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.2502254843711853,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "missing": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.2503509521484375,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "noisy": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.2504865527153015,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "reversed": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.2505485415458679,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "shuffled": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.25022855401039124,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     }
+    },
+    "novel_combinations": {
+     "conflict": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.2501102089881897,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 224
+     },
+     "evidence_updates": {
+      "clean_exception_location_confidence": 0.5200862884521484,
+      "conflict_mean_confidence": 0.5204768776893616,
+      "conflict_mean_entropy_bits": 0.9987587928771973,
+      "exception_accuracy_after": 0.53125,
+      "exception_accuracy_before": 0.53125,
+      "exception_correct_probability_after": 0.5098367929458618,
+      "exception_correct_probability_before": 0.5004562735557556,
+      "ordinary_ba_after": 0.5,
+      "ordinary_ba_before": 0.5,
+      "ordinary_ba_drop": 0.0,
+      "reversal_complement_error": 0.040309786796569824
+     },
+     "exception": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.24971523880958557,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "k0": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.2500755190849304,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "k4": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.25016266107559204,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "k8": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.25016820430755615,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "missing": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.25074905157089233,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "noisy": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.24991221725940704,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "reversed": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.25038576126098633,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "shuffled": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.2502816915512085,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     }
+    }
+   },
+   "log": [
+    {
+     "loss": 0.6902539730072021,
+     "step": 50
+    }
+   ],
+   "reader_sha256": "2bd859dcda613976ed0ba9e305fc9ee5c9075e9732c74960d0ec242a10b9944a",
+   "retention": {
+    "reader_hash_unchanged": true,
+    "reader_max_score_change": 0.0,
+    "stored_context_max_prediction_change": 0.0
+   },
+   "ridge": {
+    "held_structure": {
+     "conflict": {
+      "balanced_accuracy": 0.6221354166666666,
+      "brier": 0.21580656913229593,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.7083333333333333,
+       0.7083333333333333,
+       0.75,
+       0.75,
+       0.7083333333333333,
+       0.41666666666666663,
+       0.5416666666666666,
+       0.4583333333333333,
+       0.55,
+       0.7,
+       0.9,
+       0.7,
+       0.5,
+       0.4,
+       0.3,
+       0.5833333333333333,
+       0.5416666666666666,
+       0.875,
+       0.375,
+       0.5833333333333333,
+       0.4583333333333333,
+       0.4583333333333333,
+       0.35,
+       0.5833333333333333,
+       0.6666666666666666,
+       0.6666666666666666,
+       0.8333333333333333,
+       0.5416666666666666,
+       0.8,
+       0.9,
+       0.8,
+       0.8
+      ],
+      "query_count": 224
+     },
+     "evidence_updates": {
+      "clean_exception_location_confidence": 0.6426092359898448,
+      "conflict_mean_confidence": 0.5411755154902935,
+      "conflict_mean_entropy_bits": 0.9910984811725626,
+      "exception_accuracy_after": 1.0,
+      "exception_accuracy_before": 0.375,
+      "exception_correct_probability_after": 0.7438457685784237,
+      "exception_correct_probability_before": 0.41522253227299416,
+      "ordinary_ba_after": 0.6283854166666667,
+      "ordinary_ba_before": 0.6130208333333333,
+      "ordinary_ba_drop": -0.015364583333333348,
+      "reversal_complement_error": 0.0
+     },
+     "exception": {
+      "balanced_accuracy": 0.646875,
+      "brier": 0.20750997862310866,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.75,
+       0.75,
+       0.75,
+       0.75,
+       0.7333333333333334,
+       0.4666666666666667,
+       0.6666666666666666,
+       0.6333333333333333,
+       0.8,
+       0.6,
+       0.7,
+       0.7,
+       0.5,
+       0.4166666666666667,
+       0.3333333333333333,
+       0.625,
+       0.5666666666666667,
+       1.0,
+       0.5,
+       0.6333333333333333,
+       0.375,
+       0.375,
+       0.41666666666666663,
+       0.625,
+       0.6666666666666666,
+       0.6666666666666666,
+       0.8333333333333333,
+       0.5666666666666667,
+       0.8,
+       0.9,
+       0.8,
+       0.8
+      ],
+      "query_count": 256
+     },
+     "k0": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.25,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "k4": {
+      "balanced_accuracy": 0.65546875,
+      "brier": 0.22339003364617016,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.7333333333333334,
+       0.6333333333333333,
+       0.8333333333333333,
+       0.43333333333333335,
+       0.875,
+       0.5,
+       0.5,
+       0.5,
+       0.9166666666666667,
+       0.5833333333333334,
+       0.8333333333333333,
+       0.3333333333333333,
+       0.5333333333333333,
+       0.6333333333333333,
+       0.6333333333333333,
+       0.5333333333333333,
+       0.5,
+       0.625,
+       0.75,
+       0.625,
+       0.6333333333333333,
+       0.43333333333333335,
+       0.6,
+       0.8,
+       0.75,
+       0.625,
+       1.0,
+       0.625,
+       0.6666666666666666,
+       0.8333333333333333,
+       0.75,
+       0.75
+      ],
+      "query_count": 256
+     },
+     "k8": {
+      "balanced_accuracy": 0.6315104166666667,
+      "brier": 0.21287637956325295,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.6333333333333333,
+       0.6333333333333333,
+       0.8333333333333333,
+       0.8,
+       0.625,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.75,
+       0.9166666666666667,
+       0.6666666666666666,
+       0.5,
+       0.4,
+       0.3,
+       0.4,
+       0.625,
+       0.875,
+       0.625,
+       0.625,
+       0.3333333333333333,
+       0.5333333333333333,
+       0.43333333333333335,
+       0.5333333333333333,
+       0.75,
+       0.75,
+       0.875,
+       0.625,
+       0.8333333333333333,
+       0.6666666666666667,
+       0.8333333333333333,
+       0.8333333333333333
+      ],
+      "query_count": 256
+     },
+     "missing": {
+      "balanced_accuracy": 0.5278645833333333,
+      "brier": 0.25292956385769194,
+      "confident_error_rate": 0.01171875,
+      "episode_balanced_accuracy": [
+       0.7,
+       0.3666666666666667,
+       0.7333333333333334,
+       0.6333333333333333,
+       0.75,
+       0.5,
+       0.375,
+       0.125,
+       0.4166666666666667,
+       0.6666666666666666,
+       0.41666666666666663,
+       0.6666666666666666,
+       0.4666666666666667,
+       0.3666666666666667,
+       0.4,
+       0.6666666666666666,
+       0.75,
+       0.625,
+       0.625,
+       0.875,
+       0.5666666666666667,
+       0.4666666666666667,
+       0.4666666666666667,
+       0.26666666666666666,
+       0.625,
+       0.625,
+       0.5,
+       0.5,
+       0.5,
+       0.16666666666666666,
+       0.6666666666666667,
+       0.41666666666666663
+      ],
+      "query_count": 256
+     },
+     "noisy": {
+      "balanced_accuracy": 0.61796875,
+      "brier": 0.248717010794312,
+      "confident_error_rate": 0.0234375,
+      "episode_balanced_accuracy": [
+       0.6333333333333333,
+       0.6666666666666666,
+       0.6666666666666666,
+       0.7,
+       0.75,
+       0.875,
+       0.5,
+       0.625,
+       0.75,
+       0.8333333333333333,
+       0.6666666666666666,
+       0.6666666666666666,
+       0.7,
+       0.6333333333333333,
+       0.5,
+       0.6333333333333333,
+       0.625,
+       0.5,
+       0.5,
+       0.625,
+       0.26666666666666666,
+       0.5,
+       0.6666666666666666,
+       0.5,
+       0.625,
+       0.75,
+       0.75,
+       0.5,
+       0.75,
+       0.16666666666666666,
+       0.5,
+       0.75
+      ],
+      "query_count": 256
+     },
+     "reversed": {
+      "balanced_accuracy": 0.6315104166666667,
+      "brier": 0.21287637956325295,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.6333333333333333,
+       0.6333333333333333,
+       0.8333333333333333,
+       0.8,
+       0.625,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.75,
+       0.9166666666666667,
+       0.6666666666666666,
+       0.5,
+       0.4,
+       0.3,
+       0.4,
+       0.625,
+       0.875,
+       0.625,
+       0.625,
+       0.3333333333333333,
+       0.5333333333333333,
+       0.43333333333333335,
+       0.5333333333333333,
+       0.75,
+       0.75,
+       0.875,
+       0.625,
+       0.8333333333333333,
+       0.6666666666666667,
+       0.8333333333333333,
+       0.8333333333333333
+      ],
+      "query_count": 256
+     },
+     "shuffled": {
+      "balanced_accuracy": 0.4513020833333334,
+      "brier": 0.2822139105851722,
+      "confident_error_rate": 0.01171875,
+      "episode_balanced_accuracy": [
+       0.6333333333333333,
+       0.5333333333333333,
+       0.3666666666666667,
+       0.6333333333333333,
+       0.5,
+       0.5,
+       0.375,
+       0.375,
+       0.5833333333333334,
+       0.08333333333333333,
+       0.75,
+       0.3333333333333333,
+       0.4666666666666667,
+       0.3666666666666667,
+       0.3,
+       0.3333333333333333,
+       0.625,
+       0.625,
+       0.625,
+       0.25,
+       0.1,
+       0.43333333333333335,
+       0.3666666666666667,
+       0.3666666666666667,
+       0.75,
+       0.375,
+       0.75,
+       0.375,
+       0.41666666666666663,
+       0.25,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     }
+    },
+    "novel_combinations": {
+     "conflict": {
+      "balanced_accuracy": 0.6911458333333333,
+      "brier": 0.19939014516676032,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.9166666666666667,
+       0.9,
+       1.0,
+       0.65,
+       0.8,
+       0.75,
+       0.65,
+       0.8,
+       0.7,
+       0.8333333333333333,
+       0.5833333333333333,
+       0.5833333333333333,
+       1.0,
+       0.3,
+       0.7083333333333333,
+       0.5833333333333333,
+       0.5416666666666666,
+       0.5416666666666666,
+       0.7,
+       0.5416666666666666,
+       0.65,
+       0.6,
+       0.65,
+       0.65,
+       0.5,
+       0.5,
+       0.75,
+       0.7,
+       1.0,
+       0.55,
+       0.65,
+       0.8333333333333333
+      ],
+      "query_count": 224
+     },
+     "evidence_updates": {
+      "clean_exception_location_confidence": 0.6521742138161934,
+      "conflict_mean_confidence": 0.541420702676782,
+      "conflict_mean_entropy_bits": 0.9925936864276533,
+      "exception_accuracy_after": 1.0,
+      "exception_accuracy_before": 0.4375,
+      "exception_correct_probability_after": 0.7767807815196056,
+      "exception_correct_probability_before": 0.4817718793348855,
+      "ordinary_ba_after": 0.6708333333333334,
+      "ordinary_ba_before": 0.7010416666666666,
+      "ordinary_ba_drop": 0.03020833333333317,
+      "reversal_complement_error": 0.0
+     },
+     "exception": {
+      "balanced_accuracy": 0.715327380952381,
+      "brier": 0.18528463272583437,
+      "confident_error_rate": 0.00390625,
+      "episode_balanced_accuracy": [
+       0.5,
+       1.0,
+       1.0,
+       0.7333333333333334,
+       0.8,
+       0.6333333333333333,
+       0.7333333333333334,
+       0.8,
+       0.75,
+       0.75,
+       0.625,
+       0.625,
+       0.875,
+       0.5,
+       0.625,
+       0.625,
+       0.625,
+       0.625,
+       0.8333333333333333,
+       0.375,
+       0.75,
+       0.75,
+       1.0,
+       0.6666666666666667,
+       0.6666666666666666,
+       0.4666666666666667,
+       0.7333333333333334,
+       0.8,
+       0.9,
+       0.5333333333333333,
+       0.7333333333333334,
+       0.8571428571428572
+      ],
+      "query_count": 256
+     },
+     "k0": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.25,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "k4": {
+      "balanced_accuracy": 0.6010416666666667,
+      "brier": 0.21855911325927174,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5833333333333333,
+       0.75,
+       0.9166666666666667,
+       0.6666666666666667,
+       0.9166666666666667,
+       0.41666666666666663,
+       0.5833333333333333,
+       0.5833333333333333,
+       0.7,
+       0.8,
+       0.6333333333333333,
+       0.5333333333333333,
+       0.8,
+       0.8,
+       0.5333333333333333,
+       0.6,
+       0.6666666666666666,
+       0.3666666666666667,
+       0.5333333333333333,
+       0.5666666666666667,
+       0.3666666666666667,
+       0.5333333333333333,
+       0.4,
+       0.4,
+       0.4166666666666667,
+       0.25,
+       0.75,
+       0.75,
+       0.5833333333333333,
+       0.5833333333333333,
+       0.6666666666666667,
+       0.5833333333333333
+      ],
+      "query_count": 256
+     },
+     "k8": {
+      "balanced_accuracy": 0.6744791666666666,
+      "brier": 0.20952673089686125,
+      "confident_error_rate": 0.00390625,
+      "episode_balanced_accuracy": [
+       0.8333333333333333,
+       0.8333333333333333,
+       0.9166666666666667,
+       0.6666666666666667,
+       0.9166666666666667,
+       0.6666666666666667,
+       0.5833333333333333,
+       0.75,
+       0.7,
+       0.7333333333333334,
+       0.6333333333333333,
+       0.5333333333333333,
+       1.0,
+       0.8,
+       0.7333333333333334,
+       0.5333333333333333,
+       0.5666666666666667,
+       0.4666666666666667,
+       0.5333333333333333,
+       0.5666666666666667,
+       0.7333333333333334,
+       0.43333333333333335,
+       0.7333333333333334,
+       0.6333333333333333,
+       0.5,
+       0.5,
+       0.75,
+       0.75,
+       0.8333333333333333,
+       0.5833333333333333,
+       0.5833333333333333,
+       0.5833333333333333
+      ],
+      "query_count": 256
+     },
+     "missing": {
+      "balanced_accuracy": 0.5390625,
+      "brier": 0.26519551202915914,
+      "confident_error_rate": 0.0078125,
+      "episode_balanced_accuracy": [
+       0.8333333333333333,
+       0.75,
+       0.25,
+       0.5,
+       0.75,
+       0.5,
+       0.5,
+       0.4166666666666667,
+       0.6,
+       0.9,
+       0.5333333333333333,
+       0.7333333333333334,
+       0.3333333333333333,
+       0.5333333333333333,
+       0.5666666666666667,
+       0.4666666666666667,
+       0.5333333333333333,
+       0.3333333333333333,
+       0.1,
+       0.16666666666666666,
+       0.3666666666666667,
+       0.4666666666666667,
+       0.6333333333333333,
+       0.7333333333333334,
+       0.25,
+       0.5,
+       0.75,
+       0.5833333333333333,
+       0.75,
+       0.6666666666666666,
+       0.5,
+       0.75
+      ],
+      "query_count": 256
+     },
+     "noisy": {
+      "balanced_accuracy": 0.5901041666666667,
+      "brier": 0.25403349496040095,
+      "confident_error_rate": 0.015625,
+      "episode_balanced_accuracy": [
+       0.41666666666666663,
+       0.8333333333333333,
+       0.5,
+       0.5,
+       0.9166666666666667,
+       0.5833333333333334,
+       0.5,
+       0.5833333333333333,
+       0.5,
+       0.4,
+       0.6333333333333333,
+       0.7,
+       0.8,
+       0.6666666666666666,
+       0.3333333333333333,
+       0.6333333333333333,
+       0.5,
+       0.3666666666666667,
+       0.8,
+       0.5333333333333333,
+       0.6333333333333333,
+       0.3333333333333333,
+       0.6333333333333333,
+       0.8333333333333333,
+       0.5,
+       0.5,
+       0.6666666666666666,
+       0.75,
+       0.5833333333333334,
+       0.5833333333333334,
+       0.5,
+       0.6666666666666667
+      ],
+      "query_count": 256
+     },
+     "reversed": {
+      "balanced_accuracy": 0.6744791666666666,
+      "brier": 0.20952673089686125,
+      "confident_error_rate": 0.00390625,
+      "episode_balanced_accuracy": [
+       0.8333333333333333,
+       0.8333333333333333,
+       0.9166666666666667,
+       0.6666666666666667,
+       0.9166666666666667,
+       0.6666666666666667,
+       0.5833333333333333,
+       0.75,
+       0.7,
+       0.7333333333333334,
+       0.6333333333333333,
+       0.5333333333333333,
+       1.0,
+       0.8,
+       0.7333333333333334,
+       0.5333333333333333,
+       0.5666666666666667,
+       0.4666666666666667,
+       0.5333333333333333,
+       0.5666666666666667,
+       0.7333333333333334,
+       0.43333333333333335,
+       0.7333333333333334,
+       0.6333333333333333,
+       0.5,
+       0.5,
+       0.75,
+       0.75,
+       0.8333333333333333,
+       0.5833333333333333,
+       0.5833333333333333,
+       0.5833333333333333
+      ],
+      "query_count": 256
+     },
+     "shuffled": {
+      "balanced_accuracy": 0.5442708333333334,
+      "brier": 0.2743240234611445,
+      "confident_error_rate": 0.0078125,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.25,
+       0.6666666666666667,
+       0.5833333333333333,
+       0.16666666666666666,
+       0.41666666666666663,
+       0.5,
+       0.5833333333333333,
+       0.3666666666666667,
+       0.4666666666666667,
+       0.3666666666666667,
+       0.3666666666666667,
+       0.8,
+       0.6333333333333333,
+       0.5333333333333333,
+       0.6333333333333333,
+       0.5333333333333333,
+       0.6333333333333333,
+       0.6333333333333333,
+       0.2,
+       0.9,
+       0.6,
+       0.3666666666666667,
+       0.4666666666666667,
+       0.5,
+       0.75,
+       0.5833333333333333,
+       0.8333333333333333,
+       0.8333333333333333,
+       0.6666666666666667,
+       0.6666666666666666,
+       0.41666666666666663
+      ],
+      "query_count": 256
+     }
+    }
+   },
+   "seed": 450,
+   "source": {
+    "accuracy": 0.9582542694497154,
+    "brier": 0.038963694125413895,
+    "reader_queries": 1054
+   }
+  },
+  "oracle/seed450": {
+   "arm": "oracle",
+   "bank": {
+    "attributes": [
+     [
+      "is-a",
+      "mammal",
+      0
+     ],
+     [
+      "is-a",
+      "bird",
+      0
+     ],
+     [
+      "is-a",
+      "fish",
+      0
+     ],
+     [
+      "is-a",
+      "insect",
+      0
+     ],
+     [
+      "is-a",
+      "reptile",
+      0
+     ],
+     [
+      "is-a",
+      "amphibian",
+      0
+     ],
+     [
+      "has",
+      "fur",
+      1
+     ],
+     [
+      "has",
+      "feathers",
+      1
+     ],
+     [
+      "has",
+      "scales",
+      1
+     ],
+     [
+      "has",
+      "wings",
+      1
+     ],
+     [
+      "has",
+      "fins",
+      1
+     ],
+     [
+      "has",
+      "beak",
+      1
+     ],
+     [
+      "has",
+      "tail",
+      1
+     ],
+     [
+      "has",
+      "legs0",
+      1
+     ],
+     [
+      "has",
+      "legs2",
+      1
+     ],
+     [
+      "has",
+      "legs4",
+      1
+     ],
+     [
+      "has",
+      "legs6",
+      1
+     ],
+     [
+      "can",
+      "fly",
+      2
+     ],
+     [
+      "can",
+      "swim",
+      2
+     ],
+     [
+      "can",
+      "run",
+      2
+     ],
+     [
+      "can",
+      "climb",
+      2
+     ],
+     [
+      "can",
+      "sing",
+      2
+     ],
+     [
+      "lives-in",
+      "water",
+      3
+     ],
+     [
+      "lives-in",
+      "land",
+      3
+     ],
+     [
+      "lives-in",
+      "trees",
+      3
+     ],
+     [
+      "lives-in",
+      "farm",
+      3
+     ],
+     [
+      "eats",
+      "meat",
+      4
+     ],
+     [
+      "eats",
+      "plants",
+      4
+     ],
+     [
+      "eats",
+      "seeds",
+      4
+     ],
+     [
+      "eats",
+      "bugs",
+      4
+     ],
+     [
+      "eats",
+      "nectar",
+      4
+     ]
+    ],
+    "available_test_counts": {
+     "held_structure": 144,
+     "novel_combinations": 76
+    },
+    "concepts": 396,
+    "data_bytes": 14518,
+    "descriptions": [
+     {
+      "attributes": [
+       0
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       1
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       8
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       9
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       14
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       15
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       17
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       18
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       22
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       23
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       26
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       29
+      ],
+      "form": "single"
+     },
+     {
+      "attributes": [
+       0,
+       12
+      ],
+      "form": "and"
+     },
+     {
+      "attributes": [
+       12,
+       15
+      ],
+      "form": "and"
+     },
+     {
+      "attributes": [
+       12,
+       18
+      ],
+      "form": "and"
+     },
+     {
+      "attributes": [
+       12,
+       22
+      ],
+      "form": "and"
+     },
+     {
+      "attributes": [
+       12,
+       23
+      ],
+      "form": "and"
+     },
+     {
+      "attributes": [
+       18,
+       22
+      ],
+      "form": "and"
+     },
+     {
+      "attributes": [
+       0,
+       1
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       2
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       3
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       4
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       5
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       8
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       9
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       13
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       15
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       17
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       18
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       20
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       21
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       23
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       3
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       4
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       5
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       6
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       8
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       10
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       13
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       15
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       20
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       1,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       3
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       6
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       9
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       14
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       15
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       17
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       23
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       2,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       4
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       6
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       8
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       9
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       10
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       13
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       15
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       17
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       3,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       6
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       9
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       10
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       14
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       15
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       17
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       18
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       4,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       6
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       8
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       9
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       13
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       14
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       17
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       18
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       5,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       8
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       9
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       10
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       13
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       15
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       17
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       21
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       6,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       9
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       14
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       15
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       17
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       20
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       21
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       8,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       9,
+       10
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       9,
+       13
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       9,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       9,
+       20
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       9,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       9,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       9,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       9,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       9,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       10,
+       15
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       10,
+       17
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       10,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       10,
+       20
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       10,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       10,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       10,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       10,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       10,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       13,
+       17
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       13,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       13,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       13,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       13,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       13,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       13,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       13,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       14,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       14,
+       20
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       14,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       14,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       14,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       14,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       14,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       14,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       17
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       18
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       21
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       15,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       17,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       17,
+       20
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       17,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       17,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       17,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       17,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       17,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       18,
+       19
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       18,
+       20
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       18,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       18,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       18,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       18,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       18,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       19,
+       21
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       19,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       19,
+       23
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       19,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       19,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       19,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       19,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       19,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       19,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       20,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       20,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       20,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       21,
+       22
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       21,
+       23
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       21,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       21,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       21,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       22,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       22,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       22,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       22,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       22,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       22,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       22,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       23,
+       24
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       23,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       23,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       23,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       23,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       23,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       24,
+       25
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       24,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       24,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       24,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       24,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       25,
+       26
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       25,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       25,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       25,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       26,
+       27
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       26,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       26,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       26,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       27,
+       28
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       27,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       27,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       28,
+       29
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       29,
+       30
+      ],
+      "form": "or"
+     },
+     {
+      "attributes": [
+       0,
+       9
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       10
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       12
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       13
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       14
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       17
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       18
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       20
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       22
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       24
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       28
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       0,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       1,
+       12
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       1,
+       18
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       1,
+       19
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       1,
+       22
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       1,
+       25
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       1,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       1,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       1,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       2,
+       12
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       2,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       2,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       3,
+       9
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       3,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       4,
+       12
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       4,
+       15
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       4,
+       18
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       4,
+       19
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       4,
+       22
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       4,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       4,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       4,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       5,
+       15
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       5,
+       18
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       5,
+       19
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       5,
+       22
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       5,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       9
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       12
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       14
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       15
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       17
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       18
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       24
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       28
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       6,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       8,
+       12
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       8,
+       15
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       8,
+       19
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       8,
+       20
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       8,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       8,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       8,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       9,
+       12
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       9,
+       19
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       9,
+       21
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       9,
+       22
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       9,
+       25
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       9,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       9,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       9,
+       28
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       9,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       9,
+       30
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       10,
+       12
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       10,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       10,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       10,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       13
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       14
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       15
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       17
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       18
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       19
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       20
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       21
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       22
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       24
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       25
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       28
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       12,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       13,
+       20
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       13,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       13,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       13,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       13,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       14,
+       18
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       14,
+       19
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       14,
+       22
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       14,
+       25
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       14,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       14,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       14,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       15,
+       18
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       15,
+       20
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       15,
+       22
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       15,
+       25
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       15,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       15,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       15,
+       28
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       15,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       17,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       17,
+       25
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       17,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       17,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       17,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       18,
+       19
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       18,
+       20
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       18,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       18,
+       25
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       18,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       18,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       18,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       19,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       19,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       19,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       19,
+       28
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       19,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       20,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       20,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       20,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       22,
+       23
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       22,
+       25
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       22,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       22,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       22,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       23,
+       25
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       23,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       23,
+       27
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       23,
+       28
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       23,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       23,
+       30
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       24,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       24,
+       29
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       25,
+       26
+      ],
+      "form": "xor"
+     },
+     {
+      "attributes": [
+       25,
+       28
+      ],
+      "form": "xor"
+     }
+    ],
+    "held_entities": [
+     0,
+     9,
+     11,
+     15,
+     19,
+     23,
+     28,
+     31
+    ],
+    "labels_sha256": "1a8cbf9a2882499d343510d44bf79eadfb799cf036c7a9e35f4d93ec4437ed70",
+    "names": [
+     "dog",
+     "cat",
+     "cow",
+     "horse",
+     "lion",
+     "elephant",
+     "mouse",
+     "rabbit",
+     "bat",
+     "whale",
+     "robin",
+     "sparrow",
+     "eagle",
+     "owl",
+     "duck",
+     "penguin",
+     "chicken",
+     "flamingo",
+     "crow",
+     "salmon",
+     "shark",
+     "goldfish",
+     "tuna",
+     "bee",
+     "butterfly",
+     "housefly",
+     "ant",
+     "snake",
+     "turtle",
+     "lizard",
+     "crocodile",
+     "frog",
+     "toad",
+     "newt"
+    ],
+    "raw_eligible": {
+     "and": 25,
+     "or": 365,
+     "single": 14,
+     "xor": 337
+    },
+    "test_groups": {
+     "held_structure": [
+      272,
+      275,
+      295,
+      303,
+      304,
+      322,
+      325,
+      334
+     ],
+     "novel_combinations": [
+      51,
+      86,
+      103,
+      125,
+      166,
+      167,
+      209,
+      234
+     ]
+    },
+    "train_concepts": [
+     100,
+     138,
+     35,
+     75,
+     10,
+     202,
+     201,
+     39,
+     223,
+     30,
+     68,
+     106,
+     20,
+     217,
+     44,
+     154,
+     207,
+     4,
+     211,
+     157,
+     15,
+     12,
+     122,
+     153,
+     213,
+     161,
+     97,
+     88,
+     233,
+     241,
+     31,
+     203,
+     179,
+     112,
+     45,
+     210,
+     175,
+     5,
+     55,
+     102,
+     1,
+     77,
+     74,
+     41,
+     66,
+     99,
+     164,
+     52,
+     227,
+     160,
+     250,
+     18,
+     94,
+     152,
+     130,
+     221,
+     196,
+     87,
+     118,
+     149,
+     141,
+     216,
+     158,
+     181,
+     114,
+     144,
+     124,
+     38,
+     13,
+     226,
+     8,
+     23,
+     54,
+     206,
+     134,
+     67,
+     162,
+     104,
+     32,
+     182,
+     61,
+     229,
+     17,
+     59,
+     89,
+     116,
+     115,
+     50,
+     165,
+     78,
+     65,
+     135,
+     98,
+     142,
+     119,
+     189,
+     79,
+     204,
+     90,
+     110,
+     120,
+     36,
+     240,
+     190,
+     243,
+     26,
+     117,
+     214,
+     215,
+     147,
+     174,
+     222,
+     71,
+     238,
+     47,
+     218,
+     72,
+     224,
+     9,
+     249,
+     92,
+     246,
+     208,
+     219,
+     91,
+     81,
+     101,
+     127,
+     16,
+     108,
+     151,
+     146,
+     133,
+     84,
+     137,
+     27,
+     57,
+     193,
+     177,
+     140,
+     131,
+     37,
+     48,
+     105,
+     200,
+     150,
+     25,
+     237,
+     212,
+     231,
+     236,
+     11,
+     185,
+     121,
+     6,
+     129,
+     244,
+     85,
+     191,
+     80,
+     199,
+     228,
+     58,
+     180,
+     3,
+     28,
+     7,
+     107,
+     172,
+     132,
+     188,
+     53,
+     251,
+     156,
+     168,
+     70
+    ],
+    "train_entities": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     10,
+     12,
+     13,
+     14,
+     16,
+     17,
+     18,
+     20,
+     21,
+     22,
+     24,
+     25,
+     26,
+     27,
+     29,
+     30,
+     32,
+     33
+    ],
+    "truth_sha256": "3580c0da32dd2bd779311ed0a2322d546bc4dd517dcb8d80b998756321a55a90"
+   },
+   "checkpoint": {
+    "file": "runs/everyday-evidence-transfer-v1-smoke/oracle-seed450.pt",
+    "sha256": "b5d53925cf98302546fdd0bb672a9a11bdac65ae3cf175e241312b495a5a932a"
+   },
+   "checkpoints": {
+    "50": {
+     "held_structure": {
+      "k8": {
+       "balanced_accuracy": 0.5,
+       "brier": 0.2501567304134369,
+       "confident_error_rate": 0.0,
+       "episode_balanced_accuracy": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+       ],
+       "query_count": 256
+      }
+     },
+     "novel_combinations": {
+      "k8": {
+       "balanced_accuracy": 0.5,
+       "brier": 0.2500525712966919,
+       "confident_error_rate": 0.0,
+       "episode_balanced_accuracy": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+       ],
+       "query_count": 256
+      }
+     }
+    }
+   },
+   "final": {
+    "held_structure": {
+     "conflict": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.2504417598247528,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 224
+     },
+     "evidence_updates": {
+      "clean_exception_location_confidence": 0.5196338295936584,
+      "conflict_mean_confidence": 0.5200191140174866,
+      "conflict_mean_entropy_bits": 0.9987995028495789,
+      "exception_accuracy_after": 0.46875,
+      "exception_accuracy_before": 0.46875,
+      "exception_correct_probability_after": 0.5074338912963867,
+      "exception_correct_probability_before": 0.49796050786972046,
+      "ordinary_ba_after": 0.5,
+      "ordinary_ba_before": 0.5,
+      "ordinary_ba_drop": 0.0,
+      "reversal_complement_error": 0.039124343544244766
+     },
+     "exception": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.24966950714588165,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "k0": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.25005602836608887,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.7,
+       0.3,
+       0.7,
+       0.3,
+       0.75,
+       0.25,
+       0.75,
+       0.25,
+       0.3333333333333333,
+       0.6666666666666667,
+       0.3333333333333333,
+       0.6666666666666667,
+       0.43333333333333335,
+       0.5666666666666667,
+       0.43333333333333335,
+       0.5666666666666667,
+       0.75,
+       0.25,
+       0.75,
+       0.25,
+       0.7,
+       0.3,
+       0.7,
+       0.3,
+       0.75,
+       0.25,
+       0.75,
+       0.25,
+       0.3333333333333333,
+       0.6666666666666666,
+       0.3333333333333333,
+       0.6666666666666666
+      ],
+      "query_count": 256
+     },
+     "k4": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.25006669759750366,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "k8": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.2501567304134369,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "missing": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.2500259280204773,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "noisy": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.2503211498260498,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "reversed": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.2505201995372772,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "shuffled": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.2501514256000519,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     }
+    },
+    "novel_combinations": {
+     "conflict": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.2501537501811981,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 224
+     },
+     "evidence_updates": {
+      "clean_exception_location_confidence": 0.5195368528366089,
+      "conflict_mean_confidence": 0.5200380086898804,
+      "conflict_mean_entropy_bits": 0.9987994432449341,
+      "exception_accuracy_after": 0.53125,
+      "exception_accuracy_before": 0.53125,
+      "exception_correct_probability_after": 0.5094974637031555,
+      "exception_correct_probability_before": 0.5000113248825073,
+      "ordinary_ba_after": 0.5,
+      "ordinary_ba_before": 0.5,
+      "ordinary_ba_drop": 0.0,
+      "reversal_complement_error": 0.038897156715393066
+     },
+     "exception": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.24975329637527466,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "k0": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.25005602836608887,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.6666666666666667,
+       0.3333333333333333,
+       0.6666666666666667,
+       0.3333333333333333,
+       0.3333333333333333,
+       0.6666666666666667,
+       0.3333333333333333,
+       0.6666666666666667,
+       0.43333333333333335,
+       0.5666666666666667,
+       0.43333333333333335,
+       0.5666666666666667,
+       0.7,
+       0.3,
+       0.7,
+       0.3,
+       0.7,
+       0.3,
+       0.7,
+       0.3,
+       0.7,
+       0.3,
+       0.7,
+       0.3,
+       0.6666666666666666,
+       0.3333333333333333,
+       0.6666666666666666,
+       0.3333333333333333,
+       0.6666666666666666,
+       0.3333333333333333,
+       0.6666666666666666,
+       0.3333333333333333
+      ],
+      "query_count": 256
+     },
+     "k4": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.25000837445259094,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "k8": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.2500525712966919,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "missing": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.25070130825042725,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "noisy": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.2499229609966278,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "reversed": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.25034821033477783,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     },
+     "shuffled": {
+      "balanced_accuracy": 0.5,
+      "brier": 0.25019344687461853,
+      "confident_error_rate": 0.0,
+      "episode_balanced_accuracy": [
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5,
+       0.5
+      ],
+      "query_count": 256
+     }
+    }
+   },
+   "log": [
+    {
+     "loss": 0.6900696158409119,
+     "step": 50
+    }
+   ],
+   "reader_sha256": "2bd859dcda613976ed0ba9e305fc9ee5c9075e9732c74960d0ec242a10b9944a",
+   "retention": {
+    "reader_hash_unchanged": true,
+    "reader_max_score_change": 0.0,
+    "stored_context_max_prediction_change": 0.0
+   },
+   "ridge": null,
+   "seed": 450,
+   "source": {
+    "accuracy": 0.9582542694497154,
+    "brier": 0.038963694125413895,
+    "reader_queries": 1054
+   }
+  }
+ },
+ "status": "everyday-evidence-transfer-v1-smoke"
+}

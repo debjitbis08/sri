@@ -1,0 +1,277 @@
+{
+ "address_space_rlimit_bytes": [
+  -1,
+  -1
+ ],
+ "aggregate_worker_cpu_seconds": 9.843716369,
+ "blas_configuration": "{\n  \"Compilers\": {\n    \"c\": {\n      \"name\": \"gcc\",\n      \"linker\": \"ld.bfd\",\n      \"version\": \"14.2.1\",\n      \"commands\": \"cc\"\n    },\n    \"cython\": {\n      \"name\": \"cython\",\n      \"linker\": \"cython\",\n      \"version\": \"3.3.0\",\n      \"commands\": \"cython\"\n    },\n    \"c++\": {\n      \"name\": \"gcc\",\n      \"linker\": \"ld.bfd\",\n      \"version\": \"14.2.1\",\n      \"commands\": \"c++\"\n    }\n  },\n  \"Machine Information\": {\n    \"host\": {\n      \"cpu\": \"x86_64\",\n      \"family\": \"x86_64\",\n      \"endian\": \"little\",\n      \"system\": \"linux\"\n    },\n    \"build\": {\n      \"cpu\": \"x86_64\",\n      \"family\": \"x86_64\",\n      \"endian\": \"little\",\n      \"system\": \"linux\"\n    }\n  },\n  \"Build Dependencies\": {\n    \"blas\": {\n      \"name\": \"scipy-openblas\",\n      \"found\": true,\n      \"version\": \"0.3.34.106.0\",\n      \"detection method\": \"pkgconfig\",\n      \"include directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include\",\n      \"lib directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib\",\n      \"openblas configuration\": \"OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64\",\n      \"pc file directory\": \"/project/.openblas\"\n    },\n    \"lapack\": {\n      \"name\": \"scipy-openblas\",\n      \"found\": true,\n      \"version\": \"0.3.34.106.0\",\n      \"detection method\": \"pkgconfig\",\n      \"include directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include\",\n      \"lib directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib\",\n      \"openblas configuration\": \"OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64\",\n      \"pc file directory\": \"/project/.openblas\"\n    }\n  },\n  \"Python Information\": {\n    \"path\": \"/tmp/build-env-ptu49_tp/bin/python\",\n    \"version\": \"3.12\"\n  },\n  \"SIMD Extensions\": {\n    \"baseline\": [\n      \"X86_V2\"\n    ],\n    \"found\": [\n      \"X86_V3\"\n    ],\n    \"not found\": [\n      \"X86_V4\",\n      \"AVX512_ICL\",\n      \"AVX512_SPR\"\n    ]\n  }\n}\n",
+ "children_peak_rss_kb": 514468,
+ "command": "/home/debjit/code/sri/experiments/everyday_evidence_transfer.py",
+ "contract_sha256": "4df325b8ecd6696ddad85b7bedd57b213fa81e26230849259d410c8aa677acf2",
+ "cpu": "x86_64",
+ "cpu_model": "AMD Ryzen 5 3600 6-Core Processor",
+ "device": "cpu",
+ "dirty": true,
+ "dirty_including_untracked": true,
+ "dtype": "float32",
+ "numpy": "2.5.4",
+ "os": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "parent_peak_rss_kb": 299528,
+ "python": "3.12.3",
+ "revision": "33731d90f6f28cd6c4d54ac3a3b20d353c1b7b9e",
+ "rss_convention": "ru_maxrss in KiB per process; children is the largest single child",
+ "runner_sha256": "93f9ebb23cce89e872d20e96582465480d8d72d4fe6b7150d5f1b440b6715400",
+ "scope": "nondeterministic timing",
+ "seed_policy": "450\u2013453; concept split2041; paired NumPy training/evaluation streams",
+ "selection_policy": "All arms/seeds/final checkpoints reported, no tuning",
+ "source_hashes": {
+  "experiments/amortized_introduction.py": "e8ac3ac48fadc3265c6c6b91e04a7c9f77eb5e590d116ad5f561a218a3b1c8c5",
+  "experiments/everyday_evidence_transfer.py": "93f9ebb23cce89e872d20e96582465480d8d72d4fe6b7150d5f1b440b6715400",
+  "experiments/relations_as_objects.py": "e198e50189b1a01cfab5c6d4b474f22ee0556cf8f800b74ec2dadf87df7d9e82",
+  "experiments/rule_guided_search.py": "a3f06d715fec71c5973e147e5d4b004479c42703e277a0ae110e820f7c981039",
+  "src/everyday_world.py": "bcfe53a88d7e38f53ec9251dcdd8455b5614d760b860527bebb37d3c5b80b5f8"
+ },
+ "tasks": {
+  "codes/seed450": {
+   "adam_moment_bytes": 480776,
+   "adam_scalar_step_bytes": 64,
+   "all_source_profile_bytes": 38352,
+   "audit_payload_bytes": 51200,
+   "checkpoint_bytes": 259514,
+   "checkpoint_evaluation_counts": {
+    "50": {
+     "context_examples": 512,
+     "query_predictions": 512,
+     "ridge_fits": 0
+    }
+   },
+   "context_memory_bytes_at_k8": 96,
+   "context_memory_note": "8 int64 entity IDs and 8 float32 labels; shared profiles separate",
+   "cpu_seconds": 3.302973745,
+   "distinct_training_episodes": 1600,
+   "exposures": {
+    "episodes": 1600,
+    "support_examples": 7066,
+    "target_examples": 6818
+   },
+   "final_evaluation_counts": {
+    "context_examples": 4032,
+    "query_predictions": 4608,
+    "ridge_fits": 0
+   },
+   "fits": 1,
+   "gradient_bytes": 240388,
+   "inference_latency": null,
+   "inference_latency_reason": "Whole evaluation phases only; not a latency benchmark",
+   "optimizer_steps": 50,
+   "parameter_bytes": 240388,
+   "parameters": 60097,
+   "peak_rss_kib": 514184,
+   "phases": {
+    "checkpoint_50": {
+     "cpu_seconds": 0.0049208830000000425,
+     "wall_seconds": 0.004920851002680138
+    },
+    "construction": {
+     "cpu_seconds": 2.91476668,
+     "wall_seconds": 2.915094750991557
+    },
+    "final_evaluation": {
+     "cpu_seconds": 0.04461423500000006,
+     "wall_seconds": 0.044629793002968654
+    },
+    "retention": {
+     "cpu_seconds": 0.0034022820000001452,
+     "wall_seconds": 0.003401599999051541
+    },
+    "sampling": {
+     "cpu_seconds": 0.14035462799999987,
+     "wall_seconds": 0.14037677893065847
+    },
+    "save": {
+     "cpu_seconds": 0.001251169999999746,
+     "wall_seconds": 0.00125069500063546
+    },
+    "training": {
+     "cpu_seconds": 0.18756890400000037,
+     "wall_seconds": 0.18756885806214996
+    }
+   },
+   "profile_bytes": 12784,
+   "python_container_bytes": null,
+   "python_container_bytes_reason": "Included in RSS, not separately profiled",
+   "reader_parameter_bytes": 442672,
+   "ridge_counts": null,
+   "task_label_bytes": 13464,
+   "training_episode_digest": "c604c3cb4b7db93fda474e10ae03a2b49d96a632ab2706b91084956182393071",
+   "tuning_fits": 0,
+   "wall_seconds": 3.3033503420010675
+  },
+  "learned/seed450": {
+   "adam_moment_bytes": 480776,
+   "adam_scalar_step_bytes": 64,
+   "all_source_profile_bytes": 38352,
+   "audit_payload_bytes": 51200,
+   "checkpoint_bytes": 259560,
+   "checkpoint_evaluation_counts": {
+    "50": {
+     "context_examples": 512,
+     "query_predictions": 512,
+     "ridge_fits": 0
+    }
+   },
+   "context_memory_bytes_at_k8": 96,
+   "context_memory_note": "8 int64 entity IDs and 8 float32 labels; shared profiles separate",
+   "cpu_seconds": 3.175292314,
+   "distinct_training_episodes": 1600,
+   "exposures": {
+    "episodes": 1600,
+    "support_examples": 7066,
+    "target_examples": 6818
+   },
+   "final_evaluation_counts": {
+    "context_examples": 4032,
+    "query_predictions": 4608,
+    "ridge_fits": 0
+   },
+   "fits": 1,
+   "gradient_bytes": 240388,
+   "inference_latency": null,
+   "inference_latency_reason": "Whole evaluation phases only; not a latency benchmark",
+   "optimizer_steps": 50,
+   "parameter_bytes": 240388,
+   "parameters": 60097,
+   "peak_rss_kib": 514348,
+   "phases": {
+    "checkpoint_50": {
+     "cpu_seconds": 0.005090093000000184,
+     "wall_seconds": 0.005088994003017433
+    },
+    "construction": {
+     "cpu_seconds": 2.696839219,
+     "wall_seconds": 2.70197515199834
+    },
+    "final_evaluation": {
+     "cpu_seconds": 0.046248054999999955,
+     "wall_seconds": 0.0462483860028442
+    },
+    "retention": {
+     "cpu_seconds": 0.003545592000000042,
+     "wall_seconds": 0.003543893006280996
+    },
+    "ridge_baseline": {
+     "cpu_seconds": 0.044647814000000174,
+     "wall_seconds": 0.04882838900084607
+    },
+    "sampling": {
+     "cpu_seconds": 0.14585821100000063,
+     "wall_seconds": 0.14591104397550225
+    },
+    "save": {
+     "cpu_seconds": 0.0013586010000001814,
+     "wall_seconds": 0.0013580079976236448
+    },
+    "training": {
+     "cpu_seconds": 0.22555748599999914,
+     "wall_seconds": 0.22551337302138563
+    }
+   },
+   "profile_bytes": 12784,
+   "python_container_bytes": null,
+   "python_container_bytes_reason": "Included in RSS, not separately profiled",
+   "reader_parameter_bytes": 442672,
+   "ridge_counts": {
+    "context_examples": 4032,
+    "query_predictions": 4608,
+    "ridge_fits": 512
+   },
+   "task_label_bytes": 13464,
+   "training_episode_digest": "c604c3cb4b7db93fda474e10ae03a2b49d96a632ab2706b91084956182393071",
+   "tuning_fits": 0,
+   "wall_seconds": 3.1846269740053685
+  },
+  "oracle/seed450": {
+   "adam_moment_bytes": 480776,
+   "adam_scalar_step_bytes": 64,
+   "all_source_profile_bytes": 38352,
+   "audit_payload_bytes": 51200,
+   "checkpoint_bytes": 259537,
+   "checkpoint_evaluation_counts": {
+    "50": {
+     "context_examples": 512,
+     "query_predictions": 512,
+     "ridge_fits": 0
+    }
+   },
+   "context_memory_bytes_at_k8": 96,
+   "context_memory_note": "8 int64 entity IDs and 8 float32 labels; shared profiles separate",
+   "cpu_seconds": 3.36545031,
+   "distinct_training_episodes": 1600,
+   "exposures": {
+    "episodes": 1600,
+    "support_examples": 7066,
+    "target_examples": 6818
+   },
+   "final_evaluation_counts": {
+    "context_examples": 4032,
+    "query_predictions": 4608,
+    "ridge_fits": 0
+   },
+   "fits": 1,
+   "gradient_bytes": 240388,
+   "inference_latency": null,
+   "inference_latency_reason": "Whole evaluation phases only; not a latency benchmark",
+   "optimizer_steps": 50,
+   "parameter_bytes": 240388,
+   "parameters": 60097,
+   "peak_rss_kib": 514468,
+   "phases": {
+    "checkpoint_50": {
+     "cpu_seconds": 0.004875752999999872,
+     "wall_seconds": 0.004875958999036811
+    },
+    "construction": {
+     "cpu_seconds": 2.98677103,
+     "wall_seconds": 2.9892633569979807
+    },
+    "final_evaluation": {
+     "cpu_seconds": 0.043864263999999764,
+     "wall_seconds": 0.04386339700431563
+    },
+    "retention": {
+     "cpu_seconds": 0.0032247420000000027,
+     "wall_seconds": 0.003223995998268947
+    },
+    "sampling": {
+     "cpu_seconds": 0.1375245870000028,
+     "wall_seconds": 0.13757731596706435
+    },
+    "save": {
+     "cpu_seconds": 0.0011975400000001635,
+     "wall_seconds": 0.00119711400475353
+    },
+    "training": {
+     "cpu_seconds": 0.1825241909999975,
+     "wall_seconds": 0.18251711102493573
+    }
+   },
+   "profile_bytes": 12784,
+   "python_container_bytes": null,
+   "python_container_bytes_reason": "Included in RSS, not separately profiled",
+   "reader_parameter_bytes": 442672,
+   "ridge_counts": null,
+   "task_label_bytes": 13464,
+   "training_episode_digest": "c604c3cb4b7db93fda474e10ae03a2b49d96a632ab2706b91084956182393071",
+   "tuning_fits": 0,
+   "wall_seconds": 3.3679955240077106
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "torch_configuration": "PyTorch built with:\n  - GCC 13.3\n  - C++ Version: 202002\n  - Intel(R) oneAPI Math Kernel Library Version 2024.2-Product Build 20240605 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.12.0 (Git Hash 80afa71049cd69a3df32adcccb623b12cd7baa22)\n  - OpenMP 201511 (a.k.a. OpenMP 4.5)\n  - LAPACK is enabled (usually provided by MKL)\n  - NNPACK is enabled\n  - CPU capability usage: AVX2\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, COMMIT_SHA=5c4886908584029761b579af026dcfb627c84070, CUDA_FLAGS= -DLIBCUDACXX_ENABLE_SIMPLIFIED_COMPLEX_OPERATIONS -Xfatbin -compress-all  -Wno-deprecated-gpu-targets --expt-extended-lambda -DCUB_WRAPPED_NAMESPACE=at_cuda_detail -DDISABLE_CUSPARSE_DEPRECATED -DCUDA_HAS_FP16=1 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -DC10_NODEPRECATED, CXX_COMPILER=/opt/rh/gcc-toolset-13/root/usr/bin/c++, CXX_FLAGS= -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -DC10_NODEPRECATED -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=range-loop-construct -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=old-style-cast -faligned-new -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-dangling-reference -Wno-error=dangling-reference -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.14.1, USE_CUDA=0, USE_CUDNN=OFF, USE_CUSPARSELT=OFF, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_HIPSPARSELT=OFF, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=OFF, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, USE_XCCL=OFF, USE_XPU=OFF, \n",
+ "wall_seconds": 3.434982024002238,
+ "whole_job_peak_memory_bytes": null,
+ "whole_job_peak_memory_reason": "Only per-process RSS measured; no aggregate peak profiler",
+ "workers": 3,
+ "world_sha256": "becebd0f5ab0d4d28653d53708f359243907425b08036af87775b8c8e1dfc4ef"
+}

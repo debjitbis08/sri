@@ -1,0 +1,349 @@
+/home/debjit/code/sri/experiments/conflict_search.py:539: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  'expected_steps': float((ph * torch.tensor(stp, dtype=torch.float)).sum(1).mean())}
+/home/debjit/code/sri/experiments/conflict_search.py:539: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  'expected_steps': float((ph * torch.tensor(stp, dtype=torch.float)).sum(1).mean())}
+/home/debjit/code/sri/experiments/conflict_search.py:539: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  'expected_steps': float((ph * torch.tensor(stp, dtype=torch.float)).sum(1).mean())}
+/home/debjit/code/sri/experiments/conflict_search.py:539: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  'expected_steps': float((ph * torch.tensor(stp, dtype=torch.float)).sum(1).mean())}
+/home/debjit/code/sri/experiments/conflict_search.py:549: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  rec = {'step': step, 'loss': float(loss.detach()), 'outcome': float(outcome), 'rank': float(rank),
+/home/debjit/code/sri/experiments/conflict_search.py:549: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  rec = {'step': step, 'loss': float(loss.detach()), 'outcome': float(outcome), 'rank': float(rank),
+[bt-forward seed 451] step 100 loss 1.746 outcome 0.574 rank 1.171 found_true 0.168 found_false 0.008 checks_true 6.676 wall 96.944
+[bt-forward seed 450] step 100 loss 1.824 outcome 0.630 rank 1.194 found_true 0.233 found_false 0.031 checks_true 8.860 wall 123.388
+[bt-forward seed 451] step 200 loss 1.690 outcome 0.523 rank 1.167 found_true 0.196 found_false 0.024 checks_true 6.196 wall 183.849
+[bt-forward seed 450] step 200 loss 1.884 outcome 0.594 rank 1.290 found_true 0.195 found_false 0.019 checks_true 9.265 wall 256.830
+[bt-forward seed 451] step 300 loss 1.641 outcome 0.566 rank 1.075 found_true 0.240 found_false 0.044 checks_true 7.188 wall 271.728
+[soft-loop seed 453] step 100 loss 1.982 wall 286.585 expected_steps 2.053
+[soft-loop seed 451] step 100 loss 3.013 wall 288.985 expected_steps 1.674
+[soft-loop seed 452] step 100 loss 1.112 wall 306.201 expected_steps 1.813
+[soft-loop seed 450] step 100 loss 1.515 wall 315.197 expected_steps 1.826
+[bt-forward seed 451] step 400 loss 1.573 outcome 0.506 rank 1.068 found_true 0.228 found_false 0.044 checks_true 6.480 wall 358.718
+[bt-forward seed 450] step 300 loss 1.923 outcome 0.570 rank 1.353 found_true 0.148 found_false 0.012 checks_true 8.296 wall 386.365
+[bt-forward seed 451] step 500 loss 1.361 outcome 0.479 rank 0.883 found_true 0.364 found_false 0.024 checks_true 6.560 wall 449.393
+[bt-forward seed 450] step 400 loss 1.737 outcome 0.567 rank 1.169 found_true 0.237 found_false 0.019 checks_true 8.506 wall 501.170
+[bt-forward seed 451] step 600 loss 1.248 outcome 0.425 rank 0.824 found_true 0.432 found_false 0.028 checks_true 5.704 wall 546.143
+[soft-loop seed 453] step 200 loss 1.944 wall 569.172 expected_steps 2.028
+[soft-loop seed 451] step 200 loss 4.363 wall 573.424 expected_steps 1.506
+[soft-loop seed 452] step 200 loss 0.780 wall 610.841 expected_steps 1.800
+[bt-forward seed 450] step 500 loss 1.481 outcome 0.534 rank 0.947 found_true 0.206 found_false 0.016 checks_true 8.346 wall 622.194
+[soft-loop seed 450] step 200 loss 1.079 wall 632.737 expected_steps 2.065
+[bt-forward seed 451] step 700 loss 1.346 outcome 0.500 rank 0.846 found_true 0.372 found_false 0.048 checks_true 5.524 wall 641.671
+[bt-forward seed 451] step 800 loss 1.098 outcome 0.395 rank 0.704 found_true 0.380 found_false 0.024 checks_true 5.768 wall 733.328
+[bt-forward seed 450] step 600 loss 1.740 outcome 0.558 rank 1.182 found_true 0.214 found_false 0.019 checks_true 7.965 wall 742.076
+[bt-forward seed 451] step 900 loss 1.036 outcome 0.425 rank 0.611 found_true 0.496 found_false 0.036 checks_true 5.396 wall 833.952
+[bt-forward seed 450] step 700 loss 1.672 outcome 0.544 rank 1.128 found_true 0.206 found_false 0.023 checks_true 7.420 wall 848.469
+[soft-loop seed 453] step 300 loss 1.883 wall 851.371 expected_steps 2.069
+[soft-loop seed 451] step 300 loss 3.359 wall 859.857 expected_steps 1.722
+[soft-loop seed 452] step 300 loss 0.810 wall 913.720 expected_steps 1.642
+[bt-forward seed 451] step 1000 loss 0.989 outcome 0.400 rank 0.590 found_true 0.440 found_false 0.036 checks_true 5.576 wall 926.489
+/home/debjit/code/sri/experiments/conflict_search.py:549: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  rec = {'step': step, 'loss': float(loss.detach()), 'outcome': float(outcome), 'rank': float(rank),
+[soft-loop seed 450] step 300 loss 0.879 wall 950.792 expected_steps 1.840
+[bt-forward seed 450] step 800 loss 1.579 outcome 0.523 rank 1.056 found_true 0.187 found_false 0.027 checks_true 8.261 wall 960.713
+[bt-forward seed 452] step 100 loss 2.141 outcome 0.607 rank 1.534 found_true 0.121 found_false 0.020 checks_true 6.464 wall 98.048
+[bt-forward seed 450] step 900 loss 1.519 outcome 0.550 rank 0.969 found_true 0.233 found_false 0.023 checks_true 9.054 wall 1082.727
+[soft-loop seed 453] step 400 loss 1.863 wall 1135.815 expected_steps 1.806
+[bt-forward seed 452] step 200 loss 1.383 outcome 0.560 rank 0.823 found_true 0.190 found_false 0.016 checks_true 8.802 wall 215.948
+[soft-loop seed 451] step 400 loss 3.808 wall 1162.233 expected_steps 1.955
+[bt-forward seed 450] step 1000 loss 1.447 outcome 0.492 rank 0.955 found_true 0.233 found_false 0.023 checks_true 8.156 wall 1204.957
+[soft-loop seed 452] step 400 loss 0.521 wall 1216.291 expected_steps 1.598
+/home/debjit/code/sri/experiments/conflict_search.py:549: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  rec = {'step': step, 'loss': float(loss.detach()), 'outcome': float(outcome), 'rank': float(rank),
+[soft-loop seed 450] step 400 loss 0.661 wall 1269.972 expected_steps 1.880
+[bt-forward seed 452] step 300 loss 1.149 outcome 0.546 rank 0.603 found_true 0.258 found_false 0.012 checks_true 10.258 wall 355.488
+[bt-forward seed 453] step 100 loss 1.986 outcome 0.585 rank 1.401 found_true 0.174 found_false 0.028 checks_true 5.992 wall 99.345
+[bt-forward seed 453] step 200 loss 1.091 outcome 0.383 rank 0.708 found_true 0.413 found_false 0.016 checks_true 6.360 wall 193.023
+[soft-loop seed 453] step 500 loss 1.702 wall 1419.014 expected_steps 1.784
+[bt-forward seed 452] step 400 loss 1.128 outcome 0.623 rank 0.505 found_true 0.218 found_false 0.028 checks_true 11.161 wall 502.936
+[soft-loop seed 451] step 500 loss 2.824 wall 1469.934 expected_steps 1.915
+[bt-forward seed 453] step 300 loss 0.742 outcome 0.398 rank 0.344 found_true 0.389 found_false 0.024 checks_true 6.802 wall 296.872
+[soft-loop seed 452] step 500 loss 0.415 wall 1520.656 expected_steps 1.635
+[bt-forward seed 452] step 500 loss 1.483 outcome 0.549 rank 0.934 found_true 0.169 found_false 0.020 checks_true 8.157 wall 629.874
+[soft-loop seed 450] step 500 loss 0.495 wall 1587.868 expected_steps 1.820
+[bt-forward seed 453] step 400 loss 0.736 outcome 0.387 rank 0.349 found_true 0.478 found_false 0.028 checks_true 6.960 wall 403.352
+[bt-forward seed 452] step 600 loss 1.196 outcome 0.585 rank 0.611 found_true 0.246 found_false 0.028 checks_true 7.734 wall 735.133
+[soft-loop seed 453] step 600 loss 1.571 wall 1700.947 expected_steps 1.825
+[bt-forward seed 453] step 500 loss 0.779 outcome 0.370 rank 0.409 found_true 0.494 found_false 0.012 checks_true 6.206 wall 506.715
+[bt-forward seed 452] step 700 loss 1.080 outcome 0.521 rank 0.559 found_true 0.222 found_false 0.016 checks_true 7.169 wall 838.467
+[soft-loop seed 451] step 600 loss 3.271 wall 1776.469 expected_steps 1.884
+[bt-forward seed 453] step 600 loss 0.598 outcome 0.339 rank 0.260 found_true 0.494 found_false 0.012 checks_true 6.275 wall 609.682
+[soft-loop seed 452] step 600 loss 0.364 wall 1826.763 expected_steps 1.650
+[bt-forward seed 452] step 800 loss 1.100 outcome 0.581 rank 0.519 found_true 0.246 found_false 0.020 checks_true 7.964 wall 939.323
+[soft-loop seed 450] step 600 loss 0.517 wall 1906.941 expected_steps 1.871
+[bt-forward seed 453] step 700 loss 0.692 outcome 0.368 rank 0.324 found_true 0.571 found_false 0.020 checks_true 6.178 wall 708.010
+[soft-loop seed 453] step 700 loss 1.404 wall 1967.883 expected_steps 1.736
+[bt-forward seed 452] step 900 loss 1.023 outcome 0.614 rank 0.409 found_true 0.278 found_false 0.048 checks_true 8.766 wall 1037.950
+[bt-forward seed 453] step 800 loss 0.561 outcome 0.303 rank 0.258 found_true 0.583 found_false 0.024 checks_true 5.611 wall 803.819
+[soft-loop seed 451] step 700 loss 2.845 wall 2085.112 expected_steps 1.832
+[bt-forward seed 452] step 1000 loss 0.895 outcome 0.561 rank 0.334 found_true 0.274 found_false 0.040 checks_true 9.278 wall 1165.947
+[bt-forward seed 453] step 900 loss 0.640 outcome 0.382 rank 0.258 found_true 0.551 found_false 0.045 checks_true 5.741 wall 899.887
+/home/debjit/code/sri/experiments/conflict_search.py:549: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  rec = {'step': step, 'loss': float(loss.detach()), 'outcome': float(outcome), 'rank': float(rank),
+[soft-loop seed 452] step 700 loss 0.232 wall 2135.159 expected_steps 1.788
+[bt-forward seed 453] step 1000 loss 0.747 outcome 0.409 rank 0.338 found_true 0.502 found_false 0.036 checks_true 6.591 wall 1000.772
+[bt-bidir seed 450] step 100 loss 2.076 outcome 0.705 rank 1.371 found_true 0.214 found_false 0.078 checks_true 6.724 wall 105.675
+[soft-loop seed 450] step 700 loss 0.724 wall 2227.107 expected_steps 1.589
+/home/debjit/code/sri/experiments/conflict_search.py:549: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  rec = {'step': step, 'loss': float(loss.detach()), 'outcome': float(outcome), 'rank': float(rank),
+[soft-loop seed 453] step 800 loss 1.066 wall 2241.445 expected_steps 1.719
+[bt-bidir seed 451] step 100 loss 2.091 outcome 0.681 rank 1.410 found_true 0.212 found_false 0.060 checks_true 5.636 wall 89.327
+[bt-bidir seed 450] step 200 loss 1.970 outcome 0.753 rank 1.218 found_true 0.214 found_false 0.101 checks_true 6.716 wall 211.863
+[soft-loop seed 451] step 800 loss 3.173 wall 2394.389 expected_steps 1.759
+[bt-bidir seed 451] step 200 loss 1.558 outcome 0.645 rank 0.913 found_true 0.228 found_false 0.076 checks_true 5.752 wall 175.033
+[soft-loop seed 452] step 800 loss 0.251 wall 2443.458 expected_steps 1.823
+[bt-bidir seed 450] step 300 loss 1.551 outcome 0.761 rank 0.790 found_true 0.241 found_false 0.171 checks_true 6.755 wall 328.373
+[bt-bidir seed 451] step 300 loss 1.353 outcome 0.598 rank 0.755 found_true 0.236 found_false 0.016 checks_true 6.412 wall 266.853
+[soft-loop seed 453] step 900 loss 1.054 wall 2524.251 expected_steps 1.713
+[soft-loop seed 450] step 800 loss 0.858 wall 2545.025 expected_steps 1.687
+[bt-bidir seed 450] step 400 loss 1.371 outcome 0.756 rank 0.615 found_true 0.288 found_false 0.241 checks_true 7.642 wall 450.029
+[bt-bidir seed 451] step 400 loss 1.101 outcome 0.595 rank 0.506 found_true 0.304 found_false 0.048 checks_true 6.692 wall 362.191
+[bt-bidir seed 451] step 500 loss 0.996 outcome 0.560 rank 0.436 found_true 0.288 found_false 0.024 checks_true 6.336 wall 456.947
+[bt-bidir seed 450] step 500 loss 1.270 outcome 0.723 rank 0.546 found_true 0.346 found_false 0.253 checks_true 6.751 wall 576.324
+[soft-loop seed 451] step 900 loss 3.629 wall 2703.287 expected_steps 1.758
+[soft-loop seed 452] step 900 loss 0.207 wall 2750.167 expected_steps 1.793
+[bt-bidir seed 451] step 600 loss 0.917 outcome 0.549 rank 0.368 found_true 0.296 found_false 0.040 checks_true 6.320 wall 551.996
+[soft-loop seed 453] step 1000 loss 1.264 wall 2806.782 expected_steps 1.711
+[bt-bidir seed 450] step 600 loss 1.256 outcome 0.725 rank 0.532 found_true 0.296 found_false 0.292 checks_true 7.580 wall 701.932
+/home/debjit/code/sri/experiments/conflict_search.py:549: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  rec = {'step': step, 'loss': float(loss.detach()), 'outcome': float(outcome), 'rank': float(rank),
+[soft-loop seed 450] step 900 loss 0.624 wall 2858.686 expected_steps 1.638
+[bt-bidir seed 451] step 700 loss 1.197 outcome 0.604 rank 0.593 found_true 0.244 found_false 0.044 checks_true 6.828 wall 647.039
+[bt-bidir seed 452] step 100 loss 2.093 outcome 0.786 rank 1.307 found_true 0.194 found_false 0.105 checks_true 5.145 wall 77.350
+[bt-bidir seed 450] step 700 loss 1.431 outcome 0.803 rank 0.628 found_true 0.397 found_false 0.268 checks_true 6.774 wall 821.993
+[bt-bidir seed 451] step 800 loss 0.869 outcome 0.526 rank 0.344 found_true 0.360 found_false 0.040 checks_true 6.412 wall 742.841
+[bt-bidir seed 452] step 200 loss 1.792 outcome 0.689 rank 1.103 found_true 0.246 found_false 0.073 checks_true 5.891 wall 146.271
+[soft-loop seed 451] step 1000 loss 3.799 wall 2985.204 expected_steps 1.777
+/home/debjit/code/sri/experiments/conflict_search.py:549: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  rec = {'step': step, 'loss': float(loss.detach()), 'outcome': float(outcome), 'rank': float(rank),
+[soft-loop seed 452] step 1000 loss 0.270 wall 3024.067 expected_steps 1.793
+[bt-bidir seed 452] step 300 loss 1.747 outcome 0.718 rank 1.029 found_true 0.234 found_false 0.121 checks_true 5.282 wall 215.210
+/home/debjit/code/sri/experiments/conflict_search.py:549: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  rec = {'step': step, 'loss': float(loss.detach()), 'outcome': float(outcome), 'rank': float(rank),
+[bt-bidir seed 450] step 800 loss 1.327 outcome 0.732 rank 0.594 found_true 0.339 found_false 0.241 checks_true 7.584 wall 938.865
+[bt-bidir seed 451] step 900 loss 0.806 outcome 0.559 rank 0.248 found_true 0.312 found_false 0.060 checks_true 6.140 wall 834.523
+[bt-bidir seed 453] step 100 loss 2.107 outcome 0.778 rank 1.329 found_true 0.251 found_false 0.170 checks_true 5.854 wall 85.419
+[soft-loop seed 450] step 1000 loss 0.410 wall 3103.518 expected_steps 1.694
+[bt-bidir seed 452] step 400 loss 1.671 outcome 0.694 rank 0.978 found_true 0.222 found_false 0.081 checks_true 4.738 wall 275.888
+/home/debjit/code/sri/experiments/conflict_search.py:549: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  rec = {'step': step, 'loss': float(loss.detach()), 'outcome': float(outcome), 'rank': float(rank),
+[bt-forward-notrace seed 450] step 100 loss 2.074 outcome 0.586 rank 1.489 found_true 0.222 found_false 0.023 checks_true 7.214 wall 87.547
+[bt-bidir seed 451] step 1000 loss 0.808 outcome 0.546 rank 0.262 found_true 0.396 found_false 0.072 checks_true 5.760 wall 908.575
+/home/debjit/code/sri/experiments/conflict_search.py:549: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  rec = {'step': step, 'loss': float(loss.detach()), 'outcome': float(outcome), 'rank': float(rank),
+[bt-bidir seed 450] step 900 loss 1.419 outcome 0.722 rank 0.697 found_true 0.276 found_false 0.195 checks_true 6.875 wall 1034.821
+[bt-bidir seed 452] step 500 loss 2.037 outcome 0.820 rank 1.216 found_true 0.319 found_false 0.113 checks_true 4.859 wall 329.815
+[bt-bidir seed 453] step 200 loss 1.888 outcome 0.640 rank 1.247 found_true 0.174 found_false 0.077 checks_true 5.486 wall 155.401
+[bt-forward-notrace seed 451] step 100 loss 1.887 outcome 0.564 rank 1.323 found_true 0.212 found_false 0.008 checks_true 7.736 wall 72.040
+[bt-bidir seed 452] step 600 loss 2.638 outcome 0.781 rank 1.856 found_true 0.266 found_false 0.125 checks_true 5.395 wall 380.538
+[bt-forward-notrace seed 450] step 200 loss 1.970 outcome 0.593 rank 1.376 found_true 0.276 found_false 0.027 checks_true 7.817 wall 170.394
+[bt-forward-notrace seed 452] step 100 loss 2.072 outcome 0.567 rank 1.505 found_true 0.161 found_false 0.008 checks_true 6.403 wall 70.722
+[bt-bidir seed 453] step 300 loss 1.499 outcome 0.765 rank 0.734 found_true 0.364 found_false 0.239 checks_true 7.239 wall 224.065
+[bt-bidir seed 450] step 1000 loss 1.419 outcome 0.808 rank 0.611 found_true 0.304 found_false 0.339 checks_true 6.615 wall 1122.195
+/home/debjit/code/sri/experiments/conflict_search.py:549: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  rec = {'step': step, 'loss': float(loss.detach()), 'outcome': float(outcome), 'rank': float(rank),
+[bt-forward-notrace seed 451] step 200 loss 1.685 outcome 0.500 rank 1.185 found_true 0.200 found_false 0.008 checks_true 6.876 wall 140.064
+[bt-bidir seed 452] step 700 loss 2.464 outcome 0.777 rank 1.687 found_true 0.282 found_false 0.125 checks_true 4.891 wall 431.759
+[bt-forward-notrace seed 452] step 200 loss 2.057 outcome 0.555 rank 1.501 found_true 0.194 found_false 0.012 checks_true 6.476 wall 136.526
+[bt-forward-notrace seed 450] step 300 loss 1.909 outcome 0.559 rank 1.349 found_true 0.218 found_false 0.008 checks_true 8.588 wall 256.953
+[bt-bidir seed 453] step 400 loss 1.610 outcome 0.784 rank 0.826 found_true 0.332 found_false 0.267 checks_true 5.968 wall 300.800
+[bt-bidir seed 452] step 800 loss 2.441 outcome 0.851 rank 1.589 found_true 0.290 found_false 0.129 checks_true 5.101 wall 483.030
+[bt-forward-notrace seed 453] step 100 loss 1.992 outcome 0.598 rank 1.395 found_true 0.138 found_false 0.016 checks_true 7.040 wall 67.348
+[bt-forward-notrace seed 451] step 300 loss 1.520 outcome 0.493 rank 1.027 found_true 0.288 found_false 0.016 checks_true 7.072 wall 207.679
+[bt-forward-notrace seed 452] step 300 loss 2.017 outcome 0.559 rank 1.459 found_true 0.206 found_false 0.028 checks_true 6.726 wall 203.407
+[bt-bidir seed 452] step 900 loss 2.252 outcome 0.950 rank 1.302 found_true 0.323 found_false 0.137 checks_true 4.883 wall 534.731
+[bt-bidir seed 453] step 500 loss 1.677 outcome 0.778 rank 0.900 found_true 0.300 found_false 0.231 checks_true 5.688 wall 374.086
+[bt-forward-notrace seed 453] step 200 loss 1.203 outcome 0.476 rank 0.728 found_true 0.389 found_false 0.040 checks_true 6.020 wall 138.866
+[bt-forward-notrace seed 450] step 400 loss 1.572 outcome 0.521 rank 1.051 found_true 0.315 found_false 0.031 checks_true 9.140 wall 349.103
+[bt-forward-notrace seed 451] step 400 loss 1.419 outcome 0.528 rank 0.891 found_true 0.364 found_false 0.044 checks_true 5.924 wall 273.733
+[bt-forward-notrace seed 452] step 400 loss 1.864 outcome 0.531 rank 1.333 found_true 0.218 found_false 0.012 checks_true 6.657 wall 274.083
+[bt-bidir seed 452] step 1000 loss 1.886 outcome 0.717 rank 1.169 found_true 0.327 found_false 0.109 checks_true 5.214 wall 586.756
+[bt-bidir seed 453] step 600 loss 1.501 outcome 0.739 rank 0.762 found_true 0.275 found_false 0.259 checks_true 6.174 wall 444.866
+[bt-forward-notrace seed 453] step 300 loss 1.131 outcome 0.371 rank 0.759 found_true 0.445 found_false 0.016 checks_true 5.826 wall 214.244
+[bt-forward-notrace seed 451] step 500 loss 1.170 outcome 0.438 rank 0.733 found_true 0.384 found_false 0.016 checks_true 6.840 wall 346.932
+[bt-forward-notrace seed 450] step 500 loss 1.337 outcome 0.496 rank 0.841 found_true 0.401 found_false 0.031 checks_true 7.167 wall 434.447
+[bt-forward-notrace seed 452] step 500 loss 1.834 outcome 0.520 rank 1.313 found_true 0.286 found_false 0.012 checks_true 6.883 wall 343.594
+[bt-bidir seed 453] step 700 loss 1.629 outcome 0.767 rank 0.862 found_true 0.332 found_false 0.275 checks_true 6.073 wall 516.810
+[bt-forward-notrace seed 453] step 400 loss 1.150 outcome 0.373 rank 0.777 found_true 0.441 found_false 0.016 checks_true 6.551 wall 285.913
+[bt-forward-notrace seed 451] step 600 loss 1.248 outcome 0.412 rank 0.836 found_true 0.452 found_false 0.028 checks_true 5.672 wall 416.814
+[bt-forward-notrace seed 452] step 600 loss 1.858 outcome 0.600 rank 1.258 found_true 0.266 found_false 0.040 checks_true 7.879 wall 415.205
+[bt-forward-notrace seed 450] step 600 loss 1.286 outcome 0.525 rank 0.761 found_true 0.424 found_false 0.035 checks_true 7.272 wall 515.483
+[bt-bidir seed 453] step 800 loss 1.491 outcome 0.751 rank 0.740 found_true 0.352 found_false 0.243 checks_true 6.336 wall 586.377
+[bt-forward-notrace seed 451] step 700 loss 1.397 outcome 0.485 rank 0.912 found_true 0.504 found_false 0.060 checks_true 5.908 wall 486.990
+[bt-forward-notrace seed 453] step 500 loss 0.900 outcome 0.352 rank 0.548 found_true 0.538 found_false 0.008 checks_true 6.704 wall 361.791
+[bt-forward-notrace seed 452] step 700 loss 1.736 outcome 0.553 rank 1.183 found_true 0.302 found_false 0.036 checks_true 8.032 wall 487.027
+[bt-forward-notrace seed 450] step 700 loss 1.241 outcome 0.466 rank 0.774 found_true 0.463 found_false 0.039 checks_true 6.946 wall 594.299
+[bt-bidir seed 453] step 900 loss 1.613 outcome 0.843 rank 0.769 found_true 0.425 found_false 0.332 checks_true 6.121 wall 658.074
+[bt-forward-notrace seed 451] step 800 loss 1.150 outcome 0.357 rank 0.793 found_true 0.488 found_false 0.036 checks_true 5.192 wall 559.501
+[bt-forward-notrace seed 453] step 600 loss 0.780 outcome 0.351 rank 0.430 found_true 0.603 found_false 0.024 checks_true 6.437 wall 441.762
+[bt-forward-notrace seed 452] step 800 loss 1.722 outcome 0.688 rank 1.034 found_true 0.359 found_false 0.040 checks_true 7.738 wall 561.281
+[bt-forward-notrace seed 450] step 800 loss 1.185 outcome 0.481 rank 0.704 found_true 0.455 found_false 0.039 checks_true 6.708 wall 673.449
+[bt-bidir seed 453] step 1000 loss 1.514 outcome 0.777 rank 0.737 found_true 0.320 found_false 0.312 checks_true 5.547 wall 731.570
+[bt-forward-notrace seed 451] step 900 loss 1.208 outcome 0.450 rank 0.758 found_true 0.480 found_false 0.056 checks_true 5.932 wall 631.569
+[bt-forward-notrace seed 453] step 700 loss 0.581 outcome 0.337 rank 0.244 found_true 0.652 found_false 0.040 checks_true 6.146 wall 521.643
+[bt-forward-notrace seed 452] step 900 loss 1.328 outcome 0.518 rank 0.810 found_true 0.351 found_false 0.036 checks_true 8.262 wall 642.136
+[bt-forward-notrace seed 450] step 900 loss 1.204 outcome 0.490 rank 0.714 found_true 0.420 found_false 0.043 checks_true 6.883 wall 747.473
+[bt-forward-notrace seed 451] step 1000 loss 1.201 outcome 0.473 rank 0.728 found_true 0.460 found_false 0.044 checks_true 5.660 wall 704.491
+[bt-forward-notrace seed 453] step 800 loss 0.721 outcome 0.369 rank 0.351 found_true 0.563 found_false 0.028 checks_true 6.405 wall 599.675
+[bt-forward-notrace seed 450] step 1000 loss 1.243 outcome 0.456 rank 0.787 found_true 0.463 found_false 0.035 checks_true 6.965 wall 819.454
+[bt-forward-notrace seed 452] step 1000 loss 1.322 outcome 0.537 rank 0.785 found_true 0.403 found_false 0.040 checks_true 7.883 wall 724.333
+[bt-forward-notrace seed 453] step 900 loss 0.814 outcome 0.400 rank 0.414 found_true 0.543 found_false 0.028 checks_true 6.563 wall 669.505
+[bt-forward-notrace seed 453] step 1000 loss 0.687 outcome 0.332 rank 0.355 found_true 0.615 found_false 0.028 checks_true 6.579 wall 738.186
+== phase 1 R_L check {'rl_check': {'intuition_confident': 1.0, 'mean_s_minus': 0.0, 'mean_s_plus': 0.0, 'rows': 3116.75, 'states': {'U': 1.0}, 'trigger_rate': 1.0, 'trigger_rate_confident': 1.0, 'withheld_no_support': None}, 'withheld_rows': {'F': 2866.25, 'T': 250.5}}
+== one-pass params 151486 controller 77685 last log None
+test           intuit step0  final  arbit | trig  found_T exh_T  truepath recall | aurocI aurocL0 aurocL | srchAll
+P1-default     0.92  0.81  0.81  0.90 | 0.00    -      -      -      -   | 0.96  0.93  0.93 |   -  
+P2             0.70  0.60  0.60  0.66 | 0.00    -      -      -      -   | 0.83  0.76  0.76 |   -  
+P3             0.74  0.65  0.65  0.73 | 0.00    -      -      -      -   | 0.85  0.83  0.83 |   -  
+P4             0.79  0.66  0.66  0.81 | 0.00    -      -      -      -   | 0.93  0.82  0.82 |   -  
+P6-grandparent 0.97  0.00  0.00  0.50 | 0.00    -      -      -      -   | 1.00  0.50  0.50 |   -  
+P6-colour      0.57  0.00  0.00  0.06 | 0.00    -      -      -      -   | 0.62  0.51  0.51 |   -  
+G2             0.66  0.69  0.69  0.80 | 0.00    -      -      -      -   | 0.82  0.89  0.89 |   -  
+G4             0.54  0.52  0.52  0.53 | 0.00    -      -      -      -   | 0.70  0.54  0.54 |   -  
+L1-kind        0.66  0.00  0.00  0.36 | 0.00    -      -      -      -   | 0.75  0.48  0.48 |   -  
+L1-anc         0.72  0.00  0.00  0.16 | 0.00    -      -      -      -   | 1.00  0.50  0.50 |   -  
+L1-size        0.96  0.01  0.01  0.45 | 0.00    -      -      -      -   | 1.00  0.52  0.52 |   -  
+L2-named       0.88  0.00  0.00  0.37 | 0.00    -      -      -      -   | 0.94  0.70  0.70 |   -  
+   L1-anc-depth45 {'arbiter': 0.028, 'intuition': 0.542, 'logic-final': 0.0, 'logic-step0': 0.0, 'n': 18.0}
+   withheld-fit {'arbiter': 0.5, 'intuition': 1.0, 'logic-final': 0.0, 'logic-step0': 0.0, 'trigger_rate': 0.0, 'trigger_rate_true': 0.0}
+   per-hop {'by_relation_true': {'can': 1.0, 'colour-of': 1.0, 'has': 1.0, 'is-a': 1.0, 'just-bigger-than': 1.0, 'names': 1.0, 'parent-of': 1.0, 'subkind-of': 1.0}, 'confirm_false': 0.0, 'confirm_true': 1.0}
+   conflict-flags-intuition-errors {'error_rate': 0.141, 'graded_auroc': 0.673}
+   S4a-u-rate {'arbiter': 0.574, 'logic-final': 0.659, 'logic-step0': 0.659}
+   S4b-P7-u-rate {'arbiter': 0.477, 'logic-final': 0.568, 'logic-step0': 0.568}
+   control-u-rate {'arbiter': 0.112, 'logic-final': 0.121, 'logic-step0': 0.121}
+   S3b {'arbiter': {'always': 0.625, 'never': 0.843, 'sometimes': 0.083, 'usually': 0.625}, 'intuition': {'always': 0.417, 'never': 0.96, 'sometimes': 0.0, 'usually': 0.125}, 'logic-final': {'always': 0.375, 'never': 0.911, 'sometimes': 0.097, 'usually': 0.406}, 'logic-step0': {'always': 0.375, 'never': 0.911, 'sometimes': 0.097, 'usually': 0.406}}
+   S3b-trigger-rate 0.0
+   L1-kind {'logic_final_by_length': {'3': 0.007, '4': 0.0}, 'arbiter_by_length': {'3': 0.482, '4': 0.236}, 'checks_by_length_true': None, 'found_count_true_by_length': None, 'programs': None, 'steps_by_length': None}
+   L1-anc {'logic_final_by_length': {'3': 0.0, '4': 0.0, '5': 0.0}, 'arbiter_by_length': {'3': 0.292, '4': 0.042, '5': 0.0}, 'checks_by_length_true': None, 'found_count_true_by_length': None, 'programs': None, 'steps_by_length': None}
+   L1-size {'logic_final_by_length': {'10': 0.031, '11': 0.062, '3': 0.0, '4': 0.008, '5': 0.0, '6': 0.0, '7': 0.025, '8': 0.016, '9': 0.0}, 'arbiter_by_length': {'10': 0.531, '11': 0.562, '3': 0.396, '4': 0.422, '5': 0.464, '6': 0.479, '7': 0.463, '8': 0.5, '9': 0.479}, 'checks_by_length_true': None, 'found_count_true_by_length': None, 'programs': None, 'steps_by_length': None}
+   L2-named {'logic_final_by_length': {'named-can': 0.006, 'named-has': 0.003, 'named-kind': 0.003}, 'arbiter_by_length': {'named-can': 0.318, 'named-has': 0.284, 'named-kind': 0.462}, 'checks_by_length_true': None, 'found_count_true_by_length': None, 'programs': None, 'steps_by_length': None}
+   dax {'always': {'arbiter': 1.0, 'intuition': 1.0, 'logic-final': 0.95, 'logic-step0': 0.95, 'trigger_rate': 0.0}, 'never': {'arbiter': 0.889, 'intuition': 0.917, 'logic-final': 1.0, 'logic-step0': 1.0, 'trigger_rate': 0.0}, 'sometimes': {'arbiter': 0.083, 'intuition': 0.0, 'logic-final': 0.139, 'logic-step0': 0.139, 'trigger_rate': 0.0}, 'usually': {'arbiter': 0.75, 'intuition': 0.5, 'logic-final': 0.375, 'logic-step0': 0.375, 'trigger_rate': 0.0}}
+== soft-loop params 151486 controller 77685 last log {'expected_steps': 1.744, 'loss': 1.436, 'step': 1000.0, 'wall': 2979.893}
+test           intuit step0  final  arbit | trig  found_T exh_T  truepath recall | aurocI aurocL0 aurocL | srchAll
+P1-default     0.92  0.81  0.83  0.92 | 0.18    -      -      -      -   | 0.96  0.93  0.96 |   -  
+P2             0.70  0.60  0.59  0.69 | 0.34    -      -      -      -   | 0.83  0.76  0.79 | 0.57
+P3             0.74  0.65  0.64  0.73 | 0.13    -      -      -      -   | 0.85  0.83  0.85 | 0.62
+P4             0.79  0.66  0.66  0.82 | 0.28    -      -      -      -   | 0.93  0.82  0.87 |   -  
+P6-grandparent 0.97  0.00  0.10  0.71 | 1.00    -      -      -      -   | 1.00  0.50  0.79 | 0.10
+P6-colour      0.57  0.00  0.04  0.26 | 1.00    -      -      -      -   | 0.62  0.51  0.70 | 0.04
+G2             0.66  0.69  0.65  0.78 | 0.20    -      -      -      -   | 0.82  0.89  0.87 |   -  
+G4             0.54  0.52  0.52  0.53 | 0.23    -      -      -      -   | 0.70  0.54  0.54 |   -  
+L1-kind        0.66  0.00  0.06  0.43 | 0.99    -      -      -      -   | 0.75  0.48  0.56 | 0.06
+L1-anc         0.72  0.00  0.10  0.45 | 1.00    -      -      -      -   | 1.00  0.50  0.85 | 0.10
+L1-size        0.96  0.01  0.03  0.52 | 0.99    -      -      -      -   | 1.00  0.52  0.79 | 0.03
+L2-named       0.88  0.00  0.06  0.49 | 0.99    -      -      -      -   | 0.94  0.70  0.81 | 0.06
+   L1-anc-depth45 {'arbiter': 0.333, 'intuition': 0.542, 'logic-final': 0.111, 'logic-step0': 0.0, 'n': 18.0}
+   withheld-fit {'arbiter': 0.738, 'intuition': 1.0, 'logic-final': 0.086, 'logic-step0': 0.0, 'trigger_rate': 1.0, 'trigger_rate_true': 1.0}
+   per-hop {'by_relation_true': {'can': 1.0, 'colour-of': 1.0, 'has': 1.0, 'is-a': 1.0, 'just-bigger-than': 1.0, 'names': 1.0, 'parent-of': 1.0, 'subkind-of': 1.0}, 'confirm_false': 0.0, 'confirm_true': 1.0}
+   conflict-flags-intuition-errors {'error_rate': 0.141, 'graded_auroc': 0.673}
+   S4a-u-rate {'arbiter': 0.438, 'logic-final': 0.438, 'logic-step0': 0.659}
+   S4b-P7-u-rate {'arbiter': 0.311, 'logic-final': 0.348, 'logic-step0': 0.568}
+   control-u-rate {'arbiter': 0.075, 'logic-final': 0.129, 'logic-step0': 0.121}
+   S3b {'arbiter': {'always': 0.687, 'never': 0.859, 'sometimes': 0.069, 'usually': 0.594}, 'intuition': {'always': 0.417, 'never': 0.96, 'sometimes': 0.0, 'usually': 0.125}, 'logic-final': {'always': 0.354, 'never': 0.952, 'sometimes': 0.069, 'usually': 0.312}, 'logic-step0': {'always': 0.375, 'never': 0.911, 'sometimes': 0.097, 'usually': 0.406}}
+   S3b-trigger-rate 0.297
+   L1-kind {'logic_final_by_length': {'3': 0.114, '4': 0.0}, 'arbiter_by_length': {'3': 0.535, '4': 0.329}, 'checks_by_length_true': None, 'found_count_true_by_length': None, 'programs': None, 'steps_by_length': {'3': 0.807, '4': 0.935}}
+   L1-anc {'logic_final_by_length': {'3': 0.083, '4': 0.083, '5': 0.167}, 'arbiter_by_length': {'3': 0.569, '4': 0.333, '5': 0.333}, 'checks_by_length_true': None, 'found_count_true_by_length': None, 'programs': None, 'steps_by_length': {'3': 0.899, '4': 0.864, '5': 0.881}}
+   L1-size {'logic_final_by_length': {'10': 0.031, '11': 0.062, '3': 0.014, '4': 0.055, '5': 0.0, '6': 0.021, '7': 0.062, '8': 0.047, '9': 0.021}, 'arbiter_by_length': {'10': 0.594, '11': 0.562, '3': 0.472, '4': 0.477, '5': 0.491, '6': 0.562, '7': 0.562, '8': 0.578, '9': 0.562}, 'checks_by_length_true': None, 'found_count_true_by_length': None, 'programs': None, 'steps_by_length': {'10': 0.865, '11': 0.85, '3': 0.843, '4': 0.811, '5': 0.815, '6': 0.821, '7': 0.856, '8': 0.847, '9': 0.833}}
+   L2-named {'logic_final_by_length': {'named-can': 0.038, 'named-has': 0.041, 'named-kind': 0.089}, 'arbiter_by_length': {'named-can': 0.375, 'named-has': 0.437, 'named-kind': 0.59}, 'checks_by_length_true': None, 'found_count_true_by_length': None, 'programs': None, 'steps_by_length': {'named-can': 0.828, 'named-has': 0.824, 'named-kind': 0.828}}
+   dax {'always': {'arbiter': 1.0, 'intuition': 1.0, 'logic-final': 0.9, 'logic-step0': 0.95, 'trigger_rate': 0.35}, 'never': {'arbiter': 0.861, 'intuition': 0.917, 'logic-final': 0.972, 'logic-step0': 1.0, 'trigger_rate': 0.139}, 'sometimes': {'arbiter': 0.028, 'intuition': 0.0, 'logic-final': 0.083, 'logic-step0': 0.139, 'trigger_rate': 0.472}, 'usually': {'arbiter': 0.625, 'intuition': 0.5, 'logic-final': 0.5, 'logic-step0': 0.375, 'trigger_rate': 0.25}}
+== bt-forward params 151486 controller 77685 last log {'checks_true': 7.4, 'found_false': 0.034, 'found_true': 0.362, 'loss': 1.02, 'outcome': 0.466, 'rank': 0.554, 'step': 1000.0, 'wall': 1074.541}
+test           intuit step0  final  arbit | trig  found_T exh_T  truepath recall | aurocI aurocL0 aurocL | srchAll
+P1-default     0.92  0.81  0.76  0.87 | 0.18  0.17  0.83  0.00    -   | 0.96  0.93  0.96 |   -  
+P2             0.70  0.60  0.58  0.68 | 0.34  0.12  0.88  0.10  0.05 | 0.83  0.76  0.78 | 0.29
+P3             0.74  0.65  0.65  0.74 | 0.13  0.20  0.80  0.11  0.25 | 0.85  0.83  0.85 | 0.28
+P4             0.79  0.66  0.60  0.79 | 0.28  0.03  0.97  0.00    -   | 0.93  0.82  0.86 |   -  
+P6-grandparent 0.97  0.00  0.38  0.74 | 1.00  0.00  1.00  1.00  0.00 | 1.00  0.50  0.78 | 0.38
+P6-colour      0.57  0.00  0.40  0.34 | 1.00  0.10  0.90  0.00  0.07 | 0.62  0.51  0.57 | 0.40
+G2             0.66  0.69  0.52  0.70 | 0.20  0.00  1.00    -      -   | 0.82  0.89  0.85 |   -  
+G4             0.54  0.52  0.45  0.54 | 0.23  0.12  0.88  0.33    -   | 0.70  0.54  0.55 |   -  
+L1-kind        0.66  0.00  0.31  0.55 | 0.99  0.32  0.68  0.32  0.23 | 0.75  0.48  0.63 | 0.31
+L1-anc         0.72  0.00  0.71  0.68 | 1.00  0.43  0.57  0.67  0.50 | 1.00  0.50  0.90 | 0.71
+L1-size        0.96  0.01  0.17  0.65 | 0.99  0.21  0.79  0.16  0.19 | 1.00  0.52  0.55 | 0.16
+L2-named       0.88  0.00  0.18  0.55 | 0.99  0.26  0.74  0.00  0.21 | 0.94  0.70  0.77 | 0.18
+   L1-anc-depth45 {'arbiter': 0.528, 'intuition': 0.542, 'logic-final': 0.667, 'logic-step0': 0.0, 'n': 18.0}
+   withheld-fit {'arbiter': 0.855, 'backtracks_true': 4.016, 'backward_waste': None, 'candidate_index_first': 0.701, 'candidate_index_mean': 1.346, 'checks_false': 7.96, 'checks_true': 6.977, 'exhausted_false': 0.969, 'exhausted_true': 0.611, 'found_rate_false': 0.031, 'found_rate_true': 0.389, 'intuition': 1.0, 'logic-final': 0.599, 'logic-step0': 0.0, 'path_len_found': 2.618, 'pool_empty_rate': 0.0, 'pool_size_mean': 45.893, 'programs': [[['<good-phrase >good-phrase', 8], ['>good-phrase', 6], ['<good-phrase <good-phrase <good-phrase <good-phrase >good-phrase', 6]], [['>parent-of', 27], ['>is-a', 17], ['>parent-of >parent-of', 14]], [['>bigger-than >lives-with', 21], ['>bigger-than >lives-with >lives-with >lives-with >lives-with', 16], ['<named-can >lives-with', 14]], [['>parent-of', 35], ['>parent-of >parent-of', 22], ['>heavier-than', 19]]], 'proposer_offpath_choice_points': 459.0, 'proposer_recall': 0.259, 'search_rate': 1.0, 'trigger_rate': 1.0, 'trigger_rate_true': 1.0, 'true_path_rate': 0.223}
+   per-hop {'by_relation_true': {'can': 1.0, 'colour-of': 1.0, 'has': 1.0, 'is-a': 1.0, 'just-bigger-than': 1.0, 'names': 1.0, 'parent-of': 1.0, 'subkind-of': 1.0}, 'confirm_false': 0.0, 'confirm_true': 1.0}
+   conflict-flags-intuition-errors {'error_rate': 0.141, 'graded_auroc': 0.673}
+   S4a-u-rate {'arbiter': 0.557, 'arbiter_u_given_exhausted': 0.723, 'logic-final': 0.528, 'logic-step0': 0.659}
+   S4b-P7-u-rate {'arbiter': 0.424, 'arbiter_u_given_exhausted': 0.655, 'logic-final': 0.356, 'logic-step0': 0.568}
+   control-u-rate {'arbiter': 0.078, 'arbiter_u_given_exhausted': 0.327, 'logic-final': 0.13, 'logic-step0': 0.121}
+   S3b {'arbiter': {'always': 0.562, 'never': 0.831, 'sometimes': 0.222, 'usually': 0.594}, 'intuition': {'always': 0.417, 'never': 0.96, 'sometimes': 0.0, 'usually': 0.125}, 'logic-final': {'always': 0.188, 'never': 0.907, 'sometimes': 0.292, 'usually': 0.094}, 'logic-step0': {'always': 0.375, 'never': 0.911, 'sometimes': 0.097, 'usually': 0.406}}
+   S3b-trigger-rate 0.297
+   L1-kind {'logic_final_by_length': {'3': 0.348, '4': 0.278}, 'arbiter_by_length': {'3': 0.677, '4': 0.418}, 'checks_by_length_true': {'3': 6.868, '4': 14.05}, 'found_count_true_by_length': {'3': [[23, 35], [26, 35], [2, 35], [33, 35]], '4': [[0, 35], [0, 35], [5, 35], [0, 35]]}, 'programs': [[['<good-phrase <good-phrase <good-phrase >good-phrase >good-phrase', 9], ['<good-phrase <good-phrase >good-phrase >good-phrase', 6], ['<good-phrase <good-phrase >good-phrase', 6]], [['>is-a', 23], ['>brighter-than', 3], ['>brighter-than >lives-in', 1]], [['<named-can >lives-with', 2], ['<named-can <named-can >lives-with', 2], ['<named-can >named-can', 2]], [['>is-a', 23], ['>is-a >is-a', 14], ['>is-a >is-a >is-a >is-a', 3]]], 'steps_by_length': None}
+   L1-anc {'logic_final_by_length': {'3': 0.764, '4': 0.688, '5': 0.625}, 'arbiter_by_length': {'3': 0.833, '4': 0.562, '5': 0.458}, 'checks_by_length_true': {'3': 5.806, '4': 5.792, '5': 5.833}, 'found_count_true_by_length': {'3': [[0, 9], [8, 9], [2, 9], [9, 9]], '4': [[0, 6], [4, 6], [2, 6], [3, 6]], '5': [[0, 3], [2, 3], [0, 3], [1, 3]]}, 'programs': [[], [['>parent-of >parent-of >parent-of', 8], ['>parent-of >parent-of >parent-of >parent-of', 4], ['>parent-of >parent-of >parent-of >parent-of >parent-of', 2]], [['>lives-with >lives-with', 1], ['>ancestor-of >lives-with', 1], ['>ancestor-of >lives-with >lives-with', 1]], [['>parent-of >parent-of >parent-of', 9], ['>parent-of >parent-of >parent-of >parent-of', 3], ['>parent-of >parent-of >parent-of >parent-of >parent-of', 1]]], 'steps_by_length': None}
+   L1-size {'logic_final_by_length': {'10': 0.188, '11': 0.188, '3': 0.208, '4': 0.18, '5': 0.161, '6': 0.156, '7': 0.15, '8': 0.141, '9': 0.125}, 'arbiter_by_length': {'10': 0.719, '11': 0.625, '3': 0.618, '4': 0.664, '5': 0.67, '6': 0.667, '7': 0.637, '8': 0.641, '9': 0.688}, 'checks_by_length_true': {'10': 6.625, '11': 7.375, '3': 8.097, '4': 9.062, '5': 8.536, '6': 8.583, '7': 8.725, '8': 7.906, '9': 8.208}, 'found_count_true_by_length': {'10': [[0, 4], [0, 4], [0, 4], [3, 4]], '11': [[0, 2], [0, 2], [0, 2], [1, 2]], '3': [[1, 18], [2, 18], [5, 18], [13, 18]], '4': [[2, 16], [2, 16], [3, 16], [10, 16]], '5': [[2, 14], [1, 14], [2, 14], [9, 14]], '6': [[1, 12], [2, 12], [1, 12], [6, 12]], '7': [[0, 10], [0, 10], [1, 10], [3, 10]], '8': [[0, 8], [1, 8], [0, 8], [3, 8]], '9': [[0, 6], [0, 6], [0, 6], [3, 6]]}, 'programs': [[['>prey-of <prey-of', 4], ['>prey-of', 2], ['>prey-of >prey-of <prey-of >prey-of <prey-of', 2]], [['>or <or', 4], ['>is-a <or', 3], ['<brighter-than', 3]], [['>bigger-than >lives-with', 5], ['>lives-with >lives-with', 4], ['>bigger-than >lives-with >lives-with >lives-with', 3]], [['>heavier-than', 21], ['>heavier-than >heavier-than <heavier-than', 9], ['>heavier-than <heavier-than', 8]]], 'steps_by_length': None}
+   L2-named {'logic_final_by_length': {'named-can': 0.182, 'named-has': 0.164, 'named-kind': 0.188}, 'arbiter_by_length': {'named-can': 0.582, 'named-has': 0.491, 'named-kind': 0.592}, 'checks_by_length_true': {'named-can': 8.344, 'named-has': 10.887, 'named-kind': 6.781}, 'found_count_true_by_length': {'named-can': [[0, 8], [0, 8], [3, 8], [1, 8]], 'named-has': [[4, 20], [3, 20], [2, 20], [6, 20]], 'named-kind': [[8, 24], [6, 24], [14, 24], [6, 24]]}, 'programs': [[['>good-phrase >good-phrase', 4], ['>good-phrase >good-phrase >good-phrase', 3], ['<good-phrase >good-phrase', 3]], [['>lives-in >lives-in', 3], ['>lives-in >lives-in >is-a >or', 2], ['<brighter-than', 2]], [['>louder-than >lives-with', 7], ['>lives-with', 3], ['>named-can >lives-with', 2]], [['>heavier-than', 6], ['>is-a >is-a', 5], ['>is-a >is-a >is-a >is-a', 2]]], 'steps_by_length': None}
+   dax {'always': {'arbiter': 0.85, 'intuition': 1.0, 'logic-final': 0.7, 'logic-step0': 0.95, 'trigger_rate': 0.35}, 'never': {'arbiter': 0.833, 'intuition': 0.917, 'logic-final': 0.917, 'logic-step0': 1.0, 'trigger_rate': 0.139}, 'sometimes': {'arbiter': 0.139, 'intuition': 0.0, 'logic-final': 0.278, 'logic-step0': 0.139, 'trigger_rate': 0.472}, 'usually': {'arbiter': 0.625, 'intuition': 0.5, 'logic-final': 0.5, 'logic-step0': 0.375, 'trigger_rate': 0.25}}
+== bt-bidir params 151486 controller 77685 last log {'checks_true': 5.784, 'found_false': 0.208, 'found_true': 0.336, 'loss': 1.407, 'outcome': 0.712, 'rank': 0.695, 'step': 1000.0, 'wall': 837.274}
+test           intuit step0  final  arbit | trig  found_T exh_T  truepath recall | aurocI aurocL0 aurocL | srchAll
+P1-default     0.92  0.81  0.80  0.88 | 0.18  0.43  0.56  0.00    -   | 0.96  0.93  0.96 |   -  
+P2             0.70  0.60  0.62  0.70 | 0.34  0.44  0.56  0.00  0.00 | 0.83  0.76  0.79 | 0.36
+P3             0.74  0.65  0.70  0.74 | 0.13  0.56  0.45  0.00  0.08 | 0.85  0.83  0.85 | 0.33
+P4             0.79  0.66  0.66  0.79 | 0.28  0.35  0.65  0.03    -   | 0.93  0.82  0.87 |   -  
+P6-grandparent 0.97  0.00  0.38  0.78 | 1.00  0.12  0.88  0.00  0.07 | 1.00  0.50  0.63 | 0.38
+P6-colour      0.57  0.00  0.51  0.50 | 1.00  0.51  0.49  0.00  0.00 | 0.62  0.51  0.58 | 0.51
+G2             0.66  0.69  0.58  0.68 | 0.20  0.26  0.74  0.00    -   | 0.82  0.89  0.85 |   -  
+G4             0.54  0.52  0.48  0.53 | 0.23  0.25  0.75  0.00    -   | 0.70  0.54  0.56 |   -  
+L1-kind        0.66  0.00  0.43  0.53 | 0.99  0.60  0.40  0.14  0.26 | 0.75  0.48  0.65 | 0.43
+L1-anc         0.72  0.00  0.49  0.67 | 1.00  0.21  0.79  0.00  0.01 | 1.00  0.50  0.72 | 0.49
+L1-size        0.96  0.01  0.21  0.61 | 0.99  0.43  0.57  0.01  0.07 | 1.00  0.52  0.47 | 0.21
+L2-named       0.88  0.00  0.26  0.59 | 0.99  0.43  0.57  0.00  0.16 | 0.94  0.70  0.67 | 0.26
+   L1-anc-depth45 {'arbiter': 0.528, 'intuition': 0.542, 'logic-final': 0.514, 'logic-step0': 0.0, 'n': 18.0}
+   withheld-fit {'arbiter': 0.896, 'backtracks_true': 3.099, 'backward_waste': 0.03, 'candidate_index_first': 0.77, 'candidate_index_mean': 1.249, 'checks_false': 4.753, 'checks_true': 5.584, 'exhausted_false': 0.782, 'exhausted_true': 0.59, 'found_rate_false': 0.218, 'found_rate_true': 0.41, 'intuition': 1.0, 'logic-final': 0.54, 'logic-step0': 0.0, 'path_len_found': 3.609, 'pool_empty_rate': 0.0, 'pool_size_mean': 28.768, 'programs': [[['<named-can >named-can >named-can <named-can|b >named-can|b', 71], ['>named-can <named-can|b', 50], ['>named-can >named-can|b >named-can|b <named-can|b', 43]], [['>is-a >lives-with >lives-with|b >lives-with|b >lives-with|b', 43], ['>is-a >lives-with >lives-with >lives-with|b >lives-with|b', 42], ['>is-a >lives-with >is-a|b >lives-with|b >lives-with|b', 41]], [['>bigger-than <bigger-than|b', 187], ['<named-has >bigger-than <bigger-than|b', 21], ['>bigger-than <named-has|b', 19]], [['<named-can <named-has|b', 169], ['<named-can >named-can|b', 167], ['>named-has <named-has|b >named-can|b >named-has|b <named-has|b', 30]]], 'proposer_offpath_choice_points': 292.5, 'proposer_recall': 0.155, 'search_rate': 1.0, 'trigger_rate': 1.0, 'trigger_rate_true': 1.0, 'true_path_rate': 0.012}
+   per-hop {'by_relation_true': {'can': 1.0, 'colour-of': 1.0, 'has': 1.0, 'is-a': 1.0, 'just-bigger-than': 1.0, 'names': 1.0, 'parent-of': 1.0, 'subkind-of': 1.0}, 'confirm_false': 0.0, 'confirm_true': 1.0}
+   conflict-flags-intuition-errors {'error_rate': 0.141, 'graded_auroc': 0.673}
+   S4a-u-rate {'arbiter': 0.466, 'arbiter_u_given_exhausted': 0.654, 'logic-final': 0.489, 'logic-step0': 0.659}
+   S4b-P7-u-rate {'arbiter': 0.356, 'arbiter_u_given_exhausted': 0.59, 'logic-final': 0.356, 'logic-step0': 0.568}
+   control-u-rate {'arbiter': 0.057, 'arbiter_u_given_exhausted': 0.235, 'logic-final': 0.096, 'logic-step0': 0.121}
+   S3b {'arbiter': {'always': 0.625, 'never': 0.806, 'sometimes': 0.069, 'usually': 0.562}, 'intuition': {'always': 0.417, 'never': 0.96, 'sometimes': 0.0, 'usually': 0.125}, 'logic-final': {'always': 0.333, 'never': 0.871, 'sometimes': 0.264, 'usually': 0.219}, 'logic-step0': {'always': 0.375, 'never': 0.911, 'sometimes': 0.097, 'usually': 0.406}}
+   S3b-trigger-rate 0.297
+   L1-kind {'logic_final_by_length': {'3': 0.51, '4': 0.36}, 'arbiter_by_length': {'3': 0.639, '4': 0.425}, 'checks_by_length_true': {'3': 3.288, '4': 6.45}, 'found_count_true_by_length': {'3': [[33, 35], [34, 35], [10, 35], [25, 35]], '4': [[3, 35], [35, 35], [21, 35], [5, 35]]}, 'programs': [[['>lighter-than', 22], ['>lives-in', 3], ['>named-can', 2]], [['>is-a', 36], ['>is-a >lives-with >is-a|b >lives-with|b >lives-with|b', 31], ['>is-a >lives-with >is-a|b', 4]], [['>lives-with >lives-with|b', 7], ['<lives-with', 5], ['>bigger-than >lives-with|b <named-has|b', 4]], [['>quieter-than', 10], ['>is-a', 5], ['<is >lives-with <is|b', 3]]], 'steps_by_length': None}
+   L1-anc {'logic_final_by_length': {'3': 0.472, '4': 0.521, '5': 0.5}, 'arbiter_by_length': {'3': 0.806, '4': 0.562, '5': 0.458}, 'checks_by_length_true': {'3': 4.667, '4': 3.792, '5': 3.417}, 'found_count_true_by_length': {'3': [[3, 9], [0, 9], [2, 9], [2, 9]], '4': [[3, 6], [0, 6], [1, 6], [3, 6]], '5': [[1, 3], [0, 3], [0, 3], [0, 3]]}, 'programs': [[['>named-can >named-can|b >named-can|b <named-can|b', 3], ['<named-can >named-can|b', 3], ['<named-can >named-can >named-can <named-can|b >named-can|b', 3]], [['>is-a >lives-with >is-a >lives-with|b >lives-with|b', 1]], [['>ancestor-of <bigger-than|b', 2], ['>bigger-than <bigger-than|b', 2], ['>bigger-than <ancestor-of|b', 2]], [['<named-can <named-has|b', 3], ['<named-can >named-can|b', 2], ['>named-can <named-can <named-can >named-can|b <named-can|b', 1]]], 'steps_by_length': None}
+   L1-size {'logic_final_by_length': {'10': 0.094, '11': 0.312, '3': 0.229, '4': 0.258, '5': 0.232, '6': 0.156, '7': 0.213, '8': 0.234, '9': 0.167}, 'arbiter_by_length': {'10': 0.656, '11': 0.562, '3': 0.59, '4': 0.609, '5': 0.652, '6': 0.615, '7': 0.612, '8': 0.625, '9': 0.604}, 'checks_by_length_true': {'10': 8.25, '11': 8.875, '3': 7.236, '4': 7.406, '5': 7.161, '6': 8.062, '7': 9.853, '8': 10.062, '9': 8.375}, 'found_count_true_by_length': {'10': [[0, 4], [1, 4], [0, 4], [2, 4]], '11': [[0, 2], [2, 2], [0, 2], [2, 2]], '3': [[4, 18], [14, 18], [8, 18], [7, 18]], '4': [[5, 16], [14, 16], [6, 16], [5, 16]], '5': [[6, 14], [14, 14], [4, 14], [4, 14]], '6': [[4, 12], [8, 12], [2, 12], [5, 12]], '7': [[1, 10], [9, 10], [2, 10], [5, 10]], '8': [[1, 8], [7, 8], [0, 8], [4, 8]], '9': [[1, 6], [4, 6], [0, 6], [3, 6]]}, 'programs': [[['>named-can', 3], ['>named-can >named-can|b', 2], ['>lives-in >named-can|b', 2]], [['>is-a >lives-with >lives-with >lives-with|b >lives-with|b', 37], ['>is-a >lives-with >lives-with|b >lives-with|b >lives-with|b', 23], ['>is-a >lives-with >lives-with|b', 14]], [['>bigger-than <bigger-than|b', 32], ['>bigger-than <bigger-than|b <bigger-than|b', 6], ['>bigger-than >bigger-than <bigger-than|b', 6]], [['<is >lives-with >lives-with <is|b <lives-with|b', 6], ['<lives-with >lives-with >lives-with|b >lives-with|b', 5], ['<lives-with >lives-with >lives-with <is|b >lives-with|b', 4]]], 'steps_by_length': None}
+   L2-named {'logic_final_by_length': {'named-can': 0.199, 'named-has': 0.201, 'named-kind': 0.323}, 'arbiter_by_length': {'named-can': 0.555, 'named-has': 0.533, 'named-kind': 0.646}, 'checks_by_length_true': {'named-can': 4.875, 'named-has': 5.312, 'named-kind': 7.708}, 'found_count_true_by_length': {'named-can': [[3, 8], [1, 8], [3, 8], [1, 8]], 'named-has': [[6, 20], [4, 20], [9, 20], [7, 20]], 'named-kind': [[10, 24], [9, 24], [20, 24], [16, 24]]}, 'programs': [[['>good-phrase', 3], ['>lives-in >good-phrase >lives-in|b', 2], ['>named-can >named-can <slower-than <slower-than|b', 2]], [['>lives-with >lives-with >lives-with|b >lives-with|b >lives-with|b', 5], ['>lives-with', 3], ['<is-a >lives-with >lives-with >lives-with|b >lives-with|b', 3]], [['<named-has >bigger-than <bigger-than|b', 8], ['<ancestor-of >bigger-than <bigger-than|b', 6], ['<lives-with >lives-with <lives-with|b', 4]], [['<named-can <lives-with >named-has|b >named-can|b', 9], ['<named-can >named-can|b', 5], ['<named-can >lives-with <lives-with <named-has|b >lives-with|b', 4]]], 'steps_by_length': None}
+   dax {'always': {'arbiter': 1.0, 'intuition': 1.0, 'logic-final': 0.75, 'logic-step0': 0.95, 'trigger_rate': 0.35}, 'never': {'arbiter': 0.806, 'intuition': 0.917, 'logic-final': 0.861, 'logic-step0': 1.0, 'trigger_rate': 0.139}, 'sometimes': {'arbiter': 0.028, 'intuition': 0.0, 'logic-final': 0.083, 'logic-step0': 0.139, 'trigger_rate': 0.472}, 'usually': {'arbiter': 0.5, 'intuition': 0.5, 'logic-final': 0.375, 'logic-step0': 0.375, 'trigger_rate': 0.25}}
+== bt-forward-notrace params 151486 controller 77685 last log {'checks_true': 6.772, 'found_false': 0.037, 'found_true': 0.485, 'loss': 1.113, 'outcome': 0.45, 'rank': 0.664, 'step': 1000.0, 'wall': 746.616}
+test           intuit step0  final  arbit | trig  found_T exh_T  truepath recall | aurocI aurocL0 aurocL | srchAll
+P1-default     0.92  0.81  0.76  0.86 | 0.18  0.07  0.93  0.00    -   | 0.96  0.93  0.96 |   -  
+P2             0.70  0.60  0.58  0.70 | 0.34  0.10  0.90  0.14  0.01 | 0.83  0.76  0.78 | 0.28
+P3             0.74  0.65  0.65  0.74 | 0.13  0.19  0.81  0.15  0.44 | 0.85  0.83  0.85 | 0.27
+P4             0.79  0.66  0.60  0.79 | 0.28  0.02  0.98  0.00    -   | 0.93  0.82  0.86 |   -  
+P6-grandparent 0.97  0.00  0.41  0.81 | 1.00  0.00  1.00    -    0.05 | 1.00  0.50  0.78 | 0.41
+P6-colour      0.57  0.00  0.34  0.40 | 1.00  0.03  0.97  0.00  0.04 | 0.62  0.51  0.54 | 0.34
+G2             0.66  0.69  0.52  0.69 | 0.20  0.02  0.98  0.33    -   | 0.82  0.89  0.85 |   -  
+G4             0.54  0.52  0.48  0.53 | 0.23  0.21  0.79  0.50    -   | 0.70  0.54  0.56 |   -  
+L1-kind        0.66  0.00  0.25  0.39 | 0.99  0.19  0.81  0.04  0.15 | 0.75  0.48  0.61 | 0.25
+L1-anc         0.72  0.00  0.74  0.76 | 1.00  0.47  0.53  0.75  0.64 | 1.00  0.50  0.90 | 0.74
+L1-size        0.96  0.01  0.13  0.56 | 0.99  0.13  0.87  0.09  0.27 | 1.00  0.52  0.53 | 0.12
+L2-named       0.88  0.00  0.18  0.50 | 0.99  0.20  0.80  0.00  0.15 | 0.94  0.70  0.77 | 0.18
+   L1-anc-depth45 {'arbiter': 0.639, 'intuition': 0.542, 'logic-final': 0.667, 'logic-step0': 0.0, 'n': 18.0}
+   withheld-fit {'arbiter': 0.891, 'backtracks_true': 3.215, 'backward_waste': None, 'candidate_index_first': 1.0, 'candidate_index_mean': 1.0, 'checks_false': 9.01, 'checks_true': 5.69, 'exhausted_false': 0.978, 'exhausted_true': 0.575, 'found_rate_false': 0.022, 'found_rate_true': 0.425, 'intuition': 1.0, 'logic-final': 0.631, 'logic-step0': 0.0, 'path_len_found': 2.049, 'pool_empty_rate': 0.0, 'pool_size_mean': 15.287, 'programs': [[['>parent-of', 35], ['<good-phrase <good-phrase >good-phrase', 21], ['>parent-of >parent-of', 19]], [['>and <and', 44], ['>parent-of', 32], ['>parent-of >parent-of', 23]], [['>has', 56], ['>has >has', 22], ['>has >has >has', 9]], [['>parent-of', 37], ['>parent-of >parent-of', 25], ['>is-a', 19]]], 'proposer_offpath_choice_points': 318.75, 'proposer_recall': 0.326, 'search_rate': 1.0, 'trigger_rate': 1.0, 'trigger_rate_true': 1.0, 'true_path_rate': 0.284}
+   per-hop {'by_relation_true': {'can': 1.0, 'colour-of': 1.0, 'has': 1.0, 'is-a': 1.0, 'just-bigger-than': 1.0, 'names': 1.0, 'parent-of': 1.0, 'subkind-of': 1.0}, 'confirm_false': 0.0, 'confirm_true': 1.0}
+   conflict-flags-intuition-errors {'error_rate': 0.141, 'graded_auroc': 0.673}
+   S4a-u-rate {'arbiter': 0.551, 'arbiter_u_given_exhausted': 0.703, 'logic-final': 0.551, 'logic-step0': 0.659}
+   S4b-P7-u-rate {'arbiter': 0.5, 'arbiter_u_given_exhausted': 0.803, 'logic-final': 0.386, 'logic-step0': 0.568}
+   control-u-rate {'arbiter': 0.068, 'arbiter_u_given_exhausted': 0.281, 'logic-final': 0.136, 'logic-step0': 0.121}
+   S3b {'arbiter': {'always': 0.688, 'never': 0.786, 'sometimes': 0.153, 'usually': 0.594}, 'intuition': {'always': 0.417, 'never': 0.96, 'sometimes': 0.0, 'usually': 0.125}, 'logic-final': {'always': 0.25, 'never': 0.907, 'sometimes': 0.292, 'usually': 0.188}, 'logic-step0': {'always': 0.375, 'never': 0.911, 'sometimes': 0.097, 'usually': 0.406}}
+   S3b-trigger-rate 0.297
+   L1-kind {'logic_final_by_length': {'3': 0.207, '4': 0.302}, 'arbiter_by_length': {'3': 0.471, '4': 0.302}, 'checks_by_length_true': {'3': 5.245, '4': 12.986}, 'found_count_true_by_length': {'3': [[1, 35], [20, 35], [22, 35], [10, 35]], '4': [[0, 35], [0, 35], [0, 35], [0, 35]]}, 'programs': [[['<good-phrase <good-phrase <good-phrase >good-phrase', 1]], [['>and <and >and >and', 12], ['>and', 8], ['>or <and >and >and', 2]], [['>has', 10], ['>has >has', 8], ['<has >has', 4]], [['<is-a >is-a', 7], ['<is-a', 2], ['>is-a', 2]]], 'steps_by_length': None}
+   L1-anc {'logic_final_by_length': {'3': 0.806, '4': 0.688, '5': 0.625}, 'arbiter_by_length': {'3': 0.875, '4': 0.667, '5': 0.583}, 'checks_by_length_true': {'3': 6.417, '4': 9.625, '5': 9.0}, 'found_count_true_by_length': {'3': [[4, 9], [7, 9], [2, 9], [9, 9]], '4': [[0, 6], [4, 6], [0, 6], [5, 6]], '5': [[0, 3], [1, 3], [0, 3], [2, 3]]}, 'programs': [[['>parent-of >parent-of >parent-of', 4]], [['>parent-of >parent-of >parent-of', 7], ['>parent-of >parent-of >parent-of >parent-of', 4], ['>parent-of >parent-of >parent-of >parent-of >parent-of', 1]], [['>has >has >has', 2]], [['>parent-of >parent-of >parent-of', 9], ['>parent-of >parent-of >parent-of >parent-of', 5], ['>parent-of >parent-of >parent-of >parent-of >parent-of', 2]]], 'steps_by_length': None}
+   L1-size {'logic_final_by_length': {'10': 0.125, '11': 0.188, '3': 0.146, '4': 0.125, '5': 0.134, '6': 0.146, '7': 0.1, '8': 0.125, '9': 0.125}, 'arbiter_by_length': {'10': 0.594, '11': 0.438, '3': 0.5, '4': 0.547, '5': 0.562, '6': 0.625, '7': 0.575, '8': 0.547, '9': 0.583}, 'checks_by_length_true': {'10': 9.938, '11': 8.625, '3': 7.708, '4': 7.578, '5': 7.929, '6': 9.417, '7': 9.042, '8': 9.375, '9': 9.0}, 'found_count_true_by_length': {'10': [[0, 4], [0, 4], [0, 4], [0, 4]], '11': [[0, 2], [0, 2], [0, 2], [0, 2]], '3': [[0, 18], [4, 18], [4, 18], [10, 18]], '4': [[0, 16], [1, 16], [2, 16], [7, 16]], '5': [[0, 14], [2, 14], [1, 14], [6, 14]], '6': [[0, 12], [2, 12], [0, 12], [2, 12]], '7': [[0, 10], [0, 10], [0, 10], [2, 10]], '8': [[0, 8], [0, 8], [0, 8], [3, 8]], '9': [[0, 6], [1, 6], [0, 6], [1, 6]]}, 'programs': [[], [['>and <and', 4], ['<is-a <good-phrase', 4], ['>or <and', 2]], [['>has >has >has', 2], ['>has', 2], ['>has >has', 1]], [['>is-a >is-a >is-a', 9], ['<just-bigger-than <just-bigger-than <just-bigger-than', 6], ['>is-a >is-a >is-a >is-a', 5]]], 'steps_by_length': None}
+   L2-named {'logic_final_by_length': {'named-can': 0.239, 'named-has': 0.174, 'named-kind': 0.167}, 'arbiter_by_length': {'named-can': 0.489, 'named-has': 0.461, 'named-kind': 0.542}, 'checks_by_length_true': {'named-can': 4.438, 'named-has': 6.3, 'named-kind': 6.115}, 'found_count_true_by_length': {'named-can': [[1, 8], [0, 8], [4, 8], [3, 8]], 'named-has': [[7, 20], [0, 20], [4, 20], [2, 20]], 'named-kind': [[14, 24], [0, 24], [4, 24], [2, 24]]}, 'programs': [[['<good-phrase >good-phrase', 10], ['>good-phrase >good-phrase', 8], ['<good-phrase <good-phrase >good-phrase', 3]], [['<or >or <or <lives-in', 1]], [['>has >has', 11], ['>has >has >has >has', 1], ['>good-phrase', 1]], [['>parent-of >parent-of', 2], ['<is-a >is-a', 2], ['>is-a >is-a', 2]]], 'steps_by_length': None}
+   dax {'always': {'arbiter': 0.9, 'intuition': 1.0, 'logic-final': 0.75, 'logic-step0': 0.95, 'trigger_rate': 0.35}, 'never': {'arbiter': 0.806, 'intuition': 0.917, 'logic-final': 0.917, 'logic-step0': 1.0, 'trigger_rate': 0.139}, 'sometimes': {'arbiter': 0.167, 'intuition': 0.0, 'logic-final': 0.25, 'logic-step0': 0.139, 'trigger_rate': 0.472}, 'usually': {'arbiter': 0.375, 'intuition': 0.5, 'logic-final': 0.375, 'logic-step0': 0.375, 'trigger_rate': 0.25}}

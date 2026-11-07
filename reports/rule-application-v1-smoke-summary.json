@@ -1,0 +1,3356 @@
+{
+ "edge-loop": {
+  "edits": {
+   "e1-body-args": {
+    "accuracy": 0.497,
+    "flipped_correct": 0.532,
+    "unchanged_answer_rate": 0.998
+   },
+   "e2-body-rel": {
+    "accuracy": 0.514,
+    "flipped_correct": 0.587,
+    "unchanged_answer_rate": 0.997
+   },
+   "e3-head-args": {
+    "accuracy": 0.489,
+    "flipped_correct": 0.488,
+    "unchanged_answer_rate": 0.996
+   },
+   "i1-fresh-vectors": {
+    "accuracy": 0.463,
+    "flipped_correct": null,
+    "unchanged_answer_rate": 0.577
+   },
+   "i2-dead-rule": {
+    "accuracy": 0.491,
+    "flipped_correct": null,
+    "unchanged_answer_rate": 0.998
+   },
+   "i3-unused-relation": {
+    "accuracy": 0.491,
+    "flipped_correct": null,
+    "unchanged_answer_rate": 0.995
+   }
+  },
+  "sets": {
+   "held": {
+    "T16": {
+     "F_recall": 0.515,
+     "T_recall": {
+      "1": 0.472,
+      "2": 0.503,
+      "3": 0.356,
+      "4": 0.636
+     },
+     "bal_by_depth": {
+      "1": 0.493,
+      "2": 0.509,
+      "3": 0.435,
+      "4": 0.576
+     },
+     "chain4_T_recall": 0.516,
+     "conn_F_recall": {
+      "1-2": 0.514,
+      "3-4": 0.517,
+      "5-6": null,
+      "7-12": null
+     }
+    },
+    "T4": {
+     "F_recall": 0.552,
+     "T_recall": {
+      "1": 0.486,
+      "2": 0.513,
+      "3": 0.38,
+      "4": 0.364
+     },
+     "bal_by_depth": {
+      "1": 0.519,
+      "2": 0.533,
+      "3": 0.466,
+      "4": 0.458
+     },
+     "chain4_T_recall": 0.503,
+     "conn_F_recall": {
+      "1-2": 0.553,
+      "3-4": 0.517,
+      "5-6": null,
+      "7-12": null
+     }
+    },
+    "T8": {
+     "F_recall": 0.488,
+     "T_recall": {
+      "1": 0.501,
+      "2": 0.544,
+      "3": 0.423,
+      "4": 0.409
+     },
+     "bal_by_depth": {
+      "1": 0.494,
+      "2": 0.516,
+      "3": 0.455,
+      "4": 0.448
+     },
+     "chain4_T_recall": 0.545,
+     "conn_F_recall": {
+      "1-2": 0.487,
+      "3-4": 0.517,
+      "5-6": null,
+      "7-12": null
+     }
+    }
+   },
+   "indist": {
+    "T16": {
+     "F_recall": 0.533,
+     "T_recall": {
+      "1": 0.436,
+      "2": 0.571
+     },
+     "bal_by_depth": {
+      "1": 0.485,
+      "2": 0.552
+     },
+     "chain4_T_recall": null,
+     "conn_F_recall": {
+      "1-2": 0.538,
+      "3-4": 0.461,
+      "5-6": null,
+      "7-12": null
+     }
+    },
+    "T4": {
+     "F_recall": 0.539,
+     "T_recall": {
+      "1": 0.439,
+      "2": 0.58
+     },
+     "bal_by_depth": {
+      "1": 0.489,
+      "2": 0.559
+     },
+     "chain4_T_recall": null,
+     "conn_F_recall": {
+      "1-2": 0.548,
+      "3-4": 0.539,
+      "5-6": null,
+      "7-12": null
+     }
+    },
+    "T8": {
+     "F_recall": 0.519,
+     "T_recall": {
+      "1": 0.496,
+      "2": 0.597
+     },
+     "bal_by_depth": {
+      "1": 0.508,
+      "2": 0.558
+     },
+     "chain4_T_recall": null,
+     "conn_F_recall": {
+      "1-2": 0.521,
+      "3-4": 0.5,
+      "5-6": null,
+      "7-12": null
+     }
+    }
+   },
+   "large": {
+    "T16": {
+     "F_recall": 0.46,
+     "T_recall": {
+      "1": 0.578,
+      "2": 0.748
+     },
+     "bal_by_depth": {
+      "1": 0.519,
+      "2": 0.604
+     },
+     "chain4_T_recall": null,
+     "conn_F_recall": {
+      "1-2": 0.462,
+      "3-4": 0.444,
+      "5-6": null,
+      "7-12": null
+     }
+    },
+    "T4": {
+     "F_recall": 0.466,
+     "T_recall": {
+      "1": 0.552,
+      "2": 0.66
+     },
+     "bal_by_depth": {
+      "1": 0.509,
+      "2": 0.563
+     },
+     "chain4_T_recall": null,
+     "conn_F_recall": {
+      "1-2": 0.468,
+      "3-4": 0.389,
+      "5-6": null,
+      "7-12": null
+     }
+    },
+    "T8": {
+     "F_recall": 0.462,
+     "T_recall": {
+      "1": 0.566,
+      "2": 0.794
+     },
+     "bal_by_depth": {
+      "1": 0.514,
+      "2": 0.628
+     },
+     "chain4_T_recall": null,
+     "conn_F_recall": {
+      "1-2": 0.463,
+      "3-4": 0.444,
+      "5-6": null,
+      "7-12": null
+     }
+    }
+   },
+   "main": {
+    "T16": {
+     "F_recall": 0.5,
+     "T_recall": {
+      "1": 0.571,
+      "2": 0.512,
+      "3": 0.542,
+      "4": 0.466,
+      "5": 0.476,
+      "6": 0.583
+     },
+     "bal_by_depth": {
+      "1": 0.536,
+      "2": 0.506,
+      "3": 0.521,
+      "4": 0.483,
+      "5": 0.488,
+      "6": 0.542
+     },
+     "chain4_T_recall": 0.661,
+     "conn_F_recall": {
+      "1-2": 0.5,
+      "3-4": 0.45,
+      "5-6": null,
+      "7-12": null
+     }
+    },
+    "T4": {
+     "F_recall": 0.49,
+     "T_recall": {
+      "1": 0.554,
+      "2": 0.465,
+      "3": 0.458,
+      "4": 0.408,
+      "5": 0.448,
+      "6": 0.562
+     },
+     "bal_by_depth": {
+      "1": 0.522,
+      "2": 0.477,
+      "3": 0.474,
+      "4": 0.449,
+      "5": 0.469,
+      "6": 0.526
+     },
+     "chain4_T_recall": 0.551,
+     "conn_F_recall": {
+      "1-2": 0.489,
+      "3-4": 0.579,
+      "5-6": null,
+      "7-12": null
+     }
+    },
+    "T8": {
+     "F_recall": 0.53,
+     "T_recall": {
+      "1": 0.555,
+      "2": 0.441,
+      "3": 0.476,
+      "4": 0.366,
+      "5": 0.375,
+      "6": 0.5
+     },
+     "bal_by_depth": {
+      "1": 0.542,
+      "2": 0.485,
+      "3": 0.503,
+      "4": 0.448,
+      "5": 0.452,
+      "6": 0.515
+     },
+     "chain4_T_recall": 0.6,
+     "conn_F_recall": {
+      "1-2": 0.528,
+      "3-4": 0.543,
+      "5-6": null,
+      "7-12": null
+     }
+    }
+   }
+  },
+  "taught": {
+   "ancestor-of": {
+    "damage_F_recall": 0.985,
+    "damage_T_recall": {
+     "1": 0.923,
+     "2": 0.893,
+     "3": 0.667,
+     "4": 0.5,
+     "5": 0.333
+    },
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.5,
+      "unchanged_answer_rate": 1.0
+     },
+     "e2-body-rel": {
+      "flipped_correct": 0.32,
+      "unchanged_answer_rate": 1.0
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.647,
+      "unchanged_answer_rate": 1.0
+     },
+     "i1-fresh-vectors": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 0.0
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i3-unused-relation": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     }
+    },
+    "hop": {
+     "child-of": {
+      "precision": 0.021,
+      "recall": 0.125
+     },
+     "parent-of": {
+      "precision": 0.72,
+      "recall": 0.923
+     }
+    },
+    "oracle": {
+     "T16": {
+      "F_recall": 0.0,
+      "bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 0.0,
+       "3-4": 0.0,
+       "5-6": 0.0,
+       "7-12": null
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     },
+     "T4": {
+      "F_recall": 0.0,
+      "bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 0.0,
+       "3-4": 0.0,
+       "5-6": 0.0,
+       "7-12": null
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     },
+     "T8": {
+      "F_recall": 0.0,
+      "bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 0.0,
+       "3-4": 0.0,
+       "5-6": 0.0,
+       "7-12": null
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     }
+    },
+    "reader": {
+     "T16": {
+      "F_recall": 0.0,
+      "bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 0.0,
+       "3-4": 0.0,
+       "5-6": null,
+       "7-12": null
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     },
+     "T4": {
+      "F_recall": 0.0,
+      "bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 0.0,
+       "3-4": 0.0,
+       "5-6": null,
+       "7-12": null
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     },
+     "T8": {
+      "F_recall": 0.0,
+      "bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 0.0,
+       "3-4": 0.0,
+       "5-6": null,
+       "7-12": null
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     }
+    }
+   },
+   "bigger-than": {
+    "damage_F_recall": 0.962,
+    "damage_T_recall": {
+     "1": 0.818,
+     "10": 0.0,
+     "11": 0.0,
+     "2": 0.6,
+     "3": 0.556,
+     "4": 0.5,
+     "5": 0.429,
+     "6": 0.667,
+     "7": 0.6,
+     "8": 0.5,
+     "9": 0.333
+    },
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.606,
+      "unchanged_answer_rate": 1.0
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.727,
+      "unchanged_answer_rate": 0.982
+     },
+     "i1-fresh-vectors": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 0.312
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 0.986
+     },
+     "i3-unused-relation": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 0.924
+     }
+    },
+    "hop": {
+     "just-bigger-than": {
+      "precision": 0.818,
+      "recall": 0.818
+     }
+    },
+    "oracle": {
+     "T16": {
+      "F_recall": 0.244,
+      "bal_by_depth": {
+       "1": 0.485,
+       "10": 0.622,
+       "11": 0.622,
+       "2": 0.372,
+       "3": 0.511,
+       "4": 0.434,
+       "5": 0.408,
+       "6": 0.372,
+       "7": 0.322,
+       "8": 0.372,
+       "9": 0.288
+      },
+      "conn_F_recall": {
+       "1-2": 0.238,
+       "3-4": 0.235,
+       "5-6": 0.231,
+       "7-12": 0.2
+      },
+      "world_closure": 1.0,
+      "world_network": 0.417
+     },
+     "T4": {
+      "F_recall": 0.0,
+      "bal_by_depth": {
+       "1": 0.455,
+       "10": 0.5,
+       "11": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5,
+       "6": 0.5,
+       "7": 0.5,
+       "8": 0.5,
+       "9": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 0.0,
+       "3-4": 0.0,
+       "5-6": 0.0,
+       "7-12": 0.0
+      },
+      "world_closure": 1.0,
+      "world_network": 0.492
+     },
+     "T8": {
+      "F_recall": 0.013,
+      "bal_by_depth": {
+       "1": 0.416,
+       "10": 0.506,
+       "11": 0.506,
+       "2": 0.506,
+       "3": 0.451,
+       "4": 0.381,
+       "5": 0.506,
+       "6": 0.34,
+       "7": 0.406,
+       "8": 0.506,
+       "9": 0.34
+      },
+      "conn_F_recall": {
+       "1-2": 0.048,
+       "3-4": 0.0,
+       "5-6": 0.0,
+       "7-12": 0.0
+      },
+      "world_closure": 1.0,
+      "world_network": 0.439
+     }
+    },
+    "reader": {
+     "T16": {
+      "F_recall": 0.202,
+      "bal_by_depth": {
+       "1": 0.419,
+       "2": 0.301,
+       "3": 0.244,
+       "4": 0.184,
+       "5": 0.101,
+       "6": 0.351,
+       "7": 0.101
+      },
+      "conn_F_recall": {
+       "1-2": 0.143,
+       "3-4": 0.217,
+       "5-6": 0.111,
+       "7-12": 0.0
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.44,
+       "10": 0.622,
+       "11": 0.622,
+       "2": 0.422,
+       "3": 0.455,
+       "4": 0.434,
+       "5": 0.408,
+       "6": 0.372,
+       "7": 0.322,
+       "8": 0.372,
+       "9": 0.288
+      },
+      "world_closure": 1.0,
+      "world_network": 0.409
+     },
+     "T4": {
+      "F_recall": 0.0,
+      "bal_by_depth": {
+       "1": 0.455,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5,
+       "6": 0.5,
+       "7": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 0.0,
+       "3-4": 0.0,
+       "5-6": 0.0,
+       "7-12": 0.0
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.455,
+       "10": 0.5,
+       "11": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5,
+       "6": 0.5,
+       "7": 0.5,
+       "8": 0.5,
+       "9": 0.5
+      },
+      "world_closure": 1.0,
+      "world_network": 0.492
+     },
+     "T8": {
+      "F_recall": 0.01,
+      "bal_by_depth": {
+       "1": 0.414,
+       "2": 0.455,
+       "3": 0.433,
+       "4": 0.255,
+       "5": 0.338,
+       "6": 0.505,
+       "7": 0.005
+      },
+      "conn_F_recall": {
+       "1-2": 0.048,
+       "3-4": 0.0,
+       "5-6": 0.0,
+       "7-12": 0.0
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.416,
+       "10": 0.506,
+       "11": 0.506,
+       "2": 0.506,
+       "3": 0.451,
+       "4": 0.381,
+       "5": 0.506,
+       "6": 0.34,
+       "7": 0.406,
+       "8": 0.506,
+       "9": 0.34
+      },
+      "world_closure": 1.0,
+      "world_network": 0.439
+     }
+    }
+   },
+   "child-of": {
+    "damage_F_recall": 0.99,
+    "damage_T_recall": {
+     "1": 0.923
+    },
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.5,
+      "unchanged_answer_rate": 1.0
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.5,
+      "unchanged_answer_rate": 1.0
+     },
+     "i1-fresh-vectors": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i3-unused-relation": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     }
+    },
+    "hop": {
+     "parent-of": {
+      "precision": 0.72,
+      "recall": 0.923
+     }
+    },
+    "oracle": {
+     "T16": {
+      "F_recall": 1.0,
+      "bal_by_depth": {
+       "1": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 1.0,
+       "3-4": 1.0,
+       "5-6": 1.0,
+       "7-12": null
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     },
+     "T4": {
+      "F_recall": 1.0,
+      "bal_by_depth": {
+       "1": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 1.0,
+       "3-4": 1.0,
+       "5-6": 1.0,
+       "7-12": null
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     },
+     "T8": {
+      "F_recall": 1.0,
+      "bal_by_depth": {
+       "1": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 1.0,
+       "3-4": 1.0,
+       "5-6": 1.0,
+       "7-12": null
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     }
+    },
+    "reader": {
+     "T16": {
+      "F_recall": 1.0,
+      "bal_by_depth": {
+       "1": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 1.0,
+       "3-4": 1.0,
+       "5-6": 1.0,
+       "7-12": null
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.5
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     },
+     "T4": {
+      "F_recall": 1.0,
+      "bal_by_depth": {
+       "1": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 1.0,
+       "3-4": 1.0,
+       "5-6": 1.0,
+       "7-12": null
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.5
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     },
+     "T8": {
+      "F_recall": 1.0,
+      "bal_by_depth": {
+       "1": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 1.0,
+       "3-4": 1.0,
+       "5-6": 1.0,
+       "7-12": null
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.5
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     }
+    }
+   },
+   "grandparent-of": {
+    "damage_F_recall": 0.99,
+    "damage_T_recall": {
+     "1": 0.893
+    },
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.5,
+      "unchanged_answer_rate": 0.976
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.464,
+      "unchanged_answer_rate": 0.988
+     },
+     "i1-fresh-vectors": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 0.107
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 0.994
+     },
+     "i3-unused-relation": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 0.972
+     }
+    },
+    "hop": {
+     "parent-of": {
+      "precision": 0.72,
+      "recall": 0.923
+     }
+    },
+    "oracle": {
+     "T16": {
+      "F_recall": 0.107,
+      "bal_by_depth": {
+       "1": 0.518
+      },
+      "conn_F_recall": {
+       "1-2": 0.062,
+       "3-4": 0.105,
+       "5-6": 0.154,
+       "7-12": null
+      },
+      "world_closure": 1.0,
+      "world_network": 0.494
+     },
+     "T4": {
+      "F_recall": 0.859,
+      "bal_by_depth": {
+       "1": 0.501
+      },
+      "conn_F_recall": {
+       "1-2": 0.815,
+       "3-4": 0.837,
+       "5-6": 0.731,
+       "7-12": null
+      },
+      "world_closure": 1.0,
+      "world_network": 0.456
+     },
+     "T8": {
+      "F_recall": 0.016,
+      "bal_by_depth": {
+       "1": 0.49
+      },
+      "conn_F_recall": {
+       "1-2": 0.0,
+       "3-4": 0.023,
+       "5-6": 0.038,
+       "7-12": null
+      },
+      "world_closure": 1.0,
+      "world_network": 0.477
+     }
+    },
+    "reader": {
+     "T16": {
+      "F_recall": 0.11,
+      "bal_by_depth": {
+       "1": 0.516
+      },
+      "conn_F_recall": {
+       "1-2": 0.082,
+       "3-4": 0.145,
+       "5-6": 0.167,
+       "7-12": null
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.519
+      },
+      "world_closure": 1.0,
+      "world_network": 0.498
+     },
+     "T4": {
+      "F_recall": 0.858,
+      "bal_by_depth": {
+       "1": 0.493
+      },
+      "conn_F_recall": {
+       "1-2": 0.848,
+       "3-4": 0.862,
+       "5-6": 0.667,
+       "7-12": null
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.537
+      },
+      "world_closure": 1.0,
+      "world_network": 0.487
+     },
+     "T8": {
+      "F_recall": 0.015,
+      "bal_by_depth": {
+       "1": 0.482
+      },
+      "conn_F_recall": {
+       "1-2": 0.006,
+       "3-4": 0.029,
+       "5-6": 0.0,
+       "7-12": null
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.49
+      },
+      "world_closure": 1.0,
+      "world_network": 0.477
+     }
+    }
+   },
+   "is-a": {
+    "damage_F_recall": 0.613,
+    "damage_T_recall": {
+     "1": 0.429,
+     "2": 0.429,
+     "3": 0.429,
+     "4": 0.429
+    },
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.8,
+      "unchanged_answer_rate": 1.0
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.8,
+      "unchanged_answer_rate": 1.0
+     },
+     "i1-fresh-vectors": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i3-unused-relation": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     }
+    },
+    "hop": {
+     "kind-of": {
+      "precision": 0.118,
+      "recall": 0.114
+     },
+     "subkind-of": {
+      "precision": 0.041,
+      "recall": 0.889
+     }
+    },
+    "oracle": {
+     "T16": {
+      "F_recall": 1.0,
+      "bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 1.0,
+       "3-4": 1.0,
+       "5-6": 1.0,
+       "7-12": null
+      },
+      "world_closure": 0.961,
+      "world_network": 0.5
+     },
+     "T4": {
+      "F_recall": 1.0,
+      "bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 1.0,
+       "3-4": 1.0,
+       "5-6": 1.0,
+       "7-12": null
+      },
+      "world_closure": 0.961,
+      "world_network": 0.5
+     },
+     "T8": {
+      "F_recall": 1.0,
+      "bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 1.0,
+       "3-4": 1.0,
+       "5-6": 1.0,
+       "7-12": null
+      },
+      "world_closure": 0.961,
+      "world_network": 0.5
+     }
+    },
+    "reader": {
+     "T16": {
+      "F_recall": 1.0,
+      "bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5,
+       "6": 0.5,
+       "7": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 1.0,
+       "3-4": 1.0,
+       "5-6": null,
+       "7-12": null
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5
+      },
+      "world_closure": 0.961,
+      "world_network": 0.5
+     },
+     "T4": {
+      "F_recall": 1.0,
+      "bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5,
+       "6": 0.5,
+       "7": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 1.0,
+       "3-4": 1.0,
+       "5-6": null,
+       "7-12": null
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5
+      },
+      "world_closure": 0.961,
+      "world_network": 0.5
+     },
+     "T8": {
+      "F_recall": 1.0,
+      "bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5,
+       "6": 0.5,
+       "7": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 1.0,
+       "3-4": 1.0,
+       "5-6": null,
+       "7-12": null
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5
+      },
+      "world_closure": 0.961,
+      "world_network": 0.5
+     }
+    }
+   },
+   "smaller-than": {
+    "damage_F_recall": 0.962,
+    "damage_T_recall": {
+     "10": 0.333,
+     "11": 0.0,
+     "12": 0.0,
+     "2": 0.818,
+     "3": 0.6,
+     "4": 0.556,
+     "5": 0.5,
+     "6": 0.429,
+     "7": 0.667,
+     "8": 0.6,
+     "9": 0.5
+    },
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.5,
+      "unchanged_answer_rate": 1.0
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.667,
+      "unchanged_answer_rate": 1.0
+     },
+     "i1-fresh-vectors": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 0.0
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i3-unused-relation": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     }
+    },
+    "hop": {
+     "just-bigger-than": {
+      "precision": 0.818,
+      "recall": 0.818
+     }
+    },
+    "oracle": {
+     "T16": {
+      "F_recall": 0.0,
+      "bal_by_depth": {
+       "10": 0.5,
+       "11": 0.5,
+       "12": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5,
+       "6": 0.5,
+       "7": 0.5,
+       "8": 0.5,
+       "9": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 0.0,
+       "3-4": 0.0,
+       "5-6": 0.0,
+       "7-12": 0.0
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     },
+     "T4": {
+      "F_recall": 0.462,
+      "bal_by_depth": {
+       "10": 0.231,
+       "11": 0.481,
+       "12": 0.731,
+       "2": 0.322,
+       "3": 0.481,
+       "4": 0.509,
+       "5": 0.606,
+       "6": 0.445,
+       "7": 0.397,
+       "8": 0.431,
+       "9": 0.606
+      },
+      "conn_F_recall": {
+       "1-2": 0.619,
+       "3-4": 0.353,
+       "5-6": 0.462,
+       "7-12": 0.4
+      },
+      "world_closure": 1.0,
+      "world_network": 0.462
+     },
+     "T8": {
+      "F_recall": 0.0,
+      "bal_by_depth": {
+       "10": 0.5,
+       "11": 0.5,
+       "12": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5,
+       "6": 0.5,
+       "7": 0.5,
+       "8": 0.5,
+       "9": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 0.0,
+       "3-4": 0.0,
+       "5-6": 0.0,
+       "7-12": 0.0
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     }
+    },
+    "reader": {
+     "T16": {
+      "F_recall": 0.0,
+      "bal_by_depth": {
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5,
+       "6": 0.5,
+       "7": 0.5,
+       "8": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 0.0,
+       "3-4": 0.0,
+       "5-6": 0.0,
+       "7-12": 0.0
+      },
+      "vs_oracle_bal_by_depth": {
+       "10": 0.5,
+       "11": 0.5,
+       "12": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5,
+       "6": 0.5,
+       "7": 0.5,
+       "8": 0.5,
+       "9": 0.5
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     },
+     "T4": {
+      "F_recall": 0.423,
+      "bal_by_depth": {
+       "2": 0.348,
+       "3": 0.412,
+       "4": 0.497,
+       "5": 0.462,
+       "6": 0.212,
+       "7": 0.462,
+       "8": 0.212
+      },
+      "conn_F_recall": {
+       "1-2": 0.571,
+       "3-4": 0.435,
+       "5-6": 0.556,
+       "7-12": 0.0
+      },
+      "vs_oracle_bal_by_depth": {
+       "10": 0.231,
+       "11": 0.481,
+       "12": 0.731,
+       "2": 0.413,
+       "3": 0.481,
+       "4": 0.509,
+       "5": 0.606,
+       "6": 0.516,
+       "7": 0.397,
+       "8": 0.431,
+       "9": 0.606
+      },
+      "world_closure": 1.0,
+      "world_network": 0.485
+     },
+     "T8": {
+      "F_recall": 0.0,
+      "bal_by_depth": {
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5,
+       "6": 0.5,
+       "7": 0.5,
+       "8": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 0.0,
+       "3-4": 0.0,
+       "5-6": 0.0,
+       "7-12": 0.0
+      },
+      "vs_oracle_bal_by_depth": {
+       "10": 0.5,
+       "11": 0.5,
+       "12": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5,
+       "6": 0.5,
+       "7": 0.5,
+       "8": 0.5,
+       "9": 0.5
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     }
+    }
+   }
+  }
+ },
+ "edge-untied": {
+  "edits": {
+   "e1-body-args": {
+    "accuracy": 0.485,
+    "flipped_correct": 0.519,
+    "unchanged_answer_rate": 0.998
+   },
+   "e2-body-rel": {
+    "accuracy": 0.462,
+    "flipped_correct": 0.432,
+    "unchanged_answer_rate": 0.999
+   },
+   "e3-head-args": {
+    "accuracy": 0.485,
+    "flipped_correct": 0.517,
+    "unchanged_answer_rate": 0.998
+   },
+   "i1-fresh-vectors": {
+    "accuracy": 0.545,
+    "flipped_correct": null,
+    "unchanged_answer_rate": 0.56
+   },
+   "i2-dead-rule": {
+    "accuracy": 0.482,
+    "flipped_correct": null,
+    "unchanged_answer_rate": 0.998
+   },
+   "i3-unused-relation": {
+    "accuracy": 0.48,
+    "flipped_correct": null,
+    "unchanged_answer_rate": 0.977
+   }
+  },
+  "sets": {
+   "held": {
+    "T4": {
+     "F_recall": 0.474,
+     "T_recall": {
+      "1": 0.553,
+      "2": 0.37,
+      "3": 0.37,
+      "4": 0.091
+     },
+     "bal_by_depth": {
+      "1": 0.514,
+      "2": 0.422,
+      "3": 0.422,
+      "4": 0.283
+     },
+     "chain4_T_recall": 0.553,
+     "conn_F_recall": {
+      "1-2": 0.474,
+      "3-4": 0.552,
+      "5-6": null,
+      "7-12": null
+     }
+    }
+   },
+   "indist": {
+    "T4": {
+     "F_recall": 0.541,
+     "T_recall": {
+      "1": 0.379,
+      "2": 0.395
+     },
+     "bal_by_depth": {
+      "1": 0.46,
+      "2": 0.468
+     },
+     "chain4_T_recall": null,
+     "conn_F_recall": {
+      "1-2": 0.539,
+      "3-4": 0.579,
+      "5-6": null,
+      "7-12": null
+     }
+    }
+   },
+   "large": {
+    "T4": {
+     "F_recall": 0.559,
+     "T_recall": {
+      "1": 0.479,
+      "2": 0.45
+     },
+     "bal_by_depth": {
+      "1": 0.519,
+      "2": 0.504
+     },
+     "chain4_T_recall": null,
+     "conn_F_recall": {
+      "1-2": 0.559,
+      "3-4": 0.556,
+      "5-6": null,
+      "7-12": null
+     }
+    }
+   },
+   "main": {
+    "T4": {
+     "F_recall": 0.518,
+     "T_recall": {
+      "1": 0.466,
+      "2": 0.458,
+      "3": 0.471,
+      "4": 0.425,
+      "5": 0.456,
+      "6": 0.417
+     },
+     "bal_by_depth": {
+      "1": 0.492,
+      "2": 0.488,
+      "3": 0.494,
+      "4": 0.472,
+      "5": 0.487,
+      "6": 0.467
+     },
+     "chain4_T_recall": 0.622,
+     "conn_F_recall": {
+      "1-2": 0.518,
+      "3-4": 0.4,
+      "5-6": null,
+      "7-12": null
+     }
+    }
+   }
+  },
+  "taught": {
+   "ancestor-of": {
+    "damage_F_recall": 0.985,
+    "damage_T_recall": {
+     "1": 0.923,
+     "2": 0.893,
+     "3": 0.667,
+     "4": 0.5,
+     "5": 0.333
+    },
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.5,
+      "unchanged_answer_rate": 1.0
+     },
+     "e2-body-rel": {
+      "flipped_correct": 0.68,
+      "unchanged_answer_rate": 1.0
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.353,
+      "unchanged_answer_rate": 1.0
+     },
+     "i1-fresh-vectors": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 0.836
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i3-unused-relation": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     }
+    },
+    "hop": {
+     "child-of": {
+      "precision": 0.021,
+      "recall": 0.125
+     },
+     "parent-of": {
+      "precision": 0.72,
+      "recall": 0.923
+     }
+    },
+    "oracle": {
+     "T4": {
+      "F_recall": 1.0,
+      "bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 1.0,
+       "3-4": 1.0,
+       "5-6": 1.0,
+       "7-12": null
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     }
+    },
+    "reader": {
+     "T4": {
+      "F_recall": 1.0,
+      "bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 1.0,
+       "3-4": 1.0,
+       "5-6": null,
+       "7-12": null
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     }
+    }
+   },
+   "bigger-than": {
+    "damage_F_recall": 0.962,
+    "damage_T_recall": {
+     "1": 0.818,
+     "10": 0.0,
+     "11": 0.0,
+     "2": 0.6,
+     "3": 0.556,
+     "4": 0.5,
+     "5": 0.429,
+     "6": 0.667,
+     "7": 0.6,
+     "8": 0.5,
+     "9": 0.333
+    },
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.553,
+      "unchanged_answer_rate": 1.0
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.364,
+      "unchanged_answer_rate": 0.982
+     },
+     "i1-fresh-vectors": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 0.174
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i3-unused-relation": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 0.91
+     }
+    },
+    "hop": {
+     "just-bigger-than": {
+      "precision": 0.818,
+      "recall": 0.818
+     }
+    },
+    "oracle": {
+     "T4": {
+      "F_recall": 0.821,
+      "bal_by_depth": {
+       "1": 0.41,
+       "10": 0.41,
+       "11": 0.41,
+       "2": 0.51,
+       "3": 0.521,
+       "4": 0.535,
+       "5": 0.482,
+       "6": 0.41,
+       "7": 0.51,
+       "8": 0.535,
+       "9": 0.577
+      },
+      "conn_F_recall": {
+       "1-2": 0.857,
+       "3-4": 0.882,
+       "5-6": 0.692,
+       "7-12": 0.733
+      },
+      "world_closure": 1.0,
+      "world_network": 0.477
+     }
+    },
+    "reader": {
+     "T4": {
+      "F_recall": 0.817,
+      "bal_by_depth": {
+       "1": 0.409,
+       "2": 0.459,
+       "3": 0.552,
+       "4": 0.409,
+       "5": 0.409,
+       "6": 0.659,
+       "7": 0.909
+      },
+      "conn_F_recall": {
+       "1-2": 0.81,
+       "3-4": 0.87,
+       "5-6": 0.778,
+       "7-12": 0.0
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.41,
+       "10": 0.41,
+       "11": 0.41,
+       "2": 0.51,
+       "3": 0.521,
+       "4": 0.535,
+       "5": 0.482,
+       "6": 0.41,
+       "7": 0.51,
+       "8": 0.535,
+       "9": 0.577
+      },
+      "world_closure": 1.0,
+      "world_network": 0.477
+     }
+    }
+   },
+   "child-of": {
+    "damage_F_recall": 0.99,
+    "damage_T_recall": {
+     "1": 0.923
+    },
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.474,
+      "unchanged_answer_rate": 1.0
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.474,
+      "unchanged_answer_rate": 0.996
+     },
+     "i1-fresh-vectors": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 0.024
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 0.999
+     },
+     "i3-unused-relation": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 0.973
+     }
+    },
+    "hop": {
+     "parent-of": {
+      "precision": 0.72,
+      "recall": 0.923
+     }
+    },
+    "oracle": {
+     "T4": {
+      "F_recall": 0.022,
+      "bal_by_depth": {
+       "1": 0.511
+      },
+      "conn_F_recall": {
+       "1-2": 0.025,
+       "3-4": 0.023,
+       "5-6": 0.077,
+       "7-12": null
+      },
+      "world_closure": 1.0,
+      "world_network": 0.517
+     }
+    },
+    "reader": {
+     "T4": {
+      "F_recall": 0.022,
+      "bal_by_depth": {
+       "1": 0.511
+      },
+      "conn_F_recall": {
+       "1-2": 0.013,
+       "3-4": 0.051,
+       "5-6": 0.0,
+       "7-12": null
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.511
+      },
+      "world_closure": 1.0,
+      "world_network": 0.515
+     }
+    }
+   },
+   "grandparent-of": {
+    "damage_F_recall": 0.99,
+    "damage_T_recall": {
+     "1": 0.893
+    },
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.5,
+      "unchanged_answer_rate": 0.99
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.5,
+      "unchanged_answer_rate": 0.985
+     },
+     "i1-fresh-vectors": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 0.312
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 0.994
+     },
+     "i3-unused-relation": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 0.958
+     }
+    },
+    "hop": {
+     "parent-of": {
+      "precision": 0.72,
+      "recall": 0.923
+     }
+    },
+    "oracle": {
+     "T4": {
+      "F_recall": 0.701,
+      "bal_by_depth": {
+       "1": 0.511
+      },
+      "conn_F_recall": {
+       "1-2": 0.562,
+       "3-4": 0.698,
+       "5-6": 0.731,
+       "7-12": null
+      },
+      "world_closure": 1.0,
+      "world_network": 0.53
+     }
+    },
+    "reader": {
+     "T4": {
+      "F_recall": 0.695,
+      "bal_by_depth": {
+       "1": 0.437
+      },
+      "conn_F_recall": {
+       "1-2": 0.556,
+       "3-4": 0.587,
+       "5-6": 0.556,
+       "7-12": null
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.456
+      },
+      "world_closure": 1.0,
+      "world_network": 0.432
+     }
+    }
+   },
+   "is-a": {
+    "damage_F_recall": 0.613,
+    "damage_T_recall": {
+     "1": 0.429,
+     "2": 0.429,
+     "3": 0.429,
+     "4": 0.429
+    },
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.2,
+      "unchanged_answer_rate": 1.0
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.2,
+      "unchanged_answer_rate": 1.0
+     },
+     "i1-fresh-vectors": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 0.006
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i3-unused-relation": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     }
+    },
+    "hop": {
+     "kind-of": {
+      "precision": 0.118,
+      "recall": 0.114
+     },
+     "subkind-of": {
+      "precision": 0.041,
+      "recall": 0.889
+     }
+    },
+    "oracle": {
+     "T4": {
+      "F_recall": 0.0,
+      "bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 0.0,
+       "3-4": 0.0,
+       "5-6": 0.0,
+       "7-12": null
+      },
+      "world_closure": 0.961,
+      "world_network": 0.5
+     }
+    },
+    "reader": {
+     "T4": {
+      "F_recall": 0.0,
+      "bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5,
+       "6": 0.5,
+       "7": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 0.0,
+       "3-4": 0.0,
+       "5-6": null,
+       "7-12": null
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5
+      },
+      "world_closure": 0.961,
+      "world_network": 0.5
+     }
+    }
+   },
+   "smaller-than": {
+    "damage_F_recall": 0.962,
+    "damage_T_recall": {
+     "10": 0.333,
+     "11": 0.0,
+     "12": 0.0,
+     "2": 0.818,
+     "3": 0.6,
+     "4": 0.556,
+     "5": 0.5,
+     "6": 0.429,
+     "7": 0.667,
+     "8": 0.6,
+     "9": 0.5
+    },
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.508,
+      "unchanged_answer_rate": 1.0
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.333,
+      "unchanged_answer_rate": 1.0
+     },
+     "i1-fresh-vectors": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 0.007
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i3-unused-relation": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     }
+    },
+    "hop": {
+     "just-bigger-than": {
+      "precision": 0.818,
+      "recall": 0.818
+     }
+    },
+    "oracle": {
+     "T4": {
+      "F_recall": 0.987,
+      "bal_by_depth": {
+       "10": 0.494,
+       "11": 0.494,
+       "12": 0.494,
+       "2": 0.494,
+       "3": 0.494,
+       "4": 0.494,
+       "5": 0.494,
+       "6": 0.494,
+       "7": 0.494,
+       "8": 0.494,
+       "9": 0.494
+      },
+      "conn_F_recall": {
+       "1-2": 1.0,
+       "3-4": 1.0,
+       "5-6": 1.0,
+       "7-12": 0.933
+      },
+      "world_closure": 1.0,
+      "world_network": 0.492
+     }
+    },
+    "reader": {
+     "T4": {
+      "F_recall": 0.99,
+      "bal_by_depth": {
+       "2": 0.495,
+       "3": 0.495,
+       "4": 0.495,
+       "5": 0.495,
+       "6": 0.495,
+       "7": 0.495,
+       "8": 0.495
+      },
+      "conn_F_recall": {
+       "1-2": 1.0,
+       "3-4": 1.0,
+       "5-6": 0.889,
+       "7-12": 1.0
+      },
+      "vs_oracle_bal_by_depth": {
+       "10": 0.494,
+       "11": 0.494,
+       "12": 0.494,
+       "2": 0.494,
+       "3": 0.494,
+       "4": 0.494,
+       "5": 0.494,
+       "6": 0.494,
+       "7": 0.494,
+       "8": 0.494,
+       "9": 0.494
+      },
+      "world_closure": 1.0,
+      "world_network": 0.492
+     }
+    }
+   }
+  }
+ },
+ "pair-loop": {
+  "edits": {
+   "e1-body-args": {
+    "accuracy": 0.548,
+    "flipped_correct": 0.582,
+    "unchanged_answer_rate": 0.998
+   },
+   "e2-body-rel": {
+    "accuracy": 0.493,
+    "flipped_correct": 0.366,
+    "unchanged_answer_rate": 0.998
+   },
+   "e3-head-args": {
+    "accuracy": 0.541,
+    "flipped_correct": 0.551,
+    "unchanged_answer_rate": 0.998
+   },
+   "i1-fresh-vectors": {
+    "accuracy": 0.461,
+    "flipped_correct": null,
+    "unchanged_answer_rate": 0.568
+   },
+   "i2-dead-rule": {
+    "accuracy": 0.531,
+    "flipped_correct": null,
+    "unchanged_answer_rate": 0.997
+   },
+   "i3-unused-relation": {
+    "accuracy": 0.53,
+    "flipped_correct": null,
+    "unchanged_answer_rate": 0.996
+   }
+  },
+  "sets": {
+   "held": {
+    "T16": {
+     "F_recall": 0.557,
+     "T_recall": {
+      "1": 0.4,
+      "2": 0.45,
+      "3": 0.462,
+      "4": 0.432
+     },
+     "bal_by_depth": {
+      "1": 0.479,
+      "2": 0.504,
+      "3": 0.51,
+      "4": 0.495
+     },
+     "chain4_T_recall": 0.327,
+     "conn_F_recall": {
+      "1-2": 0.554,
+      "3-4": 0.483,
+      "5-6": null,
+      "7-12": null
+     }
+    },
+    "T4": {
+     "F_recall": 0.519,
+     "T_recall": {
+      "1": 0.439,
+      "2": 0.407,
+      "3": 0.351,
+      "4": 0.432
+     },
+     "bal_by_depth": {
+      "1": 0.479,
+      "2": 0.463,
+      "3": 0.435,
+      "4": 0.475
+     },
+     "chain4_T_recall": 0.374,
+     "conn_F_recall": {
+      "1-2": 0.516,
+      "3-4": 0.448,
+      "5-6": null,
+      "7-12": null
+     }
+    },
+    "T8": {
+     "F_recall": 0.556,
+     "T_recall": {
+      "1": 0.385,
+      "2": 0.391,
+      "3": 0.375,
+      "4": 0.432
+     },
+     "bal_by_depth": {
+      "1": 0.471,
+      "2": 0.473,
+      "3": 0.466,
+      "4": 0.494
+     },
+     "chain4_T_recall": 0.309,
+     "conn_F_recall": {
+      "1-2": 0.554,
+      "3-4": 0.483,
+      "5-6": null,
+      "7-12": null
+     }
+    }
+   },
+   "indist": {
+    "T16": {
+     "F_recall": 0.442,
+     "T_recall": {
+      "1": 0.655,
+      "2": 0.58
+     },
+     "bal_by_depth": {
+      "1": 0.549,
+      "2": 0.511
+     },
+     "chain4_T_recall": null,
+     "conn_F_recall": {
+      "1-2": 0.433,
+      "3-4": 0.5,
+      "5-6": null,
+      "7-12": null
+     }
+    },
+    "T4": {
+     "F_recall": 0.445,
+     "T_recall": {
+      "1": 0.648,
+      "2": 0.563
+     },
+     "bal_by_depth": {
+      "1": 0.546,
+      "2": 0.504
+     },
+     "chain4_T_recall": null,
+     "conn_F_recall": {
+      "1-2": 0.44,
+      "3-4": 0.5,
+      "5-6": null,
+      "7-12": null
+     }
+    },
+    "T8": {
+     "F_recall": 0.466,
+     "T_recall": {
+      "1": 0.633,
+      "2": 0.513
+     },
+     "bal_by_depth": {
+      "1": 0.549,
+      "2": 0.489
+     },
+     "chain4_T_recall": null,
+     "conn_F_recall": {
+      "1-2": 0.462,
+      "3-4": 0.5,
+      "5-6": null,
+      "7-12": null
+     }
+    }
+   },
+   "large": {
+    "T16": {
+     "F_recall": 0.435,
+     "T_recall": {
+      "1": 0.511,
+      "2": 0.817
+     },
+     "bal_by_depth": {
+      "1": 0.473,
+      "2": 0.626
+     },
+     "chain4_T_recall": null,
+     "conn_F_recall": {
+      "1-2": 0.436,
+      "3-4": 0.333,
+      "5-6": null,
+      "7-12": null
+     }
+    },
+    "T4": {
+     "F_recall": 0.384,
+     "T_recall": {
+      "1": 0.647,
+      "2": 0.744
+     },
+     "bal_by_depth": {
+      "1": 0.515,
+      "2": 0.564
+     },
+     "chain4_T_recall": null,
+     "conn_F_recall": {
+      "1-2": 0.386,
+      "3-4": 0.167,
+      "5-6": null,
+      "7-12": null
+     }
+    },
+    "T8": {
+     "F_recall": 0.391,
+     "T_recall": {
+      "1": 0.589,
+      "2": 0.811
+     },
+     "bal_by_depth": {
+      "1": 0.49,
+      "2": 0.601
+     },
+     "chain4_T_recall": null,
+     "conn_F_recall": {
+      "1-2": 0.392,
+      "3-4": 0.25,
+      "5-6": null,
+      "7-12": null
+     }
+    }
+   },
+   "main": {
+    "T16": {
+     "F_recall": 0.488,
+     "T_recall": {
+      "1": 0.44,
+      "2": 0.552,
+      "3": 0.575,
+      "4": 0.566,
+      "5": 0.601,
+      "6": 0.583
+     },
+     "bal_by_depth": {
+      "1": 0.464,
+      "2": 0.52,
+      "3": 0.531,
+      "4": 0.527,
+      "5": 0.544,
+      "6": 0.535
+     },
+     "chain4_T_recall": 0.504,
+     "conn_F_recall": {
+      "1-2": 0.486,
+      "3-4": 0.536,
+      "5-6": null,
+      "7-12": null
+     }
+    },
+    "T4": {
+     "F_recall": 0.484,
+     "T_recall": {
+      "1": 0.483,
+      "2": 0.599,
+      "3": 0.541,
+      "4": 0.592,
+      "5": 0.649,
+      "6": 0.604
+     },
+     "bal_by_depth": {
+      "1": 0.483,
+      "2": 0.541,
+      "3": 0.512,
+      "4": 0.538,
+      "5": 0.566,
+      "6": 0.544
+     },
+     "chain4_T_recall": 0.545,
+     "conn_F_recall": {
+      "1-2": 0.486,
+      "3-4": 0.457,
+      "5-6": null,
+      "7-12": null
+     }
+    },
+    "T8": {
+     "F_recall": 0.477,
+     "T_recall": {
+      "1": 0.462,
+      "2": 0.567,
+      "3": 0.59,
+      "4": 0.606,
+      "5": 0.633,
+      "6": 0.604
+     },
+     "bal_by_depth": {
+      "1": 0.47,
+      "2": 0.522,
+      "3": 0.534,
+      "4": 0.542,
+      "5": 0.555,
+      "6": 0.541
+     },
+     "chain4_T_recall": 0.587,
+     "conn_F_recall": {
+      "1-2": 0.476,
+      "3-4": 0.536,
+      "5-6": null,
+      "7-12": null
+     }
+    }
+   }
+  },
+  "taught": {
+   "ancestor-of": {
+    "damage_F_recall": 0.985,
+    "damage_T_recall": {
+     "1": 0.923,
+     "2": 0.893,
+     "3": 0.667,
+     "4": 0.5,
+     "5": 0.333
+    },
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.5,
+      "unchanged_answer_rate": 1.0
+     },
+     "e2-body-rel": {
+      "flipped_correct": 0.32,
+      "unchanged_answer_rate": 1.0
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.647,
+      "unchanged_answer_rate": 1.0
+     },
+     "i1-fresh-vectors": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 0.0
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i3-unused-relation": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     }
+    },
+    "hop": {
+     "child-of": {
+      "precision": 0.021,
+      "recall": 0.125
+     },
+     "parent-of": {
+      "precision": 0.72,
+      "recall": 0.923
+     }
+    },
+    "oracle": {
+     "T16": {
+      "F_recall": 0.0,
+      "bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 0.0,
+       "3-4": 0.0,
+       "5-6": 0.0,
+       "7-12": null
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     },
+     "T4": {
+      "F_recall": 0.0,
+      "bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 0.0,
+       "3-4": 0.0,
+       "5-6": 0.0,
+       "7-12": null
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     },
+     "T8": {
+      "F_recall": 0.0,
+      "bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 0.0,
+       "3-4": 0.0,
+       "5-6": 0.0,
+       "7-12": null
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     }
+    },
+    "reader": {
+     "T16": {
+      "F_recall": 0.0,
+      "bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 0.0,
+       "3-4": 0.0,
+       "5-6": null,
+       "7-12": null
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     },
+     "T4": {
+      "F_recall": 0.0,
+      "bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 0.0,
+       "3-4": 0.0,
+       "5-6": null,
+       "7-12": null
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     },
+     "T8": {
+      "F_recall": 0.0,
+      "bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 0.0,
+       "3-4": 0.0,
+       "5-6": null,
+       "7-12": null
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     }
+    }
+   },
+   "bigger-than": {
+    "damage_F_recall": 0.962,
+    "damage_T_recall": {
+     "1": 0.818,
+     "10": 0.0,
+     "11": 0.0,
+     "2": 0.6,
+     "3": 0.556,
+     "4": 0.5,
+     "5": 0.429,
+     "6": 0.667,
+     "7": 0.6,
+     "8": 0.5,
+     "9": 0.333
+    },
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.5,
+      "unchanged_answer_rate": 1.0
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.667,
+      "unchanged_answer_rate": 1.0
+     },
+     "i1-fresh-vectors": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 0.0
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i3-unused-relation": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     }
+    },
+    "hop": {
+     "just-bigger-than": {
+      "precision": 0.818,
+      "recall": 0.818
+     }
+    },
+    "oracle": {
+     "T16": {
+      "F_recall": 0.0,
+      "bal_by_depth": {
+       "1": 0.5,
+       "10": 0.5,
+       "11": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5,
+       "6": 0.5,
+       "7": 0.5,
+       "8": 0.5,
+       "9": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 0.0,
+       "3-4": 0.0,
+       "5-6": 0.0,
+       "7-12": 0.0
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     },
+     "T4": {
+      "F_recall": 0.603,
+      "bal_by_depth": {
+       "1": 0.529,
+       "10": 0.801,
+       "11": 0.801,
+       "2": 0.701,
+       "3": 0.524,
+       "4": 0.614,
+       "5": 0.516,
+       "6": 0.718,
+       "7": 0.601,
+       "8": 0.801,
+       "9": 0.635
+      },
+      "conn_F_recall": {
+       "1-2": 0.619,
+       "3-4": 0.529,
+       "5-6": 0.615,
+       "7-12": 0.467
+      },
+      "world_closure": 1.0,
+      "world_network": 0.598
+     },
+     "T8": {
+      "F_recall": 0.0,
+      "bal_by_depth": {
+       "1": 0.5,
+       "10": 0.5,
+       "11": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5,
+       "6": 0.5,
+       "7": 0.5,
+       "8": 0.5,
+       "9": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 0.0,
+       "3-4": 0.0,
+       "5-6": 0.0,
+       "7-12": 0.0
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     }
+    },
+    "reader": {
+     "T16": {
+      "F_recall": 0.0,
+      "bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5,
+       "6": 0.5,
+       "7": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 0.0,
+       "3-4": 0.0,
+       "5-6": 0.0,
+       "7-12": 0.0
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.5,
+       "10": 0.5,
+       "11": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5,
+       "6": 0.5,
+       "7": 0.5,
+       "8": 0.5,
+       "9": 0.5
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     },
+     "T4": {
+      "F_recall": 0.481,
+      "bal_by_depth": {
+       "1": 0.377,
+       "2": 0.54,
+       "3": 0.455,
+       "4": 0.574,
+       "5": 0.407,
+       "6": 0.74,
+       "7": 0.24
+      },
+      "conn_F_recall": {
+       "1-2": 0.571,
+       "3-4": 0.478,
+       "5-6": 0.444,
+       "7-12": 0.0
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.529,
+       "10": 0.801,
+       "11": 0.801,
+       "2": 0.701,
+       "3": 0.524,
+       "4": 0.614,
+       "5": 0.516,
+       "6": 0.718,
+       "7": 0.601,
+       "8": 0.801,
+       "9": 0.635
+      },
+      "world_closure": 1.0,
+      "world_network": 0.598
+     },
+     "T8": {
+      "F_recall": 0.0,
+      "bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5,
+       "6": 0.5,
+       "7": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 0.0,
+       "3-4": 0.0,
+       "5-6": 0.0,
+       "7-12": 0.0
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.5,
+       "10": 0.5,
+       "11": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5,
+       "6": 0.5,
+       "7": 0.5,
+       "8": 0.5,
+       "9": 0.5
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     }
+    }
+   },
+   "child-of": {
+    "damage_F_recall": 0.99,
+    "damage_T_recall": {
+     "1": 0.923
+    },
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.5,
+      "unchanged_answer_rate": 1.0
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.5,
+      "unchanged_answer_rate": 1.0
+     },
+     "i1-fresh-vectors": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i3-unused-relation": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     }
+    },
+    "hop": {
+     "parent-of": {
+      "precision": 0.72,
+      "recall": 0.923
+     }
+    },
+    "oracle": {
+     "T16": {
+      "F_recall": 1.0,
+      "bal_by_depth": {
+       "1": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 1.0,
+       "3-4": 1.0,
+       "5-6": 1.0,
+       "7-12": null
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     },
+     "T4": {
+      "F_recall": 0.964,
+      "bal_by_depth": {
+       "1": 0.482
+      },
+      "conn_F_recall": {
+       "1-2": 0.966,
+       "3-4": 0.953,
+       "5-6": 0.885,
+       "7-12": null
+      },
+      "world_closure": 1.0,
+      "world_network": 0.476
+     },
+     "T8": {
+      "F_recall": 1.0,
+      "bal_by_depth": {
+       "1": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 1.0,
+       "3-4": 1.0,
+       "5-6": 1.0,
+       "7-12": null
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     }
+    },
+    "reader": {
+     "T16": {
+      "F_recall": 1.0,
+      "bal_by_depth": {
+       "1": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 1.0,
+       "3-4": 1.0,
+       "5-6": 1.0,
+       "7-12": null
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.5
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     },
+     "T4": {
+      "F_recall": 0.965,
+      "bal_by_depth": {
+       "1": 0.482
+      },
+      "conn_F_recall": {
+       "1-2": 0.956,
+       "3-4": 0.957,
+       "5-6": 1.0,
+       "7-12": null
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.483
+      },
+      "world_closure": 1.0,
+      "world_network": 0.478
+     },
+     "T8": {
+      "F_recall": 1.0,
+      "bal_by_depth": {
+       "1": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 1.0,
+       "3-4": 1.0,
+       "5-6": 1.0,
+       "7-12": null
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.5
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     }
+    }
+   },
+   "grandparent-of": {
+    "damage_F_recall": 0.99,
+    "damage_T_recall": {
+     "1": 0.893
+    },
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.5,
+      "unchanged_answer_rate": 1.0
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.5,
+      "unchanged_answer_rate": 1.0
+     },
+     "i1-fresh-vectors": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 0.0
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i3-unused-relation": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     }
+    },
+    "hop": {
+     "parent-of": {
+      "precision": 0.72,
+      "recall": 0.923
+     }
+    },
+    "oracle": {
+     "T16": {
+      "F_recall": 1.0,
+      "bal_by_depth": {
+       "1": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 1.0,
+       "3-4": 1.0,
+       "5-6": 1.0,
+       "7-12": null
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     },
+     "T4": {
+      "F_recall": 0.225,
+      "bal_by_depth": {
+       "1": 0.505
+      },
+      "conn_F_recall": {
+       "1-2": 0.2,
+       "3-4": 0.279,
+       "5-6": 0.231,
+       "7-12": null
+      },
+      "world_closure": 1.0,
+      "world_network": 0.58
+     },
+     "T8": {
+      "F_recall": 1.0,
+      "bal_by_depth": {
+       "1": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 1.0,
+       "3-4": 1.0,
+       "5-6": 1.0,
+       "7-12": null
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     }
+    },
+    "reader": {
+     "T16": {
+      "F_recall": 1.0,
+      "bal_by_depth": {
+       "1": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 1.0,
+       "3-4": 1.0,
+       "5-6": 1.0,
+       "7-12": null
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.5
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     },
+     "T4": {
+      "F_recall": 0.221,
+      "bal_by_depth": {
+       "1": 0.508
+      },
+      "conn_F_recall": {
+       "1-2": 0.211,
+       "3-4": 0.239,
+       "5-6": 0.167,
+       "7-12": null
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.522
+      },
+      "world_closure": 1.0,
+      "world_network": 0.607
+     },
+     "T8": {
+      "F_recall": 1.0,
+      "bal_by_depth": {
+       "1": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 1.0,
+       "3-4": 1.0,
+       "5-6": 1.0,
+       "7-12": null
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.5
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     }
+    }
+   },
+   "is-a": {
+    "damage_F_recall": 0.613,
+    "damage_T_recall": {
+     "1": 0.429,
+     "2": 0.429,
+     "3": 0.429,
+     "4": 0.429
+    },
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.8,
+      "unchanged_answer_rate": 1.0
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.8,
+      "unchanged_answer_rate": 1.0
+     },
+     "i1-fresh-vectors": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i3-unused-relation": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     }
+    },
+    "hop": {
+     "kind-of": {
+      "precision": 0.118,
+      "recall": 0.114
+     },
+     "subkind-of": {
+      "precision": 0.041,
+      "recall": 0.889
+     }
+    },
+    "oracle": {
+     "T16": {
+      "F_recall": 1.0,
+      "bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 1.0,
+       "3-4": 1.0,
+       "5-6": 1.0,
+       "7-12": null
+      },
+      "world_closure": 0.961,
+      "world_network": 0.5
+     },
+     "T4": {
+      "F_recall": 0.973,
+      "bal_by_depth": {
+       "1": 0.586,
+       "2": 0.486,
+       "3": 0.486,
+       "4": 0.486
+      },
+      "conn_F_recall": {
+       "1-2": 0.969,
+       "3-4": 0.969,
+       "5-6": 0.986,
+       "7-12": null
+      },
+      "world_closure": 0.961,
+      "world_network": 0.517
+     },
+     "T8": {
+      "F_recall": 1.0,
+      "bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 1.0,
+       "3-4": 1.0,
+       "5-6": 1.0,
+       "7-12": null
+      },
+      "world_closure": 0.961,
+      "world_network": 0.5
+     }
+    },
+    "reader": {
+     "T16": {
+      "F_recall": 1.0,
+      "bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5,
+       "6": 0.5,
+       "7": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 1.0,
+       "3-4": 1.0,
+       "5-6": null,
+       "7-12": null
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5
+      },
+      "world_closure": 0.961,
+      "world_network": 0.5
+     },
+     "T4": {
+      "F_recall": 0.967,
+      "bal_by_depth": {
+       "1": 0.513,
+       "2": 0.499,
+       "3": 0.503,
+       "4": 0.495,
+       "5": 0.498,
+       "6": 0.494,
+       "7": 0.483
+      },
+      "conn_F_recall": {
+       "1-2": 0.964,
+       "3-4": 0.979,
+       "5-6": null,
+       "7-12": null
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.557,
+       "2": 0.571,
+       "3": 0.486,
+       "4": 0.486
+      },
+      "world_closure": 0.961,
+      "world_network": 0.504
+     },
+     "T8": {
+      "F_recall": 1.0,
+      "bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5,
+       "6": 0.5,
+       "7": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 1.0,
+       "3-4": 1.0,
+       "5-6": null,
+       "7-12": null
+      },
+      "vs_oracle_bal_by_depth": {
+       "1": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5
+      },
+      "world_closure": 0.961,
+      "world_network": 0.5
+     }
+    }
+   },
+   "smaller-than": {
+    "damage_F_recall": 0.962,
+    "damage_T_recall": {
+     "10": 0.333,
+     "11": 0.0,
+     "12": 0.0,
+     "2": 0.818,
+     "3": 0.6,
+     "4": 0.556,
+     "5": 0.5,
+     "6": 0.429,
+     "7": 0.667,
+     "8": 0.6,
+     "9": 0.5
+    },
+    "edits": {
+     "e1-body-args": {
+      "flipped_correct": 0.5,
+      "unchanged_answer_rate": 1.0
+     },
+     "e3-head-args": {
+      "flipped_correct": 0.667,
+      "unchanged_answer_rate": 1.0
+     },
+     "i1-fresh-vectors": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 0.556
+     },
+     "i2-dead-rule": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     },
+     "i3-unused-relation": {
+      "flipped_correct": null,
+      "unchanged_answer_rate": 1.0
+     }
+    },
+    "hop": {
+     "just-bigger-than": {
+      "precision": 0.818,
+      "recall": 0.818
+     }
+    },
+    "oracle": {
+     "T16": {
+      "F_recall": 0.0,
+      "bal_by_depth": {
+       "10": 0.5,
+       "11": 0.5,
+       "12": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5,
+       "6": 0.5,
+       "7": 0.5,
+       "8": 0.5,
+       "9": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 0.0,
+       "3-4": 0.0,
+       "5-6": 0.0,
+       "7-12": 0.0
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     },
+     "T4": {
+      "F_recall": 0.0,
+      "bal_by_depth": {
+       "10": 0.5,
+       "11": 0.5,
+       "12": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5,
+       "6": 0.5,
+       "7": 0.5,
+       "8": 0.5,
+       "9": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 0.0,
+       "3-4": 0.0,
+       "5-6": 0.0,
+       "7-12": 0.0
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     },
+     "T8": {
+      "F_recall": 0.0,
+      "bal_by_depth": {
+       "10": 0.5,
+       "11": 0.5,
+       "12": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5,
+       "6": 0.5,
+       "7": 0.5,
+       "8": 0.5,
+       "9": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 0.0,
+       "3-4": 0.0,
+       "5-6": 0.0,
+       "7-12": 0.0
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     }
+    },
+    "reader": {
+     "T16": {
+      "F_recall": 0.0,
+      "bal_by_depth": {
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5,
+       "6": 0.5,
+       "7": 0.5,
+       "8": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 0.0,
+       "3-4": 0.0,
+       "5-6": 0.0,
+       "7-12": 0.0
+      },
+      "vs_oracle_bal_by_depth": {
+       "10": 0.5,
+       "11": 0.5,
+       "12": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5,
+       "6": 0.5,
+       "7": 0.5,
+       "8": 0.5,
+       "9": 0.5
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     },
+     "T4": {
+      "F_recall": 0.0,
+      "bal_by_depth": {
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5,
+       "6": 0.5,
+       "7": 0.5,
+       "8": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 0.0,
+       "3-4": 0.0,
+       "5-6": 0.0,
+       "7-12": 0.0
+      },
+      "vs_oracle_bal_by_depth": {
+       "10": 0.5,
+       "11": 0.5,
+       "12": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5,
+       "6": 0.5,
+       "7": 0.5,
+       "8": 0.5,
+       "9": 0.5
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     },
+     "T8": {
+      "F_recall": 0.0,
+      "bal_by_depth": {
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5,
+       "6": 0.5,
+       "7": 0.5,
+       "8": 0.5
+      },
+      "conn_F_recall": {
+       "1-2": 0.0,
+       "3-4": 0.0,
+       "5-6": 0.0,
+       "7-12": 0.0
+      },
+      "vs_oracle_bal_by_depth": {
+       "10": 0.5,
+       "11": 0.5,
+       "12": 0.5,
+       "2": 0.5,
+       "3": 0.5,
+       "4": 0.5,
+       "5": 0.5,
+       "6": 0.5,
+       "7": 0.5,
+       "8": 0.5,
+       "9": 0.5
+      },
+      "world_closure": 1.0,
+      "world_network": 0.5
+     }
+    }
+   }
+  }
+ }
+}

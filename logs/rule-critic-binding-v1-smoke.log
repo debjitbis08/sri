@@ -1,0 +1,70 @@
+canonical seed 450: checkpoint 50
+original seed 450: checkpoint 50
+canonical seed 450: checkpoint 100
+original seed 450: checkpoint 100
+matching seed 450: checkpoint 50
+Finished canonical seed 450
+Finished original seed 450
+matching seed 450: checkpoint 100
+Finished matching seed 450
+/home/debjit/code/sri/.venv/lib/python3.12/site-packages/numpy/__config__.py:155: UserWarning: Install `pyyaml` for better output
+  warnings.warn("Install `pyyaml` for better output", stacklevel=1)
+{
+  "original": {
+    "passes": false,
+    "valid": {
+      "mean": 0.08823529411764706,
+      "min": 0.08823529411764706,
+      "max": 0.08823529411764706,
+      "seeds": [
+        0.08823529411764706
+      ]
+    },
+    "nearest": {
+      "mean": 0.05601175043019963,
+      "min": 0.05601175043019963,
+      "max": 0.05601175043019963,
+      "seeds": [
+        0.05601175043019963
+      ]
+    }
+  },
+  "canonical": {
+    "passes": false,
+    "valid": {
+      "mean": 0.07352941176470588,
+      "min": 0.07352941176470588,
+      "max": 0.07352941176470588,
+      "seeds": [
+        0.07352941176470588
+      ]
+    },
+    "nearest": {
+      "mean": 0.04411764705882353,
+      "min": 0.04411764705882353,
+      "max": 0.04411764705882353,
+      "seeds": [
+        0.04411764705882353
+      ]
+    }
+  },
+  "matching": {
+    "passes": false,
+    "valid": {
+      "mean": 1.0,
+      "min": 1.0,
+      "max": 1.0,
+      "seeds": [
+        1.0
+      ]
+    },
+    "nearest": {
+      "mean": 0.7609987865669684,
+      "min": 0.7609987865669684,
+      "max": 0.7609987865669684,
+      "seeds": [
+        0.7609987865669684
+      ]
+    }
+  }
+}

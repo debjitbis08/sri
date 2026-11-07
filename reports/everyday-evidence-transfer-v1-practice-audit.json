@@ -1,0 +1,306 @@
+{
+ "episodes_per_checkpoint": 1024,
+ "results": {
+  "codes/seed450": {
+   "by_context": {
+    "0": {
+     "exception_accuracy": 1.0,
+     "exception_queries": 70,
+     "ordinary_accuracy": 0.5123456790123457
+    },
+    "4": {
+     "exception_accuracy": 0.7611940298507462,
+     "exception_queries": 67,
+     "ordinary_accuracy": 0.6599099099099099
+    },
+    "8": {
+     "exception_accuracy": 0.5825242718446602,
+     "exception_queries": 103,
+     "ordinary_accuracy": 0.7247956403269755
+    }
+   },
+   "checkpoint_sha256": "e4861cd502c7847d24b66fe6f28e9baedb35db101b0ad6dbe9d30a4c40cb66bf",
+   "exception_accuracy": 0.7541666666666667,
+   "exception_correct_probability": 0.584728151684006,
+   "exception_queries": 240,
+   "ordinary_accuracy": 0.636474609375,
+   "ordinary_queries": 4096
+  },
+  "codes/seed451": {
+   "by_context": {
+    "0": {
+     "exception_accuracy": 1.0,
+     "exception_queries": 96,
+     "ordinary_accuracy": 0.5116959064327485
+    },
+    "4": {
+     "exception_accuracy": 0.6666666666666666,
+     "exception_queries": 87,
+     "ordinary_accuracy": 0.6604046242774566
+    },
+    "8": {
+     "exception_accuracy": 0.524390243902439,
+     "exception_queries": 82,
+     "ordinary_accuracy": 0.7239583333333334
+    }
+   },
+   "checkpoint_sha256": "f446e68e5470fc3ef2770c58d758aa85e729b5028de2afdcc7773a6013df5596",
+   "exception_accuracy": 0.7433962264150943,
+   "exception_correct_probability": 0.578481334110476,
+   "exception_queries": 265,
+   "ordinary_accuracy": 0.631591796875,
+   "ordinary_queries": 4096
+  },
+  "codes/seed452": {
+   "by_context": {
+    "0": {
+     "exception_accuracy": 1.0,
+     "exception_queries": 87,
+     "ordinary_accuracy": 0.5130813953488372
+    },
+    "4": {
+     "exception_accuracy": 0.5977011494252874,
+     "exception_queries": 87,
+     "ordinary_accuracy": 0.6624629080118695
+    },
+    "8": {
+     "exception_accuracy": 0.5,
+     "exception_queries": 78,
+     "ordinary_accuracy": 0.7048104956268222
+    }
+   },
+   "checkpoint_sha256": "6dd977ced26bf96231aa6e7affa0e615c57f52560169e42cd8dfe22babe39bdd",
+   "exception_accuracy": 0.7063492063492064,
+   "exception_correct_probability": 0.5604710705460064,
+   "exception_queries": 252,
+   "ordinary_accuracy": 0.62646484375,
+   "ordinary_queries": 4096
+  },
+  "codes/seed453": {
+   "by_context": {
+    "0": {
+     "exception_accuracy": 1.0,
+     "exception_queries": 79,
+     "ordinary_accuracy": 0.4962235649546828
+    },
+    "4": {
+     "exception_accuracy": 0.6987951807228916,
+     "exception_queries": 83,
+     "ordinary_accuracy": 0.6766862170087976
+    },
+    "8": {
+     "exception_accuracy": 0.5128205128205128,
+     "exception_queries": 78,
+     "ordinary_accuracy": 0.6988636363636364
+    }
+   },
+   "checkpoint_sha256": "4c2e24424bfa1a2d123f83f2367cc92b854596dfa3448c1ed31d130f29dbb56e",
+   "exception_accuracy": 0.7375,
+   "exception_correct_probability": 0.5775817729532718,
+   "exception_queries": 240,
+   "ordinary_accuracy": 0.6259765625,
+   "ordinary_queries": 4096
+  },
+  "learned/seed450": {
+   "by_context": {
+    "0": {
+     "exception_accuracy": 1.0,
+     "exception_queries": 70,
+     "ordinary_accuracy": 0.5200617283950617
+    },
+    "4": {
+     "exception_accuracy": 0.7313432835820896,
+     "exception_queries": 67,
+     "ordinary_accuracy": 0.6629129129129129
+    },
+    "8": {
+     "exception_accuracy": 0.5533980582524272,
+     "exception_queries": 103,
+     "ordinary_accuracy": 0.7220708446866485
+    }
+   },
+   "checkpoint_sha256": "882c64cca2f97058f5f7d3842b4965291080ad00f7b21c7afded4710890e58f5",
+   "exception_accuracy": 0.7333333333333333,
+   "exception_correct_probability": 0.5805606535325448,
+   "exception_queries": 240,
+   "ordinary_accuracy": 0.638916015625,
+   "ordinary_queries": 4096
+  },
+  "learned/seed451": {
+   "by_context": {
+    "0": {
+     "exception_accuracy": 1.0,
+     "exception_queries": 96,
+     "ordinary_accuracy": 0.5095029239766082
+    },
+    "4": {
+     "exception_accuracy": 0.6206896551724138,
+     "exception_queries": 87,
+     "ordinary_accuracy": 0.6690751445086706
+    },
+    "8": {
+     "exception_accuracy": 0.5609756097560976,
+     "exception_queries": 82,
+     "ordinary_accuracy": 0.7373511904761905
+    }
+   },
+   "checkpoint_sha256": "29d5d234a30b63dabfd2e8507cac73f8ea94414eddfdc675008312ec64fc32fa",
+   "exception_accuracy": 0.7396226415094339,
+   "exception_correct_probability": 0.5740417341578682,
+   "exception_queries": 265,
+   "ordinary_accuracy": 0.63818359375,
+   "ordinary_queries": 4096
+  },
+  "learned/seed452": {
+   "by_context": {
+    "0": {
+     "exception_accuracy": 1.0,
+     "exception_queries": 87,
+     "ordinary_accuracy": 0.529796511627907
+    },
+    "4": {
+     "exception_accuracy": 0.6781609195402298,
+     "exception_queries": 87,
+     "ordinary_accuracy": 0.6765578635014837
+    },
+    "8": {
+     "exception_accuracy": 0.5641025641025641,
+     "exception_queries": 78,
+     "ordinary_accuracy": 0.7026239067055393
+    }
+   },
+   "checkpoint_sha256": "741ad1c19ff4291fbf333be8faf645a8259ce6358cc71ab33ee39214123fa553",
+   "exception_accuracy": 0.753968253968254,
+   "exception_correct_probability": 0.5717515989783264,
+   "exception_queries": 252,
+   "ordinary_accuracy": 0.635986328125,
+   "ordinary_queries": 4096
+  },
+  "learned/seed453": {
+   "by_context": {
+    "0": {
+     "exception_accuracy": 1.0,
+     "exception_queries": 79,
+     "ordinary_accuracy": 0.48942598187311176
+    },
+    "4": {
+     "exception_accuracy": 0.7831325301204819,
+     "exception_queries": 83,
+     "ordinary_accuracy": 0.6898826979472141
+    },
+    "8": {
+     "exception_accuracy": 0.6153846153846154,
+     "exception_queries": 78,
+     "ordinary_accuracy": 0.7102272727272727
+    }
+   },
+   "checkpoint_sha256": "2e8634e86ef28b5dcf341c6bc01b16896345b2c723702ffcc0408c679074e217",
+   "exception_accuracy": 0.8,
+   "exception_correct_probability": 0.611020247079432,
+   "exception_queries": 240,
+   "ordinary_accuracy": 0.632080078125,
+   "ordinary_queries": 4096
+  },
+  "oracle/seed450": {
+   "by_context": {
+    "0": {
+     "exception_accuracy": 1.0,
+     "exception_queries": 70,
+     "ordinary_accuracy": 0.5169753086419753
+    },
+    "4": {
+     "exception_accuracy": 0.746268656716418,
+     "exception_queries": 67,
+     "ordinary_accuracy": 0.668918918918919
+    },
+    "8": {
+     "exception_accuracy": 0.5533980582524272,
+     "exception_queries": 103,
+     "ordinary_accuracy": 0.7166212534059946
+    }
+   },
+   "checkpoint_sha256": "4af598f8e8078c632010963dcd7e8387a2a34608ad501bf42d67df5cf00cb75a",
+   "exception_accuracy": 0.7375,
+   "exception_correct_probability": 0.5711234240482251,
+   "exception_queries": 240,
+   "ordinary_accuracy": 0.637939453125,
+   "ordinary_queries": 4096
+  },
+  "oracle/seed451": {
+   "by_context": {
+    "0": {
+     "exception_accuracy": 1.0,
+     "exception_queries": 96,
+     "ordinary_accuracy": 0.5073099415204678
+    },
+    "4": {
+     "exception_accuracy": 0.6781609195402298,
+     "exception_queries": 87,
+     "ordinary_accuracy": 0.6741329479768786
+    },
+    "8": {
+     "exception_accuracy": 0.4878048780487805,
+     "exception_queries": 82,
+     "ordinary_accuracy": 0.734375
+    }
+   },
+   "checkpoint_sha256": "b8cdee4d1460b6cdc24753299e5b71e90af495be843bc699ef786e7ccafe6179",
+   "exception_accuracy": 0.7358490566037735,
+   "exception_correct_probability": 0.567823142712971,
+   "exception_queries": 265,
+   "ordinary_accuracy": 0.63818359375,
+   "ordinary_queries": 4096
+  },
+  "oracle/seed452": {
+   "by_context": {
+    "0": {
+     "exception_accuracy": 1.0,
+     "exception_queries": 87,
+     "ordinary_accuracy": 0.5290697674418605
+    },
+    "4": {
+     "exception_accuracy": 0.6551724137931034,
+     "exception_queries": 87,
+     "ordinary_accuracy": 0.6735905044510386
+    },
+    "8": {
+     "exception_accuracy": 0.5384615384615384,
+     "exception_queries": 78,
+     "ordinary_accuracy": 0.7026239067055393
+    }
+   },
+   "checkpoint_sha256": "3c284605d4ade1382abfee30434282a534a16878b7d90c863419abe76e5795ed",
+   "exception_accuracy": 0.7380952380952381,
+   "exception_correct_probability": 0.5706813679564566,
+   "exception_queries": 252,
+   "ordinary_accuracy": 0.634765625,
+   "ordinary_queries": 4096
+  },
+  "oracle/seed453": {
+   "by_context": {
+    "0": {
+     "exception_accuracy": 1.0,
+     "exception_queries": 79,
+     "ordinary_accuracy": 0.49244712990936557
+    },
+    "4": {
+     "exception_accuracy": 0.7590361445783133,
+     "exception_queries": 83,
+     "ordinary_accuracy": 0.6730205278592375
+    },
+    "8": {
+     "exception_accuracy": 0.5897435897435898,
+     "exception_queries": 78,
+     "ordinary_accuracy": 0.7095170454545454
+    }
+   },
+   "checkpoint_sha256": "d891b714a2f6395b17d2403ad611d6aff19121474a9dc4fff43ca996071a6431",
+   "exception_accuracy": 0.7833333333333333,
+   "exception_correct_probability": 0.5944520590205987,
+   "exception_queries": 240,
+   "ordinary_accuracy": 0.627197265625,
+   "ordinary_queries": 4096
+  }
+ },
+ "status": "post hoc read-only practice-distribution diagnostic; no fits"
+}

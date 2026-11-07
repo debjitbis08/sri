@@ -2292,3 +2292,83 @@ No search run on 2026-11-06; sources **[familiar]**, local results **[read: loca
   pairs; the right program with exhaustive search finds valid proofs for 0.77 of true withheld rows, against 0.13–0.36
   for the trained walkers. Implication: separate learning the program from executing it, and measure the reader graph
   before judging a controller.
+
+## Rule critic binding (2026-11-07)
+
+Reviewed before freezing [rule critic binding v1](rule-critic-binding-v1.md). Sources opened directly: arXiv
+1705.11040, 1506.03134, 2209.15430, 1703.06114; abstracts inspected, not full papers.
+
+- **[abstract]** [Rocktäschel and Riedel, NTP](https://arxiv.org/abs/1705.11040) replaces symbolic unification
+  with a radial-basis kernel on symbol vectors inside backward chaining. **[analogy]** Explicit cosine comparisons
+  between rule atoms and steps borrow soft symbol matching, not the full prover or its guarantees.
+- **[abstract]** [Moschella et al., relative representations](https://arxiv.org/abs/2209.15430) uses similarities
+  to anchors to support latent-space invariances and communication. **[analogy]** Here anchors are the current rule's
+  atoms; the transfer to held-out relation binding is a hypothesis, not a published result.
+- **[abstract]** [Zaheer et al., Deep Sets](https://arxiv.org/abs/1703.06114) characterizes permutation-invariant
+  set functions and provides a network construction. **[derived]** Summing encoded rules provides order invariance;
+  it does not guarantee that logical dependencies survive pooling.
+- **[abstract]** [Vinyals et al., Pointer Networks](https://arxiv.org/abs/1506.03134) uses attention to select
+  input positions. The proposed cosine-feature critic does not select positions and should not be called a pointer net.
+- **[derived]** Alpha-normalization by head-first occurrence preserves variable equality and eliminates sensitivity
+  to consistent variable renaming in the present ordered-body rules. This is syntax normalization, not learned
+  invariance or proof execution. Exact equality plus the three allowed transitions is the cheaper symbolic reference.
+- **[read: local results]** Diagnostic v1's direct arm reaches 0.88 acceptance on held-out instances but 0.54 on
+  held-out relations, with 0.154 variable-renaming verdict changes. This motivates a representation control before MIL.
+  **[hypothesis]** Relative comparison plus canonical roles repairs binding; this experiment cannot establish
+  answer-only learning, multiple-derived-symbol binding, or general logic.
+
+### Binding v1 result and a qualification to the short-string argument
+
+**[read: local results]** [Rule critic binding v1](rule-critic-binding-v1-results.md) reproduces the earlier direct
+baseline exactly. Canonicalization alone yields 44.9% held-out-relation valid acceptance; relative matching yields
+100% in all four seeds, but accepts 38.9% single-relation and 57.3% nearest-code substitutions. The full criterion
+fails in every seed. This supports improving the representation but not deploying this checker.
+
+**[derived, post hoc]** Representability as a pairwise language does not imply identifiability from length≤2
+sequence labels. R* and the endpoint-only language R·Σ*·R (plus the one-step R case) agree on all strings of
+length 1–2, yet disagree on R S R. Even exhaustive direct short-program supervision cannot force every wrong
+internal transition to fail. This qualifies earlier grammatical-inference motivation without changing frozen
+historical reports. A local-transition supervision control, or longer distinguishing negative strings, is needed
+before assuming that more question/proof labels will identify the desired local checker. The analytical control
+is recorded separately from the experiment; it is not a claim about the networks' exact learned mechanism.
+
+## Everyday evidence transfer (2026-11-07)
+
+Before freezing [everyday evidence transfer v1](everyday-evidence-transfer-v1.md), opened primary abstracts:
+Garnelo et al. CNP, Vinyals et al. Matching Networks, Kim et al. ANP. No full-paper replication claim.
+
+- **[abstract]** [Conditional Neural Processes](https://proceedings.mlr.press/v80/garnelo18a.html) learn a shared
+  predictor conditioned on small observation sets and demonstrate regression, classification and image completion.
+  **[analogy]** Here a context describes a fresh property by examples over frozen everyday knowledge profiles.
+- **[abstract]** [Attentive Neural Processes](https://arxiv.org/abs/1901.05761) identify underfitting of observed
+  context points and use attention to improve predictions. **[hypothesis]** Query-dependent attention may permit
+  explicit exception uptake here. The proposed deterministic classifier is not their full latent NP.
+- **[abstract]** [Matching Networks](https://arxiv.org/abs/1606.04080) conditions a prediction on labelled supports
+  without fine-tuning. The current component shares that use of context memory but is not a reproduction.
+- **[derived]** Retaining frozen readers and separate supports guarantees structural retention; it does not solve
+  interference during shared-weight consolidation. Few examples can leave multiple plausible concepts, so evaluate
+  prediction, Brier scores and evidence sensitivity rather than demand a unique formal derivation.
+- **[derived]** Holding out a generating formula is inadequate if its extension or complement occurs in training.
+  Deduplicate extensions before splits; hold out target entities from every adapter-training context/target too.
+- **[read: local results]** Everyday v3's threshold-shift failure motivates reporting false alarms with balanced
+  accuracy. Rule-critic binding's endpoint shortcut motivates tests of actual application, but its proof-training
+  framework is not the architecture target. The user explicitly centers a real-world learner.
+
+### Everyday evidence transfer v1 outcome
+
+**[read: local results]** [Everyday evidence transfer v1](everyday-evidence-transfer-v1-results.md) tested a
+support-conditioned classifier over frozen knowledge, without rule/proof inputs. With eight examples it reached
+70.1% BA on held-out groupings/entities, against 50.0% without examples and 50.2% with shuffled labels. Entity codes
+alone reached 65.2%, oracle profiles 74.2%. No arm met the 75% acquisition gate. These are controlled-fixture results,
+not general real-world learning claims.
+
+**[read: local results]** Ridge on the same learned profiles reached 70.9%, and 99.3% explicitly taught exception
+accuracy versus 44.0% for the neural adapter. The neural adapter was better with noisy labels (63.8% versus 58.4%)
+and missing profile entries (64.3% versus 53.3%); neither mechanism dominates all conditions. A post hoc no-fit audit
+found only 57.3% neural exception accuracy at eight examples on fresh practice-distribution episodes as well.
+
+**[derived]** The problem is not confined to new entities, but the run does not distinguish context underfitting,
+loss allocation and retrieval geometry. ANP's published context-underfitting motivation remains relevant; this
+attention-inspired classifier is not a full ANP reproduction. Generic local adaptation/example memory is a cheaper
+established comparison before adding architecture. Frozen-reader retention here is guaranteed by isolation and
+must not be described as a solution to interference during consolidation.

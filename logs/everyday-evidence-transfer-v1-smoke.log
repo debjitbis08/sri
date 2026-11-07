@@ -1,0 +1,114 @@
+learned seed450: step 50
+Finished learned seed450
+codes seed450: step 50
+Finished codes seed450
+oracle seed450: step 50
+Finished oracle seed450
+/home/debjit/code/sri/.venv/lib/python3.12/site-packages/numpy/__config__.py:155: UserWarning: Install `pyyaml` for better output
+  warnings.warn("Install `pyyaml` for better output", stacklevel=1)
+{
+  "codes": {
+    "held_structure": {
+      "BA": {
+        "mean": 0.5,
+        "min": 0.5,
+        "max": 0.5,
+        "seeds": [
+          0.5
+        ]
+      },
+      "acquisition": false,
+      "exceptions": false
+    },
+    "novel_combinations": {
+      "BA": {
+        "mean": 0.5,
+        "min": 0.5,
+        "max": 0.5,
+        "seeds": [
+          0.5
+        ]
+      },
+      "acquisition": false,
+      "exceptions": false
+    }
+  },
+  "learned": {
+    "held_structure": {
+      "BA": {
+        "mean": 0.5,
+        "min": 0.5,
+        "max": 0.5,
+        "seeds": [
+          0.5
+        ]
+      },
+      "acquisition": false,
+      "exceptions": false
+    },
+    "novel_combinations": {
+      "BA": {
+        "mean": 0.5,
+        "min": 0.5,
+        "max": 0.5,
+        "seeds": [
+          0.5
+        ]
+      },
+      "acquisition": false,
+      "exceptions": false
+    }
+  },
+  "oracle": {
+    "held_structure": {
+      "BA": {
+        "mean": 0.5,
+        "min": 0.5,
+        "max": 0.5,
+        "seeds": [
+          0.5
+        ]
+      },
+      "acquisition": false,
+      "exceptions": false
+    },
+    "novel_combinations": {
+      "BA": {
+        "mean": 0.5,
+        "min": 0.5,
+        "max": 0.5,
+        "seeds": [
+          0.5
+        ]
+      },
+      "acquisition": false,
+      "exceptions": false
+    }
+  },
+  "ridge": {
+    "held_structure": {
+      "BA": {
+        "mean": 0.6315104166666667,
+        "min": 0.6315104166666667,
+        "max": 0.6315104166666667,
+        "seeds": [
+          0.6315104166666667
+        ]
+      },
+      "acquisition": false,
+      "exceptions": true
+    },
+    "novel_combinations": {
+      "BA": {
+        "mean": 0.6744791666666666,
+        "min": 0.6744791666666666,
+        "max": 0.6744791666666666,
+        "seeds": [
+          0.6744791666666666
+        ]
+      },
+      "acquisition": false,
+      "exceptions": true
+    }
+  }
+}

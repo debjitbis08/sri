@@ -1,0 +1,109 @@
+{
+ "aggregate_worker_cpu_seconds": 96.80372988399999,
+ "children_peak_rss_kb": 705108,
+ "command": "/home/debjit/code/sri/experiments/rule_application.py",
+ "contract_sha256": "b73d0daef928fc8031013a52da941f62b5c892a5dd152c97fac13dd6dacc5d59",
+ "cpu": "x86_64",
+ "device": "cpu",
+ "dirty": false,
+ "dtype": "float32",
+ "numpy": "2.5.4",
+ "os": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "parent_peak_rss_kb": 298696,
+ "python": "3.12.3",
+ "revision": "9b2720f838a82b54e05d803136964e12822376e2",
+ "rss_convention": "ru_maxrss in KiB per process; children is the largest single child",
+ "runner_sha256": "5a1858b6e92beae6ca0024f372da278021f8185580c6f8ef330c88ef999550a7",
+ "scope": "nondeterministic timing",
+ "tasks": {
+  "edge-loop/seed460": {
+   "batch": 32,
+   "checkpoint_bytes": 571055,
+   "cpu_seconds": 45.345373472999995,
+   "edit_reads_cpu_seconds": 7.638126575000001,
+   "params": 138793,
+   "peak_rss_kb": 671956,
+   "steps": 5,
+   "synthetic_reads_cpu_seconds": 11.267376449,
+   "taught_reads_cpu_seconds": 21.985632574,
+   "test_generation": {
+    "attempts": 4221,
+    "redraws": 3
+   },
+   "test_generation_cpu_seconds": 2.8452710010000004,
+   "test_problems": {
+    "held": 20,
+    "indist": 20,
+    "large": 20,
+    "main": 80
+   },
+   "train_cpu_seconds": 1.597939228,
+   "train_generation": {
+    "attempts": 792,
+    "generation_cpu_seconds": 0.34346293000000006
+   },
+   "wall_seconds": 45.359266235005634
+  },
+  "edge-untied/seed460": {
+   "batch": 32,
+   "checkpoint_bytes": 1652519,
+   "cpu_seconds": 19.301470243,
+   "edit_reads_cpu_seconds": 2.524311440999999,
+   "params": 401257,
+   "peak_rss_kb": 705108,
+   "steps": 5,
+   "synthetic_reads_cpu_seconds": 1.8873056689999999,
+   "taught_reads_cpu_seconds": 9.790321329000001,
+   "test_generation": {
+    "attempts": 4221,
+    "redraws": 3
+   },
+   "test_generation_cpu_seconds": 2.872587857,
+   "test_problems": {
+    "held": 20,
+    "indist": 20,
+    "large": 20,
+    "main": 80
+   },
+   "train_cpu_seconds": 2.198726572,
+   "train_generation": {
+    "attempts": 792,
+    "generation_cpu_seconds": 0.40028319199999995
+   },
+   "wall_seconds": 19.314644498001144
+  },
+  "pair-loop/seed460": {
+   "batch": 32,
+   "checkpoint_bytes": 535351,
+   "cpu_seconds": 32.156886168,
+   "edit_reads_cpu_seconds": 3.503977978,
+   "params": 130473,
+   "peak_rss_kb": 590008,
+   "steps": 5,
+   "synthetic_reads_cpu_seconds": 6.0763034860000005,
+   "taught_reads_cpu_seconds": 18.184862533,
+   "test_generation": {
+    "attempts": 4221,
+    "redraws": 3
+   },
+   "test_generation_cpu_seconds": 2.9417927850000005,
+   "test_problems": {
+    "held": 20,
+    "indist": 20,
+    "large": 20,
+    "main": 80
+   },
+   "train_cpu_seconds": 1.437550059,
+   "train_generation": {
+    "attempts": 792,
+    "generation_cpu_seconds": 0.419397293
+   },
+   "wall_seconds": 32.16773034599464
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "wall_seconds": 45.43764794199524,
+ "workers": 3,
+ "world_sha256": "becebd0f5ab0d4d28653d53708f359243907425b08036af87775b8c8e1dfc4ef"
+}

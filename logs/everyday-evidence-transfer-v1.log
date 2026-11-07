@@ -1,0 +1,180 @@
+codes seed450: step 500
+codes seed452: step 500
+codes seed451: step 500
+codes seed450: step 1000
+codes seed452: step 1000
+codes seed451: step 1000
+codes seed450: step 2000
+codes seed451: step 2000
+codes seed452: step 2000
+Finished codes seed450
+Finished codes seed451
+Finished codes seed452
+codes seed453: step 500
+learned seed450: step 500learned seed451: step 500
+
+codes seed453: step 1000
+learned seed451: step 1000
+learned seed450: step 1000
+codes seed453: step 2000
+learned seed451: step 2000
+learned seed450: step 2000
+Finished codes seed453
+Finished learned seed450
+Finished learned seed451
+learned seed452: step 500
+learned seed453: step 500
+oracle seed450: step 500
+learned seed452: step 1000
+learned seed453: step 1000
+oracle seed450: step 1000
+learned seed452: step 2000
+learned seed453: step 2000
+oracle seed450: step 2000
+Finished learned seed452
+Finished oracle seed450
+Finished learned seed453
+oracle seed451: step 500
+oracle seed452: step 500
+oracle seed453: step 500
+oracle seed451: step 1000
+oracle seed452: step 1000
+oracle seed453: step 1000
+oracle seed451: step 2000
+oracle seed452: step 2000
+oracle seed453: step 2000
+Finished oracle seed451
+Finished oracle seed452
+Finished oracle seed453
+/home/debjit/code/sri/.venv/lib/python3.12/site-packages/numpy/__config__.py:155: UserWarning: Install `pyyaml` for better output
+  warnings.warn("Install `pyyaml` for better output", stacklevel=1)
+{
+  "codes": {
+    "held_structure": {
+      "BA": {
+        "mean": 0.5842552083333333,
+        "min": 0.5334166666666667,
+        "max": 0.6102916666666666,
+        "seeds": [
+          0.5939791666666667,
+          0.5334166666666667,
+          0.6102916666666666,
+          0.5993333333333334
+        ]
+      },
+      "acquisition": false,
+      "exceptions": false
+    },
+    "novel_combinations": {
+      "BA": {
+        "mean": 0.6518640350877193,
+        "min": 0.5981907894736842,
+        "max": 0.7012335526315789,
+        "seeds": [
+          0.6287280701754385,
+          0.5981907894736842,
+          0.7012335526315789,
+          0.6793037280701754
+        ]
+      },
+      "acquisition": false,
+      "exceptions": false
+    }
+  },
+  "learned": {
+    "held_structure": {
+      "BA": {
+        "mean": 0.6398645833333333,
+        "min": 0.6229374999999999,
+        "max": 0.6684583333333333,
+        "seeds": [
+          0.6450416666666666,
+          0.6230208333333332,
+          0.6684583333333333,
+          0.6229374999999999
+        ]
+      },
+      "acquisition": false,
+      "exceptions": false
+    },
+    "novel_combinations": {
+      "BA": {
+        "mean": 0.7011513157894737,
+        "min": 0.6696820175438597,
+        "max": 0.7508223684210527,
+        "seeds": [
+          0.6812774122807017,
+          0.6696820175438597,
+          0.7508223684210527,
+          0.7028234649122808
+        ]
+      },
+      "acquisition": false,
+      "exceptions": false
+    }
+  },
+  "oracle": {
+    "held_structure": {
+      "BA": {
+        "mean": 0.6591614583333333,
+        "min": 0.6368958333333333,
+        "max": 0.6668958333333334,
+        "seeds": [
+          0.6368958333333333,
+          0.6668958333333334,
+          0.6661041666666666,
+          0.66675
+        ]
+      },
+      "acquisition": false,
+      "exceptions": false
+    },
+    "novel_combinations": {
+      "BA": {
+        "mean": 0.7423930921052632,
+        "min": 0.7390076754385965,
+        "max": 0.7484100877192982,
+        "seeds": [
+          0.7400493421052632,
+          0.7390076754385965,
+          0.7421052631578947,
+          0.7484100877192982
+        ]
+      },
+      "acquisition": false,
+      "exceptions": false
+    }
+  },
+  "ridge": {
+    "held_structure": {
+      "BA": {
+        "mean": 0.6525729166666667,
+        "min": 0.6431666666666667,
+        "max": 0.6775625,
+        "seeds": [
+          0.6442083333333334,
+          0.6431666666666667,
+          0.6775625,
+          0.6453541666666667
+        ]
+      },
+      "acquisition": false,
+      "exceptions": true
+    },
+    "novel_combinations": {
+      "BA": {
+        "mean": 0.7087033991228069,
+        "min": 0.6774122807017544,
+        "max": 0.7563870614035088,
+        "seeds": [
+          0.6774122807017544,
+          0.6826480263157894,
+          0.7563870614035088,
+          0.7183662280701754
+        ]
+      },
+      "acquisition": false,
+      "exceptions": true
+    }
+  }
+}

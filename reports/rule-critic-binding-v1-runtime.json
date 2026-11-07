@@ -1,0 +1,884 @@
+{
+ "aggregate_worker_cpu_seconds": 1846.539628512,
+ "blas_configuration": "{\n  \"Compilers\": {\n    \"c\": {\n      \"name\": \"gcc\",\n      \"linker\": \"ld.bfd\",\n      \"version\": \"14.2.1\",\n      \"commands\": \"cc\"\n    },\n    \"cython\": {\n      \"name\": \"cython\",\n      \"linker\": \"cython\",\n      \"version\": \"3.3.0\",\n      \"commands\": \"cython\"\n    },\n    \"c++\": {\n      \"name\": \"gcc\",\n      \"linker\": \"ld.bfd\",\n      \"version\": \"14.2.1\",\n      \"commands\": \"c++\"\n    }\n  },\n  \"Machine Information\": {\n    \"host\": {\n      \"cpu\": \"x86_64\",\n      \"family\": \"x86_64\",\n      \"endian\": \"little\",\n      \"system\": \"linux\"\n    },\n    \"build\": {\n      \"cpu\": \"x86_64\",\n      \"family\": \"x86_64\",\n      \"endian\": \"little\",\n      \"system\": \"linux\"\n    }\n  },\n  \"Build Dependencies\": {\n    \"blas\": {\n      \"name\": \"scipy-openblas\",\n      \"found\": true,\n      \"version\": \"0.3.34.106.0\",\n      \"detection method\": \"pkgconfig\",\n      \"include directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include\",\n      \"lib directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib\",\n      \"openblas configuration\": \"OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64\",\n      \"pc file directory\": \"/project/.openblas\"\n    },\n    \"lapack\": {\n      \"name\": \"scipy-openblas\",\n      \"found\": true,\n      \"version\": \"0.3.34.106.0\",\n      \"detection method\": \"pkgconfig\",\n      \"include directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include\",\n      \"lib directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib\",\n      \"openblas configuration\": \"OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64\",\n      \"pc file directory\": \"/project/.openblas\"\n    }\n  },\n  \"Python Information\": {\n    \"path\": \"/tmp/build-env-ptu49_tp/bin/python\",\n    \"version\": \"3.12\"\n  },\n  \"SIMD Extensions\": {\n    \"baseline\": [\n      \"X86_V2\"\n    ],\n    \"found\": [\n      \"X86_V3\"\n    ],\n    \"not found\": [\n      \"X86_V4\",\n      \"AVX512_ICL\",\n      \"AVX512_SPR\"\n    ]\n  }\n}\n",
+ "children_peak_rss_kb": 516736,
+ "command": "/home/debjit/code/sri/experiments/rule_critic_binding.py",
+ "contract_sha256": "a1a42bacb366da09e9d7ecd9c07b2150c41e20040120cb94a3368d3bbd07c415",
+ "cpu": "x86_64",
+ "cpu_model": "AMD Ryzen 5 3600 6-Core Processor",
+ "device": "cpu",
+ "dirty": true,
+ "dirty_including_untracked": true,
+ "dtype": "float32",
+ "memory_limit": {
+  "address_space_rlimit_bytes": [
+   -1,
+   -1
+  ]
+ },
+ "numpy": "2.5.4",
+ "os": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "parent_peak_rss_kb": 300252,
+ "python": "3.12.3",
+ "revision": "33731d90f6f28cd6c4d54ac3a3b20d353c1b7b9e",
+ "rss_convention": "ru_maxrss in KiB per process; children is the largest single child",
+ "runner_sha256": "916e1585ddace8b7e15e773a3c6c1a2e53b1b130b43a754d4989da8e82255be3",
+ "scope": "nondeterministic timing",
+ "seed_policy": "450\u2013453; split 2029/2030; paired data RNG",
+ "selection_policy": "All arms and final checkpoint reported; no tuning or checkpoint selection",
+ "source_hashes": {
+  "experiments/rule_critic_binding.py": "916e1585ddace8b7e15e773a3c6c1a2e53b1b130b43a754d4989da8e82255be3",
+  "experiments/rule_critic_diagnostic.py": "b16fc6732195686a9a2307d11eaa56461219e96bce7a7e7343afbdd54ab98130",
+  "experiments/rule_guided_search.py": "a3f06d715fec71c5973e147e5d4b004479c42703e277a0ae110e820f7c981039"
+ },
+ "tasks": {
+  "canonical/seed450": {
+   "adam_moment_bytes_upper_bound": 270792,
+   "adam_step_counter_bytes_upper_bound": 96,
+   "audit_serialized_bytes": 1072562,
+   "buffer_bytes": 18992,
+   "candidate_searches": 0,
+   "checkpoint_bytes": 163484,
+   "cpu_seconds": 107.133100206,
+   "fits": 1,
+   "gradient_bytes": 135396,
+   "independent_training_examples": 62234,
+   "inference_benchmark": null,
+   "inference_benchmark_reason": "Whole evaluation timing only; no latency or scaling claim",
+   "local_checks_scored": {
+    "evaluation": 36902457,
+    "training": 365314
+   },
+   "optimizer_steps": 3000,
+   "oracle_graph_bytes": 5636096,
+   "parameter_bytes": 135396,
+   "parameters": 33849,
+   "peak_rss_kib": 515848,
+   "phases": {
+    "checkpoint_1000": {
+     "cpu_seconds": 3.973313268000002,
+     "wall_seconds": 3.973507683011121
+    },
+    "checkpoint_2000": {
+     "cpu_seconds": 3.8252402450000034,
+     "wall_seconds": 3.825472152995644
+    },
+    "checkpoint_3000": {
+     "cpu_seconds": 4.321278579999998,
+     "wall_seconds": 4.321538532996783
+    },
+    "checkpoint_500": {
+     "cpu_seconds": 4.013491739999999,
+     "wall_seconds": 4.014428861992201
+    },
+    "construction": {
+     "cpu_seconds": 2.675054967,
+     "wall_seconds": 2.6751796070020646
+    },
+    "final_evaluation": {
+     "cpu_seconds": 20.921628624999997,
+     "wall_seconds": 20.92320223498973
+    },
+    "save": {
+     "cpu_seconds": 0.0016294109999961393,
+     "wall_seconds": 0.0016288609913317487
+    },
+    "symbolic_reference": {
+     "cpu_seconds": 0.2766087539999944,
+     "wall_seconds": 0.27661816000181716
+    },
+    "training": {
+     "cpu_seconds": 67.04069418,
+     "wall_seconds": 67.04997784999432
+    }
+   },
+   "python_container_heap_bytes": null,
+   "python_container_heap_reason": "Included in RSS; not separately profiled",
+   "raw_training_examples_retained_on_disk": false,
+   "reader_parameter_bytes": 442672,
+   "rule_set_json_bytes": 262396,
+   "training_program_exposures": 192000,
+   "training_rule_sets": 300,
+   "tuning_fits": 0,
+   "wall_seconds": 107.145728427
+  },
+  "canonical/seed451": {
+   "adam_moment_bytes_upper_bound": 270792,
+   "adam_step_counter_bytes_upper_bound": 96,
+   "audit_serialized_bytes": 1072944,
+   "buffer_bytes": 18992,
+   "candidate_searches": 0,
+   "checkpoint_bytes": 163484,
+   "cpu_seconds": 107.24832805300001,
+   "fits": 1,
+   "gradient_bytes": 135396,
+   "independent_training_examples": 62219,
+   "inference_benchmark": null,
+   "inference_benchmark_reason": "Whole evaluation timing only; no latency or scaling claim",
+   "local_checks_scored": {
+    "evaluation": 36902457,
+    "training": 365248
+   },
+   "optimizer_steps": 3000,
+   "oracle_graph_bytes": 5636096,
+   "parameter_bytes": 135396,
+   "parameters": 33849,
+   "peak_rss_kib": 516112,
+   "phases": {
+    "checkpoint_1000": {
+     "cpu_seconds": 3.9841446729999994,
+     "wall_seconds": 3.985028341994621
+    },
+    "checkpoint_2000": {
+     "cpu_seconds": 3.8149544199999994,
+     "wall_seconds": 3.815155616000993
+    },
+    "checkpoint_3000": {
+     "cpu_seconds": 4.326872344000009,
+     "wall_seconds": 4.327121428999817
+    },
+    "checkpoint_500": {
+     "cpu_seconds": 4.002337312,
+     "wall_seconds": 4.005695814994397
+    },
+    "construction": {
+     "cpu_seconds": 2.516477358,
+     "wall_seconds": 2.5166908480023267
+    },
+    "final_evaluation": {
+     "cpu_seconds": 21.051155788999992,
+     "wall_seconds": 21.056629497004906
+    },
+    "save": {
+     "cpu_seconds": 0.001692391000005955,
+     "wall_seconds": 0.0016919519985094666
+    },
+    "symbolic_reference": {
+     "cpu_seconds": 0.27556619300000307,
+     "wall_seconds": 0.27559586099232547
+    },
+    "training": {
+     "cpu_seconds": 67.17453566699999,
+     "wall_seconds": 67.18110708102176
+    }
+   },
+   "python_container_heap_bytes": null,
+   "python_container_heap_reason": "Included in RSS; not separately profiled",
+   "raw_training_examples_retained_on_disk": false,
+   "reader_parameter_bytes": 442672,
+   "rule_set_json_bytes": 262451,
+   "training_program_exposures": 192000,
+   "training_rule_sets": 300,
+   "tuning_fits": 0,
+   "wall_seconds": 107.26531727700785
+  },
+  "canonical/seed452": {
+   "adam_moment_bytes_upper_bound": 270792,
+   "adam_step_counter_bytes_upper_bound": 96,
+   "audit_serialized_bytes": 1078653,
+   "buffer_bytes": 18992,
+   "candidate_searches": 0,
+   "checkpoint_bytes": 163484,
+   "cpu_seconds": 111.89212914000001,
+   "fits": 1,
+   "gradient_bytes": 135396,
+   "independent_training_examples": 62486,
+   "inference_benchmark": null,
+   "inference_benchmark_reason": "Whole evaluation timing only; no latency or scaling claim",
+   "local_checks_scored": {
+    "evaluation": 36902457,
+    "training": 365491
+   },
+   "optimizer_steps": 3000,
+   "oracle_graph_bytes": 5636096,
+   "parameter_bytes": 135396,
+   "parameters": 33849,
+   "peak_rss_kib": 513664,
+   "phases": {
+    "checkpoint_1000": {
+     "cpu_seconds": 2.684282352000004,
+     "wall_seconds": 2.6848075700108893
+    },
+    "checkpoint_2000": {
+     "cpu_seconds": 2.611482040999995,
+     "wall_seconds": 2.6115583249920746
+    },
+    "checkpoint_3000": {
+     "cpu_seconds": 2.5855367770000015,
+     "wall_seconds": 2.5856329909875058
+    },
+    "checkpoint_500": {
+     "cpu_seconds": 4.1948047509999995,
+     "wall_seconds": 4.197793665007339
+    },
+    "construction": {
+     "cpu_seconds": 2.724094344,
+     "wall_seconds": 2.728362299996661
+    },
+    "final_evaluation": {
+     "cpu_seconds": 22.377848703999987,
+     "wall_seconds": 22.37967861299694
+    },
+    "save": {
+     "cpu_seconds": 0.002698090999999181,
+     "wall_seconds": 0.002691250992938876
+    },
+    "symbolic_reference": {
+     "cpu_seconds": 0.29909894600000086,
+     "wall_seconds": 0.29913655000564177
+    },
+    "training": {
+     "cpu_seconds": 74.18944407999999,
+     "wall_seconds": 74.19916774900048
+    }
+   },
+   "python_container_heap_bytes": null,
+   "python_container_heap_reason": "Included in RSS; not separately profiled",
+   "raw_training_examples_retained_on_disk": false,
+   "reader_parameter_bytes": 442672,
+   "rule_set_json_bytes": 262648,
+   "training_program_exposures": 192000,
+   "training_rule_sets": 300,
+   "tuning_fits": 0,
+   "wall_seconds": 111.91177041101037
+  },
+  "canonical/seed453": {
+   "adam_moment_bytes_upper_bound": 270792,
+   "adam_step_counter_bytes_upper_bound": 96,
+   "audit_serialized_bytes": 1075915,
+   "buffer_bytes": 18992,
+   "candidate_searches": 0,
+   "checkpoint_bytes": 163484,
+   "cpu_seconds": 113.124886936,
+   "fits": 1,
+   "gradient_bytes": 135396,
+   "independent_training_examples": 62375,
+   "inference_benchmark": null,
+   "inference_benchmark_reason": "Whole evaluation timing only; no latency or scaling claim",
+   "local_checks_scored": {
+    "evaluation": 36902457,
+    "training": 365413
+   },
+   "optimizer_steps": 3000,
+   "oracle_graph_bytes": 5636096,
+   "parameter_bytes": 135396,
+   "parameters": 33849,
+   "peak_rss_kib": 515188,
+   "phases": {
+    "checkpoint_1000": {
+     "cpu_seconds": 3.026144961,
+     "wall_seconds": 3.026344447003794
+    },
+    "checkpoint_2000": {
+     "cpu_seconds": 2.6142635729999952,
+     "wall_seconds": 2.6149002680031117
+    },
+    "checkpoint_3000": {
+     "cpu_seconds": 3.3861623210000005,
+     "wall_seconds": 3.3871219209977426
+    },
+    "checkpoint_500": {
+     "cpu_seconds": 4.180138753,
+     "wall_seconds": 4.18063344899565
+    },
+    "construction": {
+     "cpu_seconds": 2.529164305,
+     "wall_seconds": 2.5295197419909528
+    },
+    "final_evaluation": {
+     "cpu_seconds": 22.571186193000003,
+     "wall_seconds": 22.579916827991838
+    },
+    "save": {
+     "cpu_seconds": 0.002465082000000507,
+     "wall_seconds": 0.002460406001773663
+    },
+    "symbolic_reference": {
+     "cpu_seconds": 0.29096784100001116,
+     "wall_seconds": 0.2911720870033605
+    },
+    "training": {
+     "cpu_seconds": 74.321065994,
+     "wall_seconds": 74.33645679301117
+    }
+   },
+   "python_container_heap_bytes": null,
+   "python_container_heap_reason": "Included in RSS; not separately profiled",
+   "raw_training_examples_retained_on_disk": false,
+   "reader_parameter_bytes": 442672,
+   "rule_set_json_bytes": 262533,
+   "training_program_exposures": 192000,
+   "training_rule_sets": 300,
+   "tuning_fits": 0,
+   "wall_seconds": 113.15188336699794
+  },
+  "matching/seed450": {
+   "adam_moment_bytes_upper_bound": 109576,
+   "adam_step_counter_bytes_upper_bound": 40,
+   "audit_serialized_bytes": 1072562,
+   "buffer_bytes": 20520,
+   "candidate_searches": 0,
+   "checkpoint_bytes": 80423,
+   "cpu_seconds": 202.451419542,
+   "fits": 1,
+   "gradient_bytes": 54788,
+   "independent_training_examples": 62234,
+   "inference_benchmark": null,
+   "inference_benchmark_reason": "Whole evaluation timing only; no latency or scaling claim",
+   "local_checks_scored": {
+    "evaluation": 36902457,
+    "training": 365314
+   },
+   "optimizer_steps": 3000,
+   "oracle_graph_bytes": 5636096,
+   "parameter_bytes": 54788,
+   "parameters": 13697,
+   "peak_rss_kib": 514852,
+   "phases": {
+    "checkpoint_1000": {
+     "cpu_seconds": 12.07491116,
+     "wall_seconds": 12.07630905599217
+    },
+    "checkpoint_2000": {
+     "cpu_seconds": 11.820621357999997,
+     "wall_seconds": 11.821029031998478
+    },
+    "checkpoint_3000": {
+     "cpu_seconds": 20.772205611000004,
+     "wall_seconds": 20.77324017700448
+    },
+    "checkpoint_500": {
+     "cpu_seconds": 14.045293454000001,
+     "wall_seconds": 14.047204214002704
+    },
+    "construction": {
+     "cpu_seconds": 2.693697568,
+     "wall_seconds": 2.6944691149983555
+    },
+    "final_evaluation": {
+     "cpu_seconds": 89.70021293200001,
+     "wall_seconds": 89.70725849400333
+    },
+    "save": {
+     "cpu_seconds": 0.0011606799999981376,
+     "wall_seconds": 0.0011599620047491044
+    },
+    "symbolic_reference": {
+     "cpu_seconds": 0.27272051200000647,
+     "wall_seconds": 0.27272229600930586
+    },
+    "training": {
+     "cpu_seconds": 50.96819583,
+     "wall_seconds": 50.977532474003965
+    }
+   },
+   "python_container_heap_bytes": null,
+   "python_container_heap_reason": "Included in RSS; not separately profiled",
+   "raw_training_examples_retained_on_disk": false,
+   "reader_parameter_bytes": 442672,
+   "rule_set_json_bytes": 262396,
+   "training_program_exposures": 192000,
+   "training_rule_sets": 300,
+   "tuning_fits": 0,
+   "wall_seconds": 202.4733450710046
+  },
+  "matching/seed451": {
+   "adam_moment_bytes_upper_bound": 109576,
+   "adam_step_counter_bytes_upper_bound": 40,
+   "audit_serialized_bytes": 1072944,
+   "buffer_bytes": 20520,
+   "candidate_searches": 0,
+   "checkpoint_bytes": 80423,
+   "cpu_seconds": 274.54649508299997,
+   "fits": 1,
+   "gradient_bytes": 54788,
+   "independent_training_examples": 62219,
+   "inference_benchmark": null,
+   "inference_benchmark_reason": "Whole evaluation timing only; no latency or scaling claim",
+   "local_checks_scored": {
+    "evaluation": 36902457,
+    "training": 365248
+   },
+   "optimizer_steps": 3000,
+   "oracle_graph_bytes": 5636096,
+   "parameter_bytes": 54788,
+   "parameters": 13697,
+   "peak_rss_kib": 516736,
+   "phases": {
+    "checkpoint_1000": {
+     "cpu_seconds": 25.920196141999995,
+     "wall_seconds": 25.926188281009672
+    },
+    "checkpoint_2000": {
+     "cpu_seconds": 19.596349327,
+     "wall_seconds": 19.60365877400909
+    },
+    "checkpoint_3000": {
+     "cpu_seconds": 25.071897121999996,
+     "wall_seconds": 25.075213978008833
+    },
+    "checkpoint_500": {
+     "cpu_seconds": 25.842893690000004,
+     "wall_seconds": 25.849426397995558
+    },
+    "construction": {
+     "cpu_seconds": 3.186286371,
+     "wall_seconds": 3.1868077739927685
+    },
+    "final_evaluation": {
+     "cpu_seconds": 116.32115946600004,
+     "wall_seconds": 116.3336369460012
+    },
+    "save": {
+     "cpu_seconds": 0.0020826410000154283,
+     "wall_seconds": 0.002080050006043166
+    },
+    "symbolic_reference": {
+     "cpu_seconds": 0.29938659699996606,
+     "wall_seconds": 0.299381752993213
+    },
+    "training": {
+     "cpu_seconds": 58.07690474,
+     "wall_seconds": 58.08802992198616
+    }
+   },
+   "python_container_heap_bytes": null,
+   "python_container_heap_reason": "Included in RSS; not separately profiled",
+   "raw_training_examples_retained_on_disk": false,
+   "reader_parameter_bytes": 442672,
+   "rule_set_json_bytes": 262451,
+   "training_program_exposures": 192000,
+   "training_rule_sets": 300,
+   "tuning_fits": 0,
+   "wall_seconds": 274.59379860700574
+  },
+  "matching/seed452": {
+   "adam_moment_bytes_upper_bound": 109576,
+   "adam_step_counter_bytes_upper_bound": 40,
+   "audit_serialized_bytes": 1078653,
+   "buffer_bytes": 20520,
+   "candidate_searches": 0,
+   "checkpoint_bytes": 80423,
+   "cpu_seconds": 275.287706441,
+   "fits": 1,
+   "gradient_bytes": 54788,
+   "independent_training_examples": 62486,
+   "inference_benchmark": null,
+   "inference_benchmark_reason": "Whole evaluation timing only; no latency or scaling claim",
+   "local_checks_scored": {
+    "evaluation": 36902457,
+    "training": 365491
+   },
+   "optimizer_steps": 3000,
+   "oracle_graph_bytes": 5636096,
+   "parameter_bytes": 54788,
+   "parameters": 13697,
+   "peak_rss_kib": 514472,
+   "phases": {
+    "checkpoint_1000": {
+     "cpu_seconds": 25.971299811,
+     "wall_seconds": 25.976697681995574
+    },
+    "checkpoint_2000": {
+     "cpu_seconds": 21.176002327000006,
+     "wall_seconds": 21.182286011011456
+    },
+    "checkpoint_3000": {
+     "cpu_seconds": 25.060313863999994,
+     "wall_seconds": 25.06539422100468
+    },
+    "checkpoint_500": {
+     "cpu_seconds": 25.774662972,
+     "wall_seconds": 25.778125629993156
+    },
+    "construction": {
+     "cpu_seconds": 3.007528062,
+     "wall_seconds": 3.010919083011686
+    },
+    "final_evaluation": {
+     "cpu_seconds": 115.96627843200002,
+     "wall_seconds": 116.00405692699132
+    },
+    "save": {
+     "cpu_seconds": 0.0020742209999866645,
+     "wall_seconds": 0.0020700890017906204
+    },
+    "symbolic_reference": {
+     "cpu_seconds": 0.28501448899999104,
+     "wall_seconds": 0.28500882000662386
+    },
+    "training": {
+     "cpu_seconds": 57.86124569200001,
+     "wall_seconds": 57.872502945989254
+    }
+   },
+   "python_container_heap_bytes": null,
+   "python_container_heap_reason": "Included in RSS; not separately profiled",
+   "raw_training_examples_retained_on_disk": false,
+   "reader_parameter_bytes": 442672,
+   "rule_set_json_bytes": 262648,
+   "training_program_exposures": 192000,
+   "training_rule_sets": 300,
+   "tuning_fits": 0,
+   "wall_seconds": 275.3603827420011
+  },
+  "matching/seed453": {
+   "adam_moment_bytes_upper_bound": 109576,
+   "adam_step_counter_bytes_upper_bound": 40,
+   "audit_serialized_bytes": 1075915,
+   "buffer_bytes": 20520,
+   "candidate_searches": 0,
+   "checkpoint_bytes": 80423,
+   "cpu_seconds": 227.992957476,
+   "fits": 1,
+   "gradient_bytes": 54788,
+   "independent_training_examples": 62375,
+   "inference_benchmark": null,
+   "inference_benchmark_reason": "Whole evaluation timing only; no latency or scaling claim",
+   "local_checks_scored": {
+    "evaluation": 36902457,
+    "training": 365413
+   },
+   "optimizer_steps": 3000,
+   "oracle_graph_bytes": 5636096,
+   "parameter_bytes": 54788,
+   "parameters": 13697,
+   "peak_rss_kib": 516008,
+   "phases": {
+    "checkpoint_1000": {
+     "cpu_seconds": 24.865576046999998,
+     "wall_seconds": 24.8672405959951
+    },
+    "checkpoint_2000": {
+     "cpu_seconds": 27.064946019000004,
+     "wall_seconds": 27.068240388005506
+    },
+    "checkpoint_3000": {
+     "cpu_seconds": 27.185099654,
+     "wall_seconds": 27.186655665005674
+    },
+    "checkpoint_500": {
+     "cpu_seconds": 17.570463210999996,
+     "wall_seconds": 17.579814567012363
+    },
+    "construction": {
+     "cpu_seconds": 2.707226484,
+     "wall_seconds": 2.707318488988676
+    },
+    "final_evaluation": {
+     "cpu_seconds": 62.07759455799999,
+     "wall_seconds": 62.101664518995676
+    },
+    "save": {
+     "cpu_seconds": 0.00108828099999414,
+     "wall_seconds": 0.0010878109897021204
+    },
+    "symbolic_reference": {
+     "cpu_seconds": 0.27312895200000753,
+     "wall_seconds": 0.2731511739984853
+    },
+    "training": {
+     "cpu_seconds": 66.17291159900002,
+     "wall_seconds": 66.18300644797273
+    }
+   },
+   "python_container_heap_bytes": null,
+   "python_container_heap_reason": "Included in RSS; not separately profiled",
+   "raw_training_examples_retained_on_disk": false,
+   "reader_parameter_bytes": 442672,
+   "rule_set_json_bytes": 262533,
+   "training_program_exposures": 192000,
+   "training_rule_sets": 300,
+   "tuning_fits": 0,
+   "wall_seconds": 228.04312721399765
+  },
+  "original/seed450": {
+   "adam_moment_bytes_upper_bound": 270792,
+   "adam_step_counter_bytes_upper_bound": 96,
+   "audit_serialized_bytes": 1072562,
+   "buffer_bytes": 18992,
+   "candidate_searches": 0,
+   "checkpoint_bytes": 163451,
+   "cpu_seconds": 107.25131292799999,
+   "fits": 1,
+   "gradient_bytes": 135396,
+   "independent_training_examples": 62234,
+   "inference_benchmark": null,
+   "inference_benchmark_reason": "Whole evaluation timing only; no latency or scaling claim",
+   "local_checks_scored": {
+    "evaluation": 36902457,
+    "training": 365314
+   },
+   "optimizer_steps": 3000,
+   "oracle_graph_bytes": 5636096,
+   "parameter_bytes": 135396,
+   "parameters": 33849,
+   "peak_rss_kib": 513672,
+   "phases": {
+    "checkpoint_1000": {
+     "cpu_seconds": 4.067536360000002,
+     "wall_seconds": 4.067832909990102
+    },
+    "checkpoint_2000": {
+     "cpu_seconds": 4.011886898999997,
+     "wall_seconds": 4.013087286002701
+    },
+    "checkpoint_3000": {
+     "cpu_seconds": 4.212091219000001,
+     "wall_seconds": 4.21242804499343
+    },
+    "checkpoint_500": {
+     "cpu_seconds": 4.153010836999998,
+     "wall_seconds": 4.155358297008206
+    },
+    "construction": {
+     "cpu_seconds": 3.007729511,
+     "wall_seconds": 3.0109319539915305
+    },
+    "final_evaluation": {
+     "cpu_seconds": 21.05071202500001,
+     "wall_seconds": 21.054217311000684
+    },
+    "save": {
+     "cpu_seconds": 0.0017268610000087392,
+     "wall_seconds": 0.00172609300352633
+    },
+    "symbolic_reference": {
+     "cpu_seconds": 0.27339974199999517,
+     "wall_seconds": 0.2734730100055458
+    },
+    "training": {
+     "cpu_seconds": 66.36622842399998,
+     "wall_seconds": 66.37537568001426
+    }
+   },
+   "python_container_heap_bytes": null,
+   "python_container_heap_reason": "Included in RSS; not separately profiled",
+   "raw_training_examples_retained_on_disk": false,
+   "reader_parameter_bytes": 442672,
+   "rule_set_json_bytes": 262396,
+   "training_program_exposures": 192000,
+   "training_rule_sets": 300,
+   "tuning_fits": 0,
+   "wall_seconds": 107.27146796400484
+  },
+  "original/seed451": {
+   "adam_moment_bytes_upper_bound": 270792,
+   "adam_step_counter_bytes_upper_bound": 96,
+   "audit_serialized_bytes": 1072944,
+   "buffer_bytes": 18992,
+   "candidate_searches": 0,
+   "checkpoint_bytes": 163451,
+   "cpu_seconds": 107.21841859,
+   "fits": 1,
+   "gradient_bytes": 135396,
+   "independent_training_examples": 62219,
+   "inference_benchmark": null,
+   "inference_benchmark_reason": "Whole evaluation timing only; no latency or scaling claim",
+   "local_checks_scored": {
+    "evaluation": 36902457,
+    "training": 365248
+   },
+   "optimizer_steps": 3000,
+   "oracle_graph_bytes": 5636096,
+   "parameter_bytes": 135396,
+   "parameters": 33849,
+   "peak_rss_kib": 513812,
+   "phases": {
+    "checkpoint_1000": {
+     "cpu_seconds": 4.086162880000003,
+     "wall_seconds": 4.086592406994896
+    },
+    "checkpoint_2000": {
+     "cpu_seconds": 4.099127828,
+     "wall_seconds": 4.0992649879917735
+    },
+    "checkpoint_3000": {
+     "cpu_seconds": 4.189525646999996,
+     "wall_seconds": 4.190496377006639
+    },
+    "checkpoint_500": {
+     "cpu_seconds": 4.184607394,
+     "wall_seconds": 4.187715723004658
+    },
+    "construction": {
+     "cpu_seconds": 2.990855271,
+     "wall_seconds": 2.9912413979909616
+    },
+    "final_evaluation": {
+     "cpu_seconds": 21.294593751000008,
+     "wall_seconds": 21.30089651000162
+    },
+    "save": {
+     "cpu_seconds": 0.0016185710000087283,
+     "wall_seconds": 0.0016177000070456415
+    },
+    "symbolic_reference": {
+     "cpu_seconds": 0.276483944000006,
+     "wall_seconds": 0.2765523879934335
+    },
+    "training": {
+     "cpu_seconds": 65.98722012399999,
+     "wall_seconds": 65.99539561099664
+    }
+   },
+   "python_container_heap_bytes": null,
+   "python_container_heap_reason": "Included in RSS; not separately profiled",
+   "raw_training_examples_retained_on_disk": false,
+   "reader_parameter_bytes": 442672,
+   "rule_set_json_bytes": 262451,
+   "training_program_exposures": 192000,
+   "training_rule_sets": 300,
+   "tuning_fits": 0,
+   "wall_seconds": 107.23801196599379
+  },
+  "original/seed452": {
+   "adam_moment_bytes_upper_bound": 270792,
+   "adam_step_counter_bytes_upper_bound": 96,
+   "audit_serialized_bytes": 1078653,
+   "buffer_bytes": 18992,
+   "candidate_searches": 0,
+   "checkpoint_bytes": 163451,
+   "cpu_seconds": 106.59621449299999,
+   "fits": 1,
+   "gradient_bytes": 135396,
+   "independent_training_examples": 62486,
+   "inference_benchmark": null,
+   "inference_benchmark_reason": "Whole evaluation timing only; no latency or scaling claim",
+   "local_checks_scored": {
+    "evaluation": 36902457,
+    "training": 365491
+   },
+   "optimizer_steps": 3000,
+   "oracle_graph_bytes": 5636096,
+   "parameter_bytes": 135396,
+   "parameters": 33849,
+   "peak_rss_kib": 514852,
+   "phases": {
+    "checkpoint_1000": {
+     "cpu_seconds": 3.982708403,
+     "wall_seconds": 3.9846312040026532
+    },
+    "checkpoint_2000": {
+     "cpu_seconds": 3.9572235890000016,
+     "wall_seconds": 3.9573126540053636
+    },
+    "checkpoint_3000": {
+     "cpu_seconds": 3.8373572029999963,
+     "wall_seconds": 3.8376776149962097
+    },
+    "checkpoint_500": {
+     "cpu_seconds": 4.095126575000002,
+     "wall_seconds": 4.0958309230045415
+    },
+    "construction": {
+     "cpu_seconds": 2.704067792,
+     "wall_seconds": 2.7044384850014467
+    },
+    "final_evaluation": {
+     "cpu_seconds": 21.402067430999992,
+     "wall_seconds": 21.406996192003135
+    },
+    "save": {
+     "cpu_seconds": 0.002736541000004422,
+     "wall_seconds": 0.0027341719978721812
+    },
+    "symbolic_reference": {
+     "cpu_seconds": 0.28952251100000126,
+     "wall_seconds": 0.2895374860090669
+    },
+    "training": {
+     "cpu_seconds": 66.122674175,
+     "wall_seconds": 66.1325605539896
+    }
+   },
+   "python_container_heap_bytes": null,
+   "python_container_heap_reason": "Included in RSS; not separately profiled",
+   "raw_training_examples_retained_on_disk": false,
+   "reader_parameter_bytes": 442672,
+   "rule_set_json_bytes": 262648,
+   "training_program_exposures": 192000,
+   "training_rule_sets": 300,
+   "tuning_fits": 0,
+   "wall_seconds": 106.61447843699716
+  },
+  "original/seed453": {
+   "adam_moment_bytes_upper_bound": 270792,
+   "adam_step_counter_bytes_upper_bound": 96,
+   "audit_serialized_bytes": 1075915,
+   "buffer_bytes": 18992,
+   "candidate_searches": 0,
+   "checkpoint_bytes": 163451,
+   "cpu_seconds": 105.796659624,
+   "fits": 1,
+   "gradient_bytes": 135396,
+   "independent_training_examples": 62375,
+   "inference_benchmark": null,
+   "inference_benchmark_reason": "Whole evaluation timing only; no latency or scaling claim",
+   "local_checks_scored": {
+    "evaluation": 36902457,
+    "training": 365413
+   },
+   "optimizer_steps": 3000,
+   "oracle_graph_bytes": 5636096,
+   "parameter_bytes": 135396,
+   "parameters": 33849,
+   "peak_rss_kib": 515012,
+   "phases": {
+    "checkpoint_1000": {
+     "cpu_seconds": 3.6932706410000016,
+     "wall_seconds": 3.6940637980005704
+    },
+    "checkpoint_2000": {
+     "cpu_seconds": 3.4289856759999964,
+     "wall_seconds": 3.4300525689905044
+    },
+    "checkpoint_3000": {
+     "cpu_seconds": 3.2023431190000053,
+     "wall_seconds": 3.2029952429875266
+    },
+    "checkpoint_500": {
+     "cpu_seconds": 3.7837076429999996,
+     "wall_seconds": 3.7840953530103434
+    },
+    "construction": {
+     "cpu_seconds": 2.6792706490000002,
+     "wall_seconds": 2.68009117100155
+    },
+    "final_evaluation": {
+     "cpu_seconds": 21.405831391999996,
+     "wall_seconds": 21.408868466998683
+    },
+    "save": {
+     "cpu_seconds": 0.0022508619999968005,
+     "wall_seconds": 0.00398783601121977
+    },
+    "symbolic_reference": {
+     "cpu_seconds": 0.2903502400000093,
+     "wall_seconds": 0.29036749199440237
+    },
+    "training": {
+     "cpu_seconds": 67.106294538,
+     "wall_seconds": 67.11604514101055
+    }
+   },
+   "python_container_heap_bytes": null,
+   "python_container_heap_reason": "Included in RSS; not separately profiled",
+   "raw_training_examples_retained_on_disk": false,
+   "reader_parameter_bytes": 442672,
+   "rule_set_json_bytes": 262533,
+   "training_program_exposures": 192000,
+   "training_rule_sets": 300,
+   "tuning_fits": 0,
+   "wall_seconds": 105.81496071499714
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "torch_configuration": "PyTorch built with:\n  - GCC 13.3\n  - C++ Version: 202002\n  - Intel(R) oneAPI Math Kernel Library Version 2024.2-Product Build 20240605 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.12.0 (Git Hash 80afa71049cd69a3df32adcccb623b12cd7baa22)\n  - OpenMP 201511 (a.k.a. OpenMP 4.5)\n  - LAPACK is enabled (usually provided by MKL)\n  - NNPACK is enabled\n  - CPU capability usage: AVX2\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, COMMIT_SHA=5c4886908584029761b579af026dcfb627c84070, CUDA_FLAGS= -DLIBCUDACXX_ENABLE_SIMPLIFIED_COMPLEX_OPERATIONS -Xfatbin -compress-all  -Wno-deprecated-gpu-targets --expt-extended-lambda -DCUB_WRAPPED_NAMESPACE=at_cuda_detail -DDISABLE_CUSPARSE_DEPRECATED -DCUDA_HAS_FP16=1 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -DC10_NODEPRECATED, CXX_COMPILER=/opt/rh/gcc-toolset-13/root/usr/bin/c++, CXX_FLAGS= -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -DC10_NODEPRECATED -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=range-loop-construct -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=old-style-cast -faligned-new -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-dangling-reference -Wno-error=dangling-reference -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.14.1, USE_CUDA=0, USE_CUDNN=OFF, USE_CUSPARSELT=OFF, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_HIPSPARSELT=OFF, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=OFF, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, USE_XCCL=OFF, USE_XPU=OFF, \n",
+ "wall_seconds": 645.2892625920067,
+ "whole_job_peak_memory_bytes": null,
+ "whole_job_peak_memory_reason": "Only per-process ru_maxrss measured",
+ "workers": 3,
+ "world_sha256": "becebd0f5ab0d4d28653d53708f359243907425b08036af87775b8c8e1dfc4ef"
+}

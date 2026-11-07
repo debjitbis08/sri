@@ -1,0 +1,1192 @@
+{
+ "address_space_rlimit_bytes": [
+  -1,
+  -1
+ ],
+ "aggregate_worker_cpu_seconds": 191.861575015,
+ "blas_configuration": "{\n  \"Compilers\": {\n    \"c\": {\n      \"name\": \"gcc\",\n      \"linker\": \"ld.bfd\",\n      \"version\": \"14.2.1\",\n      \"commands\": \"cc\"\n    },\n    \"cython\": {\n      \"name\": \"cython\",\n      \"linker\": \"cython\",\n      \"version\": \"3.3.0\",\n      \"commands\": \"cython\"\n    },\n    \"c++\": {\n      \"name\": \"gcc\",\n      \"linker\": \"ld.bfd\",\n      \"version\": \"14.2.1\",\n      \"commands\": \"c++\"\n    }\n  },\n  \"Machine Information\": {\n    \"host\": {\n      \"cpu\": \"x86_64\",\n      \"family\": \"x86_64\",\n      \"endian\": \"little\",\n      \"system\": \"linux\"\n    },\n    \"build\": {\n      \"cpu\": \"x86_64\",\n      \"family\": \"x86_64\",\n      \"endian\": \"little\",\n      \"system\": \"linux\"\n    }\n  },\n  \"Build Dependencies\": {\n    \"blas\": {\n      \"name\": \"scipy-openblas\",\n      \"found\": true,\n      \"version\": \"0.3.34.106.0\",\n      \"detection method\": \"pkgconfig\",\n      \"include directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include\",\n      \"lib directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib\",\n      \"openblas configuration\": \"OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64\",\n      \"pc file directory\": \"/project/.openblas\"\n    },\n    \"lapack\": {\n      \"name\": \"scipy-openblas\",\n      \"found\": true,\n      \"version\": \"0.3.34.106.0\",\n      \"detection method\": \"pkgconfig\",\n      \"include directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/include\",\n      \"lib directory\": \"/opt/_internal/cpython-3.12.13/lib/python3.12/site-packages/scipy_openblas64/lib\",\n      \"openblas configuration\": \"OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY SkylakeX MAX_THREADS=64\",\n      \"pc file directory\": \"/project/.openblas\"\n    }\n  },\n  \"Python Information\": {\n    \"path\": \"/tmp/build-env-ptu49_tp/bin/python\",\n    \"version\": \"3.12\"\n  },\n  \"SIMD Extensions\": {\n    \"baseline\": [\n      \"X86_V2\"\n    ],\n    \"found\": [\n      \"X86_V3\"\n    ],\n    \"not found\": [\n      \"X86_V4\",\n      \"AVX512_ICL\",\n      \"AVX512_SPR\"\n    ]\n  }\n}\n",
+ "children_peak_rss_kb": 522772,
+ "command": "/home/debjit/code/sri/experiments/everyday_evidence_transfer.py",
+ "contract_sha256": "4df325b8ecd6696ddad85b7bedd57b213fa81e26230849259d410c8aa677acf2",
+ "cpu": "x86_64",
+ "cpu_model": "AMD Ryzen 5 3600 6-Core Processor",
+ "device": "cpu",
+ "dirty": true,
+ "dirty_including_untracked": true,
+ "dtype": "float32",
+ "numpy": "2.5.4",
+ "os": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "parent_peak_rss_kb": 313944,
+ "python": "3.12.3",
+ "revision": "33731d90f6f28cd6c4d54ac3a3b20d353c1b7b9e",
+ "rss_convention": "ru_maxrss in KiB per process; children is the largest single child",
+ "runner_sha256": "93f9ebb23cce89e872d20e96582465480d8d72d4fe6b7150d5f1b440b6715400",
+ "scope": "nondeterministic timing",
+ "seed_policy": "450\u2013453; concept split2041; paired NumPy training/evaluation streams",
+ "selection_policy": "All arms/seeds/final checkpoints reported, no tuning",
+ "source_hashes": {
+  "experiments/amortized_introduction.py": "e8ac3ac48fadc3265c6c6b91e04a7c9f77eb5e590d116ad5f561a218a3b1c8c5",
+  "experiments/everyday_evidence_transfer.py": "93f9ebb23cce89e872d20e96582465480d8d72d4fe6b7150d5f1b440b6715400",
+  "experiments/relations_as_objects.py": "e198e50189b1a01cfab5c6d4b474f22ee0556cf8f800b74ec2dadf87df7d9e82",
+  "experiments/rule_guided_search.py": "a3f06d715fec71c5973e147e5d4b004479c42703e277a0ae110e820f7c981039",
+  "src/everyday_world.py": "bcfe53a88d7e38f53ec9251dcdd8455b5614d760b860527bebb37d3c5b80b5f8"
+ },
+ "tasks": {
+  "codes/seed450": {
+   "adam_moment_bytes": 480776,
+   "adam_scalar_step_bytes": 64,
+   "all_source_profile_bytes": 38352,
+   "audit_payload_bytes": 2047360,
+   "checkpoint_bytes": 259514,
+   "checkpoint_evaluation_counts": {
+    "1000": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    },
+    "2000": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    },
+    "500": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    }
+   },
+   "context_memory_bytes_at_k8": 96,
+   "context_memory_note": "8 int64 entity IDs and 8 float32 labels; shared profiles separate",
+   "cpu_seconds": 15.933342653,
+   "distinct_training_episodes": 63980,
+   "exposures": {
+    "episodes": 64000,
+    "support_examples": 272923,
+    "target_examples": 272279
+   },
+   "final_evaluation_counts": {
+    "context_examples": 44352,
+    "query_predictions": 50688,
+    "ridge_fits": 0
+   },
+   "fits": 1,
+   "gradient_bytes": 240388,
+   "inference_latency": null,
+   "inference_latency_reason": "Whole evaluation phases only; not a latency benchmark",
+   "optimizer_steps": 2000,
+   "parameter_bytes": 240388,
+   "parameters": 60097,
+   "peak_rss_kib": 513568,
+   "phases": {
+    "checkpoint_1000": {
+     "cpu_seconds": 0.04330454399999972,
+     "wall_seconds": 0.04332225599500816
+    },
+    "checkpoint_2000": {
+     "cpu_seconds": 0.04362671400000018,
+     "wall_seconds": 0.043627502003801055
+    },
+    "checkpoint_500": {
+     "cpu_seconds": 0.04344263399999981,
+     "wall_seconds": 0.043445207993499935
+    },
+    "construction": {
+     "cpu_seconds": 2.794858903,
+     "wall_seconds": 2.799301161998301
+    },
+    "final_evaluation": {
+     "cpu_seconds": 0.43471074200000004,
+     "wall_seconds": 0.43472717099939473
+    },
+    "retention": {
+     "cpu_seconds": 0.003633342000000539,
+     "wall_seconds": 0.0036302740045357496
+    },
+    "sampling": {
+     "cpu_seconds": 5.241967709000014,
+     "wall_seconds": 5.246258597631822
+    },
+    "save": {
+     "cpu_seconds": 0.001609151000000253,
+     "wall_seconds": 0.0016079329943750054
+    },
+    "training": {
+     "cpu_seconds": 7.281133028999986,
+     "wall_seconds": 7.282309762376826
+    }
+   },
+   "profile_bytes": 12784,
+   "python_container_bytes": null,
+   "python_container_bytes_reason": "Included in RSS, not separately profiled",
+   "reader_parameter_bytes": 442672,
+   "ridge_counts": null,
+   "task_label_bytes": 13464,
+   "training_episode_digest": "8287505c8c57291f9e29ded28c36f38a40b7b8aab74b35289640d41800bc684a",
+   "tuning_fits": 0,
+   "wall_seconds": 15.943307728986838
+  },
+  "codes/seed451": {
+   "adam_moment_bytes": 480776,
+   "adam_scalar_step_bytes": 64,
+   "all_source_profile_bytes": 38352,
+   "audit_payload_bytes": 2047424,
+   "checkpoint_bytes": 259514,
+   "checkpoint_evaluation_counts": {
+    "1000": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    },
+    "2000": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    },
+    "500": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    }
+   },
+   "context_memory_bytes_at_k8": 96,
+   "context_memory_note": "8 int64 entity IDs and 8 float32 labels; shared profiles separate",
+   "cpu_seconds": 16.027163154,
+   "distinct_training_episodes": 63982,
+   "exposures": {
+    "episodes": 64000,
+    "support_examples": 272036,
+    "target_examples": 271952
+   },
+   "final_evaluation_counts": {
+    "context_examples": 44352,
+    "query_predictions": 50688,
+    "ridge_fits": 0
+   },
+   "fits": 1,
+   "gradient_bytes": 240388,
+   "inference_latency": null,
+   "inference_latency_reason": "Whole evaluation phases only; not a latency benchmark",
+   "optimizer_steps": 2000,
+   "parameter_bytes": 240388,
+   "parameters": 60097,
+   "peak_rss_kib": 513084,
+   "phases": {
+    "checkpoint_1000": {
+     "cpu_seconds": 0.043304744000000284,
+     "wall_seconds": 0.04330542599200271
+    },
+    "checkpoint_2000": {
+     "cpu_seconds": 0.04284601300000013,
+     "wall_seconds": 0.04286193700681906
+    },
+    "checkpoint_500": {
+     "cpu_seconds": 0.0433514740000005,
+     "wall_seconds": 0.04335184700903483
+    },
+    "construction": {
+     "cpu_seconds": 2.908972306,
+     "wall_seconds": 2.915507209007046
+    },
+    "final_evaluation": {
+     "cpu_seconds": 0.43413794099999947,
+     "wall_seconds": 0.43420085099933203
+    },
+    "retention": {
+     "cpu_seconds": 0.0035400120000002033,
+     "wall_seconds": 0.0035392029967624694
+    },
+    "sampling": {
+     "cpu_seconds": 5.200822571000057,
+     "wall_seconds": 5.20354381899233
+    },
+    "save": {
+     "cpu_seconds": 0.0013385610000007375,
+     "wall_seconds": 0.0013379669981077313
+    },
+    "training": {
+     "cpu_seconds": 7.302252766999942,
+     "wall_seconds": 7.3019779280002695
+    }
+   },
+   "profile_bytes": 12784,
+   "python_container_bytes": null,
+   "python_container_bytes_reason": "Included in RSS, not separately profiled",
+   "reader_parameter_bytes": 442672,
+   "ridge_counts": null,
+   "task_label_bytes": 13464,
+   "training_episode_digest": "70a416e476eb1475e293d8c94694bfb815a0d940003fda9d12fa824d6601b828",
+   "tuning_fits": 0,
+   "wall_seconds": 16.03622868900129
+  },
+  "codes/seed452": {
+   "adam_moment_bytes": 480776,
+   "adam_scalar_step_bytes": 64,
+   "all_source_profile_bytes": 38352,
+   "audit_payload_bytes": 2047520,
+   "checkpoint_bytes": 259514,
+   "checkpoint_evaluation_counts": {
+    "1000": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    },
+    "2000": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    },
+    "500": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    }
+   },
+   "context_memory_bytes_at_k8": 96,
+   "context_memory_note": "8 int64 entity IDs and 8 float32 labels; shared profiles separate",
+   "cpu_seconds": 16.037717322000002,
+   "distinct_training_episodes": 63985,
+   "exposures": {
+    "episodes": 64000,
+    "support_examples": 272494,
+    "target_examples": 272126
+   },
+   "final_evaluation_counts": {
+    "context_examples": 44352,
+    "query_predictions": 50688,
+    "ridge_fits": 0
+   },
+   "fits": 1,
+   "gradient_bytes": 240388,
+   "inference_latency": null,
+   "inference_latency_reason": "Whole evaluation phases only; not a latency benchmark",
+   "optimizer_steps": 2000,
+   "parameter_bytes": 240388,
+   "parameters": 60097,
+   "peak_rss_kib": 514768,
+   "phases": {
+    "checkpoint_1000": {
+     "cpu_seconds": 0.04347612399999967,
+     "wall_seconds": 0.04347631899872795
+    },
+    "checkpoint_2000": {
+     "cpu_seconds": 0.042901554000000175,
+     "wall_seconds": 0.042901977998553775
+    },
+    "checkpoint_500": {
+     "cpu_seconds": 0.04360000500000005,
+     "wall_seconds": 0.04360035200079437
+    },
+    "construction": {
+     "cpu_seconds": 2.9015810220000002,
+     "wall_seconds": 2.9037906999874394
+    },
+    "final_evaluation": {
+     "cpu_seconds": 0.4358583220000014,
+     "wall_seconds": 0.4358899550134083
+    },
+    "retention": {
+     "cpu_seconds": 0.004023341999999985,
+     "wall_seconds": 0.004020711989142001
+    },
+    "sampling": {
+     "cpu_seconds": 5.224478554000011,
+     "wall_seconds": 5.232068009034265
+    },
+    "save": {
+     "cpu_seconds": 0.0014769409999999539,
+     "wall_seconds": 0.001476580000598915
+    },
+    "training": {
+     "cpu_seconds": 7.2885934789999896,
+     "wall_seconds": 7.291027397965081
+    }
+   },
+   "profile_bytes": 12784,
+   "python_container_bytes": null,
+   "python_container_bytes_reason": "Included in RSS, not separately profiled",
+   "reader_parameter_bytes": 442672,
+   "ridge_counts": null,
+   "task_label_bytes": 13464,
+   "training_episode_digest": "4edf7c4712425badc8e6fada7df147e229fcc9e6a7170bbe99de301cf67da1d1",
+   "tuning_fits": 0,
+   "wall_seconds": 16.050006010991638
+  },
+  "codes/seed453": {
+   "adam_moment_bytes": 480776,
+   "adam_scalar_step_bytes": 64,
+   "all_source_profile_bytes": 38352,
+   "audit_payload_bytes": 2047392,
+   "checkpoint_bytes": 259514,
+   "checkpoint_evaluation_counts": {
+    "1000": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    },
+    "2000": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    },
+    "500": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    }
+   },
+   "context_memory_bytes_at_k8": 96,
+   "context_memory_note": "8 int64 entity IDs and 8 float32 labels; shared profiles separate",
+   "cpu_seconds": 15.816323919,
+   "distinct_training_episodes": 63981,
+   "exposures": {
+    "episodes": 64000,
+    "support_examples": 271839,
+    "target_examples": 272071
+   },
+   "final_evaluation_counts": {
+    "context_examples": 44352,
+    "query_predictions": 50688,
+    "ridge_fits": 0
+   },
+   "fits": 1,
+   "gradient_bytes": 240388,
+   "inference_latency": null,
+   "inference_latency_reason": "Whole evaluation phases only; not a latency benchmark",
+   "optimizer_steps": 2000,
+   "parameter_bytes": 240388,
+   "parameters": 60097,
+   "peak_rss_kib": 515476,
+   "phases": {
+    "checkpoint_1000": {
+     "cpu_seconds": 0.04275553399999943,
+     "wall_seconds": 0.04275616399536375
+    },
+    "checkpoint_2000": {
+     "cpu_seconds": 0.04285089400000075,
+     "wall_seconds": 0.0428510570054641
+    },
+    "checkpoint_500": {
+     "cpu_seconds": 0.043561694000000095,
+     "wall_seconds": 0.04356203100178391
+    },
+    "construction": {
+     "cpu_seconds": 2.737164861,
+     "wall_seconds": 2.739375706994906
+    },
+    "final_evaluation": {
+     "cpu_seconds": 0.4262783569999993,
+     "wall_seconds": 0.42634813000040594
+    },
+    "retention": {
+     "cpu_seconds": 0.0034792519999999882,
+     "wall_seconds": 0.003476671001408249
+    },
+    "sampling": {
+     "cpu_seconds": 5.173500949999973,
+     "wall_seconds": 5.175334854910034
+    },
+    "save": {
+     "cpu_seconds": 0.001372691000000259,
+     "wall_seconds": 0.0013721680006710812
+    },
+    "training": {
+     "cpu_seconds": 7.3068183650000265,
+     "wall_seconds": 7.308233794086846
+    }
+   },
+   "profile_bytes": 12784,
+   "python_container_bytes": null,
+   "python_container_bytes_reason": "Included in RSS, not separately profiled",
+   "reader_parameter_bytes": 442672,
+   "ridge_counts": null,
+   "task_label_bytes": 13464,
+   "training_episode_digest": "1a28e0c1a0be1364f304c71bd3e0fa3cb5a9cc55c74da269e746881888d47ba8",
+   "tuning_fits": 0,
+   "wall_seconds": 15.82187114599219
+  },
+  "learned/seed450": {
+   "adam_moment_bytes": 480776,
+   "adam_scalar_step_bytes": 64,
+   "all_source_profile_bytes": 38352,
+   "audit_payload_bytes": 2047360,
+   "checkpoint_bytes": 259560,
+   "checkpoint_evaluation_counts": {
+    "1000": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    },
+    "2000": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    },
+    "500": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    }
+   },
+   "context_memory_bytes_at_k8": 96,
+   "context_memory_note": "8 int64 entity IDs and 8 float32 labels; shared profiles separate",
+   "cpu_seconds": 16.257268025000002,
+   "distinct_training_episodes": 63980,
+   "exposures": {
+    "episodes": 64000,
+    "support_examples": 272923,
+    "target_examples": 272279
+   },
+   "final_evaluation_counts": {
+    "context_examples": 44352,
+    "query_predictions": 50688,
+    "ridge_fits": 0
+   },
+   "fits": 1,
+   "gradient_bytes": 240388,
+   "inference_latency": null,
+   "inference_latency_reason": "Whole evaluation phases only; not a latency benchmark",
+   "optimizer_steps": 2000,
+   "parameter_bytes": 240388,
+   "parameters": 60097,
+   "peak_rss_kib": 517376,
+   "phases": {
+    "checkpoint_1000": {
+     "cpu_seconds": 0.0427955839999985,
+     "wall_seconds": 0.04279570499784313
+    },
+    "checkpoint_2000": {
+     "cpu_seconds": 0.042247974000000355,
+     "wall_seconds": 0.04224991401133593
+    },
+    "checkpoint_500": {
+     "cpu_seconds": 0.04315743400000027,
+     "wall_seconds": 0.04317352299403865
+    },
+    "construction": {
+     "cpu_seconds": 2.731519468,
+     "wall_seconds": 2.7341391899972223
+    },
+    "final_evaluation": {
+     "cpu_seconds": 0.42671003699999943,
+     "wall_seconds": 0.42673117700906005
+    },
+    "retention": {
+     "cpu_seconds": 0.009991706000000988,
+     "wall_seconds": 0.009986564007704146
+    },
+    "ridge_baseline": {
+     "cpu_seconds": 0.4394485639999992,
+     "wall_seconds": 0.4394715289963642
+    },
+    "sampling": {
+     "cpu_seconds": 5.170308177000009,
+     "wall_seconds": 5.172897870026645
+    },
+    "save": {
+     "cpu_seconds": 0.0014558099999995022,
+     "wall_seconds": 0.0014547199971275404
+    },
+    "training": {
+     "cpu_seconds": 7.298472251999994,
+     "wall_seconds": 7.298614042971167
+    }
+   },
+   "profile_bytes": 12784,
+   "python_container_bytes": null,
+   "python_container_bytes_reason": "Included in RSS, not separately profiled",
+   "reader_parameter_bytes": 442672,
+   "ridge_counts": {
+    "context_examples": 44352,
+    "query_predictions": 50688,
+    "ridge_fits": 5632
+   },
+   "task_label_bytes": 13464,
+   "training_episode_digest": "8287505c8c57291f9e29ded28c36f38a40b7b8aab74b35289640d41800bc684a",
+   "tuning_fits": 0,
+   "wall_seconds": 16.262693311000476
+  },
+  "learned/seed451": {
+   "adam_moment_bytes": 480776,
+   "adam_scalar_step_bytes": 64,
+   "all_source_profile_bytes": 38352,
+   "audit_payload_bytes": 2047424,
+   "checkpoint_bytes": 259560,
+   "checkpoint_evaluation_counts": {
+    "1000": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    },
+    "2000": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    },
+    "500": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    }
+   },
+   "context_memory_bytes_at_k8": 96,
+   "context_memory_note": "8 int64 entity IDs and 8 float32 labels; shared profiles separate",
+   "cpu_seconds": 16.246385445999998,
+   "distinct_training_episodes": 63982,
+   "exposures": {
+    "episodes": 64000,
+    "support_examples": 272036,
+    "target_examples": 271952
+   },
+   "final_evaluation_counts": {
+    "context_examples": 44352,
+    "query_predictions": 50688,
+    "ridge_fits": 0
+   },
+   "fits": 1,
+   "gradient_bytes": 240388,
+   "inference_latency": null,
+   "inference_latency_reason": "Whole evaluation phases only; not a latency benchmark",
+   "optimizer_steps": 2000,
+   "parameter_bytes": 240388,
+   "parameters": 60097,
+   "peak_rss_kib": 517144,
+   "phases": {
+    "checkpoint_1000": {
+     "cpu_seconds": 0.04302422399999983,
+     "wall_seconds": 0.043024610000429675
+    },
+    "checkpoint_2000": {
+     "cpu_seconds": 0.04269762399999877,
+     "wall_seconds": 0.04269487400597427
+    },
+    "checkpoint_500": {
+     "cpu_seconds": 0.043224473999999624,
+     "wall_seconds": 0.04322591400705278
+    },
+    "construction": {
+     "cpu_seconds": 2.724308352,
+     "wall_seconds": 2.725963213000796
+    },
+    "final_evaluation": {
+     "cpu_seconds": 0.42930568799999946,
+     "wall_seconds": 0.4293117110064486
+    },
+    "retention": {
+     "cpu_seconds": 0.00982622600000127,
+     "wall_seconds": 0.009824451000895351
+    },
+    "ridge_baseline": {
+     "cpu_seconds": 0.44487718699999945,
+     "wall_seconds": 0.4450001420045737
+    },
+    "sampling": {
+     "cpu_seconds": 5.171028171999982,
+     "wall_seconds": 5.174063237893279
+    },
+    "save": {
+     "cpu_seconds": 0.0012425809999996318,
+     "wall_seconds": 0.0012415349920047447
+    },
+    "training": {
+     "cpu_seconds": 7.2877124310000205,
+     "wall_seconds": 7.288833998085465
+    }
+   },
+   "profile_bytes": 12784,
+   "python_container_bytes": null,
+   "python_container_bytes_reason": "Included in RSS, not separately profiled",
+   "reader_parameter_bytes": 442672,
+   "ridge_counts": {
+    "context_examples": 44352,
+    "query_predictions": 50688,
+    "ridge_fits": 5632
+   },
+   "task_label_bytes": 13464,
+   "training_episode_digest": "70a416e476eb1475e293d8c94694bfb815a0d940003fda9d12fa824d6601b828",
+   "tuning_fits": 0,
+   "wall_seconds": 16.252332320000278
+  },
+  "learned/seed452": {
+   "adam_moment_bytes": 480776,
+   "adam_scalar_step_bytes": 64,
+   "all_source_profile_bytes": 38352,
+   "audit_payload_bytes": 2047520,
+   "checkpoint_bytes": 259560,
+   "checkpoint_evaluation_counts": {
+    "1000": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    },
+    "2000": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    },
+    "500": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    }
+   },
+   "context_memory_bytes_at_k8": 96,
+   "context_memory_note": "8 int64 entity IDs and 8 float32 labels; shared profiles separate",
+   "cpu_seconds": 16.229364559999997,
+   "distinct_training_episodes": 63985,
+   "exposures": {
+    "episodes": 64000,
+    "support_examples": 272494,
+    "target_examples": 272126
+   },
+   "final_evaluation_counts": {
+    "context_examples": 44352,
+    "query_predictions": 50688,
+    "ridge_fits": 0
+   },
+   "fits": 1,
+   "gradient_bytes": 240388,
+   "inference_latency": null,
+   "inference_latency_reason": "Whole evaluation phases only; not a latency benchmark",
+   "optimizer_steps": 2000,
+   "parameter_bytes": 240388,
+   "parameters": 60097,
+   "peak_rss_kib": 519236,
+   "phases": {
+    "checkpoint_1000": {
+     "cpu_seconds": 0.04294030400000004,
+     "wall_seconds": 0.042940988001646474
+    },
+    "checkpoint_2000": {
+     "cpu_seconds": 0.0430560540000009,
+     "wall_seconds": 0.04305634999764152
+    },
+    "checkpoint_500": {
+     "cpu_seconds": 0.043327094000000343,
+     "wall_seconds": 0.04333947600389365
+    },
+    "construction": {
+     "cpu_seconds": 2.617458393,
+     "wall_seconds": 2.6179284730023937
+    },
+    "final_evaluation": {
+     "cpu_seconds": 0.43429371200000055,
+     "wall_seconds": 0.43531508299929556
+    },
+    "retention": {
+     "cpu_seconds": 0.003561931999996659,
+     "wall_seconds": 0.003560331999324262
+    },
+    "ridge_baseline": {
+     "cpu_seconds": 0.4430636260000007,
+     "wall_seconds": 0.4430688709981041
+    },
+    "sampling": {
+     "cpu_seconds": 5.201044066999987,
+     "wall_seconds": 5.205291898964788
+    },
+    "save": {
+     "cpu_seconds": 0.0014475810000007527,
+     "wall_seconds": 0.0014470690075540915
+    },
+    "training": {
+     "cpu_seconds": 7.360388095000012,
+     "wall_seconds": 7.3648316010367125
+    }
+   },
+   "profile_bytes": 12784,
+   "python_container_bytes": null,
+   "python_container_bytes_reason": "Included in RSS, not separately profiled",
+   "reader_parameter_bytes": 442672,
+   "ridge_counts": {
+    "context_examples": 44352,
+    "query_predictions": 50688,
+    "ridge_fits": 5632
+   },
+   "task_label_bytes": 13464,
+   "training_episode_digest": "4edf7c4712425badc8e6fada7df147e229fcc9e6a7170bbe99de301cf67da1d1",
+   "tuning_fits": 0,
+   "wall_seconds": 16.239573118000408
+  },
+  "learned/seed453": {
+   "adam_moment_bytes": 480776,
+   "adam_scalar_step_bytes": 64,
+   "all_source_profile_bytes": 38352,
+   "audit_payload_bytes": 2047392,
+   "checkpoint_bytes": 259560,
+   "checkpoint_evaluation_counts": {
+    "1000": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    },
+    "2000": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    },
+    "500": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    }
+   },
+   "context_memory_bytes_at_k8": 96,
+   "context_memory_note": "8 int64 entity IDs and 8 float32 labels; shared profiles separate",
+   "cpu_seconds": 16.212970395,
+   "distinct_training_episodes": 63981,
+   "exposures": {
+    "episodes": 64000,
+    "support_examples": 271839,
+    "target_examples": 272071
+   },
+   "final_evaluation_counts": {
+    "context_examples": 44352,
+    "query_predictions": 50688,
+    "ridge_fits": 0
+   },
+   "fits": 1,
+   "gradient_bytes": 240388,
+   "inference_latency": null,
+   "inference_latency_reason": "Whole evaluation phases only; not a latency benchmark",
+   "optimizer_steps": 2000,
+   "parameter_bytes": 240388,
+   "parameters": 60097,
+   "peak_rss_kib": 519808,
+   "phases": {
+    "checkpoint_1000": {
+     "cpu_seconds": 0.042950853999998984,
+     "wall_seconds": 0.04297866899287328
+    },
+    "checkpoint_2000": {
+     "cpu_seconds": 0.0425427239999987,
+     "wall_seconds": 0.0425417299993569
+    },
+    "checkpoint_500": {
+     "cpu_seconds": 0.04347081399999997,
+     "wall_seconds": 0.043470799006172456
+    },
+    "construction": {
+     "cpu_seconds": 2.679788309,
+     "wall_seconds": 2.6802422780019697
+    },
+    "final_evaluation": {
+     "cpu_seconds": 0.4252454960000005,
+     "wall_seconds": 0.4252805379946949
+    },
+    "retention": {
+     "cpu_seconds": 0.004691222999998246,
+     "wall_seconds": 0.004683536011725664
+    },
+    "ridge_baseline": {
+     "cpu_seconds": 0.4479939589999997,
+     "wall_seconds": 0.44804402299632784
+    },
+    "sampling": {
+     "cpu_seconds": 5.18459041599999,
+     "wall_seconds": 5.186903502064524
+    },
+    "save": {
+     "cpu_seconds": 0.0019665710000005276,
+     "wall_seconds": 0.0019649299938464537
+    },
+    "training": {
+     "cpu_seconds": 7.282830508000012,
+     "wall_seconds": 7.283993817938608
+    }
+   },
+   "profile_bytes": 12784,
+   "python_container_bytes": null,
+   "python_container_bytes_reason": "Included in RSS, not separately profiled",
+   "reader_parameter_bytes": 442672,
+   "ridge_counts": {
+    "context_examples": 44352,
+    "query_predictions": 50688,
+    "ridge_fits": 5632
+   },
+   "task_label_bytes": 13464,
+   "training_episode_digest": "1a28e0c1a0be1364f304c71bd3e0fa3cb5a9cc55c74da269e746881888d47ba8",
+   "tuning_fits": 0,
+   "wall_seconds": 16.217024867000873
+  },
+  "oracle/seed450": {
+   "adam_moment_bytes": 480776,
+   "adam_scalar_step_bytes": 64,
+   "all_source_profile_bytes": 38352,
+   "audit_payload_bytes": 2047360,
+   "checkpoint_bytes": 259537,
+   "checkpoint_evaluation_counts": {
+    "1000": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    },
+    "2000": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    },
+    "500": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    }
+   },
+   "context_memory_bytes_at_k8": 96,
+   "context_memory_note": "8 int64 entity IDs and 8 float32 labels; shared profiles separate",
+   "cpu_seconds": 15.749773919999999,
+   "distinct_training_episodes": 63980,
+   "exposures": {
+    "episodes": 64000,
+    "support_examples": 272923,
+    "target_examples": 272279
+   },
+   "final_evaluation_counts": {
+    "context_examples": 44352,
+    "query_predictions": 50688,
+    "ridge_fits": 0
+   },
+   "fits": 1,
+   "gradient_bytes": 240388,
+   "inference_latency": null,
+   "inference_latency_reason": "Whole evaluation phases only; not a latency benchmark",
+   "optimizer_steps": 2000,
+   "parameter_bytes": 240388,
+   "parameters": 60097,
+   "peak_rss_kib": 519896,
+   "phases": {
+    "checkpoint_1000": {
+     "cpu_seconds": 0.0429806940000006,
+     "wall_seconds": 0.04298149899113923
+    },
+    "checkpoint_2000": {
+     "cpu_seconds": 0.04222106300000128,
+     "wall_seconds": 0.0422207130031893
+    },
+    "checkpoint_500": {
+     "cpu_seconds": 0.043063313000000214,
+     "wall_seconds": 0.04306347100646235
+    },
+    "construction": {
+     "cpu_seconds": 2.6790502189999996,
+     "wall_seconds": 2.6798267289996147
+    },
+    "final_evaluation": {
+     "cpu_seconds": 0.4242704350000004,
+     "wall_seconds": 0.4245223019970581
+    },
+    "retention": {
+     "cpu_seconds": 0.003537011999998896,
+     "wall_seconds": 0.0035359129979042336
+    },
+    "sampling": {
+     "cpu_seconds": 5.189493994999973,
+     "wall_seconds": 5.194375763006974
+    },
+    "save": {
+     "cpu_seconds": 0.0015544009999999275,
+     "wall_seconds": 0.0015540320018772036
+    },
+    "training": {
+     "cpu_seconds": 7.287000528000023,
+     "wall_seconds": 7.289749266987201
+    }
+   },
+   "profile_bytes": 12784,
+   "python_container_bytes": null,
+   "python_container_bytes_reason": "Included in RSS, not separately profiled",
+   "reader_parameter_bytes": 442672,
+   "ridge_counts": null,
+   "task_label_bytes": 13464,
+   "training_episode_digest": "8287505c8c57291f9e29ded28c36f38a40b7b8aab74b35289640d41800bc684a",
+   "tuning_fits": 0,
+   "wall_seconds": 15.758448367996607
+  },
+  "oracle/seed451": {
+   "adam_moment_bytes": 480776,
+   "adam_scalar_step_bytes": 64,
+   "all_source_profile_bytes": 38352,
+   "audit_payload_bytes": 2047424,
+   "checkpoint_bytes": 259537,
+   "checkpoint_evaluation_counts": {
+    "1000": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    },
+    "2000": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    },
+    "500": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    }
+   },
+   "context_memory_bytes_at_k8": 96,
+   "context_memory_note": "8 int64 entity IDs and 8 float32 labels; shared profiles separate",
+   "cpu_seconds": 15.847435065,
+   "distinct_training_episodes": 63982,
+   "exposures": {
+    "episodes": 64000,
+    "support_examples": 272036,
+    "target_examples": 271952
+   },
+   "final_evaluation_counts": {
+    "context_examples": 44352,
+    "query_predictions": 50688,
+    "ridge_fits": 0
+   },
+   "fits": 1,
+   "gradient_bytes": 240388,
+   "inference_latency": null,
+   "inference_latency_reason": "Whole evaluation phases only; not a latency benchmark",
+   "optimizer_steps": 2000,
+   "parameter_bytes": 240388,
+   "parameters": 60097,
+   "peak_rss_kib": 520820,
+   "phases": {
+    "checkpoint_1000": {
+     "cpu_seconds": 0.04370842400000008,
+     "wall_seconds": 0.043708963989047334
+    },
+    "checkpoint_2000": {
+     "cpu_seconds": 0.043081014000000195,
+     "wall_seconds": 0.04308062099153176
+    },
+    "checkpoint_500": {
+     "cpu_seconds": 0.04369448400000042,
+     "wall_seconds": 0.04369479400338605
+    },
+    "construction": {
+     "cpu_seconds": 2.70122577,
+     "wall_seconds": 2.7020440729975235
+    },
+    "final_evaluation": {
+     "cpu_seconds": 0.4299146190000016,
+     "wall_seconds": 0.4299516930041136
+    },
+    "retention": {
+     "cpu_seconds": 0.003461012000000707,
+     "wall_seconds": 0.003459560000919737
+    },
+    "sampling": {
+     "cpu_seconds": 5.187328881999987,
+     "wall_seconds": 5.188223147008102
+    },
+    "save": {
+     "cpu_seconds": 0.0013512599999998542,
+     "wall_seconds": 0.0013507479889085516
+    },
+    "training": {
+     "cpu_seconds": 7.350354526000013,
+     "wall_seconds": 7.35322021500906
+    }
+   },
+   "profile_bytes": 12784,
+   "python_container_bytes": null,
+   "python_container_bytes_reason": "Included in RSS, not separately profiled",
+   "reader_parameter_bytes": 442672,
+   "ridge_counts": null,
+   "task_label_bytes": 13464,
+   "training_episode_digest": "70a416e476eb1475e293d8c94694bfb815a0d940003fda9d12fa824d6601b828",
+   "tuning_fits": 0,
+   "wall_seconds": 15.852058891992783
+  },
+  "oracle/seed452": {
+   "adam_moment_bytes": 480776,
+   "adam_scalar_step_bytes": 64,
+   "all_source_profile_bytes": 38352,
+   "audit_payload_bytes": 2047520,
+   "checkpoint_bytes": 259537,
+   "checkpoint_evaluation_counts": {
+    "1000": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    },
+    "2000": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    },
+    "500": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    }
+   },
+   "context_memory_bytes_at_k8": 96,
+   "context_memory_note": "8 int64 entity IDs and 8 float32 labels; shared profiles separate",
+   "cpu_seconds": 15.777006635,
+   "distinct_training_episodes": 63985,
+   "exposures": {
+    "episodes": 64000,
+    "support_examples": 272494,
+    "target_examples": 272126
+   },
+   "final_evaluation_counts": {
+    "context_examples": 44352,
+    "query_predictions": 50688,
+    "ridge_fits": 0
+   },
+   "fits": 1,
+   "gradient_bytes": 240388,
+   "inference_latency": null,
+   "inference_latency_reason": "Whole evaluation phases only; not a latency benchmark",
+   "optimizer_steps": 2000,
+   "parameter_bytes": 240388,
+   "parameters": 60097,
+   "peak_rss_kib": 521928,
+   "phases": {
+    "checkpoint_1000": {
+     "cpu_seconds": 0.04306110400000129,
+     "wall_seconds": 0.04306240098958369
+    },
+    "checkpoint_2000": {
+     "cpu_seconds": 0.04272857299999977,
+     "wall_seconds": 0.042728734013508074
+    },
+    "checkpoint_500": {
+     "cpu_seconds": 0.04452397400000052,
+     "wall_seconds": 0.04531918599968776
+    },
+    "construction": {
+     "cpu_seconds": 2.6448159099999997,
+     "wall_seconds": 2.6453679839905817
+    },
+    "final_evaluation": {
+     "cpu_seconds": 0.43040376899999977,
+     "wall_seconds": 0.43045095399429556
+    },
+    "retention": {
+     "cpu_seconds": 0.003710352000000583,
+     "wall_seconds": 0.003709215990966186
+    },
+    "sampling": {
+     "cpu_seconds": 5.194381436999996,
+     "wall_seconds": 5.197329500471824
+    },
+    "save": {
+     "cpu_seconds": 0.001427221000000145,
+     "wall_seconds": 0.0014266290090745315
+    },
+    "training": {
+     "cpu_seconds": 7.324134038000003,
+     "wall_seconds": 7.328570664525614
+    }
+   },
+   "profile_bytes": 12784,
+   "python_container_bytes": null,
+   "python_container_bytes_reason": "Included in RSS, not separately profiled",
+   "reader_parameter_bytes": 442672,
+   "ridge_counts": null,
+   "task_label_bytes": 13464,
+   "training_episode_digest": "4edf7c4712425badc8e6fada7df147e229fcc9e6a7170bbe99de301cf67da1d1",
+   "tuning_fits": 0,
+   "wall_seconds": 15.785795828007394
+  },
+  "oracle/seed453": {
+   "adam_moment_bytes": 480776,
+   "adam_scalar_step_bytes": 64,
+   "all_source_profile_bytes": 38352,
+   "audit_payload_bytes": 2047392,
+   "checkpoint_bytes": 259537,
+   "checkpoint_evaluation_counts": {
+    "1000": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    },
+    "2000": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    },
+    "500": {
+     "context_examples": 5632,
+     "query_predictions": 5632,
+     "ridge_fits": 0
+    }
+   },
+   "context_memory_bytes_at_k8": 96,
+   "context_memory_note": "8 int64 entity IDs and 8 float32 labels; shared profiles separate",
+   "cpu_seconds": 15.726823921000001,
+   "distinct_training_episodes": 63981,
+   "exposures": {
+    "episodes": 64000,
+    "support_examples": 271839,
+    "target_examples": 272071
+   },
+   "final_evaluation_counts": {
+    "context_examples": 44352,
+    "query_predictions": 50688,
+    "ridge_fits": 0
+   },
+   "fits": 1,
+   "gradient_bytes": 240388,
+   "inference_latency": null,
+   "inference_latency_reason": "Whole evaluation phases only; not a latency benchmark",
+   "optimizer_steps": 2000,
+   "parameter_bytes": 240388,
+   "parameters": 60097,
+   "peak_rss_kib": 522772,
+   "phases": {
+    "checkpoint_1000": {
+     "cpu_seconds": 0.043098053999999664,
+     "wall_seconds": 0.04309863100934308
+    },
+    "checkpoint_2000": {
+     "cpu_seconds": 0.041905243000000425,
+     "wall_seconds": 0.04190618700522464
+    },
+    "checkpoint_500": {
+     "cpu_seconds": 0.04316490400000017,
+     "wall_seconds": 0.043165152994333766
+    },
+    "construction": {
+     "cpu_seconds": 2.6436508890000003,
+     "wall_seconds": 2.6443737330118893
+    },
+    "final_evaluation": {
+     "cpu_seconds": 0.42600799699999925,
+     "wall_seconds": 0.42665740600205027
+    },
+    "retention": {
+     "cpu_seconds": 0.0031758009999993675,
+     "wall_seconds": 0.0031751439964864403
+    },
+    "sampling": {
+     "cpu_seconds": 5.195900484999978,
+     "wall_seconds": 5.197873672266724
+    },
+    "save": {
+     "cpu_seconds": 0.001280101000000755,
+     "wall_seconds": 0.0012796259979950264
+    },
+    "training": {
+     "cpu_seconds": 7.296489548000022,
+     "wall_seconds": 7.297992568725022
+    }
+   },
+   "profile_bytes": 12784,
+   "python_container_bytes": null,
+   "python_container_bytes_reason": "Included in RSS, not separately profiled",
+   "reader_parameter_bytes": 442672,
+   "ridge_counts": null,
+   "task_label_bytes": 13464,
+   "training_episode_digest": "1a28e0c1a0be1364f304c71bd3e0fa3cb5a9cc55c74da269e746881888d47ba8",
+   "tuning_fits": 0,
+   "wall_seconds": 15.731680121010868
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "torch_configuration": "PyTorch built with:\n  - GCC 13.3\n  - C++ Version: 202002\n  - Intel(R) oneAPI Math Kernel Library Version 2024.2-Product Build 20240605 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v3.12.0 (Git Hash 80afa71049cd69a3df32adcccb623b12cd7baa22)\n  - OpenMP 201511 (a.k.a. OpenMP 4.5)\n  - LAPACK is enabled (usually provided by MKL)\n  - NNPACK is enabled\n  - CPU capability usage: AVX2\n  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, COMMIT_SHA=5c4886908584029761b579af026dcfb627c84070, CUDA_FLAGS= -DLIBCUDACXX_ENABLE_SIMPLIFIED_COMPLEX_OPERATIONS -Xfatbin -compress-all  -Wno-deprecated-gpu-targets --expt-extended-lambda -DCUB_WRAPPED_NAMESPACE=at_cuda_detail -DDISABLE_CUSPARSE_DEPRECATED -DCUDA_HAS_FP16=1 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -DC10_NODEPRECATED, CXX_COMPILER=/opt/rh/gcc-toolset-13/root/usr/bin/c++, CXX_FLAGS= -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -DC10_NODEPRECATED -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=range-loop-construct -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=old-style-cast -faligned-new -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-dangling-reference -Wno-error=dangling-reference -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, TORCH_VERSION=2.14.1, USE_CUDA=0, USE_CUDNN=OFF, USE_CUSPARSELT=OFF, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_GLOO=ON, USE_HIPSPARSELT=OFF, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=OFF, USE_NNPACK=ON, USE_OPENMP=ON, USE_ROCM=OFF, USE_ROCM_KERNEL_ASSERT=OFF, USE_XCCL=OFF, USE_XPU=OFF, \n",
+ "wall_seconds": 64.7237095249875,
+ "whole_job_peak_memory_bytes": null,
+ "whole_job_peak_memory_reason": "Only per-process RSS measured; no aggregate peak profiler",
+ "workers": 3,
+ "world_sha256": "becebd0f5ab0d4d28653d53708f359243907425b08036af87775b8c8e1dfc4ef"
+}

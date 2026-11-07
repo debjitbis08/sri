@@ -1,0 +1,90 @@
+{
+ "aggregate_worker_cpu_seconds": 420.34143931299997,
+ "children_peak_rss_kb": 1457980,
+ "command": "/home/debjit/code/sri/experiments/rule_guided_search.py",
+ "contract_sha256": "b4a12a1ca622d507ff451bb162c35231b194a0410fc83b8fa6fdc734262a561f",
+ "cpu": "x86_64",
+ "device": "cpu",
+ "dirty": true,
+ "dtype": "float32",
+ "numpy": "2.5.4",
+ "os": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "parent_peak_rss_kb": 298496,
+ "python": "3.12.3",
+ "revision": "6779c75f83ebd2e25973376916149067a81fbde5",
+ "rss_convention": "ru_maxrss in KiB per process; children is the largest single child",
+ "runner_sha256": "a3f06d715fec71c5973e147e5d4b004479c42703e277a0ae110e820f7c981039",
+ "scope": "nondeterministic timing",
+ "tasks": {
+  "question/seed450": {
+   "candidates_cpu_seconds": 2.82550672,
+   "checkpoint_bytes": 163451,
+   "cpu_seconds": 59.970316129,
+   "critic_cpu_seconds": 12.373638732000003,
+   "critic_params": 33849,
+   "graph_cpu_seconds": 41.298419857,
+   "peak_rss_kb": 686528,
+   "steps": 60,
+   "taught_cpu_seconds": 3.1120266389999998,
+   "training": {
+    "F_excluded_reader_closure": 131,
+    "T_without_candidates": 0,
+    "covered": 102,
+    "oracle_T_short": 125,
+    "programs": 2577208,
+    "questions": 2921,
+    "rulesets": 6
+   },
+   "wall_seconds": 60.01104491400474
+  },
+  "rules-nogate/seed450": {
+   "candidates_cpu_seconds": 10.011487713000001,
+   "checkpoint_bytes": 163583,
+   "cpu_seconds": 250.74686765299998,
+   "critic_cpu_seconds": 117.42048559099999,
+   "critic_params": 33849,
+   "graph_cpu_seconds": 41.258925196,
+   "peak_rss_kb": 1457980,
+   "steps": 60,
+   "synthetic_cpu_seconds": 17.722067957000007,
+   "taught_cpu_seconds": 63.93713893500001,
+   "training": {
+    "F_excluded_reader_closure": 976983,
+    "T_without_candidates": 0,
+    "covered": 5150,
+    "oracle_T_short": 5479,
+    "programs": 8911312,
+    "questions": 811,
+    "rulesets": 30
+   },
+   "wall_seconds": 250.80707333200553
+  },
+  "rules/seed450": {
+   "candidates_cpu_seconds": 1.7337295519999998,
+   "checkpoint_bytes": 163352,
+   "cpu_seconds": 109.62425553099999,
+   "critic_cpu_seconds": 53.229621018,
+   "critic_params": 33849,
+   "graph_cpu_seconds": 41.025471634999995,
+   "peak_rss_kb": 949604,
+   "steps": 60,
+   "synthetic_cpu_seconds": 6.069655862999994,
+   "taught_cpu_seconds": 7.219528830999991,
+   "training": {
+    "F_excluded_reader_closure": 321657,
+    "T_without_candidates": 0,
+    "covered": 5258,
+    "oracle_T_short": 5479,
+    "programs": 1848750,
+    "questions": 810,
+    "rulesets": 30
+   },
+   "wall_seconds": 109.66859874500369
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "wall_seconds": 250.92498939100187,
+ "workers": 3,
+ "world_sha256": "becebd0f5ab0d4d28653d53708f359243907425b08036af87775b8c8e1dfc4ef"
+}

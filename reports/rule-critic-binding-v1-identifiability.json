@@ -1,0 +1,18 @@
+{
+  "status": "post hoc analytical control; no training",
+  "alphabet": [
+    "R",
+    "S",
+    "reverse-R"
+  ],
+  "short_programs_checked": 12,
+  "short_label_agreement": 1.0,
+  "counterexample": [
+    "R",
+    "S",
+    "R"
+  ],
+  "endpoint_checker_accepts": true,
+  "valid_proof": false,
+  "interpretation": "Sequence labels at lengths 1-2 do not identify rejection of wrong internal transitions."
+}

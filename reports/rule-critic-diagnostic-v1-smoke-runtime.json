@@ -1,0 +1,76 @@
+{
+ "aggregate_worker_cpu_seconds": 301.66351457,
+ "children_peak_rss_kb": 815748,
+ "command": "/home/debjit/code/sri/experiments/rule_critic_diagnostic.py",
+ "contract_sha256": "df95949a3b2631bddc5f2699f236e7df7ac0492ed90af99318badf8a25e755a7",
+ "cpu": "x86_64",
+ "device": "cpu",
+ "dirty": false,
+ "dtype": "float32",
+ "numpy": "2.5.4",
+ "os": "Linux-7.0.11-76070011-generic-x86_64-with-glibc2.39",
+ "parent_peak_rss_kb": 298560,
+ "python": "3.12.3",
+ "revision": "2d73c68273da840a61915095b1a1d5064c159f40",
+ "rss_convention": "ru_maxrss in KiB per process; children is the largest single child",
+ "runner_sha256": "ae34c3f8e3dc30736f99a1604e0956881f7cb8d3c74d08cdac3051088faa1357",
+ "scope": "nondeterministic timing",
+ "tasks": {
+  "confirmed-mil/seed450": {
+   "candidates_cpu_seconds": 1.9599149279999963,
+   "checkpoint_reads_cpu_seconds": 7.122949709000011,
+   "cpu_seconds": 144.67383700500002,
+   "critic_params": 33849,
+   "final_reads_cpu_seconds": 10.916382346000006,
+   "graph_cpu_seconds": 41.303507927,
+   "mil": {
+    "F_excluded": 461779,
+    "covered": 5194,
+    "oracle_T_short": 5262,
+    "programs": 1902276,
+    "questions": 827
+   },
+   "peak_rss_kb": 815748,
+   "steps": 100,
+   "training_cpu_seconds": 83.35801577899997,
+   "wall_seconds": 144.70940880599665
+  },
+  "direct/seed450": {
+   "candidates_cpu_seconds": 2.6599999998211388e-06,
+   "checkpoint_reads_cpu_seconds": 6.8495550159999965,
+   "cpu_seconds": 82.968938834,
+   "critic_params": 33849,
+   "final_reads_cpu_seconds": 32.20100385200001,
+   "graph_cpu_seconds": 41.323048202,
+   "mil": {},
+   "peak_rss_kb": 666040,
+   "steps": 100,
+   "training_cpu_seconds": 2.5678650080000054,
+   "wall_seconds": 82.99253382399911
+  },
+  "oracle-mil/seed450": {
+   "candidates_cpu_seconds": 0.5693441459999988,
+   "checkpoint_reads_cpu_seconds": 8.261511579999997,
+   "cpu_seconds": 74.02073873100001,
+   "critic_params": 33849,
+   "final_reads_cpu_seconds": 18.854333468,
+   "graph_cpu_seconds": 41.464125380000006,
+   "mil": {
+    "F_excluded": 0,
+    "covered": 5262,
+    "oracle_T_short": 5262,
+    "programs": 31084,
+    "questions": 1139
+   },
+   "peak_rss_kb": 664936,
+   "steps": 100,
+   "training_cpu_seconds": 4.846188832999999,
+   "wall_seconds": 74.05170417499903
+  }
+ },
+ "threads_per_worker": 1,
+ "torch": "2.14.1+cpu",
+ "wall_seconds": 144.8169253990054,
+ "workers": 3,
+ "world_sha256": "becebd0f5ab0d4d28653d53708f359243907425b08036af87775b8c8e1dfc4ef"
+}

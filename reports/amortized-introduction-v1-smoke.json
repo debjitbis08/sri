@@ -1,0 +1,6575 @@
+{
+ "results": {
+  "episodes/seed450": {
+   "arm": "episodes",
+   "checkpoint": {
+    "file": "runs/amortized-introduction-v1-smoke/episodes-seed450.pt",
+    "sha256": "eb92a498f70f91cbf59a454229c24f94342f4739c5b305aaafbd3559cd4cc10b"
+   },
+   "counts": {
+    "desc_sizes_held": {
+     "child-of": 89,
+     "darker-than": 89,
+     "imp2b": 88,
+     "imp4b": 88,
+     "imp5n": 88,
+     "imp7n": 88,
+     "inv0p": 89,
+     "inv1p": 89,
+     "inv4p": 89,
+     "inv5p": 89,
+     "sym0": 87,
+     "sym5": 87,
+     "syn2s": 91,
+     "syn3s": 91,
+     "syn6s": 91
+    },
+    "set_A": 39,
+    "set_B": 52,
+    "trained_described": 91,
+    "virtual_dropped_leak": [],
+    "virtual_test_A": 78,
+    "virtual_test_B": 104,
+    "virtual_train": 78
+   },
+   "held": {
+    "child-of": {
+     "kind": "real-child-of",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.4299270072992701
+      },
+      "none/k0": {
+       "bal": 0.45289855072463764,
+       "kept_meaningful": 0.1736111111111111,
+       "recognized_meaningless": 0.7133333333333334
+      },
+      "none/k4": {
+       "bal": 0.4582116788321168,
+       "kept_meaningful": 0.9859154929577465,
+       "recognized_meaningless": 0.15666666666666668
+      },
+      "rho/k0": {
+       "bal": 0.4655797101449275,
+       "kept_meaningful": 0.3315972222222222,
+       "recognized_meaningless": 0.6666666666666666
+      },
+      "rho/k4": {
+       "bal": 0.4531021897810219,
+       "kept_meaningful": 0.9911971830985915,
+       "recognized_meaningless": 0.1
+      },
+      "shuffled/k0": {
+       "bal": 0.4655797101449275,
+       "kept_meaningful": 0.3315972222222222,
+       "recognized_meaningless": 0.6666666666666666
+      }
+     }
+    },
+    "darker-than": {
+     "kind": "real-darker-than",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.45465686274509803
+      },
+      "none/k0": {
+       "bal": 0.23214285714285715,
+       "kept_meaningful": 0.8163265306122449,
+       "recognized_meaningless": 0.7233333333333334
+      },
+      "none/k4": {
+       "bal": 0.3602941176470588,
+       "kept_meaningful": 0.8780487804878049,
+       "recognized_meaningless": 0.6633333333333333
+      },
+      "rho/k0": {
+       "bal": 0.26785714285714285,
+       "kept_meaningful": 0.7959183673469388,
+       "recognized_meaningless": 0.7266666666666667
+      },
+      "rho/k4": {
+       "bal": 0.3897058823529412,
+       "kept_meaningful": 0.9024390243902439,
+       "recognized_meaningless": 0.4766666666666667
+      },
+      "shuffled/k0": {
+       "bal": 0.26785714285714285,
+       "kept_meaningful": 0.7959183673469388,
+       "recognized_meaningless": 0.7266666666666667
+      }
+     }
+    },
+    "imp2b": {
+     "kind": "broad",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.5680096453330654
+      },
+      "none/k0": {
+       "bal": 0.5518925518925519,
+       "implied_T_recall": 0.504950495049505,
+       "kept_meaningful": 0.2619047619047619,
+       "recognized_meaningless": 0.7233333333333334
+      },
+      "none/k4": {
+       "bal": 0.5289862353059379,
+       "implied_T_recall": 0.5714285714285714,
+       "kept_meaningful": 0.9493392070484582,
+       "recognized_meaningless": 0.31666666666666665
+      },
+      "rho/k0": {
+       "bal": 0.5565730565730566,
+       "implied_T_recall": 0.6336633663366337,
+       "kept_meaningful": 0.25757575757575757,
+       "recognized_meaningless": 0.7
+      },
+      "rho/k4": {
+       "bal": 0.5279614186677384,
+       "implied_T_recall": 0.6428571428571429,
+       "kept_meaningful": 0.973568281938326,
+       "recognized_meaningless": 0.21
+      },
+      "shuffled/k0": {
+       "bal": 0.5565730565730566,
+       "implied_T_recall": 0.6336633663366337,
+       "kept_meaningful": 0.25757575757575757,
+       "recognized_meaningless": 0.7
+      }
+     }
+    },
+    "imp4b": {
+     "kind": "broad",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.75
+      },
+      "none/k0": {
+       "bal": 0.6493506493506493,
+       "implied_T_recall": 0.8888888888888888,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.7366666666666667
+      },
+      "none/k4": {
+       "bal": 0.6785714285714286,
+       "implied_T_recall": 1.0,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.6966666666666667
+      },
+      "rho/k0": {
+       "bal": 0.6136363636363636,
+       "implied_T_recall": 0.7777777777777778,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.7333333333333333
+      },
+      "rho/k4": {
+       "bal": 0.6785714285714286,
+       "implied_T_recall": 1.0,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.67
+      },
+      "shuffled/k0": {
+       "bal": 0.6136363636363636,
+       "implied_T_recall": 0.7777777777777778,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.7333333333333333
+      }
+     }
+    },
+    "imp5n": {
+     "kind": "narrow",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.5698808234019501
+      },
+      "none/k0": {
+       "bal": 0.6242009132420092,
+       "implied_F_recall": 0.8468468468468469,
+       "kept_meaningful": 0.9659090909090909,
+       "recognized_meaningless": 0.6966666666666667
+      },
+      "none/k4": {
+       "bal": 0.7036836403033586,
+       "implied_F_recall": 0.8425925925925926,
+       "kept_meaningful": 0.9880952380952381,
+       "recognized_meaningless": 0.73
+      },
+      "rho/k0": {
+       "bal": 0.6095890410958904,
+       "implied_F_recall": 0.7657657657657657,
+       "kept_meaningful": 0.8863636363636364,
+       "recognized_meaningless": 0.68
+      },
+      "rho/k4": {
+       "bal": 0.7156013001083423,
+       "implied_F_recall": 0.7314814814814815,
+       "kept_meaningful": 0.9880952380952381,
+       "recognized_meaningless": 0.6
+      },
+      "shuffled/k0": {
+       "bal": 0.6095890410958904,
+       "implied_F_recall": 0.7657657657657657,
+       "kept_meaningful": 0.8863636363636364,
+       "recognized_meaningless": 0.68
+      }
+     }
+    },
+    "imp7n": {
+     "kind": "narrow",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.5781443810468867
+      },
+      "none/k0": {
+       "bal": 0.6107226107226107,
+       "implied_F_recall": 0.9433962264150944,
+       "kept_meaningful": 0.19318181818181818,
+       "recognized_meaningless": 0.7133333333333334
+      },
+      "none/k4": {
+       "bal": 0.5760357231456215,
+       "implied_F_recall": 0.9134615384615384,
+       "kept_meaningful": 0.9940476190476191,
+       "recognized_meaningless": 0.20333333333333334
+      },
+      "rho/k0": {
+       "bal": 0.6608391608391608,
+       "implied_F_recall": 0.8773584905660378,
+       "kept_meaningful": 0.42045454545454547,
+       "recognized_meaningless": 0.7133333333333334
+      },
+      "rho/k4": {
+       "bal": 0.6255271644753163,
+       "implied_F_recall": 0.8173076923076923,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.19666666666666666
+      },
+      "shuffled/k0": {
+       "bal": 0.6608391608391608,
+       "implied_F_recall": 0.8773584905660378,
+       "kept_meaningful": 0.42045454545454547,
+       "recognized_meaningless": 0.7133333333333334
+      }
+     }
+    },
+    "inv0p": {
+     "kind": "inverse",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.5157291666666667
+      },
+      "none/k0": {
+       "bal": 0.44236583522297807,
+       "kept_meaningful": 0.72,
+       "recognized_meaningless": 0.7
+      },
+      "none/k4": {
+       "bal": 0.48114583333333333,
+       "kept_meaningful": 0.8677685950413223,
+       "recognized_meaningless": 0.3466666666666667
+      },
+      "rho/k0": {
+       "bal": 0.4819538926681784,
+       "kept_meaningful": 0.64,
+       "recognized_meaningless": 0.7166666666666667
+      },
+      "rho/k4": {
+       "bal": 0.49635416666666665,
+       "kept_meaningful": 0.9917355371900827,
+       "recognized_meaningless": 0.16333333333333333
+      },
+      "shuffled/k0": {
+       "bal": 0.4819538926681784,
+       "kept_meaningful": 0.64,
+       "recognized_meaningless": 0.7166666666666667
+      }
+     }
+    },
+    "inv1p": {
+     "kind": "inverse",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.5078611274221961
+      },
+      "none/k0": {
+       "bal": 0.49964883558724377,
+       "kept_meaningful": 0.24904761904761905,
+       "recognized_meaningless": 0.6866666666666666
+      },
+      "none/k4": {
+       "bal": 0.49591651986690155,
+       "kept_meaningful": 0.9832695984703633,
+       "recognized_meaningless": 0.16
+      },
+      "rho/k0": {
+       "bal": 0.5093676134382145,
+       "kept_meaningful": 0.2938095238095238,
+       "recognized_meaningless": 0.6866666666666666
+      },
+      "rho/k4": {
+       "bal": 0.49870326874143667,
+       "kept_meaningful": 0.9923518164435946,
+       "recognized_meaningless": 0.11333333333333333
+      },
+      "shuffled/k0": {
+       "bal": 0.5093676134382145,
+       "kept_meaningful": 0.2938095238095238,
+       "recognized_meaningless": 0.6866666666666666
+      }
+     }
+    },
+    "inv4p": {
+     "kind": "inverse",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.5450312736656102
+      },
+      "none/k0": {
+       "bal": 0.4991596638655462,
+       "kept_meaningful": 0.3484848484848485,
+       "recognized_meaningless": 0.6933333333333334
+      },
+      "none/k4": {
+       "bal": 0.4778700249628362,
+       "kept_meaningful": 0.9823788546255506,
+       "recognized_meaningless": 0.31
+      },
+      "rho/k0": {
+       "bal": 0.4677871148459384,
+       "kept_meaningful": 0.4458874458874459,
+       "recognized_meaningless": 0.6766666666666666
+      },
+      "rho/k4": {
+       "bal": 0.4686562140633327,
+       "kept_meaningful": 0.9823788546255506,
+       "recognized_meaningless": 0.3
+      },
+      "shuffled/k0": {
+       "bal": 0.4677871148459384,
+       "kept_meaningful": 0.4458874458874459,
+       "recognized_meaningless": 0.6766666666666666
+      }
+     }
+    },
+    "inv5p": {
+     "kind": "inverse",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.5230509745127436
+      },
+      "none/k0": {
+       "bal": 0.5360329444063143,
+       "kept_meaningful": 0.72,
+       "recognized_meaningless": 0.6833333333333333
+      },
+      "none/k4": {
+       "bal": 0.5071214392803598,
+       "kept_meaningful": 0.9917355371900827,
+       "recognized_meaningless": 0.2966666666666667
+      },
+      "rho/k0": {
+       "bal": 0.49588194921070694,
+       "kept_meaningful": 0.64,
+       "recognized_meaningless": 0.6966666666666667
+      },
+      "rho/k4": {
+       "bal": 0.4985007496251874,
+       "kept_meaningful": 0.987603305785124,
+       "recognized_meaningless": 0.23
+      },
+      "shuffled/k0": {
+       "bal": 0.49588194921070694,
+       "kept_meaningful": 0.64,
+       "recognized_meaningless": 0.6966666666666667
+      }
+     }
+    },
+    "sym0": {
+     "kind": "symmetric",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.46875
+      },
+      "none/k0": {
+       "bal": 0.6,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.71
+      },
+      "none/k4": {
+       "bal": 0.6145833333333333,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.8333333333333334,
+       "reverse_acc": 0.5
+      },
+      "rho/k0": {
+       "bal": 0.6,
+       "kept_meaningful": 0.9333333333333333,
+       "recognized_meaningless": 0.67
+      },
+      "rho/k4": {
+       "bal": 0.5833333333333333,
+       "kept_meaningful": 0.9545454545454546,
+       "recognized_meaningless": 0.7366666666666667,
+       "reverse_acc": 0.5
+      },
+      "shuffled/k0": {
+       "bal": 0.6,
+       "kept_meaningful": 0.9333333333333333,
+       "recognized_meaningless": 0.67
+      }
+     }
+    },
+    "sym5": {
+     "kind": "symmetric",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.5833333333333334
+      },
+      "none/k0": {
+       "bal": 0.5,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.7366666666666667
+      },
+      "none/k4": {
+       "bal": 0.5833333333333333,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.6266666666666667,
+       "reverse_acc": 0.3333333333333333
+      },
+      "rho/k0": {
+       "bal": 0.55,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.7266666666666667
+      },
+      "rho/k4": {
+       "bal": 0.5833333333333333,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.43666666666666665,
+       "reverse_acc": 0.3333333333333333
+      },
+      "shuffled/k0": {
+       "bal": 0.55,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.7266666666666667
+      }
+     }
+    },
+    "syn2s": {
+     "kind": "synonym",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.6476964769647697
+      },
+      "none/k0": {
+       "bal": 0.6156998232363812,
+       "kept_meaningful": 0.8068181818181818,
+       "recognized_meaningless": 0.7
+      },
+      "none/k4": {
+       "bal": 0.5775067750677507,
+       "kept_meaningful": 0.9880952380952381,
+       "recognized_meaningless": 0.42333333333333334
+      },
+      "rho/k0": {
+       "bal": 0.608548931383577,
+       "kept_meaningful": 0.7613636363636364,
+       "recognized_meaningless": 0.7
+      },
+      "rho/k4": {
+       "bal": 0.5956639566395664,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.4
+      },
+      "shuffled/k0": {
+       "bal": 0.608548931383577,
+       "kept_meaningful": 0.7613636363636364,
+       "recognized_meaningless": 0.7
+      }
+     }
+    },
+    "syn3s": {
+     "kind": "synonym",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.6745726906087959
+      },
+      "none/k0": {
+       "bal": 0.6309584393553859,
+       "kept_meaningful": 0.9659090909090909,
+       "recognized_meaningless": 0.6966666666666667
+      },
+      "none/k4": {
+       "bal": 0.6796619934703284,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.7066666666666667
+      },
+      "rho/k0": {
+       "bal": 0.6146734520780323,
+       "kept_meaningful": 0.8863636363636364,
+       "recognized_meaningless": 0.6733333333333333
+      },
+      "rho/k4": {
+       "bal": 0.6875360092183599,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.6333333333333333
+      },
+      "shuffled/k0": {
+       "bal": 0.6146734520780323,
+       "kept_meaningful": 0.8863636363636364,
+       "recognized_meaningless": 0.6733333333333333
+      }
+     }
+    },
+    "syn6s": {
+     "kind": "synonym",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.5333216104849157
+      },
+      "none/k0": {
+       "bal": 0.505961094426754,
+       "kept_meaningful": 0.24904761904761905,
+       "recognized_meaningless": 0.72
+      },
+      "none/k4": {
+       "bal": 0.5234802792382494,
+       "kept_meaningful": 0.972753346080306,
+       "recognized_meaningless": 0.21666666666666667
+      },
+      "rho/k0": {
+       "bal": 0.5350648174697795,
+       "kept_meaningful": 0.2938095238095238,
+       "recognized_meaningless": 0.7133333333333334
+      },
+      "rho/k4": {
+       "bal": 0.5284865216550317,
+       "kept_meaningful": 0.9866156787762906,
+       "recognized_meaningless": 0.18
+      },
+      "shuffled/k0": {
+       "bal": 0.5350648174697795,
+       "kept_meaningful": 0.2938095238095238,
+       "recognized_meaningless": 0.7133333333333334
+      }
+     }
+    }
+   },
+   "log": [
+    {
+     "app": 0.23899078369140625,
+     "logic": 0.7163711190223694,
+     "loss": 1.14363431930542,
+     "reg": 0.0,
+     "step": 100
+    }
+   ],
+   "seed": 450,
+   "trained_intro": {
+    "ancestor-of": {
+     "encoded": 0.7519146550818063,
+     "kind": "real-ancestor-of",
+     "set": "A",
+     "stored": 0.7521318712118558
+    },
+    "baby-of": {
+     "encoded": 0.8672652916073968,
+     "kind": "real-baby-of",
+     "set": "A",
+     "stored": 0.9297652916073968
+    },
+    "bigger-than": {
+     "encoded": 0.5606060606060606,
+     "kind": "real-bigger-than",
+     "set": "A",
+     "stored": 0.8479020979020979
+    },
+    "brighter-than": {
+     "encoded": 0.8928571428571428,
+     "kind": "real-brighter-than",
+     "set": "B",
+     "stored": 1.0
+    },
+    "can": {
+     "encoded": 0.756852879944483,
+     "kind": "real-can",
+     "set": "A",
+     "stored": 0.8212179042331714
+    },
+    "colder-than": {
+     "encoded": 0.5456349206349207,
+     "kind": "real-colder-than",
+     "set": "B",
+     "stored": 0.6944444444444444
+    },
+    "colour-of": {
+     "encoded": 0.7525167785234899,
+     "kind": "real-colour-of",
+     "set": "A",
+     "stored": 0.8044253355704698
+    },
+    "eats": {
+     "encoded": 0.7892857142857144,
+     "kind": "real-eats",
+     "set": "B",
+     "stored": 0.8642857142857143
+    },
+    "faster-than": {
+     "encoded": 0.5833333333333334,
+     "kind": "real-faster-than",
+     "set": "A",
+     "stored": 1.0
+    },
+    "good-phrase": {
+     "encoded": 0.7860008649482333,
+     "kind": "real-good-phrase",
+     "set": "A",
+     "stored": 0.8537273537273538
+    },
+    "grandparent-of": {
+     "encoded": 0.7339285714285715,
+     "kind": "real-grandparent-of",
+     "set": "A",
+     "stored": 0.8642857142857143
+    },
+    "has": {
+     "encoded": 0.6602012365135168,
+     "kind": "real-has",
+     "set": "A",
+     "stored": 0.6863256152260879
+    },
+    "has-baby": {
+     "encoded": 0.8291251778093883,
+     "kind": "real-has-baby",
+     "set": "A",
+     "stored": 0.8643314366998578
+    },
+    "heavier-than": {
+     "encoded": 0.5059523809523809,
+     "kind": "real-heavier-than",
+     "set": "A",
+     "stored": 0.9821428571428572
+    },
+    "hotter-than": {
+     "encoded": 0.5773809523809523,
+     "kind": "real-hotter-than",
+     "set": "B",
+     "stored": 0.6607142857142857
+    },
+    "imp0b": {
+     "encoded": 0.6889619883040936,
+     "kind": "broad",
+     "set": "A",
+     "stored": 0.8023391812865497
+    },
+    "imp0n": {
+     "encoded": 0.8281957013574661,
+     "kind": "narrow",
+     "set": "A",
+     "stored": 0.9177036199095023
+    },
+    "imp1b": {
+     "encoded": 0.5869847031371532,
+     "kind": "broad",
+     "set": "A",
+     "stored": 0.6051983406792845
+    },
+    "imp1n": {
+     "encoded": 0.6186347673397717,
+     "kind": "narrow",
+     "set": "A",
+     "stored": 0.6506255487269534
+    },
+    "imp2n": {
+     "encoded": 0.636776281506267,
+     "kind": "narrow",
+     "set": "B",
+     "stored": 0.6411371054002908
+    },
+    "imp3b": {
+     "encoded": 0.6736111111111112,
+     "kind": "broad",
+     "set": "A",
+     "stored": 0.7523148148148149
+    },
+    "imp3n": {
+     "encoded": 0.815,
+     "kind": "narrow",
+     "set": "A",
+     "stored": 0.8665384615384616
+    },
+    "imp4n": {
+     "encoded": 0.7951388888888888,
+     "kind": "narrow",
+     "set": "B",
+     "stored": 1.0
+    },
+    "imp5b": {
+     "encoded": 0.6136521136521136,
+     "kind": "broad",
+     "set": "B",
+     "stored": 0.6858627858627859
+    },
+    "imp6b": {
+     "encoded": 0.6377104377104377,
+     "kind": "broad",
+     "set": "B",
+     "stored": 0.7057239057239058
+    },
+    "imp6n": {
+     "encoded": 0.7016019297377536,
+     "kind": "narrow",
+     "set": "B",
+     "stored": 0.7608857001484414
+    },
+    "imp7b": {
+     "encoded": 0.7029649595687332,
+     "kind": "broad",
+     "set": "B",
+     "stored": 0.648921832884097
+    },
+    "inv0": {
+     "encoded": 0.6170634920634921,
+     "kind": "inv-base",
+     "set": "B",
+     "stored": 0.67072940287226
+    },
+    "inv1": {
+     "encoded": 0.5206048746464138,
+     "kind": "inv-base",
+     "set": "B",
+     "stored": 0.5336124888596118
+    },
+    "inv10": {
+     "encoded": 0.8409961685823755,
+     "kind": "inv-base",
+     "set": "A",
+     "stored": 0.8852703277990635
+    },
+    "inv10p": {
+     "encoded": 0.855683269476373,
+     "kind": "inverse",
+     "set": "B",
+     "stored": 0.9148573861217539
+    },
+    "inv11": {
+     "encoded": 1.0,
+     "kind": "inv-base",
+     "set": "A",
+     "stored": 1.0
+    },
+    "inv11p": {
+     "encoded": 1.0,
+     "kind": "inverse",
+     "set": "A",
+     "stored": 1.0
+    },
+    "inv2": {
+     "encoded": 0.5326086956521738,
+     "kind": "inv-base",
+     "set": "A",
+     "stored": 0.7193322981366459
+    },
+    "inv2p": {
+     "encoded": 0.5675465838509317,
+     "kind": "inverse",
+     "set": "B",
+     "stored": 0.6909937888198758
+    },
+    "inv3": {
+     "encoded": 0.921875,
+     "kind": "inv-base",
+     "set": "B",
+     "stored": 0.9453125
+    },
+    "inv3p": {
+     "encoded": 0.78125,
+     "kind": "inverse",
+     "set": "B",
+     "stored": 0.9765625
+    },
+    "inv4": {
+     "encoded": 0.5985994397759103,
+     "kind": "inv-base",
+     "set": "B",
+     "stored": 0.6408963585434174
+    },
+    "inv5": {
+     "encoded": 0.660175017158545,
+     "kind": "inv-base",
+     "set": "B",
+     "stored": 0.7195435827041867
+    },
+    "inv6": {
+     "encoded": 0.565654027289142,
+     "kind": "inv-base",
+     "set": "B",
+     "stored": 0.6068948828204985
+    },
+    "inv6p": {
+     "encoded": 0.5455129279052884,
+     "kind": "inverse",
+     "set": "B",
+     "stored": 0.5526051264868488
+    },
+    "inv7": {
+     "encoded": 0.7654411764705882,
+     "kind": "inv-base",
+     "set": "B",
+     "stored": 0.8558823529411765
+    },
+    "inv7p": {
+     "encoded": 0.7485294117647059,
+     "kind": "inverse",
+     "set": "B",
+     "stored": 0.825
+    },
+    "inv8": {
+     "encoded": 1.0,
+     "kind": "inv-base",
+     "set": "B",
+     "stored": 1.0
+    },
+    "inv8p": {
+     "encoded": 0.8947368421052632,
+     "kind": "inverse",
+     "set": "B",
+     "stored": 1.0
+    },
+    "inv9": {
+     "encoded": 0.8594401429422275,
+     "kind": "inv-base",
+     "set": "A",
+     "stored": 0.9383561643835616
+    },
+    "inv9p": {
+     "encoded": 0.8320428826682549,
+     "kind": "inverse",
+     "set": "A",
+     "stored": 0.952054794520548
+    },
+    "is": {
+     "encoded": 0.78125,
+     "kind": "real-is",
+     "set": "B",
+     "stored": 0.8363095238095238
+    },
+    "is-a": {
+     "encoded": 0.7055619941393184,
+     "kind": "real-is-a",
+     "set": "B",
+     "stored": 0.6997653842892275
+    },
+    "just-bigger-than": {
+     "encoded": 0.8308270676691729,
+     "kind": "real-just-bigger-than",
+     "set": "A",
+     "stored": 0.8038277511961722
+    },
+    "kind-of": {
+     "encoded": 0.711038961038961,
+     "kind": "real-kind-of",
+     "set": "B",
+     "stored": 0.7600649350649351
+    },
+    "lighter-than": {
+     "encoded": 0.6726190476190477,
+     "kind": "real-lighter-than",
+     "set": "A",
+     "stored": 0.8630952380952381
+    },
+    "lives-in": {
+     "encoded": 0.7675617357947735,
+     "kind": "real-lives-in",
+     "set": "B",
+     "stored": 0.8954687125389595
+    },
+    "lives-with": {
+     "encoded": 0.57412596095707,
+     "kind": "real-lives-with",
+     "set": "B",
+     "stored": 0.6596916299559472
+    },
+    "louder-than": {
+     "encoded": 0.5535714285714286,
+     "kind": "real-louder-than",
+     "set": "B",
+     "stored": 0.6428571428571428
+    },
+    "makes-sense": {
+     "encoded": 0.84135103475205,
+     "kind": "real-makes-sense",
+     "set": "A",
+     "stored": 0.8465443186255369
+    },
+    "mixed-from": {
+     "encoded": 0.8644144144144144,
+     "kind": "real-mixed-from",
+     "set": "A",
+     "stored": 0.8729729729729729
+    },
+    "named-can": {
+     "encoded": 0.7065217391304348,
+     "kind": "real-named-can",
+     "set": "A",
+     "stored": 0.7329988851727982
+    },
+    "named-has": {
+     "encoded": 0.633954802259887,
+     "kind": "real-named-has",
+     "set": "A",
+     "stored": 0.6870056497175141
+    },
+    "named-kind": {
+     "encoded": 0.7214912280701755,
+     "kind": "real-named-kind",
+     "set": "B",
+     "stored": 0.7894736842105263
+    },
+    "names": {
+     "encoded": 0.7878989361702128,
+     "kind": "real-names",
+     "set": "B",
+     "stored": 0.8357712765957447
+    },
+    "opposite": {
+     "encoded": 0.7121212121212122,
+     "kind": "real-opposite",
+     "set": "A",
+     "stored": 0.7045454545454546
+    },
+    "parent-of": {
+     "encoded": 0.8371237458193981,
+     "kind": "real-parent-of",
+     "set": "B",
+     "stored": 0.8853065774804906
+    },
+    "prey-of": {
+     "encoded": 0.7141078838174274,
+     "kind": "real-prey-of",
+     "set": "B",
+     "stored": 0.8409751037344398
+    },
+    "preys-on": {
+     "encoded": 0.8157676348547718,
+     "kind": "real-preys-on",
+     "set": "A",
+     "stored": 0.9510373443983402
+    },
+    "quieter-than": {
+     "encoded": 0.5535714285714286,
+     "kind": "real-quieter-than",
+     "set": "B",
+     "stored": 0.6428571428571428
+    },
+    "same-class-as": {
+     "encoded": 0.6402347652347652,
+     "kind": "real-same-class-as",
+     "set": "A",
+     "stored": 0.6611825674325674
+    },
+    "same-colour-as": {
+     "encoded": 0.5693999083829593,
+     "kind": "real-same-colour-as",
+     "set": "B",
+     "stored": 0.7008212813297559
+    },
+    "says": {
+     "encoded": 0.7736842105263158,
+     "kind": "real-says",
+     "set": "B",
+     "stored": 0.8175438596491228
+    },
+    "sibling-of": {
+     "encoded": 0.8067375886524824,
+     "kind": "real-sibling-of",
+     "set": "A",
+     "stored": 0.800531914893617
+    },
+    "slower-than": {
+     "encoded": 0.5416666666666666,
+     "kind": "real-slower-than",
+     "set": "B",
+     "stored": 0.8571428571428572
+    },
+    "smaller-than": {
+     "encoded": 0.5046620046620047,
+     "kind": "real-smaller-than",
+     "set": "B",
+     "stored": 0.7097902097902098
+    },
+    "spouse-of": {
+     "encoded": 0.7420863309352518,
+     "kind": "real-spouse-of",
+     "set": "B",
+     "stored": 0.7636690647482014
+    },
+    "subkind-of": {
+     "encoded": 0.8315412186379928,
+     "kind": "real-subkind-of",
+     "set": "B",
+     "stored": 0.9121863799283154
+    },
+    "sym1": {
+     "encoded": 0.5408249158249159,
+     "kind": "symmetric",
+     "set": "B",
+     "stored": 0.5888047138047138
+    },
+    "sym2": {
+     "encoded": 0.5738524359335399,
+     "kind": "symmetric",
+     "set": "A",
+     "stored": 0.6677696423542664
+    },
+    "sym3": {
+     "encoded": 1.0,
+     "kind": "symmetric",
+     "set": "B",
+     "stored": 1.0
+    },
+    "sym4": {
+     "encoded": 0.5204984930484022,
+     "kind": "symmetric",
+     "set": "B",
+     "stored": 0.5167120387174834
+    },
+    "syn0": {
+     "encoded": 0.990909090909091,
+     "kind": "syn-base",
+     "set": "B",
+     "stored": 0.9818181818181818
+    },
+    "syn0s": {
+     "encoded": 0.990909090909091,
+     "kind": "synonym",
+     "set": "B",
+     "stored": 0.990909090909091
+    },
+    "syn1": {
+     "encoded": 0.9891304347826086,
+     "kind": "syn-base",
+     "set": "B",
+     "stored": 1.0
+    },
+    "syn1s": {
+     "encoded": 0.9891304347826086,
+     "kind": "synonym",
+     "set": "B",
+     "stored": 1.0
+    },
+    "syn2": {
+     "encoded": 0.608548931383577,
+     "kind": "syn-base",
+     "set": "B",
+     "stored": 0.603888799614334
+    },
+    "syn3": {
+     "encoded": 0.6146734520780323,
+     "kind": "syn-base",
+     "set": "B",
+     "stored": 0.8302798982188295
+    },
+    "syn4": {
+     "encoded": 0.5625662281154175,
+     "kind": "syn-base",
+     "set": "A",
+     "stored": 0.6214236817674584
+    },
+    "syn4s": {
+     "encoded": 0.5625662281154175,
+     "kind": "synonym",
+     "set": "A",
+     "stored": 0.586661540337025
+    },
+    "syn5": {
+     "encoded": 0.7469157104650159,
+     "kind": "syn-base",
+     "set": "A",
+     "stored": 0.7724527650763524
+    },
+    "syn5s": {
+     "encoded": 0.7469157104650159,
+     "kind": "synonym",
+     "set": "A",
+     "stored": 0.79868001035286
+    },
+    "syn6": {
+     "encoded": 0.5350648174697795,
+     "kind": "syn-base",
+     "set": "B",
+     "stored": 0.5460258016133844
+    },
+    "syn7": {
+     "encoded": 1.0,
+     "kind": "syn-base",
+     "set": "A",
+     "stored": 0.9758064516129032
+    },
+    "syn7s": {
+     "encoded": 1.0,
+     "kind": "synonym",
+     "set": "B",
+     "stored": 0.9838709677419355
+    }
+   },
+   "virtual_A": {
+    "copy-of-ancestor-of": {
+     "Q": "ancestor-of",
+     "rho": 0.7519146550818063,
+     "typ": "copy"
+    },
+    "copy-of-baby-of": {
+     "Q": "baby-of",
+     "rho": 0.8672652916073968,
+     "typ": "copy"
+    },
+    "copy-of-bigger-than": {
+     "Q": "bigger-than",
+     "rho": 0.5606060606060606,
+     "typ": "copy"
+    },
+    "copy-of-can": {
+     "Q": "can",
+     "rho": 0.756852879944483,
+     "typ": "copy"
+    },
+    "copy-of-colour-of": {
+     "Q": "colour-of",
+     "rho": 0.7525167785234899,
+     "typ": "copy"
+    },
+    "copy-of-faster-than": {
+     "Q": "faster-than",
+     "rho": 0.5833333333333334,
+     "typ": "copy"
+    },
+    "copy-of-good-phrase": {
+     "Q": "good-phrase",
+     "rho": 0.7860008649482333,
+     "typ": "copy"
+    },
+    "copy-of-grandparent-of": {
+     "Q": "grandparent-of",
+     "rho": 0.7339285714285715,
+     "typ": "copy"
+    },
+    "copy-of-has": {
+     "Q": "has",
+     "rho": 0.6602012365135168,
+     "typ": "copy"
+    },
+    "copy-of-has-baby": {
+     "Q": "has-baby",
+     "rho": 0.8291251778093883,
+     "typ": "copy"
+    },
+    "copy-of-heavier-than": {
+     "Q": "heavier-than",
+     "rho": 0.5059523809523809,
+     "typ": "copy"
+    },
+    "copy-of-imp0b": {
+     "Q": "imp0b",
+     "rho": 0.6889619883040936,
+     "typ": "copy"
+    },
+    "copy-of-imp0n": {
+     "Q": "imp0n",
+     "rho": 0.8281957013574661,
+     "typ": "copy"
+    },
+    "copy-of-imp1b": {
+     "Q": "imp1b",
+     "rho": 0.5869847031371532,
+     "typ": "copy"
+    },
+    "copy-of-imp1n": {
+     "Q": "imp1n",
+     "rho": 0.6186347673397717,
+     "typ": "copy"
+    },
+    "copy-of-imp3b": {
+     "Q": "imp3b",
+     "rho": 0.6736111111111112,
+     "typ": "copy"
+    },
+    "copy-of-imp3n": {
+     "Q": "imp3n",
+     "rho": 0.815,
+     "typ": "copy"
+    },
+    "copy-of-inv10": {
+     "Q": "inv10",
+     "rho": 0.8409961685823755,
+     "typ": "copy"
+    },
+    "copy-of-inv11": {
+     "Q": "inv11",
+     "rho": 1.0,
+     "typ": "copy"
+    },
+    "copy-of-inv11p": {
+     "Q": "inv11p",
+     "rho": 1.0,
+     "typ": "copy"
+    },
+    "copy-of-inv2": {
+     "Q": "inv2",
+     "rho": 0.5326086956521738,
+     "typ": "copy"
+    },
+    "copy-of-inv9": {
+     "Q": "inv9",
+     "rho": 0.8594401429422275,
+     "typ": "copy"
+    },
+    "copy-of-inv9p": {
+     "Q": "inv9p",
+     "rho": 0.8320428826682549,
+     "typ": "copy"
+    },
+    "copy-of-just-bigger-than": {
+     "Q": "just-bigger-than",
+     "rho": 0.8308270676691729,
+     "typ": "copy"
+    },
+    "copy-of-lighter-than": {
+     "Q": "lighter-than",
+     "rho": 0.6726190476190477,
+     "typ": "copy"
+    },
+    "copy-of-makes-sense": {
+     "Q": "makes-sense",
+     "rho": 0.84135103475205,
+     "typ": "copy"
+    },
+    "copy-of-mixed-from": {
+     "Q": "mixed-from",
+     "rho": 0.8644144144144144,
+     "typ": "copy"
+    },
+    "copy-of-named-can": {
+     "Q": "named-can",
+     "rho": 0.7065217391304348,
+     "typ": "copy"
+    },
+    "copy-of-named-has": {
+     "Q": "named-has",
+     "rho": 0.633954802259887,
+     "typ": "copy"
+    },
+    "copy-of-opposite": {
+     "Q": "opposite",
+     "rho": 0.7121212121212122,
+     "typ": "copy"
+    },
+    "copy-of-preys-on": {
+     "Q": "preys-on",
+     "rho": 0.8157676348547718,
+     "typ": "copy"
+    },
+    "copy-of-same-class-as": {
+     "Q": "same-class-as",
+     "rho": 0.6402347652347652,
+     "typ": "copy"
+    },
+    "copy-of-sibling-of": {
+     "Q": "sibling-of",
+     "rho": 0.8067375886524824,
+     "typ": "copy"
+    },
+    "copy-of-sym2": {
+     "Q": "sym2",
+     "rho": 0.5738524359335399,
+     "typ": "copy"
+    },
+    "copy-of-syn4": {
+     "Q": "syn4",
+     "rho": 0.5625662281154175,
+     "typ": "copy"
+    },
+    "copy-of-syn4s": {
+     "Q": "syn4s",
+     "rho": 0.5625662281154175,
+     "typ": "copy"
+    },
+    "copy-of-syn5": {
+     "Q": "syn5",
+     "rho": 0.7469157104650159,
+     "typ": "copy"
+    },
+    "copy-of-syn5s": {
+     "Q": "syn5s",
+     "rho": 0.7469157104650159,
+     "typ": "copy"
+    },
+    "copy-of-syn7": {
+     "Q": "syn7",
+     "rho": 1.0,
+     "typ": "copy"
+    },
+    "inverse-of-ancestor-of": {
+     "Q": "ancestor-of",
+     "rho": 0.4738079388992047,
+     "typ": "inverse"
+    },
+    "inverse-of-baby-of": {
+     "Q": "baby-of",
+     "rho": 0.8291251778093883,
+     "typ": "inverse"
+    },
+    "inverse-of-bigger-than": {
+     "Q": "bigger-than",
+     "rho": 0.5046620046620047,
+     "typ": "inverse"
+    },
+    "inverse-of-can": {
+     "Q": "can",
+     "rho": 0.4499479528105482,
+     "typ": "inverse"
+    },
+    "inverse-of-colour-of": {
+     "Q": "colour-of",
+     "rho": 0.5432046979865772,
+     "typ": "inverse"
+    },
+    "inverse-of-faster-than": {
+     "Q": "faster-than",
+     "rho": 0.5416666666666666,
+     "typ": "inverse"
+    },
+    "inverse-of-good-phrase": {
+     "Q": "good-phrase",
+     "rho": 0.3804964594438279,
+     "typ": "inverse"
+    },
+    "inverse-of-grandparent-of": {
+     "Q": "grandparent-of",
+     "rho": 0.38035714285714284,
+     "typ": "inverse"
+    },
+    "inverse-of-has": {
+     "Q": "has",
+     "rho": 0.5142214207782762,
+     "typ": "inverse"
+    },
+    "inverse-of-has-baby": {
+     "Q": "has-baby",
+     "rho": 0.8672652916073968,
+     "typ": "inverse"
+    },
+    "inverse-of-heavier-than": {
+     "Q": "heavier-than",
+     "rho": 0.6726190476190477,
+     "typ": "inverse"
+    },
+    "inverse-of-imp0b": {
+     "Q": "imp0b",
+     "rho": 0.5017543859649123,
+     "typ": "inverse"
+    },
+    "inverse-of-imp0n": {
+     "Q": "imp0n",
+     "rho": 0.48303167420814475,
+     "typ": "inverse"
+    },
+    "inverse-of-imp1b": {
+     "Q": "imp1b",
+     "rho": 0.4971480425200933,
+     "typ": "inverse"
+    },
+    "inverse-of-imp1n": {
+     "Q": "imp1n",
+     "rho": 0.47146619841966636,
+     "typ": "inverse"
+    },
+    "inverse-of-imp3b": {
+     "Q": "imp3b",
+     "rho": 0.5335648148148149,
+     "typ": "inverse"
+    },
+    "inverse-of-imp3n": {
+     "Q": "imp3n",
+     "rho": 0.5623076923076923,
+     "typ": "inverse"
+    },
+    "inverse-of-inv10": {
+     "Q": "inv10",
+     "rho": 0.855683269476373,
+     "typ": "inverse"
+    },
+    "inverse-of-inv11": {
+     "Q": "inv11",
+     "rho": 1.0,
+     "typ": "inverse"
+    },
+    "inverse-of-inv11p": {
+     "Q": "inv11p",
+     "rho": 1.0,
+     "typ": "inverse"
+    },
+    "inverse-of-inv2": {
+     "Q": "inv2",
+     "rho": 0.5675465838509317,
+     "typ": "inverse"
+    },
+    "inverse-of-inv9": {
+     "Q": "inv9",
+     "rho": 0.8320428826682549,
+     "typ": "inverse"
+    },
+    "inverse-of-inv9p": {
+     "Q": "inv9p",
+     "rho": 0.8594401429422275,
+     "typ": "inverse"
+    },
+    "inverse-of-just-bigger-than": {
+     "Q": "just-bigger-than",
+     "rho": 0.6831852358168148,
+     "typ": "inverse"
+    },
+    "inverse-of-lighter-than": {
+     "Q": "lighter-than",
+     "rho": 0.5059523809523809,
+     "typ": "inverse"
+    },
+    "inverse-of-makes-sense": {
+     "Q": "makes-sense",
+     "rho": 0.4148509696733047,
+     "typ": "inverse"
+    },
+    "inverse-of-mixed-from": {
+     "Q": "mixed-from",
+     "rho": 0.4283783783783784,
+     "typ": "inverse"
+    },
+    "inverse-of-named-can": {
+     "Q": "named-can",
+     "rho": 0.511984392419175,
+     "typ": "inverse"
+    },
+    "inverse-of-named-has": {
+     "Q": "named-has",
+     "rho": 0.4518079096045198,
+     "typ": "inverse"
+    },
+    "inverse-of-opposite": {
+     "Q": "opposite",
+     "rho": 0.7121212121212122,
+     "typ": "inverse"
+    },
+    "inverse-of-preys-on": {
+     "Q": "preys-on",
+     "rho": 0.7141078838174274,
+     "typ": "inverse"
+    },
+    "inverse-of-same-class-as": {
+     "Q": "same-class-as",
+     "rho": 0.6402347652347652,
+     "typ": "inverse"
+    },
+    "inverse-of-sibling-of": {
+     "Q": "sibling-of",
+     "rho": 0.8067375886524824,
+     "typ": "inverse"
+    },
+    "inverse-of-sym2": {
+     "Q": "sym2",
+     "rho": 0.5738524359335399,
+     "typ": "inverse"
+    },
+    "inverse-of-syn4": {
+     "Q": "syn4",
+     "rho": 0.5006001556653757,
+     "typ": "inverse"
+    },
+    "inverse-of-syn4s": {
+     "Q": "syn4s",
+     "rho": 0.5006001556653757,
+     "typ": "inverse"
+    },
+    "inverse-of-syn5": {
+     "Q": "syn5",
+     "rho": 0.5502113708912086,
+     "typ": "inverse"
+    },
+    "inverse-of-syn5s": {
+     "Q": "syn5s",
+     "rho": 0.5502113708912086,
+     "typ": "inverse"
+    },
+    "inverse-of-syn7": {
+     "Q": "syn7",
+     "rho": 0.5887096774193548,
+     "typ": "inverse"
+    }
+   },
+   "virtual_B": {
+    "copy-of-brighter-than": {
+     "Q": "brighter-than",
+     "rho": 0.8928571428571428,
+     "shuffled": 0.8928571428571428,
+     "typ": "copy"
+    },
+    "copy-of-colder-than": {
+     "Q": "colder-than",
+     "rho": 0.5456349206349207,
+     "shuffled": 0.5456349206349207,
+     "typ": "copy"
+    },
+    "copy-of-eats": {
+     "Q": "eats",
+     "rho": 0.7892857142857144,
+     "shuffled": 0.7892857142857144,
+     "typ": "copy"
+    },
+    "copy-of-hotter-than": {
+     "Q": "hotter-than",
+     "rho": 0.5773809523809523,
+     "shuffled": 0.5773809523809523,
+     "typ": "copy"
+    },
+    "copy-of-imp2n": {
+     "Q": "imp2n",
+     "rho": 0.636776281506267,
+     "shuffled": 0.636776281506267,
+     "typ": "copy"
+    },
+    "copy-of-imp4n": {
+     "Q": "imp4n",
+     "rho": 0.7951388888888888,
+     "shuffled": 0.7951388888888888,
+     "typ": "copy"
+    },
+    "copy-of-imp5b": {
+     "Q": "imp5b",
+     "rho": 0.6136521136521136,
+     "shuffled": 0.6136521136521136,
+     "typ": "copy"
+    },
+    "copy-of-imp6b": {
+     "Q": "imp6b",
+     "rho": 0.6377104377104377,
+     "shuffled": 0.6377104377104377,
+     "typ": "copy"
+    },
+    "copy-of-imp6n": {
+     "Q": "imp6n",
+     "rho": 0.7016019297377536,
+     "shuffled": 0.7016019297377536,
+     "typ": "copy"
+    },
+    "copy-of-imp7b": {
+     "Q": "imp7b",
+     "rho": 0.7029649595687332,
+     "shuffled": 0.7029649595687332,
+     "typ": "copy"
+    },
+    "copy-of-inv0": {
+     "Q": "inv0",
+     "rho": 0.6170634920634921,
+     "shuffled": 0.6170634920634921,
+     "typ": "copy"
+    },
+    "copy-of-inv1": {
+     "Q": "inv1",
+     "rho": 0.5206048746464138,
+     "shuffled": 0.5206048746464138,
+     "typ": "copy"
+    },
+    "copy-of-inv10p": {
+     "Q": "inv10p",
+     "rho": 0.855683269476373,
+     "shuffled": 0.855683269476373,
+     "typ": "copy"
+    },
+    "copy-of-inv2p": {
+     "Q": "inv2p",
+     "rho": 0.5675465838509317,
+     "shuffled": 0.5675465838509317,
+     "typ": "copy"
+    },
+    "copy-of-inv3": {
+     "Q": "inv3",
+     "rho": 0.921875,
+     "shuffled": 0.921875,
+     "typ": "copy"
+    },
+    "copy-of-inv3p": {
+     "Q": "inv3p",
+     "rho": 0.78125,
+     "shuffled": 0.78125,
+     "typ": "copy"
+    },
+    "copy-of-inv4": {
+     "Q": "inv4",
+     "rho": 0.5985994397759103,
+     "shuffled": 0.5985994397759103,
+     "typ": "copy"
+    },
+    "copy-of-inv5": {
+     "Q": "inv5",
+     "rho": 0.660175017158545,
+     "shuffled": 0.660175017158545,
+     "typ": "copy"
+    },
+    "copy-of-inv6": {
+     "Q": "inv6",
+     "rho": 0.565654027289142,
+     "shuffled": 0.565654027289142,
+     "typ": "copy"
+    },
+    "copy-of-inv6p": {
+     "Q": "inv6p",
+     "rho": 0.5455129279052884,
+     "shuffled": 0.5455129279052884,
+     "typ": "copy"
+    },
+    "copy-of-inv7": {
+     "Q": "inv7",
+     "rho": 0.7654411764705882,
+     "shuffled": 0.7654411764705882,
+     "typ": "copy"
+    },
+    "copy-of-inv7p": {
+     "Q": "inv7p",
+     "rho": 0.7485294117647059,
+     "shuffled": 0.7485294117647059,
+     "typ": "copy"
+    },
+    "copy-of-inv8": {
+     "Q": "inv8",
+     "rho": 1.0,
+     "shuffled": 1.0,
+     "typ": "copy"
+    },
+    "copy-of-inv8p": {
+     "Q": "inv8p",
+     "rho": 0.8947368421052632,
+     "shuffled": 0.8947368421052632,
+     "typ": "copy"
+    },
+    "copy-of-is": {
+     "Q": "is",
+     "rho": 0.78125,
+     "shuffled": 0.78125,
+     "typ": "copy"
+    },
+    "copy-of-is-a": {
+     "Q": "is-a",
+     "rho": 0.7055619941393184,
+     "shuffled": 0.7055619941393184,
+     "typ": "copy"
+    },
+    "copy-of-kind-of": {
+     "Q": "kind-of",
+     "rho": 0.711038961038961,
+     "shuffled": 0.711038961038961,
+     "typ": "copy"
+    },
+    "copy-of-lives-in": {
+     "Q": "lives-in",
+     "rho": 0.7675617357947735,
+     "shuffled": 0.7675617357947735,
+     "typ": "copy"
+    },
+    "copy-of-lives-with": {
+     "Q": "lives-with",
+     "rho": 0.57412596095707,
+     "shuffled": 0.57412596095707,
+     "typ": "copy"
+    },
+    "copy-of-louder-than": {
+     "Q": "louder-than",
+     "rho": 0.5535714285714286,
+     "shuffled": 0.5535714285714286,
+     "typ": "copy"
+    },
+    "copy-of-named-kind": {
+     "Q": "named-kind",
+     "rho": 0.7214912280701755,
+     "shuffled": 0.7214912280701755,
+     "typ": "copy"
+    },
+    "copy-of-names": {
+     "Q": "names",
+     "rho": 0.7878989361702128,
+     "shuffled": 0.7878989361702128,
+     "typ": "copy"
+    },
+    "copy-of-parent-of": {
+     "Q": "parent-of",
+     "rho": 0.8371237458193981,
+     "shuffled": 0.8371237458193981,
+     "typ": "copy"
+    },
+    "copy-of-prey-of": {
+     "Q": "prey-of",
+     "rho": 0.7141078838174274,
+     "shuffled": 0.7141078838174274,
+     "typ": "copy"
+    },
+    "copy-of-quieter-than": {
+     "Q": "quieter-than",
+     "rho": 0.5535714285714286,
+     "shuffled": 0.5535714285714286,
+     "typ": "copy"
+    },
+    "copy-of-same-colour-as": {
+     "Q": "same-colour-as",
+     "rho": 0.5693999083829593,
+     "shuffled": 0.5693999083829593,
+     "typ": "copy"
+    },
+    "copy-of-says": {
+     "Q": "says",
+     "rho": 0.7736842105263158,
+     "shuffled": 0.7736842105263158,
+     "typ": "copy"
+    },
+    "copy-of-slower-than": {
+     "Q": "slower-than",
+     "rho": 0.5416666666666666,
+     "shuffled": 0.5416666666666666,
+     "typ": "copy"
+    },
+    "copy-of-smaller-than": {
+     "Q": "smaller-than",
+     "rho": 0.5046620046620047,
+     "shuffled": 0.5046620046620047,
+     "typ": "copy"
+    },
+    "copy-of-spouse-of": {
+     "Q": "spouse-of",
+     "rho": 0.7420863309352518,
+     "shuffled": 0.7420863309352518,
+     "typ": "copy"
+    },
+    "copy-of-subkind-of": {
+     "Q": "subkind-of",
+     "rho": 0.8315412186379928,
+     "shuffled": 0.8315412186379928,
+     "typ": "copy"
+    },
+    "copy-of-sym1": {
+     "Q": "sym1",
+     "rho": 0.5408249158249159,
+     "shuffled": 0.5408249158249159,
+     "typ": "copy"
+    },
+    "copy-of-sym3": {
+     "Q": "sym3",
+     "rho": 1.0,
+     "shuffled": 1.0,
+     "typ": "copy"
+    },
+    "copy-of-sym4": {
+     "Q": "sym4",
+     "rho": 0.5204984930484022,
+     "shuffled": 0.5204984930484022,
+     "typ": "copy"
+    },
+    "copy-of-syn0": {
+     "Q": "syn0",
+     "rho": 0.990909090909091,
+     "shuffled": 0.990909090909091,
+     "typ": "copy"
+    },
+    "copy-of-syn0s": {
+     "Q": "syn0s",
+     "rho": 0.990909090909091,
+     "shuffled": 0.990909090909091,
+     "typ": "copy"
+    },
+    "copy-of-syn1": {
+     "Q": "syn1",
+     "rho": 0.9891304347826086,
+     "shuffled": 0.9891304347826086,
+     "typ": "copy"
+    },
+    "copy-of-syn1s": {
+     "Q": "syn1s",
+     "rho": 0.9891304347826086,
+     "shuffled": 0.9891304347826086,
+     "typ": "copy"
+    },
+    "copy-of-syn2": {
+     "Q": "syn2",
+     "rho": 0.608548931383577,
+     "shuffled": 0.608548931383577,
+     "typ": "copy"
+    },
+    "copy-of-syn3": {
+     "Q": "syn3",
+     "rho": 0.6146734520780323,
+     "shuffled": 0.6146734520780323,
+     "typ": "copy"
+    },
+    "copy-of-syn6": {
+     "Q": "syn6",
+     "rho": 0.5350648174697795,
+     "shuffled": 0.5350648174697795,
+     "typ": "copy"
+    },
+    "copy-of-syn7s": {
+     "Q": "syn7s",
+     "rho": 1.0,
+     "shuffled": 1.0,
+     "typ": "copy"
+    },
+    "inverse-of-brighter-than": {
+     "Q": "brighter-than",
+     "rho": 0.26785714285714285,
+     "shuffled": 0.26785714285714285,
+     "typ": "inverse"
+    },
+    "inverse-of-colder-than": {
+     "Q": "colder-than",
+     "rho": 0.5773809523809523,
+     "shuffled": 0.5773809523809523,
+     "typ": "inverse"
+    },
+    "inverse-of-eats": {
+     "Q": "eats",
+     "rho": 0.5142857142857142,
+     "shuffled": 0.5142857142857142,
+     "typ": "inverse"
+    },
+    "inverse-of-hotter-than": {
+     "Q": "hotter-than",
+     "rho": 0.5456349206349207,
+     "shuffled": 0.5456349206349207,
+     "typ": "inverse"
+    },
+    "inverse-of-imp2n": {
+     "Q": "imp2n",
+     "rho": 0.4960094347384877,
+     "shuffled": 0.4960094347384877,
+     "typ": "inverse"
+    },
+    "inverse-of-imp4n": {
+     "Q": "imp4n",
+     "rho": 0.5729166666666666,
+     "shuffled": 0.5729166666666666,
+     "typ": "inverse"
+    },
+    "inverse-of-imp5b": {
+     "Q": "imp5b",
+     "rho": 0.5213444213444214,
+     "shuffled": 0.5213444213444214,
+     "typ": "inverse"
+    },
+    "inverse-of-imp6b": {
+     "Q": "imp6b",
+     "rho": 0.48013468013468014,
+     "shuffled": 0.48013468013468014,
+     "typ": "inverse"
+    },
+    "inverse-of-imp6n": {
+     "Q": "imp6n",
+     "rho": 0.49344383968332506,
+     "shuffled": 0.49344383968332506,
+     "typ": "inverse"
+    },
+    "inverse-of-imp7b": {
+     "Q": "imp7b",
+     "rho": 0.5456873315363882,
+     "shuffled": 0.5456873315363882,
+     "typ": "inverse"
+    },
+    "inverse-of-inv0": {
+     "Q": "inv0",
+     "rho": 0.4819538926681784,
+     "shuffled": 0.4819538926681784,
+     "typ": "inverse"
+    },
+    "inverse-of-inv1": {
+     "Q": "inv1",
+     "rho": 0.5093676134382145,
+     "shuffled": 0.5093676134382145,
+     "typ": "inverse"
+    },
+    "inverse-of-inv10p": {
+     "Q": "inv10p",
+     "rho": 0.8409961685823755,
+     "shuffled": 0.8409961685823755,
+     "typ": "inverse"
+    },
+    "inverse-of-inv2p": {
+     "Q": "inv2p",
+     "rho": 0.5326086956521738,
+     "shuffled": 0.5326086956521738,
+     "typ": "inverse"
+    },
+    "inverse-of-inv3": {
+     "Q": "inv3",
+     "rho": 0.78125,
+     "shuffled": 0.78125,
+     "typ": "inverse"
+    },
+    "inverse-of-inv3p": {
+     "Q": "inv3p",
+     "rho": 0.921875,
+     "shuffled": 0.921875,
+     "typ": "inverse"
+    },
+    "inverse-of-inv4": {
+     "Q": "inv4",
+     "rho": 0.4677871148459384,
+     "shuffled": 0.4677871148459384,
+     "typ": "inverse"
+    },
+    "inverse-of-inv5": {
+     "Q": "inv5",
+     "rho": 0.49588194921070694,
+     "shuffled": 0.49588194921070694,
+     "typ": "inverse"
+    },
+    "inverse-of-inv6": {
+     "Q": "inv6",
+     "rho": 0.5455129279052884,
+     "shuffled": 0.5455129279052884,
+     "typ": "inverse"
+    },
+    "inverse-of-inv6p": {
+     "Q": "inv6p",
+     "rho": 0.565654027289142,
+     "shuffled": 0.565654027289142,
+     "typ": "inverse"
+    },
+    "inverse-of-inv7": {
+     "Q": "inv7",
+     "rho": 0.7485294117647059,
+     "shuffled": 0.7485294117647059,
+     "typ": "inverse"
+    },
+    "inverse-of-inv7p": {
+     "Q": "inv7p",
+     "rho": 0.7654411764705882,
+     "shuffled": 0.7654411764705882,
+     "typ": "inverse"
+    },
+    "inverse-of-inv8": {
+     "Q": "inv8",
+     "rho": 0.8947368421052632,
+     "shuffled": 0.8947368421052632,
+     "typ": "inverse"
+    },
+    "inverse-of-inv8p": {
+     "Q": "inv8p",
+     "rho": 1.0,
+     "shuffled": 1.0,
+     "typ": "inverse"
+    },
+    "inverse-of-is": {
+     "Q": "is",
+     "rho": 0.5461309523809523,
+     "shuffled": 0.5461309523809523,
+     "typ": "inverse"
+    },
+    "inverse-of-is-a": {
+     "Q": "is-a",
+     "rho": 0.4964402483722946,
+     "shuffled": 0.4964402483722946,
+     "typ": "inverse"
+    },
+    "inverse-of-kind-of": {
+     "Q": "kind-of",
+     "rho": 0.43084415584415586,
+     "shuffled": 0.43084415584415586,
+     "typ": "inverse"
+    },
+    "inverse-of-lives-in": {
+     "Q": "lives-in",
+     "rho": 0.5660513066410933,
+     "shuffled": 0.5660513066410933,
+     "typ": "inverse"
+    },
+    "inverse-of-lives-with": {
+     "Q": "lives-with",
+     "rho": 0.57412596095707,
+     "shuffled": 0.57412596095707,
+     "typ": "inverse"
+    },
+    "inverse-of-louder-than": {
+     "Q": "louder-than",
+     "rho": 0.5535714285714286,
+     "shuffled": 0.5535714285714286,
+     "typ": "inverse"
+    },
+    "inverse-of-named-kind": {
+     "Q": "named-kind",
+     "rho": 0.4539473684210526,
+     "shuffled": 0.4539473684210526,
+     "typ": "inverse"
+    },
+    "inverse-of-names": {
+     "Q": "names",
+     "rho": 0.46941489361702127,
+     "shuffled": 0.46941489361702127,
+     "typ": "inverse"
+    },
+    "inverse-of-parent-of": {
+     "Q": "parent-of",
+     "rho": 0.5093645484949832,
+     "shuffled": 0.5093645484949832,
+     "typ": "inverse"
+    },
+    "inverse-of-prey-of": {
+     "Q": "prey-of",
+     "rho": 0.8157676348547718,
+     "shuffled": 0.8157676348547718,
+     "typ": "inverse"
+    },
+    "inverse-of-quieter-than": {
+     "Q": "quieter-than",
+     "rho": 0.5535714285714286,
+     "shuffled": 0.5535714285714286,
+     "typ": "inverse"
+    },
+    "inverse-of-same-colour-as": {
+     "Q": "same-colour-as",
+     "rho": 0.5693999083829593,
+     "shuffled": 0.5693999083829593,
+     "typ": "inverse"
+    },
+    "inverse-of-says": {
+     "Q": "says",
+     "rho": 0.5157894736842106,
+     "shuffled": 0.5157894736842106,
+     "typ": "inverse"
+    },
+    "inverse-of-slower-than": {
+     "Q": "slower-than",
+     "rho": 0.5833333333333334,
+     "shuffled": 0.5833333333333334,
+     "typ": "inverse"
+    },
+    "inverse-of-smaller-than": {
+     "Q": "smaller-than",
+     "rho": 0.5606060606060606,
+     "shuffled": 0.5606060606060606,
+     "typ": "inverse"
+    },
+    "inverse-of-spouse-of": {
+     "Q": "spouse-of",
+     "rho": 0.7420863309352518,
+     "shuffled": 0.7420863309352518,
+     "typ": "inverse"
+    },
+    "inverse-of-subkind-of": {
+     "Q": "subkind-of",
+     "rho": 0.553763440860215,
+     "shuffled": 0.553763440860215,
+     "typ": "inverse"
+    },
+    "inverse-of-sym1": {
+     "Q": "sym1",
+     "rho": 0.5408249158249159,
+     "shuffled": 0.5408249158249159,
+     "typ": "inverse"
+    },
+    "inverse-of-sym3": {
+     "Q": "sym3",
+     "rho": 1.0,
+     "shuffled": 1.0,
+     "typ": "inverse"
+    },
+    "inverse-of-sym4": {
+     "Q": "sym4",
+     "rho": 0.5204984930484022,
+     "shuffled": 0.5204984930484022,
+     "typ": "inverse"
+    },
+    "inverse-of-syn0": {
+     "Q": "syn0",
+     "rho": 0.45454545454545453,
+     "shuffled": 0.45454545454545453,
+     "typ": "inverse"
+    },
+    "inverse-of-syn0s": {
+     "Q": "syn0s",
+     "rho": 0.45454545454545453,
+     "shuffled": 0.45454545454545453,
+     "typ": "inverse"
+    },
+    "inverse-of-syn1": {
+     "Q": "syn1",
+     "rho": 0.6352657004830917,
+     "shuffled": 0.6352657004830917,
+     "typ": "inverse"
+    },
+    "inverse-of-syn1s": {
+     "Q": "syn1s",
+     "rho": 0.6352657004830917,
+     "shuffled": 0.6352657004830917,
+     "typ": "inverse"
+    },
+    "inverse-of-syn2": {
+     "Q": "syn2",
+     "rho": 0.47589587015908724,
+     "shuffled": 0.47589587015908724,
+     "typ": "inverse"
+    },
+    "inverse-of-syn3": {
+     "Q": "syn3",
+     "rho": 0.5410517387616625,
+     "shuffled": 0.5410517387616625,
+     "typ": "inverse"
+    },
+    "inverse-of-syn6": {
+     "Q": "syn6",
+     "rho": 0.48903669410588807,
+     "shuffled": 0.48903669410588807,
+     "typ": "inverse"
+    },
+    "inverse-of-syn7s": {
+     "Q": "syn7s",
+     "rho": 0.5887096774193548,
+     "shuffled": 0.5887096774193548,
+     "typ": "inverse"
+    }
+   },
+   "world": {
+    "G2": {
+     "intuition": 0.7004899959167007,
+     "logic": 0.6808901592486729
+    },
+    "G4": {
+     "intuition": 0.6105769230769231,
+     "logic": 0.5080128205128205
+    },
+    "L1-anc": {
+     "intuition": 0.5555555555555556,
+     "logic": 0.5
+    },
+    "L1-kind": {
+     "intuition": 0.6327380952380952,
+     "logic": 0.5970238095238095
+    },
+    "L1-size": {
+     "intuition": 0.5888888888888889,
+     "logic": 0.7555555555555555
+    },
+    "L2-named": {
+     "intuition": 0.6538461538461539,
+     "logic": 0.6730769230769231
+    },
+    "P1-default": {
+     "intuition": 0.5864735658042745,
+     "logic": 0.5089988751406074
+    },
+    "P2": {
+     "intuition": 0.5874326679340938,
+     "logic": 0.5885278041825095
+    },
+    "P3": {
+     "intuition": 0.5516755197062102,
+     "logic": 0.6145976785362974
+    },
+    "P4": {
+     "intuition": 0.6041666666666667,
+     "logic": 0.5416666666666667
+    },
+    "P6-colour": {
+     "intuition": 0.46715686274509804,
+     "logic": 0.5882352941176471
+    },
+    "P6-grandparent": {
+     "intuition": 0.5,
+     "logic": 0.5
+    },
+    "trained_synthetic_by_kind": {
+     "broad": 0.7000601435419064,
+     "inv-base": 0.7929858632550352,
+     "inverse": 0.8640091994936283,
+     "narrow": 0.8061484059539415,
+     "symmetric": 0.6933215987191159,
+     "syn-base": 0.7914619474651805,
+     "synonym": 0.8720243218681822
+    },
+    "trained_synthetic_mean": 0.7944950782841501
+   }
+  },
+  "regress/seed450": {
+   "arm": "regress",
+   "checkpoint": {
+    "file": "runs/amortized-introduction-v1-smoke/regress-seed450.pt",
+    "sha256": "79048d9a58404a67bbdc1b0fee417d7805dffb4e068402032b78ed7d087139af"
+   },
+   "counts": {
+    "desc_sizes_held": {
+     "child-of": 89,
+     "darker-than": 89,
+     "imp2b": 88,
+     "imp4b": 88,
+     "imp5n": 88,
+     "imp7n": 88,
+     "inv0p": 89,
+     "inv1p": 89,
+     "inv4p": 89,
+     "inv5p": 89,
+     "sym0": 87,
+     "sym5": 87,
+     "syn2s": 91,
+     "syn3s": 91,
+     "syn6s": 91
+    },
+    "set_A": 39,
+    "set_B": 52,
+    "trained_described": 91,
+    "virtual_dropped_leak": [],
+    "virtual_test_A": 78,
+    "virtual_test_B": 104,
+    "virtual_train": 78
+   },
+   "held": {
+    "child-of": {
+     "kind": "real-child-of",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.4299270072992701
+      },
+      "none/k0": {
+       "bal": 0.4682971014492754,
+       "kept_meaningful": 0.1076388888888889,
+       "recognized_meaningless": 0.7
+      },
+      "none/k4": {
+       "bal": 0.34799270072992705,
+       "kept_meaningful": 0.9823943661971831,
+       "recognized_meaningless": 0.2866666666666667
+      },
+      "rho/k0": {
+       "bal": 0.447463768115942,
+       "kept_meaningful": 0.6579861111111112,
+       "recognized_meaningless": 0.52
+      },
+      "rho/k4": {
+       "bal": 0.3954379562043796,
+       "kept_meaningful": 0.9700704225352113,
+       "recognized_meaningless": 0.32
+      },
+      "shuffled/k0": {
+       "bal": 0.447463768115942,
+       "kept_meaningful": 0.6336805555555556,
+       "recognized_meaningless": 0.53
+      }
+     }
+    },
+    "darker-than": {
+     "kind": "real-darker-than",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.45465686274509803
+      },
+      "none/k0": {
+       "bal": 0.36904761904761907,
+       "kept_meaningful": 0.5510204081632653,
+       "recognized_meaningless": 0.7166666666666667
+      },
+      "none/k4": {
+       "bal": 0.45710784313725494,
+       "kept_meaningful": 0.9512195121951219,
+       "recognized_meaningless": 0.5233333333333333
+      },
+      "rho/k0": {
+       "bal": 0.30952380952380953,
+       "kept_meaningful": 0.4489795918367347,
+       "recognized_meaningless": 0.8766666666666667
+      },
+      "rho/k4": {
+       "bal": 0.31862745098039214,
+       "kept_meaningful": 0.9024390243902439,
+       "recognized_meaningless": 0.7833333333333333
+      },
+      "shuffled/k0": {
+       "bal": 0.2857142857142857,
+       "kept_meaningful": 0.40816326530612246,
+       "recognized_meaningless": 0.8866666666666667
+      }
+     }
+    },
+    "imp2b": {
+     "kind": "broad",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.5680096453330654
+      },
+      "none/k0": {
+       "bal": 0.5740740740740741,
+       "implied_T_recall": 0.5148514851485149,
+       "kept_meaningful": 0.29653679653679654,
+       "recognized_meaningless": 0.7066666666666667
+      },
+      "none/k4": {
+       "bal": 0.5555008540138652,
+       "implied_T_recall": 0.6428571428571429,
+       "kept_meaningful": 0.8370044052863436,
+       "recognized_meaningless": 0.6133333333333333
+      },
+      "rho/k0": {
+       "bal": 0.5757020757020757,
+       "implied_T_recall": 0.5247524752475248,
+       "kept_meaningful": 0.2683982683982684,
+       "recognized_meaningless": 0.7166666666666667
+      },
+      "rho/k4": {
+       "bal": 0.5497538430623932,
+       "implied_T_recall": 0.673469387755102,
+       "kept_meaningful": 0.8744493392070485,
+       "recognized_meaningless": 0.6033333333333334
+      },
+      "shuffled/k0": {
+       "bal": 0.580993080993081,
+       "implied_T_recall": 0.5346534653465347,
+       "kept_meaningful": 0.27056277056277056,
+       "recognized_meaningless": 0.7133333333333334
+      }
+     }
+    },
+    "imp4b": {
+     "kind": "broad",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.75
+      },
+      "none/k0": {
+       "bal": 0.6850649350649352,
+       "implied_T_recall": 0.8888888888888888,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.7233333333333334
+      },
+      "none/k4": {
+       "bal": 0.6571428571428571,
+       "implied_T_recall": 1.0,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.9066666666666666
+      },
+      "rho/k0": {
+       "bal": 0.6850649350649352,
+       "implied_T_recall": 0.8888888888888888,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.7466666666666667
+      },
+      "rho/k4": {
+       "bal": 0.6571428571428571,
+       "implied_T_recall": 1.0,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.8866666666666667
+      },
+      "shuffled/k0": {
+       "bal": 0.6850649350649352,
+       "implied_T_recall": 0.8888888888888888,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.7233333333333334
+      }
+     }
+    },
+    "imp5n": {
+     "kind": "narrow",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.5698808234019501
+      },
+      "none/k0": {
+       "bal": 0.6052511415525115,
+       "implied_F_recall": 0.7117117117117117,
+       "kept_meaningful": 0.9659090909090909,
+       "recognized_meaningless": 0.6533333333333333
+      },
+      "none/k4": {
+       "bal": 0.6202600216684724,
+       "implied_F_recall": 0.4351851851851852,
+       "kept_meaningful": 0.9880952380952381,
+       "recognized_meaningless": 0.6633333333333333
+      },
+      "rho/k0": {
+       "bal": 0.608675799086758,
+       "implied_F_recall": 0.7027027027027027,
+       "kept_meaningful": 0.9886363636363636,
+       "recognized_meaningless": 0.8166666666666667
+      },
+      "rho/k4": {
+       "bal": 0.6083423618634887,
+       "implied_F_recall": 0.5277777777777778,
+       "kept_meaningful": 0.9761904761904762,
+       "recognized_meaningless": 0.7333333333333333
+      },
+      "shuffled/k0": {
+       "bal": 0.6184931506849315,
+       "implied_F_recall": 0.6846846846846847,
+       "kept_meaningful": 0.9829545454545454,
+       "recognized_meaningless": 0.8
+      }
+     }
+    },
+    "imp7n": {
+     "kind": "narrow",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.5781443810468867
+      },
+      "none/k0": {
+       "bal": 0.5011655011655012,
+       "implied_F_recall": 0.9905660377358491,
+       "kept_meaningful": 0.11363636363636363,
+       "recognized_meaningless": 0.6966666666666667
+      },
+      "none/k4": {
+       "bal": 0.6513272140907963,
+       "implied_F_recall": 0.7211538461538461,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.2866666666666667
+      },
+      "rho/k0": {
+       "bal": 0.534965034965035,
+       "implied_F_recall": 0.9905660377358491,
+       "kept_meaningful": 0.30113636363636365,
+       "recognized_meaningless": 0.5533333333333333
+      },
+      "rho/k4": {
+       "bal": 0.6139915653683949,
+       "implied_F_recall": 0.7596153846153846,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.21333333333333335
+      },
+      "shuffled/k0": {
+       "bal": 0.534965034965035,
+       "implied_F_recall": 0.9905660377358491,
+       "kept_meaningful": 0.2840909090909091,
+       "recognized_meaningless": 0.56
+      }
+     }
+    },
+    "inv0p": {
+     "kind": "inverse",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.5157291666666667
+      },
+      "none/k0": {
+       "bal": 0.48809523809523814,
+       "kept_meaningful": 0.856,
+       "recognized_meaningless": 0.71
+      },
+      "none/k4": {
+       "bal": 0.4698958333333333,
+       "kept_meaningful": 0.9958677685950413,
+       "recognized_meaningless": 0.6133333333333333
+      },
+      "rho/k0": {
+       "bal": 0.474395313681028,
+       "kept_meaningful": 0.932,
+       "recognized_meaningless": 0.6833333333333333
+      },
+      "rho/k4": {
+       "bal": 0.47510416666666666,
+       "kept_meaningful": 0.9958677685950413,
+       "recognized_meaningless": 0.6433333333333333
+      },
+      "shuffled/k0": {
+       "bal": 0.4568216175359032,
+       "kept_meaningful": 0.884,
+       "recognized_meaningless": 0.7133333333333334
+      }
+     }
+    },
+    "inv1p": {
+     "kind": "inverse",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.5078611274221961
+      },
+      "none/k0": {
+       "bal": 0.4964762467547565,
+       "kept_meaningful": 0.36333333333333334,
+       "recognized_meaningless": 0.7333333333333333
+      },
+      "none/k4": {
+       "bal": 0.4947690350362106,
+       "kept_meaningful": 0.9756214149139579,
+       "recognized_meaningless": 0.27
+      },
+      "rho/k0": {
+       "bal": 0.4996778974696787,
+       "kept_meaningful": 0.4185714285714286,
+       "recognized_meaningless": 0.6966666666666667
+      },
+      "rho/k4": {
+       "bal": 0.4967728518301038,
+       "kept_meaningful": 0.9770554493307839,
+       "recognized_meaningless": 0.31
+      },
+      "shuffled/k0": {
+       "bal": 0.49552204828147406,
+       "kept_meaningful": 0.30904761904761907,
+       "recognized_meaningless": 0.7433333333333333
+      }
+     }
+    },
+    "inv4p": {
+     "kind": "inverse",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.5450312736656102
+      },
+      "none/k0": {
+       "bal": 0.45406162464985994,
+       "kept_meaningful": 0.39826839826839827,
+       "recognized_meaningless": 0.7
+      },
+      "none/k4": {
+       "bal": 0.4361203825765013,
+       "kept_meaningful": 0.9405286343612335,
+       "recognized_meaningless": 0.5266666666666666
+      },
+      "rho/k0": {
+       "bal": 0.4156862745098039,
+       "kept_meaningful": 0.8701298701298701,
+       "recognized_meaningless": 0.5333333333333333
+      },
+      "rho/k4": {
+       "bal": 0.4311418393964042,
+       "kept_meaningful": 0.9779735682819384,
+       "recognized_meaningless": 0.43333333333333335
+      },
+      "shuffled/k0": {
+       "bal": 0.41428571428571426,
+       "kept_meaningful": 0.8614718614718615,
+       "recognized_meaningless": 0.55
+      }
+     }
+    },
+    "inv5p": {
+     "kind": "inverse",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.5230509745127436
+      },
+      "none/k0": {
+       "bal": 0.5045470144131778,
+       "kept_meaningful": 0.856,
+       "recognized_meaningless": 0.6366666666666667
+      },
+      "none/k4": {
+       "bal": 0.5222076461769116,
+       "kept_meaningful": 0.9793388429752066,
+       "recognized_meaningless": 0.6233333333333333
+      },
+      "rho/k0": {
+       "bal": 0.49133493479752915,
+       "kept_meaningful": 0.904,
+       "recognized_meaningless": 0.63
+      },
+      "rho/k4": {
+       "bal": 0.5226761619190405,
+       "kept_meaningful": 0.9834710743801653,
+       "recognized_meaningless": 0.6166666666666667
+      },
+      "shuffled/k0": {
+       "bal": 0.49922786547700754,
+       "kept_meaningful": 0.836,
+       "recognized_meaningless": 0.6833333333333333
+      }
+     }
+    },
+    "sym0": {
+     "kind": "symmetric",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.46875
+      },
+      "none/k0": {
+       "bal": 0.675,
+       "kept_meaningful": 0.9666666666666667,
+       "recognized_meaningless": 0.71
+      },
+      "none/k4": {
+       "bal": 0.6145833333333333,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.8666666666666667,
+       "reverse_acc": 0.3333333333333333
+      },
+      "rho/k0": {
+       "bal": 0.575,
+       "kept_meaningful": 0.8,
+       "recognized_meaningless": 0.5066666666666667
+      },
+      "rho/k4": {
+       "bal": 0.6458333333333333,
+       "kept_meaningful": 0.9545454545454546,
+       "recognized_meaningless": 0.8266666666666667,
+       "reverse_acc": 0.3333333333333333
+      },
+      "shuffled/k0": {
+       "bal": 0.575,
+       "kept_meaningful": 0.8,
+       "recognized_meaningless": 0.5066666666666667
+      }
+     }
+    },
+    "sym5": {
+     "kind": "symmetric",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.5833333333333334
+      },
+      "none/k0": {
+       "bal": 0.65,
+       "kept_meaningful": 0.95,
+       "recognized_meaningless": 0.69
+      },
+      "none/k4": {
+       "bal": 0.75,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.8066666666666666,
+       "reverse_acc": 0.5
+      },
+      "rho/k0": {
+       "bal": 0.7,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.44666666666666666
+      },
+      "rho/k4": {
+       "bal": 0.5833333333333333,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.59,
+       "reverse_acc": 0.3333333333333333
+      },
+      "shuffled/k0": {
+       "bal": 0.7,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.4633333333333333
+      }
+     }
+    },
+    "syn2s": {
+     "kind": "synonym",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.6476964769647697
+      },
+      "none/k0": {
+       "bal": 0.5302908565000803,
+       "kept_meaningful": 0.6818181818181818,
+       "recognized_meaningless": 0.71
+      },
+      "none/k4": {
+       "bal": 0.6097560975609756,
+       "kept_meaningful": 0.9761904761904762,
+       "recognized_meaningless": 0.5766666666666667
+      },
+      "rho/k0": {
+       "bal": 0.498071669612727,
+       "kept_meaningful": 0.4943181818181818,
+       "recognized_meaningless": 0.8633333333333333
+      },
+      "rho/k4": {
+       "bal": 0.6157181571815719,
+       "kept_meaningful": 0.9821428571428571,
+       "recognized_meaningless": 0.6666666666666666
+      },
+      "shuffled/k0": {
+       "bal": 0.5059456853607585,
+       "kept_meaningful": 0.48863636363636365,
+       "recognized_meaningless": 0.8766666666666667
+      }
+     }
+    },
+    "syn3s": {
+     "kind": "synonym",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.6745726906087959
+      },
+      "none/k0": {
+       "bal": 0.688295165394402,
+       "kept_meaningful": 0.9659090909090909,
+       "recognized_meaningless": 0.6833333333333333
+      },
+      "none/k4": {
+       "bal": 0.6446130209333589,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.5966666666666667
+      },
+      "rho/k0": {
+       "bal": 0.6889737065309585,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.8366666666666667
+      },
+      "rho/k4": {
+       "bal": 0.7004993278279239,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.8266666666666667
+      },
+      "shuffled/k0": {
+       "bal": 0.6886344359626803,
+       "kept_meaningful": 0.9886363636363636,
+       "recognized_meaningless": 0.8233333333333334
+      }
+     }
+    },
+    "syn6s": {
+     "kind": "synonym",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.5333216104849157
+      },
+      "none/k0": {
+       "bal": 0.5112488812064744,
+       "kept_meaningful": 0.36333333333333334,
+       "recognized_meaningless": 0.73
+      },
+      "none/k4": {
+       "bal": 0.5063871939603884,
+       "kept_meaningful": 0.847036328871893,
+       "recognized_meaningless": 0.42333333333333334
+      },
+      "rho/k0": {
+       "bal": 0.5169748983943934,
+       "kept_meaningful": 0.48,
+       "recognized_meaningless": 0.7166666666666667
+      },
+      "rho/k4": {
+       "bal": 0.4997315467712345,
+       "kept_meaningful": 0.9321223709369025,
+       "recognized_meaningless": 0.3466666666666667
+      },
+      "shuffled/k0": {
+       "bal": 0.5145457669264318,
+       "kept_meaningful": 0.5247619047619048,
+       "recognized_meaningless": 0.69
+      }
+     }
+    }
+   },
+   "log": [
+    {
+     "app": 0.07397628575563431,
+     "logic": 0.5230022668838501,
+     "loss": 1.678711175918579,
+     "reg": 0.8934603333473206,
+     "step": 100
+    }
+   ],
+   "seed": 450,
+   "trained_intro": {
+    "ancestor-of": {
+     "encoded": 0.6574887012577515,
+     "kind": "real-ancestor-of",
+     "set": "A",
+     "stored": 0.803881862453141
+    },
+    "baby-of": {
+     "encoded": 0.8187233285917497,
+     "kind": "real-baby-of",
+     "set": "A",
+     "stored": 0.9567923186344238
+    },
+    "bigger-than": {
+     "encoded": 0.4662004662004662,
+     "kind": "real-bigger-than",
+     "set": "A",
+     "stored": 0.8974358974358975
+    },
+    "brighter-than": {
+     "encoded": 0.6845238095238095,
+     "kind": "real-brighter-than",
+     "set": "B",
+     "stored": 1.0
+    },
+    "can": {
+     "encoded": 0.722414989590562,
+     "kind": "real-can",
+     "set": "A",
+     "stored": 0.8251214434420542
+    },
+    "colder-than": {
+     "encoded": 0.5694444444444444,
+     "kind": "real-colder-than",
+     "set": "B",
+     "stored": 0.7797619047619048
+    },
+    "colour-of": {
+     "encoded": 0.6245805369127517,
+     "kind": "real-colour-of",
+     "set": "A",
+     "stored": 0.8312709731543624
+    },
+    "eats": {
+     "encoded": 0.6535714285714286,
+     "kind": "real-eats",
+     "set": "B",
+     "stored": 0.8928571428571428
+    },
+    "faster-than": {
+     "encoded": 0.5535714285714286,
+     "kind": "real-faster-than",
+     "set": "A",
+     "stored": 1.0
+    },
+    "good-phrase": {
+     "encoded": 0.5344129554655871,
+     "kind": "real-good-phrase",
+     "set": "A",
+     "stored": 0.8976312923681344
+    },
+    "grandparent-of": {
+     "encoded": 0.7321428571428572,
+     "kind": "real-grandparent-of",
+     "set": "A",
+     "stored": 0.89375
+    },
+    "has": {
+     "encoded": 0.6634137471208632,
+     "kind": "real-has",
+     "set": "A",
+     "stored": 0.7382485755849194
+    },
+    "has-baby": {
+     "encoded": 0.8068990042674253,
+     "kind": "real-has-baby",
+     "set": "A",
+     "stored": 0.802275960170697
+    },
+    "heavier-than": {
+     "encoded": 0.5059523809523809,
+     "kind": "real-heavier-than",
+     "set": "A",
+     "stored": 1.0
+    },
+    "hotter-than": {
+     "encoded": 0.5734126984126984,
+     "kind": "real-hotter-than",
+     "set": "B",
+     "stored": 0.6190476190476191
+    },
+    "imp0b": {
+     "encoded": 0.7019736842105263,
+     "kind": "broad",
+     "set": "A",
+     "stored": 0.8285087719298245
+    },
+    "imp0n": {
+     "encoded": 0.7464649321266968,
+     "kind": "narrow",
+     "set": "A",
+     "stored": 0.9059671945701357
+    },
+    "imp1b": {
+     "encoded": 0.5587892144153487,
+     "kind": "broad",
+     "set": "A",
+     "stored": 0.6140134819808141
+    },
+    "imp1n": {
+     "encoded": 0.6001426690079017,
+     "kind": "narrow",
+     "set": "A",
+     "stored": 0.6380597014925373
+    },
+    "imp2n": {
+     "encoded": 0.6232824113436275,
+     "kind": "narrow",
+     "set": "B",
+     "stored": 0.6708675022626917
+    },
+    "imp3b": {
+     "encoded": 0.5891203703703703,
+     "kind": "broad",
+     "set": "A",
+     "stored": 0.744212962962963
+    },
+    "imp3n": {
+     "encoded": 0.6401923076923077,
+     "kind": "narrow",
+     "set": "A",
+     "stored": 0.9032692307692307
+    },
+    "imp4n": {
+     "encoded": 0.8194444444444444,
+     "kind": "narrow",
+     "set": "B",
+     "stored": 1.0
+    },
+    "imp5b": {
+     "encoded": 0.616077616077616,
+     "kind": "broad",
+     "set": "B",
+     "stored": 0.7205821205821206
+    },
+    "imp6b": {
+     "encoded": 0.5905723905723905,
+     "kind": "broad",
+     "set": "B",
+     "stored": 0.7303030303030302
+    },
+    "imp6n": {
+     "encoded": 0.5946313706086096,
+     "kind": "narrow",
+     "set": "B",
+     "stored": 0.7627102919346858
+    },
+    "imp7b": {
+     "encoded": 0.5309973045822103,
+     "kind": "broad",
+     "set": "B",
+     "stored": 0.6893530997304582
+    },
+    "inv0": {
+     "encoded": 0.5870181405895691,
+     "kind": "inv-base",
+     "set": "B",
+     "stored": 0.7249622071050642
+    },
+    "inv1": {
+     "encoded": 0.5039911651877398,
+     "kind": "inv-base",
+     "set": "B",
+     "stored": 0.5171634634014027
+    },
+    "inv10": {
+     "encoded": 0.7594721157939548,
+     "kind": "inv-base",
+     "set": "A",
+     "stored": 0.9444444444444444
+    },
+    "inv10p": {
+     "encoded": 0.7511707109408259,
+     "kind": "inverse",
+     "set": "B",
+     "stored": 0.9518944231587909
+    },
+    "inv11": {
+     "encoded": 0.8968253968253967,
+     "kind": "inv-base",
+     "set": "A",
+     "stored": 1.0
+    },
+    "inv11p": {
+     "encoded": 0.753968253968254,
+     "kind": "inverse",
+     "set": "A",
+     "stored": 1.0
+    },
+    "inv2": {
+     "encoded": 0.484472049689441,
+     "kind": "inv-base",
+     "set": "A",
+     "stored": 0.8078416149068324
+    },
+    "inv2p": {
+     "encoded": 0.577639751552795,
+     "kind": "inverse",
+     "set": "B",
+     "stored": 0.6634316770186335
+    },
+    "inv3": {
+     "encoded": 0.78125,
+     "kind": "inv-base",
+     "set": "B",
+     "stored": 0.984375
+    },
+    "inv3p": {
+     "encoded": 0.6796875,
+     "kind": "inverse",
+     "set": "B",
+     "stored": 0.9609375
+    },
+    "inv4": {
+     "encoded": 0.5630252100840336,
+     "kind": "inv-base",
+     "set": "B",
+     "stored": 0.6120448179271709
+    },
+    "inv5": {
+     "encoded": 0.565974605353466,
+     "kind": "inv-base",
+     "set": "B",
+     "stored": 0.7622683596431022
+    },
+    "inv6": {
+     "encoded": 0.5361776586437333,
+     "kind": "inv-base",
+     "set": "B",
+     "stored": 0.6269987528154726
+    },
+    "inv6p": {
+     "encoded": 0.5502038309041157,
+     "kind": "inverse",
+     "set": "B",
+     "stored": 0.5903836488524041
+    },
+    "inv7": {
+     "encoded": 0.5992647058823529,
+     "kind": "inv-base",
+     "set": "B",
+     "stored": 0.8669117647058824
+    },
+    "inv7p": {
+     "encoded": 0.6919117647058823,
+     "kind": "inverse",
+     "set": "B",
+     "stored": 0.8558823529411765
+    },
+    "inv8": {
+     "encoded": 0.9473684210526316,
+     "kind": "inv-base",
+     "set": "B",
+     "stored": 1.0
+    },
+    "inv8p": {
+     "encoded": 0.7324561403508771,
+     "kind": "inverse",
+     "set": "B",
+     "stored": 1.0
+    },
+    "inv9": {
+     "encoded": 0.7977963073257892,
+     "kind": "inv-base",
+     "set": "A",
+     "stored": 0.9589041095890412
+    },
+    "inv9p": {
+     "encoded": 0.7382370458606313,
+     "kind": "inverse",
+     "set": "A",
+     "stored": 0.9726027397260274
+    },
+    "is": {
+     "encoded": 0.7038690476190477,
+     "kind": "real-is",
+     "set": "B",
+     "stored": 0.9136904761904763
+    },
+    "is-a": {
+     "encoded": 0.6386032356238988,
+     "kind": "real-is-a",
+     "set": "B",
+     "stored": 0.704197642536111
+    },
+    "just-bigger-than": {
+     "encoded": 0.7552973342447027,
+     "kind": "real-just-bigger-than",
+     "set": "A",
+     "stored": 0.8940533151059467
+    },
+    "kind-of": {
+     "encoded": 0.7043290043290042,
+     "kind": "real-kind-of",
+     "set": "B",
+     "stored": 0.7274891774891775
+    },
+    "lighter-than": {
+     "encoded": 0.6309523809523809,
+     "kind": "real-lighter-than",
+     "set": "A",
+     "stored": 0.8571428571428571
+    },
+    "lives-in": {
+     "encoded": 0.5350035962598897,
+     "kind": "real-lives-in",
+     "set": "B",
+     "stored": 0.9174058978662192
+    },
+    "lives-with": {
+     "encoded": 0.5769332512740779,
+     "kind": "real-lives-with",
+     "set": "B",
+     "stored": 0.6835670942385765
+    },
+    "louder-than": {
+     "encoded": 0.7202380952380952,
+     "kind": "real-louder-than",
+     "set": "B",
+     "stored": 0.7261904761904763
+    },
+    "makes-sense": {
+     "encoded": 0.6113237016790316,
+     "kind": "real-makes-sense",
+     "set": "A",
+     "stored": 0.8413380190029937
+    },
+    "mixed-from": {
+     "encoded": 0.9324324324324325,
+     "kind": "real-mixed-from",
+     "set": "A",
+     "stored": 0.8819819819819821
+    },
+    "named-can": {
+     "encoded": 0.6513377926421404,
+     "kind": "real-named-can",
+     "set": "A",
+     "stored": 0.6630434782608696
+    },
+    "named-has": {
+     "encoded": 0.6028248587570622,
+     "kind": "real-named-has",
+     "set": "A",
+     "stored": 0.6954802259887005
+    },
+    "named-kind": {
+     "encoded": 0.6951754385964912,
+     "kind": "real-named-kind",
+     "set": "B",
+     "stored": 0.8508771929824561
+    },
+    "names": {
+     "encoded": 0.6373005319148937,
+     "kind": "real-names",
+     "set": "B",
+     "stored": 0.8607047872340425
+    },
+    "opposite": {
+     "encoded": 0.5795454545454546,
+     "kind": "real-opposite",
+     "set": "A",
+     "stored": 0.7007575757575758
+    },
+    "parent-of": {
+     "encoded": 0.7414715719063545,
+     "kind": "real-parent-of",
+     "set": "B",
+     "stored": 0.9079821627647715
+    },
+    "prey-of": {
+     "encoded": 0.712448132780083,
+     "kind": "real-prey-of",
+     "set": "B",
+     "stored": 0.8680497925311204
+    },
+    "preys-on": {
+     "encoded": 0.7399377593360996,
+     "kind": "real-preys-on",
+     "set": "A",
+     "stored": 0.9680497925311203
+    },
+    "quieter-than": {
+     "encoded": 0.38690476190476186,
+     "kind": "real-quieter-than",
+     "set": "B",
+     "stored": 0.7261904761904763
+    },
+    "same-class-as": {
+     "encoded": 0.6033185564435565,
+     "kind": "real-same-class-as",
+     "set": "A",
+     "stored": 0.6353178071928072
+    },
+    "same-colour-as": {
+     "encoded": 0.612476277730515,
+     "kind": "real-same-colour-as",
+     "set": "B",
+     "stored": 0.7025391008441856
+    },
+    "says": {
+     "encoded": 0.6771929824561403,
+     "kind": "real-says",
+     "set": "B",
+     "stored": 0.8473684210526315
+    },
+    "sibling-of": {
+     "encoded": 0.6959219858156028,
+     "kind": "real-sibling-of",
+     "set": "A",
+     "stored": 0.7987588652482269
+    },
+    "slower-than": {
+     "encoded": 0.494047619047619,
+     "kind": "real-slower-than",
+     "set": "B",
+     "stored": 0.8571428571428572
+    },
+    "smaller-than": {
+     "encoded": 0.5909090909090908,
+     "kind": "real-smaller-than",
+     "set": "B",
+     "stored": 0.743006993006993
+    },
+    "spouse-of": {
+     "encoded": 0.6496402877697842,
+     "kind": "real-spouse-of",
+     "set": "B",
+     "stored": 0.7906474820143885
+    },
+    "subkind-of": {
+     "encoded": 0.7670250896057347,
+     "kind": "real-subkind-of",
+     "set": "B",
+     "stored": 0.9283154121863799
+    },
+    "sym1": {
+     "encoded": 0.5601851851851851,
+     "kind": "symmetric",
+     "set": "B",
+     "stored": 0.6658249158249159
+    },
+    "sym2": {
+     "encoded": 0.5885666009574768,
+     "kind": "symmetric",
+     "set": "A",
+     "stored": 0.6615038017459871
+    },
+    "sym3": {
+     "encoded": 0.7083333333333333,
+     "kind": "symmetric",
+     "set": "B",
+     "stored": 1.0
+    },
+    "sym4": {
+     "encoded": 0.5169709182867077,
+     "kind": "symmetric",
+     "set": "B",
+     "stored": 0.5255793452254433
+    },
+    "syn0": {
+     "encoded": 0.990909090909091,
+     "kind": "syn-base",
+     "set": "B",
+     "stored": 1.0
+    },
+    "syn0s": {
+     "encoded": 0.990909090909091,
+     "kind": "synonym",
+     "set": "B",
+     "stored": 1.0
+    },
+    "syn1": {
+     "encoded": 0.9347826086956521,
+     "kind": "syn-base",
+     "set": "B",
+     "stored": 1.0
+    },
+    "syn1s": {
+     "encoded": 0.9347826086956521,
+     "kind": "synonym",
+     "set": "B",
+     "stored": 1.0
+    },
+    "syn2": {
+     "encoded": 0.527076972521292,
+     "kind": "syn-base",
+     "set": "B",
+     "stored": 0.6280732765547163
+    },
+    "syn3": {
+     "encoded": 0.7067005937234945,
+     "kind": "syn-base",
+     "set": "B",
+     "stored": 0.9049194232400339
+    },
+    "syn4": {
+     "encoded": 0.5594482318851453,
+     "kind": "syn-base",
+     "set": "A",
+     "stored": 0.6340035071596695
+    },
+    "syn4s": {
+     "encoded": 0.5537420643479403,
+     "kind": "synonym",
+     "set": "A",
+     "stored": 0.6103348681064151
+    },
+    "syn5": {
+     "encoded": 0.7426020188076956,
+     "kind": "syn-base",
+     "set": "A",
+     "stored": 0.8921145716504184
+    },
+    "syn5s": {
+     "encoded": 0.7529548787852645,
+     "kind": "synonym",
+     "set": "A",
+     "stored": 0.8942714174790786
+    },
+    "syn6": {
+     "encoded": 0.510958662393098,
+     "kind": "syn-base",
+     "set": "B",
+     "stored": 0.5519004108337522
+    },
+    "syn7": {
+     "encoded": 0.8154121863799283,
+     "kind": "syn-base",
+     "set": "A",
+     "stored": 0.9919354838709677
+    },
+    "syn7s": {
+     "encoded": 0.8234767025089605,
+     "kind": "synonym",
+     "set": "B",
+     "stored": 0.9838709677419355
+    }
+   },
+   "virtual_A": {
+    "copy-of-ancestor-of": {
+     "Q": "ancestor-of",
+     "rho": 0.6472129769120275,
+     "typ": "copy"
+    },
+    "copy-of-baby-of": {
+     "Q": "baby-of",
+     "rho": 0.781294452347084,
+     "typ": "copy"
+    },
+    "copy-of-bigger-than": {
+     "Q": "bigger-than",
+     "rho": 0.4662004662004662,
+     "typ": "copy"
+    },
+    "copy-of-can": {
+     "Q": "can",
+     "rho": 0.7492192921582235,
+     "typ": "copy"
+    },
+    "copy-of-colour-of": {
+     "Q": "colour-of",
+     "rho": 0.6816275167785235,
+     "typ": "copy"
+    },
+    "copy-of-faster-than": {
+     "Q": "faster-than",
+     "rho": 0.5357142857142857,
+     "typ": "copy"
+    },
+    "copy-of-good-phrase": {
+     "Q": "good-phrase",
+     "rho": 0.5242914979757085,
+     "typ": "copy"
+    },
+    "copy-of-grandparent-of": {
+     "Q": "grandparent-of",
+     "rho": 0.6732142857142858,
+     "typ": "copy"
+    },
+    "copy-of-has": {
+     "Q": "has",
+     "rho": 0.6107710025457631,
+     "typ": "copy"
+    },
+    "copy-of-has-baby": {
+     "Q": "has-baby",
+     "rho": 0.772848506401138,
+     "typ": "copy"
+    },
+    "copy-of-heavier-than": {
+     "Q": "heavier-than",
+     "rho": 0.5059523809523809,
+     "typ": "copy"
+    },
+    "copy-of-imp0b": {
+     "Q": "imp0b",
+     "rho": 0.6464181286549708,
+     "typ": "copy"
+    },
+    "copy-of-imp0n": {
+     "Q": "imp0n",
+     "rho": 0.7509898190045249,
+     "typ": "copy"
+    },
+    "copy-of-imp1b": {
+     "Q": "imp1b",
+     "rho": 0.5472517500648172,
+     "typ": "copy"
+    },
+    "copy-of-imp1n": {
+     "Q": "imp1n",
+     "rho": 0.5854916593503073,
+     "typ": "copy"
+    },
+    "copy-of-imp3b": {
+     "Q": "imp3b",
+     "rho": 0.5868055555555556,
+     "typ": "copy"
+    },
+    "copy-of-imp3n": {
+     "Q": "imp3n",
+     "rho": 0.6865384615384615,
+     "typ": "copy"
+    },
+    "copy-of-inv10": {
+     "Q": "inv10",
+     "rho": 0.7779906343124734,
+     "typ": "copy"
+    },
+    "copy-of-inv11": {
+     "Q": "inv11",
+     "rho": 0.8968253968253967,
+     "typ": "copy"
+    },
+    "copy-of-inv11p": {
+     "Q": "inv11p",
+     "rho": 0.8015873015873016,
+     "typ": "copy"
+    },
+    "copy-of-inv2": {
+     "Q": "inv2",
+     "rho": 0.5186335403726708,
+     "typ": "copy"
+    },
+    "copy-of-inv9": {
+     "Q": "inv9",
+     "rho": 0.790946992257296,
+     "typ": "copy"
+    },
+    "copy-of-inv9p": {
+     "Q": "inv9p",
+     "rho": 0.8320428826682549,
+     "typ": "copy"
+    },
+    "copy-of-just-bigger-than": {
+     "Q": "just-bigger-than",
+     "rho": 0.7628161312371838,
+     "typ": "copy"
+    },
+    "copy-of-lighter-than": {
+     "Q": "lighter-than",
+     "rho": 0.6666666666666666,
+     "typ": "copy"
+    },
+    "copy-of-makes-sense": {
+     "Q": "makes-sense",
+     "rho": 0.5995184172849147,
+     "typ": "copy"
+    },
+    "copy-of-mixed-from": {
+     "Q": "mixed-from",
+     "rho": 0.768918918918919,
+     "typ": "copy"
+    },
+    "copy-of-named-can": {
+     "Q": "named-can",
+     "rho": 0.6585841694537347,
+     "typ": "copy"
+    },
+    "copy-of-named-has": {
+     "Q": "named-has",
+     "rho": 0.5480790960451978,
+     "typ": "copy"
+    },
+    "copy-of-opposite": {
+     "Q": "opposite",
+     "rho": 0.5,
+     "typ": "copy"
+    },
+    "copy-of-preys-on": {
+     "Q": "preys-on",
+     "rho": 0.7298755186721992,
+     "typ": "copy"
+    },
+    "copy-of-same-class-as": {
+     "Q": "same-class-as",
+     "rho": 0.6215191058941059,
+     "typ": "copy"
+    },
+    "copy-of-sibling-of": {
+     "Q": "sibling-of",
+     "rho": 0.5310283687943262,
+     "typ": "copy"
+    },
+    "copy-of-sym2": {
+     "Q": "sym2",
+     "rho": 0.5746268656716418,
+     "typ": "copy"
+    },
+    "copy-of-syn4": {
+     "Q": "syn4",
+     "rho": 0.5612440101651366,
+     "typ": "copy"
+    },
+    "copy-of-syn4s": {
+     "Q": "syn4s",
+     "rho": 0.5612440101651366,
+     "typ": "copy"
+    },
+    "copy-of-syn5": {
+     "Q": "syn5",
+     "rho": 0.7599430592701233,
+     "typ": "copy"
+    },
+    "copy-of-syn5s": {
+     "Q": "syn5s",
+     "rho": 0.7599430592701233,
+     "typ": "copy"
+    },
+    "copy-of-syn7": {
+     "Q": "syn7",
+     "rho": 0.8315412186379928,
+     "typ": "copy"
+    },
+    "inverse-of-ancestor-of": {
+     "Q": "ancestor-of",
+     "rho": 0.47826437305118596,
+     "typ": "inverse"
+    },
+    "inverse-of-baby-of": {
+     "Q": "baby-of",
+     "rho": 0.772848506401138,
+     "typ": "inverse"
+    },
+    "inverse-of-bigger-than": {
+     "Q": "bigger-than",
+     "rho": 0.6177156177156178,
+     "typ": "inverse"
+    },
+    "inverse-of-can": {
+     "Q": "can",
+     "rho": 0.5181297709923665,
+     "typ": "inverse"
+    },
+    "inverse-of-colour-of": {
+     "Q": "colour-of",
+     "rho": 0.514366610738255,
+     "typ": "inverse"
+    },
+    "inverse-of-faster-than": {
+     "Q": "faster-than",
+     "rho": 0.5297619047619048,
+     "typ": "inverse"
+    },
+    "inverse-of-good-phrase": {
+     "Q": "good-phrase",
+     "rho": 0.4897039897039897,
+     "typ": "inverse"
+    },
+    "inverse-of-grandparent-of": {
+     "Q": "grandparent-of",
+     "rho": 0.4446428571428571,
+     "typ": "inverse"
+    },
+    "inverse-of-has": {
+     "Q": "has",
+     "rho": 0.49531761425627346,
+     "typ": "inverse"
+    },
+    "inverse-of-has-baby": {
+     "Q": "has-baby",
+     "rho": 0.781294452347084,
+     "typ": "inverse"
+    },
+    "inverse-of-heavier-than": {
+     "Q": "heavier-than",
+     "rho": 0.6666666666666666,
+     "typ": "inverse"
+    },
+    "inverse-of-imp0b": {
+     "Q": "imp0b",
+     "rho": 0.5002192982456141,
+     "typ": "inverse"
+    },
+    "inverse-of-imp0n": {
+     "Q": "imp0n",
+     "rho": 0.5272907239819005,
+     "typ": "inverse"
+    },
+    "inverse-of-imp1b": {
+     "Q": "imp1b",
+     "rho": 0.4855457609541094,
+     "typ": "inverse"
+    },
+    "inverse-of-imp1n": {
+     "Q": "imp1n",
+     "rho": 0.47464881474978055,
+     "typ": "inverse"
+    },
+    "inverse-of-imp3b": {
+     "Q": "imp3b",
+     "rho": 0.5231481481481481,
+     "typ": "inverse"
+    },
+    "inverse-of-imp3n": {
+     "Q": "imp3n",
+     "rho": 0.5575,
+     "typ": "inverse"
+    },
+    "inverse-of-inv10": {
+     "Q": "inv10",
+     "rho": 0.7166879523201363,
+     "typ": "inverse"
+    },
+    "inverse-of-inv11": {
+     "Q": "inv11",
+     "rho": 0.8015873015873016,
+     "typ": "inverse"
+    },
+    "inverse-of-inv11p": {
+     "Q": "inv11p",
+     "rho": 0.8968253968253967,
+     "typ": "inverse"
+    },
+    "inverse-of-inv2": {
+     "Q": "inv2",
+     "rho": 0.5741459627329193,
+     "typ": "inverse"
+    },
+    "inverse-of-inv9": {
+     "Q": "inv9",
+     "rho": 0.8320428826682549,
+     "typ": "inverse"
+    },
+    "inverse-of-inv9p": {
+     "Q": "inv9p",
+     "rho": 0.790946992257296,
+     "typ": "inverse"
+    },
+    "inverse-of-just-bigger-than": {
+     "Q": "just-bigger-than",
+     "rho": 0.721120984278879,
+     "typ": "inverse"
+    },
+    "inverse-of-lighter-than": {
+     "Q": "lighter-than",
+     "rho": 0.5059523809523809,
+     "typ": "inverse"
+    },
+    "inverse-of-makes-sense": {
+     "Q": "makes-sense",
+     "rho": 0.49086294416243653,
+     "typ": "inverse"
+    },
+    "inverse-of-mixed-from": {
+     "Q": "mixed-from",
+     "rho": 0.49189189189189186,
+     "typ": "inverse"
+    },
+    "inverse-of-named-can": {
+     "Q": "named-can",
+     "rho": 0.5,
+     "typ": "inverse"
+    },
+    "inverse-of-named-has": {
+     "Q": "named-has",
+     "rho": 0.49333333333333335,
+     "typ": "inverse"
+    },
+    "inverse-of-opposite": {
+     "Q": "opposite",
+     "rho": 0.5,
+     "typ": "inverse"
+    },
+    "inverse-of-preys-on": {
+     "Q": "preys-on",
+     "rho": 0.7127593360995851,
+     "typ": "inverse"
+    },
+    "inverse-of-same-class-as": {
+     "Q": "same-class-as",
+     "rho": 0.6215191058941059,
+     "typ": "inverse"
+    },
+    "inverse-of-sibling-of": {
+     "Q": "sibling-of",
+     "rho": 0.5301418439716312,
+     "typ": "inverse"
+    },
+    "inverse-of-sym2": {
+     "Q": "sym2",
+     "rho": 0.5746268656716418,
+     "typ": "inverse"
+    },
+    "inverse-of-syn4": {
+     "Q": "syn4",
+     "rho": 0.5248455068033271,
+     "typ": "inverse"
+    },
+    "inverse-of-syn4s": {
+     "Q": "syn4s",
+     "rho": 0.5240531137763857,
+     "typ": "inverse"
+    },
+    "inverse-of-syn5": {
+     "Q": "syn5",
+     "rho": 0.5223017858683461,
+     "typ": "inverse"
+    },
+    "inverse-of-syn5s": {
+     "Q": "syn5s",
+     "rho": 0.5251919592787507,
+     "typ": "inverse"
+    },
+    "inverse-of-syn7": {
+     "Q": "syn7",
+     "rho": 0.5663082437275986,
+     "typ": "inverse"
+    }
+   },
+   "virtual_B": {
+    "copy-of-brighter-than": {
+     "Q": "brighter-than",
+     "rho": 0.7797619047619048,
+     "shuffled": 0.7797619047619048,
+     "typ": "copy"
+    },
+    "copy-of-colder-than": {
+     "Q": "colder-than",
+     "rho": 0.5654761904761905,
+     "shuffled": 0.5654761904761905,
+     "typ": "copy"
+    },
+    "copy-of-eats": {
+     "Q": "eats",
+     "rho": 0.65,
+     "shuffled": 0.65,
+     "typ": "copy"
+    },
+    "copy-of-hotter-than": {
+     "Q": "hotter-than",
+     "rho": 0.498015873015873,
+     "shuffled": 0.5158730158730158,
+     "typ": "copy"
+    },
+    "copy-of-imp2n": {
+     "Q": "imp2n",
+     "rho": 0.6188941608842324,
+     "shuffled": 0.6315652340857355,
+     "typ": "copy"
+    },
+    "copy-of-imp4n": {
+     "Q": "imp4n",
+     "rho": 0.8194444444444444,
+     "shuffled": 0.8194444444444444,
+     "typ": "copy"
+    },
+    "copy-of-imp5b": {
+     "Q": "imp5b",
+     "rho": 0.6110187110187111,
+     "shuffled": 0.621898821898822,
+     "typ": "copy"
+    },
+    "copy-of-imp6b": {
+     "Q": "imp6b",
+     "rho": 0.5865319865319865,
+     "shuffled": 0.5909090909090909,
+     "typ": "copy"
+    },
+    "copy-of-imp6n": {
+     "Q": "imp6n",
+     "rho": 0.5933015833745671,
+     "shuffled": 0.5946313706086096,
+     "typ": "copy"
+    },
+    "copy-of-imp7b": {
+     "Q": "imp7b",
+     "rho": 0.5381401617250674,
+     "shuffled": 0.5381401617250674,
+     "typ": "copy"
+    },
+    "copy-of-inv0": {
+     "Q": "inv0",
+     "rho": 0.5234315948601663,
+     "shuffled": 0.5234315948601663,
+     "typ": "copy"
+    },
+    "copy-of-inv1": {
+     "Q": "inv1",
+     "rho": 0.5083407602588446,
+     "shuffled": 0.5115230363854768,
+     "typ": "copy"
+    },
+    "copy-of-inv10p": {
+     "Q": "inv10p",
+     "rho": 0.7166879523201363,
+     "shuffled": 0.7166879523201363,
+     "typ": "copy"
+    },
+    "copy-of-inv2p": {
+     "Q": "inv2p",
+     "rho": 0.5741459627329193,
+     "shuffled": 0.5741459627329193,
+     "typ": "copy"
+    },
+    "copy-of-inv3": {
+     "Q": "inv3",
+     "rho": 0.734375,
+     "shuffled": 0.796875,
+     "typ": "copy"
+    },
+    "copy-of-inv3p": {
+     "Q": "inv3p",
+     "rho": 0.7265625,
+     "shuffled": 0.7265625,
+     "typ": "copy"
+    },
+    "copy-of-inv4": {
+     "Q": "inv4",
+     "rho": 0.5442577030812326,
+     "shuffled": 0.5442577030812326,
+     "typ": "copy"
+    },
+    "copy-of-inv5": {
+     "Q": "inv5",
+     "rho": 0.5896533973919011,
+     "shuffled": 0.5949725463280714,
+     "typ": "copy"
+    },
+    "copy-of-inv6": {
+     "Q": "inv6",
+     "rho": 0.5259488840490684,
+     "shuffled": 0.5231939092719793,
+     "typ": "copy"
+    },
+    "copy-of-inv6p": {
+     "Q": "inv6p",
+     "rho": 0.5604512201932206,
+     "shuffled": 0.5592691870962938,
+     "typ": "copy"
+    },
+    "copy-of-inv7": {
+     "Q": "inv7",
+     "rho": 0.5867647058823529,
+     "shuffled": 0.5742647058823529,
+     "typ": "copy"
+    },
+    "copy-of-inv7p": {
+     "Q": "inv7p",
+     "rho": 0.7161764705882353,
+     "shuffled": 0.7375,
+     "typ": "copy"
+    },
+    "copy-of-inv8": {
+     "Q": "inv8",
+     "rho": 0.9473684210526316,
+     "shuffled": 0.9473684210526316,
+     "typ": "copy"
+    },
+    "copy-of-inv8p": {
+     "Q": "inv8p",
+     "rho": 0.7324561403508771,
+     "shuffled": 0.7324561403508771,
+     "typ": "copy"
+    },
+    "copy-of-is": {
+     "Q": "is",
+     "rho": 0.6994047619047619,
+     "shuffled": 0.6994047619047619,
+     "typ": "copy"
+    },
+    "copy-of-is-a": {
+     "Q": "is-a",
+     "rho": 0.6405640199376242,
+     "shuffled": 0.657164259264494,
+     "typ": "copy"
+    },
+    "copy-of-kind-of": {
+     "Q": "kind-of",
+     "rho": 0.7079004329004328,
+     "shuffled": 0.7114718614718614,
+     "typ": "copy"
+    },
+    "copy-of-lives-in": {
+     "Q": "lives-in",
+     "rho": 0.5556221529609207,
+     "shuffled": 0.5556221529609207,
+     "typ": "copy"
+    },
+    "copy-of-lives-with": {
+     "Q": "lives-with",
+     "rho": 0.5761828409778008,
+     "shuffled": 0.5739801978059946,
+     "typ": "copy"
+    },
+    "copy-of-louder-than": {
+     "Q": "louder-than",
+     "rho": 0.6726190476190477,
+     "shuffled": 0.6726190476190477,
+     "typ": "copy"
+    },
+    "copy-of-named-kind": {
+     "Q": "named-kind",
+     "rho": 0.6206140350877193,
+     "shuffled": 0.6535087719298245,
+     "typ": "copy"
+    },
+    "copy-of-names": {
+     "Q": "names",
+     "rho": 0.5538563829787234,
+     "shuffled": 0.5691489361702128,
+     "typ": "copy"
+    },
+    "copy-of-parent-of": {
+     "Q": "parent-of",
+     "rho": 0.7216276477146042,
+     "shuffled": 0.7201783723522854,
+     "typ": "copy"
+    },
+    "copy-of-prey-of": {
+     "Q": "prey-of",
+     "rho": 0.7127593360995851,
+     "shuffled": 0.7115145228215768,
+     "typ": "copy"
+    },
+    "copy-of-quieter-than": {
+     "Q": "quieter-than",
+     "rho": 0.44047619047619047,
+     "shuffled": 0.42261904761904756,
+     "typ": "copy"
+    },
+    "copy-of-same-colour-as": {
+     "Q": "same-colour-as",
+     "rho": 0.6251881421372947,
+     "shuffled": 0.6257934690138081,
+     "typ": "copy"
+    },
+    "copy-of-says": {
+     "Q": "says",
+     "rho": 0.6824561403508772,
+     "shuffled": 0.6526315789473685,
+     "typ": "copy"
+    },
+    "copy-of-slower-than": {
+     "Q": "slower-than",
+     "rho": 0.5297619047619048,
+     "shuffled": 0.5297619047619048,
+     "typ": "copy"
+    },
+    "copy-of-smaller-than": {
+     "Q": "smaller-than",
+     "rho": 0.6177156177156178,
+     "shuffled": 0.5984848484848484,
+     "typ": "copy"
+    },
+    "copy-of-spouse-of": {
+     "Q": "spouse-of",
+     "rho": 0.5365107913669065,
+     "shuffled": 0.5365107913669065,
+     "typ": "copy"
+    },
+    "copy-of-subkind-of": {
+     "Q": "subkind-of",
+     "rho": 0.7670250896057347,
+     "shuffled": 0.7670250896057347,
+     "typ": "copy"
+    },
+    "copy-of-sym1": {
+     "Q": "sym1",
+     "rho": 0.5513468013468014,
+     "shuffled": 0.555976430976431,
+     "typ": "copy"
+    },
+    "copy-of-sym3": {
+     "Q": "sym3",
+     "rho": 0.8333333333333333,
+     "shuffled": 0.8333333333333333,
+     "typ": "copy"
+    },
+    "copy-of-sym4": {
+     "Q": "sym4",
+     "rho": 0.5109342554896094,
+     "shuffled": 0.5098530926570854,
+     "typ": "copy"
+    },
+    "copy-of-syn0": {
+     "Q": "syn0",
+     "rho": 1.0,
+     "shuffled": 0.990909090909091,
+     "typ": "copy"
+    },
+    "copy-of-syn0s": {
+     "Q": "syn0s",
+     "rho": 1.0,
+     "shuffled": 0.990909090909091,
+     "typ": "copy"
+    },
+    "copy-of-syn1": {
+     "Q": "syn1",
+     "rho": 0.9347826086956521,
+     "shuffled": 0.9347826086956521,
+     "typ": "copy"
+    },
+    "copy-of-syn1s": {
+     "Q": "syn1s",
+     "rho": 0.9347826086956521,
+     "shuffled": 0.9347826086956521,
+     "typ": "copy"
+    },
+    "copy-of-syn2": {
+     "Q": "syn2",
+     "rho": 0.5020086774867427,
+     "shuffled": 0.5059456853607585,
+     "typ": "copy"
+    },
+    "copy-of-syn3": {
+     "Q": "syn3",
+     "rho": 0.6889737065309585,
+     "shuffled": 0.6886344359626803,
+     "typ": "copy"
+    },
+    "copy-of-syn6": {
+     "Q": "syn6",
+     "rho": 0.5159927979299272,
+     "shuffled": 0.5149491710770252,
+     "typ": "copy"
+    },
+    "copy-of-syn7s": {
+     "Q": "syn7s",
+     "rho": 0.8315412186379928,
+     "shuffled": 0.839605734767025,
+     "typ": "copy"
+    },
+    "inverse-of-brighter-than": {
+     "Q": "brighter-than",
+     "rho": 0.30952380952380953,
+     "shuffled": 0.2857142857142857,
+     "typ": "inverse"
+    },
+    "inverse-of-colder-than": {
+     "Q": "colder-than",
+     "rho": 0.498015873015873,
+     "shuffled": 0.5158730158730158,
+     "typ": "inverse"
+    },
+    "inverse-of-eats": {
+     "Q": "eats",
+     "rho": 0.45714285714285713,
+     "shuffled": 0.4464285714285714,
+     "typ": "inverse"
+    },
+    "inverse-of-hotter-than": {
+     "Q": "hotter-than",
+     "rho": 0.5654761904761905,
+     "shuffled": 0.5654761904761905,
+     "typ": "inverse"
+    },
+    "inverse-of-imp2n": {
+     "Q": "imp2n",
+     "rho": 0.5298126765585146,
+     "shuffled": 0.5205013576149858,
+     "typ": "inverse"
+    },
+    "inverse-of-imp4n": {
+     "Q": "imp4n",
+     "rho": 0.6840277777777778,
+     "shuffled": 0.6840277777777778,
+     "typ": "inverse"
+    },
+    "inverse-of-imp5b": {
+     "Q": "imp5b",
+     "rho": 0.5172557172557173,
+     "shuffled": 0.5172557172557173,
+     "typ": "inverse"
+    },
+    "inverse-of-imp6b": {
+     "Q": "imp6b",
+     "rho": 0.4946127946127946,
+     "shuffled": 0.4962962962962963,
+     "typ": "inverse"
+    },
+    "inverse-of-imp6n": {
+     "Q": "imp6n",
+     "rho": 0.5061232063334983,
+     "shuffled": 0.5047934190994557,
+     "typ": "inverse"
+    },
+    "inverse-of-imp7b": {
+     "Q": "imp7b",
+     "rho": 0.5502695417789758,
+     "shuffled": 0.5384097035040432,
+     "typ": "inverse"
+    },
+    "inverse-of-inv0": {
+     "Q": "inv0",
+     "rho": 0.467687074829932,
+     "shuffled": 0.4593726379440665,
+     "typ": "inverse"
+    },
+    "inverse-of-inv1": {
+     "Q": "inv1",
+     "rho": 0.5031774324795598,
+     "shuffled": 0.49457027163172784,
+     "typ": "inverse"
+    },
+    "inverse-of-inv10p": {
+     "Q": "inv10p",
+     "rho": 0.7779906343124734,
+     "shuffled": 0.7718177948063005,
+     "typ": "inverse"
+    },
+    "inverse-of-inv2p": {
+     "Q": "inv2p",
+     "rho": 0.5186335403726708,
+     "shuffled": 0.515916149068323,
+     "typ": "inverse"
+    },
+    "inverse-of-inv3": {
+     "Q": "inv3",
+     "rho": 0.7265625,
+     "shuffled": 0.7265625,
+     "typ": "inverse"
+    },
+    "inverse-of-inv3p": {
+     "Q": "inv3p",
+     "rho": 0.75,
+     "shuffled": 0.765625,
+     "typ": "inverse"
+    },
+    "inverse-of-inv4": {
+     "Q": "inv4",
+     "rho": 0.42044817927170863,
+     "shuffled": 0.4156862745098039,
+     "typ": "inverse"
+    },
+    "inverse-of-inv5": {
+     "Q": "inv5",
+     "rho": 0.5074639670555936,
+     "shuffled": 0.49922786547700754,
+     "typ": "inverse"
+    },
+    "inverse-of-inv6": {
+     "Q": "inv6",
+     "rho": 0.5604512201932206,
+     "shuffled": 0.558087153999367,
+     "typ": "inverse"
+    },
+    "inverse-of-inv6p": {
+     "Q": "inv6p",
+     "rho": 0.5220118761750526,
+     "shuffled": 0.5231939092719793,
+     "typ": "inverse"
+    },
+    "inverse-of-inv7": {
+     "Q": "inv7",
+     "rho": 0.7161764705882353,
+     "shuffled": 0.7375,
+     "typ": "inverse"
+    },
+    "inverse-of-inv7p": {
+     "Q": "inv7p",
+     "rho": 0.5867647058823529,
+     "shuffled": 0.5742647058823529,
+     "typ": "inverse"
+    },
+    "inverse-of-inv8": {
+     "Q": "inv8",
+     "rho": 0.7324561403508771,
+     "shuffled": 0.7324561403508771,
+     "typ": "inverse"
+    },
+    "inverse-of-inv8p": {
+     "Q": "inv8p",
+     "rho": 0.9473684210526316,
+     "shuffled": 0.9473684210526316,
+     "typ": "inverse"
+    },
+    "inverse-of-is": {
+     "Q": "is",
+     "rho": 0.5223214285714286,
+     "shuffled": 0.5014880952380952,
+     "typ": "inverse"
+    },
+    "inverse-of-is-a": {
+     "Q": "is-a",
+     "rho": 0.50755669879677,
+     "shuffled": 0.5104399280134928,
+     "typ": "inverse"
+    },
+    "inverse-of-kind-of": {
+     "Q": "kind-of",
+     "rho": 0.42857142857142855,
+     "shuffled": 0.4270562770562771,
+     "typ": "inverse"
+    },
+    "inverse-of-lives-in": {
+     "Q": "lives-in",
+     "rho": 0.5220570606569168,
+     "shuffled": 0.5169024214816591,
+     "typ": "inverse"
+    },
+    "inverse-of-lives-with": {
+     "Q": "lives-with",
+     "rho": 0.5725063703895655,
+     "shuffled": 0.57452950894014,
+     "typ": "inverse"
+    },
+    "inverse-of-louder-than": {
+     "Q": "louder-than",
+     "rho": 0.44047619047619047,
+     "shuffled": 0.42261904761904756,
+     "typ": "inverse"
+    },
+    "inverse-of-named-kind": {
+     "Q": "named-kind",
+     "rho": 0.493421052631579,
+     "shuffled": 0.49780701754385964,
+     "typ": "inverse"
+    },
+    "inverse-of-names": {
+     "Q": "names",
+     "rho": 0.4953457446808511,
+     "shuffled": 0.4956781914893617,
+     "typ": "inverse"
+    },
+    "inverse-of-parent-of": {
+     "Q": "parent-of",
+     "rho": 0.46818283166109254,
+     "shuffled": 0.46818283166109254,
+     "typ": "inverse"
+    },
+    "inverse-of-prey-of": {
+     "Q": "prey-of",
+     "rho": 0.7307053941908714,
+     "shuffled": 0.7344398340248963,
+     "typ": "inverse"
+    },
+    "inverse-of-quieter-than": {
+     "Q": "quieter-than",
+     "rho": 0.6726190476190477,
+     "shuffled": 0.6726190476190477,
+     "typ": "inverse"
+    },
+    "inverse-of-same-colour-as": {
+     "Q": "same-colour-as",
+     "rho": 0.6251881421372947,
+     "shuffled": 0.6245828152607813,
+     "typ": "inverse"
+    },
+    "inverse-of-says": {
+     "Q": "says",
+     "rho": 0.5649122807017544,
+     "shuffled": 0.5684210526315789,
+     "typ": "inverse"
+    },
+    "inverse-of-slower-than": {
+     "Q": "slower-than",
+     "rho": 0.5357142857142857,
+     "shuffled": 0.5119047619047619,
+     "typ": "inverse"
+    },
+    "inverse-of-smaller-than": {
+     "Q": "smaller-than",
+     "rho": 0.4662004662004662,
+     "shuffled": 0.4522144522144522,
+     "typ": "inverse"
+    },
+    "inverse-of-spouse-of": {
+     "Q": "spouse-of",
+     "rho": 0.5365107913669065,
+     "shuffled": 0.5365107913669065,
+     "typ": "inverse"
+    },
+    "inverse-of-subkind-of": {
+     "Q": "subkind-of",
+     "rho": 0.5860215053763441,
+     "shuffled": 0.5860215053763441,
+     "typ": "inverse"
+    },
+    "inverse-of-sym1": {
+     "Q": "sym1",
+     "rho": 0.555976430976431,
+     "shuffled": 0.555976430976431,
+     "typ": "inverse"
+    },
+    "inverse-of-sym3": {
+     "Q": "sym3",
+     "rho": 0.8333333333333333,
+     "shuffled": 0.8333333333333333,
+     "typ": "inverse"
+    },
+    "inverse-of-sym4": {
+     "Q": "sym4",
+     "rho": 0.5110718704185129,
+     "shuffled": 0.5096350888093175,
+     "typ": "inverse"
+    },
+    "inverse-of-syn0": {
+     "Q": "syn0",
+     "rho": 0.509090909090909,
+     "shuffled": 0.509090909090909,
+     "typ": "inverse"
+    },
+    "inverse-of-syn0s": {
+     "Q": "syn0s",
+     "rho": 0.509090909090909,
+     "shuffled": 0.509090909090909,
+     "typ": "inverse"
+    },
+    "inverse-of-syn1": {
+     "Q": "syn1",
+     "rho": 0.4685990338164251,
+     "shuffled": 0.47946859903381644,
+     "typ": "inverse"
+    },
+    "inverse-of-syn1s": {
+     "Q": "syn1s",
+     "rho": 0.4685990338164251,
+     "shuffled": 0.47946859903381644,
+     "typ": "inverse"
+    },
+    "inverse-of-syn2": {
+     "Q": "syn2",
+     "rho": 0.45460388879961433,
+     "shuffled": 0.4506668809255986,
+     "typ": "inverse"
+    },
+    "inverse-of-syn3": {
+     "Q": "syn3",
+     "rho": 0.5180661577608142,
+     "shuffled": 0.5180661577608142,
+     "typ": "inverse"
+    },
+    "inverse-of-syn6": {
+     "Q": "syn6",
+     "rho": 0.493474720200042,
+     "shuffled": 0.49452705361734534,
+     "typ": "inverse"
+    },
+    "inverse-of-syn7s": {
+     "Q": "syn7s",
+     "rho": 0.5663082437275986,
+     "shuffled": 0.6379928315412187,
+     "typ": "inverse"
+    }
+   },
+   "world": {
+    "G2": {
+     "intuition": 0.7004899959167007,
+     "logic": 0.8231931400571662
+    },
+    "G4": {
+     "intuition": 0.6105769230769231,
+     "logic": 0.44551282051282054
+    },
+    "L1-anc": {
+     "intuition": 0.5555555555555556,
+     "logic": 0.5833333333333333
+    },
+    "L1-kind": {
+     "intuition": 0.6327380952380952,
+     "logic": 0.6101190476190476
+    },
+    "L1-size": {
+     "intuition": 0.5888888888888889,
+     "logic": 0.7833333333333334
+    },
+    "L2-named": {
+     "intuition": 0.6538461538461539,
+     "logic": 0.7163461538461539
+    },
+    "P1-default": {
+     "intuition": 0.5864735658042745,
+     "logic": 0.5068897637795275
+    },
+    "P2": {
+     "intuition": 0.5874326679340938,
+     "logic": 0.5800360424588086
+    },
+    "P3": {
+     "intuition": 0.5516755197062102,
+     "logic": 0.5653485474457342
+    },
+    "P4": {
+     "intuition": 0.6041666666666667,
+     "logic": 0.5833333333333334
+    },
+    "P6-colour": {
+     "intuition": 0.46715686274509804,
+     "logic": 0.5857843137254901
+    },
+    "P6-grandparent": {
+     "intuition": 0.5,
+     "logic": 0.625
+    },
+    "trained_synthetic_by_kind": {
+     "broad": 0.7211622445815351,
+     "inv-base": 0.8171595445448677,
+     "inverse": 0.874391542712129,
+     "narrow": 0.8134789868382136,
+     "symmetric": 0.7132270156990865,
+     "syn-base": 0.8253683341636948,
+     "synonym": 0.897695450665486
+    },
+    "trained_synthetic_mean": 0.815371964371169
+   }
+  },
+  "virtual/seed450": {
+   "arm": "virtual",
+   "checkpoint": {
+    "file": "runs/amortized-introduction-v1-smoke/virtual-seed450.pt",
+    "sha256": "5346d45fef6b3a22a2e3442131041f1e3b825aab4144fc89c028d46aec805d74"
+   },
+   "counts": {
+    "desc_sizes_held": {
+     "child-of": 89,
+     "darker-than": 89,
+     "imp2b": 88,
+     "imp4b": 88,
+     "imp5n": 88,
+     "imp7n": 88,
+     "inv0p": 89,
+     "inv1p": 89,
+     "inv4p": 89,
+     "inv5p": 89,
+     "sym0": 87,
+     "sym5": 87,
+     "syn2s": 91,
+     "syn3s": 91,
+     "syn6s": 91
+    },
+    "set_A": 39,
+    "set_B": 52,
+    "trained_described": 91,
+    "virtual_dropped_leak": [],
+    "virtual_test_A": 78,
+    "virtual_test_B": 104,
+    "virtual_train": 78
+   },
+   "held": {
+    "child-of": {
+     "kind": "real-child-of",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.4299270072992701
+      },
+      "none/k0": {
+       "bal": 0.45652173913043476,
+       "kept_meaningful": 0.1736111111111111,
+       "recognized_meaningless": 0.71
+      },
+      "none/k4": {
+       "bal": 0.4551094890510949,
+       "kept_meaningful": 0.9595070422535211,
+       "recognized_meaningless": 0.2733333333333333
+      },
+      "rho/k0": {
+       "bal": 0.5,
+       "kept_meaningful": 0.3628472222222222,
+       "recognized_meaningless": 0.7
+      },
+      "rho/k4": {
+       "bal": 0.49233576642335763,
+       "kept_meaningful": 0.977112676056338,
+       "recognized_meaningless": 0.18
+      },
+      "shuffled/k0": {
+       "bal": 0.5,
+       "kept_meaningful": 0.3628472222222222,
+       "recognized_meaningless": 0.7
+      }
+     }
+    },
+    "darker-than": {
+     "kind": "real-darker-than",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.45465686274509803
+      },
+      "none/k0": {
+       "bal": 0.23809523809523808,
+       "kept_meaningful": 0.8367346938775511,
+       "recognized_meaningless": 0.7333333333333333
+      },
+      "none/k4": {
+       "bal": 0.3517156862745098,
+       "kept_meaningful": 0.8292682926829268,
+       "recognized_meaningless": 0.6033333333333334
+      },
+      "rho/k0": {
+       "bal": 0.26190476190476186,
+       "kept_meaningful": 0.7551020408163265,
+       "recognized_meaningless": 0.73
+      },
+      "rho/k4": {
+       "bal": 0.3517156862745098,
+       "kept_meaningful": 0.926829268292683,
+       "recognized_meaningless": 0.2966666666666667
+      },
+      "shuffled/k0": {
+       "bal": 0.26190476190476186,
+       "kept_meaningful": 0.7551020408163265,
+       "recognized_meaningless": 0.73
+      }
+     }
+    },
+    "imp2b": {
+     "kind": "broad",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.5680096453330654
+      },
+      "none/k0": {
+       "bal": 0.5510785510785511,
+       "implied_T_recall": 0.504950495049505,
+       "kept_meaningful": 0.27705627705627706,
+       "recognized_meaningless": 0.7333333333333333
+      },
+      "none/k4": {
+       "bal": 0.5333768712950869,
+       "implied_T_recall": 0.6020408163265306,
+       "kept_meaningful": 0.9801762114537445,
+       "recognized_meaningless": 0.24333333333333335
+      },
+      "rho/k0": {
+       "bal": 0.535002035002035,
+       "implied_T_recall": 0.594059405940594,
+       "kept_meaningful": 0.23809523809523808,
+       "recognized_meaningless": 0.7066666666666667
+      },
+      "rho/k4": {
+       "bal": 0.5228976188083995,
+       "implied_T_recall": 0.6020408163265306,
+       "kept_meaningful": 0.986784140969163,
+       "recognized_meaningless": 0.10666666666666667
+      },
+      "shuffled/k0": {
+       "bal": 0.535002035002035,
+       "implied_T_recall": 0.594059405940594,
+       "kept_meaningful": 0.23809523809523808,
+       "recognized_meaningless": 0.7066666666666667
+      }
+     }
+    },
+    "imp4b": {
+     "kind": "broad",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.75
+      },
+      "none/k0": {
+       "bal": 0.6493506493506493,
+       "implied_T_recall": 0.8888888888888888,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.72
+      },
+      "none/k4": {
+       "bal": 0.75,
+       "implied_T_recall": 1.0,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.8233333333333334
+      },
+      "rho/k0": {
+       "bal": 0.6493506493506493,
+       "implied_T_recall": 0.8888888888888888,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.7366666666666667
+      },
+      "rho/k4": {
+       "bal": 0.75,
+       "implied_T_recall": 1.0,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.8133333333333334
+      },
+      "shuffled/k0": {
+       "bal": 0.6493506493506493,
+       "implied_T_recall": 0.8888888888888888,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.7366666666666667
+      }
+     }
+    },
+    "imp5n": {
+     "kind": "narrow",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.5698808234019501
+      },
+      "none/k0": {
+       "bal": 0.5972602739726027,
+       "implied_F_recall": 0.8198198198198198,
+       "kept_meaningful": 0.9659090909090909,
+       "recognized_meaningless": 0.72
+      },
+      "none/k4": {
+       "bal": 0.6178223185265439,
+       "implied_F_recall": 0.75,
+       "kept_meaningful": 0.9821428571428571,
+       "recognized_meaningless": 0.7933333333333333
+      },
+      "rho/k0": {
+       "bal": 0.5527397260273973,
+       "implied_F_recall": 0.7657657657657657,
+       "kept_meaningful": 0.9034090909090909,
+       "recognized_meaningless": 0.6966666666666667
+      },
+      "rho/k4": {
+       "bal": 0.6091549295774648,
+       "implied_F_recall": 0.7870370370370371,
+       "kept_meaningful": 0.9880952380952381,
+       "recognized_meaningless": 0.61
+      },
+      "shuffled/k0": {
+       "bal": 0.5527397260273973,
+       "implied_F_recall": 0.7657657657657657,
+       "kept_meaningful": 0.9034090909090909,
+       "recognized_meaningless": 0.6966666666666667
+      }
+     }
+    },
+    "imp7n": {
+     "kind": "narrow",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.5781443810468867
+      },
+      "none/k0": {
+       "bal": 0.5559440559440559,
+       "implied_F_recall": 0.9622641509433962,
+       "kept_meaningful": 0.10795454545454546,
+       "recognized_meaningless": 0.72
+      },
+      "none/k4": {
+       "bal": 0.5967501860580502,
+       "implied_F_recall": 0.7692307692307693,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.44
+      },
+      "rho/k0": {
+       "bal": 0.5664335664335665,
+       "implied_F_recall": 0.8301886792452831,
+       "kept_meaningful": 0.3522727272727273,
+       "recognized_meaningless": 0.7133333333333334
+      },
+      "rho/k4": {
+       "bal": 0.6003473083602084,
+       "implied_F_recall": 0.7596153846153846,
+       "kept_meaningful": 0.9940476190476191,
+       "recognized_meaningless": 0.38333333333333336
+      },
+      "shuffled/k0": {
+       "bal": 0.5664335664335665,
+       "implied_F_recall": 0.8301886792452831,
+       "kept_meaningful": 0.3522727272727273,
+       "recognized_meaningless": 0.7133333333333334
+      }
+     }
+    },
+    "inv0p": {
+     "kind": "inverse",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.5157291666666667
+      },
+      "none/k0": {
+       "bal": 0.49215797430083147,
+       "kept_meaningful": 0.656,
+       "recognized_meaningless": 0.7433333333333333
+      },
+      "none/k4": {
+       "bal": 0.429375,
+       "kept_meaningful": 0.9834710743801653,
+       "recognized_meaningless": 0.19666666666666666
+      },
+      "rho/k0": {
+       "bal": 0.5081254724111867,
+       "kept_meaningful": 0.62,
+       "recognized_meaningless": 0.74
+      },
+      "rho/k4": {
+       "bal": 0.4789583333333333,
+       "kept_meaningful": 0.9917355371900827,
+       "recognized_meaningless": 0.23333333333333334
+      },
+      "shuffled/k0": {
+       "bal": 0.5081254724111867,
+       "kept_meaningful": 0.62,
+       "recognized_meaningless": 0.74
+      }
+     }
+    },
+    "inv1p": {
+     "kind": "inverse",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.5078611274221961
+      },
+      "none/k0": {
+       "bal": 0.49044832797303056,
+       "kept_meaningful": 0.2195238095238095,
+       "recognized_meaningless": 0.7533333333333333
+      },
+      "none/k4": {
+       "bal": 0.4961685261303582,
+       "kept_meaningful": 0.9402485659655831,
+       "recognized_meaningless": 0.18
+      },
+      "rho/k0": {
+       "bal": 0.5036303134808385,
+       "kept_meaningful": 0.2704761904761905,
+       "recognized_meaningless": 0.7266666666666667
+      },
+      "rho/k4": {
+       "bal": 0.4932912507339988,
+       "kept_meaningful": 0.9359464627151052,
+       "recognized_meaningless": 0.18
+      },
+      "shuffled/k0": {
+       "bal": 0.5036303134808385,
+       "kept_meaningful": 0.2704761904761905,
+       "recognized_meaningless": 0.7266666666666667
+      }
+     }
+    },
+    "inv4p": {
+     "kind": "inverse",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.5450312736656102
+      },
+      "none/k0": {
+       "bal": 0.49215686274509807,
+       "kept_meaningful": 0.31601731601731603,
+       "recognized_meaningless": 0.72
+      },
+      "none/k4": {
+       "bal": 0.49130507951645025,
+       "kept_meaningful": 0.973568281938326,
+       "recognized_meaningless": 0.3466666666666667
+      },
+      "rho/k0": {
+       "bal": 0.46834733893557423,
+       "kept_meaningful": 0.44372294372294374,
+       "recognized_meaningless": 0.69
+      },
+      "rho/k4": {
+       "bal": 0.48914537346085885,
+       "kept_meaningful": 0.9823788546255506,
+       "recognized_meaningless": 0.32
+      },
+      "shuffled/k0": {
+       "bal": 0.46834733893557423,
+       "kept_meaningful": 0.44372294372294374,
+       "recognized_meaningless": 0.69
+      }
+     }
+    },
+    "inv5p": {
+     "kind": "inverse",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.5230509745127436
+      },
+      "none/k0": {
+       "bal": 0.49579615648593,
+       "kept_meaningful": 0.656,
+       "recognized_meaningless": 0.69
+      },
+      "none/k4": {
+       "bal": 0.4976574212893553,
+       "kept_meaningful": 0.9917355371900827,
+       "recognized_meaningless": 0.38333333333333336
+      },
+      "rho/k0": {
+       "bal": 0.48515785861358957,
+       "kept_meaningful": 0.62,
+       "recognized_meaningless": 0.7033333333333334
+      },
+      "rho/k4": {
+       "bal": 0.4971889055472264,
+       "kept_meaningful": 0.9917355371900827,
+       "recognized_meaningless": 0.26
+      },
+      "shuffled/k0": {
+       "bal": 0.48515785861358957,
+       "kept_meaningful": 0.62,
+       "recognized_meaningless": 0.7033333333333334
+      }
+     }
+    },
+    "sym0": {
+     "kind": "symmetric",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.46875
+      },
+      "none/k0": {
+       "bal": 0.7,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.7266666666666667
+      },
+      "none/k4": {
+       "bal": 0.6770833333333333,
+       "kept_meaningful": 0.9545454545454546,
+       "recognized_meaningless": 0.7433333333333333,
+       "reverse_acc": 0.6666666666666666
+      },
+      "rho/k0": {
+       "bal": 0.7,
+       "kept_meaningful": 0.9,
+       "recognized_meaningless": 0.69
+      },
+      "rho/k4": {
+       "bal": 0.6770833333333333,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.6266666666666667,
+       "reverse_acc": 0.6666666666666666
+      },
+      "shuffled/k0": {
+       "bal": 0.7,
+       "kept_meaningful": 0.9,
+       "recognized_meaningless": 0.69
+      }
+     }
+    },
+    "sym5": {
+     "kind": "symmetric",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.5833333333333334
+      },
+      "none/k0": {
+       "bal": 0.5,
+       "kept_meaningful": 0.9,
+       "recognized_meaningless": 0.7566666666666667
+      },
+      "none/k4": {
+       "bal": 0.6666666666666667,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.5533333333333333,
+       "reverse_acc": 0.5
+      },
+      "rho/k0": {
+       "bal": 0.45,
+       "kept_meaningful": 0.9,
+       "recognized_meaningless": 0.74
+      },
+      "rho/k4": {
+       "bal": 0.5833333333333333,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.42333333333333334,
+       "reverse_acc": 0.3333333333333333
+      },
+      "shuffled/k0": {
+       "bal": 0.45,
+       "kept_meaningful": 0.9,
+       "recognized_meaningless": 0.74
+      }
+     }
+    },
+    "syn2s": {
+     "kind": "synonym",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.6476964769647697
+      },
+      "none/k0": {
+       "bal": 0.5451550699019765,
+       "kept_meaningful": 0.7954545454545454,
+       "recognized_meaningless": 0.74
+      },
+      "none/k4": {
+       "bal": 0.5544715447154471,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.5633333333333334
+      },
+      "rho/k0": {
+       "bal": 0.543387433713643,
+       "kept_meaningful": 0.7784090909090909,
+       "recognized_meaningless": 0.7433333333333333
+      },
+      "rho/k4": {
+       "bal": 0.5653116531165312,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.5266666666666666
+      },
+      "shuffled/k0": {
+       "bal": 0.543387433713643,
+       "kept_meaningful": 0.7784090909090909,
+       "recognized_meaningless": 0.7433333333333333
+      }
+     }
+    },
+    "syn3s": {
+     "kind": "synonym",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.6745726906087959
+      },
+      "none/k0": {
+       "bal": 0.7128922815945717,
+       "kept_meaningful": 0.9659090909090909,
+       "recognized_meaningless": 0.72
+      },
+      "none/k4": {
+       "bal": 0.7107739581332821,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.44333333333333336
+      },
+      "rho/k0": {
+       "bal": 0.6931297709923664,
+       "kept_meaningful": 0.9034090909090909,
+       "recognized_meaningless": 0.67
+      },
+      "rho/k4": {
+       "bal": 0.7143268676781256,
+       "kept_meaningful": 1.0,
+       "recognized_meaningless": 0.31666666666666665
+      },
+      "shuffled/k0": {
+       "bal": 0.6931297709923664,
+       "kept_meaningful": 0.9034090909090909,
+       "recognized_meaningless": 0.67
+      }
+     }
+    },
+    "syn6s": {
+     "kind": "synonym",
+     "reads": {
+      "intuition/k4": {
+       "bal": 0.5333216104849157
+      },
+      "none/k0": {
+       "bal": 0.507846355838448,
+       "kept_meaningful": 0.2195238095238095,
+       "recognized_meaningless": 0.74
+      },
+      "none/k4": {
+       "bal": 0.5119215506983887,
+       "kept_meaningful": 0.9082217973231358,
+       "recognized_meaningless": 0.24666666666666667
+      },
+      "rho/k0": {
+       "bal": 0.5227792746619241,
+       "kept_meaningful": 0.2704761904761905,
+       "recognized_meaningless": 0.73
+      },
+      "rho/k4": {
+       "bal": 0.5174529767242845,
+       "kept_meaningful": 0.9278202676864244,
+       "recognized_meaningless": 0.23
+      },
+      "shuffled/k0": {
+       "bal": 0.5227792746619241,
+       "kept_meaningful": 0.2704761904761905,
+       "recognized_meaningless": 0.73
+      }
+     }
+    }
+   },
+   "log": [
+    {
+     "app": 0.23978659510612488,
+     "logic": 0.7864600419998169,
+     "loss": 1.2145190238952637,
+     "reg": 0.0,
+     "step": 100
+    }
+   ],
+   "seed": 450,
+   "trained_intro": {
+    "ancestor-of": {
+     "encoded": 0.7423851732473812,
+     "kind": "real-ancestor-of",
+     "set": "A",
+     "stored": 0.7799040044844621
+    },
+    "baby-of": {
+     "encoded": 0.9027382645803699,
+     "kind": "real-baby-of",
+     "set": "A",
+     "stored": 0.9415896159317212
+    },
+    "bigger-than": {
+     "encoded": 0.506993006993007,
+     "kind": "real-bigger-than",
+     "set": "A",
+     "stored": 0.881118881118881
+    },
+    "brighter-than": {
+     "encoded": 0.8630952380952381,
+     "kind": "real-brighter-than",
+     "set": "B",
+     "stored": 1.0
+    },
+    "can": {
+     "encoded": 0.7455759888965996,
+     "kind": "real-can",
+     "set": "A",
+     "stored": 0.8023941707147815
+    },
+    "colder-than": {
+     "encoded": 0.5198412698412699,
+     "kind": "real-colder-than",
+     "set": "B",
+     "stored": 0.7559523809523809
+    },
+    "colour-of": {
+     "encoded": 0.7548238255033557,
+     "kind": "real-colour-of",
+     "set": "A",
+     "stored": 0.8028523489932886
+    },
+    "eats": {
+     "encoded": 0.7607142857142857,
+     "kind": "real-eats",
+     "set": "B",
+     "stored": 0.8500000000000001
+    },
+    "faster-than": {
+     "encoded": 0.5416666666666666,
+     "kind": "real-faster-than",
+     "set": "A",
+     "stored": 1.0
+    },
+    "good-phrase": {
+     "encoded": 0.7822336506547033,
+     "kind": "real-good-phrase",
+     "set": "A",
+     "stored": 0.8539149328623012
+    },
+    "grandparent-of": {
+     "encoded": 0.7785714285714286,
+     "kind": "real-grandparent-of",
+     "set": "A",
+     "stored": 0.8616071428571428
+    },
+    "has": {
+     "encoded": 0.6275306097708813,
+     "kind": "real-has",
+     "set": "A",
+     "stored": 0.6834540550369742
+    },
+    "has-baby": {
+     "encoded": 0.871354907539118,
+     "kind": "real-has-baby",
+     "set": "A",
+     "stored": 0.8727773826458036
+    },
+    "heavier-than": {
+     "encoded": 0.5238095238095238,
+     "kind": "real-heavier-than",
+     "set": "A",
+     "stored": 0.9821428571428572
+    },
+    "hotter-than": {
+     "encoded": 0.5833333333333333,
+     "kind": "real-hotter-than",
+     "set": "B",
+     "stored": 0.6646825396825397
+    },
+    "imp0b": {
+     "encoded": 0.7097222222222221,
+     "kind": "broad",
+     "set": "A",
+     "stored": 0.8154970760233917
+    },
+    "imp0n": {
+     "encoded": 0.8474264705882353,
+     "kind": "narrow",
+     "set": "A",
+     "stored": 0.9711538461538461
+    },
+    "imp1b": {
+     "encoded": 0.5904848327715841,
+     "kind": "broad",
+     "set": "A",
+     "stored": 0.5908737360642986
+    },
+    "imp1n": {
+     "encoded": 0.6215978928884986,
+     "kind": "narrow",
+     "set": "A",
+     "stored": 0.6206650570676031
+    },
+    "imp2n": {
+     "encoded": 0.6058939688982748,
+     "kind": "narrow",
+     "set": "B",
+     "stored": 0.634211897644058
+    },
+    "imp3b": {
+     "encoded": 0.6469907407407407,
+     "kind": "broad",
+     "set": "A",
+     "stored": 0.7523148148148149
+    },
+    "imp3n": {
+     "encoded": 0.7790384615384616,
+     "kind": "narrow",
+     "set": "A",
+     "stored": 0.8648076923076923
+    },
+    "imp4n": {
+     "encoded": 0.8506944444444444,
+     "kind": "narrow",
+     "set": "B",
+     "stored": 1.0
+    },
+    "imp5b": {
+     "encoded": 0.5905751905751906,
+     "kind": "broad",
+     "set": "B",
+     "stored": 0.6507969507969509
+    },
+    "imp6b": {
+     "encoded": 0.62996632996633,
+     "kind": "broad",
+     "set": "B",
+     "stored": 0.6232323232323232
+    },
+    "imp6n": {
+     "encoded": 0.6858300346363186,
+     "kind": "narrow",
+     "set": "B",
+     "stored": 0.7027461652647204
+    },
+    "imp7b": {
+     "encoded": 0.6079514824797844,
+     "kind": "broad",
+     "set": "B",
+     "stored": 0.6656334231805929
+    },
+    "inv0": {
+     "encoded": 0.536281179138322,
+     "kind": "inv-base",
+     "set": "B",
+     "stored": 0.7240173847316704
+    },
+    "inv1": {
+     "encoded": 0.5145672685705429,
+     "kind": "inv-base",
+     "set": "B",
+     "stored": 0.5316822955012206
+    },
+    "inv10": {
+     "encoded": 0.8286504895700297,
+     "kind": "inv-base",
+     "set": "A",
+     "stored": 0.8988931460195828
+    },
+    "inv10p": {
+     "encoded": 0.8150276713495104,
+     "kind": "inverse",
+     "set": "B",
+     "stored": 0.870583226905066
+    },
+    "inv11": {
+     "encoded": 1.0,
+     "kind": "inv-base",
+     "set": "A",
+     "stored": 1.0
+    },
+    "inv11p": {
+     "encoded": 0.9761904761904762,
+     "kind": "inverse",
+     "set": "A",
+     "stored": 1.0
+    },
+    "inv2": {
+     "encoded": 0.5384316770186336,
+     "kind": "inv-base",
+     "set": "A",
+     "stored": 0.6816770186335404
+    },
+    "inv2p": {
+     "encoded": 0.5966614906832298,
+     "kind": "inverse",
+     "set": "B",
+     "stored": 0.6257763975155279
+    },
+    "inv3": {
+     "encoded": 0.9453125,
+     "kind": "inv-base",
+     "set": "B",
+     "stored": 0.9765625
+    },
+    "inv3p": {
+     "encoded": 0.8515625,
+     "kind": "inverse",
+     "set": "B",
+     "stored": 0.9609375
+    },
+    "inv4": {
+     "encoded": 0.5450980392156863,
+     "kind": "inv-base",
+     "set": "B",
+     "stored": 0.5750700280112044
+    },
+    "inv5": {
+     "encoded": 0.6277453671928621,
+     "kind": "inv-base",
+     "set": "B",
+     "stored": 0.6714138641043239
+    },
+    "inv6": {
+     "encoded": 0.5522607546397126,
+     "kind": "inv-base",
+     "set": "B",
+     "stored": 0.5576776307216917
+    },
+    "inv6p": {
+     "encoded": 0.5412129334896968,
+     "kind": "inverse",
+     "set": "B",
+     "stored": 0.5136352636771467
+    },
+    "inv7": {
+     "encoded": 0.7838235294117647,
+     "kind": "inv-base",
+     "set": "B",
+     "stored": 0.8191176470588235
+    },
+    "inv7p": {
+     "encoded": 0.7441176470588236,
+     "kind": "inverse",
+     "set": "B",
+     "stored": 0.8007352941176471
+    },
+    "inv8": {
+     "encoded": 1.0,
+     "kind": "inv-base",
+     "set": "B",
+     "stored": 1.0
+    },
+    "inv8p": {
+     "encoded": 0.868421052631579,
+     "kind": "inverse",
+     "set": "B",
+     "stored": 1.0
+    },
+    "inv9": {
+     "encoded": 0.9371649791542584,
+     "kind": "inv-base",
+     "set": "A",
+     "stored": 0.8868374032162001
+    },
+    "inv9p": {
+     "encoded": 0.9085765336509827,
+     "kind": "inverse",
+     "set": "A",
+     "stored": 0.9508636092912448
+    },
+    "is": {
+     "encoded": 0.7559523809523809,
+     "kind": "real-is",
+     "set": "B",
+     "stored": 0.8080357142857143
+    },
+    "is-a": {
+     "encoded": 0.6849327717631983,
+     "kind": "real-is-a",
+     "set": "B",
+     "stored": 0.6965429516352433
+    },
+    "just-bigger-than": {
+     "encoded": 0.8157894736842105,
+     "kind": "real-just-bigger-than",
+     "set": "A",
+     "stored": 0.8414217361585783
+    },
+    "kind-of": {
+     "encoded": 0.7336580086580087,
+     "kind": "real-kind-of",
+     "set": "B",
+     "stored": 0.7350649350649351
+    },
+    "lighter-than": {
+     "encoded": 0.6309523809523809,
+     "kind": "real-lighter-than",
+     "set": "A",
+     "stored": 0.8809523809523809
+    },
+    "lives-in": {
+     "encoded": 0.7559338288180293,
+     "kind": "real-lives-in",
+     "set": "B",
+     "stored": 0.8115559817789499
+    },
+    "lives-with": {
+     "encoded": 0.5988665565345082,
+     "kind": "real-lives-with",
+     "set": "B",
+     "stored": 0.6455080655610261
+    },
+    "louder-than": {
+     "encoded": 0.5773809523809523,
+     "kind": "real-louder-than",
+     "set": "B",
+     "stored": 0.6607142857142857
+    },
+    "makes-sense": {
+     "encoded": 0.849095405440583,
+     "kind": "real-makes-sense",
+     "set": "A",
+     "stored": 0.8639333593648314
+    },
+    "mixed-from": {
+     "encoded": 0.8369369369369369,
+     "kind": "real-mixed-from",
+     "set": "A",
+     "stored": 0.8684684684684685
+    },
+    "named-can": {
+     "encoded": 0.6992753623188406,
+     "kind": "real-named-can",
+     "set": "A",
+     "stored": 0.6753065774804905
+    },
+    "named-has": {
+     "encoded": 0.6372881355932204,
+     "kind": "real-named-has",
+     "set": "A",
+     "stored": 0.6733898305084746
+    },
+    "named-kind": {
+     "encoded": 0.7390350877192982,
+     "kind": "real-named-kind",
+     "set": "B",
+     "stored": 0.8464912280701754
+    },
+    "names": {
+     "encoded": 0.7180851063829787,
+     "kind": "real-names",
+     "set": "B",
+     "stored": 0.8128324468085106
+    },
+    "opposite": {
+     "encoded": 0.8295454545454546,
+     "kind": "real-opposite",
+     "set": "A",
+     "stored": 0.7462121212121212
+    },
+    "parent-of": {
+     "encoded": 0.8278483835005574,
+     "kind": "real-parent-of",
+     "set": "B",
+     "stored": 0.8454626532887403
+    },
+    "prey-of": {
+     "encoded": 0.7547717842323651,
+     "kind": "real-prey-of",
+     "set": "B",
+     "stored": 0.8468879668049794
+    },
+    "preys-on": {
+     "encoded": 0.8056016597510374,
+     "kind": "real-preys-on",
+     "set": "A",
+     "stored": 0.9589211618257261
+    },
+    "quieter-than": {
+     "encoded": 0.5357142857142857,
+     "kind": "real-quieter-than",
+     "set": "B",
+     "stored": 0.6964285714285714
+    },
+    "same-class-as": {
+     "encoded": 0.6569055944055944,
+     "kind": "real-same-class-as",
+     "set": "A",
+     "stored": 0.6870161088911089
+    },
+    "same-colour-as": {
+     "encoded": 0.6195275178326025,
+     "kind": "real-same-colour-as",
+     "set": "B",
+     "stored": 0.6813526601662194
+    },
+    "says": {
+     "encoded": 0.6894736842105262,
+     "kind": "real-says",
+     "set": "B",
+     "stored": 0.8035087719298246
+    },
+    "sibling-of": {
+     "encoded": 0.8617021276595744,
+     "kind": "real-sibling-of",
+     "set": "A",
+     "stored": 0.802304964539007
+    },
+    "slower-than": {
+     "encoded": 0.5833333333333334,
+     "kind": "real-slower-than",
+     "set": "B",
+     "stored": 0.8333333333333333
+    },
+    "smaller-than": {
+     "encoded": 0.5553613053613053,
+     "kind": "real-smaller-than",
+     "set": "B",
+     "stored": 0.7045454545454546
+    },
+    "spouse-of": {
+     "encoded": 0.7028776978417266,
+     "kind": "real-spouse-of",
+     "set": "B",
+     "stored": 0.7913669064748201
+    },
+    "subkind-of": {
+     "encoded": 0.8637992831541219,
+     "kind": "real-subkind-of",
+     "set": "B",
+     "stored": 0.9121863799283154
+    },
+    "sym1": {
+     "encoded": 0.5265151515151515,
+     "kind": "symmetric",
+     "set": "B",
+     "stored": 0.5791245791245792
+    },
+    "sym2": {
+     "encoded": 0.5622359898620107,
+     "kind": "symmetric",
+     "set": "A",
+     "stored": 0.6504505773021684
+    },
+    "sym3": {
+     "encoded": 1.0,
+     "kind": "symmetric",
+     "set": "B",
+     "stored": 1.0
+    },
+    "sym4": {
+     "encoded": 0.5052280047742843,
+     "kind": "symmetric",
+     "set": "B",
+     "stored": 0.5063936440978183
+    },
+    "syn0": {
+     "encoded": 0.9818181818181818,
+     "kind": "syn-base",
+     "set": "B",
+     "stored": 1.0
+    },
+    "syn0s": {
+     "encoded": 0.9818181818181818,
+     "kind": "synonym",
+     "set": "B",
+     "stored": 1.0
+    },
+    "syn1": {
+     "encoded": 0.9891304347826086,
+     "kind": "syn-base",
+     "set": "B",
+     "stored": 1.0
+    },
+    "syn1s": {
+     "encoded": 0.9891304347826086,
+     "kind": "synonym",
+     "set": "B",
+     "stored": 1.0
+    },
+    "syn2": {
+     "encoded": 0.543387433713643,
+     "kind": "syn-base",
+     "set": "B",
+     "stored": 0.614092881246987
+    },
+    "syn3": {
+     "encoded": 0.6931297709923664,
+     "kind": "syn-base",
+     "set": "B",
+     "stored": 0.818490245971162
+    },
+    "syn4": {
+     "encoded": 0.5693789326606589,
+     "kind": "syn-base",
+     "set": "A",
+     "stored": 0.5830652950609064
+    },
+    "syn4s": {
+     "encoded": 0.5693789326606589,
+     "kind": "synonym",
+     "set": "A",
+     "stored": 0.5804771237539736
+    },
+    "syn5": {
+     "encoded": 0.7666724182555431,
+     "kind": "syn-base",
+     "set": "A",
+     "stored": 0.7938918126132344
+    },
+    "syn5s": {
+     "encoded": 0.7666724182555431,
+     "kind": "synonym",
+     "set": "A",
+     "stored": 0.7820722974721767
+    },
+    "syn6": {
+     "encoded": 0.5227792746619241,
+     "kind": "syn-base",
+     "set": "B",
+     "stored": 0.5276108374670166
+    },
+    "syn7": {
+     "encoded": 1.0,
+     "kind": "syn-base",
+     "set": "A",
+     "stored": 1.0
+    },
+    "syn7s": {
+     "encoded": 1.0,
+     "kind": "synonym",
+     "set": "B",
+     "stored": 1.0
+    }
+   },
+   "virtual_A": {
+    "copy-of-ancestor-of": {
+     "Q": "ancestor-of",
+     "rho": 0.7423851732473812,
+     "typ": "copy"
+    },
+    "copy-of-baby-of": {
+     "Q": "baby-of",
+     "rho": 0.9027382645803699,
+     "typ": "copy"
+    },
+    "copy-of-bigger-than": {
+     "Q": "bigger-than",
+     "rho": 0.506993006993007,
+     "typ": "copy"
+    },
+    "copy-of-can": {
+     "Q": "can",
+     "rho": 0.7455759888965996,
+     "typ": "copy"
+    },
+    "copy-of-colour-of": {
+     "Q": "colour-of",
+     "rho": 0.7548238255033557,
+     "typ": "copy"
+    },
+    "copy-of-faster-than": {
+     "Q": "faster-than",
+     "rho": 0.5416666666666666,
+     "typ": "copy"
+    },
+    "copy-of-good-phrase": {
+     "Q": "good-phrase",
+     "rho": 0.7822336506547033,
+     "typ": "copy"
+    },
+    "copy-of-grandparent-of": {
+     "Q": "grandparent-of",
+     "rho": 0.7785714285714286,
+     "typ": "copy"
+    },
+    "copy-of-has": {
+     "Q": "has",
+     "rho": 0.6275306097708813,
+     "typ": "copy"
+    },
+    "copy-of-has-baby": {
+     "Q": "has-baby",
+     "rho": 0.871354907539118,
+     "typ": "copy"
+    },
+    "copy-of-heavier-than": {
+     "Q": "heavier-than",
+     "rho": 0.5238095238095238,
+     "typ": "copy"
+    },
+    "copy-of-imp0b": {
+     "Q": "imp0b",
+     "rho": 0.7097222222222221,
+     "typ": "copy"
+    },
+    "copy-of-imp0n": {
+     "Q": "imp0n",
+     "rho": 0.8474264705882353,
+     "typ": "copy"
+    },
+    "copy-of-imp1b": {
+     "Q": "imp1b",
+     "rho": 0.5904848327715841,
+     "typ": "copy"
+    },
+    "copy-of-imp1n": {
+     "Q": "imp1n",
+     "rho": 0.6215978928884986,
+     "typ": "copy"
+    },
+    "copy-of-imp3b": {
+     "Q": "imp3b",
+     "rho": 0.6469907407407407,
+     "typ": "copy"
+    },
+    "copy-of-imp3n": {
+     "Q": "imp3n",
+     "rho": 0.7790384615384616,
+     "typ": "copy"
+    },
+    "copy-of-inv10": {
+     "Q": "inv10",
+     "rho": 0.8286504895700297,
+     "typ": "copy"
+    },
+    "copy-of-inv11": {
+     "Q": "inv11",
+     "rho": 1.0,
+     "typ": "copy"
+    },
+    "copy-of-inv11p": {
+     "Q": "inv11p",
+     "rho": 0.9761904761904762,
+     "typ": "copy"
+    },
+    "copy-of-inv2": {
+     "Q": "inv2",
+     "rho": 0.5384316770186336,
+     "typ": "copy"
+    },
+    "copy-of-inv9": {
+     "Q": "inv9",
+     "rho": 0.9371649791542584,
+     "typ": "copy"
+    },
+    "copy-of-inv9p": {
+     "Q": "inv9p",
+     "rho": 0.9085765336509827,
+     "typ": "copy"
+    },
+    "copy-of-just-bigger-than": {
+     "Q": "just-bigger-than",
+     "rho": 0.8157894736842105,
+     "typ": "copy"
+    },
+    "copy-of-lighter-than": {
+     "Q": "lighter-than",
+     "rho": 0.6309523809523809,
+     "typ": "copy"
+    },
+    "copy-of-makes-sense": {
+     "Q": "makes-sense",
+     "rho": 0.849095405440583,
+     "typ": "copy"
+    },
+    "copy-of-mixed-from": {
+     "Q": "mixed-from",
+     "rho": 0.8369369369369369,
+     "typ": "copy"
+    },
+    "copy-of-named-can": {
+     "Q": "named-can",
+     "rho": 0.6992753623188406,
+     "typ": "copy"
+    },
+    "copy-of-named-has": {
+     "Q": "named-has",
+     "rho": 0.6372881355932204,
+     "typ": "copy"
+    },
+    "copy-of-opposite": {
+     "Q": "opposite",
+     "rho": 0.8295454545454546,
+     "typ": "copy"
+    },
+    "copy-of-preys-on": {
+     "Q": "preys-on",
+     "rho": 0.8056016597510374,
+     "typ": "copy"
+    },
+    "copy-of-same-class-as": {
+     "Q": "same-class-as",
+     "rho": 0.6569055944055944,
+     "typ": "copy"
+    },
+    "copy-of-sibling-of": {
+     "Q": "sibling-of",
+     "rho": 0.8617021276595744,
+     "typ": "copy"
+    },
+    "copy-of-sym2": {
+     "Q": "sym2",
+     "rho": 0.5622359898620107,
+     "typ": "copy"
+    },
+    "copy-of-syn4": {
+     "Q": "syn4",
+     "rho": 0.5693789326606589,
+     "typ": "copy"
+    },
+    "copy-of-syn4s": {
+     "Q": "syn4s",
+     "rho": 0.5693789326606589,
+     "typ": "copy"
+    },
+    "copy-of-syn5": {
+     "Q": "syn5",
+     "rho": 0.7666724182555431,
+     "typ": "copy"
+    },
+    "copy-of-syn5s": {
+     "Q": "syn5s",
+     "rho": 0.7666724182555431,
+     "typ": "copy"
+    },
+    "copy-of-syn7": {
+     "Q": "syn7",
+     "rho": 1.0,
+     "typ": "copy"
+    },
+    "inverse-of-ancestor-of": {
+     "Q": "ancestor-of",
+     "rho": 0.47693655186910977,
+     "typ": "inverse"
+    },
+    "inverse-of-baby-of": {
+     "Q": "baby-of",
+     "rho": 0.871354907539118,
+     "typ": "inverse"
+    },
+    "inverse-of-bigger-than": {
+     "Q": "bigger-than",
+     "rho": 0.5553613053613053,
+     "typ": "inverse"
+    },
+    "inverse-of-can": {
+     "Q": "can",
+     "rho": 0.4766655100624566,
+     "typ": "inverse"
+    },
+    "inverse-of-colour-of": {
+     "Q": "colour-of",
+     "rho": 0.610738255033557,
+     "typ": "inverse"
+    },
+    "inverse-of-faster-than": {
+     "Q": "faster-than",
+     "rho": 0.5833333333333334,
+     "typ": "inverse"
+    },
+    "inverse-of-good-phrase": {
+     "Q": "good-phrase",
+     "rho": 0.40276366592156065,
+     "typ": "inverse"
+    },
+    "inverse-of-grandparent-of": {
+     "Q": "grandparent-of",
+     "rho": 0.39285714285714285,
+     "typ": "inverse"
+    },
+    "inverse-of-has": {
+     "Q": "has",
+     "rho": 0.5590374590859498,
+     "typ": "inverse"
+    },
+    "inverse-of-has-baby": {
+     "Q": "has-baby",
+     "rho": 0.9027382645803699,
+     "typ": "inverse"
+    },
+    "inverse-of-heavier-than": {
+     "Q": "heavier-than",
+     "rho": 0.6309523809523809,
+     "typ": "inverse"
+    },
+    "inverse-of-imp0b": {
+     "Q": "imp0b",
+     "rho": 0.5863304093567251,
+     "typ": "inverse"
+    },
+    "inverse-of-imp0n": {
+     "Q": "imp0n",
+     "rho": 0.5718325791855203,
+     "typ": "inverse"
+    },
+    "inverse-of-imp1b": {
+     "Q": "imp1b",
+     "rho": 0.5144542390458906,
+     "typ": "inverse"
+    },
+    "inverse-of-imp1n": {
+     "Q": "imp1n",
+     "rho": 0.5088345039508341,
+     "typ": "inverse"
+    },
+    "inverse-of-imp3b": {
+     "Q": "imp3b",
+     "rho": 0.5740740740740741,
+     "typ": "inverse"
+    },
+    "inverse-of-imp3n": {
+     "Q": "imp3n",
+     "rho": 0.6417307692307692,
+     "typ": "inverse"
+    },
+    "inverse-of-inv10": {
+     "Q": "inv10",
+     "rho": 0.8150276713495104,
+     "typ": "inverse"
+    },
+    "inverse-of-inv11": {
+     "Q": "inv11",
+     "rho": 0.9761904761904762,
+     "typ": "inverse"
+    },
+    "inverse-of-inv11p": {
+     "Q": "inv11p",
+     "rho": 1.0,
+     "typ": "inverse"
+    },
+    "inverse-of-inv2": {
+     "Q": "inv2",
+     "rho": 0.5966614906832298,
+     "typ": "inverse"
+    },
+    "inverse-of-inv9": {
+     "Q": "inv9",
+     "rho": 0.9085765336509827,
+     "typ": "inverse"
+    },
+    "inverse-of-inv9p": {
+     "Q": "inv9p",
+     "rho": 0.9371649791542584,
+     "typ": "inverse"
+    },
+    "inverse-of-just-bigger-than": {
+     "Q": "just-bigger-than",
+     "rho": 0.7173615857826384,
+     "typ": "inverse"
+    },
+    "inverse-of-lighter-than": {
+     "Q": "lighter-than",
+     "rho": 0.5238095238095238,
+     "typ": "inverse"
+    },
+    "inverse-of-makes-sense": {
+     "Q": "makes-sense",
+     "rho": 0.46257972146297016,
+     "typ": "inverse"
+    },
+    "inverse-of-mixed-from": {
+     "Q": "mixed-from",
+     "rho": 0.6189189189189189,
+     "typ": "inverse"
+    },
+    "inverse-of-named-can": {
+     "Q": "named-can",
+     "rho": 0.5167224080267558,
+     "typ": "inverse"
+    },
+    "inverse-of-named-has": {
+     "Q": "named-has",
+     "rho": 0.49655367231638414,
+     "typ": "inverse"
+    },
+    "inverse-of-opposite": {
+     "Q": "opposite",
+     "rho": 0.8295454545454546,
+     "typ": "inverse"
+    },
+    "inverse-of-preys-on": {
+     "Q": "preys-on",
+     "rho": 0.7547717842323651,
+     "typ": "inverse"
+    },
+    "inverse-of-same-class-as": {
+     "Q": "same-class-as",
+     "rho": 0.6569055944055944,
+     "typ": "inverse"
+    },
+    "inverse-of-sibling-of": {
+     "Q": "sibling-of",
+     "rho": 0.8617021276595744,
+     "typ": "inverse"
+    },
+    "inverse-of-sym2": {
+     "Q": "sym2",
+     "rho": 0.5622359898620107,
+     "typ": "inverse"
+    },
+    "inverse-of-syn4": {
+     "Q": "syn4",
+     "rho": 0.5264865574508388,
+     "typ": "inverse"
+    },
+    "inverse-of-syn4s": {
+     "Q": "syn4s",
+     "rho": 0.5264865574508388,
+     "typ": "inverse"
+    },
+    "inverse-of-syn5": {
+     "Q": "syn5",
+     "rho": 0.5832111120697092,
+     "typ": "inverse"
+    },
+    "inverse-of-syn5s": {
+     "Q": "syn5s",
+     "rho": 0.5832111120697092,
+     "typ": "inverse"
+    },
+    "inverse-of-syn7": {
+     "Q": "syn7",
+     "rho": 0.728494623655914,
+     "typ": "inverse"
+    }
+   },
+   "virtual_B": {
+    "copy-of-brighter-than": {
+     "Q": "brighter-than",
+     "rho": 0.8630952380952381,
+     "shuffled": 0.8630952380952381,
+     "typ": "copy"
+    },
+    "copy-of-colder-than": {
+     "Q": "colder-than",
+     "rho": 0.5198412698412699,
+     "shuffled": 0.5198412698412699,
+     "typ": "copy"
+    },
+    "copy-of-eats": {
+     "Q": "eats",
+     "rho": 0.7607142857142857,
+     "shuffled": 0.7607142857142857,
+     "typ": "copy"
+    },
+    "copy-of-hotter-than": {
+     "Q": "hotter-than",
+     "rho": 0.5833333333333333,
+     "shuffled": 0.5833333333333333,
+     "typ": "copy"
+    },
+    "copy-of-imp2n": {
+     "Q": "imp2n",
+     "rho": 0.6058939688982748,
+     "shuffled": 0.6058939688982748,
+     "typ": "copy"
+    },
+    "copy-of-imp4n": {
+     "Q": "imp4n",
+     "rho": 0.8506944444444444,
+     "shuffled": 0.8506944444444444,
+     "typ": "copy"
+    },
+    "copy-of-imp5b": {
+     "Q": "imp5b",
+     "rho": 0.5905751905751906,
+     "shuffled": 0.5905751905751906,
+     "typ": "copy"
+    },
+    "copy-of-imp6b": {
+     "Q": "imp6b",
+     "rho": 0.62996632996633,
+     "shuffled": 0.62996632996633,
+     "typ": "copy"
+    },
+    "copy-of-imp6n": {
+     "Q": "imp6n",
+     "rho": 0.6858300346363186,
+     "shuffled": 0.6858300346363186,
+     "typ": "copy"
+    },
+    "copy-of-imp7b": {
+     "Q": "imp7b",
+     "rho": 0.6079514824797844,
+     "shuffled": 0.6079514824797844,
+     "typ": "copy"
+    },
+    "copy-of-inv0": {
+     "Q": "inv0",
+     "rho": 0.536281179138322,
+     "shuffled": 0.536281179138322,
+     "typ": "copy"
+    },
+    "copy-of-inv1": {
+     "Q": "inv1",
+     "rho": 0.5145672685705429,
+     "shuffled": 0.5145672685705429,
+     "typ": "copy"
+    },
+    "copy-of-inv10p": {
+     "Q": "inv10p",
+     "rho": 0.8150276713495104,
+     "shuffled": 0.8150276713495104,
+     "typ": "copy"
+    },
+    "copy-of-inv2p": {
+     "Q": "inv2p",
+     "rho": 0.5966614906832298,
+     "shuffled": 0.5966614906832298,
+     "typ": "copy"
+    },
+    "copy-of-inv3": {
+     "Q": "inv3",
+     "rho": 0.9453125,
+     "shuffled": 0.9453125,
+     "typ": "copy"
+    },
+    "copy-of-inv3p": {
+     "Q": "inv3p",
+     "rho": 0.8515625,
+     "shuffled": 0.8515625,
+     "typ": "copy"
+    },
+    "copy-of-inv4": {
+     "Q": "inv4",
+     "rho": 0.5450980392156863,
+     "shuffled": 0.5450980392156863,
+     "typ": "copy"
+    },
+    "copy-of-inv5": {
+     "Q": "inv5",
+     "rho": 0.6277453671928621,
+     "shuffled": 0.6277453671928621,
+     "typ": "copy"
+    },
+    "copy-of-inv6": {
+     "Q": "inv6",
+     "rho": 0.5522607546397126,
+     "shuffled": 0.5522607546397126,
+     "typ": "copy"
+    },
+    "copy-of-inv6p": {
+     "Q": "inv6p",
+     "rho": 0.5412129334896968,
+     "shuffled": 0.5412129334896968,
+     "typ": "copy"
+    },
+    "copy-of-inv7": {
+     "Q": "inv7",
+     "rho": 0.7838235294117647,
+     "shuffled": 0.7838235294117647,
+     "typ": "copy"
+    },
+    "copy-of-inv7p": {
+     "Q": "inv7p",
+     "rho": 0.7441176470588236,
+     "shuffled": 0.7441176470588236,
+     "typ": "copy"
+    },
+    "copy-of-inv8": {
+     "Q": "inv8",
+     "rho": 1.0,
+     "shuffled": 1.0,
+     "typ": "copy"
+    },
+    "copy-of-inv8p": {
+     "Q": "inv8p",
+     "rho": 0.868421052631579,
+     "shuffled": 0.868421052631579,
+     "typ": "copy"
+    },
+    "copy-of-is": {
+     "Q": "is",
+     "rho": 0.7559523809523809,
+     "shuffled": 0.7559523809523809,
+     "typ": "copy"
+    },
+    "copy-of-is-a": {
+     "Q": "is-a",
+     "rho": 0.6849327717631983,
+     "shuffled": 0.6849327717631983,
+     "typ": "copy"
+    },
+    "copy-of-kind-of": {
+     "Q": "kind-of",
+     "rho": 0.7336580086580087,
+     "shuffled": 0.7336580086580087,
+     "typ": "copy"
+    },
+    "copy-of-lives-in": {
+     "Q": "lives-in",
+     "rho": 0.7559338288180293,
+     "shuffled": 0.7559338288180293,
+     "typ": "copy"
+    },
+    "copy-of-lives-with": {
+     "Q": "lives-with",
+     "rho": 0.5988665565345082,
+     "shuffled": 0.5988665565345082,
+     "typ": "copy"
+    },
+    "copy-of-louder-than": {
+     "Q": "louder-than",
+     "rho": 0.5773809523809523,
+     "shuffled": 0.5773809523809523,
+     "typ": "copy"
+    },
+    "copy-of-named-kind": {
+     "Q": "named-kind",
+     "rho": 0.7390350877192982,
+     "shuffled": 0.7390350877192982,
+     "typ": "copy"
+    },
+    "copy-of-names": {
+     "Q": "names",
+     "rho": 0.7180851063829787,
+     "shuffled": 0.7180851063829787,
+     "typ": "copy"
+    },
+    "copy-of-parent-of": {
+     "Q": "parent-of",
+     "rho": 0.8278483835005574,
+     "shuffled": 0.8278483835005574,
+     "typ": "copy"
+    },
+    "copy-of-prey-of": {
+     "Q": "prey-of",
+     "rho": 0.7547717842323651,
+     "shuffled": 0.7547717842323651,
+     "typ": "copy"
+    },
+    "copy-of-quieter-than": {
+     "Q": "quieter-than",
+     "rho": 0.5357142857142857,
+     "shuffled": 0.5357142857142857,
+     "typ": "copy"
+    },
+    "copy-of-same-colour-as": {
+     "Q": "same-colour-as",
+     "rho": 0.6195275178326025,
+     "shuffled": 0.6195275178326025,
+     "typ": "copy"
+    },
+    "copy-of-says": {
+     "Q": "says",
+     "rho": 0.6894736842105262,
+     "shuffled": 0.6894736842105262,
+     "typ": "copy"
+    },
+    "copy-of-slower-than": {
+     "Q": "slower-than",
+     "rho": 0.5833333333333334,
+     "shuffled": 0.5833333333333334,
+     "typ": "copy"
+    },
+    "copy-of-smaller-than": {
+     "Q": "smaller-than",
+     "rho": 0.5553613053613053,
+     "shuffled": 0.5553613053613053,
+     "typ": "copy"
+    },
+    "copy-of-spouse-of": {
+     "Q": "spouse-of",
+     "rho": 0.7028776978417266,
+     "shuffled": 0.7028776978417266,
+     "typ": "copy"
+    },
+    "copy-of-subkind-of": {
+     "Q": "subkind-of",
+     "rho": 0.8637992831541219,
+     "shuffled": 0.8637992831541219,
+     "typ": "copy"
+    },
+    "copy-of-sym1": {
+     "Q": "sym1",
+     "rho": 0.5265151515151515,
+     "shuffled": 0.5265151515151515,
+     "typ": "copy"
+    },
+    "copy-of-sym3": {
+     "Q": "sym3",
+     "rho": 1.0,
+     "shuffled": 1.0,
+     "typ": "copy"
+    },
+    "copy-of-sym4": {
+     "Q": "sym4",
+     "rho": 0.5052280047742843,
+     "shuffled": 0.5052280047742843,
+     "typ": "copy"
+    },
+    "copy-of-syn0": {
+     "Q": "syn0",
+     "rho": 0.9818181818181818,
+     "shuffled": 0.9818181818181818,
+     "typ": "copy"
+    },
+    "copy-of-syn0s": {
+     "Q": "syn0s",
+     "rho": 0.9818181818181818,
+     "shuffled": 0.9818181818181818,
+     "typ": "copy"
+    },
+    "copy-of-syn1": {
+     "Q": "syn1",
+     "rho": 0.9891304347826086,
+     "shuffled": 0.9891304347826086,
+     "typ": "copy"
+    },
+    "copy-of-syn1s": {
+     "Q": "syn1s",
+     "rho": 0.9891304347826086,
+     "shuffled": 0.9891304347826086,
+     "typ": "copy"
+    },
+    "copy-of-syn2": {
+     "Q": "syn2",
+     "rho": 0.543387433713643,
+     "shuffled": 0.543387433713643,
+     "typ": "copy"
+    },
+    "copy-of-syn3": {
+     "Q": "syn3",
+     "rho": 0.6931297709923664,
+     "shuffled": 0.6931297709923664,
+     "typ": "copy"
+    },
+    "copy-of-syn6": {
+     "Q": "syn6",
+     "rho": 0.5227792746619241,
+     "shuffled": 0.5227792746619241,
+     "typ": "copy"
+    },
+    "copy-of-syn7s": {
+     "Q": "syn7s",
+     "rho": 1.0,
+     "shuffled": 1.0,
+     "typ": "copy"
+    },
+    "inverse-of-brighter-than": {
+     "Q": "brighter-than",
+     "rho": 0.26190476190476186,
+     "shuffled": 0.26190476190476186,
+     "typ": "inverse"
+    },
+    "inverse-of-colder-than": {
+     "Q": "colder-than",
+     "rho": 0.5833333333333333,
+     "shuffled": 0.5833333333333333,
+     "typ": "inverse"
+    },
+    "inverse-of-eats": {
+     "Q": "eats",
+     "rho": 0.49642857142857144,
+     "shuffled": 0.49642857142857144,
+     "typ": "inverse"
+    },
+    "inverse-of-hotter-than": {
+     "Q": "hotter-than",
+     "rho": 0.5198412698412699,
+     "shuffled": 0.5198412698412699,
+     "typ": "inverse"
+    },
+    "inverse-of-imp2n": {
+     "Q": "imp2n",
+     "rho": 0.4981898466854996,
+     "shuffled": 0.4981898466854996,
+     "typ": "inverse"
+    },
+    "inverse-of-imp4n": {
+     "Q": "imp4n",
+     "rho": 0.5729166666666666,
+     "shuffled": 0.5729166666666666,
+     "typ": "inverse"
+    },
+    "inverse-of-imp5b": {
+     "Q": "imp5b",
+     "rho": 0.5025641025641026,
+     "shuffled": 0.5025641025641026,
+     "typ": "inverse"
+    },
+    "inverse-of-imp6b": {
+     "Q": "imp6b",
+     "rho": 0.5111111111111111,
+     "shuffled": 0.5111111111111111,
+     "typ": "inverse"
+    },
+    "inverse-of-imp6n": {
+     "Q": "imp6n",
+     "rho": 0.4738372093023256,
+     "shuffled": 0.4738372093023256,
+     "typ": "inverse"
+    },
+    "inverse-of-imp7b": {
+     "Q": "imp7b",
+     "rho": 0.5293800539083559,
+     "shuffled": 0.5293800539083559,
+     "typ": "inverse"
+    },
+    "inverse-of-inv0": {
+     "Q": "inv0",
+     "rho": 0.5081254724111867,
+     "shuffled": 0.5081254724111867,
+     "typ": "inverse"
+    },
+    "inverse-of-inv1": {
+     "Q": "inv1",
+     "rho": 0.5036303134808385,
+     "shuffled": 0.5036303134808385,
+     "typ": "inverse"
+    },
+    "inverse-of-inv10p": {
+     "Q": "inv10p",
+     "rho": 0.8286504895700297,
+     "shuffled": 0.8286504895700297,
+     "typ": "inverse"
+    },
+    "inverse-of-inv2p": {
+     "Q": "inv2p",
+     "rho": 0.5384316770186336,
+     "shuffled": 0.5384316770186336,
+     "typ": "inverse"
+    },
+    "inverse-of-inv3": {
+     "Q": "inv3",
+     "rho": 0.8515625,
+     "shuffled": 0.8515625,
+     "typ": "inverse"
+    },
+    "inverse-of-inv3p": {
+     "Q": "inv3p",
+     "rho": 0.9453125,
+     "shuffled": 0.9453125,
+     "typ": "inverse"
+    },
+    "inverse-of-inv4": {
+     "Q": "inv4",
+     "rho": 0.46834733893557423,
+     "shuffled": 0.46834733893557423,
+     "typ": "inverse"
+    },
+    "inverse-of-inv5": {
+     "Q": "inv5",
+     "rho": 0.48515785861358957,
+     "shuffled": 0.48515785861358957,
+     "typ": "inverse"
+    },
+    "inverse-of-inv6": {
+     "Q": "inv6",
+     "rho": 0.5412129334896968,
+     "shuffled": 0.5412129334896968,
+     "typ": "inverse"
+    },
+    "inverse-of-inv6p": {
+     "Q": "inv6p",
+     "rho": 0.5522607546397126,
+     "shuffled": 0.5522607546397126,
+     "typ": "inverse"
+    },
+    "inverse-of-inv7": {
+     "Q": "inv7",
+     "rho": 0.7441176470588236,
+     "shuffled": 0.7441176470588236,
+     "typ": "inverse"
+    },
+    "inverse-of-inv7p": {
+     "Q": "inv7p",
+     "rho": 0.7838235294117647,
+     "shuffled": 0.7838235294117647,
+     "typ": "inverse"
+    },
+    "inverse-of-inv8": {
+     "Q": "inv8",
+     "rho": 0.868421052631579,
+     "shuffled": 0.868421052631579,
+     "typ": "inverse"
+    },
+    "inverse-of-inv8p": {
+     "Q": "inv8p",
+     "rho": 1.0,
+     "shuffled": 1.0,
+     "typ": "inverse"
+    },
+    "inverse-of-is": {
+     "Q": "is",
+     "rho": 0.5029761904761905,
+     "shuffled": 0.5029761904761905,
+     "typ": "inverse"
+    },
+    "inverse-of-is-a": {
+     "Q": "is-a",
+     "rho": 0.516056571595481,
+     "shuffled": 0.516056571595481,
+     "typ": "inverse"
+    },
+    "inverse-of-kind-of": {
+     "Q": "kind-of",
+     "rho": 0.4518398268398268,
+     "shuffled": 0.4518398268398268,
+     "typ": "inverse"
+    },
+    "inverse-of-lives-in": {
+     "Q": "lives-in",
+     "rho": 0.584152481419324,
+     "shuffled": 0.584152481419324,
+     "typ": "inverse"
+    },
+    "inverse-of-lives-with": {
+     "Q": "lives-with",
+     "rho": 0.5988665565345082,
+     "shuffled": 0.5988665565345082,
+     "typ": "inverse"
+    },
+    "inverse-of-louder-than": {
+     "Q": "louder-than",
+     "rho": 0.5357142857142857,
+     "shuffled": 0.5357142857142857,
+     "typ": "inverse"
+    },
+    "inverse-of-named-kind": {
+     "Q": "named-kind",
+     "rho": 0.4451754385964912,
+     "shuffled": 0.4451754385964912,
+     "typ": "inverse"
+    },
+    "inverse-of-names": {
+     "Q": "names",
+     "rho": 0.48470744680851063,
+     "shuffled": 0.48470744680851063,
+     "typ": "inverse"
+    },
+    "inverse-of-parent-of": {
+     "Q": "parent-of",
+     "rho": 0.5263099219620959,
+     "shuffled": 0.5263099219620959,
+     "typ": "inverse"
+    },
+    "inverse-of-prey-of": {
+     "Q": "prey-of",
+     "rho": 0.8056016597510374,
+     "shuffled": 0.8056016597510374,
+     "typ": "inverse"
+    },
+    "inverse-of-quieter-than": {
+     "Q": "quieter-than",
+     "rho": 0.5773809523809523,
+     "shuffled": 0.5773809523809523,
+     "typ": "inverse"
+    },
+    "inverse-of-same-colour-as": {
+     "Q": "same-colour-as",
+     "rho": 0.6195275178326025,
+     "shuffled": 0.6195275178326025,
+     "typ": "inverse"
+    },
+    "inverse-of-says": {
+     "Q": "says",
+     "rho": 0.5666666666666667,
+     "shuffled": 0.5666666666666667,
+     "typ": "inverse"
+    },
+    "inverse-of-slower-than": {
+     "Q": "slower-than",
+     "rho": 0.5416666666666666,
+     "shuffled": 0.5416666666666666,
+     "typ": "inverse"
+    },
+    "inverse-of-smaller-than": {
+     "Q": "smaller-than",
+     "rho": 0.506993006993007,
+     "shuffled": 0.506993006993007,
+     "typ": "inverse"
+    },
+    "inverse-of-spouse-of": {
+     "Q": "spouse-of",
+     "rho": 0.7028776978417266,
+     "shuffled": 0.7028776978417266,
+     "typ": "inverse"
+    },
+    "inverse-of-subkind-of": {
+     "Q": "subkind-of",
+     "rho": 0.5376344086021505,
+     "shuffled": 0.5376344086021505,
+     "typ": "inverse"
+    },
+    "inverse-of-sym1": {
+     "Q": "sym1",
+     "rho": 0.5265151515151515,
+     "shuffled": 0.5265151515151515,
+     "typ": "inverse"
+    },
+    "inverse-of-sym3": {
+     "Q": "sym3",
+     "rho": 1.0,
+     "shuffled": 1.0,
+     "typ": "inverse"
+    },
+    "inverse-of-sym4": {
+     "Q": "sym4",
+     "rho": 0.5052280047742843,
+     "shuffled": 0.5052280047742843,
+     "typ": "inverse"
+    },
+    "inverse-of-syn0": {
+     "Q": "syn0",
+     "rho": 0.5272727272727272,
+     "shuffled": 0.5272727272727272,
+     "typ": "inverse"
+    },
+    "inverse-of-syn0s": {
+     "Q": "syn0s",
+     "rho": 0.5272727272727272,
+     "shuffled": 0.5272727272727272,
+     "typ": "inverse"
+    },
+    "inverse-of-syn1": {
+     "Q": "syn1",
+     "rho": 0.5350241545893719,
+     "shuffled": 0.5350241545893719,
+     "typ": "inverse"
+    },
+    "inverse-of-syn1s": {
+     "Q": "syn1s",
+     "rho": 0.5350241545893719,
+     "shuffled": 0.5350241545893719,
+     "typ": "inverse"
+    },
+    "inverse-of-syn2": {
+     "Q": "syn2",
+     "rho": 0.466575606620601,
+     "shuffled": 0.466575606620601,
+     "typ": "inverse"
+    },
+    "inverse-of-syn3": {
+     "Q": "syn3",
+     "rho": 0.49872773536895676,
+     "shuffled": 0.49872773536895676,
+     "typ": "inverse"
+    },
+    "inverse-of-syn6": {
+     "Q": "syn6",
+     "rho": 0.4941578952867304,
+     "shuffled": 0.4941578952867304,
+     "typ": "inverse"
+    },
+    "inverse-of-syn7s": {
+     "Q": "syn7s",
+     "rho": 0.728494623655914,
+     "shuffled": 0.728494623655914,
+     "typ": "inverse"
+    }
+   },
+   "world": {
+    "G2": {
+     "intuition": 0.7004899959167007,
+     "logic": 0.7692255342316592
+    },
+    "G4": {
+     "intuition": 0.6105769230769231,
+     "logic": 0.5208333333333333
+    },
+    "L1-anc": {
+     "intuition": 0.5555555555555556,
+     "logic": 0.6388888888888888
+    },
+    "L1-kind": {
+     "intuition": 0.6327380952380952,
+     "logic": 0.5625
+    },
+    "L1-size": {
+     "intuition": 0.5888888888888889,
+     "logic": 0.7722222222222223
+    },
+    "L2-named": {
+     "intuition": 0.6538461538461539,
+     "logic": 0.6826923076923077
+    },
+    "P1-default": {
+     "intuition": 0.5864735658042745,
+     "logic": 0.469347581552306
+    },
+    "P2": {
+     "intuition": 0.5874326679340938,
+     "logic": 0.5892031051964512
+    },
+    "P3": {
+     "intuition": 0.5516755197062102,
+     "logic": 0.5844973440881369
+    },
+    "P4": {
+     "intuition": 0.6041666666666667,
+     "logic": 0.5694444444444444
+    },
+    "P6-colour": {
+     "intuition": 0.46715686274509804,
+     "logic": 0.6166666666666667
+    },
+    "P6-grandparent": {
+     "intuition": 0.5,
+     "logic": 0.5
+    },
+    "trained_synthetic_by_kind": {
+     "broad": 0.6830580540187287,
+     "inv-base": 0.7769124098331881,
+     "inverse": 0.840316411438329,
+     "narrow": 0.79893077640632,
+     "symmetric": 0.6839922001311415,
+     "syn-base": 0.7921438840449133,
+     "synonym": 0.8725098842452301
+    },
+    "trained_synthetic_mean": 0.7831241323707185
+   }
+  }
+ },
+ "status": "amortized introduction v1 (smoke)"
+}

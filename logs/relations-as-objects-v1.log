@@ -1,0 +1,102 @@
+/home/debjit/code/sri/experiments/relations_as_objects.py:301: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  log.append({'step': step, 'loss': float(loss), 'logic': float(l_logic), 'app': float(l_app)})
+/home/debjit/code/sri/experiments/relations_as_objects.py:301: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  log.append({'step': step, 'loss': float(loss), 'logic': float(l_logic), 'app': float(l_app)})
+/home/debjit/code/sri/experiments/relations_as_objects.py:301: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  log.append({'step': step, 'loss': float(loss), 'logic': float(l_logic), 'app': float(l_app)})
+/home/debjit/code/sri/experiments/relations_as_objects.py:301: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  log.append({'step': step, 'loss': float(loss), 'logic': float(l_logic), 'app': float(l_app)})
+/home/debjit/code/sri/experiments/relations_as_objects.py:301: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  log.append({'step': step, 'loss': float(loss), 'logic': float(l_logic), 'app': float(l_app)})
+/home/debjit/code/sri/experiments/relations_as_objects.py:301: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  log.append({'step': step, 'loss': float(loss), 'logic': float(l_logic), 'app': float(l_app)})
+/home/debjit/code/sri/experiments/relations_as_objects.py:301: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  log.append({'step': step, 'loss': float(loss), 'logic': float(l_logic), 'app': float(l_app)})
+/home/debjit/code/sri/experiments/relations_as_objects.py:301: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  log.append({'step': step, 'loss': float(loss), 'logic': float(l_logic), 'app': float(l_app)})
+/home/debjit/code/sri/experiments/relations_as_objects.py:301: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  log.append({'step': step, 'loss': float(loss), 'logic': float(l_logic), 'app': float(l_app)})
+/home/debjit/code/sri/experiments/relations_as_objects.py:301: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  log.append({'step': step, 'loss': float(loss), 'logic': float(l_logic), 'app': float(l_app)})
+/home/debjit/code/sri/experiments/relations_as_objects.py:301: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  log.append({'step': step, 'loss': float(loss), 'logic': float(l_logic), 'app': float(l_app)})
+/home/debjit/code/sri/experiments/relations_as_objects.py:301: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  log.append({'step': step, 'loss': float(loss), 'logic': float(l_logic), 'app': float(l_app)})
+
+===== map: world logic 0.62 intuition 0.643; trained synthetic 0.985 {'broad': 0.996, 'inv-base': 0.987, 'inverse': 0.999, 'narrow': 0.998, 'symmetric': 0.916, 'syn-base': 0.975, 'synonym': 1.0}; rho fit {'rho-1': 0.999, 'rho-2': 1.0, 'rho-3': 1.0, 'rho-4': 1.0, 'rho-5': 0.999}
+  inverse+synonym (synthetic)
+    k=0 | rho: bal 0.523 M 0.832 kept 0.437 | none: bal 0.518 M 0.857 kept 0.301 | shuffled: bal 0.52 M 0.859 kept 0.336 | intuition 0.554
+    k=1 | rho: bal 0.537 M 0.794 kept 0.776 | none: bal 0.539 M 0.781 kept 0.772 | shuffled: bal 0.528 M 0.761 kept 0.753 | intuition 0.558
+    k=4 | rho: bal 0.591 M 0.775 kept 0.941 | none: bal 0.599 M 0.762 kept 0.918 | shuffled: bal 0.574 M 0.769 kept 0.909 | intuition 0.574
+  real inverse
+    k=0 | rho: bal 0.423 M 0.776 kept 0.304 | none: bal 0.417 M 0.849 kept 0.158 | shuffled: bal 0.413 M 0.781 kept 0.301 | intuition 0.446
+    k=1 | rho: bal 0.439 M 0.748 kept 0.597 | none: bal 0.43 M 0.733 kept 0.589 | shuffled: bal 0.427 M 0.73 kept 0.667 | intuition 0.503
+    k=4 | rho: bal 0.499 M 0.57 kept 0.861 | none: bal 0.492 M 0.613 kept 0.839 | shuffled: bal 0.506 M 0.575 kept 0.864 | intuition 0.546
+  broad
+    k=0 | rho: bal 0.567 M 0.844 kept 0.432 implied_ 0.359 | none: bal 0.557 M 0.875 kept 0.174 implied_ 0.283 | shuffled: bal 0.572 M 0.84 kept 0.288 implied_ 0.329 | intuition 0.62
+    k=1 | rho: bal 0.615 M 0.786 kept 0.619 implied_ 0.492 | none: bal 0.606 M 0.798 kept 0.604 implied_ 0.459 | shuffled: bal 0.621 M 0.703 kept 0.688 implied_ 0.532 | intuition 0.645
+    k=4 | rho: bal 0.687 M 0.722 kept 0.938 implied_ 0.808 | none: bal 0.67 M 0.735 kept 0.922 implied_ 0.758 | shuffled: bal 0.642 M 0.724 kept 0.917 implied_ 0.667 | intuition 0.663
+  narrow
+    k=0 | rho: bal 0.574 M 0.872 kept 0.524 implied_ 0.95 | none: bal 0.544 M 0.873 kept 0.333 implied_ 0.968 | shuffled: bal 0.556 M 0.861 kept 0.522 implied_ 0.949 | intuition 0.621
+    k=1 | rho: bal 0.662 M 0.85 kept 0.918 implied_ 0.896 | none: bal 0.642 M 0.824 kept 0.913 implied_ 0.908 | shuffled: bal 0.619 M 0.826 kept 0.822 implied_ 0.903 | intuition 0.651
+    k=4 | rho: bal 0.688 M 0.784 kept 0.917 implied_ 0.893 | none: bal 0.693 M 0.82 kept 0.917 implied_ 0.89 | shuffled: bal 0.643 M 0.791 kept 0.883 implied_ 0.838 | intuition 0.686
+  symmetric
+    k=0 | rho: bal 0.509 M 0.886 kept 0.485 | none: bal 0.534 M 0.882 kept 0.463 | shuffled: bal 0.512 M 0.888 kept 0.548 | intuition 0.531
+    k=1 | rho: bal 0.541 M 0.905 kept 0.894 reverse_ 0.688 | none: bal 0.53 M 0.883 kept 0.862 reverse_ 0.625 | shuffled: bal 0.524 M 0.897 kept 0.86 reverse_ 0.562 | intuition 0.498
+    k=4 | rho: bal 0.535 M 0.897 kept 0.935 reverse_ 0.552 | none: bal 0.516 M 0.892 kept 0.919 reverse_ 0.526 | shuffled: bal 0.562 M 0.902 kept 0.945 reverse_ 0.51 | intuition 0.585
+
+===== nomap: world logic 0.633 intuition 0.645; trained synthetic 0.974 {'broad': 0.98, 'inv-base': 0.973, 'inverse': 0.992, 'narrow': 0.989, 'symmetric': 0.903, 'syn-base': 0.966, 'synonym': 0.993}; rho fit {'rho-1': 0.999, 'rho-2': 1.0, 'rho-3': 1.0, 'rho-4': 0.994, 'rho-5': 0.999}
+  inverse+synonym (synthetic)
+    k=0 | rho: bal 0.519 M 0.8 kept 0.423 | none: bal 0.519 M 0.8 kept 0.423 | shuffled: bal 0.519 M 0.8 kept 0.423 | intuition 0.538
+    k=1 | rho: bal 0.531 M 0.674 kept 0.761 | none: bal 0.531 M 0.674 kept 0.761 | shuffled: bal 0.531 M 0.674 kept 0.761 | intuition 0.551
+    k=4 | rho: bal 0.548 M 0.655 kept 0.917 | none: bal 0.548 M 0.657 kept 0.917 | shuffled: bal 0.548 M 0.655 kept 0.917 | intuition 0.565
+  real inverse
+    k=0 | rho: bal 0.48 M 0.8 kept 0.228 | none: bal 0.48 M 0.8 kept 0.228 | shuffled: bal 0.48 M 0.8 kept 0.228 | intuition 0.441
+    k=1 | rho: bal 0.474 M 0.656 kept 0.675 | none: bal 0.474 M 0.656 kept 0.675 | shuffled: bal 0.474 M 0.656 kept 0.675 | intuition 0.472
+    k=4 | rho: bal 0.491 M 0.53 kept 0.903 | none: bal 0.491 M 0.53 kept 0.903 | shuffled: bal 0.491 M 0.53 kept 0.903 | intuition 0.583
+  broad
+    k=0 | rho: bal 0.584 M 0.79 kept 0.575 implied_ 0.353 | none: bal 0.584 M 0.79 kept 0.575 implied_ 0.353 | shuffled: bal 0.584 M 0.79 kept 0.575 implied_ 0.353 | intuition 0.603
+    k=1 | rho: bal 0.569 M 0.748 kept 0.763 implied_ 0.407 | none: bal 0.569 M 0.748 kept 0.763 implied_ 0.407 | shuffled: bal 0.569 M 0.748 kept 0.763 implied_ 0.407 | intuition 0.64
+    k=4 | rho: bal 0.547 M 0.721 kept 0.887 implied_ 0.498 | none: bal 0.547 M 0.721 kept 0.887 implied_ 0.498 | shuffled: bal 0.547 M 0.721 kept 0.887 implied_ 0.498 | intuition 0.672
+  narrow
+    k=0 | rho: bal 0.558 M 0.814 kept 0.437 implied_ 0.923 | none: bal 0.558 M 0.814 kept 0.437 implied_ 0.923 | shuffled: bal 0.558 M 0.814 kept 0.437 implied_ 0.923 | intuition 0.601
+    k=1 | rho: bal 0.615 M 0.728 kept 0.833 implied_ 0.906 | none: bal 0.615 M 0.728 kept 0.832 implied_ 0.906 | shuffled: bal 0.615 M 0.728 kept 0.833 implied_ 0.906 | intuition 0.637
+    k=4 | rho: bal 0.635 M 0.749 kept 0.932 implied_ 0.874 | none: bal 0.635 M 0.749 kept 0.932 implied_ 0.874 | shuffled: bal 0.635 M 0.749 kept 0.932 implied_ 0.874 | intuition 0.662
+  symmetric
+    k=0 | rho: bal 0.534 M 0.8 kept 0.75 | none: bal 0.534 M 0.8 kept 0.75 | shuffled: bal 0.534 M 0.8 kept 0.75 | intuition 0.559
+    k=1 | rho: bal 0.549 M 0.712 kept 0.819 reverse_ 0.562 | none: bal 0.549 M 0.712 kept 0.819 reverse_ 0.562 | shuffled: bal 0.549 M 0.712 kept 0.819 reverse_ 0.562 | intuition 0.577
+    k=4 | rho: bal 0.448 M 0.747 kept 0.898 reverse_ 0.422 | none: bal 0.448 M 0.747 kept 0.898 reverse_ 0.422 | shuffled: bal 0.448 M 0.747 kept 0.898 reverse_ 0.422 | intuition 0.561
+
+===== merged: world logic 0.64 intuition 0.635; trained synthetic 0.982 {'broad': 0.999, 'inv-base': 0.98, 'inverse': 1.0, 'narrow': 1.0, 'symmetric': 0.905, 'syn-base': 0.968, 'synonym': 1.0}; rho fit {'rho-1': 1.0, 'rho-2': 1.0, 'rho-3': 1.0, 'rho-4': 1.0, 'rho-5': 1.0}
+  inverse+synonym (synthetic)
+    k=0 | rho: bal 0.518 M 0.745 kept 0.643 | none: bal 0.512 M 0.782 kept 0.416 | shuffled: bal 0.509 M 0.724 kept 0.518 | intuition 0.544
+    k=1 | rho: bal 0.53 M 0.667 kept 0.866 | none: bal 0.526 M 0.659 kept 0.814 | shuffled: bal 0.517 M 0.635 kept 0.81 | intuition 0.551
+    k=4 | rho: bal 0.549 M 0.635 kept 0.947 | none: bal 0.56 M 0.659 kept 0.942 | shuffled: bal 0.539 M 0.627 kept 0.928 | intuition 0.559
+  real inverse
+    k=0 | rho: bal 0.461 M 0.561 kept 0.684 | none: bal 0.464 M 0.784 kept 0.247 | shuffled: bal 0.488 M 0.557 kept 0.702 | intuition 0.43
+    k=1 | rho: bal 0.449 M 0.557 kept 0.843 | none: bal 0.439 M 0.65 kept 0.687 | shuffled: bal 0.449 M 0.641 kept 0.792 | intuition 0.47
+    k=4 | rho: bal 0.503 M 0.712 kept 0.885 | none: bal 0.499 M 0.677 kept 0.906 | shuffled: bal 0.507 M 0.698 kept 0.889 | intuition 0.502
+  broad
+    k=0 | rho: bal 0.533 M 0.718 kept 0.755 implied_ 0.227 | none: bal 0.549 M 0.79 kept 0.52 implied_ 0.219 | shuffled: bal 0.552 M 0.711 kept 0.753 implied_ 0.233 | intuition 0.585
+    k=1 | rho: bal 0.561 M 0.637 kept 0.874 implied_ 0.332 | none: bal 0.569 M 0.697 kept 0.773 implied_ 0.311 | shuffled: bal 0.58 M 0.681 kept 0.868 implied_ 0.35 | intuition 0.612
+    k=4 | rho: bal 0.596 M 0.617 kept 0.987 implied_ 0.536 | none: bal 0.62 M 0.658 kept 0.973 implied_ 0.514 | shuffled: bal 0.633 M 0.655 kept 0.988 implied_ 0.557 | intuition 0.642
+  narrow
+    k=0 | rho: bal 0.543 M 0.709 kept 0.762 implied_ 0.969 | none: bal 0.515 M 0.789 kept 0.414 implied_ 0.982 | shuffled: bal 0.537 M 0.812 kept 0.517 implied_ 0.959 | intuition 0.63
+    k=1 | rho: bal 0.587 M 0.698 kept 0.934 implied_ 0.924 | none: bal 0.563 M 0.706 kept 0.886 implied_ 0.941 | shuffled: bal 0.565 M 0.754 kept 0.825 implied_ 0.922 | intuition 0.665
+    k=4 | rho: bal 0.622 M 0.741 kept 0.973 implied_ 0.893 | none: bal 0.594 M 0.729 kept 0.961 implied_ 0.891 | shuffled: bal 0.602 M 0.684 kept 0.962 implied_ 0.878 | intuition 0.653
+  symmetric
+    k=0 | rho: bal 0.491 M 0.835 kept 0.91 | none: bal 0.494 M 0.789 kept 0.779 | shuffled: bal 0.487 M 0.793 kept 0.883 | intuition 0.503
+    k=1 | rho: bal 0.511 M 0.852 kept 0.954 reverse_ 0.312 | none: bal 0.483 M 0.827 kept 0.89 reverse_ 0.312 | shuffled: bal 0.514 M 0.841 kept 0.918 reverse_ 0.438 | intuition 0.478
+    k=4 | rho: bal 0.543 M 0.883 kept 0.973 reverse_ 0.568 | none: bal 0.531 M 0.839 kept 0.962 reverse_ 0.573 | shuffled: bal 0.514 M 0.837 kept 0.989 reverse_ 0.62 | intuition 0.487
