@@ -13,6 +13,13 @@ fresh-code introduction episodes, query-conditioned use of partner evidence, and
 checks. Local diagnosis **[read: local code and results]**; design arguments **[derived]** and proposed reader
 **[analogy]**; MAML and Neural LP **[abstract]**, with searches and limits recorded in the note. No new run or contract.
 
+2026-11-07: [rule application v1](rule-application-v1.md) (draft) maps the design to the Edge Transformer (pair states,
+triangular attention; [Bergen et al. 2021](https://arxiv.org/abs/2112.00578)) looped with shared weights ([Looped
+Transformers, Fan et al. 2024](https://arxiv.org/abs/2409.15647)), with rules told as formulas as in RuleTaker
+([Clark et al. 2020](https://arxiv.org/abs/2002.05867)) and size generalization as in [Neural Logic
+Machines](https://arxiv.org/abs/1904.11694) (all **[abstract]**). ∂ILP, NTP and Neural LP **[familiar]** are the
+excluded alternative with modus ponens built in. Queries recorded in the contract.
+
 2026-11-07: [amortized introduction v1](amortized-introduction-v1.md) (draft) maps the introduction encoder to
 amortized inference and the Conditional Neural Process (set encoder with attention pooling, Set Transformer PMA)
 **[familiar]**; zero-shot KG relations from an ontological schema, [OntoZSL](https://arxiv.org/abs/2102.07339)
