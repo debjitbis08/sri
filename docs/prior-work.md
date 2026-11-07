@@ -8,12 +8,19 @@ studies are not yet reviewed.
 
 ## Search record and evidence levels
 
+2026-11-07: [rule application v1 review](rule-application-v1-review.md) checks draft `3105e68`.
+**[read: primary-source sections]** Edge Transformer ties weights by default; Fan et al. train with supplied
+stopping counts and input injection. These correct/qualify the earlier abstract-level account below.
+**[read: local source; derived]** `kind-of` already contains the category closure; **[derived]** triangular
+network depth need not equal proof depth, and reader-input closure is needed to isolate application errors.
+No contract changes or experiments run.
+
 2026-11-07: [learning to apply relations](relations-application-notes.md) follows relations-as-objects v1:
 fresh-code introduction episodes, query-conditioned use of partner evidence, and counterfactual application
 checks. Local diagnosis **[read: local code and results]**; design arguments **[derived]** and proposed reader
 **[analogy]**; MAML and Neural LP **[abstract]**, with searches and limits recorded in the note. No new run or contract.
 
-2026-11-07: [rule application v1](rule-application-v1.md) (draft) maps the design to the Edge Transformer (pair states,
+2026-11-07: [rule application v1](rule-application-v1.md) (draft, revised after one external review: Edge Transformer ties weights by default; Fan et al. supply step counts and inject the input, §§ read) maps the design to the Edge Transformer (pair states,
 triangular attention; [Bergen et al. 2021](https://arxiv.org/abs/2112.00578)) looped with shared weights ([Looped
 Transformers, Fan et al. 2024](https://arxiv.org/abs/2409.15647)), with rules told as formulas as in RuleTaker
 ([Clark et al. 2020](https://arxiv.org/abs/2002.05867)) and size generalization as in [Neural Logic
