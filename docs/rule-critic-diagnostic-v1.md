@@ -145,3 +145,120 @@ candidate enumeration: O(programs) per rule set. The MIL conditions cost as in v
 - **Bug fixed during the main run:** a `direct` splice negative needs length 2, and the retry loop could draw length 1
   repeatedly and crash. Splices now always have length 2. The MIL runs had finished and were kept; only `direct` was
   rerun.
+
+## Commands
+
+    EV_WORKERS=5 .venv/bin/python -m experiments.rule_critic_diagnostic       # rerun to resume
+    .venv/bin/python -m experiments.rule_critic_diagnostic summary
+
+## Results (2026-11-07)
+
+The MIL runs used revision `14864c6`. The `direct` runs used `e53a722`, after the splice fix, which touches only
+`direct` batches. 12 runs, 5 workers. Means over seeds 450–453; error locations summed.
+
+### Valid-program acceptance (every check > 0.5), by length
+
+| Condition | held-out relations, length 1 / 2–12 | held-out instances, length 1 / 2–12 | MIL witness quality |
+|---|---|---|---|
+| `confirmed-mil` | 0.38 / 0.015 | 0.61 / 0.02 | 0.34 |
+| `oracle-mil` | 0.69 / 0.018 | 0.84 / 0.09 | 0.60 |
+| `direct` | 0.55 / 0.54 (flat) | **0.88 / 0.88 (flat)** | — |
+
+### Hard negatives accepted (held-out relations, mean over lengths 2–12)
+
+| Condition | reversed step | replaced step | splice | wrong orientation | random |
+|---|---|---|---|---|---|
+| `confirmed-mil` | 0.012 | 0.000 | 0.000 | 0.007 | 0.000 |
+| `oracle-mil` | 0.003 | 0.001 | 0.002 | 0.015 | 0.000 |
+| `direct` | 0.106 | 0.174 | 0.088 | 0.000 | 0.003 |
+
+### Where errors occur (held-out relations)
+
+| Condition | valid rejected at START / internal / END | negatives accepted at START / internal / END |
+|---|---|---|
+| `confirmed-mil` | 1,392 / 1,672 / 53 | 836 / 92 / 0 |
+| `oracle-mil` | 840 / 2,167 / 15 | 1,796 / 43 / 0 |
+| `direct` | 1,152 / 110 / 236 | 380 / 3,143 / 0 |
+
+### Invariance (share of verdicts changed; held-out relations)
+
+| Condition | fresh symbols | variable renaming (x ↔ z) | rule order |
+|---|---|---|---|
+| `confirmed-mil` | 0.009 | 0.014 | 0.000 |
+| `oracle-mil` | 0.006 | 0.013 | 0.000 |
+| `direct` | 0.005 | **0.154** | 0.000 |
+
+### Checkpoints: longer training did not help
+
+Held-out relations, valid acceptance at lengths 3–12, at steps 500 / 1,000 / 2,000 / 3,000:
+
+| Condition | valid acceptance | witness quality |
+|---|---|---|
+| `confirmed-mil` | 0.015 / 0.007 / 0.015 / 0.015 | 0.27 → 0.34 |
+| `oracle-mil` | 0.037 / 0.029 / 0.037 / 0.018 | 0.58 → 0.60 |
+| `direct` | 0.71 / 0.59 / 0.54 / 0.54 (hard negatives 0.19 → 0.09) | — |
+
+### Answers with the beam (taught relations, held out as relations)
+
+| Condition | `ancestor-of`, oracle graph, length 1 / 2–6 | `bigger-than`, oracle graph, length 1 / 2–12 |
+|---|---|---|
+| `confirmed-mil` | 0.86 / 0.48 | 0.75 / 0.51–0.64 |
+| `oracle-mil` | 0.87 / 0.49 | 0.66 / 0.38–0.48 |
+| `direct` | 0.61 flat | 0.50–0.57 |
+
+### Against the predictions
+
+1. **Failed.** `direct` on held-out relations: 0.54 at lengths 3–12, hard negatives 0.09–0.17. On held-out instances
+   of training relations: 0.88 at every length.
+2. **Held.** `oracle-mil` witness quality 0.60. Valid programs of length ≥ 2: 0.02 against `direct`'s 0.54.
+3. **Held.** `confirmed-mil` witness quality 0.34, the worst.
+4. **Partly.** `direct` is invariant to fresh symbols (0.005) and rule order (0.000), not to variable renaming (0.154).
+5. **Held, narrowly.** 54% of `confirmed-mil`'s rejections of valid programs fall at internal transitions.
+
+### What this means (by the interpretation fixed before the run)
+
+**`direct` fails on this fragment, so the rule encoding comes before the walker.** The reads also say which parts work
+and which do not:
+
+- **The pairwise critic can compose.** Under direct supervision, acceptance is flat in length: 0.88 at every length
+  1–12 on held-out instances of training relations, after training only on lengths 1–2. A critic that accepts the
+  first step and the R → R transition carries to any length. Composition itself is not the problem.
+- **What fails with direct supervision is binding the rule's relation to the step's relation for a relation never seen
+  in a rule.** On held-out relations, rejections fall at START (1,152 of 1,498). Accepted negatives fall at internal
+  transitions with a replaced or spliced relation (3,143). The critic has learned "a transition from the right kind of
+  step to a step of the same kind", not "the relation named in the rule". It is also not invariant to renaming
+  variables (0.15): it reads the variable embeddings as content.
+- **Question-label training never learns the internal transition, even on true facts.** Both MIL conditions accept
+  almost no valid program of length ≥ 2 (0.015–0.09), on held-out relations and on held-out instances of training
+  relations. Their rejections fall at internal transitions. The maximum over candidates picks other witnesses: the
+  best-scoring program is a valid proof for 0.60 of true questions on true facts and 0.34 on the readers' facts. Wrong
+  facts make it worse, but witness selection fails even without them.
+- **Longer training is not the answer.** Checkpoint curves are flat or falling from step 500 on.
+- **Two separate problems, then:**
+  - (1) *credit assignment*: question labels do not teach which program proved the answer, even on clean facts (the
+    spurious-program problem of weakly supervised parsing);
+  - (2) *relation binding*: even with program labels, the encoder does not tie a rule's relation code to the matching
+    step for relations outside training.
+- **Candidates for the next step**, not chosen:
+  - for (2): a matching structure in the critic's input, such as the similarity of each step's relation code to each
+    rule atom's code, instead of free attention, and variable roles given as positions instead of learned
+    embeddings. Both are small established pieces (pointer and copy mechanisms, relative and role encodings);
+  - for (1): a witness constraint during training, such as weighting candidates by how well they fit the rule
+    (marginal likelihood instead of the maximum), or a curriculum from the program labels to question labels.
+
+### Computation (measured)
+
+`reports/rule-critic-diagnostic-v1-runtime.json`. Per run, CPU s:
+
+| Phase | `confirmed-mil` | `oracle-mil` | `direct` |
+|---|---|---|---|
+| training, 3,000 steps | 3,591–3,805 | 152–176 | 65–68 |
+| candidates | 14–15 | 4–6 | — |
+| graph construction | 49–60 | 49–60 | 49–60 |
+| checkpoint reads | 10–28 | 10–28 | 10–28 |
+| final reads | 10–27 | 10–27 | 10–27 |
+
+- **Peak RSS:** 0.51–0.91 GB.
+- **Total:** 16,906 CPU s (4.7 CPU h). Wall time is the sum of the first launch, about 65 min to the crash, and the
+  resumed `direct` runs (150 s).
+- **No tuning.**
