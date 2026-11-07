@@ -8,6 +8,20 @@ studies are not yet reviewed.
 
 ## Search record and evidence levels
 
+2026-11-07: [learning to apply relations](relations-application-notes.md) follows relations-as-objects v1:
+fresh-code introduction episodes, query-conditioned use of partner evidence, and counterfactual application
+checks. Local diagnosis **[read: local code and results]**; design arguments **[derived]** and proposed reader
+**[analogy]**; MAML and Neural LP **[abstract]**, with searches and limits recorded in the note. No new run or contract.
+
+2026-11-07: [amortized introduction v1](amortized-introduction-v1.md) (draft) maps the introduction encoder to
+amortized inference and the Conditional Neural Process (set encoder with attention pooling, Set Transformer PMA)
+**[familiar]**; zero-shot KG relations from an ontological schema, [OntoZSL](https://arxiv.org/abs/2102.07339)
+**[abstract]**, as the established counterpart (named axioms with text there, arbitrary learned tokens here);
+regression onto stored codes as [Attentive Mimicking](https://arxiv.org/abs/1904.01617) **[abstract]**; and the
+meta-learning memorization failure ([Yin et al. 2020](https://arxiv.org/abs/1912.03820) **[abstract]**: a task
+identifiable without its data is solved without adapting), answered by virtual relations (task augmentation,
+**[familiar]**) and a held-out partner split. Queries recorded in the contract.
+
 2026-11-05: [drift remedies v1](drift-remedies-v1.md) (draft) maps the moving-representation remedies onto the continual
 learning taxonomy (replay, regularization, parameter isolation): EWC and synaptic intelligence, latent and generative
 replay, residual adapters; plus drift compensation, relative representations, shift detection, hubness and savings.
