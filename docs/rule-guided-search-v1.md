@@ -1,6 +1,6 @@
 # Rule-guided search v1: told rules steer the walker and the composition critic
 
-**Contract draft, 2026-11-07, revised after one external review, not frozen.** User direction, 2026-11-07: rule
+**Contract, frozen 2026-11-07 before the run** (user: "yes build"), after one external review. User direction, 2026-11-07: rule
 application v1 replaced the component structure we were developing with a new architecture, and that should not have
 happened. The architecture is built part by part: take smaller established components from the literature and
 integrate them with ours; build only what is missing. This study extends the relational components we have, on the
